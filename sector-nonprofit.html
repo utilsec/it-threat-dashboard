@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nonprofits &amp; NGOs | IT Threat Feed</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: #ffffff;
+    color: #1f2328;
+    line-height: 1.5;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-size: 11.5px;
+    color: #57606a;
+    line-height: 1.5;
+  }
+  .disclaimer strong { color: #1f2328; font-weight: 700; }
+
+  /* Brand bar */
+  .brandbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .brandbar .brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f2328;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .brandbar .brand span { color: #6639ba; }
+  .brandbar .tag {
+    font-size: 11px;
+    color: #6e7781;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .brandbar .tag strong { color: #6639ba; font-weight: 700; }
+
+  /* Header */
+  .header {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #d0bcf0;
+    border-bottom: 2px solid #8250df;
+    border-left: 5px solid #8250df;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: linear-gradient(135deg, #f2ecfb 0%, #ffffff 72%);
+  }
+  .header .header-title, .header .story-count { position: relative; z-index: 1; }
+  .sector-icon { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 110px; height: 110px; opacity: 0.10; z-index: 0; pointer-events: none; }
+  @media (max-width: 640px) { .sector-icon { width: 72px; opacity: 0.08; right: 10px; } }
+  body.dark .sector-icon { opacity: 0.22; }
+  .header-title h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+    color: #1f2328;
+  }
+  .header-sub {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #57606a;
+    margin-bottom: 6px;
+  }
+  .header-meta {
+    color: #6e7781;
+    font-size: 13px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .header-meta .dot { color: #d0d7de; }
+  .sector-badge {
+    background: #f2ecfb;
+    color: #6639ba;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #d8c4f2;
+  }
+  .story-count {
+    color: #6e7781;
+    font-size: 13px;
+    text-align: right;
+  }
+  .story-count strong { color: #1f2328; font-weight: 700; }
+
+  /* Hero: top story + radar side by side */
+  .hero {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  /* Trends strip */
+  .trends-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin: -8px 0 12px;
+  }
+  .trends-strip {
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px 20px;
+  }
+  .trend { display: flex; flex-direction: column; font-size: 12px; color: #57606a; line-height: 1.5; }
+  .trend-tag {
+    display: inline-block;
+    align-self: flex-start;
+    background: #f2ecfb;
+    color: #6639ba;
+    border: 1px solid #d8c4f2;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 7px;
+  }
+  .trend b.trend-head { color: #1f2328; font-weight: 700; font-size: 12.5px; margin-bottom: 4px; }
+  .trend p { margin-bottom: 8px; flex-grow: 1; }
+  .trend .source-link { font-size: 11px; }
+
+  /* Top story */
+  .top-story {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-left: 3px solid #8250df;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1 1 440px;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(31,35,40,0.06);
+  }
+  .top-story-pill {
+    display: inline-block;
+    background: #8250df;
+    color: #ffffff;
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .top-story h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1f2328;
+  }
+  .top-story p {
+    color: #424a53;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  /* Radar panel */
+  .radar-panel {
+    flex: 1 1 320px;
+    min-width: 300px;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+  }
+  .radar-panel .radar-head {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #1f2328;
+    margin-bottom: 4px;
+  }
+  .radar-panel .radar-sub {
+    font-size: 11px;
+    color: #6e7781;
+    margin-bottom: 10px;
+  }
+  .radar-svg {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 12px;
+    display: block;
+  }
+  .radar-sweep { animation: radar-rot 8s linear infinite; transform-origin: 180px 180px; }
+  @keyframes radar-rot { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .radar-sweep { animation: none; } }
+  .ring-label {
+    fill: #8b949e;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-anchor: middle;
+    text-transform: uppercase;
+  }
+  .blip { cursor: pointer; transition: stroke-width 0.15s ease; }
+  .blip.crit { fill: #cf222e; stroke: rgba(207,34,46,0.25); stroke-width: 5; }
+  .blip.high { fill: #e0701a; stroke: rgba(224,112,26,0.25); stroke-width: 5; }
+  .radar-svg a:hover .blip.crit { stroke: rgba(207,34,46,0.45); stroke-width: 9; }
+  .radar-svg a:hover .blip.high { stroke: rgba(224,112,26,0.45); stroke-width: 9; }
+  .blip-num { fill: #ffffff; font-size: 9px; font-weight: 800; text-anchor: middle; pointer-events: none; }
+
+  /* Radar legend */
+  .radar-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 10px; margin-top: 2px; }
+  .radar-legend a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: #57606a;
+    text-decoration: none;
+    padding: 3px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .radar-legend a:hover { color: #1f2328; background: #eaeef2; }
+  .radar-legend b { color: #1f2328; font-weight: 700; min-width: 12px; text-align: center; }
+  .radar-legend .ld { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .radar-legend .ld.crit { background: #cf222e; }
+  .radar-legend .ld.high { background: #e0701a; }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(31,35,40,0.04);
+  }
+  .card:hover { border-color: #afb8c1; box-shadow: 0 2px 6px rgba(31,35,40,0.08); }
+  /* Anchor highlight when a radar blip targets a card */
+  .card, .top-story { scroll-margin-top: 16px; }
+  .card:target { border-color: #8250df; box-shadow: 0 0 0 2px rgba(130,80,223,0.40); }
+  .top-story:target { box-shadow: 0 0 0 2px rgba(130,80,223,0.40); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #1f2328;
+  }
+  .card p {
+    color: #57606a;
+    font-size: 13px;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+  .card-meta {
+    color: #6e7781;
+    font-size: 11px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta .dot { color: #d0d7de; }
+  .cve-badge {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, "Cascadia Code", monospace;
+    font-size: 10px;
+    background: #f6f8fa;
+    color: #57606a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #d0d7de;
+    margin-right: 4px;
+  }
+
+  /* Severity pills */
+  .severity {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sev-critical { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .sev-high     { background: rgba(188,76,0,0.08);  color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .sev-medium   { background: rgba(154,103,0,0.1);  color: #9a6700; border: 1px solid rgba(154,103,0,0.3); }
+  .sev-low      { background: rgba(9,105,218,0.08); color: #0969da; border: 1px solid rgba(9,105,218,0.3); }
+  .sev-info     { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+
+  /* Category tag */
+  .category {
+    color: #8b949e;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Ops strip (exploitation + action) */
+  .ops-strip {
+    border-top: 1px dashed #d0d7de;
+    margin-top: 4px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ops-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 11px; color: #57606a; }
+  .ops-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: 10px; text-transform: uppercase;
+  }
+  .ops-tag .d { width: 6px; height: 6px; border-radius: 50%; }
+  .ex-active { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .ex-active .d { background: #cf222e; }
+  .ex-poc    { background: rgba(188,76,0,0.08); color: #bc4c00; border: 1px solid rgba(188,76,0,0.3); }
+  .ex-poc .d { background: #bc4c00; }
+  .ex-none   { background: rgba(87,96,106,0.08); color: #57606a; border: 1px solid rgba(87,96,106,0.25); }
+  .ex-none .d { background: #8b949e; }
+  .kev-on  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.35); }
+  .kev-off { background: #f6f8fa; color: #6e7781; border: 1px solid #d0d7de; }
+  .patch-yes { background: rgba(26,127,55,0.08); color: #1a7f37; border: 1px solid rgba(26,127,55,0.3); }
+  .patch-no  { background: rgba(207,34,46,0.08); color: #cf222e; border: 1px solid rgba(207,34,46,0.3); }
+  .patch-na  { background: #f6f8fa; color: #57606a; border: 1px solid #d0d7de; }
+  .ops-cc { font-size: 11px; color: #57606a; line-height: 1.45; }
+  .ops-cc b { color: #1f2328; font-weight: 700; }
+  .ops-assign {
+    justify-content: space-between;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 5px;
+    padding: 7px 9px;
+    margin-top: 1px;
+  }
+  .ops-sla b { color: #1f2328; font-weight: 700; }
+  .ops-owner { display: inline-flex; align-items: center; gap: 4px; }
+  .owner-edit {
+    color: #1f2328;
+    border-bottom: 1px dashed #afb8c1;
+    min-width: 64px;
+    display: inline-block;
+    outline: none;
+    padding: 0 2px;
+  }
+  .owner-edit:focus { border-bottom-color: #8250df; }
+  .owner-edit:empty:before { content: attr(data-placeholder); color: #8b949e; }
+  .status-pill {
+    font: inherit; font-size: 10px; font-weight: 700; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 10px; border: 1px solid;
+    transition: all 0.12s ease;
+  }
+  .status-pill.st-open { background: #ffffff; color: #57606a; border-color: #d0d7de; }
+  .status-pill.st-ack  { background: rgba(9,105,218,0.08); color: #0969da; border-color: rgba(9,105,218,0.4); }
+  .status-pill.st-mit  { background: rgba(26,127,55,0.08); color: #1a7f37; border-color: rgba(26,127,55,0.4); }
+  .status-pill.st-na   { background: #f6f8fa; color: #8b949e; border-color: #d0d7de; }
+
+  /* Link */
+  .source-link {
+    color: #6639ba;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .source-link::after { content: " \2192"; }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #1f2328;
+    color: #6e7781;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .footer p { margin-bottom: 8px; }
+  .footer a { color: #6639ba; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer strong { color: #1f2328; }
+  .footer .byline { color: #424a53; }
+  .footer .byline span { color: #6639ba; font-weight: 700; }
+
+  /* Theme toggle button (upper right, in brand bar) */
+  .brand-right { display: flex; align-items: center; gap: 12px; }
+  .theme-toggle {
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    color: #57606a;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: #1f2328; border-color: #afb8c1; }
+
+  /* Sector navigation */
+  .sector-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .sector-nav a {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #57606a;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    background: #f6f8fa;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sector-nav a:hover { color: #1f2328; border-color: #afb8c1; }
+  .sector-nav a.sn-active { background: #8250df; border-color: #8250df; color: #ffffff; }
+
+  /* Nav row: sector nav on the left, partnership line on the right */
+  .navrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 18px; }
+  .navrow .sector-nav { order: 1; margin-bottom: 0; }
+  .navrow .brandbar { order: 2; margin-bottom: 0; margin-left: auto; }
+
+  /* Dark mode — every override keys off body.dark; keep in sync with the light palette above */
+  body.dark { background: #0d1117; color: #e6edf3; }
+  body.dark .disclaimer { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .disclaimer strong { color: #e6edf3; }
+  body.dark .brandbar .brand { color: #e6edf3; }
+  body.dark .brandbar .brand span { color: #b392f0; }
+  body.dark .brandbar .tag { color: #8b949e; }
+  body.dark .brandbar .tag strong { color: #b392f0; }
+  body.dark .theme-toggle { color: #8b949e; background: #161b22; border-color: #30363d; }
+  body.dark .theme-toggle:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a { background: #161b22; border-color: #30363d; color: #8b949e; }
+  body.dark .sector-nav a:hover { color: #e6edf3; border-color: #8b949e; }
+  body.dark .sector-nav a.sn-active { background: #8250df; border-color: #8250df; color: #ffffff; }
+  body.dark .header { background: linear-gradient(135deg, rgba(137,87,229,0.18) 0%, #0d1117 72%); border-color: #30363d; border-left-color: #8957e5; border-bottom-color: #8957e5; }
+  body.dark .header-title h1 { color: #e6edf3; }
+  body.dark .header-sub { color: #9198a1; }
+  body.dark .header-meta { color: #8b949e; }
+  body.dark .header-meta .dot { color: #30363d; }
+  body.dark .sector-badge { background: rgba(137,87,229,0.15); color: #b392f0; border-color: rgba(137,87,229,0.4); }
+  body.dark .story-count { color: #8b949e; }
+  body.dark .story-count strong { color: #e6edf3; }
+  body.dark .section-title { color: #e6edf3; border-bottom-color: #30363d; }
+  body.dark .trends-sub { color: #8b949e; }
+  body.dark .trends-strip { background: #161b22; border-color: #30363d; }
+  body.dark .trend { color: #9198a1; }
+  body.dark .trend-tag { background: rgba(137,87,229,0.12); color: #b392f0; border-color: rgba(137,87,229,0.35); }
+  body.dark .trend b.trend-head { color: #e6edf3; }
+  body.dark .top-story { background: #161b22; border-color: #30363d; border-left-color: #8250df; }
+  body.dark .top-story h2 { color: #e6edf3; }
+  body.dark .top-story p { color: #9198a1; }
+  body.dark .radar-panel { background: #161b22; border-color: #30363d; }
+  body.dark .radar-panel .radar-head { color: #e6edf3; }
+  body.dark .radar-panel .radar-sub { color: #8b949e; }
+  body.dark .radar-legend a { color: #9198a1; }
+  body.dark .radar-legend a:hover { color: #e6edf3; background: #21262d; }
+  body.dark .radar-legend b { color: #e6edf3; }
+  body.dark .card { background: #161b22; border-color: #30363d; }
+  body.dark .card:hover { border-color: #8b949e; }
+  body.dark .card:target { border-color: #8250df; }
+  body.dark .card h3 { color: #e6edf3; }
+  body.dark .card p { color: #9198a1; }
+  body.dark .card-meta { color: #8b949e; }
+  body.dark .card-meta .dot { color: #30363d; }
+  body.dark .cve-badge { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .sev-critical { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .sev-high     { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .sev-medium   { color: #d29922; border-color: rgba(210,153,34,0.4); background: rgba(210,153,34,0.1); }
+  body.dark .sev-low      { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.1); }
+  body.dark .sev-info     { color: #9198a1; border-color: rgba(145,152,161,0.4); background: rgba(145,152,161,0.1); }
+  body.dark .category { color: #8b949e; }
+  body.dark .ops-strip { border-top-color: #30363d; }
+  body.dark .ops-row { color: #9198a1; }
+  body.dark .ex-active { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .ex-active .d { background: #f85149; }
+  body.dark .ex-poc { color: #db6d28; border-color: rgba(219,109,40,0.4); background: rgba(219,109,40,0.1); }
+  body.dark .ex-poc .d { background: #db6d28; }
+  body.dark .ex-none { color: #9198a1; border-color: rgba(145,152,161,0.35); background: rgba(145,152,161,0.1); }
+  body.dark .ex-none .d { background: #8b949e; }
+  body.dark .kev-on { color: #f85149; border-color: rgba(248,81,73,0.45); background: rgba(248,81,73,0.1); }
+  body.dark .kev-off { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .patch-yes { color: #3fb950; border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.1); }
+  body.dark .patch-no  { color: #f85149; border-color: rgba(248,81,73,0.4); background: rgba(248,81,73,0.1); }
+  body.dark .patch-na  { background: #21262d; color: #9198a1; border-color: #30363d; }
+  body.dark .ops-cc { color: #9198a1; }
+  body.dark .ops-cc b { color: #e6edf3; }
+  body.dark .ops-assign { background: #21262d; border-color: #30363d; }
+  body.dark .ops-sla b { color: #e6edf3; }
+  body.dark .owner-edit { color: #e6edf3; border-bottom-color: #8b949e; }
+  body.dark .owner-edit:empty:before { color: #8b949e; }
+  body.dark .status-pill.st-open { background: #161b22; color: #9198a1; border-color: #30363d; }
+  body.dark .status-pill.st-ack { color: #58a6ff; border-color: rgba(88,166,255,0.5); background: rgba(88,166,255,0.1); }
+  body.dark .status-pill.st-mit { color: #3fb950; border-color: rgba(63,185,80,0.5); background: rgba(63,185,80,0.1); }
+  body.dark .status-pill.st-na { background: #21262d; color: #8b949e; border-color: #30363d; }
+  body.dark .source-link { color: #b392f0; }
+  body.dark .footer { border-top-color: #e6edf3; color: #8b949e; }
+  body.dark .footer a { color: #b392f0; }
+  body.dark .footer strong { color: #e6edf3; }
+  body.dark .footer .byline { color: #9198a1; }
+  body.dark .footer .byline span { color: #b392f0; }
+  body.dark .radar-svg > circle { stroke: #30363d; }
+  body.dark .radar-svg > line { stroke: #21262d; }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { padding: 16px; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .story-count { text-align: left; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
+<div class="container">
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>For informational purposes only.</strong> This dashboard is a curated awareness aid, not authoritative guidance, legal advice, or a substitute for vendor advisories, official CVSS/CISA&nbsp;KEV data, or a professional risk assessment of your environment. Severity and exploitation indicators are editorial aids that may be incomplete or change after generation &mdash; always verify against the linked primary sources before acting. Owner and status notes you enter are stored only in your own browser.
+  </div>
+
+  <!-- NAV + PARTNERSHIP ROW -->
+  <div class="navrow">
+
+    <div class="sector-nav">
+      <a href="it-threat-dashboard.html">All IT</a>
+      <a href="sector-financial.html">Financial</a>
+      <a href="sector-healthcare.html">Healthcare</a>
+      <a href="sector-government.html">Government</a>
+      <a href="sector-technology.html">Tech/SaaS</a>
+      <a href="sector-retail.html">Retail</a>
+      <a href="sector-education.html">Education</a>
+      <a href="sector-telecom.html">Telecom</a>
+      <a href="sector-legal.html">Legal</a>
+      <a href="sector-nonprofit.html" class="sn-active">Nonprofit</a>
+      <a href="https://otthreatfeed.com/" target="_top">OT Threat Feed</a>
+    </div>
+
+    <div class="brandbar">
+      <div class="brand-right">
+        <div class="tag">In partnership with Mike Holcomb &amp; <strong>UtilSec</strong></div>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" title="Switch between light and dark mode">&#9790; Dark mode</button>
+      </div>
+    </div>
+
+  </div><!-- /navrow -->
+
+  <!-- HEADER -->
+  <div class="header">
+    <svg class="sector-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="#8250df"><path d="M12 21S4 14.5 4 9.2A4.2 4.2 0 0 1 12 6.8 4.2 4.2 0 0 1 20 9.2C20 14.5 12 21 12 21Z"/></g></svg>
+    <div class="header-title">
+      <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
+      <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
+      <div class="header-meta">
+        <span>Generated Sat, 11 Jul 2026, 12:23 PM ET</span>
+        <span class="dot">&bull;</span>
+        <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
+      </div>
+    </div>
+    <div class="story-count">
+      <strong>6</strong> stories across
+      <strong>3</strong> categories
+    </div>
+  </div>
+
+  <!-- THREAT LEVEL (composite 0-10 for Nonprofit; recompute each run — see CLAUDE.md) -->
+  <style>
+  .threat-level{margin:0 0 18px;padding:13px 18px;border:1px solid var(--tl-bd,#fecaca);border-left:5px solid var(--tl-c,#dc2626);border-radius:10px;background:var(--tl-bg,#fef2f2);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;}
+  .tl-score{display:flex;align-items:baseline;gap:6px;line-height:1;}
+  .tl-num{font-size:34px;font-weight:800;color:var(--tl-c,#dc2626);letter-spacing:-.5px;}
+  .tl-den{font-size:15px;font-weight:600;color:#64748b;}
+  .tl-main{flex:1 1 320px;min-width:260px;}
+  .tl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .tl-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+  .tl-band{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:var(--tl-c,#dc2626);padding:2px 10px;border-radius:999px;}
+  .tl-meter{position:relative;height:8px;border-radius:999px;background:linear-gradient(90deg,#16a34a 0%,#16a34a 40%,#eab308 40%,#eab308 70%,#f97316 70%,#f97316 90%,#dc2626 90%,#dc2626 100%);}
+  .tl-marker{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tl-c,#dc2626);transform:translate(-50%,-50%);box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .tl-why{flex:1 1 100%;font-size:12.5px;color:#475569;margin-top:2px;}
+  .tl-why b{color:#334155;}
+  body.dark .threat-level{background:var(--tl-bgd,rgba(220,38,38,.10));border-color:rgba(255,255,255,.12);}
+  body.dark .tl-den,body.dark .tl-label{color:#94a3b8;}
+  body.dark .tl-why{color:#cbd5e1;}
+  body.dark .tl-why b{color:#e2e8f0;}
+  body.dark .tl-marker{background:#0f172a;}
+  </style>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Nonprofit sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of nonprofit IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
+    <div class="tl-score"><span class="tl-num">6.0</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-main">
+      <div class="tl-top">
+        <span class="tl-label">Overall Threat Level</span>
+        <span class="tl-band">Medium</span>
+      </div>
+      <div class="tl-meter"><span class="tl-marker" style="left:60%;"></span></div>
+      <div class="tl-why"><b>Why:</b> A giving platform used by nonprofits exposed donor records in a major breach, and NGOs face rising ransomware with 20+ day downtime, against the week&rsquo;s actively-exploited flaws (SharePoint in KEV, Oracle E-Business Suite, a Defender EoP bug). A single-platform breach and sector ransomware pressure &mdash; rather than one widespread compromise of nonprofit IT &mdash; keep this mid-Medium.</div>
+    </div>
+  </div>
+  <!-- /THREAT LEVEL -->
+
+  <!-- HERO: TOP STORY + RADAR -->
+  <div class="hero">
+
+    <div class="top-story" id="it-givingplatform">
+      <span class="top-story-pill">Top Story</span>
+      <h2>Giving platform for nonprofits exposed donor records in a major breach</h2>
+      <p>A giving platform used by nonprofit organizations exposed donor records in a major data breach, echoing the Blackbaud pattern where a single shared platform concentrates many charities' donor PII and payment data. Nonprofits relying on third-party fundraising and CRM platforms should treat vendor security as core to donor trust.</p>
+      <div class="ops-strip">
+        <div class="ops-row">
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; donor records exposed via shared platform</span>
+          <span class="ops-tag kev-off">Third-party / donor PII</span>
+        </div>
+        <div class="ops-row">
+          <span class="ops-tag patch-na">No single patch &mdash; vendor risk</span>
+          <span class="ops-cc"><b>Action:</b> Identify fundraising/CRM platforms holding donor PII, confirm their breach status and controls, and prepare donor breach-notification workflows.</span>
+        </div>
+        <div class="ops-row ops-assign">
+          <span class="ops-sla"><b>Suggested SLA:</b> Vendor &amp; donor-data review &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-givingplatform" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="it-givingplatform">Open</button>
+        </div>
+      </div>
+      <div class="card-meta">
+        <span>Security Info Watch</span>
+        <span class="dot">&bull;</span>
+        <span>Reported 2026</span>
+      </div>
+      <a href="https://www.securityinfowatch.com/cybersecurity/press-release/53080665/giving-platform-for-nonprofit-organizations-exposed-donor-records-in-major-data-breach" class="source-link" target="_blank" rel="noopener">Read source</a>
+    </div>
+
+    <div class="radar-panel">
+      <div class="radar-head">Threat Radar</div>
+      <div class="radar-sub">Critical &amp; high items across all sections &mdash; larger blips = higher severity/priority. Click a blip to jump to the story.</div>
+      <svg class="radar-svg" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Threat radar of critical and high severity stories">
+        <defs>
+          <radialGradient id="rg" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(130,80,223,0.10)"/>
+            <stop offset="100%" stop-color="rgba(130,80,223,0)"/>
+          </radialGradient>
+          <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="40%">
+            <stop offset="0%" stop-color="rgba(130,80,223,0.25)"/>
+            <stop offset="100%" stop-color="rgba(130,80,223,0)"/>
+          </linearGradient>
+        </defs>
+        <circle cx="180" cy="180" r="160" fill="url(#rg)" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="110" fill="none" stroke="#d0d7de"/>
+        <circle cx="180" cy="180" r="60" fill="none" stroke="#d0d7de"/>
+        <line x1="20" y1="180" x2="340" y2="180" stroke="#e5e8eb"/>
+        <line x1="180" y1="20" x2="180" y2="340" stroke="#e5e8eb"/>
+        <g class="radar-sweep">
+          <path d="M180 180 L340 180 A160 160 0 0 1 318.6 260 Z" fill="url(#sweep)"/>
+        </g>
+        <circle cx="180" cy="180" r="3" fill="#8b949e"/>
+        <text class="ring-label" x="180" y="127">Critical</text>
+        <text class="ring-label" x="180" y="77">High</text>
+        <a href="#it-sharepoint"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
+        <a href="#it-oracleebs"><circle class="blip crit" cx="237.1" cy="161.5" r="13.5"/><text class="blip-num" style="font-size:12px" x="237.1" y="165.5">2</text></a>
+        <a href="#it-givingplatform"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">6</text></a>
+        <a href="#it-bluehammer"><circle class="blip high" cx="266" cy="111.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="266" y="114.4">7</text></a>
+        <a href="#it-jadepuffer"><circle class="blip high" cx="287.2" cy="204.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.2" y="207.5">8</text></a>
+      </svg>
+      <div class="radar-legend">
+        <a href="#it-sharepoint"><span class="ld crit"></span><b>1</b> SharePoint RCE (KEV)</a>
+        <a href="#it-oracleebs"><span class="ld crit"></span><b>2</b> Oracle EBS unauth RCE (9.8)</a>
+        <a href="#it-givingplatform"><span class="ld high"></span><b>6</b> Nonprofit giving-platform breach</a>
+        <a href="#it-bluehammer"><span class="ld high"></span><b>7</b> Defender &ldquo;BlueHammer&rdquo; EoP</a>
+        <a href="#it-jadepuffer"><span class="ld high"></span><b>8</b> Agentic AI extortion (Sysdig)</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+
+      <div class="card" id="it-ngoransom">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>NGOs face rising ransomware with 20+ day downtime</h3>
+        <p>Per Verizon DBIR reporting, the nonprofit sector sees a growing number of ransomware attacks with average downtime exceeding 20 days, and the most common vector is email with malicious attachments &mdash; fake project reports, grant agreements or partner documents. Under-resourced security makes recovery slow and costly.</p>
+        <div class="card-meta">
+          <span>Verizon DBIR</span>
+          <span class="dot">&bull;</span>
+          <span>2026</span>
+        </div>
+        <a href="https://www.councilofnonprofits.org/running-nonprofit/administration-and-financial-management/cybersecurity-nonprofits" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-jadepuffer">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Sysdig documents &ldquo;JADEPUFFER&rdquo; &mdash; an extortion attack run end-to-end by an AI agent</h3>
+        <p>Sysdig's Threat Research Team described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. JADEPUFFER exploited a known Langflow RCE (CVE-2025-3248) on an internet-facing instance, then autonomously did recon, stole credentials, established persistence, hit a production database and destroyed data before demanding payment. The tempo is the story.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2025-3248</span>
+          <span>Sysdig TRT / Langflow</span>
+        </div>
+        <div class="card-meta">
+          <span>Sysdig TRT / The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 2&ndash;3 Jul 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+
+      <div class="card" id="it-sharepoint">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>On-prem SharePoint RCE in CISA KEV &mdash; tied to Warlock ransomware</h3>
+        <p>CISA added CVE-2026-45659, a remote-code-execution flaw in on-prem Microsoft SharePoint Server (CVSS 8.8, untrusted-data deserialization), to its KEV catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. An authenticated user with only Site Member rights can run code; Microsoft rated it &ldquo;less likely&rdquo; when patching in May, and Storm-2603 (Warlock ransomware) has exploited on-prem SharePoint since 2025.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-45659</span>
+          <span>CISA KEV / Microsoft</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-confirmed; Warlock/Storm-2603 nexus</span>
+            <span class="ops-tag kev-on">In CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint update to all on-prem farms, restrict Site Member+ access, and hunt for web shells and anomalous SharePoint process activity.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24&ndash;72h (KEV, active RCE, ransomware nexus)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sharepoint">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV / BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>KEV-added 1 Jul 2026 &mdash; exploitation ongoing</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-oracleebs">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Oracle E-Business Suite unauth takeover flaw exploited &mdash; ~950 instances exposed</h3>
+        <p>CVE-2026-46817 (CVSS 9.8) in the File Transmission component of Oracle Payments within E-Business Suite lets an unauthenticated attacker with HTTP access take over systems via a low-complexity attack. Researchers reported the first honeypot exploitation attempts, and Shadowserver tracks roughly 950 EBS instances exposed online. Oracle fixed it in the May 2026 Critical Patch Update.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-46817</span>
+          <span>Oracle / Shadowserver</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first exploitation attempts observed</span>
+            <span class="ops-tag kev-off">Unauthenticated RCE (CVSS 9.8)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Oracle, May 2026 CPU)</span>
+            <span class="ops-cc"><b>Action:</b> Apply the May 2026 Oracle CPU, remove internet exposure of EBS, and hunt for takeover indicators.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> EBS patch &amp; exposure review &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracleebs" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-oracleebs">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / Shadowserver</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation attempts reported early Jul 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-bluehammer">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>&ldquo;BlueHammer&rdquo;: ransomware gangs exploit a Microsoft Defender privilege-escalation flaw</h3>
+        <p>CVE-2026-33825, a Microsoft Defender privilege-escalation flaw dubbed BlueHammer, was leaked with PoC code in early April and has since been folded into ransomware playbooks and added to CISA's KEV. Because it abuses a component on essentially every Windows endpoint, it is an attractive local-escalation step after initial access.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-33825</span>
+          <span>Microsoft / CISA KEV</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited by ransomware gangs; public PoC since April</span>
+            <span class="ops-tag kev-on">In CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (Microsoft)</span>
+            <span class="ops-cc"><b>Action:</b> Deploy the Microsoft update across the estate, prioritize high-value and internet-adjacent systems, and hunt for the PoC behavior and unexpected privilege changes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch rollout &mdash; 7 days (KEV, ransomware use, ubiquitous component)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bluehammer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-bluehammer">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / CISA</span>
+          <span class="dot">&bull;</span>
+          <span>PoC leaked Apr 2026 &mdash; ransomware use since</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
+    <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, the SANS Internet Storm Center, Dark Reading, The Register, The Hacker News and SecurityWeek, plus vendor and product advisories (Microsoft, Oracle, Cisco, Citrix, Progress, SimpleHelp, Fortinet) and Sysdig threat research. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var LS = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+  };
+  var STATUSES = [
+    { key: "open", label: "Open",         cls: "st-open" },
+    { key: "ack",  label: "Acknowledged", cls: "st-ack" },
+    { key: "mit",  label: "Mitigated",    cls: "st-mit" },
+    { key: "na",   label: "Not applicable", cls: "st-na" }
+  ];
+  function statusByKey(k) { for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === k) return STATUSES[i]; } return STATUSES[0]; }
+
+  // ---- Owner (editable, persisted) ----
+  var owners = document.querySelectorAll(".owner-edit");
+  owners.forEach(function (el) {
+    var key = "otdash.owner." + el.getAttribute("data-key");
+    var saved = LS.get(key);
+    if (saved) el.textContent = saved;
+    el.addEventListener("blur", function () {
+      var val = el.textContent.replace(/\s+/g, " ").trim();
+      el.textContent = val;
+      if (val) LS.set(key, val); else LS.del(key);
+    });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") { e.preventDefault(); el.blur(); }
+    });
+  });
+
+  // ---- Status pill (cycle, persisted) ----
+  var pills = document.querySelectorAll(".status-pill");
+  pills.forEach(function (btn) {
+    var key = "otdash.status." + btn.getAttribute("data-key");
+    function render(stKey) {
+      var st = statusByKey(stKey);
+      btn.className = "status-pill " + st.cls;
+      btn.textContent = st.label;
+    }
+    render(LS.get(key) || "open");
+    btn.addEventListener("click", function () {
+      var cur = LS.get(key) || "open";
+      var idx = 0;
+      for (var i = 0; i < STATUSES.length; i++) { if (STATUSES[i].key === cur) { idx = i; break; } }
+      var next = STATUSES[(idx + 1) % STATUSES.length].key;
+      LS.set(key, next);
+      render(next);
+    });
+  });
+
+  // ---- Light/dark theme toggle (persisted) ----
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    var renderTheme = function (dark) {
+      document.body.classList.toggle("dark", dark);
+      themeBtn.innerHTML = dark ? "&#9728; Light mode" : "&#9790; Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    };
+    renderTheme(LS.get("otdash.theme") === "dark");
+    themeBtn.addEventListener("click", function () {
+      var dark = !document.body.classList.contains("dark");
+      LS.set("otdash.theme", dark ? "dark" : "light");
+      renderTheme(dark);
+    });
+  }
+})();
+</script>
+</body>
+</html>

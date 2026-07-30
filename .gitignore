@@ -1,10 +1,28 @@
-# Only the published dashboard, feeds, and repo housekeeping files belong here.
+# Only the published dashboard pages, feeds, and repo housekeeping files belong here.
 # Ignore everything, then explicitly allow the files we publish.
 *
 
+# Main page (published as the site root AND under its own name so the
+# relative "All IT" nav link resolves on the live site).
 !index.html
+!it-threat-dashboard.html
+
+# Sector pages (published flat; relative sector nav links depend on this).
+!sector-financial.html
+!sector-healthcare.html
+!sector-government.html
+!sector-technology.html
+!sector-retail.html
+!sector-education.html
+!sector-telecom.html
+!sector-legal.html
+!sector-nonprofit.html
+
+# Machine-readable feeds.
 !feed.json
 !rss.xml
+
+# Repo housekeeping.
 !publish.bat
 !README.md
 !.gitignore
@@ -12,3 +30,6 @@
 
 # Never commit the run log.
 publish-log.txt
+
+# Note: sector-energy / sector-manufacturing / sector-transportation are
+# intentionally NOT allow-listed - those sectors were retired to the OT feed.

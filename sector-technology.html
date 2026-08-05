@@ -621,13 +621,13 @@
       <h1>IT Threat Intel for Technology &amp; SaaS</h1>
       <div class="header-sub">Software vendors, cloud, MSPs &amp; the developer supply chain.</div>
       <div class="header-meta">
-        <span>Generated Sat, 11 Jul 2026, 12:23 PM ET</span>
+        <span>Generated Tue, 04 Aug 2026, 11:00 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Technology &amp; SaaS</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>8</strong> stories across
+      <strong>9</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -653,14 +653,14 @@
   body.dark .tl-marker{background:#0f172a;}
   </style>
   <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level for the Technology / SaaS sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of technology IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">7.0</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">7.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:70%;"></span></div>
-      <div class="tl-why"><b>Why:</b> A broad software-supply-chain compromise is under way: the &ldquo;Shai-Hulud&rdquo; campaign has poisoned 100+ npm and PyPI packages and a backdoored Injective blockchain SDK is stealing wallet keys &mdash; threats that propagate into many technology and SaaS environments at once through the dependency graph, alongside heavy edge exploitation (FortiBleed, &ldquo;CitrixBleed 2&rdquo;). Because a widespread supply-chain compromise reaches a large portion of tech IT environments rather than a single organization, this rates High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:75%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Several flaws in software deployed across a large share of technology and SaaS IT are under active attack at once. Microsoft&rsquo;s record July Patch Tuesday (~570 fixes) closed two actively-exploited zero-days in Active Directory Federation Services and SharePoint; an on-prem SharePoint deserialization RCE (CVE-2026-45659), a Cisco Secure FMC static-credential flaw (CVE-2026-20316), and an N-able N-central authentication bypass (CVE-2026-18577) were all newly added to CISA&rsquo;s KEV; and npm/PyPI supply-chain compromises (including a hijacked <b>keyv</b> release) keep threatening the dependency graph. Because these reach broadly-deployed identity, collaboration, firewall-management and MSP software rather than a single organization, the sector rates High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -668,31 +668,36 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-shaihulud">
+    <div class="top-story" id="it-patchtuesday" data-published="2026-07-14">
       <span class="top-story-pill">Top Story</span>
-      <h2>&ldquo;Shai-Hulud&rdquo; campaign poisons 100+ npm and PyPI packages</h2>
-      <p>A fresh wave of the Shai-Hulud supply-chain campaign compromised more than 100 npm and PyPI packages with credential-stealing and self-propagating payloads, per SecurityWeek. Developer machines and CI/CD pipelines that pull affected versions risk cloud-secret theft.</p>
+      <h2>Microsoft&rsquo;s July Patch Tuesday sets a record &mdash; ~570 fixes and two exploited zero-days</h2>
+      <p>Microsoft shipped fixes for roughly 570 vulnerabilities in its July 2026 Patch Tuesday, its largest ever, including three zero-days. Two are under active attack: an Active Directory Federation Services elevation-of-privilege flaw (CVE-2026-56155) and a SharePoint Server elevation-of-privilege flaw (CVE-2026-56164). A separately disclosed BitLocker security-feature bypass (CVE-2026-50661) is public but not reported exploited. The exploited flaws hit identity and collaboration software present in most Microsoft-centric environments.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 100+ packages compromised</span>
-          <span class="ops-tag kev-off">Open-source supply chain</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; AD FS &amp; SharePoint zero-days exploited</span>
+          <span class="ops-tag kev-on">Exploited zero-days in CISA KEV</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Remove/upgrade affected packages</span>
-          <span class="ops-cc"><b>Action:</b> Audit dependency trees for affected package versions, rotate any secrets reachable from build agents, and pin/verify packages in CI/CD.</span>
+          <span class="ops-tag patch-yes">Patch available (Microsoft, Jul 2026)</span>
+          <span class="ops-cc"><b>Action:</b> Deploy the July updates, prioritizing AD FS and SharePoint servers and internet-facing systems, then hunt for privilege-escalation and anomalous federation-token activity.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Dependency audit &amp; secret rotation &mdash; 72h</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shaihulud" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="it-shaihulud">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Patch exploited zero-days &mdash; 7 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="it-patchtuesday">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>SecurityWeek</span>
-        <span class="dot">&bull;</span>
-        <span>Jul 2026</span>
+        <span class="cve-badge">CVE-2026-56155</span>
+        <span class="cve-badge">CVE-2026-56164</span>
+        <span class="cve-badge">CVE-2026-50661</span>
       </div>
-      <a href="https://www.securityweek.com/over-100-npm-pypi-packages-hit-in-new-shai-hulud-supply-chain-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <div class="card-meta">
+        <span>BleepingComputer</span>
+        <span class="dot">&bull;</span>
+        <span>14 Jul 2026</span>
+      </div>
+      <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-july-2026-patch-tuesday-fixes-massive-570-flaws-3-zero-days/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -720,22 +725,24 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-oracleebs"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#it-shaihulud"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">6</text></a>
-        <a href="#it-injective"><circle class="blip high" cx="266" cy="111.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="266" y="114.4">7</text></a>
-        <a href="#it-netscaler"><circle class="blip high" cx="287.2" cy="204.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.2" y="207.5">8</text></a>
-        <a href="#it-fortibleed"><circle class="blip high" cx="227.7" cy="279.1" r="7.8"/><text class="blip-num" style="font-size:7.6px" x="227.7" y="282.1">9</text></a>
-        <a href="#it-bluehammer"><circle class="blip high" cx="132.3" cy="279.1" r="7.4"/><text class="blip-num" style="font-size:7.2px" x="132.3" y="281.9">10</text></a>
-        <a href="#it-jadepuffer"><circle class="blip high" cx="72.8" cy="204.5" r="7"/><text class="blip-num" style="font-size:7px" x="72.8" y="207.2">11</text></a>
+        <a href="#it-patchtuesday"><circle class="blip high" cx="180" cy="88" r="10"/><text class="blip-num" style="font-size:9px" x="180" y="91.2">1</text></a>
+        <a href="#it-sharepoint"><circle class="blip high" cx="245" cy="115" r="9"/><text class="blip-num" style="font-size:8.5px" x="245" y="118">2</text></a>
+        <a href="#it-fmc"><circle class="blip high" cx="272" cy="180" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="272" y="183">3</text></a>
+        <a href="#it-ncentral"><circle class="blip high" cx="245" cy="245" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="245" y="248">4</text></a>
+        <a href="#it-keyv"><circle class="blip high" cx="180" cy="272" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="180" y="275">5</text></a>
+        <a href="#it-shinyhunters"><circle class="blip high" cx="115" cy="245" r="8"/><text class="blip-num" style="font-size:7.6px" x="115" y="248">6</text></a>
+        <a href="#it-supplychain"><circle class="blip high" cx="88" cy="180" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="88" y="182.8">7</text></a>
+        <a href="#it-jadepuffer"><circle class="blip high" cx="115" cy="115" r="7.5"/><text class="blip-num" style="font-size:7.2px" x="115" y="117.8">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-oracleebs"><span class="ld crit"></span><b>1</b> Oracle EBS unauth RCE (9.8)</a>
-        <a href="#it-shaihulud"><span class="ld high"></span><b>6</b> Shai-Hulud npm/PyPI (100+)</a>
-        <a href="#it-injective"><span class="ld high"></span><b>7</b> Injective SDK backdoor</a>
-        <a href="#it-netscaler"><span class="ld high"></span><b>8</b> NetScaler CitrixBleed-pattern</a>
-        <a href="#it-fortibleed"><span class="ld high"></span><b>9</b> Fortinet &ldquo;FortiBleed&rdquo; wave</a>
-        <a href="#it-bluehammer"><span class="ld high"></span><b>10</b> Defender &ldquo;BlueHammer&rdquo; EoP</a>
-        <a href="#it-jadepuffer"><span class="ld high"></span><b>11</b> Agentic AI extortion (Sysdig)</a>
+        <a href="#it-patchtuesday"><span class="ld high"></span><b>1</b> MS July Patch Tuesday (570)</a>
+        <a href="#it-sharepoint"><span class="ld high"></span><b>2</b> SharePoint RCE (8.8, KEV)</a>
+        <a href="#it-fmc"><span class="ld high"></span><b>3</b> Cisco FMC static creds</a>
+        <a href="#it-ncentral"><span class="ld high"></span><b>4</b> N-able N-central bypass</a>
+        <a href="#it-keyv"><span class="ld high"></span><b>5</b> keyv npm hijack</a>
+        <a href="#it-shinyhunters"><span class="ld high"></span><b>6</b> ShinyHunters OAuth abuse</a>
+        <a href="#it-supplychain"><span class="ld high"></span><b>7</b> npm/PyPI supply-chain wave</a>
+        <a href="#it-jadepuffer"><span class="ld high"></span><b>8</b> Agentic AI extortion (Sysdig)</a>
       </div>
     </div>
 
@@ -745,49 +752,64 @@
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
 
-      <div class="card" id="it-injective">
+      <div class="card" id="it-keyv" data-published="2026-08-04">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Backdoored Injective blockchain SDK steals wallet keys</h3>
-        <p>On 8 July, attackers used a trusted developer's account to slip a backdoor into a widely used Injective blockchain SDK; the code quietly captured wallet recovery phrases and private keys and sent them to an attacker server. It is another developer-account-compromise supply-chain attack aimed at downstream builders.</p>
-        <div class="card-meta">
-          <span>Reporting (developer-account compromise)</span>
-          <span class="dot">&bull;</span>
-          <span>8 Jul 2026 (reported)</span>
-        </div>
-        <a href="https://www.techtimes.com/articles/319890/20260708/npm-v12-ships-this-month-blocking-install-scripts-that-enabled-year-supply-chain-attacks.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-fortibleed">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>&ldquo;FortiBleed&rdquo;: attackers monetize a foothold in thousands of Fortinet firewalls</h3>
-        <p>After gaining a foothold in thousands of Fortinet firewalls, attackers have begun to monetize that access and are chaining a Nextcloud zero-day to extend reach, per Dark Reading's reporting on the campaign dubbed FortiBleed. A compromised edge device exposes internal networks, VPN sessions and management planes.</p>
+        <h3>Popular &ldquo;keyv&rdquo; npm package hijacked to push a credential-stealing v6.0.0</h3>
+        <p>On 4 August, attackers published a malicious keyv 6.0.0 to npm carrying both a preinstall script and IDE/AI-agent config files that run automatically when a developer opens the repo. The multi-stage payload pulled down a Bun runtime to execute obfuscated code containing GitHub, npm, AWS and Vault credential-harvesting patterns, and staging files were planted across all 19 <span style="white-space:nowrap">@keyv/*</span> workspace packages. keyv is a heavily depended-on caching library.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; foothold in thousands of firewalls being monetized</span>
-            <span class="ops-tag kev-off">Edge compromise + Nextcloud zero-day</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; malicious version published to npm</span>
+            <span class="ops-tag kev-off">Open-source supply chain</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch/hardening required (Fortinet, Nextcloud)</span>
-            <span class="ops-cc"><b>Action:</b> Confirm Fortinet appliances are on fixed firmware, hunt for rogue admins/altered configs/unexpected tunnels, and rotate credentials and certificates.</span>
+            <span class="ops-tag patch-yes">Remove/pin to a known-good version</span>
+            <span class="ops-cc"><b>Action:</b> Block or roll back keyv 6.0.0, audit dependency trees and lockfiles, rotate secrets reachable from dev machines and CI, and disable auto-running IDE/agent configs.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge compromise sweep &mdash; 48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-fortibleed">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Dependency review &amp; secret rotation &mdash; 48h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-keyv" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-keyv">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dark Reading</span>
+          <span>SafeDep</span>
           <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026 &mdash; ongoing</span>
+          <span>4 Aug 2026</span>
         </div>
-        <a href="https://www.darkreading.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://safedep.io/keyv-npm-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-shinyhunters" data-published="2026-07-13">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>ShinyHunters abuses OAuth trust to raid Salesforce and connected SaaS</h3>
+        <p>Microsoft and other researchers detailed an ongoing ShinyHunters campaign that abuses OAuth tokens and trusted third-party SaaS integrations to reach Salesforce and other cloud CRM data &mdash; sidestepping MFA by riding legitimate connected-app trust rather than exploiting a single CVE. Microsoft&rsquo;s guidance urges auditing connected apps, revoking unused OAuth grants and constraining token scopes.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing OAuth-abuse campaign</span>
+            <span class="ops-tag kev-off">SaaS / OAuth token abuse</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; configuration hardening</span>
+            <span class="ops-cc"><b>Action:</b> Inventory OAuth-connected apps, revoke unused or over-scoped grants, enforce token expiry and IP allow-listing, and monitor for anomalous bulk API enumeration.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> OAuth grant review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shinyhunters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-shinyhunters">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Security Blog</span>
+          <span class="dot">&bull;</span>
+          <span>13 Jul 2026</span>
+        </div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/07/13/defending-saas-based-applications-against-shinyhunters-oauth-abuse/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -797,13 +819,28 @@
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
 
-      <div class="card" id="it-jadepuffer">
+      <div class="card" id="it-supplychain" data-published="2026-07-15">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Supply-chain streak continues &mdash; four more npm/PyPI compromises in July</h3>
+        <p>GitGuardian tallied four fresh open-source supply-chain attacks in July 2026: a self-propagating PyPI worm (100+ packages), fake payment SDKs (paysafe/neteller look-alikes) that harvested AWS and CI/CD secrets, hijacked jscrambler tooling dropping wallet- and AI-assistant-credential stealers, and a roughly four-hour compromise of <span style="white-space:nowrap">@asyncapi</span> packages (2.25M+ weekly downloads) that deployed a systemd-persistent RAT. The dependency graph remains the fastest route into many environments at once.</p>
+        <div class="card-meta">
+          <span>GitGuardian</span>
+          <span class="dot">&bull;</span>
+          <span>15 Jul 2026</span>
+        </div>
+        <a href="https://blog.gitguardian.com/shai-hulud-npm-pypi-supply-chain-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-jadepuffer" data-published="2026-07-03">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Research</span>
         </div>
         <h3>Sysdig documents &ldquo;JADEPUFFER&rdquo; &mdash; an extortion attack run end-to-end by an AI agent</h3>
-        <p>Sysdig's Threat Research Team described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. JADEPUFFER exploited a known Langflow RCE (CVE-2025-3248) on an internet-facing instance, then autonomously did recon, stole credentials, established persistence, hit a production database and destroyed data before demanding payment. The tempo is the story.</p>
+        <p>Sysdig&rsquo;s Threat Research Team described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. JADEPUFFER exploited a known Langflow RCE (CVE-2025-3248) on an internet-facing instance, then autonomously did recon, stole credentials, established persistence, hit a production database and destroyed data before demanding payment. The tempo is the story.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2025-3248</span>
           <span>Sysdig TRT / Langflow</span>
@@ -823,106 +860,106 @@
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
 
-      <div class="card" id="it-oracleebs">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Oracle E-Business Suite unauth takeover flaw exploited &mdash; ~950 instances exposed</h3>
-        <p>CVE-2026-46817 (CVSS 9.8) in the File Transmission component of Oracle Payments within E-Business Suite lets an unauthenticated attacker with HTTP access take over systems via a low-complexity attack. Researchers reported the first honeypot exploitation attempts, and Shadowserver tracks roughly 950 EBS instances exposed online. Oracle fixed it in the May 2026 Critical Patch Update.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-46817</span>
-          <span>Oracle / Shadowserver</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first exploitation attempts observed</span>
-            <span class="ops-tag kev-off">Unauthenticated RCE (CVSS 9.8)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Oracle, May 2026 CPU)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 Oracle CPU, remove internet exposure of EBS, and hunt for takeover indicators.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> EBS patch &amp; exposure review &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracleebs" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oracleebs">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / Shadowserver</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation attempts reported early Jul 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-netscaler">
+      <div class="card" id="it-sharepoint" data-published="2026-07-02">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>&ldquo;CitrixBleed 2&rdquo;: NetScaler memory-overread exploited within 24h of disclosure</h3>
-        <p>CVE-2026-8451, an unauthenticated out-of-bounds read in Citrix NetScaler ADC/Gateway configured as a SAML IdP, leaks memory that can expose session tokens. Citrix patched it 30 June; researchers saw in-the-wild exploitation within a day and dozens of attacking IPs by day four. Patch to 14.1-72.61 / 13.1-63.18.</p>
+        <h3>On-prem SharePoint deserialization RCE (CVE-2026-45659) exploited and added to KEV</h3>
+        <p>CVE-2026-45659 (CVSS 8.8) is a deserialization-of-untrusted-data flaw in on-premises SharePoint Server (Subscription Edition, 2019 and 2016) that lets an authenticated attacker with only Site Member permissions run code remotely. CISA added it to the KEV catalog on 1 July after confirming exploitation, despite Microsoft&rsquo;s original &ldquo;exploitation less likely&rdquo; assessment. Patches shipped in the May 2026 updates.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8451</span>
-          <span>Citrix / watchTowr</span>
+          <span class="cve-badge">CVE-2026-45659</span>
+          <span>Microsoft / CISA</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited &lt;24h after disclosure</span>
-            <span class="ops-tag kev-off">Edge / remote-access gateway</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed in-the-wild exploitation</span>
+            <span class="ops-tag kev-on">In CISA KEV (1 Jul 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Citrix, 30 Jun 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Patch NetScaler to fixed builds, terminate and rotate sessions, and review for token theft and session hijacking.</span>
+            <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint updates, restrict and closely monitor on-prem SharePoint, and hunt for web shells and deserialization indicators.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge patch &amp; session rotation &mdash; 48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-netscaler" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-netscaler">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; compromise sweep &mdash; 72h (KEV)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sharepoint">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CyberScoop / watchTowr</span>
+          <span>The Hacker News / CISA</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 30 Jun 2026 &mdash; exploitation ongoing</span>
+          <span>2 Jul 2026</span>
         </div>
-        <a href="https://cyberscoop.com/citrix-netscaler-flaw-cve-2026-8451-citrixbleed/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-bluehammer">
+      <div class="card" id="it-fmc" data-published="2026-07-30">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>&ldquo;BlueHammer&rdquo;: ransomware gangs exploit a Microsoft Defender privilege-escalation flaw</h3>
-        <p>CVE-2026-33825, a Microsoft Defender privilege-escalation flaw dubbed BlueHammer, was leaked with PoC code in early April and has since been folded into ransomware playbooks and added to CISA's KEV. Because it abuses a component on essentially every Windows endpoint, it is an attractive local-escalation step after initial access.</p>
+        <h3>Cisco Secure FMC static-credential zero-day (CVE-2026-20316) exploited in the wild</h3>
+        <p>CVE-2026-20316 (CVSS 5.3) is a hard-coded/static-credential flaw in the Cisco Secure Firewall Management Center web interface that lets an attacker log in and access sensitive data; Cisco rates it High because it can be chained with other FMC flaws. Cisco&rsquo;s incident-response team observed active exploitation, CISA added it to KEV on 29 July, and hotfixes are available for FMC releases 7.0 through 10.0.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-33825</span>
-          <span>Microsoft / CISA KEV</span>
+          <span class="cve-badge">CVE-2026-20316</span>
+          <span>Cisco / CISA</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited by ransomware gangs; public PoC since April</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco confirms in-the-wild exploitation</span>
+            <span class="ops-tag kev-on">In CISA KEV (29 Jul 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Microsoft)</span>
-            <span class="ops-cc"><b>Action:</b> Deploy the Microsoft update across the estate, prioritize high-value and internet-adjacent systems, and hunt for the PoC behavior and unexpected privilege changes.</span>
+            <span class="ops-tag patch-yes">Hotfixes available (Cisco)</span>
+            <span class="ops-cc"><b>Action:</b> Apply Cisco hotfixes, take the FMC management interface off the public internet, rotate all credentials/keys/certificates, and review logs for indicators such as <span style="white-space:nowrap">/var/tmp/license.tmp</span>.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch rollout &mdash; 7 days (KEV, ransomware use, ubiquitous component)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bluehammer" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-bluehammer">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Hotfix &amp; credential rotation &mdash; 48h (KEV)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fmc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fmc">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>BleepingComputer / CISA</span>
           <span class="dot">&bull;</span>
-          <span>PoC leaked Apr 2026 &mdash; ransomware use since</span>
+          <span>30 Jul 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-fmc-static-credential-flaw-exploited-in-zero-day-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-ncentral" data-published="2026-08-04">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>N-able N-central auth-bypass (CVE-2026-18577) exploited, reaching MSP-managed endpoints</h3>
+        <p>CVE-2026-18577 (CVSS 8.2) is an authentication-bypass flaw in the widely used N-able N-central RMM platform &mdash; stemming from an incomplete fix for CVE-2026-18556 &mdash; that lets attackers gain administrative access and pivot into managed endpoints via the Take Control feature. A limited number of customers were compromised; CISA added it to KEV on 3 August, and N-able fixed it in 2026.3 HF1.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-18577</span>
+          <span>N-able / CISA</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; customer compromises confirmed</span>
+            <span class="ops-tag kev-on">In CISA KEV (3 Aug 2026)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available (N-able 2026.3 HF1)</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade N-central to 2026.3 HF1 immediately, review administrative accounts and Take Control activity, and hunt across managed endpoints for signs of pivoting.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; managed-fleet sweep &mdash; 72h (KEV, MSP blast radius)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ncentral" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ncentral">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News / CISA</span>
+          <span class="dot">&bull;</span>
+          <span>4 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/cisa-adds-exploited-n-able-n-central.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -932,13 +969,13 @@
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
 
-      <div class="card" id="it-npmv12">
+      <div class="card" id="it-npmv12" data-published="2026-07-08">
         <div class="card-header">
           <span class="severity sev-info">Policy</span>
           <span class="category">Policy</span>
         </div>
         <h3>npm v12 ships this month, blocking install scripts by default</h3>
-        <p>GitHub's npm v12, rolling out in July, disables automatic lifecycle scripts (preinstall/install/postinstall), blocks Git dependencies and forbids external-URL sources by default &mdash; an &ldquo;explicit opt-in&rdquo; shift responding to a year of postinstall-hook abuse, including North Korean campaigns against Axios and Mastra AI.</p>
+        <p>GitHub&rsquo;s npm v12, rolling out in July, disables automatic lifecycle scripts (preinstall/install/postinstall), blocks Git dependencies and forbids external-URL sources by default &mdash; an &ldquo;explicit opt-in&rdquo; shift responding to a year of postinstall-hook abuse, including North Korean campaigns against Axios and Mastra AI.</p>
         <div class="card-meta">
           <span>Infosecurity Magazine</span>
           <span class="dot">&bull;</span>

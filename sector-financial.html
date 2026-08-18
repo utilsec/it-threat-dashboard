@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Financial Services</h1>
       <div class="header-sub">Banks, fintech, insurance & crypto &mdash; what's hitting the sector now.</div>
       <div class="header-meta">
-        <span>Generated Sat, 11 Jul 2026, 12:23 PM ET</span>
+        <span>Generated Mon, 17 Aug 2026, 8:37 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Financial Services IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>9</strong> stories across
+      <strong>13</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -652,16 +652,28 @@
   body.dark .tl-why{color:#cbd5e1;}
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
+  
+  /* NEW badge - brand-new items, auto-expiring after 72h (client-side, self-expiring) */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:-6px;display:inline-flex;align-items:center;gap:3px;
+    padding:3px 9px 3px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(90deg,#dc2626,#f97316);
+    box-shadow:0 2px 6px rgba(220,38,38,.35);animation:newpulse 1.9s ease-in-out infinite;z-index:3;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{transform:scale(1);box-shadow:0 2px 6px rgba(220,38,38,.35);}
+    50%{transform:scale(1.06);box-shadow:0 3px 11px rgba(249,115,22,.55);}}
+  body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
+  @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Financial Services sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of financial-services IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Financial Services sector, under the same rubric as the main IT dashboard. Score 6.7 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of financial-services IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
+    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Scattered Spider is running an active identity-driven campaign against insurers and financial-services cloud tenants, and a SonicWall vendor flaw reportedly exposed ~1.35M records across 74+ US financial institutions &mdash; alongside a Deutsche Bank third-party incident and record H1 North-Korean crypto theft. Several flaws on the page are actively exploited (on-prem SharePoint in KEV, the Oracle E-Business Suite takeover), but these are a targeted campaign plus discrete breaches rather than one issue compromising a large share of financial IT at once &mdash; upper Medium, not High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:54%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Financial services this week saw discrete, unrelated incidents rather than one issue touching the sector&rsquo;s IT estate broadly, keeping the score in the lower half of Medium. The clearest driver is the arrest of seven suspects over a ~&euro;30 million direct-debit fraud against Commerzbank &mdash; abuse of a flaw a faulty third-party service-provider update introduced, a live nerve for banks relying on outsourced processing &mdash; but it is a resolved, years-old event only now closing out in court, not an ongoing compromise. Around it sit separate, contained items: Cl0p&rsquo;s PTC Windchill wave actor-claims Fiserv among ~50 victims (unconfirmed); Trezor disclosed a breach at fulfilment partner ShipMonk traced to the KEV-listed Metabase flaw; SafePal exposed order data for ~40,000 customers; Group-IB&rsquo;s SpyNote/WindRelay research describes active NFC-relay fraud against bank customers in Czechia, Slovakia and Slovenia; and City-Forum has spent over a year scraping misconfigured Salesforce/ServiceNow portals at banks. Cross-sector flaws under active exploitation &mdash; VMware vCenter, SAP Commerce Cloud, Cisco ASA/FTD in KEV &mdash; matter to bank data centres and branch VPNs but remain patch-and-hunt exposures, not one incident compromising a large share of financial-services IT at once. Per the no-advisory-stacking rule, none of this aggregates upward. The score would rise only with a confirmed breach or outage at a widely shared financial-sector platform affecting many institutions at once; it would fall with a quiet week free of new confirmed incidents.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -669,17 +681,17 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-scatteredspider">
-      <span class="top-story-pill">Top Story</span>
-      <h2>Scattered Spider escalates identity-driven attacks on insurers &amp; financial-services cloud</h2>
-      <p>The Scattered Spider collective has kept shifting toward insurance and financial-services targets, with reported 2026 victims spanning insurers such as Aflac, Allianz Life and Philadelphia Indemnity and prior financial names including PNC, Transamerica, Synchrony and Truist. Its hallmark is help-desk social engineering and MFA abuse to hijack identities, then rapid movement through cloud/SaaS &mdash; often start to finish in 24&ndash;48 hours.</p>
-      <div class="card-meta">
-        <span>CrowdStrike / BleepingComputer</span>
-        <span class="dot">&bull;</span>
-        <span>2026, ongoing</span>
+    <div class="top-story" id="it-commerzbank" data-published="2026-08-14">
+        <span class="top-story-pill">Top Story</span>
+        <h2>Seven arrested over &euro;30 million Commerzbank fraud that abused a faulty service-provider update</h2>
+        <p>Brazilian Federal Police, working with Germany&rsquo;s BKA and authorities in Spain and Bulgaria, arrested four suspects in Brazil and charged three more in Europe over a scheme that drained roughly &euro;30 million ($34.6 million) from Commerzbank customer accounts. The fraud ran over four days in late 2023 and relied not on stolen credentials but on a defect that a faulty update from a third-party payment- and transaction-processing service provider introduced into the bank&rsquo;s systems, letting the group push unauthorised direct debits before the flaw was spotted and remediated. Customers did not bear the losses; the bank absorbed them, and Brazilian courts have since ordered seizure of assets worth roughly R$106 million tied to the suspects. No new customer data was exposed in this case &mdash; the harm was direct financial theft enabled by a processing error, not a breach of records. For financial-services security teams the case is a reminder that outsourced payment-processing and transaction infrastructure is itself an attack surface: a single bad vendor update can create a window for fraud at scale, and detecting it depends on transaction-anomaly monitoring that catches unusual direct-debit patterns fast, not just perimeter defenses. It also illustrates that these schemes can take years to fully unwind &mdash; the fraud occurred in 2023 and international arrests only closed the loop now, underscoring how long attribution, cross-border evidence-gathering and asset seizure can take even for a well-documented financial crime.</p>
+        <div class="card-meta">
+          <span>BleepingComputer (Brazilian Federal Police / BKA)</span>
+          <span class="dot">&bull;</span>
+          <span>Arrests reported 14 Aug 2026 &mdash; fraud occurred over four days in late 2023, flaw since remediated</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-arrested-over-30m-bank-fraud-exploiting-service-provider-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-services-observes-scattered-spider-escalate-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-    </div>
 
     <div class="radar-panel">
       <div class="radar-head">Threat Radar</div>
@@ -706,225 +718,375 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-sharepoint"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#it-oracleebs"><circle class="blip crit" cx="237.1" cy="161.5" r="13.5"/><text class="blip-num" style="font-size:12px" x="237.1" y="165.5">2</text></a>
-        <a href="#it-scatteredspider"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">6</text></a>
-        <a href="#it-cryptodprk"><circle class="blip high" cx="266" cy="111.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="266" y="114.4">7</text></a>
-        <a href="#it-marquis"><circle class="blip high" cx="287.2" cy="204.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.2" y="207.5">8</text></a>
-        <a href="#it-fortibleed"><circle class="blip high" cx="227.7" cy="279.1" r="7.8"/><text class="blip-num" style="font-size:7.6px" x="227.7" y="282.1">9</text></a>
+        <a href="#it-commerzbank"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-vcenter"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-sapcommerce"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-clopfiserv"><circle class="blip high" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
+        <a href="#it-trezorshipmonk"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
+        <a href="#it-windrelay"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
+        <a href="#it-ciscoasa"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-cityforum"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
+        <a href="#it-gunra"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-sharepoint"><span class="ld crit"></span><b>1</b> SharePoint RCE (KEV)</a>
-        <a href="#it-oracleebs"><span class="ld crit"></span><b>2</b> Oracle EBS unauth RCE (9.8)</a>
-        <a href="#it-scatteredspider"><span class="ld high"></span><b>6</b> Scattered Spider (finance/insurance)</a>
-        <a href="#it-cryptodprk"><span class="ld high"></span><b>7</b> DPRK crypto theft (H1 2026)</a>
-        <a href="#it-marquis"><span class="ld high"></span><b>8</b> Marquis/SonicWall (1.35M)</a>
-        <a href="#it-fortibleed"><span class="ld high"></span><b>9</b> Fortinet &ldquo;FortiBleed&rdquo; wave</a>
+        <a href="#it-commerzbank"><span class="ld high"></span><b>1</b> Commerzbank fraud arrests</a>
+        <a href="#it-vcenter"><span class="ld crit"></span><b>2</b> VMware vCenter RCE exploited</a>
+        <a href="#it-sapcommerce"><span class="ld crit"></span><b>3</b> SAP Commerce Cloud CVSS 10</a>
+        <a href="#it-clopfiserv"><span class="ld high"></span><b>4</b> Cl0p wave claims Fiserv</a>
+        <a href="#it-trezorshipmonk"><span class="ld high"></span><b>5</b> Trezor breach via Metabase KEV</a>
+        <a href="#it-windrelay"><span class="ld high"></span><b>6</b> WindRelay NFC card-relay fraud</a>
+        <a href="#it-ciscoasa"><span class="ld high"></span><b>7</b> Cisco ASA/FTD VPN flaw (KEV)</a>
+        <a href="#it-cityforum"><span class="ld high"></span><b>8</b> City-Forum scrapes bank portals</a>
+        <a href="#it-gunra"><span class="ld high"></span><b>9</b> Gunra advisory names financial services</a>
       </div>
     </div>
 
   </div>
 
+  
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-
-      <div class="card" id="it-marquis">
+<div class="card" id="it-clopfiserv" data-published="2026-07-20">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Vendor SonicWall flaw reportedly exposes 1.35M across 74+ US financial institutions</h3>
-        <p>Reporting on a SonicWall-related compromise at banking-software vendor Marquis Software Solutions describes exposure of up to 1.35 million customers across 74 or more U.S. financial institutions &mdash; a single third-party weakness cascading across many banks and credit unions. Treat exact figures as reported pending direct confirmation.</p>
-        <div class="card-meta">
-          <span>Swif (industry summary)</span>
-          <span class="dot">&bull;</span>
-          <span>2026 (reported)</span>
-        </div>
-        <a href="https://www.swif.ai/blog/financial-services-cybersecurity-statistics" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-deutschebank">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Deutsche Bank confirms third-party incident; ransomware crew claims data</h3>
-        <p>The &ldquo;Unsafe&rdquo; ransomware group listed Deutsche Bank on its leak site around 8 July. Deutsche Bank says it was notified of a cybersecurity incident at an external German service provider running a sales-partner marketing platform, and states there is no indication its own internal systems were affected &mdash; a reminder that vendor breaches drive much of financial-sector exposure.</p>
-        <div class="card-meta">
-          <span>Cybernews</span>
-          <span class="dot">&bull;</span>
-          <span>8 Jul 2026 (leak-site claim vs. bank statement)</span>
-        </div>
-        <a href="https://cybernews.com/security/deutsche-bank-ransomware-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-financeyorkshire">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Ransomware group claims UK SME funder Finance Yorkshire</h3>
-        <p>On 9 July the &ldquo;cmdorganization&rdquo; ransomware group publicly claimed an attack on Finance Yorkshire, a UK provider of funding for small and medium businesses, and threatened to release financial data. The claim is from the group's leak site and is not yet independently confirmed by the organization.</p>
-        <div class="card-meta">
-          <span>DeXpose (leak-site report)</span>
-          <span class="dot">&bull;</span>
-          <span>9 Jul 2026 (claimed, unverified)</span>
-        </div>
-        <a href="https://www.dexpose.io/cmdorganization-ransomware-attack-on-finance-yorkshire/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-fortibleed">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>&ldquo;FortiBleed&rdquo;: attackers monetize a foothold in thousands of Fortinet firewalls</h3>
-        <p>After gaining a foothold in thousands of Fortinet firewalls, attackers have begun to monetize that access and are chaining a Nextcloud zero-day to extend reach, per Dark Reading's reporting on the campaign dubbed FortiBleed. A compromised edge device exposes internal networks, VPN sessions and management planes.</p>
+        <h3>Cl0p extortion wave actor-claims core-banking technology provider Fiserv among ~50 victims</h3>
+        <p>The Cl0p group&rsquo;s leak-site listing tied to its exploitation of PTC&rsquo;s Windchill and FlexPLM product-lifecycle software named close to 50 organisations, including payments and core-banking technology giant Fiserv alongside Shell, GE and Philips. ReliaQuest documented the intrusion chain: pre-authentication information disclosure in FlexPLM chained with a Windchill login-servlet flaw (CVE-2026-12569, CVSS 9.3) to reach unauthenticated deserialization and drop JSP web shells, with listings ramping from 20 July. Philips has confirmed a breach and Shell and GE say they are investigating &mdash; Fiserv&rsquo;s inclusion, like the rest of the list, remains actor-claimed and has not been independently verified. Stolen material described elsewhere in the campaign is engineering-grade &mdash; drawings, test reports, project plans &mdash; rather than customer or transaction records, but Fiserv&rsquo;s footprint across core banking, card and payment processing means any confirmed exposure would ripple into many financial institutions that rely on it.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; foothold in thousands of firewalls being monetized</span>
-            <span class="ops-tag kev-off">Edge compromise + Nextcloud zero-day</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; mass exploitation-driven extortion campaign</span>
+            <span class="ops-tag kev-on">Windchill flaw (CVE-2026-12569) in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch/hardening required (Fortinet, Nextcloud)</span>
-            <span class="ops-cc"><b>Action:</b> Confirm Fortinet appliances are on fixed firmware, hunt for rogue admins/altered configs/unexpected tunnels, and rotate credentials and certificates.</span>
+            <span class="ops-tag patch-yes">Patch available (PTC advisory, patching began 17 Jun 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Ask Fiserv and any other Windchill/FlexPLM-linked vendors directly whether banking, card or transaction data was in scope, and confirm your own third-party risk register flags this campaign as ongoing, not closed.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge compromise sweep &mdash; 48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-fortibleed">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor exposure confirmation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-clopfiserv" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-clopfiserv">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dark Reading</span>
+          <span>BleepingComputer / Reuters</span>
           <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026 &mdash; ongoing</span>
+          <span>Leak-site listing ramping since 20 Jul 2026 &mdash; claims against Fiserv unconfirmed as of this report</span>
         </div>
-        <a href="https://www.darkreading.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-ukrainecalls" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Ukraine dismantles 94 fraudulent call centres that impersonated banks and investment platforms</h3>
+        <p>Ukrainian authorities announced the takedown of 94 fraudulent call centres that posed as banks and investment platforms to defraud victims, seizing thousands of phones and SIM cards along with roughly $2 million in cash and other assets. The operation targeted the social-engineering infrastructure behind the fraud rather than a software vulnerability &mdash; scripted callers impersonating bank staff or investment advisers to talk victims into transferring funds or handing over account access. The scale of the enforcement action &mdash; nearly a hundred separate operations shut down at once &mdash; illustrates how large and industrialised bank-impersonation fraud infrastructure has become, and how much of current financial fraud still runs through phone-based social engineering rather than technical exploitation. It offers no direct patching or configuration action for financial-services IT teams, but reinforces the case for customer-facing fraud controls: callback verification, out-of-band confirmation for large transfers, and customer education that banks never ask for one-time codes over the phone.</p>
+        <div class="card-meta">
+          <span>Reporting on Ukrainian law-enforcement action</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 13 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-trezorshipmonk" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Trezor discloses breach at fulfilment partner ShipMonk, traced to a KEV-listed Metabase flaw</h3>
+        <p>Hardware-wallet maker Trezor disclosed that customer order data was exposed after its shipping and logistics partner ShipMonk was compromised through Metabase, the business-intelligence platform whose unauthenticated SQL-injection flaw (CVE-2026-72898, CVSS 10.0) CISA added to its Known Exploited Vulnerabilities catalog on 11 August with a 14 August federal remediation deadline. The breach affected roughly 13,689 Trezor customers &mdash; names, emails, addresses and order details &mdash; through ShipMonk; the same flaw separately hit laptop maker Framework&rsquo;s full customer base. Trezor says its own systems, devices, seed phrases and private keys were not affected, but warned that the exposed data enables convincing impersonation of banks, exchanges and Trezor itself in follow-on phishing. The case is a clean illustration of the risk a single unpatched analytics tool poses when it sits inside a shared logistics or operations vendor serving multiple financial-sector and crypto-asset clients at once.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-72898</span>
+          <span>Metabase (via ShipMonk) &bull; CVSS 10.0</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited as a zero-day before a patch existed</span>
+            <span class="ops-tag kev-on">CISA KEV 11 Aug 2026, federal deadline 14 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched; Metabase 0.63.5 / Enterprise 1.63.5 and later</span>
+            <span class="ops-cc"><b>Action:</b> Confirm any fulfilment, logistics or analytics vendor handling customer data has patched Metabase, and treat any notice from a vendor using it as a probable breach notification, not a routine advisory.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor Metabase patch confirmation &mdash; 5 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trezorshipmonk" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-trezorshipmonk">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / Trezor disclosure</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed mid-August 2026, days after the underlying flaw entered CISA KEV</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/trezor-discloses-data-breach-affecting-nearly-14-000-customers/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-safepal" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>SafePal plugin bug exposes order data for roughly 39,800 crypto-wallet customers</h3>
+        <p>Crypto hardware-wallet maker SafePal disclosed that a bug in a website plugin retained customer order data far longer than intended, exposing names, addresses, emails, phone numbers and order details for approximately 39,798 customers who placed orders between March 2025 and April 2026. The company says wallet seed phrases, private keys and funds were not affected &mdash; the exposure is limited to order and contact information rather than anything that would allow direct asset theft. Combined with the same-week Trezor/ShipMonk disclosure, it adds to a pattern of crypto-asset vendors leaking customer contact data through ordinary e-commerce and fulfilment tooling rather than through the wallets or blockchain infrastructure themselves &mdash; the resulting data is well suited to targeted phishing against holders of crypto assets, a population attackers know is worth targeting.</p>
+        <div class="card-meta">
+          <span>SecurityWeek / SafePal disclosure</span>
+          <span class="dot">&bull;</span>
+          <span>Reported mid-to-late August 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/40000-impacted-by-safepal-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-
-      <div class="card" id="it-cryptodprk">
+<div class="card" id="it-windrelay" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Intel</span>
         </div>
-        <h3>North Korea drives record crypto theft in H1 2026</h3>
-        <p>TRM Labs reporting attributes roughly $972M in crypto stolen in the first half of 2026 across 207 incidents, with about $643M tied to North Korean actors &mdash; led by a $285M DeFi hack (Drift, April) and a $292M hack of KelpDAO. Exchanges and DeFi platforms remain the most directly targeted financial sub-sector.</p>
-        <div class="card-meta">
-          <span>CoinGeek / PYMNTS (TRM Labs)</span>
-          <span class="dot">&bull;</span>
-          <span>H1 2026 (reported)</span>
+        <h3>SpyNote + WindRelay turns bank customers into live NFC card relays during a fake support call</h3>
+        <p>Group-IB research describes a fraud chain aimed at bank customers in Czechia, Slovakia and Slovenia that starts with a vishing call from someone posing as bank support staff, talks the victim into installing the SpyNote RAT via abused Android Accessibility Services, then silently side-loads a companion tool called WindRelay. When the victim taps their contactless card against their own phone, WindRelay streams the live chip exchange to an attacker-controlled payment terminal, letting the fraudster complete a transaction as the card while the victim still physically holds it, often paired with fraudulent digital loan origination for a larger cash-out. Group-IB identified 23 samples on VirusTotal active between November 2025 and July 2026 and more than 70 command-and-control servers. Because the scheme never uses screen-sharing, it evades the RAT detections banks&rsquo; fraud and mobile-security teams typically rely on, making it a live, evolving threat to contactless payment security rather than a one-off scam.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; live fraud campaign, Central/Eastern Europe</span>
+            <span class="ops-tag kev-off">Mobile banking fraud &mdash; no CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No software patch &mdash; behavioural/detection control</span>
+            <span class="ops-cc"><b>Action:</b> Brief fraud-operations and customer-support teams on the WindRelay pattern, review mobile-banking app tamper and accessibility-service detections, and warn customers that legitimate bank staff never ask them to install remote-support software or tap their card to their phone.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Fraud-detection rule review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-windrelay" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-windrelay">Open</button>
+          </div>
         </div>
-        <a href="https://coingeek.com/north-korean-hackers-stole-two-thirds-of-crypto-in-2026-report/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <div class="card-meta">
+          <span>Group-IB research</span>
+          <span class="dot">&bull;</span>
+          <span>Published 12 Aug 2026, covering activity Nov 2025 &ndash; Jul 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-cityforum" data-published="2026-08-10">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>Year-long 'City-Forum' campaign scrapes misconfigured Salesforce and ServiceNow portals at banks</h3>
+        <p>Researchers describe a financially motivated actor dubbed City-Forum that has spent over a year abusing loose guest-user access on Salesforce Experience Cloud and ServiceNow Service Portal deployments to enumerate and steal customer records, with telecoms, banks and other firms among the victims. The technique is configuration abuse rather than a software vulnerability: portals left with overly permissive anonymous or guest access let the actor walk record objects and pull customer data without ever needing credentials or exploiting a flaw. Because both platforms are widely used by banks for customer service, case management and support-portal functions, any instance with default or loosened guest-access settings is a plausible target, and the year-long duration suggests the technique has gone undetected in production environments for a long time before being documented.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing since at least 2025</span>
+            <span class="ops-tag kev-off">Configuration abuse &mdash; no CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; access-control misconfiguration</span>
+            <span class="ops-cc"><b>Action:</b> Audit Salesforce Experience Cloud and ServiceNow Service Portal guest/anonymous user profiles for any object or field-level access broader than the public support use case requires, and check access logs for high-volume enumeration from unfamiliar IP ranges.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Guest-access permissions audit &mdash; 10 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cityforum" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cityforum">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Reported August 2026, describing activity ongoing since 2025</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/city-forum-data-theft-attacks-target-salesforce-servicenow-portals/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-
-      <div class="card" id="it-sharepoint">
+<div class="card" id="it-vcenter" data-published="2026-08-07">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>On-prem SharePoint RCE in CISA KEV &mdash; tied to Warlock ransomware</h3>
-        <p>CISA added CVE-2026-45659, a remote-code-execution flaw in on-prem Microsoft SharePoint Server (CVSS 8.8, untrusted-data deserialization), to its KEV catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. An authenticated user with only Site Member rights can run code; Microsoft rated it &ldquo;less likely&rdquo; when patching in May, and Storm-2603 (Warlock ransomware) has exploited on-prem SharePoint since 2025.</p>
+        <h3>VMware vCenter RCE under active exploitation &mdash; 361+ victim IPs, directly relevant to bank data centres</h3>
+        <p>A critical directory-traversal flaw in the vCenter Server syslog service (CVE-2026-59310, CVSS 9.8) gives unauthenticated remote code execution against the platform that manages virtual machines, datastores and, in most environments, backups. Broadcom patched it 29 July 2026; a DFIR firm recorded first attacker contact just five days later and had counted 361 distinct victim IPs across 47 countries by 7 August, with Germany, the US, Turkey, Iran and France most affected. The observed chain uses the path traversal to plant a malicious cron job for persistence, then the open-source reverse_ssh tool for command-and-control; a suspected China-nexus operator is deploying a Babuk-derived ransomware variant that researchers believe may be a smokescreen for deeper, longer-term intrusion. Banks and insurers running vSphere-based private clouds or on-premises data centres &mdash; which is most of the sector &mdash; are directly in scope: compromise of vCenter can cascade into every guest VM it manages, making this one of the highest-impact enterprise flaws of the window for financial-services infrastructure teams. Not yet listed in CISA KEV as of writing.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-45659</span>
-          <span>CISA KEV / Microsoft</span>
+          <span class="cve-badge">CVE-2026-59310</span>
+          <span>Broadcom / VMware vCenter &bull; CVSS 9.8</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-confirmed; Warlock/Storm-2603 nexus</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361+ victim IPs across 47 countries</span>
+            <span class="ops-tag kev-off">Not yet in CISA KEV as of writing</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint update to all on-prem farms, restrict Site Member+ access, and hunt for web shells and anomalous SharePoint process activity.</span>
+            <span class="ops-tag patch-yes">Patched: vCenter 9.1.0.0300, 9.0.2.0100, 8.0 U3/U2 fixed builds</span>
+            <span class="ops-cc"><b>Action:</b> Patch vCenter immediately if not already done, then hunt for unfamiliar cron jobs and reverse_ssh processes on management appliances regardless of patch status &mdash; assume possible pre-patch compromise given the five-day-to-mass-exploitation timeline.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24&ndash;72h (KEV, active RCE, ransomware nexus)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sharepoint">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise hunt &mdash; 72 hours</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vcenter" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-vcenter">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV / BleepingComputer</span>
+          <span>TheHackerNews / BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>KEV-added 1 Jul 2026 &mdash; exploitation ongoing</span>
+          <span>Patched 29 Jul 2026 &mdash; victim count as of 7 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-oracleebs">
+      <div class="card" id="it-sapcommerce" data-published="2026-08-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Oracle E-Business Suite unauth takeover flaw exploited &mdash; ~950 instances exposed</h3>
-        <p>CVE-2026-46817 (CVSS 9.8) in the File Transmission component of Oracle Payments within E-Business Suite lets an unauthenticated attacker with HTTP access take over systems via a low-complexity attack. Researchers reported the first honeypot exploitation attempts, and Shadowserver tracks roughly 950 EBS instances exposed online. Oracle fixed it in the May 2026 Critical Patch Update.</p>
+        <h3>Max-severity SAP Commerce Cloud flaw hit by exploitation attempts within three days of the patch</h3>
+        <p>SAP patched a maximum-severity improper-authorization flaw in the Commerce Cloud Data Hub Adapter (CVE-2026-58231, CVSS 10.0) on 11 August that allows arbitrary code execution; exploitation attempts against honeypots followed within three days, and a public proof-of-concept has since circulated. Shadowserver counted more than 4,200 internet-exposed instances. Commerce Cloud underpins customer-facing retail-banking, insurance and wealth-management e-commerce portals at many financial institutions, so an exposed, unpatched instance is a plausible route from a public web application straight to backend systems handling customer and transaction data.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-46817</span>
-          <span>Oracle / Shadowserver</span>
+          <span class="cve-badge">CVE-2026-58231</span>
+          <span>SAP Commerce Cloud &bull; CVSS 10.0</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first exploitation attempts observed</span>
-            <span class="ops-tag kev-off">Unauthenticated RCE (CVSS 9.8)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation attempts within 3 days of patch</span>
+            <span class="ops-tag kev-off">Not stated as KEV-listed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Oracle, May 2026 CPU)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 Oracle CPU, remove internet exposure of EBS, and hunt for takeover indicators.</span>
+            <span class="ops-tag patch-yes">Patched 11 Aug 2026 (SAP Security Note)</span>
+            <span class="ops-cc"><b>Action:</b> Identify any customer-facing SAP Commerce Cloud deployment (retail-banking, insurance or wealth portals) and confirm the 11 August patch is applied; treat any exposed, unpatched instance as likely already probed given the 4,200+ internet-exposed count.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> EBS patch &amp; exposure review &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracleebs" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oracleebs">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or take offline &mdash; 48 hours</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sapcommerce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sapcommerce">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / Shadowserver</span>
+          <span>BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation attempts reported early Jul 2026</span>
+          <span>Patched 11 Aug 2026 &mdash; exploitation observed within 3 days</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-ciscoasa" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Cisco ASA/FTD VPN flaw in CISA KEV &mdash; a direct hit on bank remote-access and branch connectivity</h3>
+        <p>A denial-of-service flaw in Cisco ASA and Firepower Threat Defense&rsquo;s Remote Access SSL VPN service (CVE-2026-20349, CVSS 8.6) is under active exploitation and was added to CISA&rsquo;s Known Exploited Vulnerabilities catalog on 11 August with a 14 August federal remediation deadline. Hotfixes are available but there is no workaround. ASA and FTD appliances are widely deployed by banks and credit unions for branch-office connectivity and remote-worker VPN access, so exploitation that disrupts the VPN service directly threatens continuity of remote access for staff and site-to-site links between branches and data centres.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20349</span>
+          <span>Cisco ASA / FTD &bull; CVSS 8.6</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation, DoS against Remote Access SSL VPN</span>
+            <span class="ops-tag kev-on">CISA KEV 11 Aug 2026, federal deadline 14 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Hotfix available; no workaround</span>
+            <span class="ops-cc"><b>Action:</b> Apply the Cisco hotfix to all internet-facing ASA/FTD VPN heads before the KEV deadline and monitor for VPN-service instability that could indicate exploitation in progress.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Hotfix deployment &mdash; before 14 Aug 2026 deadline</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ciscoasa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ciscoasa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV</span>
+          <span class="dot">&bull;</span>
+          <span>Added to KEV 11 Aug 2026, deadline 14 Aug</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-gunra" data-published="2026-08-10">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Joint CISA/FBI advisory names financial services among Gunra ransomware's targets</h3>
+        <p>A joint CISA/FBI advisory (AA26-222A), published 10 August, details the Conti-derived Gunra ransomware-as-a-service operation and its double-extortion model, naming financial services alongside healthcare, government and other critical-infrastructure sectors among its targets. The group&rsquo;s documented initial-access route is internet-facing VPN gateways and firewalls, including known Fortinet flaws CVE-2024-55591 and CVE-2025-24472 &mdash; both older vulnerabilities that remain exploitable wherever they are left unpatched. For financial-services security teams the advisory is a direct prompt to check exposed VPN and firewall infrastructure against these two CVEs specifically, since Gunra&rsquo;s targeting explicitly includes the sector rather than being a generic ransomware listing.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active RaaS operation, double extortion</span>
+            <span class="ops-tag kev-on">Underlying Fortinet CVEs (2024-55591, 2025-24472) previously KEV-listed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available for both cited Fortinet CVEs</span>
+            <span class="ops-cc"><b>Action:</b> Confirm all internet-facing VPN gateways and firewalls, especially Fortinet devices, are patched against CVE-2024-55591 and CVE-2025-24472, and review the AA26-222A advisory's indicators against your perimeter logs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Perimeter VPN/firewall patch verification &mdash; 10 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gunra" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gunra">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / FBI joint advisory AA26-222A</span>
+          <span class="dot">&bull;</span>
+          <span>Published 10 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-
-      <div class="card" id="it-bod2604">
+<div class="card" id="it-liechtenstein" data-published="2026-08-17">
         <div class="card-header">
-          <span class="severity sev-info">Policy</span>
+          <span class="severity sev-medium">Medium</span>
           <span class="category">Policy</span>
         </div>
-        <h3>Tight KEV deadlines under CISA BOD 26-04</h3>
-        <p>July's KEV additions (SharePoint, plus a further trio on 7 July) carry compressed federal remediation deadlines under Binding Operational Directive 26-04, which requires FCEB agencies to rapidly fix high-risk, internet-exposed KEV items. It continues to function as a de-facto priority list for the private sector too.</p>
+        <h3>Liechtenstein foundations and trusts registry breach exposes data central to bank AML due diligence</h3>
+        <p>Attackers accessed Liechtenstein&rsquo;s register of foundations and trusts and downloaded beneficial-owner names and personal details covering roughly 31,000 entities. The government says it will not pay a ransom. Liechtenstein foundations and trusts are commonly used structures in private banking and wealth-management relationships, and registries of this kind are exactly the records financial institutions rely on to satisfy anti-money-laundering and beneficial-ownership due-diligence obligations. A breach of the underlying registry data raises two distinct risks for banks: the exposed beneficial-ownership details could be used to build more convincing impersonation or business-email-compromise attacks against wealth-management clients, and institutions that rely on this registry as a source of truth for KYC/AML checks should treat its data as potentially less trustworthy until the government confirms the scope and integrity of what was accessed.</p>
         <div class="card-meta">
-          <span>CISA</span>
+          <span>Insurance Journal</span>
           <span class="dot">&bull;</span>
-          <span>In effect &mdash; Jul 2026</span>
+          <span>Reported 17 Aug 2026</span>
         </div>
-        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.insurancejournal.com/news/international/2026/08/17/881801.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-dgfip" data-published="2026-08-05">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>French tax authority breach feeds the identity-fraud pipeline banks' AML programs must catch</h3>
+        <p>France&rsquo;s DGFiP tax authority confirmed an intrusion, detected and stopped in late June 2026, in which an attacker used stolen VPN access and an internal search tool to reach tax, cadastral and business records; reporting puts the total affected at 678,000 individuals and businesses. The agency cut off access to sensitive systems and notified ANSSI and the national data-protection authority. DGFiP is not a financial institution, but tax, cadastral and business-registration data of this kind is prime raw material for synthetic-identity fraud and account-takeover attempts against banks &mdash; it is exactly the kind of verified personal and financial detail that helps an attacker pass a bank&rsquo;s identity-verification or KYC checks. Financial-crime and fraud teams should treat large government tax-data breaches as a leading indicator of subsequent account-opening and identity-fraud attempts, not merely a government IT incident to note and move past.</p>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion detected and stopped late Jun 2026 &mdash; scope reported during August 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/french-tax-authority-data-breach-affects-678-000-individuals/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
+
+  
+
+  
+
+  
+
+  
 
   <!-- FOOTER -->
   <div class="footer">
@@ -1004,6 +1166,16 @@
     });
   }
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

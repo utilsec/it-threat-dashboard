@@ -622,14 +622,14 @@
       <h1>IT Threat Intel for Professional &amp; Legal Services</h1>
       <div class="header-sub">Law, accounting, consulting &amp; staffing.</div>
       <div class="header-meta">
-        <span>Generated Sat, 11 Jul 2026, 12:23 PM ET</span>
+        <span>Generated Mon, 17 Aug 2026, 8:37 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Professional &amp; Legal Services</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>6</strong> stories across
-      <strong>2</strong> categories
+      <strong>12</strong> stories across
+      <strong>4</strong> categories
     </div>
   </div>
 
@@ -652,16 +652,28 @@
   body.dark .tl-why{color:#cbd5e1;}
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
+  
+  /* NEW badge - brand-new items, auto-expiring after 72h (client-side, self-expiring) */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:-6px;display:inline-flex;align-items:center;gap:3px;
+    padding:3px 9px 3px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(90deg,#dc2626,#f97316);
+    box-shadow:0 2px 6px rgba(220,38,38,.35);animation:newpulse 1.9s ease-in-out infinite;z-index:3;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{transform:scale(1);box-shadow:0 2px 6px rgba(220,38,38,.35);}
+    50%{transform:scale(1.06);box-shadow:0 3px 11px rgba(249,115,22,.55);}}
+  body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
+  @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Legal sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of legal IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.0</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.0</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:60%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Ransomware crews are actively targeting law firms through help-desk vishing (not just phishing), alongside the week&rsquo;s actively-exploited flaws (on-prem SharePoint in KEV, Oracle E-Business Suite, &ldquo;CitrixBleed 2,&rdquo; a Defender EoP bug) and AI-agent-run extortion research. A targeted social-engineering technique plus discrete exposures rather than one issue hitting a large portion of legal IT places it in the middle of Medium.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:50%;"></span></div>
+      <div class="tl-why"><b>Why:</b> The strongest driver this window is a detection failure, not a clever attack: the UK ICO&rsquo;s reprimand of ACRO, the Criminal Records Office, covers three intrusions between 2021 and 2023 that persisted for up to seven months because an unpatched Kentico CMS and unread antivirus alerts &mdash; including repeated Mimikatz detections &mdash; went unaddressed for roughly two years, exposing data on nearly 11,000 people including domestic-violence survivors. Colombia&rsquo;s Ministry of Justice was hit by ransomware disrupting legal-process and drug-monitoring systems days before a presidential transition, Scotland&rsquo;s prosecution service had about 300 employee records exposed via a shared contractor, and Liechtenstein&rsquo;s trusts registry &mdash; relevant to trust and AML/due-diligence work &mdash; was breached. None of that is a confirmed law-firm breach or a legal-software flaw; the Fox Rothschild suit over last year&rsquo;s Silent Ransom Group attack now adds a CCPA subclass, which is post-incident litigation, not a new intrusion. Cross-sector exposures still matter: active exploitation of VMware vCenter, Metabase (matter/billing analytics), Cisco ASA/FTD VPNs and Citrix NetScaler, plus an Akira affiliate defeating EDR via Safe Mode after breaching a SonicWall VPN with no MFA &mdash; standard professional-services attack surface. That mix holds the level mid-Medium. It would rise with a confirmed law-firm breach or exploitation of case-management or e-discovery software; it would fall in a quieter week with no incidents and only routine advisories.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -669,17 +681,17 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-lawvishing">
-      <span class="top-story-pill">Top Story</span>
-      <h2>Ransomware crews target law firms via help-desk vishing, not just phishing</h2>
-      <p>Attackers are increasingly hitting large law firms by cold-calling remote employees and posing as internal IT to pressure them over the phone &mdash; the Scattered-Spider-style playbook &mdash; with Lewis Brisbois among affected big-law names. Surveys put roughly 39% of firms reporting a breach in the past year, and only about a third keep an incident-response plan.</p>
-      <div class="card-meta">
-        <span>Bloomberg Law / Law.com</span>
-        <span class="dot">&bull;</span>
-        <span>2026, ongoing</span>
+    <div class="top-story" id="it-acro" data-published="2026-08-12">
+        <span class="top-story-pill">Top Story</span>
+        <h2>UK regulator reprimands ACRO, the Criminal Records Office, over three intrusions that went undetected for two years</h2>
+        <p>The UK Information Commissioner's Office issued a formal reprimand to ACRO, the Criminal Records Office, after three separate intrusions between July 2021 and June 2023 went undetected for roughly two years. Attackers exploited an unpatched Kentico content-management system on ACRO's public-facing applicant portal, which had run the same version since September 2019 despite known vulnerabilities, with responsibility for patching left unclear inside the organisation. Trend Micro antivirus tooling on affected systems generated repeated warnings during the attack window &mdash; including four separate detections of the Mimikatz credential-harvesting tool &mdash; and none of them were acted on. The most serious of the three intrusions maintained persistent access to ACRO's network for approximately seven months, from August 2022 to March 2023. The ICO found that data on nearly 11,000 people was staged for exfiltration, including personal information belonging to survivors of domestic violence who had used ACRO's services for background-check and safeguarding purposes; ACRO separately notified more than 84,000 people who had submitted applications during the vulnerable window. The regulator issued a reprimand rather than a fine. For a legal-sector audience the case is less about a novel attack technique than about what a sustained detection failure looks like from the inside: a known-vulnerable CMS, an ownership gap for patching, and alert fatigue that let confirmed credential-theft tooling run unchallenged for months. The harm profile &mdash; background-check and safeguarding data tied to vulnerable individuals &mdash; is exactly the kind of sensitive record legal-adjacent and justice-system IT environments routinely hold.</p>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>ICO reprimand reported 12 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/uk-criminal-records-office-acro-data-breaches" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <a href="https://news.bloomberglaw.com/business-and-practice/lewis-brisbois-cyberattack-shows-shift-in-big-law-threat" class="source-link" target="_blank" rel="noopener">Read source</a>
-    </div>
 
     <div class="radar-panel">
       <div class="radar-head">Threat Radar</div>
@@ -706,193 +718,369 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-sharepoint"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#it-oracleebs"><circle class="blip crit" cx="237.1" cy="161.5" r="13.5"/><text class="blip-num" style="font-size:12px" x="237.1" y="165.5">2</text></a>
-        <a href="#it-lawvishing"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">6</text></a>
-        <a href="#it-netscaler"><circle class="blip high" cx="266" cy="111.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="266" y="114.4">7</text></a>
-        <a href="#it-bluehammer"><circle class="blip high" cx="287.2" cy="204.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.2" y="207.5">8</text></a>
-        <a href="#it-jadepuffer"><circle class="blip high" cx="227.7" cy="279.1" r="7.8"/><text class="blip-num" style="font-size:7.6px" x="227.7" y="282.1">9</text></a>
+        <a href="#it-acro"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-metabase"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-vcenter"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-copjustice"><circle class="blip high" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
+        <a href="#it-liechtenstein"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
+        <a href="#it-cisco-asa"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
+        <a href="#it-netscaler"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-akira-sonicwall"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-sharepoint"><span class="ld crit"></span><b>1</b> SharePoint RCE (KEV)</a>
-        <a href="#it-oracleebs"><span class="ld crit"></span><b>2</b> Oracle EBS unauth RCE (9.8)</a>
-        <a href="#it-lawvishing"><span class="ld high"></span><b>6</b> Law-firm help-desk vishing</a>
-        <a href="#it-netscaler"><span class="ld high"></span><b>7</b> NetScaler CitrixBleed-pattern</a>
-        <a href="#it-bluehammer"><span class="ld high"></span><b>8</b> Defender &ldquo;BlueHammer&rdquo; EoP</a>
-        <a href="#it-jadepuffer"><span class="ld high"></span><b>9</b> Agentic AI extortion (Sysdig)</a>
+        <a href="#it-acro"><span class="ld high"></span><b>1</b> ACRO two-year detection failure</a>
+        <a href="#it-metabase"><span class="ld crit"></span><b>2</b> Metabase KEV zero-day (10.0)</a>
+        <a href="#it-vcenter"><span class="ld crit"></span><b>3</b> VMware vCenter mass exploitation</a>
+        <a href="#it-copjustice"><span class="ld high"></span><b>4</b> Colombia justice ministry ransomware</a>
+        <a href="#it-liechtenstein"><span class="ld high"></span><b>5</b> Liechtenstein trusts registry breach</a>
+        <a href="#it-cisco-asa"><span class="ld high"></span><b>6</b> Cisco ASA/FTD DoS (KEV)</a>
+        <a href="#it-netscaler"><span class="ld high"></span><b>7</b> NetScaler pre-auth root RCE</a>
+        <a href="#it-akira-sonicwall"><span class="ld high"></span><b>8</b> Akira SonicWall Safe Mode EDR bypass</a>
       </div>
     </div>
 
   </div>
 
+  
+  <div class="section">
+    <div class="section-title">Incidents &amp; Attacks</div>
+    <div class="card-grid">
+<div class="card" id="it-copjustice" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Ransomware disrupts Colombia's Ministry of Justice five days before presidential transition</h3>
+        <p>A ransomware attack struck Colombia's Ministry of Justice on 2 August 2026, encrypting files and disrupting systems used for drug monitoring and legal-case processing. The timing put the incident five days ahead of the country's presidential transition, adding operational pressure to the ministry's response; that timing is noted here only as operational context. Acting Justice Minister Cielo Rusinque said some files were encrypted but that officials had verified no data was captured or exfiltrated &mdash; an assessment that has not been independently confirmed. The attack follows a string of intrusions against Colombian government and critical-infrastructure targets this year, including a March breach at the national tax authority DIAN and a July compromise affecting more than a dozen Ecopetrol subsidiaries; researchers point to Colombian organisations expanding cloud infrastructure faster than their security capabilities as a contributing factor. For legal-sector readers, the case is a reminder that court and justice-ministry IT &mdash; case-management systems, drug-monitoring platforms and the legal-process workflows that depend on them &mdash; sits squarely inside ransomware crews' target set, with downtime landing directly on active legal proceedings.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed ransomware &mdash; no data exfiltration confirmed</span>
+            <span class="ops-tag kev-off">No CVE identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; incident response &amp; recovery</span>
+            <span class="ops-cc"><b>Action:</b> Treat court and justice-ministry case-management and monitoring platforms as high-value ransomware targets; validate offline backups and tested recovery plans for legal-process systems specifically, not just general IT.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Backup &amp; recovery validation for case-management systems &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-copjustice" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-copjustice">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Dark Reading</span>
+          <span class="dot">&bull;</span>
+          <span>Attack 2 Aug 2026 &mdash; reported 12 Aug 2026</span>
+        </div>
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/ransomware-hits-colombian-justice-ministry-presidential-transition" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-copfs" data-published="2026-08-14">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Third-Party Breach</span>
+        </div>
+        <h3>Contractor breach exposes ~300 Crown Office and Procurator Fiscal Service employee records in Scotland</h3>
+        <p>Scotland's Crown Office and Procurator Fiscal Service (COPFS) disclosed on 13 August 2026 that a third-party contractor running a mandatory Data Maturity Assessment for Scottish public bodies suffered a data breach, after suspicious activity was detected on 5 August. Roughly 300 COPFS employees had names, job titles and work email addresses exposed; COPFS says case, victim and witness data was not affected. Because multiple Scottish government agencies use the same contractor for the same assessment programme, the exposure may extend beyond COPFS to other agencies that submitted data through it &mdash; the full scope had not been confirmed as of the report. Security researchers flagged the familiar shape of the problem: point-in-time vendor vetting leaves suppliers unmonitored between assessments, which is exactly the gap this incident exposed. Even limited employee data &mdash; names, roles and email addresses &mdash; is useful reconnaissance for targeted phishing against a prosecution service, where a single compromised account can be a route toward more sensitive systems.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; contractor-side compromise; case/victim data reportedly unaffected</span>
+            <span class="ops-tag kev-off">No CVE identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; vendor risk management</span>
+            <span class="ops-cc"><b>Action:</b> Inventory which contractors and assessment vendors hold employee or matter data on an ongoing basis, not just at onboarding, and confirm what other public-sector clients share that same vendor.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor risk re-assessment &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-copfs" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-copfs">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Dark Reading</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 14 Aug 2026</span>
+        </div>
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/scottish-govt-data-breach-prosecutors-office" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-liechtenstein" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Hackers breach Liechtenstein's foundations and trusts registry, accessing data on ~31,000 entities</h3>
+        <p>Attackers penetrated Liechtenstein's confidential register of foundations and trusts in late July 2026, gaining access to information on roughly 31,000 registered entities. Exposed data reportedly includes beneficial owners' names, dates of birth, nationality and place of residence; the government says no financial data, addresses or phone numbers were accessed. Prime Minister Brigitte Haas said the country will not pay a ransom if one is demanded and that officials are &ldquo;examining various scenarios&rdquo; for how the incident develops. The registry was established in 2021 as part of Liechtenstein's move to comply with international financial-transparency and anti-money-laundering standards after the jurisdiction's history as a low-transparency financial haven. Officials plan to rebuild the registry online, saying continued access for international financial authorities outweighs the risk of a repeat incident. For legal practices doing trust, estate and beneficial-ownership work, or AML/KYC due diligence touching Liechtenstein-registered structures, this is a direct hit on a source register those workflows rely on.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; registry data accessed and exfiltrated</span>
+            <span class="ops-tag kev-off">No CVE identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; registry security &amp; incident response</span>
+            <span class="ops-cc"><b>Action:</b> If your due-diligence or trust/estate workflows rely on Liechtenstein beneficial-ownership data, treat records pulled before the incident as potentially exposed and confirm the registry's status before relying on it for new filings.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Due-diligence data-source review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-liechtenstein" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-liechtenstein">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Insurance Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 17 Aug 2026</span>
+        </div>
+        <a href="https://www.insurancejournal.com/news/international/2026/08/17/881801.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-
-      <div class="card" id="it-jadepuffer">
+<div class="card" id="it-akira-sonicwall" data-published="2026-08-13">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Research</span>
         </div>
-        <h3>Sysdig documents &ldquo;JADEPUFFER&rdquo; &mdash; an extortion attack run end-to-end by an AI agent</h3>
-        <p>Sysdig's Threat Research Team described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. JADEPUFFER exploited a known Langflow RCE (CVE-2025-3248) on an internet-facing instance, then autonomously did recon, stole credentials, established persistence, hit a production database and destroyed data before demanding payment. The tempo is the story.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2025-3248</span>
-          <span>Sysdig TRT / Langflow</span>
+        <h3>Akira affiliate disables EDR by forcing Windows into Safe Mode after breaching a SonicWall VPN without MFA</h3>
+        <p>Huntress documented an Akira ransomware affiliate that gained initial access through an internet-facing SonicWall VPN device with no multi-factor authentication configured, then moved from VPN access to a domain controller via RDP within two hours. The attacker enumerated Active Directory, moved laterally to an application server, and used WinRAR and the s5cmd tool to exfiltrate files to an attacker-controlled S3 bucket before installing AnyDesk for persistent remote access. The notable step: the attacker forced the compromised host into Windows Safe Mode with Networking &mdash; a roughly ten-minute window in which EDR did not run and antivirus was blind &mdash; and added AnyDesk to the Safe Mode registry so remote access would survive a reboot. When the attacker tried to run the Akira encryptor payload inside Safe Mode, it failed for insufficient virtual memory, so the intrusion ended in data theft without encryption, but the attacker still had credentials and files to extort with, all inside about five hours. Huntress recommends MFA on every VPN account and monitoring for unexpected Safe Mode configuration changes. Professional-services networks, including law firms, are a standard target for remote-access-first ransomware playbooks like this one, and unauthenticated or single-factor VPN access remains the most common way in.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed technique &mdash; Akira affiliate; encryption failed, data still stolen</span>
+            <span class="ops-tag kev-off">TTP, not a specific CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; configuration &amp; EDR-tamper detection</span>
+            <span class="ops-cc"><b>Action:</b> Require MFA on every remote-access VPN account without exception, and add detection for hosts booting into or reconfigured for Safe Mode with Networking outside a change window.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> VPN MFA enforcement review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-akira-sonicwall" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-akira-sonicwall">Open</button>
+          </div>
         </div>
         <div class="card-meta">
-          <span>Sysdig TRT / The Hacker News</span>
+          <span>Huntress / BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Reported 2&ndash;3 Jul 2026</span>
+          <span>Reported 13 Aug 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/akira-hackers-disable-edr-with-safe-mode-steal-data-but-fail-to-encrypt/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-cityforum" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>&ldquo;City-Forum&rdquo; actor spends over a year scraping data through misconfigured Salesforce and ServiceNow guest portals</h3>
+        <p>Researchers describe a financially motivated actor, tracked via infrastructure linked to a domain associated with it since March 2025, that has spent more than a year abusing overly permissive guest-user access on Salesforce Experience Cloud and ServiceNow Service Portal sites to enumerate and bulk-extract customer records. On Salesforce the technique targets the Aura framework and newer Lightning Web Runtime sites through their public-facing configuration and GraphQL endpoints; on ServiceNow it abuses a search endpoint that accepts anonymous requests when guest access is enabled. This is a configuration-abuse campaign, not a vulnerability being exploited &mdash; the sites are working as configured, just configured too permissively. Confirmed targets reported so far span telecommunications, banking and financial services, enterprise software vendors, and public-sector portals; activity was described as still running and climbing in volume as of the report, with no legal-sector victim named. Many law firms run Salesforce- or ServiceNow-based client-intake and matter portals with guest or unauthenticated access enabled by design, which makes this exactly the kind of configuration review worth running even absent a confirmed legal-sector victim.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; active, ongoing campaign; no legal-sector victim confirmed yet</span>
+            <span class="ops-tag kev-off">Configuration abuse, not a CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; guest-access configuration review</span>
+            <span class="ops-cc"><b>Action:</b> Audit guest-user sharing rules on any Salesforce Experience Cloud or ServiceNow Service Portal site used for client intake, and restrict object and field visibility to only what an unauthenticated visitor needs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Guest-access configuration audit &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cityforum" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cityforum">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 12 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/city-forum-data-theft-attacks-target-salesforce-servicenow-portals/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-
-      <div class="card" id="it-sharepoint">
+<div class="card" id="it-metabase" data-published="2026-08-11">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>On-prem SharePoint RCE in CISA KEV &mdash; tied to Warlock ransomware</h3>
-        <p>CISA added CVE-2026-45659, a remote-code-execution flaw in on-prem Microsoft SharePoint Server (CVSS 8.8, untrusted-data deserialization), to its KEV catalog on 1 July after confirming active exploitation, with a federal remediation deadline of 4 July. An authenticated user with only Site Member rights can run code; Microsoft rated it &ldquo;less likely&rdquo; when patching in May, and Storm-2603 (Warlock ransomware) has exploited on-prem SharePoint since 2025.</p>
+        <h3>Metabase hits CISA KEV after zero-day exploitation &mdash; a direct hit on matter and billing analytics stacks</h3>
+        <p>CVE-2026-72898 (CVSS 10.0) is an unauthenticated SQL injection in Metabase's /reset_password endpoint that grants full administrative access. CISA added it to the Known Exploited Vulnerabilities catalog on 11 August 2026 with a federal remediation deadline of 14 August, after confirming it was exploited as a zero-day before a patch existed. It affects open-source Metabase 0.58.0 through 0.63.x before 0.63.5 and Enterprise 1.58.0 through 1.63.x before 1.63.5. Confirmed victims include laptop maker Framework, whose full customer base had names, emails, addresses, phone numbers and billing information exposed, and ShipMonk, Trezor's fulfilment partner, affecting roughly 13,689 Trezor customers (no seed phrases or keys). Metabase is a common choice for firms building self-service dashboards over matter, billing and time-and-expense data, often connected directly to case-management or financial databases &mdash; an admin-takeover flaw in that layer exposes exactly the analytics most legal operations teams have built without formal IT sign-off.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-45659</span>
-          <span>CISA KEV / Microsoft</span>
+          <span class="cve-badge">CVE-2026-72898</span>
+          <span>Metabase / CISA KEV</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-confirmed; Warlock/Storm-2603 nexus</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited as a zero-day before a patch existed</span>
+            <span class="ops-tag kev-on">In CISA KEV (11 Aug 2026)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint update to all on-prem farms, restrict Site Member+ access, and hunt for web shells and anomalous SharePoint process activity.</span>
+            <span class="ops-tag patch-yes">Patch available (0.63.5 / Enterprise 1.63.5)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every Metabase instance touching matter, billing or client data &mdash; including ones stood up informally by an operations or finance team &mdash; and patch or take internet-facing instances offline immediately.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24&ndash;72h (KEV, active RCE, ransomware nexus)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sharepoint">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or isolate &mdash; 24&ndash;72h (KEV, CVSS 10, zero-day exploited)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-metabase" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-metabase">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV / BleepingComputer</span>
+          <span>BleepingComputer / CISA KEV</span>
           <span class="dot">&bull;</span>
-          <span>KEV-added 1 Jul 2026 &mdash; exploitation ongoing</span>
+          <span>KEV-added 11 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-oracleebs">
+      <div class="card" id="it-vcenter" data-published="2026-08-07">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Oracle E-Business Suite unauth takeover flaw exploited &mdash; ~950 instances exposed</h3>
-        <p>CVE-2026-46817 (CVSS 9.8) in the File Transmission component of Oracle Payments within E-Business Suite lets an unauthenticated attacker with HTTP access take over systems via a low-complexity attack. Researchers reported the first honeypot exploitation attempts, and Shadowserver tracks roughly 950 EBS instances exposed online. Oracle fixed it in the May 2026 Critical Patch Update.</p>
+        <h3>Suspected China-nexus actor exploits VMware vCenter flaw at scale &mdash; 361 victim IPs across 47 countries</h3>
+        <p>CVE-2026-59310 (CVSS 9.8) is a critical directory-traversal flaw in the vCenter Server syslog service that allows unauthenticated remote code execution as root. Broadcom patched it 29 July 2026; DFIR firm QUIRSO observed first contact with attacker infrastructure on 3 August, and by 7 August had counted 361 distinct victim IP addresses across 47 countries, concentrated in Germany, the United States, Turkey, Iran and France. The attack chain uses the path-traversal flaw, then a malicious cron job for persistence, then the open-source reverse_ssh framework for command and control. QUIRSO assesses with moderate confidence &mdash; based on Chinese-language artifacts in attacker scripts and activity aligned with UTC+8 working hours &mdash; that a China-nexus operator is behind the campaign, which has deployed a Babuk-derived ransomware variant on ESXi hosts that researchers believe may be a smokescreen for deeper intrusion rather than the actual goal. The flaw is not yet in CISA KEV. vCenter runs the virtualization management plane for most enterprise environments &mdash; guest VMs, datastores and, in many deployments, backup infrastructure &mdash; so a law firm or legal-services provider running its own virtualized case-management, document-management or e-discovery environment on vCenter is directly in scope.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-46817</span>
-          <span>Oracle / Shadowserver</span>
+          <span class="cve-badge">CVE-2026-59310</span>
+          <span>Broadcom / QUIRSO</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; first exploitation attempts observed</span>
-            <span class="ops-tag kev-off">Unauthenticated RCE (CVSS 9.8)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361 victim IPs across 47 countries as of 7 Aug</span>
+            <span class="ops-tag kev-off">Not yet in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Oracle, May 2026 CPU)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 Oracle CPU, remove internet exposure of EBS, and hunt for takeover indicators.</span>
+            <span class="ops-tag patch-yes">Patch available (vCenter 9.1.0.0300, 9.0.2.0100, fixed 8.0 U3/U2)</span>
+            <span class="ops-cc"><b>Action:</b> Patch vCenter Server to a fixed build immediately, and if not already patched, hunt for unexpected cron jobs and reverse_ssh binaries or connections rather than assuming it's too late to matter.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> EBS patch &amp; exposure review &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracleebs" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oracleebs">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24&ndash;72h (unauthenticated root RCE, active exploitation)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vcenter" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-vcenter">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / Shadowserver</span>
+          <span>The Hacker News / BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation attempts reported early Jul 2026</span>
+          <span>Reported 7 Aug 2026, exploitation ongoing</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-netscaler">
+      <div class="card" id="it-cisco-asa" data-published="2026-08-11">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>&ldquo;CitrixBleed 2&rdquo;: NetScaler memory-overread exploited within 24h of disclosure</h3>
-        <p>CVE-2026-8451, an unauthenticated out-of-bounds read in Citrix NetScaler ADC/Gateway configured as a SAML IdP, leaks memory that can expose session tokens. Citrix patched it 30 June; researchers saw in-the-wild exploitation within a day and dozens of attacking IPs by day four. Patch to 14.1-72.61 / 13.1-63.18.</p>
+        <h3>Cisco ASA/FTD remote-access flaw crashes firewalls in the wild &mdash; added to CISA KEV</h3>
+        <p>CVE-2026-20349 (CVSS 8.6) is an insufficient-error-checking flaw in Cisco Secure Firewall ASA and Firepower Threat Defense that lets an unauthenticated attacker crash the device with a crafted HTTP request where remote-access services are enabled and SSL listen sockets are exposed. Cisco published the advisory on 11 August 2026 and confirmed exploitation attempts in the wild; CISA added it to KEV the same day with a federal remediation deadline of 14 August. Affected trains span ASA 9.16 through 9.24 and FTD 7.0 through 10.0. Hotfixes are available and Cisco states there is no workaround. ASA/FTD devices are a common choice for law-firm remote-access VPNs and perimeter firewalls; a denial-of-service flaw here is an availability problem on the exact path attorneys, paralegals and litigation-support staff use to reach case files remotely.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8451</span>
+          <span class="cve-badge">CVE-2026-20349</span>
+          <span>Cisco PSIRT / CISA KEV</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco-confirmed exploitation attempts</span>
+            <span class="ops-tag kev-on">In CISA KEV (11 Aug 2026)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Hotfixes available &mdash; no workaround</span>
+            <span class="ops-cc"><b>Action:</b> Patch internet-facing ASA/FTD pairs first, and confirm failover behavior actually holds if the primary is crashed mid-business-day.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch internet-facing devices &mdash; 24&ndash;72h (KEV, exploited)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-asa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-asa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco / BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory &amp; KEV addition 11 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisco-warns-of-asa-and-ftd-vpn-flaw-exploited-to-crash-devices/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-netscaler" data-published="2026-08-14">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Pre-auth NetScaler heap overflow gives unauthenticated root RCE &mdash; public PoC, no confirmed exploitation yet</h3>
+        <p>CVE-2026-8452 is a pre-authentication heap overflow in Citrix NetScaler ADC/Gateway's SAML signature canonicalization that researchers at watchTowr showed can be turned into unauthenticated root remote code execution &mdash; crafting an oversized attribute inside the SAML SignedInfo element to corrupt memory, overwrite a function pointer and redirect execution to attacker shellcode. watchTowr published a detailed technical writeup on 14 August 2026. Citrix has fixed the issue in NetScaler 14.1-72.61 and 13.1-63.18. As of this writing there is a public proof of concept but no confirmed in-the-wild exploitation, which distinguishes it from the actively-exploited flaws elsewhere on this page &mdash; but NetScaler's history with prior SAML and gateway flaws being weaponized quickly means that gap is not expected to last. Law firms running NetScaler as a remote-access gateway or SSO front door should treat this as a near-term patch, not a routine one.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-8452</span>
           <span>Citrix / watchTowr</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited &lt;24h after disclosure</span>
-            <span class="ops-tag kev-off">Edge / remote-access gateway</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC &mdash; no confirmed in-the-wild exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Citrix, 30 Jun 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Patch NetScaler to fixed builds, terminate and rotate sessions, and review for token theft and session hijacking.</span>
+            <span class="ops-tag patch-yes">Patch available (14.1-72.61 / 13.1-63.18)</span>
+            <span class="ops-cc"><b>Action:</b> Patch NetScaler ADC/Gateway now, ahead of confirmed exploitation, and review SAML IdP configuration for exposure to the affected code path.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge patch &amp; session rotation &mdash; 48h</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Edge patch &mdash; 7 days (pre-auth root RCE, public PoC)</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-netscaler" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-netscaler">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CyberScoop / watchTowr</span>
+          <span>watchTowr Labs</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 30 Jun 2026 &mdash; exploitation ongoing</span>
+          <span>Analysis published 14 Aug 2026</span>
         </div>
-        <a href="https://cyberscoop.com/citrix-netscaler-flaw-cve-2026-8451-citrixbleed/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-bluehammer">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>&ldquo;BlueHammer&rdquo;: ransomware gangs exploit a Microsoft Defender privilege-escalation flaw</h3>
-        <p>CVE-2026-33825, a Microsoft Defender privilege-escalation flaw dubbed BlueHammer, was leaked with PoC code in early April and has since been folded into ransomware playbooks and added to CISA's KEV. Because it abuses a component on essentially every Windows endpoint, it is an attractive local-escalation step after initial access.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-33825</span>
-          <span>Microsoft / CISA KEV</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited by ransomware gangs; public PoC since April</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Microsoft)</span>
-            <span class="ops-cc"><b>Action:</b> Deploy the Microsoft update across the estate, prioritize high-value and internet-adjacent systems, and hunt for the PoC behavior and unexpected privilege changes.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch rollout &mdash; 7 days (KEV, ransomware use, ubiquitous component)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bluehammer" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-bluehammer">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / CISA</span>
-          <span class="dot">&bull;</span>
-          <span>PoC leaked Apr 2026 &mdash; ransomware use since</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
+
+  <div class="section">
+    <div class="section-title">Regulation &amp; Policy</div>
+    <div class="card-grid">
+<div class="card" id="it-foxroth" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Litigation</span>
+        </div>
+        <h3>Fox Rothschild ransomware class action expands with a CCPA subclass</h3>
+        <p>A California resident moved on 11 August 2026 to add a California Consumer Privacy Act claim to an existing federal class action filed in June against law firm Fox Rothschild LLP over the Silent Ransom Group ransomware attack on the firm. The motion seeks to represent affected California residents within the broader, previously-filed suit. This is a litigation development, not a new intrusion &mdash; but it is a live example of how a single ransomware incident against a law firm keeps generating fresh legal exposure months later, as plaintiffs' counsel layer state-specific privacy claims onto the original breach litigation.</p>
+        <div class="card-meta">
+          <span>Law360</span>
+          <span class="dot">&bull;</span>
+          <span>Motion filed 11 Aug 2026</span>
+        </div>
+        <a href="https://www.law360.com/articles/2512154/calif-subclass-added-to-fox-rothschild-data-breach-suit" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-chcmdl" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-info">Policy</span>
+          <span class="category">Litigation</span>
+        </div>
+        <h3>Change Healthcare MDL judge imposes strict new rules on handling the stolen dataset</h3>
+        <p>The federal judge overseeing multidistrict litigation from the 2024 Change Healthcare ransomware breach approved a court order, reported 11 August 2026, setting out seven security rules governing how the stolen dataset can be used during the case. UnitedHealth may hand over only one copy of the full dataset, on an encrypted drive with the password transmitted separately; recipients must re-encrypt it and may only access it from computers fully disconnected from any network, with Wi-Fi and Bluetooth disabled. No complete copies may be made &mdash; only samples of 25 or fewer individuals&rsquo; records, under matching protections &mdash; every transfer must be logged, security incidents reported within two days, and all copies destroyed within 30 days of the case's conclusion. The data cannot be used to recruit additional plaintiffs. For legal-sector readers this is a concrete, court-imposed template for how breach-derived datasets should be handled inside litigation and e-discovery workflows &mdash; a live example of courts, not just regulators, imposing security obligations directly on how firms manage sensitive litigation data.</p>
+        <div class="card-meta">
+          <span>Becker's Hospital Review</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 11 Aug 2026</span>
+        </div>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/judge-locks-down-stolen-change-healthcare-data-7-new-security-rules/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
 
   <!-- FOOTER -->
   <div class="footer">
@@ -972,6 +1160,16 @@
     });
   }
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

@@ -624,14 +624,14 @@
       <h1>Free IT Cybersecurity Threat Intel You Can Use</h1>
       <div class="header-sub">What's hitting enterprise IT right now &mdash; and how would you stop it?</div>
       <div class="header-meta">
-        <span>Generated Sat, 04 Jul 2026, 7:30 PM ET</span>
+        <span>Generated Mon, 17 Aug 2026, 8:37 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Enterprise IT &amp; Security</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
-      <strong>5</strong> categories
+      <strong>17</strong> stories across
+      <strong>4</strong> categories
     </div>
   </div>
 
@@ -654,16 +654,28 @@
   body.dark .tl-why{color:#cbd5e1;}
   body.dark .tl-why b{color:#e2e8f0;}
   body.dark .tl-marker{background:#0f172a;}
+  
+  /* NEW badge - brand-new items, auto-expiring after 72h (client-side, self-expiring) */
+  .card, .top-story { position: relative; }
+  .new-badge{position:absolute;top:-9px;right:-6px;display:inline-flex;align-items:center;gap:3px;
+    padding:3px 9px 3px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(90deg,#dc2626,#f97316);
+    box-shadow:0 2px 6px rgba(220,38,38,.35);animation:newpulse 1.9s ease-in-out infinite;z-index:3;}
+  .new-badge svg{width:10px;height:10px;}
+  @keyframes newpulse{0%,100%{transform:scale(1);box-shadow:0 2px 6px rgba(220,38,38,.35);}
+    50%{transform:scale(1.06);box-shadow:0 3px 11px rgba(249,115,22,.55);}}
+  body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
+  @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for enterprise IT, weighted across widely-deployed business software and services. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High and Critical require a significant issue actively impacting a large portion of IT environments (widespread in-the-wild exploitation of ubiquitous software, or a broad supply-chain compromise); multiple discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
-      <div class="tl-why"><b>Why:</b> A high-tempo exploitation week across widely-deployed enterprise software. CISA added an on-prem Microsoft SharePoint Server RCE (CVE-2026-45659) to its KEV catalog with a federal remediation deadline and a Warlock-ransomware nexus (see top story), while several other actively-exploited flaws hit ubiquitous business systems: an unauthenticated Oracle E-Business Suite takeover flaw exploited against ~950 internet-exposed instances, a Splunk Enterprise flaw under a CISA patch-by-Sunday order, a &ldquo;CitrixBleed-pattern&rdquo; NetScaler flaw exploited within 24 hours of disclosure, a SimpleHelp RMM auth-bypass dropping stealer malware, and a confirmed Cisco Unified CM SSRF. A major manufacturing ransomware incident (Foxconn / Nitrogen, ~8TB claimed) and the first extortion case run end-to-end by an autonomous AI agent (Sysdig&rsquo;s JADEPUFFER) round out the week. This sits in upper Medium, not High: several flaws are under active exploitation, but they are discrete patch-and-hunt exposures and single-organization incidents rather than one significant issue impacting a large portion of IT environments at once &mdash; the bar for High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:67%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.7 sits at the very top of Medium, and the score is a discipline call as much as a measurement. This was an unusually dense week of DISCRETE active exploitation: VMware vCenter went from patch to 361 confirmed victim IPs in 47 countries in five days (top story); Metabase was exploited as a zero-day with two confirmed downstream breaches (Framework, ShipMonk/Trezor); SAP Commerce Cloud and macOS Screen Sharing were each hit within days of their fixes shipping; a Windows local privilege-escalation zero-day was exploited by Lazarus; and Cl0p&rsquo;s Windchill campaign added a confirmed Philips victim on top of dozens of claimed ones. Any one of these would be a normal Medium week; six or seven stacked together reads, at a glance, like it should be worse than Medium. It is not, by design: the calibration&rsquo;s no-advisory-stacking rule holds that discrete, actively-exploited flaws and single-org incidents do not aggregate into High no matter how many pile up in one window &mdash; each is still a bounded patch-and-hunt problem, not one issue compromising a large share of IT environments at once. What would move this into High is a single development: confirmation that one flaw &mdash; vCenter is the clearest candidate given its scale and the virtualization control plane it owns &mdash; is being used for mass, coordinated follow-on compromise across a large share of affected organisations simultaneously, rather than opportunistic, victim-by-victim exploitation. Short of that, this stays pinned at the top of Medium.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -672,36 +684,36 @@
   <div class="hero">
 
     <!-- TOP STORY -->
-    <div class="top-story" id="it-sharepoint">
-      <span class="top-story-pill">Top Story</span>
-      <h2>On-prem SharePoint RCE lands in CISA KEV with a federal deadline of today &mdash; and it's already tied to Warlock ransomware</h2>
-      <p>CISA added CVE-2026-45659, a remote-code-execution flaw in on-premises Microsoft SharePoint Server (CVSS 8.8, caused by deserialization of untrusted data), to its Known Exploited Vulnerabilities catalog on 1 July after confirming active exploitation, with a federal remediation deadline of today, 4 July. The bug lets an authenticated user holding only Site Member permissions run code on the server &mdash; and notably Microsoft rated exploitation &ldquo;less likely&rdquo; when it shipped the fix in May 2026, so any organization that deprioritized it on that basis should re-rank it now. On-prem SharePoint is a workhorse intranet and document store across enterprises, and Storm-2603 &mdash; the actor behind Warlock ransomware &mdash; has been exploiting on-prem SharePoint since mid-2025, making this a ransomware precursor rather than a theoretical risk. Apply the May 2026 SharePoint update immediately, restrict and monitor authenticated access, and hunt every internet-reachable farm for web shells and anomalous SharePoint process activity.</p>
-      <div class="card-meta">
-        <span class="cve-badge">CVE-2026-45659</span>
-        <span>CISA KEV / Microsoft</span>
-      </div>
-      <div class="ops-strip">
-        <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-confirmed exploitation; Storm-2603 / Warlock ransomware nexus</span>
-          <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline TODAY, 4 Jul 2026</span>
+    <div class="top-story" id="it-vcenter" data-published="2026-08-13">
+        <span class="top-story-pill">Top Story</span>
+        <h2>Attackers went global on VMware vCenter within days of the patch &mdash; 361 victim IPs across 47 countries, with reverse_ssh left behind on the virtualization control plane</h2>
+        <p>A critical directory-traversal flaw in the VMware vCenter Server syslog service, CVE-2026-59310 (CVSS 9.8), gives an unauthenticated attacker remote code execution, and it is now being exploited at scale. Broadcom shipped fixes on 29&nbsp;July 2026; DFIR firm QUIRSO recorded first contact with attacker-controlled infrastructure on 3&nbsp;August, just five days later, and had counted 361 distinct victim IP addresses across 47 countries by 7&nbsp;August, concentrated heavily in Germany, the United States, Turkey, Iran and France. The observed intrusion chain runs from path-traversal activity consistent with the flaw, to a malicious cron job for persistence, to deployment of the open-source reverse_ssh framework to hold a covert command-and-control channel. Researchers assess with moderate confidence that a suspected China-nexus operator is behind the activity and is dropping a Babuk-derived ransomware variant, which some believe functions as a smokescreen for deeper, quieter intrusion rather than as the actual goal &mdash; that attribution and motive are assessed, not confirmed. vCenter is the management plane for the virtualization estate: whoever controls it can typically reach every guest VM, every datastore and, in most environments, the backup infrastructure too, which is exactly why it is such a high-value target. The flaw is not yet listed in CISA's Known Exploited Vulnerabilities catalog as of this edition despite the scale of observed exploitation. Fixed builds are vCenter 9.1.0.0300, 9.0.2.0100, and the patched 8.0 U3 and U2 lines. Any organisation running an internet- or broadly-network-reachable vCenter instance that was not patched by early August should assume compromise is possible and hunt accordingly, not merely patch and move on.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-59310</span>
+          <span>Broadcom / VMware &bull; QUIRSO research</span>
         </div>
-        <div class="ops-row">
-          <span class="ops-tag patch-yes">Patch available (Microsoft, May 2026)</span>
-          <span class="ops-cc"><b>Action:</b> Apply the May 2026 SharePoint Server update to all on-prem farms now, review and restrict authenticated (Site Member+) access, hunt for web shells and anomalous SharePoint process activity, and isolate exposed farms from sensitive file shares and identity systems.</span>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361 victim IPs across 47 countries observed by QUIRSO; suspected China-nexus operator, moderate-confidence attribution</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patch available &mdash; Broadcom, 29 Jul 2026 (9.1.0.0300 / 9.0.2.0100 / fixed 8.0 U3, U2 builds)</span>
+            <span class="ops-cc"><b>Action:</b> Patch vCenter immediately, then treat any instance exposed between 29&nbsp;Jul and patch time as potentially compromised: hunt for rogue cron entries, reverse_ssh binaries, unexpected outbound SSH sessions and unfamiliar processes on the appliance. Remove vCenter and its syslog service from any untrusted network, rotate vCenter and SSO credentials, and confirm backup infrastructure is logically isolated from the vSphere management plane.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise sweep &mdash; 24h (unauth RCE, CVSS 9.8, mass exploitation of the virtualization control plane)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vcenter" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-vcenter">Open</button>
+          </div>
         </div>
-        <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (KEV, active RCE, ransomware nexus, deadline today)</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="it-sharepoint">Open</button>
+        <div class="card-meta">
+          <span>The Hacker News / BleepingComputer (QUIRSO research)</span>
+          <span class="dot">&bull;</span>
+          <span>Patched 29 Jul 2026; exploitation observed from 3 Aug; reported 13 Aug 2026</span>
         </div>
+        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card-meta">
-        <span>CISA KEV / BleepingComputer</span>
-        <span class="dot">&bull;</span>
-        <span>KEV-added 1 Jul 2026 &mdash; federal deadline today, 4 Jul 2026; exploitation ongoing</span>
-      </div>
-      <a href="https://www.bleepingcomputer.com/news/security/cisa-microsoft-sharepoint-rce-flaw-now-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
-    </div>
 
     <!-- RADAR -->
     <div class="radar-panel">
@@ -731,35 +743,27 @@
         <text class="ring-label" x="180" y="77">High</text>
 
         <!-- Critical blips (inner ring, r=60) ranked 1-5, descending size -->
-        <a href="#it-sharepoint"><circle class="blip crit" cx="180" cy="120" r="15"/><text class="blip-num" style="font-size:13px" x="180" y="124.5">1</text></a>
-        <a href="#it-oracleebs"><circle class="blip crit" cx="237.1" cy="161.5" r="13.5"/><text class="blip-num" style="font-size:12px" x="237.1" y="165.5">2</text></a>
-        <a href="#it-kemp"><circle class="blip crit" cx="215.3" cy="228.5" r="12"/><text class="blip-num" style="font-size:11px" x="215.3" y="232.5">3</text></a>
-        <a href="#it-simplehelp"><circle class="blip crit" cx="144.7" cy="228.5" r="10.5"/><text class="blip-num" style="font-size:10px" x="144.7" y="232.1">4</text></a>
-        <a href="#it-splunk"><circle class="blip crit" cx="122.9" cy="161.5" r="9.5"/><text class="blip-num" style="font-size:9.5px" x="122.9" y="164.8">5</text></a>
-
-        <!-- High blips (outer ring, r=110) ranked 6-12, descending size -->
-        <a href="#it-netscaler"><circle class="blip high" cx="180" cy="70" r="9"/><text class="blip-num" style="font-size:8.5px" x="180" y="73">6</text></a>
-        <a href="#it-ucm"><circle class="blip high" cx="266" cy="111.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="266" y="114.4">7</text></a>
-        <a href="#it-bluehammer"><circle class="blip high" cx="287.2" cy="204.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.2" y="207.5">8</text></a>
-        <a href="#it-fortibleed"><circle class="blip high" cx="227.7" cy="279.1" r="7.8"/><text class="blip-num" style="font-size:7.6px" x="227.7" y="282.1">9</text></a>
-        <a href="#it-jadepuffer"><circle class="blip high" cx="132.3" cy="279.1" r="7.4"/><text class="blip-num" style="font-size:7.2px" x="132.3" y="281.9">10</text></a>
-        <a href="#it-foxconn"><circle class="blip high" cx="72.8" cy="204.5" r="7"/><text class="blip-num" style="font-size:7px" x="72.8" y="207.2">11</text></a>
-        <a href="#it-ransomfeud"><circle class="blip high" cx="94" cy="111.4" r="6.7"/><text class="blip-num" style="font-size:6.6px" x="94" y="113.9">12</text></a>
+        <a href="#it-vcenter"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
+        <a href="#it-metabase"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-sapcommerce"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-clop-windchill"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
+        <a href="#it-macosvnc"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
+        <a href="#it-npmkeyv"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
+        <a href="#it-anmed"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-ringcentral"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
+        <a href="#it-patchtuesday"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
       </svg>
 
       <div class="radar-legend">
-        <a href="#it-sharepoint"><span class="ld crit"></span><b>1</b> SharePoint RCE (KEV, today)</a>
-        <a href="#it-oracleebs"><span class="ld crit"></span><b>2</b> Oracle EBS unauth RCE (9.8)</a>
-        <a href="#it-kemp"><span class="ld crit"></span><b>3</b> Kemp LoadMaster pre-auth RCE</a>
-        <a href="#it-simplehelp"><span class="ld crit"></span><b>4</b> SimpleHelp RCE (KEV, 10.0)</a>
-        <a href="#it-splunk"><span class="ld crit"></span><b>5</b> Splunk file-write (exploited)</a>
-        <a href="#it-netscaler"><span class="ld high"></span><b>6</b> NetScaler CitrixBleed-pattern</a>
-        <a href="#it-ucm"><span class="ld high"></span><b>7</b> Cisco Unified CM SSRF</a>
-        <a href="#it-bluehammer"><span class="ld high"></span><b>8</b> Defender &ldquo;BlueHammer&rdquo; EoP</a>
-        <a href="#it-fortibleed"><span class="ld high"></span><b>9</b> Fortinet &ldquo;FortiBleed&rdquo; wave</a>
-        <a href="#it-jadepuffer"><span class="ld high"></span><b>10</b> Agentic AI extortion (Sysdig)</a>
-        <a href="#it-foxconn"><span class="ld high"></span><b>11</b> Foxconn ransomware (Nitrogen)</a>
-        <a href="#it-ransomfeud"><span class="ld high"></span><b>12</b> Ransomware groups feud</a>
+        <a href="#it-vcenter"><span class="ld crit"></span><b>1</b> vCenter RCE exploited globally</a>
+        <a href="#it-metabase"><span class="ld crit"></span><b>2</b> Metabase zero-day, confirmed victims</a>
+        <a href="#it-sapcommerce"><span class="ld crit"></span><b>3</b> SAP Commerce Cloud mass exposure</a>
+        <a href="#it-clop-windchill"><span class="ld crit"></span><b>4</b> Cl0p Windchill extortion campaign</a>
+        <a href="#it-macosvnc"><span class="ld crit"></span><b>5</b> macOS Screen Sharing cryptomining</a>
+        <a href="#it-npmkeyv"><span class="ld high"></span><b>6</b> npm keyv supply-chain worm</a>
+        <a href="#it-anmed"><span class="ld high"></span><b>7</b> AnMed ransomware, Facebook hijack</a>
+        <a href="#it-ringcentral"><span class="ld high"></span><b>8</b> RingCentral breach, 1.6M accounts</a>
+        <a href="#it-patchtuesday"><span class="ld high"></span><b>9</b> Windows zero-day, Lazarus-linked</a>
       </div>
     </div>
 
@@ -770,482 +774,551 @@
     <div class="section-title">Trends</div>
     <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
     <div class="trends-strip">
-
-      <div class="trend">
-        <span class="trend-tag">Ransomware</span>
-        <b class="trend-head">Manufacturing is the No. 1 ransomware target</b>
-        <p>New victim-count data pins manufacturing as the most heavily targeted sector for ransomware &mdash; with nearly 70% more victims than the next-most-targeted industry &mdash; and the week's marquee case fits: the Nitrogen group claimed a Foxconn North America intrusion with roughly 8TB and 11M+ files exfiltrated.</p>
-        <a href="https://www.darkreading.com/cyberattacks-data-breaches/foxconn-attack-manufacturing-cyber-crisis" class="source-link" target="_blank" rel="noopener">Dark Reading</a>
+<div class="trend">
+        <span class="trend-tag">Attack Path</span>
+        <b class="trend-head">The patch window is now measured in days, not months</b>
+        <p>Three separate cases this window: VMware vCenter went from fix to global exploitation in five days, SAP Commerce Cloud drew honeypot hits within three days of its patch, and GeoServer saw internet-wide probing within hours of disclosure &mdash; before its patch even shipped. Monthly patch cycles and change-approval boards were not built for this cadence; internet-facing systems increasingly need emergency-change paths that can move in hours.</p>
+        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">Edge Exploits</span>
-        <b class="trend-head">Disclosure-to-exploitation measured in hours</b>
-        <p>The pattern held all week: a new CitrixBleed-style NetScaler flaw drew in-the-wild exploitation under 24 hours after disclosure, Kemp LoadMaster attempts followed a public PoC, and honeypots caught attackers probing a fresh unauthenticated Oracle E-Business Suite bug within days &mdash; internet-facing edge, remote-access and ERP gear must be patched at emergency speed.</p>
-        <a href="https://www.bleepingcomputer.com/news/security/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
+        <span class="trend-tag">Exposure</span>
+        <b class="trend-head">Discrete, not systemic &mdash; but the discrete list keeps growing</b>
+        <p>This window&rsquo;s exploitation is unusually dense but stays discrete: vCenter, Metabase, SAP Commerce Cloud, Adobe Commerce and macOS Screen Sharing are each their own patch-and-hunt exposure with its own confirmed victims, rather than one issue compromising a broad swath of IT environments simultaneously. That distinction is exactly what keeps the overall threat level in Medium rather than High under a no-advisory-stacking standard &mdash; but it also means defenders cannot rely on a single fix to cover the week; each item needs its own response.</p>
+        <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
       </div>
 
       <div class="trend">
-        <span class="trend-tag">AI Threats</span>
-        <b class="trend-head">Autonomous AI-agent intrusions arrive</b>
-        <p>Sysdig documented &ldquo;JADEPUFFER,&rdquo; what it calls the first extortion attack run end-to-end by an AI agent &mdash; exploiting a known Langflow RCE, then pivoting, stealing credentials and destroying data with no human at the keyboard &mdash; sharpening the debate over what machine-speed attack tempo means for defenders (see Threat Intelligence &amp; Research).</p>
-        <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+        <span class="trend-tag">Tradecraft</span>
+        <b class="trend-head">Data theft, not encryption, is doing the extortion work</b>
+        <p>Cl0p&rsquo;s Windchill campaign, the RingCentral breach and the Metabase-driven Framework and Trezor incidents all lean on stolen data and public pressure rather than confirmed operational encryption. AnMed&rsquo;s ransomware group went further, hijacking the hospital&rsquo;s own Facebook page to publicize demands mid-incident. Expect extortion crews to keep optimizing for reputational pressure over technical disruption, which changes what incident-response communications planning needs to cover.</p>
+        <a href="https://therecord.media/ransomware-group-hijacks-hospital-facebook-amid-cyberattack-response" class="source-link" target="_blank" rel="noopener">The Record</a>
       </div>
-
-      <div class="trend">
-        <span class="trend-tag">Ransomware Ops</span>
-        <b class="trend-head">Even the ransomware crews are fighting each other</b>
-        <p>After being leaked, KryBit breached and exfiltrated rival crew 0APT's own infrastructure, listed them as a victim and taunted &ldquo;next time, don't play with the big boys&rdquo; &mdash; a reminder that the extortion ecosystem is crowded, unstable and increasingly cannibalistic, which occasionally spills victim data into public view.</p>
-        <a href="https://www.darkreading.com/threat-intelligence/feuding-ransomware-groups-leak-data" class="source-link" target="_blank" rel="noopener">Dark Reading</a>
-      </div>
-
     </div>
   </div>
 
   <!-- SECTION: Incidents & Attacks -->
+  
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-
-      <div class="card" id="it-foxconn">
+<div class="card" id="it-clop-windchill" data-published="2026-08-14">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-critical">Critical</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Foxconn's North America factories hit &mdash; Nitrogen ransomware claims 8TB and 11M+ files exfiltrated</h3>
-        <p>Some of Foxconn's North America factories suffered a cyberattack, and the Nitrogen ransomware group claimed credit on its leak site, asserting it had exfiltrated more than 11 million files &mdash; roughly 8TB of data. The incident lands as fresh data shows manufacturing is the most-targeted ransomware sector by a wide margin, underscoring that plant IT (ERP, file shares, engineering data) is squarely in extortion crews' sights. Manufacturers should validate backups and segmentation, review data-exfiltration monitoring, and confirm incident-response and negotiation playbooks are ready.</p>
+        <h3>Cl0p&rsquo;s PTC Windchill extortion campaign lists dozens of victims &mdash; only Philips has confirmed a breach so far</h3>
+        <p>An affiliate exploiting CVE-2026-12569, an unauthenticated deserialization flaw in PTC Windchill (CVSS 9.3), chained it with a pre-authentication information-disclosure bug in FlexPLM and a Windchill login-servlet flaw to reach remote code execution and drop JSP web shells, according to ReliaQuest, with activity ramping from 20&nbsp;July. PTC began patching 17&nbsp;June and CISA added the flaw to its Known Exploited Vulnerabilities catalog in late June, but exploitation started within a day of the fix shipping. Cl0p has listed roughly 43&ndash;50 organisations as victims on its leak site, including Shell (with an alleged 89GB of data), GE, Fiserv and Philips. Philips has confirmed it suffered a breach; Shell and GE say they are still investigating and have not confirmed the claims; the remainder of the list is Cl0p&rsquo;s claim alone and unverified. The material at stake is engineering-grade product lifecycle data &mdash; drawings, test reports, facility photos and project plans &mdash; not typical customer PII, which raises the stakes for manufacturers and their supply chains specifically.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed attack &mdash; leak-site claim of 8TB / 11M+ files</span>
-            <span class="ops-tag kev-off">Ransomware / Nitrogen</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation ramped from 20 Jul; PTC Windchill and FlexPLM chain used to drop web shells</span>
+            <span class="ops-tag kev-on">In CISA KEV since late Jun 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; ransomware resilience</span>
-            <span class="ops-cc"><b>Action:</b> Validate offline/immutable backups and segmentation between manufacturing IT and shop-floor systems, tighten data-exfiltration and lateral-movement monitoring, and rehearse incident-response and communications playbooks.</span>
+            <span class="ops-tag patch-yes">Patched since 17 Jun 2026 (PTC)</span>
+            <span class="ops-cc"><b>Action:</b> Confirm patch level on all Windchill and FlexPLM instances, review for JSP web shells and unexpected servlet activity dating back to late June, and rotate credentials used by the PLM environment. Engineering and product teams should inventory what design data those systems hold before assuming Philips-style exposure cannot happen to you.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Backup &amp; segmentation validation &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-foxconn" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-foxconn">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Compromise assessment on Windchill/FlexPLM &mdash; 72h (confirmed exploitation chain, engineering IP at risk)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-clop-windchill" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-clop-windchill">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dark Reading</span>
+          <span>BleepingComputer (ReliaQuest research)</span>
           <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026 &mdash; Nitrogen leak-site claim</span>
+          <span>Patched 17 Jun 2026; exploitation from 20 Jul; reported 14 Aug 2026</span>
         </div>
-        <a href="https://www.darkreading.com/cyberattacks-data-breaches/foxconn-attack-manufacturing-cyber-crisis" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-oraclewave">
+      <div class="card" id="it-ringcentral" data-published="2026-08-14">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Oracle E-Business Suite breach wave widens &mdash; University of Phoenix and Cox Enterprises disclose data theft</h3>
-        <p>The extortion campaign against Oracle E-Business Suite continues to produce named victims: both the University of Phoenix and Cox Enterprises have disclosed data breaches stemming from Oracle EBS hacks. EBS is a core ERP platform holding HR, finance and supplier data, so a single exposed instance can translate into large-scale data theft and extortion. With a fresh unauthenticated EBS takeover flaw now also under active exploitation (see Critical Advisories), organizations running EBS should treat both the patch backlog and breach-notification exposure as urgent.</p>
+        <h3>ShinyHunters dumps a 280GB RingCentral archive covering roughly 1.6 million accounts after a social-engineering breach</h3>
+        <p>RingCentral has confirmed a breach that began with a social-engineering campaign against its staff or systems. After the company declined to pay, extortion group ShinyHunters published a roughly 280GB archive it says covers about 1.6&nbsp;million accounts, including names, email addresses, phone numbers and mailing addresses. There is no indication that call content, recordings or payment-card data were included, but the exposed contact information is enough to fuel targeted phishing and vishing against both RingCentral customers and their end users. Given RingCentral&rsquo;s footprint in enterprise unified communications, organisations that rely on it should expect a wave of impersonation attempts referencing real account details.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; multiple organizations disclosing EBS-linked breaches</span>
-            <span class="ops-tag kev-off">Data theft / extortion campaign</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; access via social engineering, no CVE disclosed</span>
+            <span class="ops-tag kev-off">Not a CVE-based flaw</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Oracle CPU)</span>
-            <span class="ops-cc"><b>Action:</b> Apply Oracle's E-Business Suite Critical Patch Updates, inventory and remove internet exposure of EBS instances, review access logs for data exfiltration, and prepare breach-notification and legal workflows if EBS data may have been reached.</span>
+            <span class="ops-tag patch-na">Not a patchable vulnerability &mdash; process/awareness gap</span>
+            <span class="ops-cc"><b>Action:</b> Notify staff who use RingCentral that their contact details may be circulating, and brief help-desk and support teams on likely follow-on vishing that references real names and numbers. Review and tighten who at your organisation can authorize account or configuration changes over the phone.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> EBS patch &amp; exposure review &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oraclewave" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oraclewave">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Staff notification and vishing-awareness push &mdash; 1 week</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ringcentral" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ringcentral">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Breach reported 14 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-anmed" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>A ransomware crew hijacked a hospital system&rsquo;s Facebook page mid-incident to publicize its extortion demands</h3>
+        <p>AnMed Health System, a four-hospital operator in Georgia and South Carolina, was hit by a cyberattack on 26&nbsp;July that disabled IT systems and left ten facilities closed to appointments for over a week. On 11&nbsp;August, a group calling itself &ldquo;The Gentlemen&rdquo; took over AnMed&rsquo;s Facebook page to post ransom demands and claim it holds 6TB of health data. AnMed has not verified the group&rsquo;s claims about the volume or content of stolen data. The public hijacking of an official social-media account is itself a notable tactic &mdash; it pressures the victim publicly and complicates incident-response communications while core clinical IT systems are still being restored.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active extortion &mdash; ransom demands posted via hijacked AnMed Facebook page 11 Aug; data-theft claims unverified</span>
+            <span class="ops-tag kev-off">No CVE disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Root cause not yet disclosed</span>
+            <span class="ops-cc"><b>Action:</b> Healthcare IT and communications teams should pre-agree who can reclaim and lock down social-media accounts during an incident, and treat any extortion-group claims made through hijacked official channels as unverified until confirmed. Review social-media account recovery and MFA settings now, before an incident, not during one.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Social-media account hardening review &mdash; 2 weeks</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-anmed" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-anmed">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Facebook hijack reported 11 Aug 2026; original attack 26 Jul 2026</span>
+        </div>
+        <a href="https://therecord.media/ransomware-group-hijacks-hospital-facebook-amid-cyberattack-response" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-npmkeyv" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>A worm in the npm package keyv used stolen credentials to poison hundreds of packages within about 30 minutes</h3>
+        <p>A supply-chain worm compromised the widely-used npm package keyv using stolen publishing credentials, then used that foothold to automatically poison hundreds of further packages in roughly half an hour, according to The Hacker News. The malicious versions harvested developer credentials, CI/CD tokens and cloud API keys from build environments, and in some cases planted hooks in editor or task-runner configuration that could trigger the payload later. The speed of propagation is the headline risk: automated dependency-poisoning worms can outrun manual detection and typical patch-review cycles, and any organisation that pulled affected package versions during the window should assume its build pipeline credentials may be compromised.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active worm &mdash; hundreds of npm packages poisoned within ~30 minutes via stolen publishing credentials</span>
+            <span class="ops-tag kev-off">Not a CVE-based flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Remediate by dependency pinning/removal, not a vendor patch</span>
+            <span class="ops-cc"><b>Action:</b> Audit build logs for installs of keyv and its dependents during the exploitation window, rotate any CI/CD tokens, cloud keys and npm publishing credentials that touched affected pipelines, and pin dependency versions rather than trusting floating ranges for critical build tooling going forward.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> CI/CD credential rotation and dependency audit &mdash; 48h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-npmkeyv" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-npmkeyv">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 12 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ncports" data-published="2026-08-06">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>North Carolina Ports confirms an outside actor breached IT systems at all three facilities, forcing manual processing</h3>
+        <p>North Carolina Ports confirmed that an outside actor breached its IT systems on 5&nbsp;August, affecting the Wilmington and Morehead City seaports as well as the Charlotte inland terminal; the incident was publicly reported the next day. A spokesperson confirmed the intrusion and said cargo processing switched to manual procedures, but declined to say whether ransomware was involved. Normal operating schedules resumed by 6&ndash;7&nbsp;August, though some processing reportedly remained manual afterward. The operator describes the breach as contained to IT systems, but has not explicitly ruled out any touch on operational technology used for crane or terminal operations &mdash; that distinction has not been confirmed either way, and should not be assumed in either direction.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Contained &mdash; no ongoing exploitation reported since early August</span>
+            <span class="ops-tag kev-off">No CVE disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Root cause not publicly disclosed</span>
+            <span class="ops-cc"><b>Action:</b> Logistics and supply-chain partners moving cargo through NC Ports facilities should confirm current processing status directly with the operator and expect possible delays from manual workarounds. Port and terminal operators generally should verify segmentation between IT and any OT/terminal-operating systems is intact and independently testable, rather than assumed.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor status confirmation for logistics partners &mdash; 1 week</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ncports" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ncports">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion 5 Aug 2026; reported 6 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/cyberattack-north-carolina-ports" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Threat Intelligence &amp; Research</div>
+    <div class="card-grid">
+<div class="card" id="it-gunra" data-published="2026-08-10">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>CISA and the FBI detail Gunra, a Conti-derived ransomware operation hitting healthcare, government and critical infrastructure</h3>
+        <p>A joint CISA/FBI #StopRansomware advisory, AA26-222A, published 10&nbsp;August, profiles Gunra, a double-extortion ransomware-as-a-service operation whose code is derived from the leaked Conti source. The advisory says Gunra affiliates gain initial access through internet-facing VPN gateways and firewalls, citing exploitation of known Fortinet flaws CVE-2024-55591 and CVE-2025-24472 among the entry vectors, and that the group has targeted healthcare, government and other critical-infrastructure sectors with double extortion &mdash; encrypting data while also stealing it for leverage. Both cited Fortinet CVEs already have patches and are established KEV entries; the advisory is a reminder that unpatched, internet-exposed network edge devices remain the most common door for ransomware crews long after fixes exist, not a report of a new vulnerability.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active RaaS operation &mdash; entry via unpatched internet-facing VPN gateways and firewalls, incl. known Fortinet flaws</span>
+            <span class="ops-tag kev-on">Cited Fortinet CVEs (2024-55591, 2025-24472) are both in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches long available for the cited Fortinet CVEs</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every internet-facing VPN gateway and firewall against the CISA KEV catalog and confirm none are running the vulnerable Fortinet versions named in AA26-222A. Apply the advisory&rsquo;s indicators of compromise to log review for healthcare, government and critical-infrastructure environments specifically, given Gunra&rsquo;s stated sector focus.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Edge-device KEV compliance sweep &mdash; 1 week</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gunra" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gunra">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA / FBI advisory AA26-222A</span>
+          <span class="dot">&bull;</span>
+          <span>Published 10 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-mustangpanda" data-published="2026-08-14">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>Mustang Panda adds a signed kernel-mode rootkit to its CoolClient backdoor, hiding behind an expired 2013 certificate</h3>
+        <p>Chinese state-linked espionage group Mustang Panda has added a signed Windows kernel-mode rootkit to its CoolClient backdoor, according to The Hacker News, using a code-signing certificate from 2013 that has since expired but which Windows will still load under older driver-signing rules. The rootkit hides malicious processes and network activity from standard monitoring tools, making the backdoor harder to detect once installed. The activity has been observed against government targets in Myanmar, Mongolia, Pakistan and Russia. The technique &mdash; abusing legacy signed drivers to run kernel-mode code &mdash; is not new, but its continued effectiveness is a reminder that driver-signing policy and allow-lists deserve periodic review rather than a one-time setup.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active espionage campaign &mdash; observed against government targets in Myanmar, Mongolia, Pakistan and Russia</span>
+            <span class="ops-tag kev-off">Not a CVE-based technique</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Mitigate via driver-signing policy, not a vendor patch</span>
+            <span class="ops-cc"><b>Action:</b> Government and defence-adjacent organisations, especially in the named regions, should enable Windows HVCI/driver-blocklist enforcement and review for legacy or expired signed drivers permitted to load in kernel mode. Hunt for CoolClient indicators in endpoint telemetry where available.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Driver-blocklist and kernel-driver review &mdash; 2 weeks (government/defence targets)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mustangpanda" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mustangpanda">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 14 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/mustang-panda-adds-signed-windows.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-thehatman" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>A claimed 3.6-million-record Azure/Entra data-theft campaign is disputed by several of the named companies</h3>
+        <p>An actor using the handle &ldquo;TheHatman&rdquo; claims to have stolen roughly 3.6&nbsp;million employee-directory records from Microsoft Azure/Entra tenants at companies including McDonald&rsquo;s, TCS, Vodafone (about 425,000 records), HCL and IHG, via password-spray and MFA-fatigue attacks. The claim is disputed: several of the named companies say they have found no evidence of the described breach, and researchers who reviewed samples of the data suggest it may originate from older infostealer logs rather than a fresh Entra compromise. Treat the specific attribution and scale as unconfirmed. What is not in dispute is that password spray and MFA fatigue remain effective against tenants without phishing-resistant authentication, regardless of whether this particular claim holds up.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Claimed campaign &mdash; password spray / MFA fatigue against Entra tenants; scale and authenticity disputed by named firms</span>
+            <span class="ops-tag kev-off">Not a CVE-based technique</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Mitigate via conditional access/MFA hardening, not a patch</span>
+            <span class="ops-cc"><b>Action:</b> Do not treat this claim as confirmed for planning purposes, but do use it as a prompt to move any remaining SMS or push-based MFA on Entra/Azure AD to phishing-resistant methods and to enable sign-in risk policies that throttle password-spray patterns.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> MFA-hardening review for Entra/Azure AD tenants &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-thehatman" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-thehatman">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Claim reported 12 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-trivy" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Researchers trace most of a 2,500-organisation secrets leak to a March compromise of the Trivy scanner, not the LiteLLM packages that drew initial attention</h3>
+        <p>Follow-up analysis has revised the picture of a supply-chain incident that initially centred on poisoned LiteLLM packages: SecurityWeek reports that most of the roughly 2,500 organisations whose secrets leaked were actually exposed through a March compromise of Aqua Security&rsquo;s Trivy vulnerability scanner and its Docker images, with the later LiteLLM poisoning a separate, smaller contributor. The correction matters operationally &mdash; teams that checked only their LiteLLM exposure and moved on may have missed a Trivy-based leak path in CI/CD pipelines that ran the affected scanner images months earlier.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Retrospective research finding &mdash; clarifies scope of a March 2026 compromise, not a new active exploit</span>
+            <span class="ops-tag kev-off">Not a CVE-based advisory</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Remediate by credential rotation, not a patch</span>
+            <span class="ops-cc"><b>Action:</b> If your CI/CD pipeline ran Aqua Security Trivy or its Docker images earlier this year, rotate any secrets those pipelines had access to, even if you already responded to the LiteLLM angle of this story. Confirm current Trivy image provenance going forward.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Secrets-rotation review for Trivy/CI pipelines &mdash; 2 weeks</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trivy" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-trivy">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 11 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/trivy-not-litellm-behind-the-2500-org-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Critical Advisories</div>
+    <div class="card-grid">
+<div class="card" id="it-metabase" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Metabase&rsquo;s CVSS-10 SQL injection was exploited as a zero-day before a patch existed &mdash; Framework and Trezor&rsquo;s fulfilment partner both confirm breaches</h3>
+        <p>CVE-2026-72898, an unauthenticated SQL injection in Metabase&rsquo;s /reset_password endpoint that grants admin access, carries the maximum CVSS score of 10.0 and was added to CISA&rsquo;s Known Exploited Vulnerabilities catalog on 11&nbsp;August with a federal remediation deadline of 14&nbsp;August. It affects open-source Metabase 0.58.0 through 0.63.x before 0.63.5, and Enterprise 1.58.0 through 1.63.x before 1.63.5. Attackers exploited it before a patch was available. Two confirmed victims have disclosed breaches so far: laptop maker Framework, whose 3&nbsp;August notice covers names, emails, addresses, phone numbers and billing information for its full customer base; and ShipMonk, the fulfilment partner for hardware-wallet maker Trezor, affecting roughly 13,689 Trezor customers &mdash; Trezor has said no seed phrases or private keys were exposed.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-72898</span>
+          <span>Metabase &bull; CISA KEV</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited as a zero-day pre-patch; confirmed breaches at Framework and ShipMonk/Trezor</span>
+            <span class="ops-tag kev-on">CISA KEV since 11 Aug 2026; federal deadline 14 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in open-source 0.63.5 / Enterprise 1.63.5</span>
+            <span class="ops-cc"><b>Action:</b> Patch to 0.63.5 (open-source) or 1.63.5 (Enterprise) immediately if you have not already, and treat any pre-patch internet-facing instance as potentially compromised: review admin account creation logs and reset password-reset endpoint activity for signs of abuse before the fix was applied.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise review &mdash; 24h (CVSS 10.0, KEV, confirmed pre-patch exploitation)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-metabase" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-metabase">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / TechCrunch</span>
+          <span class="dot">&bull;</span>
+          <span>KEV added 11 Aug 2026; Framework and Trezor disclosures 3&ndash;8 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-sapcommerce" data-published="2026-08-15">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>A max-severity SAP Commerce Cloud flaw drew exploitation attempts within three days of its patch, with 4,200+ instances exposed</h3>
+        <p>CVE-2026-58231, an improper-authorization flaw in SAP Commerce Cloud&rsquo;s Data Hub Adapter that allows arbitrary code execution, carries a CVSS score of 10.0. SAP patched it on 11&nbsp;August, and exploitation attempts hit security researchers&rsquo; honeypots within three days, with a public proof-of-concept following shortly after. Shadowserver counted more than 4,200 internet-exposed SAP Commerce Cloud instances at the time of reporting. As a widely-deployed e-commerce and digital-commerce platform, unpatched exposed instances are a direct path to customer and transaction data as well as a foothold into connected backend SAP environments.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-58231</span>
+          <span>SAP Commerce Cloud</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; honeypot exploitation attempts within 3 days of patch; public PoC available; 4,200+ instances exposed</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched by SAP, 11 Aug 2026</span>
+            <span class="ops-cc"><b>Action:</b> Patch SAP Commerce Cloud immediately and, given the honeypot activity and public PoC, review Data Hub Adapter logs for unauthorized access attempts even after patching. Restrict administrative access to the Data Hub Adapter to trusted networks only.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and log review &mdash; 48h (CVSS 10.0, active exploitation attempts, public PoC)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sapcommerce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sapcommerce">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Disclosures reported late Jun&ndash;early Jul 2026</span>
+          <span>Patched 11 Aug 2026; exploitation attempts reported 15 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/university-of-phoenix-discloses-data-breach-after-oracle-hack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-fortibleed">
+      <div class="card" id="it-macosvnc" data-published="2026-08-14">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
         </div>
-        <h3>&ldquo;FortiBleed&rdquo;: attackers monetize a foothold in thousands of Fortinet firewalls &mdash; and add a Nextcloud zero-day</h3>
-        <p>After gaining a foothold in thousands of Fortinet firewalls, attackers have started to monetize that access &mdash; and are piling on a Nextcloud zero-day to extend their reach, according to Dark Reading's reporting on the campaign dubbed &ldquo;FortiBleed.&rdquo; Perimeter firewalls are a high-value pivot: a compromised edge device can expose internal networks, VPN sessions and management planes. Organizations running affected Fortinet appliances should verify they are on fixed firmware, hunt for signs of prior compromise (rogue admins, config changes, unexpected tunnels), and rotate credentials and certificates that a foothold could have exposed.</p>
+        <h3>An authentication-bypass flaw in macOS Screen Sharing is being scanned for and used to plant cryptominers &mdash; roughly 40,000 Macs remain exposed</h3>
+        <p>CVE-2026-65400, an authentication-bypass flaw in macOS Screen Sharing, carries a CVSS score of 9.8. Attackers are scanning the internet for Macs with the Screen Sharing port (5900) exposed, using the bypass to gain root access and install Monero cryptomining malware. The Netherlands&rsquo; NCSC-NL estimates roughly 40,000 Macs remain reachable via the service despite Apple&rsquo;s fix. Apple patched the flaw on 6&nbsp;August in macOS Tahoe 26.6.1, Sequoia 15.7.9 and Sonoma 14.8.9. Enterprises that manage fleets of Macs, particularly ones used as remote-access jump points or shared lab machines, should not assume this is a consumer-only issue.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-65400</span>
+          <span>Apple macOS</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; foothold in thousands of firewalls now being monetized</span>
-            <span class="ops-tag kev-off">Edge compromise + Nextcloud zero-day</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; internet-wide scanning for exposed port 5900, root access and Monero miners deployed</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch/hardening required (Fortinet, Nextcloud)</span>
-            <span class="ops-cc"><b>Action:</b> Confirm Fortinet appliances are on fixed firmware, hunt for indicators of prior compromise (rogue admin accounts, altered configs, unexpected VPN tunnels), rotate credentials and certificates, and prioritize the Nextcloud zero-day fix once available.</span>
+            <span class="ops-tag patch-yes">Fixed 6 Aug 2026 in macOS Tahoe 26.6.1, Sequoia 15.7.9, Sonoma 14.8.9</span>
+            <span class="ops-cc"><b>Action:</b> Update all managed Macs to the patched macOS builds, and disable Screen Sharing or restrict it to VPN-only access rather than exposing port 5900 directly to the internet. Scan your external attack surface for open 5900 now.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Edge compromise sweep &mdash; 48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fortibleed" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-fortibleed">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and disable internet-facing Screen Sharing &mdash; 72h (CVSS 9.8, active exploitation, ~40,000 Macs exposed)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-macosvnc" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-macosvnc">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dark Reading</span>
+          <span>SecurityWeek (NCSC-NL)</span>
           <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026 &mdash; ongoing monetization</span>
+          <span>Patched 6 Aug 2026; exposure estimate reported 14 Aug 2026</span>
         </div>
-        <a href="https://www.darkreading.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/recent-macos-screen-sharing-vulnerability-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
+      <div class="card" id="it-patchtuesday" data-published="2026-08-11">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Microsoft&rsquo;s August Patch Tuesday fixes 398 CVEs, including one exploited local elevation-of-privilege zero-day tied to a North Korean backdoor campaign</h3>
+        <p>Microsoft&rsquo;s August 2026 Patch Tuesday addressed 398 CVEs. Exactly one was under active exploitation at release: CVE-2026-68820, a use-after-free vulnerability in the Windows Ancillary Function Driver for WinSock (afd.sys), rated CVSS 7.0. It is a local elevation-of-privilege flaw &mdash; an attacker needs existing code execution on the machine to use it to gain higher privileges, not an unauthenticated remote entry point. Check Point ties exploitation of this flaw to North Korea&rsquo;s Lazarus Group, used in its &ldquo;Operation Dream Job&rdquo; campaign: trojanised PDF viewers and DLL side-loading deliver a new backdoor Check Point calls Troy, targeting defence and aerospace organisations in France, Germany, Brazil and India. CISA added the flaw to KEV on 11&nbsp;August. Because this is a local-privilege-escalation bug, its danger is realized after an attacker has already landed via phishing or another initial-access method &mdash; which is exactly the Lazarus delivery chain observed here.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-68820</span>
+          <span>Microsoft Windows (afd.sys)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited by Lazarus Group (Operation Dream Job) as a local privilege-escalation step after initial access</span>
+            <span class="ops-tag kev-on">CISA KEV since 11 Aug 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in the Aug 2026 cumulative updates</span>
+            <span class="ops-cc"><b>Action:</b> Deploy the August cumulative updates fleet-wide, prioritizing endpoints in defence, aerospace and other Lazarus-relevant sectors. Because exploitation requires prior code execution, pair patching with phishing and DLL side-loading defenses &mdash; this flaw is a second-stage tool, not the initial break-in.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Deploy August cumulative updates &mdash; 7 days (KEV, exploited by a known APT as a privilege-escalation step)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-patchtuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-patchtuesday">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Check Point research) / ZDI</span>
+          <span class="dot">&bull;</span>
+          <span>Patch Tuesday and KEV listing 11 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-geoserver" data-published="2026-08-14">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>GeoServer patches an unauthenticated SQL injection that saw internet-wide scanning within hours of disclosure &mdash; no CVE has been assigned</h3>
+        <p>GeoServer shipped fixes in versions 3.0.1, 2.28.5 and 2.27.6 on 14&nbsp;August for an unauthenticated SQL injection in the jsonArrayContains filter used against PostGIS layers, tracked under advisory id GHSA-mqjf-5f49-2fjh. No CVE number has been assigned to the flaw as of this edition, and the GeoServer project itself rates the issue &ldquo;High&rdquo; severity without publishing a CVSS score &mdash; figures circulating elsewhere citing a 9.8 or similar score are not sourced to the project. Exploitation attempts began within hours of the 12&nbsp;August disclosure, ahead of the 14&nbsp;August patch. GeoServer is common in government GIS, agricultural mapping, telecom network-planning and transit-authority systems, so its user base skews toward public-sector and infrastructure-adjacent organisations that may not treat a mapping server as a top patching priority.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; probing observed within hours of disclosure, ahead of the patch</span>
+            <span class="ops-tag kev-off">No CVE assigned; cannot be KEV-listed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed 14 Aug 2026 in versions 3.0.1, 2.28.5, 2.27.6</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade GeoServer to 3.0.1, 2.28.5 or 2.27.6 now, and review access logs for jsonArrayContains-related requests against PostGIS-backed layers going back to 12 Aug. Do not wait on a CVE number or CVSS score to prioritize this &mdash; the project&rsquo;s own advisory and the observed probing are sufficient grounds to patch this week.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and log review &mdash; 1 week (actively probed, government/GIS-adjacent exposure)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-geoserver" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-geoserver">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>GeoServer project advisory</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 12 Aug 2026; patched 14 Aug 2026</span>
+        </div>
+        <a href="https://geoserver.org/announcements/vulnerability/2026/08/14/geoserver-3-0-1-released.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
 
-  <!-- SECTION: Threat Intelligence & Research -->
-  <div class="section">
-    <div class="section-title">Threat Intelligence &amp; Research</div>
-    <div class="card-grid">
-
-      <div class="card" id="it-jadepuffer">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>Sysdig documents &ldquo;JADEPUFFER&rdquo; &mdash; the first extortion attack run end-to-end by an autonomous AI agent</h3>
-        <p>Sysdig's Threat Research Team described what it assesses as the first extortion operation executed end-to-end by an AI agent with no human at the keyboard. The actor, JADEPUFFER, gained initial access by exploiting CVE-2025-3248 &mdash; a previously KEV-listed remote-code-execution flaw in the Langflow AI-workflow platform &mdash; on an internet-facing instance, then autonomously performed reconnaissance, stole credentials, established persistence, compromised a production database and destroyed data before demanding payment. It follows Sysdig's earlier case where an LLM agent chained a CVE through several internal pivots to exfiltrate a full database in under an hour. The tempo is the story: eliminate internet exposure of unpatched apps (especially anything with a KEV-listed CVE), vault and rotate credentials, restrict egress, and tune detection for machine-speed lateral movement.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2025-3248</span>
-          <span>Sysdig TRT / Langflow</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; real-world autonomous-agent intrusion documented by Sysdig</span>
-            <span class="ops-tag kev-on">Initial-access CVE previously listed in CISA KEV (Langflow, 2025)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch long available (Langflow)</span>
-            <span class="ops-cc"><b>Action:</b> Sweep for internet-facing apps with known/KEV-listed CVEs (Langflow included) and patch or remove them, vault and rotate credentials reachable from exposed apps, restrict outbound egress, and tune detection for machine-speed reconnaissance and lateral movement.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposed-app &amp; KEV-backlog sweep &mdash; 7 days (agentic tempo, known entry point)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-jadepuffer" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-jadepuffer">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Sysdig TRT / The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 2&ndash;3 Jul 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-ransomfeud">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>Feuding ransomware groups leak each other's data &mdash; KryBit hits rival 0APT</h3>
-        <p>In a sign of just how crowded and unstable the extortion ecosystem has become, ransomware crews are now turning on each other. After being leaked itself, KryBit breached and exfiltrated rival group 0APT's infrastructure, listed 0APT as a victim on its own leak site, and left a taunt: &ldquo;Next time, don't play with the big boys.&rdquo; For defenders the practical takeaway is indirect but real &mdash; infighting occasionally dumps stolen victim data into the open, and the churn of brands complicates attribution and threat tracking.</p>
-        <div class="card-meta">
-          <span>Dark Reading</span>
-          <span class="dot">&bull;</span>
-          <span>Reported late Jun&ndash;early Jul 2026</span>
-        </div>
-        <a href="https://www.darkreading.com/threat-intelligence/feuding-ransomware-groups-leak-data" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-metamask">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Phishing</span>
-        </div>
-        <h3>SANS ISC flags a MetaMask phishing campaign &mdash; crypto-wallet lures aimed at end users</h3>
-        <p>The SANS Internet Storm Center's 1 July handler diary dissected an interesting phishing email targeting MetaMask, the popular cryptocurrency wallet. Wallet-theft phishing continues to be a low-cost, high-reward lure, and it increasingly reaches corporate inboxes as employees mix personal crypto activity with work devices. Refresh phishing awareness for finance and crypto-adjacent staff, reinforce that legitimate wallet providers never ask for seed phrases, and ensure mail filtering and reporting workflows are catching credential- and seed-phrase-harvesting lures.</p>
-        <div class="card-meta">
-          <span>SANS Internet Storm Center</span>
-          <span class="dot">&bull;</span>
-          <span>Handler diary &mdash; 1 Jul 2026</span>
-        </div>
-        <a href="https://isc.sans.edu/diaryarchive.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- SECTION: Critical Advisories -->
-  <div class="section">
-    <div class="section-title">Critical Advisories</div>
-    <div class="card-grid">
-
-      <div class="card" id="it-oracleebs">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Oracle E-Business Suite unauthenticated takeover flaw now exploited &mdash; ~950 instances exposed online</h3>
-        <p>CVE-2026-46817 (CVSS 9.8) is a flaw in the File Transmission component of Oracle Payments within E-Business Suite that lets an unauthenticated attacker with HTTP access take over vulnerable systems through a low-complexity attack. Researchers (Defused) reported the first exploitation attempts against EBS honeypots over the weekend, and Shadowserver tracks roughly 950 EBS instances exposed online &mdash; with about 450 confirmed and nearly 200 each in the U.S. and Europe. Oracle addressed the issue in its May 2026 Critical Patch Update. Apply the May CPU immediately, remove internet exposure of EBS, and hunt for signs of takeover given active in-the-wild attempts.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-46817</span>
-          <span>Oracle / Shadowserver</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; honeypot exploitation attempts observed; no public PoC yet</span>
-            <span class="ops-tag kev-off">Not in CISA KEV (as of this edition)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Oracle, May 2026 CPU)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the May 2026 Oracle Critical Patch Update to all E-Business Suite instances now, remove internet exposure of EBS, restrict access to the Payments/File Transmission components, and hunt for unauthorized access and data exfiltration.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure sweep &mdash; 48h (CVSS 9.8, unauth takeover, active attempts)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracleebs" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oracleebs">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / Shadowserver</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation reported late Jun&ndash;early Jul 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/over-900-oracle-e-business-instances-exposed-to-ongoing-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-kemp">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Progress Kemp LoadMaster pre-auth RCE now seeing exploitation attempts &mdash; the load balancer fronting many enterprise services</h3>
-        <p>eSentire's Threat Response Unit reported that CVE-2026-8037 (CVSS 9.8), a pre-authentication OS command-injection flaw in Progress Kemp LoadMaster, began drawing active exploitation attempts on 29 June, days after a public proof-of-concept landed. The bug sits in the appliance's API: unsanitized input to the &ldquo;/accessv2&rdquo; endpoint (an out-of-bounds heap read in a string-escaping routine) lets an unauthenticated attacker inject commands and run code as root. The same defect affects other Progress ADC products (ECS Connection Manager, ObjectScale Connection Manager and the MOVEit WAF). eSentire noted the attempts it saw failed, but with a working PoC circulating, successful exploitation is expected to follow. Apply Progress's fixed release now, restrict management/API access, and pull the appliance off any untrusted network.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8037</span>
-          <span>Progress / eSentire TRU</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Exploitation attempts observed (failed so far) &mdash; public PoC available</span>
-            <span class="ops-tag kev-off">Not in CISA KEV (as of this edition)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Progress)</span>
-            <span class="ops-cc"><b>Action:</b> Inventory Progress LoadMaster and other affected ADC products (ECS/ObjectScale Connection Manager, MOVEit WAF), apply the fixed release immediately, restrict access to the management API/&ldquo;/accessv2&rdquo; endpoint, remove internet exposure, and monitor for exploitation attempts.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; exposure sweep &mdash; 48h (pre-auth root RCE, CVSS 9.8, active attempts + PoC)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kemp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kemp">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News / eSentire TRU</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation attempts from 29 Jun 2026 &mdash; reported 1 Jul 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/07/latest-progress-kemp-loadmaster-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-simplehelp">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Critical SimpleHelp RMM auth-bypass exploited to drop new stealer malware &mdash; the remote-support tool that reaches into managed networks</h3>
-        <p>CISA added CVE-2026-48558, a CVSS 10.0 authentication-bypass flaw in the SimpleHelp remote monitoring and management (RMM) platform, to its KEV catalog on 29 June; the 2 July federal deadline has now lapsed while exploitation continues. On OIDC-configured servers SimpleHelp fails to verify identity-token signatures, so an unauthenticated attacker can forge a fully authenticated &ldquo;Technician&rdquo; session &mdash; and attackers are already using it to drop the TaskWeaver loader and the new cross-platform Djinn infostealer (Windows, macOS, Linux). Roughly 14,000 SimpleHelp servers are online, an estimated 1,000 directly vulnerable. RMM tools are how MSPs and IT teams reach across managed estates, so a compromised server is a pre-authenticated path into many downstream networks. Patch now, pull consoles off the public internet, rotate technician credentials and OIDC secrets, and hunt RMM-connected endpoints for TaskWeaver/Djinn.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-48558</span>
-          <span>CISA KEV / SimpleHelp</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited to deploy TaskWeaver / Djinn Stealer</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; federal deadline 2 Jul 2026 (lapsed)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (SimpleHelp)</span>
-            <span class="ops-cc"><b>Action:</b> Patch SimpleHelp servers to the fixed release now, remove internet exposure of the console, rotate technician credentials and OIDC/IdP secrets, and threat-hunt RMM-connected endpoints for TaskWeaver, Djinn Stealer and unauthorized technician sessions.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; IoC sweep &mdash; 24h (KEV, CVSS 10.0, active RCE, remote-access reach)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-simplehelp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-simplehelp">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA KEV / BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>KEV-added 29 Jun 2026 &mdash; deadline 2 Jul 2026 (lapsed); exploitation ongoing</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-simplehelp-flaw-deploy-new-djinn-infostealer-taskweaver-malware/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-splunk">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Splunk Enterprise flaw actively exploited &mdash; CISA tells federal agencies to patch by Sunday</h3>
-        <p>CISA urged federal agencies to secure their systems against a critical Splunk Enterprise vulnerability, CVE-2026-20253, that is being exploited in attacks. The flaw affects Splunk Enterprise versions 10.2.0&ndash;10.2.3 and 10.0.0&ndash;10.0.6 and lets a remote attacker create or truncate arbitrary files via a PostgreSQL sidecar service endpoint &mdash; a primitive that can lead to system compromise. Splunk is a security and observability backbone in many enterprises, so a compromise both undermines detection and hands attackers a privileged pivot. Apply Splunk's fixed release on the accelerated timeline, restrict access to the affected endpoint, and review Splunk hosts for unexpected file changes.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20253</span>
-          <span>CISA / Splunk</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA-flagged exploitation, accelerated federal deadline</span>
-            <span class="ops-tag kev-on">Added to CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Splunk)</span>
-            <span class="ops-cc"><b>Action:</b> Patch Splunk Enterprise (10.2.0&ndash;10.2.3 and 10.0.0&ndash;10.0.6) to the fixed release now, restrict access to the PostgreSQL sidecar/affected endpoint, and review Splunk hosts for unexpected file creation or truncation.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; review &mdash; 48h (active exploitation, security-tooling pivot)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-splunk" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-splunk">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / CISA</span>
-          <span class="dot">&bull;</span>
-          <span>Reported early Jul 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-splunk-enterprise-flaw-actively-exploited-patch-by-sunday/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-netscaler">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>New &ldquo;CitrixBleed-pattern&rdquo; NetScaler flaw exploited within 24 hours of disclosure</h3>
-        <p>Citrix shipped fixes for six NetScaler ADC / NetScaler Gateway vulnerabilities, and the headline one &mdash; CVE-2026-8451 (CVSS 8.8), an insufficient-input-validation bug causing a memory overread in the appliance's SAML handling &mdash; was exploited in the wild less than 24 hours after public disclosure. Researchers at watchTowr showed that a malformed SAML request padded with whitespace forces the parser to read past its buffer and return adjacent process memory, echoing the CitrixBleed flaws whose leaked session tokens fueled major 2023&ndash;24 intrusions; honeypots observed live attempts from 30 June. Exposure requires the appliance to be configured as a SAML identity provider. Apply the fixed builds now, confirm which appliances use SAML, terminate active sessions and rotate credentials after patching, and watch authentication logs for anomalous SAML requests.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8451</span>
-          <span>Citrix / watchTowr</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation began &lt;24h after disclosure</span>
-            <span class="ops-tag kev-off">Not in CISA KEV (as of this edition)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Citrix)</span>
-            <span class="ops-cc"><b>Action:</b> Patch all NetScaler ADC/Gateway appliances to the fixed builds, identify any configured as a SAML IdP, terminate active sessions and rotate credentials post-patch, and monitor for malformed SAML authentication requests.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; session rotation &mdash; 48h (in-the-wild exploitation, edge remote-access gear)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-netscaler" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-netscaler">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek / watchTowr</span>
-          <span class="dot">&bull;</span>
-          <span>Patched late Jun 2026 &mdash; exploitation from 30 Jun; reported 1&ndash;2 Jul 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/new-citrixbleed-vulnerability-exploited-immediately-after-public-disclosure/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-ucm">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Cisco confirms exploitation of a Unified Communications Manager SSRF flaw</h3>
-        <p>Cisco confirmed that a high-severity server-side request forgery vulnerability, CVE-2026-20230, in Cisco Unified Communications Manager (Unified CM) is now being exploited in attacks. Unified CM underpins enterprise voice and collaboration and typically sits deep in the corporate network, so an SSRF that lets an attacker coerce server-side requests can enable internal reconnaissance and pivoting toward otherwise unreachable services. Apply Cisco's fixed release, restrict management-interface access, and review Unified CM logs for anomalous outbound requests.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20230</span>
-          <span>Cisco PSIRT</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco-confirmed exploitation</span>
-            <span class="ops-tag kev-off">Not in CISA KEV (as of this edition)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Cisco)</span>
-            <span class="ops-cc"><b>Action:</b> Apply Cisco's Unified CM security update, restrict access to management interfaces, and monitor Unified CM for anomalous server-side/outbound requests indicative of SSRF abuse.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; review &mdash; 72h (confirmed exploitation, core comms infrastructure)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ucm" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-ucm">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / Cisco</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation confirmed &mdash; reported early Jul 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisco-unified-cm-sme-flaw-cve-2026-20230-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-bluehammer">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>&ldquo;BlueHammer&rdquo;: ransomware gangs now exploit a Microsoft Defender privilege-escalation flaw</h3>
-        <p>Ransomware gangs are now exploiting a Microsoft Defender privilege-escalation vulnerability dubbed BlueHammer, tracked as CVE-2026-33825. The flaw was leaked by a security researcher in early April along with proof-of-concept exploit code, and it has since been folded into ransomware playbooks and added to CISA's KEV catalog. Because it abuses a component present on essentially every Windows endpoint, it is an attractive local escalation step after initial access. Apply the Microsoft update across the estate, prioritize internet-adjacent and high-value systems, and hunt for the known PoC behavior and unexpected Defender-related privilege changes.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-33825</span>
-          <span>Microsoft / CISA KEV</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited by ransomware gangs; public PoC since April</span>
-            <span class="ops-tag kev-on">In CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Microsoft)</span>
-            <span class="ops-cc"><b>Action:</b> Deploy the Microsoft Defender/Windows update fixing CVE-2026-33825 across all endpoints, prioritize high-value and internet-adjacent systems, and hunt for the leaked PoC's behavior and unexpected privilege escalations.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch rollout &mdash; 7 days (KEV, ransomware use, ubiquitous component)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bluehammer" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-bluehammer">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer / CISA</span>
-          <span class="dot">&bull;</span>
-          <span>PoC leaked early Apr 2026 &mdash; ransomware exploitation reported since</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-bluehammer-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- SECTION: Regulation & Policy -->
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-
-      <div class="card" id="it-ccp">
+<div class="card" id="it-cisak12" data-published="2026-08-14">
         <div class="card-header">
-          <span class="severity sev-info">Policy</span>
-          <span class="category">Legislation</span>
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
         </div>
-        <h3>Senate bill would force cybersecurity review &mdash; and possible recall &mdash; of Chinese-made networked medical devices</h3>
-        <p>Senator Tom Cotton introduced the Countering Chinese Cyberthreats for Patients (&ldquo;Countering CCP&rdquo;) Act, which would direct the FDA and CISA to retroactively review the cybersecurity of Chinese-made networked medical devices already deployed in U.S. healthcare. Manufacturers would have to disclose the software in their devices, their development processes and server locations; regulators would verify that U.S. patient data is not stored on or transmitted through China-based servers; and HHS could halt distribution of risky devices &mdash; with recall for vendors that fail to provide the required information within three months. The bill follows the FDA's earlier warning that Contec CMS8000 monitors (relabeled as Epsimed MN-120) shipped with a backdoor. For IT and security leaders it is another marker of where supply-chain scrutiny of foreign-made connected devices is heading &mdash; SBOM-style disclosure, data-flow verification and recall authority. No action required yet; it is proposed legislation, not law.</p>
+        <h3>CISA publishes two free K-12 cybersecurity guides as ransomware keeps hitting schools</h3>
+        <p>CISA released two free guidance documents for K-12 school districts on 14&nbsp;August, covering credential protection, device security, backup testing, incident-response planning and adoption of the NIST Cybersecurity Framework. The agency cites 34 ransomware attacks against K-12 and higher-education institutions in the first half of 2026 and points to the March breach at Alamo Heights ISD, which affected 26,629 people, as an example of the stakes. The guidance is voluntary and non-regulatory, aimed at districts that often lack dedicated security staff or budget.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Guidance document &mdash; not tied to active exploitation</span>
+            <span class="ops-tag kev-off">Not applicable</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Guidance, not a patchable vulnerability</span>
+            <span class="ops-cc"><b>Action:</b> K-12 IT leads should use the CISA guides as a starting checklist for credential hygiene, device management and backup testing, and use the Alamo Heights ISD breach as a concrete example when briefing school boards on why baseline controls matter.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review CISA K-12 guidance against current controls &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisak12" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisak12">Open</button>
+          </div>
+        </div>
         <div class="card-meta">
-          <span>U.S. Senate / Industrial Cyber</span>
+          <span>K-12 Dive</span>
           <span class="dot">&bull;</span>
-          <span>Introduced &mdash; reported 1 Jul 2026 (proposed, not enacted)</span>
+          <span>Published 14 Aug 2026</span>
         </div>
-        <a href="https://industrialcyber.co/regulation-standards-and-compliance/senate-bill-seeks-cybersecurity-review-potential-recall-of-chinese-made-medical-devices-used-in-us-healthcare-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.k12dive.com/news/cisa-issues-k-12-cybersecurity-guidance-as-schools-risks-persist/827841/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
+      <div class="card" id="it-changehealthcare" data-published="2026-08-12">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>The judge overseeing Change Healthcare breach litigation imposes strict new rules on how the exposed dataset can be used</h3>
+        <p>The federal judge overseeing multidistrict litigation stemming from the 2024 Change Healthcare ransomware breach has imposed new, stricter rules governing how the enormous dataset exposed in that incident may be handled and used by parties to the litigation going forward. The order tightens data-handling and security requirements around one of the largest healthcare data exposures on record, reflecting continued judicial and regulatory attention to how breached personal health information is managed even years after the original incident. It is a reminder that the operational and legal tail of a major breach extends well past the initial incident-response window.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Litigation/regulatory development &mdash; not a new vulnerability or breach</span>
+            <span class="ops-tag kev-off">Not applicable</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Legal/regulatory matter, not a patchable vulnerability</span>
+            <span class="ops-cc"><b>Action:</b> Healthcare organisations and their counsel involved in Change Healthcare-related litigation, or handling similarly sensitive breached datasets under court oversight, should review the new data-handling rules for applicability to their own retention and access practices.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Legal/compliance review of applicable data-handling obligations &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-changehealthcare" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-changehealthcare">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Court filing coverage</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 12 Aug 2026</span>
+        </div>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
     </div>
   </div>
+
+  
+
+  <!-- SECTION: Threat Intelligence & Research -->
+  
+
+  <!-- SECTION: Critical Advisories -->
+  
+
+  <!-- SECTION: Regulation & Policy -->
+  
 
   <!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, the SANS Internet Storm Center, Dark Reading, The Register, The Hacker News and SecurityWeek, plus vendor and product advisories (Microsoft, Oracle, Cisco, Citrix, Progress, SimpleHelp, Fortinet) and Sysdig threat research. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, the SANS Internet Storm Center, Dark Reading, The Register, The Hacker News and SecurityWeek, plus vendor and product advisories (Microsoft, Broadcom/VMware, Cisco, SAP, Progress, PTC, N-able, Apple, Metabase) and vendor research from Huntress, Kaspersky, ReliaQuest and QUIRSO. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 
@@ -1319,6 +1392,16 @@
     });
   }
 })();
+</script>
+<script>
+/* NEW badge: show an eye-catching marker for items whose data-published date is within the last 72 hours. Self-expiring; no regeneration needed. */
+(function(){var W=72*36e5,now=Date.now();
+document.querySelectorAll('.card[data-published],.top-story[data-published]').forEach(function(el){
+var d=Date.parse(el.getAttribute('data-published'));if(isNaN(d))return;var age=now-d;
+if(age>=-432e5&&age<=W){if(el.querySelector(':scope > .new-badge'))return;
+var b=document.createElement('span');b.className='new-badge';b.title='Added within the last 72 hours';
+b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z"/></svg>NEW';
+el.appendChild(b);}});})();
 </script>
 </body>
 </html>

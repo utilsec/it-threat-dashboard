@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Telecom &amp; Media</h1>
       <div class="header-sub">Carriers, ISPs, mobile, cable &amp; media.</div>
       <div class="header-meta">
-        <span>Generated Mon, 17 Aug 2026, 8:37 PM ET</span>
+        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Telecom &amp; Media</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>11</strong> stories across
+      <strong>13</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Telecom sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of telecom IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">5.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">4.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:56%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Telecom sits in upper Medium because this window is made of discrete, contained incidents rather than one issue broadly impacting carrier IT estates. The top driver is RingCentral&rsquo;s confirmed breach of roughly 1.6 million accounts &mdash; a communications vendor, not a carrier, but with direct downstream risk to business customers. Unitel&rsquo;s multi-generation (2G&ndash;5G) and payments outage in Angola is a real single-operator disruption, and the Threema DDoS campaign, while contained to consumer infrastructure with On-Prem enterprise customers unaffected, shows sustained targeting of communications providers. The &ldquo;TheHatman&rdquo; claim naming Vodafone is disputed by several named firms and carries less weight until corroborated. Ongoing config abuse (City-Forum against Salesforce/ServiceNow portals) and S2W TALON&rsquo;s report of Red Menshen&rsquo;s continued BPFDoor use against telecom and energy read as steady nation-state pre-positioning, not a live disruptive event. Cross-sector flaws in vCenter, Kemp LoadMaster, Cisco ASA/FTD, Citrix NetScaler and GeoServer all touch carrier-relevant infrastructure (virtualized network cores, load balancing, VPN edges, GIS/network-planning tools) but remain patch-and-hunt exposures, not a sector-wide compromise. This would move toward High on a confirmed multi-carrier core-network intrusion or a verified nation-state hands-on compromise; it would ease toward Low if the open incidents resolve without confirmed data loss and no new active exploitation of carrier-relevant infrastructure emerges.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:48%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Telecom sits in low Medium: this window brings little new sector-native activity, and nothing is actively exploited against carrier infrastructure. The strongest telecom item &mdash; chained UNISOC modem flaws that reach kernel-privilege code execution over a VoLTE video call on budget Xiaomi, Motorola and Realme handsets &mdash; is proof-of-concept only, but with no vendor firmware fix and no response from UNISOC it is an unresolved exposure rather than a live event. The Threema DDoS is over, hit shared colocation infrastructure, and Threema is not certain it was even the intended target; On-Prem customers were unaffected. The 425,000 Vodafone employee-directory records are CLAIMED, and the likely route is infostealer-harvested credentials rather than any platform flaw &mdash; though directory data of that kind is precisely what drives SIM-swap and porting-fraud calls to carrier help desks. Evooo1Bot and the latest Mirai variant are chronic CPE and subscriber-edge problems, now monetised as proxy relay capacity, which lands on abuse desks and IP reputation rather than on network capacity. What keeps the score clear of Low is cross-cutting exploitation touching carrier IT estates: vCenter (361 victim IPs, reverse-SSH persistence), the Windows IKE/IKEEXT double free now in KEV, and the Cisco ASA/FTD VPN flaw. This moves toward High only on a confirmed carrier core-network or multi-operator compromise; it eases toward Low once UNISOC ships firmware and no new edge exploitation appears.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,16 +681,16 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-ringcentral" data-published="2026-08-10">
+    <div class="top-story" id="it-unisoc" data-published="2026-08-17">
         <span class="top-story-pill">Top Story</span>
-        <h2>RingCentral confirms breach of roughly 1.6 million accounts after ShinyHunters publishes 280GB of data</h2>
-        <p>RingCentral, a cloud communications and unified-collaboration platform widely used by enterprises and contact centers, has confirmed a data breach traced to a social-engineering campaign against employees or third parties with account-system access. The extortion group ShinyHunters claimed responsibility and, after RingCentral declined to pay, published an archive described as roughly 280GB covering approximately 1.6 million customer accounts. The exposed data reportedly includes names, email addresses, phone numbers and physical addresses &mdash; enough for highly targeted phishing and impersonation against both RingCentral's business customers and their end users. RingCentral has confirmed the breach occurred but has not detailed the initial access vector beyond &ldquo;social engineering,&rdquo; and it remains unclear whether authentication credentials, call metadata or billing records were included in the published set. For a provider that routes business voice, text and video traffic for large customer bases, an account-level breach at this scale raises the risk of vendor-impersonation and vishing campaigns that trade on the legitimacy of a known communications-platform relationship. RingCentral says it is notifying affected customers and regulators as required; ShinyHunters' publication of the full archive removes any further extortion leverage but leaves the data permanently exposed regardless of payment.</p>
+        <h2>UNISOC modem flaws chain to kernel-privilege code execution triggered over a VoLTE video call &mdash; no vendor fix available</h2>
+        <p>Researchers chained multiple flaws in UNISOC modem firmware to run code with kernel privileges from the modem context, taking advantage of insufficient separation between modem memory and kernel memory on affected chipsets. The chain is reached over a VoLTE video call, which places the trigger on the operator&rsquo;s own IMS signalling path rather than on anything the subscriber installs or clicks. Handsets named in the research include the Xiaomi Redmi A5, the Motorola E13 and the Realme C33 &mdash; budget devices sold in high volume, particularly in emerging markets, where a single model can account for a meaningful share of an operator&rsquo;s active fleet. The work is proof-of-concept and there are no reports of exploitation in the wild. Remediation is the unresolved part: at publication no vendor firmware fix existed and UNISOC had not responded to the disclosure, so there is currently nothing for carriers or handset makers to push to devices. That leaves network-side measures as the only available lever &mdash; IMS and VoLTE abuse monitoring for anomalous video-call session setup, rate limiting and screening of malformed signalling, and an accurate inventory of which UNISOC-based models are active on the network so exposure can be quantified now and remediated when firmware eventually ships.</p>
         <div class="card-meta">
-          <span>SecurityWeek</span>
+          <span>Infosecurity Magazine</span>
           <span class="dot">&bull;</span>
-          <span>Reported 10 Aug 2026</span>
+          <span>Published 17 Aug 2026</span>
         </div>
-        <a href="https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.infosecurity-magazine.com/news/unisoc-modem-flaw-rce-calls/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -718,22 +718,20 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-ringcentral"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-unisoc"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
         <a href="#it-vcenter"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#it-kemploadmaster"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-unitel"><circle class="blip high" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
+        <a href="#it-ikeext"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-ringcentral"><circle class="blip high" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
         <a href="#it-ciscoasa"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
         <a href="#it-netscaler"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
-        <a href="#it-geoserver"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-ringcentral"><span class="ld high"></span><b>1</b> RingCentral breach, 1.6M accounts</a>
-        <a href="#it-vcenter"><span class="ld crit"></span><b>2</b> vCenter RCE hits carrier virtualization</a>
-        <a href="#it-kemploadmaster"><span class="ld crit"></span><b>3</b> Kemp LoadMaster exploited, in KEV</a>
-        <a href="#it-unitel"><span class="ld high"></span><b>4</b> Unitel Angola disrupted before IPO</a>
+        <a href="#it-unisoc"><span class="ld high"></span><b>1</b> UNISOC modem RCE via VoLTE call, no fix</a>
+        <a href="#it-vcenter"><span class="ld crit"></span><b>2</b> vCenter RCE exploited, now in KEV</a>
+        <a href="#it-ikeext"><span class="ld crit"></span><b>3</b> Windows IKE/IKEEXT RCE added to KEV</a>
+        <a href="#it-ringcentral"><span class="ld high"></span><b>4</b> RingCentral breach, 1.6M accounts</a>
         <a href="#it-ciscoasa"><span class="ld high"></span><b>5</b> Cisco ASA/FTD VPN DoS, in KEV</a>
         <a href="#it-netscaler"><span class="ld high"></span><b>6</b> NetScaler pre-auth RCE, public PoC</a>
-        <a href="#it-geoserver"><span class="ld high"></span><b>7</b> GeoServer SQLi hit mapping/GIS tools</a>
       </div>
     </div>
 
@@ -743,34 +741,34 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-unitel" data-published="2026-07-28">
+<div class="card" id="it-ringcentral" data-published="2026-08-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Angola's dominant mobile operator Unitel disrupted hours before its stock-exchange debut</h3>
-        <p>Unitel, Angola's largest mobile operator with roughly two-thirds market share, suffered a cyberattack that disrupted 2G, 3G, 4G and 5G service along with its mobile-payments platform, beginning just hours before the company's 28 July debut on Angola's stock exchange. Some digital services remained degraded into early August. Neither Unitel nor Angolan officials have published a detailed root-cause or attribution finding, and the company has not said whether subscriber data was affected.</p>
+        <h3>RingCentral confirms breach of roughly 1.6 million accounts after extortion group publishes a 280GB archive</h3>
+        <p>RingCentral, a cloud communications and unified-collaboration provider used widely by enterprises and contact centres, confirmed a breach traced to social engineering against employees or third parties holding access to its account systems. The extortion group ShinyHunters claimed responsibility and, after RingCentral declined to pay, published an archive described as roughly 280GB covering about 1.6 million customer accounts, reportedly containing names, email addresses, phone numbers and physical addresses. RingCentral has not detailed the initial access path beyond social engineering, and it remains unclear whether credentials, call metadata or billing records were included. This remains the largest confirmed communications-provider breach in the current window, and the exposed contact data is well suited to vendor-impersonation and vishing that trades on a recognised communications relationship.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No vulnerability disclosed &mdash; cause not made public</span>
+            <span class="ops-tag ex-none">No CVE &mdash; social engineering against account-system access</span>
             <span class="ops-tag kev-off">Not applicable &mdash; no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; operational disruption, not a patchable flaw</span>
-            <span class="ops-cc"><b>Action:</b> Carriers should test failover for simultaneous multi-generation (2G&ndash;5G) network and mobile-payment outages, and review monitoring around high-visibility corporate events such as listings and earnings.</span>
+            <span class="ops-tag patch-na">Not applicable &mdash; process and access-control failure, not a patchable flaw</span>
+            <span class="ops-cc"><b>Action:</b> Treat unsolicited &ldquo;RingCentral support&rdquo; contact as suspect, brief service desks and customer-facing staff on vendor-impersonation pretexts, and review third-party and reseller access to account-management systems.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Multi-network outage runbook review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-unitel" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-unitel">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor-impersonation briefing &amp; third-party access review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ringcentral" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ringcentral">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Dark Reading</span>
+          <span>SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>28 Jul&ndash;early Aug 2026</span>
+          <span>Reported 10 Aug 2026</span>
         </div>
-        <a href="https://www.darkreading.com/cyberattacks-data-breaches/angolas-largest-telco-breached-hours-before-ipo" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-threema" data-published="2026-08-13">
@@ -778,49 +776,49 @@
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Threema absorbs a 30-hour, tactic-shifting DDoS campaign against consumer users</h3>
-        <p>Secure-messaging provider Threema weathered a coordinated distributed-denial-of-service campaign over roughly 30 hours on 12&ndash;13 August that shifted attack techniques as defenses were applied, disrupting service for users in Switzerland, India and China. The company says its On-Prem product line &mdash; used by enterprise and government customers who host Threema's infrastructure inside their own environment &mdash; was unaffected because it sits outside the shared consumer infrastructure. No customer data was reported exposed; the campaign targeted availability, not data theft.</p>
+        <h3>Threema and its colocation partner absorb more than 24 hours of adaptive DDoS &mdash; target attribution still unclear</h3>
+        <p>Secure-messaging provider Threema and its colocation partner Nine absorbed a distributed-denial-of-service campaign lasting more than 24 hours on 12&ndash;13 August, with the attacker adapting techniques as mitigations were applied. Users in Switzerland, India and China reported outages and delayed message delivery. Attribution is unknown, and Threema has said it is not certain it was even the primary target &mdash; the traffic hit shared hosting infrastructure, so a neighbouring tenant is a plausible objective. Customers running Threema On-Prem inside their own infrastructure were unaffected, which is the practical lesson: the blast radius followed the shared hosting boundary, not the product. Service has been restored and no data exposure was reported; this was an availability event only.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">No CVE &mdash; volumetric/application-layer DDoS</span>
-            <span class="ops-tag kev-off">Not applicable</span>
+            <span class="ops-tag ex-none">No CVE &mdash; volumetric and application-layer DDoS, resolved</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; no CVE</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-na">Not applicable &mdash; availability attack, not a vulnerability</span>
-            <span class="ops-cc"><b>Action:</b> Messaging and OTT providers should confirm DDoS mitigation capacity against tactic-shifting, multi-vector campaigns and verify segmentation between shared consumer infrastructure and enterprise/on-prem deployments.</span>
+            <span class="ops-cc"><b>Action:</b> Messaging and OTT providers should confirm mitigation capacity against tactic-shifting multi-vector floods, and check whether colocation or shared-hosting neighbours put their own service in someone else&rsquo;s blast radius.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> DDoS mitigation capacity review &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> DDoS capacity and colocation blast-radius review &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-threema" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-threema">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Vendor status disclosure</span>
+          <span>BleepingComputer</span>
           <span class="dot">&bull;</span>
           <span>12&ndash;13 Aug 2026</span>
         </div>
-              <a href="https://www.bleepingcomputer.com/news/security/large-scale-ddos-attacks-disrupted-threema-secure-messaging-service/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/large-scale-ddos-attacks-disrupted-threema-secure-messaging-service/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-thehatman" data-published="2026-08-06">
+      <div class="card" id="it-thehatman" data-published="2026-08-17">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Disputed &ldquo;TheHatman&rdquo; claim alleges Azure/Entra directory theft naming Vodafone among Fortune 500 targets</h3>
-        <p>An actor using the name &ldquo;TheHatman&rdquo; claims to hold roughly 3.6 million employee-directory records pulled from Azure/Entra tenants at McDonald's, TCS, HCL, IHG and Vodafone (about 425,000 records), allegedly via password-spray and MFA-fatigue techniques. This claim is disputed: several of the named companies, including Vodafone, deny it, and researchers suggest the data may originate from older infostealer logs rather than a fresh intrusion. No named company has confirmed a current breach.</p>
+        <h3>Actor claims 425,000 Vodafone employee-directory records in a wider Azure/Entra data-theft campaign</h3>
+        <p>An actor using the name &ldquo;TheHatman&rdquo; claims to hold roughly 3.6 million employee-directory records pulled from Azure/Entra tenants across several large organisations, including about 425,000 attributed to Vodafone. The claim is unverified and no named company has confirmed a current breach. Notably, researchers at Hudson Rock link most of the named victims to earlier infostealer infections, meaning the likely route is valid credentials harvested from infected endpoints rather than any flaw in the identity platform itself. For carriers the relevant detail is what employee-directory data enables: names, roles, reporting lines and internal contact details are exactly the material used to impersonate staff to a carrier help desk, which is the first step in SIM-swap and number-porting fraud against subscribers.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Claimed technique only &mdash; credential attack, unconfirmed and disputed</span>
+            <span class="ops-tag ex-none">CLAIMED &mdash; credential-based access, no platform vulnerability identified</span>
             <span class="ops-tag kev-off">Not applicable &mdash; no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; unconfirmed claim</span>
-            <span class="ops-cc"><b>Action:</b> Enforce phishing-resistant MFA and conditional access on Entra ID tenants, and cross-check any exposed employee-directory data against known infostealer-log dumps before treating it as a new breach.</span>
+            <span class="ops-tag patch-na">Not applicable &mdash; credential theft, not a patchable flaw</span>
+            <span class="ops-cc"><b>Action:</b> Enforce phishing-resistant MFA and conditional access on Entra tenants, hunt for infostealer infections and rotate exposed credentials, and tighten identity-proofing on help-desk workflows that can move a number or reset a subscriber account.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Entra ID access hardening review &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk identity-proofing and credential-exposure review &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-thehatman" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-thehatman">Open</button>
           </div>
@@ -828,7 +826,7 @@
         <div class="card-meta">
           <span>SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Reported Aug 2026 &mdash; claim disputed</span>
+          <span>Reported 17 Aug 2026 &mdash; claim unverified</span>
         </div>
         <a href="https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -838,7 +836,67 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-<div class="card" id="it-cityforum" data-published="2026-08-12">
+<div class="card" id="it-evooo1bot" data-published="2026-08-15">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Evooo1Bot turns routers and edge devices into a proxy relay network rather than DDoS capacity</h3>
+        <p>Researchers documented Evooo1Bot, a Mirai-derived Linux botnet that conscripts routers and other internet-facing edge devices, but monetises them as relay nodes in a proxy network instead of using them purely for denial-of-service volume. That change of business model changes where the pain lands for an ISP. Proxy-relay infections push third-party attacker traffic outbound through subscriber IP space, so the visible consequences are abuse complaints, blocklisting of residential ranges and fraud attributed to customer connections &mdash; problems for abuse desks, IP reputation and support queues rather than for capacity planning. Infected CPE also tends to stay quiet, since the operator has a commercial interest in keeping the node stable and unnoticed.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing conscription of internet-exposed Linux edge devices</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; botnet campaign, no single CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Mitigation is CPE hygiene &mdash; firmware currency and removal of WAN-side management exposure</span>
+            <span class="ops-cc"><b>Action:</b> Watch subscriber ranges for CPE holding persistent outbound relay connections, feed proxy-node intelligence into abuse-desk workflows, and keep managed-CPE firmware current with remote management closed to the WAN.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Subscriber-edge relay detection and CPE firmware review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-evooo1bot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-evooo1bot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 15 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/new-evooo1bot-linux-botnet-turns-routers-into-traffic-relay-nodes/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-mirai" data-published="2026-08-13">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>New Mirai variant adds stealth features, keeping consumer routers a chronic source of carrier-side abuse</h3>
+        <p>A new variant of the long-lived Mirai IoT botnet code base has added stealth capabilities intended to make infected devices harder to spot and to survive routine investigation. Nothing here is novel in kind &mdash; Mirai derivatives have recruited consumer routers, cameras and set-top boxes for close to a decade &mdash; but the continued investment matters for operators because the affected population sits at the subscriber edge, where the carrier usually has visibility of the traffic and sometimes of the device, but rarely direct control over patching. This is a chronic condition rather than an acute event: it produces a steady background of scanning, credential stuffing and abuse reports originating from customer connections.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing IoT and CPE recruitment by Mirai derivatives</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; malware family, no single CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Mitigation is device hardening &mdash; default-credential removal and firmware updates</span>
+            <span class="ops-cc"><b>Action:</b> Maintain a firmware-update programme for managed CPE, block default-credential and Telnet/SSH exposure on subscriber gear, and monitor egress from subscriber ranges for scanning patterns typical of Mirai recruitment.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Managed-CPE hardening and egress monitoring review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mirai" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mirai">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 13 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/new-mirai-variant-adds-stealth-to-botnet-code" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-cityforum" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Research</span>
@@ -873,24 +931,58 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="it-vcenter" data-published="2026-08-07">
+<div class="card" id="it-ikeext" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>VMware vCenter RCE under active exploitation &mdash; 361 victim IPs across 47 countries and counting</h3>
-        <p>A critical directory-traversal flaw in the vCenter Server syslog service gives unauthenticated remote code execution. Broadcom patched it 29 July; DFIR firm QUIRSO saw first contact with attacker infrastructure on 3 August and counted 361 distinct victim IPs across 47 countries by 7 August, over half in Germany, the US, Turkey, Iran and France. The observed chain uses path traversal, a malicious cron job for persistence, and the open-source reverse_ssh framework for command and control; a suspected China-nexus operator is also deploying a Babuk-derived ransomware variant that researchers believe may be a smokescreen for deeper access. Many carriers run virtualized network functions &mdash; 4G/5G control- and user-plane elements, OSS/BSS and management systems &mdash; on vCenter-managed infrastructure, so compromise here reaches well beyond a single VM.</p>
+        <h3>CISA adds four actively exploited flaws to KEV &mdash; a Windows IKE extensions double free tops the list for carrier interconnect</h3>
+        <p>CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalog on 18 August with a 21 August federal remediation deadline. The one with the most direct carrier relevance is CVE-2026-33824, a double free in the Microsoft Windows IKE service extensions (IKEEXT) that leads to remote code execution: IKE is the key-exchange half of IPsec, which carriers rely on for interconnect tunnels, site-to-site links and managed enterprise VPN services, so Windows hosts terminating or brokering those tunnels are squarely in scope. The other three additions are CVE-2026-59310 in Broadcom VMware vCenter (path traversal to code execution), CVE-2026-55040 in Microsoft SharePoint (weak authentication allowing a security-feature bypass) and CVE-2026-65400 in Apple macOS Screen Sharing (improper authentication). All four are listed as exploited in the wild.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-33824</span>
+          <span>Microsoft &bull; Windows IKE service extensions (IKEEXT)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all four listed as exploited in the wild</span>
+            <span class="ops-tag kev-on">CISA KEV 18 Aug 2026, federal deadline 21 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor fixes required &mdash; apply Microsoft, Broadcom and Apple updates</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Windows hosts running the IKE/IKEEXT service, especially anything terminating IPsec for interconnect or managed VPN customers, patch all four KEV entries by the 21 August deadline, and hunt for anomalous IKE service crashes or restarts on tunnel endpoints.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> KEV-mandated patching &mdash; by 21 Aug 2026</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ikeext" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ikeext">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA</span>
+          <span class="dot">&bull;</span>
+          <span>KEV additions 18 Aug 2026</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-vcenter" data-published="2026-08-07">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>VMware vCenter path-traversal RCE under mass exploitation, now added to CISA KEV</h3>
+        <p>Broadcom disclosed this directory-traversal flaw in the vCenter Server syslog service in VMSA-2026-0006 on 29 July, CVSS 9.8, with no workaround available. Victims began connecting to attacker infrastructure on 3 August, and by 5 August roughly 95% of an eventual 361 victim IPs across 47 countries had appeared, concentrated in Germany, the United States, Turkey, Iran and France. The observed chain gives the actor root on vCenter, plants a cron job for reverse-SSH persistence and, in some cases, deploys ransomware derived from leaked Babuk source. CISA added the CVE to the KEV catalog on 18 August with a 21 August federal deadline. Many carriers run virtualised network functions, 4G/5G control- and user-plane elements and OSS/BSS platforms on vCenter-managed clusters, so a compromise at the hypervisor management layer reaches far beyond any single workload.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-59310</span>
           <span>Broadcom / VMware &bull; vCenter Server</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361+ victim IPs across 47 countries as of 7 Aug</span>
-            <span class="ops-tag kev-off">Not yet in CISA KEV as of writing</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361 victim IPs across 47 countries; reverse-SSH persistence and Babuk-derived ransomware</span>
+            <span class="ops-tag kev-on">CISA KEV 18 Aug 2026, federal deadline 21 Aug</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed builds available: vCenter 9.1.0.0300, 9.0.2.0100, 8.0 U3/U2</span>
+            <span class="ops-tag patch-yes">Patched by Broadcom in VMSA-2026-0006 (29 Jul) &mdash; no workaround</span>
             <span class="ops-cc"><b>Action:</b> Patch vCenter to fixed builds immediately, hunt for reverse_ssh artifacts and unexpected cron jobs, and audit any workload running virtualized network functions for unauthorized changes.</span>
           </div>
           <div class="ops-row ops-assign">
@@ -900,45 +992,11 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News</span>
+          <span>BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Victim count as of 7 Aug 2026</span>
+          <span>Campaign reporting, Aug 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-kemploadmaster" data-published="2026-08-07">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Progress Kemp LoadMaster command-injection flaw added to CISA KEV after nearly 800 exploitation attempts</h3>
-        <p>An unauthenticated command-injection flaw in Progress Kemp LoadMaster was added to CISA's Known Exploited Vulnerabilities catalog on 7 August, with a BOD 26-04 federal remediation deadline of 10 August, after researchers logged 792 exploitation attempts from 65 IPs across 18 countries. Kemp LoadMaster is widely deployed by carriers and ISPs for load balancing customer-facing and back-office applications, so an internet-exposed, unpatched instance sits directly in front of production traffic.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8037</span>
-          <span>Progress Software &bull; Kemp LoadMaster</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 792 exploitation attempts from 65 IPs across 18 countries</span>
-            <span class="ops-tag kev-on">CISA KEV 7 Aug 2026, BOD 26-04 deadline 10 Aug</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fix required &mdash; apply per Progress advisory</span>
-            <span class="ops-cc"><b>Action:</b> Patch or upgrade LoadMaster immediately, remove management-interface exposure to the internet, and review load-balanced services for signs of command-injection follow-on activity.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> KEV-mandated patch &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kemploadmaster" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kemploadmaster">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>KEV listing 7 Aug 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/08/progress-kemp-loadmaster-flaw-hits-cisa.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-vmware-vcenter-rce-flaw-exploited-for-reverse-ssh-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-ciscoasa" data-published="2026-08-11">
@@ -1009,42 +1067,43 @@
         <a href="https://labs.watchtowr.com/youre-back-in-the-room-citrix-netscaler-pre-auth-rce-cve-2026-8452/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-geoserver" data-published="2026-08-14">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>GeoServer patches unauthenticated SQL injection used in network-planning and GIS tools, exploitation attempts began within hours</h3>
-        <p>GeoServer, an open-source geospatial server used for coverage mapping, tower-siting and fiber-route planning at telecom operators as well as by government, agriculture and transit users, shipped releases 3.0.1, 2.28.5 and 2.27.6 on 14 August fixing an unauthenticated SQL injection in the jsonArrayContains filter against PostGIS layers. The project rates the issue &ldquo;High&rdquo; but has not published a CVSS score, and no CVE has been assigned yet &mdash; do not rely on the CVSS 9.8 figure circulating in some press coverage. Exploitation attempts began within hours of the 12 August disclosure, ahead of the 14 August patch.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation attempts began within hours of disclosure</span>
-            <span class="ops-tag kev-off">No CVE assigned &mdash; not applicable to KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched 14 Aug 2026 &mdash; 3.0.1, 2.28.5, 2.27.6</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade any GeoServer instance used for network-planning, coverage or GIS workflows to the patched releases immediately, and review PostGIS-backed layers for signs of prior SQL injection.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch GeoServer &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-geoserver" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-geoserver">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>GeoServer project (GHSA-mqjf-5f49-2fjh)</span>
-          <span class="dot">&bull;</span>
-          <span>Released 14 Aug 2026</span>
-        </div>
-        <a href="https://geoserver.org/announcements/vulnerability/2026/08/14/geoserver-3-0-1-released.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="it-callcenters" data-published="2026-08-11">
+<div class="card" id="it-chinacarriers" data-published="2026-08-05">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>Congressional report finds Chinese state carriers still present at critical US internet nodes despite revoked operating authority</h3>
+        <p>A 49-page report from a US House select committee concludes that China Mobile, China Unicom and China Telecom retain a presence at critical nodes of US internet infrastructure even though the FCC revoked their Section 214 common-carrier authorisations. The technical finding is that the three operators shifted into network services that fall outside those revoked authorisations &mdash; less-regulated interconnection, transit, data-centre and cloud-adjacent arrangements &mdash; so the physical and logical presence at exchange points persists while the licensing hook does not. The report connects that infrastructure to observed routing incidents and to the Salt Typhoon intrusions into US telecom networks, and its recommendations include broader FCC authority and a mandate to remove and replace the affected equipment and services. Nothing here is an incident disclosure; it is a mapping exercise that carriers can use against their own dependency inventories.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Not applicable &mdash; policy report, not a vulnerability</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; no CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Not applicable &mdash; supply-chain and interconnection exposure</span>
+            <span class="ops-cc"><b>Action:</b> Inventory peering, transit, colocation and wholesale relationships that terminate at or traverse these operators, including indirect exposure through upstream providers, and tighten BGP monitoring and RPKI validation for route anomalies affecting your prefixes.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Interconnection dependency and routing-monitoring review &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chinacarriers" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-chinacarriers">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Report published 5 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/chinese-hackers-telecoms-house" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-callcenters" data-published="2026-08-11">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy</span>

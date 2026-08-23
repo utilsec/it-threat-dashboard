@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Technology &amp; SaaS</h1>
       <div class="header-sub">Software vendors, cloud, MSPs &amp; the developer supply chain.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Technology &amp; SaaS</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across
+      <strong>18</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Technology / SaaS sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of technology IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Technology and SaaS carries the heaviest load of any sector this cycle. VMware vCenter CVE-2026-59310 is under confirmed mass exploitation &mdash; 361 victim IPs across 47 countries, root on the management plane, reverse-SSH persistence and Babuk-derived ransomware in some cases &mdash; and CISA added it to KEV on 18 August with no workaround available. SAP Commerce Cloud went from a CVSS 10.0 patch to observed exploitation in three days and a public exploit in four. GitLab shipped an emergency fix for a critical code-injection flaw and a zero-click GraphQL bug that leaves no practical interim mitigation. Clop&rsquo;s bespoke Windchill web shell is still extracting data at 43-plus victims while hiding inside the application&rsquo;s own service identity. Add an actively exploited MLflow SSRF, Ray in KEV, and clusters around the developer supply chain and AI assistant integrations. It stays in Medium, at the top of the band, because each of these is a discrete patch-and-hunt exposure or a bounded campaign rather than one issue compromising a large share of IT environments at once &mdash; 361 victims is a serious campaign, not widespread impact, and discrete exploited flaws do not aggregate into High. What would move it up: vCenter or SAP Commerce producing compromise counts an order of magnitude higher, or a confirmed platform-level breach at a major cloud or SaaS provider. What would pull it down: GitLab and the AI-integration findings staying unexploited as the exploited items are patched out.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:64%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, not High. The sector&rsquo;s week is busy but composed of separable exposures rather than one issue widely impacting IT environments, which the hard rule caps at 6.9. The genuine active drivers are the fourteen trojanized npm packages delivering the RedC2 4.0 Linux backdoor &mdash; confirmed, and import-triggered, so <code>--ignore-scripts</code> does not help &mdash; and the sustained scraping of Salesforce and ServiceNow guest-user portals. The crates.io compromise is confirmed but the malicious versions of <code>arrayref</code>, <code>internment</code> and <code>append-only-vec</code> were live for only 86 to 107 minutes with no evidence a poisoned build reached production, and the North Korea link rests on infrastructure overlap reported by Wiz rather than any formal attribution. ShieldBreak is unpatched with a public proof of concept and affects every Defender-enabled Windows build, but there is no confirmed in-the-wild exploitation and it is local privilege escalation, so it lifts the floor without reaching High. The two confirmed breaches are single-organisation: Alation, with the root cause undisclosed and the exfiltration volume claimed rather than confirmed, and Sakura Internet at up to 1,360,563 accounts with no exfiltration confirmed. The Cloudflare Workers Spectre work and the isolated-vm escape are research. None of this aggregates.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -768,7 +768,136 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-windchill" data-published="2026-08-18">
+<div class="card" id="it-shieldbreak-defender" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Zero-day</span>
+        </div>
+        <h3>Microsoft has no patch for ShieldBreak &mdash; public exploit code turns any Defender-protected Windows host into a SYSTEM escalation</h3>
+        <p>A researcher operating as &ldquo;Nightmare Eclipse&rdquo; published working proof-of-concept code for CVE-2026-69414 on 17 August, and Microsoft has so far confirmed only that it is &ldquo;working to provide a high quality security update.&rdquo; The flaw sits in Defender&rsquo;s Malware Protection Engine and escalates a local foothold to SYSTEM. The researcher reports the PoC succeeding at a 100% rate against fully patched systems; that success claim is the researcher&rsquo;s, not independently confirmed in the reporting reviewed, but the code itself is public and the vulnerability is unpatched. Affected builds span Windows 10, Windows 11 including 25H2 and Canary, Windows Server 2025 and other Server editions &mdash; the precondition is simply that Defender is enabled. It reportedly bypasses the July fix for RoguePlanet (CVE-2026-50656), which points to an incompletely remediated engine weakness rather than a fresh defect. No CVSS score has been published, and there is no confirmed in-the-wild exploitation. For technology firms the exposure is structural rather than exotic: Defender is the default enforcing AV on Windows developer workstations, CI runners and jump hosts, and it runs with exactly the privilege an attacker wants. A local-only bug is normally second-tier, but this sector supplies the missing half constantly &mdash; a Teams helpdesk lure or a poisoned package import gets code running as the user, and ShieldBreak converts that foothold into SYSTEM on the machine holding signing keys and cloud credentials.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-69414</span>
+          <span>Windows 10 / 11 (incl. 25H2, Canary) / Server 2025 with Defender enabled &bull; CVSS not confirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC &mdash; researcher claims 100% success on patched systems; no confirmed in-the-wild exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">Unpatched &mdash; Microsoft says an update is in progress; no date given</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Windows hosts where Defender is the enforcing AV and rank build agents, code-signing hosts and developer laptops first. With no patch available, instrument instead of remediating: alert on child processes and unexpected token elevation involving <code>MsMpEng.exe</code>, and on SYSTEM-level services created shortly after a user-context process starts. Verify tamper protection and cloud-delivered protection are on, keep engine and signature updates fully automatic so Microsoft&rsquo;s fix lands without a change window, and cut local-admin membership and interactive logon on CI infrastructure this week.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Detection coverage and privilege reduction &mdash; 7 days; patch on release (public PoC, no vendor fix)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shieldbreak-defender" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-shieldbreak-defender">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>PoC published and reported 17 Aug 2026; no patch available as of publication</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/microsoft-working-on-defender-patch-for-shieldbreak-zero-day/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-npm-redc2-backdoor" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Supply Chain</span>
+        </div>
+        <h3>Fourteen npm packages launch the RedC2 4.0 backdoor on import rather than install &mdash; which is why the ecosystem&rsquo;s standard defence misses them</h3>
+        <p>The packages &mdash; streak-metrics-math, kit-map-vim, streak-map-cache, streak-map-kit, map-streak-kit, streak-cache-map, streak-calc-metrics, streak-calc-math, streak-math-abz, streak-metricsaz, streak-math-metrics, streak-metricazbd, streak-metricsazb and streak-kit-map, at versions 1.0.0 and 1.0.1 &mdash; each bundle a binary that is launched detached the moment application code imports the module. There is no install hook, and that is the detail worth dwelling on: <code>--ignore-scripts</code>, postinstall-blocking CI policy and install-time script auditing, which is where most organisations have concentrated their npm defences since 2024, do nothing against execution that happens at require time. The payload is RedC2 4.0, a cross-platform implant covering Windows, Linux and macOS with an interactive shell, credential theft, SSH key theft, browser credential harvesting, a SOCKS5 proxy and in-memory ELF execution. It ships with &ldquo;Red Agent,&rdquo; an AI assistant that drives post-exploitation from natural-language instructions. It has been sold since June 2026 for $99.99 by a seller using the handle &ldquo;MarlboroMan&rdquo; through a storefront called Red Offsec. For technology organisations the combination is unusually bad. Node build and test runners are Linux hosts that hold SSH keys, registry tokens and cloud credentials, and RedC2&rsquo;s feature set &mdash; key theft plus SOCKS5 &mdash; is a lateral-movement kit aimed squarely at that host class. The $99.99 price removes any skill floor: this is commodity tooling, and the AI operator module lowers the bar again for whoever buys it.</p>
+        <div class="card-meta">
+          <span>npm packages streak-* / map-* / kit-map-vim, v1.0.0&ndash;1.0.1 &bull; RedC2 4.0 (Windows / Linux / macOS) &bull; No CVE assigned</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed malicious packages published to npm, delivering RedC2 4.0 on import</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; remove the packages and rebuild affected hosts</span>
+            <span class="ops-cc"><b>Action:</b> Grep every lockfile, vendored <code>node_modules</code> tree and registry-proxy log for the fourteen names at 1.0.0 or 1.0.1, and flag any dependency added in the last 60 days matching the streak / map / kit / calc / metrics token pattern. Treat <code>--ignore-scripts</code> as insufficient here and add runtime controls: default-deny egress from build containers, alert on child processes spawned by <code>node</code>, and flag any detached binary run out of <code>node_modules</code>. Where a host resolved one of these, rotate SSH keys, registry tokens and browser credentials, then rebuild the runner rather than cleaning it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Dependency sweep &mdash; 48h; credential rotation and runner rebuild on any hit &mdash; immediate</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-npm-redc2-backdoor" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-npm-redc2-backdoor">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 21 Aug 2026; RedC2 4.0 sold since June 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/14-trojanized-npm-packages-drop-redc2.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-cloudflare-workers-spectre" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>A Spectre-class side channel crosses the Cloudflare Workers tenant boundary &mdash; too slow to steal a database, fast enough to steal the token that opens one</h3>
+        <p>The mechanism is one Worker reading memory belonging to another Worker co-located on the same host, and the measured rate is roughly 12 bits per second. Researchers showed that this is sufficient to recover a JSON Web Token from the neighbouring tenant. The distinction carries the whole finding: a channel that could never move bulk customer data can still move the small, high-value, directly replayable credential that unlocks it, and bandwidth is therefore the wrong lens for judging severity here. Several things are not established and should not be assumed. No CVE has been assigned in the reporting reviewed. No CVSS score, no Cloudflare patch status and no vendor mitigation guidance appear in the coverage. There is no evidence of exploitation in the wild &mdash; this is a research demonstration, not an incident. The consequence for technology organisations is architectural rather than operational. Workers and comparable V8-isolate platforms earn their cost and cold-start advantages precisely by packing many tenants into a single process boundary, in place of the per-tenant VM or container isolation that other serverless models rely on. That trade assumes software-level isolation holds, and a transient-execution side channel is exactly the bug class that assumption cannot absorb, because the leak occurs below the layer the isolation is enforced at. Anything a Worker keeps resident &mdash; session tokens, API keys, signing material for downstream services &mdash; should now be treated as sitting behind a best-effort boundary rather than a hard one.</p>
+        <div class="card-meta">
+          <span>Cloudflare Workers (V8-isolate multi-tenancy) &bull; ~12 bits/second cross-tenant leak &bull; No CVE assigned</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation &mdash; researcher demonstration only; no in-the-wild activity reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch status stated &mdash; no Cloudflare mitigation guidance in the reporting reviewed</span>
+            <span class="ops-cc"><b>Action:</b> Enumerate which of your Workers hold long-lived secrets resident in memory, and shorten what they hold: move signing and API keys behind a secrets service or a downstream call rather than module-scope variables. Cut the lifetime of any JWT a Worker mints or forwards from hours to minutes, and bind tokens to a client fingerprint or source IP where the design allows, so a replayed token fails. For workloads that need hard tenancy separation &mdash; payments, key management, regulated PII &mdash; record whether isolate co-location is acceptable and ask Cloudflare directly for its response to this research.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Secret-lifetime and tenancy-architecture review &mdash; 30 days (research only, no exploitation)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cloudflare-workers-spectre" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cloudflare-workers-spectre">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Research published 19 Aug 2026; no vendor response reported in the coverage reviewed</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/cloudflare-workers-spectre-attack-leaks.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-rust-crates-supply-chain" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Supply Chain</span>
+        </div>
+        <h3>A compromised crates.io maintainer account pushed a malicious arrayref into Rust build pipelines for under two hours &mdash; long enough to reach any unpinned CI run</h3>
+        <p>Three crates were republished from a single compromised maintainer account: arrayref 0.3.10, internment 0.8.7 and append-only-vec 0.1.9. The scale sits almost entirely in the first &mdash; arrayref has 245.3 million all-time downloads and 53.9 million in the trailing 90 days, which is the profile of a transitive dependency buried deep in Rust trees rather than something teams choose deliberately. The malicious versions pulled in a typosquatted <code>proc-macro1</code> whose build script fetched a stage-2 implant that harvested credentials from Chrome, Brave and Edge. Cargo executes <code>build.rs</code> at compile time, so the trigger is a build, not a deployment &mdash; a distinction that decides who is exposed. The exposure window was 86 to 107 minutes, and no evidence has emerged that a malicious version reached production. Wiz noted infrastructure overlap with recent North Korean supply-chain activity, but no vendor has made a formal attribution, so treat the actor as unconfirmed. The compromise itself is confirmed. No CVE was assigned. For technology organisations the short window is less reassuring than it reads. CI fleets rebuild constantly, and any pipeline that refreshes dependencies rather than honouring a committed lockfile could have resolved the poisoned version inside those minutes. The stolen material &mdash; browser-stored credentials on a build host &mdash; is the same currency the npm RedC2 campaign is after this week, and it is why the exposure to audit is the build identity, not the shipped binary.</p>
+        <div class="card-meta">
+          <span>arrayref 0.3.10 (53.9M downloads / 90 days), internment 0.8.7, append-only-vec 0.1.9 &bull; No CVE assigned</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; malicious versions served for 86&ndash;107 minutes; North Korean link is CLAIMED via infrastructure overlap, not formally attributed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; audit builds from the exposure window and rotate credentials</span>
+            <span class="ops-cc"><b>Action:</b> Search <code>Cargo.lock</code> history, registry-mirror logs and CI job output for arrayref 0.3.10, internment 0.8.7, append-only-vec 0.1.9, or any resolution of <code>proc-macro1</code>, on 20 August. Mirror caches and CI logs are where these persist after removal, so check them even if current lockfiles look clean. Treat any host that compiled in that window as credential-exposed: rotate crates.io tokens, cloud credentials and browser-stored logins for the build identity, and rebuild the runner. Then enforce committed lockfiles in CI and stop running builds on hosts carrying a developer browser profile.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Build-window audit &mdash; 72h; credential rotation on any confirmed resolution &mdash; immediate</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-rust-crates-supply-chain" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-rust-crates-supply-chain">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek; BleepingComputer (Wiz research)</span>
+          <span class="dot">&bull;</span>
+          <span>Malicious versions live 20 Aug 2026 for 86&ndash;107 minutes; reporting 20&ndash;21 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-windchill" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Incident</span>

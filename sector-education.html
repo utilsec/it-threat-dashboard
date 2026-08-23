@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Education</h1>
       <div class="header-sub">K-12 districts, universities &amp; ed-tech.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Education IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
+      <strong>16</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -764,6 +764,103 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-utsa-outage" data-published="2026-08-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>UTSA pulled academic systems offline and slipped the fall semester to 23 August &mdash; and the university and the state disagree on whether data was taken</h3>
+        <p>Two accounts of this incident are on the record and they do not agree. UTSA &mdash; 40,000 students across six campuses &mdash; said the threat activity was contained before it reached core systems and that it found no evidence data was accessed or exfiltrated, with password resets planned. Texas Cyber Command chief TJ White subsequently confirmed a data breach at UTSA while praising the institution&rsquo;s response. Neither statement has been reconciled publicly, no group has claimed the intrusion, and no vulnerability or initial access vector has been named. What is not in dispute is the operational damage: phone systems and academic infrastructure were taken offline, course registration and payment processing were disrupted, payment deadlines were extended, and the start of term moved from 19 August to Monday 23 August. For education operators the timing carries the lesson. The intrusion landed in the week when registration, financial-aid disbursement, residence check-in and LMS provisioning all peak &mdash; precisely when an institution has the least appetite for isolating systems and the most students queued behind every service. UTSA absorbed a four-day hit to the academic calendar rather than run suspect infrastructure into census week. The conflicting containment language is the second lesson: a day-one &ldquo;no evidence data was accessed&rdquo; statement is a snapshot of incomplete forensics, not a finding, and it reads as a reversal when a state agency corrects it 24 hours later.</p>
+        <div class="card-meta">
+          <span>University of Texas at San Antonio &bull; 40,000 students, six campuses &bull; no CVE named</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No named vulnerability &mdash; intrusion confirmed, vector undisclosed; UTSA reports containment, Texas Cyber Command confirms a breach</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; no CVE associated with this incident</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; response is containment, credential reset and calendar contingency</span>
+            <span class="ops-cc"><b>Action:</b> Before your own census date, rehearse the decision UTSA had to make. Name in advance who can authorise taking telephony, registration and payment systems offline, and what the academic-calendar fallback is. Confirm registrar, bursar and residence-life systems have documented manual workarounds, and that deadline-extension authority sits with someone reachable on a weekend. Pre-stage a mass password reset at student-body scale, including the SSO and MFA re-enrolment path and the helpdesk capacity it implies. Draft holding statements now that survive a later external correction &mdash; describe what you are doing, not what you have ruled out.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Tabletop the term-start isolation decision and pre-stage the mass reset &mdash; 5 business days (peak-calendar window is open now)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-utsa-outage" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-utsa-outage">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record; News4SA; GovTech; KSAT</span>
+          <span class="dot">&bull;</span>
+          <span>Systems taken offline reported 18 Aug 2026; breach confirmed by Texas Cyber Command 19 Aug 2026; semester start moved to 23 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/university-of-texas-forced-to-take-systems-offline-cyberattack-san-antonio" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-zimbra-edu" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>The actively-exploited Zimbra flaw is an education problem specifically &mdash; universities are among the heaviest remaining self-hosted operators</h3>
+        <p>CERT Polska has confirmed in-the-wild exploitation of CVE-2026-73570, a command-injection flaw in Zimbra Collaboration Suite carrying a CVSS of 8.9. A crafted SMTP request reaches the SNMP notification path and executes operating-system commands as the <code>zimbra</code> user, with no authentication required. Affected builds are ZCS below 10.1.20 with the <code>zimbra-snmp</code> package installed and SNMP notifications enabled. CISA added the CVE to KEV on 21 August with a 24 August federal deadline. What moves this to the top of an education queue rather than into the general patch stack is install base. Universities and school systems are among the heaviest remaining self-hosted Zimbra operators, having kept it through a decade of migrations to Microsoft 365 and Google Workspace because it is inexpensive at student scale and locally controlled. Those deployments tend to be run by a small mail team, patched on a semester rhythm rather than a monthly one, and exposed to the internet on SMTP by design &mdash; a mail server that will not accept unauthenticated mail from strangers is not doing its job. Execution as the <code>zimbra</code> user reaches the message store, not merely the host: staff and student mail, distribution lists and the institutional address book that phishing operators most want in the first week of term. One caveat on the deadline: cisa.gov was returning 403 throughout this research window, so the KEV dates here come from secondary reporting rather than the catalogue itself.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-73570</span>
+          <span>Zimbra Collaboration Suite &lt; 10.1.20 with zimbra-snmp &bull; CVSS 8.9</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed by CERT Polska; unauthenticated RCE as the zimbra user via crafted SMTP</span>
+            <span class="ops-tag kev-on">In CISA KEV since 21 Aug 2026 &mdash; federal deadline 24 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; upgrade to ZCS 10.1.20 or later</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every self-hosted Zimbra instance, including the departmental, faculty and lab servers central IT does not own &mdash; in higher education those are where unpatched mail lives. On each, check whether <code>zimbra-snmp</code> is installed and SNMP notifications are enabled; where they are not needed, disable notifications or remove the package today as an interim control. Upgrade to ZCS 10.1.20 or later ahead of the 24 August deadline. Then hunt: review mail-queue and SNMP logs for anomalous SMTP, look for new cron entries or web shells owned by the zimbra account, and rotate service and LDAP bind credentials stored on the host.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or disable SNMP notifications &mdash; 24h (exploited, unauthenticated, trivial to weaponise)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zimbra-edu" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-zimbra-edu">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (CERT Polska research)</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation confirmed 20 Aug 2026; KEV listed 21 Aug 2026; federal due date 24 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-highered-ransomware-trend" data-published="2026-08-10">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Ransomware against higher education rose 8% in H1 2026 while K&ndash;12 trended down &mdash; the two halves of the sector are moving apart</h3>
+        <p>The current baseline dataset for the sector has the two halves of education moving in opposite directions: an 8% increase in ransomware incidents against higher education in the first half of 2026, against a downward trend in K&ndash;12 attacks. The analysis was published on 10 August, outside this week&rsquo;s reporting window, and the coverage reviewed gives the direction of travel and that single percentage rather than victim counts or a stated methodology &mdash; so carry it as a trend signal, not as a measurement to put unqualified into a board pack. It still changes how an education security programme should be scored. Much of the last three years of K&ndash;12 defensive funding, insurance pressure and state-level assistance was built on the premise that school districts were the softest and most-targeted part of the sector. If districts are genuinely improving while universities are not, budget and staffing arguments resting on that premise are now aimed at the wrong half. The structural explanation worth testing locally is the one higher education has always carried: federated IT with schools and institutes running their own infrastructure, large populations of unmanaged research and departmental endpoints, self-hosted legacy services such as the Zimbra estate elsewhere on this page, and a user base that turns over substantially every year. The UTSA outage above is a single incident and proves nothing about the trend &mdash; but it is the shape the trend predicts: a large public university, at term start, losing days rather than hours.</p>
+        <div class="card-meta">
+          <span>Higher education vs K&ndash;12, H1 2026 &bull; 8% increase in higher-ed incidents; K&ndash;12 trending down &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation component &mdash; incident-trend research, not a vulnerability</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; no CVE associated</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; this is a programme, budget and assurance action</span>
+            <span class="ops-cc"><b>Action:</b> Re-baseline your risk register against the higher-education line rather than the sector-wide one before the autumn budget cycle: pull your own two-year incident and near-miss counts and compare the direction, rather than assuming K&ndash;12 improvement transfers. Identify the three federated systems most likely to be encrypted &mdash; departmental file servers, research storage and the self-hosted mail estate &mdash; and confirm each has an offline restore that has actually been tested this year, not merely a snapshot schedule. Ask your insurer which loss dataset priced this renewal. Where a school or institute runs its own IT, get its backup and MFA coverage in writing this term.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Re-baseline higher-ed risk scoring and confirm tested restores for federated systems &mdash; before the autumn budget cycle (no active exploitation)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-highered-ransomware-trend" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-highered-ransomware-trend">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>GovTech (H1 2026 K&ndash;12 vs higher-ed ransomware trend analysis)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 10 Aug 2026 &mdash; outside the 16&ndash;23 Aug window, carried as the current baseline dataset</span>
+        </div>
+        <a href="https://www.govtech.com/education/k-12/ransomware-attacks-on-k-12-trend-down-higher-ed-trend-up-in-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-vcenter" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>

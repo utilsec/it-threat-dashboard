@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
       <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across
+      <strong>17</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Nonprofit sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of nonprofit IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">5.3</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:53%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 5.3 is low-to-mid Medium: a quiet cycle for nonprofit-specific threat activity, held up by two confirmed data losses. The Beacon CRM breach is the sector’s defining event — an AWS key leaked in the vendor’s public JavaScript build output let an attacker pull the platform’s entire dataset for 1,500+ UK charities. Encryption at rest did not help: the credential was valid, so the data decrypted on the way out. That is wide, but it is closed — an 87-minute window on 27 July — and the ICO found the charities bore no responsibility. Boston Healthcare for the Homeless Program adds a confirmed 185,000-record breach at a safety-net provider, while the Data Orchard contractor breach is confirmed only for the Scottish prosecutor’s office; exposure of its nonprofit clients is <b>not confirmed</b>. Nothing here is an ongoing compromise, no nonprofit-specific platform is under active exploitation, and no charity was taken offline, so the no-advisory-stacking rule caps this in Medium. What remains live is cross-sector patch pressure that lands hard on one-person IT teams: four KEV additions on 18 Aug with a 21 Aug federal deadline, continuing mass exploitation of VMware vCenter, and a refreshed CISA/FBI Medusa advisory citing ~24-hour weaponisation of new flaws. Up: confirmed nonprofit victims from Data Orchard, Beacon data fuelling donor fraud, or ransomware at a fundraising platform. Down: vendor confirmations and a clean cycle with no new sector breach.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:55%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Mid-Medium. The sector&rsquo;s own in-window material is one single-organisation breach plus one vendor breach, alongside cross-cutting patch work. SickKids is confirmed but contained: employee and job-applicant data taken through a third-party software flaw, clinical systems untouched, and no vendor, product, CVE or victim count disclosed &mdash; which leaves little to act on beyond supplier inventory. Beacon CRM is the heavier driver, a confirmed compromise of a shared charity CRM reaching supporter names, phone numbers and addresses across more than a thousand nonprofits, caused by an AWS key left in public JavaScript build artifacts. It still reads as a bounded, already-remediated incident: no payment data, no group claiming it, no data seen published, and a short intrusion window. Active exploitation of widely-deployed software does exist &mdash; Zimbra CVE-2026-73570 at CVSS 8.9, confirmed by CERT&nbsp;Polska and KEV-listed &mdash; so the quiet-week cap does not bind, but it is a cross-sector item rather than something impacting a large portion of nonprofit IT estates. Elementor Pro has no observed exploitation and requires a non-default configuration. One exploited KEV item plus a multi-tenant but bounded vendor breach sits mid-Medium.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -760,7 +760,105 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-dataorchard" data-published="2026-08-14">
+<div class="card" id="it-sickkids-employee-data" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>SickKids says employee and job-applicant records were stolen through a flaw in third-party software &mdash; the vendor, the product and the CVE are all undisclosed</h3>
+        <p>The Hospital for Sick Children has confirmed that personal information belonging to current and former employees and to job applicants was taken in an intrusion that also touched the Boomerang pediatric clinic and SickKids Foundation, the organisation&rsquo;s fundraising charity. Clinical systems and patient records were not affected. The external Careers site has been taken offline, and those affected are being offered 24 months of credit monitoring and identity protection. SickKids attributes the incident to a vulnerability in third-party software used by the hospital and by other organisations, but has not named the vendor or application, has not published a CVE, and has not said how many people are affected. That undisclosed dependency is the part nonprofit operators should sit with. The breach landed on the HR, recruitment and foundation tier &mdash; exactly the systems most charities buy rather than build, run with a small administrative team, patch on the supplier&rsquo;s schedule, and leave outside whatever monitoring covers core mission systems. It is the organisation&rsquo;s third disclosed incident since the December 2022 LockBit attack and the September 2023 MOVEit exposure that affected 3.4 million people, and all three arrived through software or infrastructure it did not write. For a charity with a fundraising arm, an applicant-tracking portal and a donor platform are the same class of asset: internet-facing, identity-rich, and dependent on a vendor to tell you when something is wrong.</p>
+        <div class="card-meta">
+          <span>Third-party software at SickKids &bull; vendor, product and CVE not disclosed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SickKids confirms a third-party software vulnerability was exploited against it; the flaw itself is unidentified publicly</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE has been published for this incident</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch identified &mdash; affected product not named by SickKids</span>
+            <span class="ops-cc"><b>Action:</b> Build a one-page inventory of every internet-facing recruitment, HR and fundraising application your organisation runs &mdash; applicant tracking, volunteer sign-up, event and giving pages &mdash; naming the vendor, the admin account holders and the route by which that vendor would notify you of a security issue. For each, confirm this week that MFA is enforced on administrative logins and that leaver and contractor accounts are gone. Ask each vendor in writing for current patch status. Where a careers or volunteer portal is not actively in use, take it offline rather than leaving it exposed while you wait for answers.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor inventory and admin-access review &mdash; 5 business days (no patch to apply; exposure is in the supplier tier)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sickkids-employee-data" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sickkids-employee-data">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer; The Record (SickKids statement)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 21 Aug 2026; number of affected individuals not disclosed</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/sickkids-data-breach-exposes-employee-and-job-applicant-info/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-beacon-crm-charities" data-published="2026-08-14">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>A single AWS key left in public JavaScript build artifacts exposed supporter data at more than 1,000 charities using Beacon CRM</h3>
+        <p>Beacon has confirmed that an attacker used a compromised AWS access key &mdash; exposed in publicly available JavaScript build artifacts &mdash; to download customer database backups from its charity CRM platform. More than 1,000 charities are affected. The earliest malicious activity is dated 27 July, data was likely transferred on 27&ndash;28 July, and customers were notified on 3 August; the supporter-notification and ICO-reporting wave has continued through this week. Exposed fields include supporter names, phone numbers, and email and postal addresses. No payment data was involved. Beacon assesses that the actor &ldquo;exported all data contained within the database&rdquo; but says its logs cannot establish which objects were actually taken &mdash; a distinction worth preserving in your own donor communications rather than rounding up or down. No group has claimed the incident and the data has not been observed published. Named affected nonprofits include Christians in Sport, Keswick Ministries, Kintsugi Hope, Langham Arts, Living Out, Operation Mobilisation, ReSource and Sheffield Hospitals Charity. The structural point for the sector: nothing here required a zero-day. One long-lived cloud credential, shipped inside front-end build output that anyone could fetch, was enough to reach the backups holding a thousand charities&rsquo; supporter lists. Small nonprofits concentrate their most sensitive data &mdash; donor identities, giving history, contact details &mdash; in exactly one shared platform, so the vendor&rsquo;s worst day becomes every customer&rsquo;s regulatory and reputational day.</p>
+        <div class="card-meta">
+          <span>Beacon CRM &bull; compromised AWS access key in public build artifacts; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Beacon confirms unauthorised download of customer database backups using the leaked key</span>
+            <span class="ops-tag kev-off">Not applicable to KEV &mdash; credential exposure, not a software vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; remediation is credential rotation and supporter notification</span>
+            <span class="ops-cc"><b>Action:</b> If you are a Beacon customer, request the platform&rsquo;s written scope statement for your tenant and record that its logs cannot confirm exactly which records were exported &mdash; then draft supporter notifications and your ICO position on that basis, not on an assumed subset. Separately, grep your own published web bundles, source maps and CI artifacts for AKIA-prefixed keys and other long-lived secrets, rotate anything found, and replace static cloud keys with short-lived roles. Brief fundraising and helpline staff that supporter contact details are now plausibly in attacker hands and that phishing referencing recent giving should be expected.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Rotate any exposed cloud keys &mdash; 48h; supporter notification and regulator position &mdash; this week</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-beacon-crm-charities" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-beacon-crm-charities">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek; MinistryWatch; The Register (Beacon statement)</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion 27&ndash;28 Jul 2026; customers notified 3 Aug 2026; SecurityWeek update 14 Aug 2026, notification wave ongoing</span>
+        </div>
+        <a href="https://www.securityweek.com/over-1000-charities-hit-by-beacon-crm-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-nonprofit-patch-priorities" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Three fixes carry the week for charities &mdash; exploited Zimbra command injection, an Elementor Pro upload bypass, and AWS keys sitting in public build output</h3>
+        <p>Zimbra is the only one of these under confirmed attack. CERT Polska has verified in-the-wild exploitation of CVE-2026-73570, a CVSS 8.9 command injection in Zimbra Collaboration Suite: a crafted SMTP request reaches the SNMP notification path and runs operating-system commands as the <code>zimbra</code> user with no authentication. It affects ZCS below 10.1.20 where <code>zimbra-snmp</code> is installed and SNMP notifications are enabled, and it entered CISA KEV on 21 August with a 24 August federal deadline. Zimbra&rsquo;s install base skews heavily toward organisations that self-host mail to avoid licence costs, which is a fair description of much of the charity sector. Elementor Pro CVE-2026-32475 is a file-upload validation bypass in versions before 4.2.2 that lets a PHP file land in a publicly reachable directory; it is not known to be exploited, the CVSS is not confirmed, and it requires a published Form with a File Upload field and multiple-file upload switched on, which is off by default. The patch shipped 19 August against an Elementor base of 10 million-plus installs &mdash; the same WordPress-and-a-page-builder pattern most small nonprofits use for donation and campaign sites. Third, Truffle Security found 9,300-plus live AWS keys exposed publicly between August 2022 and August 2026, 88 percent still active on 10 August, including 526 root keys and 768 granting full account control. That is the Beacon failure mode at scale.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-73570</span>
+          <span class="cve-badge">CVE-2026-32475</span>
+          <span>ZCS &lt; 10.1.20 (CVSS 8.9) &bull; Elementor Pro &lt; 4.2.2 (CVSS not confirmed) &bull; exposed AWS keys</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active for Zimbra only &mdash; CERT Polska confirms exploitation; Elementor Pro has no observed exploitation; AWS key exposure is confirmed research, not an attack campaign</span>
+            <span class="ops-tag kev-on">Zimbra in CISA KEV since 21 Aug 2026 &mdash; federal deadline 24 Aug; Elementor Pro not in KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; ZCS 10.1.20 or later; Elementor Pro 4.2.2 (released 19 Aug)</span>
+            <span class="ops-cc"><b>Action:</b> Take Zimbra first: check whether <code>zimbra-snmp</code> is installed and SNMP notifications are enabled, disable those notifications immediately if you cannot patch today, then upgrade to 10.1.20 and review mail-server logs for unexpected commands run as the <code>zimbra</code> user. Next, update Elementor Pro to 4.2.2 across every site you run and, where a Form has a File Upload field, confirm multiple-file upload is off and check upload directories for stray PHP files. Finally, search public repositories, deployed JavaScript bundles and source maps for AWS keys, rotate every one you find, and disable unused root keys.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Zimbra patch or SNMP-notification disable &mdash; 24h; Elementor Pro update and AWS key sweep &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nonprofit-patch-priorities" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nonprofit-patch-priorities">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (CERT Polska); BleepingComputer (Elementor Pro; Truffle Security research)</span>
+          <span class="dot">&bull;</span>
+          <span>Zimbra exploitation confirmed 20 Aug 2026, KEV 21 Aug; Elementor Pro patch 19 Aug 2026; AWS key research published 21 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-dataorchard" data-published="2026-08-14">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Incident</span>

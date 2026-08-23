@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across
+      <strong>17</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Retail&rsquo;s exposure this window sits in the two platforms retailers run their storefronts on, and both are under attack. SAP patched SAP Commerce Cloud&rsquo;s CVE-2026-58231 (CVSS 10.0) on 11 August; exploitation attempts followed on 14 August and a public proof-of-concept by 15 August &mdash; three days from fix to live attacks, with code execution reaching order and customer data. Adobe&rsquo;s 12 August Commerce/Magento update fixes CVE-2026-71362, where an unauthenticated attacker can switch a customer session onto another shopper&rsquo;s account with no account, no admin rights and no user interaction; Sansec&rsquo;s WAF was blocking attempts while Adobe still reported none in the wild. Alongside those, one intrusion at 3PL CEVA Logistics cascaded into Pok&eacute;mon Center, Valve/Steam and several European retailers, and claimed Entra directory theft names McDonald&rsquo;s, Gap, IHG and Wyndham &mdash; credential-driven and unconfirmed, but prime fuel for help-desk impersonation. Add four new KEV items due 21 August and an active vCenter campaign with 361 victim IPs. Every item is still a discrete patch-and-hunt exposure or a single-organisation incident rather than one issue compromising a large share of retail IT at once, so the no-advisory-stacking rule caps this in Medium &mdash; confirmed platform exploitation puts it near the top of the band. It moves to High only if storefront exploitation is confirmed spreading across a large share of deployments; it eases once SAP and Adobe patching is broadly complete with no confirmed merchant breaches.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:62%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium. Retail has one genuinely actively-exploited item of its own: SAP Commerce Cloud CVE-2026-58231 at CVSS 10.0, with exploitation confirmed by Defused but explicitly limited to a single threat actor so far and mitigable through the IP Filter Set. That is a discrete patch-and-hunt exposure rather than an issue impacting a large portion of retail IT environments, so the hard rule bars it from carrying the page into High on its own. The second real driver is the CEVA Logistics compromise, confirmed downstream by Pok&eacute;mon Center&rsquo;s customer notification and cancelled orders in the UK and Germany, alongside other European brands and eight disrupted warehouses. It touches multiple retailers, but it is one supplier incident, with personal data affected and payment card data reported not accessed &mdash; and aggregating it with SAP Commerce into High is precisely what the no-advisory-stacking rule forbids. The remainder is weaker: Elementor Pro is patched with no observed exploitation and needs a non-default form configuration, and the &ldquo;zombie card&rdquo; work reviving expired Visa cards at POS terminals is confirmed academic research with no in-the-wild abuse and no CVE. Real exploitation plus a real multi-brand supplier breach lifts this above a quiet week; the single-actor scope holds it under 6.9.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -743,6 +743,103 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-pokemon-center-ceva" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Pok&eacute;mon Center is notifying UK and German customers and cancelling orders &mdash; the breach happened at its logistics provider, not at the retailer</h3>
+        <p>Pok&eacute;mon Center issued a customer notification on 17 August covering shoppers in the United Kingdom and Germany, and confirmed that some orders have been cancelled outright. The retailer&rsquo;s own systems are not the origin: the root cause is a breach at CEVA Logistics, its third-party fulfilment provider, between 29 July and 1 August 2026. The exposed fields are full names, mailing addresses, phone numbers, email addresses and order contents. Pok&eacute;mon Center states that payment card data was not accessed. There is no CVE &mdash; this is a supplier compromise, not a product flaw. The detail that matters for retail operators is that Pok&eacute;mon Center is one name on a longer list. The same CEVA incident has produced downstream notifications at Bol, De Bijenkorf, Ace &amp; Tate, Ajax and Valve&rsquo;s Steam hardware store, with eight European warehouses disrupted. CEVA itself has not publicly disclosed; every confirmation so far has come from its customers rather than the vendor. Whether ransomware was involved is unknown. That is the exposure shape most e-commerce brands carry and rarely model: a 3PL holds a live copy of the order book &mdash; names, addresses, phone numbers, purchase history, tracking numbers, in some cases gift-card messages &mdash; and a breach there produces notification duty, cancelled orders and brand damage for the retailer while the retailer&rsquo;s own estate stays untouched. The obligation to tell UK and German customers sits with the merchant of record, not the warehouse operator.</p>
+        <div class="card-meta">
+          <span>Third-party fulfilment (CEVA Logistics) &bull; No CVE &bull; Payment card data not accessed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; live incident; exposure confirmed by Pok&eacute;mon Center, upstream breach confirmed only via CEVA&rsquo;s customers</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, supplier compromise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; contractual and notification controls only</span>
+            <span class="ops-cc"><b>Action:</b> Pull the contract list for every 3PL, fulfilment and returns vendor and mark which of them hold order-level PII rather than just shipping labels &mdash; most retailers under-count this. For CEVA specifically, ask in writing for the exposure window, the exact field list and whether ransomware was involved, since customers rather than CEVA are the only disclosure source so far. Confirm your own notification clock under UK GDPR and German law runs from your knowledge date. Then brief fraud and support: real addresses plus order contents make delivery-problem phishing and refund scams convincing.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Supplier exposure review and customer-notification check &mdash; 72h (notification duty already running)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-pokemon-center-ceva" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-pokemon-center-ceva">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Pok&eacute;mon Center notification); The Record (CEVA downstream victims)</span>
+          <span class="dot">&bull;</span>
+          <span>CEVA breach 29 Jul &ndash; 1 Aug 2026; Pok&eacute;mon Center notification 17 Aug 2026; CEVA has made no public disclosure</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-zombie-card-visa" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Researchers can make expired Visa cards transact again at the terminal &mdash; and the control being bypassed sits in the POS, not in the merchant&rsquo;s stack</h3>
+        <p>Academic researchers have demonstrated a smartphone-relay attack that defeats the cryptographic checks performed during a card-present transaction and alters the expiration date presented to the terminal, with the result that an expired Visa card is accepted and authorised. The work is confirmed research, not observed criminal activity: no in-the-wild abuse has been reported, no CVE has been assigned, and the reporting reviewed puts no figure on how many terminal models, EMV kernel versions or acquirer configurations are affected. The researchers state explicitly that the technique does not work against Mastercard, American Express or Discover, which makes this a Visa-specific gap rather than a general EMV break. Retail is where this lands operationally even though it is fundamentally a payments-scheme problem. The bypassed defence lives in the card and the terminal, so nothing a merchant patches on its own e-commerce or store estate removes the exposure &mdash; remediation has to come from Visa and the terminal vendors. What a retailer can control is detection and vendor pressure. An approved authorisation on a card whose expiry date has already passed is anomalous by definition, and most merchants never inspect that field once the acquirer returns an approval, so the signature is both cheap to look for and unlikely to be in anyone&rsquo;s current monitoring. High-throughput card-present environments are the natural fit for the attack, because a relay needs physical proximity to a terminal and thrives where per-transaction scrutiny is lowest. Treat this as a monitoring and supplier-escalation item this week, not an incident.</p>
+        <div class="card-meta">
+          <span>Visa card-present transactions at POS terminals &bull; No CVE &bull; Mastercard, Amex and Discover stated unaffected</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Proof of concept &mdash; working academic demonstration; no in-the-wild abuse reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No merchant-side patch &mdash; remediation sits with Visa and terminal vendors</span>
+            <span class="ops-cc"><b>Action:</b> Ask your acquirer and terminal vendor in writing this week whether your deployed EMV kernel versions are in scope and whether Visa has issued guidance; because the researchers say Mastercard, Amex and Discover are unaffected, scope the question by scheme. In parallel, query the last 90 days of settled card-present transactions for approvals where the presented expiry date had already passed &mdash; that is the observable signature and it costs nothing to run. Route hits to fraud for chargeback review and keep the query as a weekly control until the vendor answers.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Acquirer/terminal-vendor scoping request plus expired-expiry transaction query &mdash; 2 weeks (research stage, no observed abuse)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zombie-card-visa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-zombie-card-visa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek &ldquo;In Other News&rdquo; roundup (academic research)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 21 Aug 2026; no exploitation in the wild reported; affected terminal population not quantified</span>
+        </div>
+        <a href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-elementor-pro-rce" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>A file-upload bypass in Elementor Pro puts RCE behind WordPress storefronts &mdash; but only where a non-default form setting is switched on</h3>
+        <p>Elementor Pro below 4.2.2 carries a file-upload validation bypass, tracked as CVE-2026-32475, that allows a PHP file to be written into a publicly reachable directory and then executed &mdash; a full remote-code-execution path into the web server. No exploitation had been observed at publication, and the CVSS score was not confirmed in the reporting reviewed. The fix shipped on 19 August. The exposure is narrower than the headline install base of 10M+ Elementor sites implies. Exploitation requires a published Elementor form containing a File Upload field with multiple-file upload enabled, and that option is off by default. The realistic target set is therefore sites that deliberately built an upload-bearing form: warranty and returns claims, custom-order briefs, wholesale account applications, artwork or spec uploads. Those are precisely the forms a small retailer adds once and then forgets. For this sector the risk is structural rather than technical. E-commerce WordPress properties are commonly built by an agency, handed over, and left with core auto-updates on but paid plugins unattended &mdash; Elementor Pro is licence-gated, so a lapsed licence silently stops security updates while the site continues to trade. That produces a long tail of unpatched storefronts holding session cookies, admin credentials and checkout-adjacent traffic behind an RCE, on infrastructure nobody has logged into since launch. Because a shell on a shop is worth materially more than one on a brochure site, the sensible planning assumption is that scanning follows the patch even though nothing has been seen yet.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-32475</span>
+          <span>Elementor Pro &lt; 4.2.2 &bull; CVSS not confirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>None observed &mdash; no exploitation reported at publication; requires a non-default form configuration</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Elementor Pro 4.2.2, released 19 Aug 2026</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every WordPress property you own &mdash; main storefront, campaign microsites, agency-built landing pages, the ones nobody has touched since launch &mdash; and record the Elementor Pro version and licence status for each. Update anything below 4.2.2 first. Where you cannot patch immediately, open each published Elementor form and disable multiple-file upload on any File Upload field, which removes the precondition. Then search the uploads directory tree for .php files and review web-server logs for POSTs to form endpoints followed by direct requests to files under uploads. Renew lapsed Pro licences.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Update to 4.2.2, or disable multiple-file upload on public forms &mdash; 7 days (unexploited, and the precondition is quick to check)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-elementor-pro-rce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-elementor-pro-rce">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Elementor Pro advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>Patch released 19 Aug 2026; reported 20 Aug 2026; no exploitation observed at publication</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-elementor-pro-bug-exposes-wordpress-sites-to-rce-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-thehatman-retail" data-published="2026-08-17">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>

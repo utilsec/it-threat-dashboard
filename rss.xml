@@ -6,13 +6,13 @@
 <atom:link href="https://utilsec.github.io/it-threat-dashboard/rss.xml" rel="self" type="application/rss+xml"/>
 <description>Curated IT / enterprise cybersecurity advisories, incidents and threat intelligence. Editorial by Mike Holcomb in partnership with UtilSec.</description>
 <language>en-us</language>
-<lastBuildDate>Wed, 19 Aug 2026 07:29:00 -0400</lastBuildDate>
+<lastBuildDate>Sun, 23 Aug 2026 13:34:00 -0400</lastBuildDate>
 <generator>itthreatfeed update-dashboard.ps1</generator>
 <item>
 <title>[Critical] CISA puts the mass-exploited VMware vCenter flaw in KEV with a 21 August federal deadline — 361 victim IPs in 47 countries, reverse-SSH persistence and Babuk-derived ransomware</title>
 <link>https://www.bleepingcomputer.com/news/security/critical-vmware-vcenter-rce-flaw-exploited-for-reverse-ssh-access/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-vcenter</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Top Story</category><category>CVE-2026-59310</category>
 <description><![CDATA[CVE-2026-59310 is a directory-traversal flaw in the VMware vCenter Server syslog service that an unauthenticated attacker can turn into code execution. Broadcom published VMSA-2026-0006 on 29 July 2026 with a CVSS score of 9.8 and no workaround — patching is the only fix. Exploitation followed almost immediately: the first victims were seen connecting to attacker-controlled infrastructure on 3 August, and by 5 August roughly 95% of an eventual 361 distinct victim IP addresses across 47 countries had already appeared, concentrated in Germany, the United States, Turkey, Iran and France. The observed chain gives the attacker root on the vCenter appliance, plants a cron job that establishes reverse-SSH persistence, and in some cases ends with ransomware built from the leaked Babuk source. On 18 August CISA added the flaw to its Known Exploited Vulnerabilities catalog as one of four additions, with a 21 August remediation deadline for federal civilian agencies — a useful benchmark for everyone else. vCenter is the management plane for the virtualization estate: an attacker holding it can usually reach every guest VM, every datastore and, in most environments, the backup infrastructure as well. Fixed builds are vCenter 9.1.0.0300, 9.0.2.0100 and the patched 8.0 U3 and U2 lines. Any instance that was network-reachable and unpatched between late July and early August should be treated as a compromise investigation, not just a patch ticket. - BleepingComputer • CISA KEV catalog - Patched 29 Jul 2026; exploitation from 3 Aug; KEV listing 18 Aug 2026]]></description>
 </item>
@@ -20,7 +20,7 @@
 <title>[Critical] An unauthenticated command-injection flaw in Zimbra is being exploited — and the affected install base is heavy in government, education and legal</title>
 <link>https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-zimbra</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-73570</category>
 <description><![CDATA[CERT Polska has confirmed in-the-wild exploitation of CVE-2026-73570, a command-injection flaw in Zimbra Collaboration Suite carrying a CVSS of 8.9. A crafted SMTP request reaches the SNMP notification path and executes operating-system commands as the zimbra user, with no authentication required. The affected configuration is specific rather than universal — ZCS below 10.1.20 with the zimbra-snmp package installed and SNMP notifications enabled — but that combination is common on long-lived on-premises deployments, which is exactly where Zimbra concentrates. CISA added the flaw to KEV on 21 August with a federal remediation deadline of 24 August, an unusually short window that reflects how little work the exploit requires. The reason this matters more than its CVSS suggests is the install base: Zimbra is disproportionately run by public-sector bodies, universities, law firms and nonprofits that chose it to avoid Microsoft licensing, and those organisations tend to have the smallest patch teams and the longest change windows. A mail server executing attacker commands is also a near-ideal foothold — it holds credentials, it is trusted by every internal system, and its outbound traffic looks legitimate. - The Hacker News; SecurityWeek (CERT Polska research) - Exploitation confirmed 20 Aug 2026; KEV listed 21 Aug 2026; federal due date 24 Aug 2026]]></description>
 </item>
@@ -28,7 +28,7 @@
 <title>[Critical] A compromised maintainer account poisoned a Rust crate with 245 million downloads — the malicious build was live for under two hours</title>
 <link>https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-rustcrates</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident — Supply chain</category>
 <description><![CDATA[Attackers took over a maintainer account on crates.io and published malicious versions of three Rust packages: arrayref 0.3.10, internment 0.8.7 and append-only-vec 0.1.9. The significant one is arrayref, with roughly 245 million all-time and 53.9 million ninety-day downloads — a foundational dependency that appears deep in Rust build graphs rather than in anyone’s direct requirements. The mechanism is worth understanding because it targeted the build rather than the runtime: the poisoned crates pulled in a typosquatted proc-macro1 package whose build script fetched a second-stage implant that harvested credentials from Chrome, Brave and Edge profiles on the build machine. Developer workstations and CI runners hold cloud tokens, signing keys and source access, which makes them a higher-value target than most production hosts. The malicious versions were live for between 86 and 107 minutes before removal, and no evidence has emerged that a poisoned build reached production anywhere. Wiz reported infrastructure overlap with recent North Korean supply-chain activity; no vendor has made a formal attribution, and it should be treated as unconfirmed. There is no CVE, because nothing was vulnerable — the package was simply replaced. - The Hacker News; BleepingComputer; SecurityWeek (Wiz research) - Malicious versions published and removed 20 Aug 2026; analysis published 20–21 Aug 2026]]></description>
 </item>
@@ -36,7 +36,7 @@
 <title>[High] Apollo Global Management confirms a breach in a wave targeting financial giants — the entry point was the IT helpdesk, not a vulnerability</title>
 <link>https://cyberscoop.com/apollo-discloses-data-breach-social-engineering-attack/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-apollo</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident</category>
 <description><![CDATA[Apollo Global Management has filed a California breach notification confirming that attackers accessed its cloud platforms between 6 and 10 July 2026, a compromise not discovered until 12 August. The exposed data includes names, dates of birth, contact details, home addresses and Social Security numbers. Google has attributed the activity to BlackFile and its associated brands — Redact, Pink, Helix and Falcon — a cluster affiliated with The Com, with extortion demands reported to start around $3 million. The tradecraft is the part worth internalising: initial access came through voice phishing and impersonation of IT helpdesk staff, not through an unpatched product. Blackstone and Bain Capital were also targeted with matching infrastructure, though neither has confirmed a breach and both should be treated as targeted rather than compromised. Apollo is the first named victim of a campaign aimed squarely at large financial institutions, and the five-week gap between access and discovery is the number defenders should sit with. A vishing-led intrusion leaves no exploit signature and no malicious binary — it produces a legitimate session established through a legitimate credential reset, which is precisely what most detection stacks are built to ignore. - CyberScoop; TechCrunch - Intrusion 6–10 Jul 2026; discovered 12 Aug 2026; disclosed 21 Aug 2026]]></description>
 </item>
@@ -44,7 +44,7 @@
 <title>[High] Two exploited TrueConf Server flaws chain into host takeover — and the payload was a trojanised client installer</title>
 <link>https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-trueconf</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-72529, CVE-2026-72530</category>
 <description><![CDATA[CISA has added two TrueConf Server flaws to the KEV catalog with a remediation deadline of 3 September. CVE-2026-72529 is a missing-authentication weakness: an unauthenticated attacker who can reach TCP 4307 invokes an undocumented function to execute an arbitrary script. CVE-2026-72530 is a code-injection flaw that breaks that script out of its isolated environment and onto the host. Chained, they give unauthenticated remote code execution on the server. Both affect TrueConf Server up to 5.3.9, 5.4.0–5.4.9 and 5.5.0–5.5.5 on Windows and Linux. Exploitation has been observed since July 2026, attributed to Head Mare and directed primarily at Russian organisations, but the delivery method is what generalises: rather than using the server as a foothold, the attackers modified the client installers it distributes, so every user who installed or updated the conferencing client from a compromised server received a trojanised binary from a source they had every reason to trust. Self-hosted conferencing servers are typically DMZ-facing, are frequently used to run vendor and support sessions, and are rarely on anyone’s critical-asset list. - BleepingComputer; SecurityWeek - Exploitation observed since Jul 2026; KEV listed 21 Aug 2026; federal due date 3 Sep 2026]]></description>
 </item>
@@ -52,7 +52,7 @@
 <title>[High] Researchers found 9,300 live AWS access keys in public artifacts — 88% still worked, and 768 gave full account control</title>
 <link>https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-awskeys</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Research</category>
 <description><![CDATA[Truffle Security published an analysis of AWS access keys exposed in public sources between August 2022 and August 2026, and the finding is not that keys leak — everyone knows keys leak — but that they stay valid. Of more than 9,300 exposed keys, 88% were still active when tested on 10 August 2026. Among them: 526 root account keys, 242 keys belonging to IAM users with administrative policies, and 768 keys granting full control of the account they belonged to. Some 817 were traceable to identifiable companies. The single largest source was Hugging Face, accounting for 8,482 unique key exposures, which points at the specific failure mode — keys committed into model repositories, notebooks and published build artifacts rather than into obvious source control. That is a category most secret-scanning programmes do not cover, because it sits outside the code repository entirely. The operational lesson is about lifecycle rather than hygiene: an exposed key that nobody rotates is not a past incident, it is a standing credential, and a four-year-old leak is as exploitable as this morning’s. - BleepingComputer (Truffle Security research) - Research published 21 Aug 2026; key validity tested 10 Aug 2026]]></description>
 </item>
@@ -60,7 +60,7 @@
 <title>[Medium] Microsoft flagged a CVSS 10.0 Entra ID flaw as exploited, then retracted it — worth correcting if it reached your risk register</title>
 <link>https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-entraretract</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-69836</category>
 <description><![CDATA[CVE-2026-69836 is a deserialization-of-untrusted-data flaw in Microsoft Entra ID rated CVSS 10.0, allowing unauthenticated remote code execution over the network. It was initially published with the exploitation status set to indicate in-the-wild activity, which drove a round of urgent coverage. On 21 August Microsoft corrected that flag to “No”, stating the flaw has not been exploited. The issue is fully mitigated service-side and requires no customer action — there is nothing to patch, because there is nothing running in your estate. This is on the dashboard for one reason: a maximum-severity identity-provider flaw described as actively exploited is exactly the kind of item that gets escalated into an emergency change, briefed upward, and written into a risk register, and the correction travels far less widely than the original. If CVE-2026-69836 was raised in your organisation last week, it is worth going back and closing it properly rather than leaving a phantom critical open. The broader habit it argues for is checking the vendor’s own advisory page for current exploitation status before acting on secondary reporting, since that field is revised in place and dated coverage does not update with it. - The Hacker News; Cybersecurity Dive; SecurityWeek - Initially published as exploited; Microsoft corrected the flag 21 Aug 2026]]></description>
 </item>
@@ -68,7 +68,7 @@
 <title>[Critical] Cl0p wrote a bespoke web shell for PTC Windchill — it runs as the application’s own identity, so database logs read as normal activity</title>
 <link>https://www.bleepingcomputer.com/news/security/clop-created-custom-web-shell-for-windchill-data-theft-attacks/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-clop-windchill</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident</category><category>CVE-2026-12569</category>
 <description><![CDATA[ReliaQuest has documented the tooling behind Cl0p’s campaign against PTC Windchill and FlexPLM (CVE-2026-12569): a custom Java/JSP web shell written specifically against Windchill’s internal APIs, database schema, keystore and file-vault layout. Because it executes inside the application and under the application’s own service identity, database and file-access telemetry can misattribute the attacker’s queries as ordinary Windchill behaviour — a detection problem that generic web-shell signatures will not solve. The campaign is data theft only, with no encryption payload observed. Cl0p has now named 43 or more organisations on its leak site, including Shell (roughly 89 GB claimed), GE and Philips; Philips has confirmed a breach and says it was contained with no customer-environment impact, GE has said it is assessing, and the remainder of the list is Cl0p’s claim alone. PTC shipped patches on 17 June 2026 and CISA added the flaw to KEV on 25 June, so this is a story about post-patch compromise assessment, not about waiting for a fix. - BleepingComputer (ReliaQuest research) - Patched 17 Jun 2026; KEV 25 Jun; web-shell analysis reported 18 Aug 2026]]></description>
 </item>
@@ -76,7 +76,7 @@
 <title>[High] Attackers are exploiting a server-side request forgery flaw in MLflow to harvest cloud credentials from instance metadata</title>
 <link>https://thehackernews.com/2026/08/attackers-exploit-mlflow-ssrf-flaw-to.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-mlflow</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident</category>
 <description><![CDATA[Attackers are abusing a server-side request forgery weakness in MLflow, the widely-used open-source machine-learning lifecycle platform, to make the server issue requests to cloud instance metadata services and return the credentials and secrets those endpoints hand out. The reason this converts so cleanly into cloud compromise is architectural rather than exotic: MLflow tracking servers are commonly deployed inside a cloud VPC, frequently without authentication, and attached to an instance role with broad access to model artifacts, data buckets and registries. One SSRF therefore becomes a full role takeover, and from there the attacker inherits whatever that role can reach. Any organisation running MLflow should assume a broadly network-reachable instance is a credential-exposure path until proven otherwise. - The Hacker News - Reported 18 Aug 2026]]></description>
 </item>
@@ -84,7 +84,7 @@
 <title>[High] Sixteen typosquatted RubyGems packages shipped infostealers aimed at browser credential stores and crypto wallets</title>
 <link>https://thehackernews.com/2026/08/16-typosquatted-rubygems-packages-steal.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-rubygems</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident</category>
 <description><![CDATA[Sixteen malicious RubyGems packages using names deliberately close to legitimate gems were found distributing information-stealing malware that targets browser-stored credentials and cryptocurrency wallet data. Typosquatting keeps working because installation is usually an unreviewed step in a build or onboarding script, and because a single-character difference survives code review far better than a suspicious commit does. The exposure is not limited to the developer’s own browser profile: workstations and build agents that install packages typically also hold cloud CLI sessions, SSH keys and package-registry tokens, so a stealer landing there gives an attacker onward access rather than just a password list. - The Hacker News - Reported 18 Aug 2026]]></description>
 </item>
@@ -92,7 +92,7 @@
 <title>[Medium] An actor claims 3.6 million employee-directory records from Entra tenants — researchers trace most victims to old infostealer infections, not a platform flaw</title>
 <link>https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-thehatman</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Incident</category>
 <description><![CDATA[An actor using the handle “TheHatman” claims to have pulled employee-directory data out of Microsoft Entra tenants using leaked credentials, naming McDonald’s (1.7 million records), TCS (800,000), Vodafone (425,000), HCL (250,000) and IHG (185,000) alongside Kyndryl, Gap, Hexaware and Wyndham — roughly 3.6 million records in total. These figures are claimed, not confirmed. Hudson Rock’s analysis links most of the named victims to earlier infostealer infections rather than to any vulnerability in Azure or Entra, which reframes the story as a credential-hygiene failure rather than a cloud-platform breach. The security consequence is real either way: employee directory and org-chart data is exactly what business email compromise and help-desk impersonation need, because it lets an attacker name a real manager, a real reporting line and a real internal job title on the first call. - SecurityWeek (Hudson Rock analysis) - Claim reported 17 Aug 2026]]></description>
 </item>
@@ -100,7 +100,7 @@
 <title>[Critical] CISA and the FBI refresh the Medusa advisory: past 500 critical-infrastructure victims, and exploits used up to a week before public disclosure</title>
 <link>https://www.ic3.gov/CSA/2026/260818.pdf</link>
 <guid isPermaLink="false">itthreatfeed:it:it-medusa</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Intel</category>
 <description><![CDATA[CISA and the FBI updated #StopRansomware advisory AA25-071A on 18 August. The cumulative Medusa victim count passed 500 critical-infrastructure organisations as of April 2026, up from roughly 300 in March 2025 — about 200 new victims in a year — across healthcare, critical manufacturing, the defense industrial base, government facilities, IT and financial services. The operationally important finding is speed: the group weaponises newly disclosed vulnerabilities within roughly 24 hours, and has been observed using exploits up to a week before those vulnerabilities were publicly disclosed. The agencies attribute this to Medusa buying exploits rather than developing them, which decouples the group’s capability from its own engineering effort and means disclosure timing is no longer a reliable head start. For defenders, the practical implication is that a patch SLA measured in weeks for internet-facing systems is not a control against this actor, and that compensating controls — exposure reduction, segmentation, tested and isolated backups — have to carry the weight between disclosure and deployment. - CISA / FBI advisory AA25-071A (updated) - Refresh published 18 Aug 2026]]></description>
 </item>
@@ -108,7 +108,7 @@
 <title>[High] DOJ charges 17 Mabna Institute members over a 13-year campaign that took 31+ TB of research from 144 US universities</title>
 <link>https://www.cybersecuritydive.com/news/doj-charges-17-iran-hacking-campaign-us-university/828212/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-mabna</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Intel</category>
 <description><![CDATA[The US Department of Justice announced charges on 18 August against 17 members of the Mabna Institute over a campaign linked to Iran’s Islamic Revolutionary Guard Corps that has run since 2013. According to the charges the operation targeted 144 US universities, 42 private companies and at least five federal and state agencies, going after more than 100,000 professor accounts and successfully compromising roughly 8,000 of them, with 31 or more terabytes of research and intellectual property exfiltrated. The tradecraft is deliberately unglamorous — credential phishing against named academics, at scale, sustained for over a decade — which is precisely why it worked. For any organisation holding research, design or pre-publication data, the lesson is that persistent, low-sophistication credential attacks against individual staff accounts, rather than exotic exploits, remain the dominant route to bulk intellectual-property theft. - Cybersecurity Dive (US DOJ) - Charges announced 18 Aug 2026]]></description>
 </item>
@@ -116,7 +116,7 @@
 <title>[Medium] Gunra joint advisory: entry through unpatched Fortinet VPN gear, tens of terabytes exfiltrated through the victim’s own OneDrive</title>
 <link>https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a</link>
 <guid isPermaLink="false">itthreatfeed:it:it-gunra</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Intel</category>
 <description><![CDATA[Joint advisory AA26-222A from CISA, the FBI and Korea’s KNPA, published 10 August, profiles Gunra, a double-extortion ransomware operation derived from the leaked Conti source. Affiliates get in through unpatched internet-facing Fortinet VPN and firewall appliances — the advisory cites CVE-2024-55591 and CVE-2025-24472, both long-patched and both established KEV entries — with MFA bypass observed. In at least one case tens of terabytes were exfiltrated through the victim’s own OneDrive and SharePoint tenancy, which is far harder to spot than traffic to unfamiliar infrastructure because it looks like sanctioned cloud usage. Extortion demands have reached the tens of millions, and the group typically operates between roughly 22:00 and 06:00 in the victim’s local time, when staffing is thinnest. - CISA / FBI / KNPA advisory AA26-222A - Published 10 Aug 2026]]></description>
 </item>
@@ -124,7 +124,7 @@
 <title>[Medium] Microsoft Copilot Personal flaws allowed one-click data exfiltration from connected apps</title>
 <link>https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-copilot</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Research</category>
 <description><![CDATA[Researchers disclosed flaws in Microsoft Copilot Personal that could let an attacker exfiltrate data from the applications a user has connected to the assistant with a single click. It arrives as part of a mid-August cluster of AI-assistant findings — alongside issues reported under the names CoSnitch and TwinLoot, and separate research on secret exposure in Model Context Protocol integrations — and the pattern across them is consistent: the assistant is granted broad, persistent access to mail, files and chat on the user’s behalf, so a one-click or injection flaw in the assistant inherits that access wholesale. AI integrations should therefore be inventoried and governed as a data-egress channel with its own permissions and logging, rather than treated as a productivity feature enabled per user. - The Hacker News - Reported 18 Aug 2026]]></description>
 </item>
@@ -132,7 +132,7 @@
 <title>[Critical] CISA adds four actively-exploited flaws to KEV with a 21 August deadline — Windows IKEEXT, vCenter, SharePoint and macOS Screen Sharing</title>
 <link>https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog</link>
 <guid isPermaLink="false">itthreatfeed:it:it-kevaug18</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-33824</category><category>CVE-2026-55040</category>
 <description><![CDATA[CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalog on 18 August, all with a 21 August remediation deadline for federal civilian agencies. They are CVE-2026-33824, a double-free flaw in the Microsoft Windows IKE service extensions (IKEEXT) leading to remote code execution; CVE-2026-59310, the VMware vCenter path-traversal flaw already being exploited at scale (see the top story); CVE-2026-55040, a weak-authentication issue in Microsoft SharePoint that permits a security-feature bypass; and CVE-2026-65400, an improper-authentication flaw in Apple macOS Screen Sharing. Separately, CISA updated its KEV entry for CVE-2025-60710, a link-following privilege-escalation flaw in the Windows Task Host that takes a low-privileged local user to SYSTEM on Windows 11 and Server 2025, to note that it is now being abused by ransomware gangs; Microsoft patched that one in November 2025 and it entered KEV in April 2026, so it is a hunt-for-stragglers signal rather than a new patch cycle. The common thread is that all four additions sit in software most enterprises run somewhere — the Windows VPN stack, the virtualization control plane, the intranet platform and the Mac fleet. - CISA Known Exploited Vulnerabilities catalog - Added 18 Aug 2026; deadline 21 Aug 2026]]></description>
 </item>
@@ -140,7 +140,7 @@
 <title>[Critical] GitLab ships an emergency patch for a critical code-injection flaw plus a zero-click GraphQL bug that could delete public projects</title>
 <link>https://www.securityweek.com/gitlab-patches-critical-code-injection-vulnerability/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-gitlab</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category>
 <description><![CDATA[GitLab released an out-of-band security update on 18 August covering a critical code-injection vulnerability and, separately, a zero-click flaw in its GraphQL API that could allow an unauthenticated attacker to delete public projects. The zero-click characteristic is what makes this awkward operationally: there is no user interaction to train against and no obvious phishing precursor to detect, so interim mitigation is limited and patching is effectively the only control. Self-managed GitLab instances are the exposure here — GitLab.com is operated by the vendor, but self-hosted servers are usually the crown-jewel system for an engineering organisation, holding source, CI/CD runners, deployment credentials and container registries. Anyone running a self-managed instance should treat this as an emergency change rather than a scheduled upgrade. - SecurityWeek / The Hacker News (GitLab advisory) - Emergency release 18 Aug 2026]]></description>
 </item>
@@ -148,7 +148,7 @@
 <title>[Critical] A max-severity SAP Commerce Cloud flaw went from patch to exploitation in three days, with a public exploit the day after</title>
 <link>https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-sapcommerce</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-58231</category>
 <description><![CDATA[CVE-2026-58231 is a CVSS 10.0 flaw in SAP Commerce Cloud combining insufficient authorisation with inadequate input validation, allowing arbitrary code execution against internal components. The timeline is the story: SAP patched it on 11 August, exploitation attempts were observed on 14 August, and a public proof-of-concept was circulating by 15 August. Shadowserver counted more than 4,200 internet-exposed SAP Commerce Cloud instances at the time of reporting. For a platform that sits directly in front of customer and transaction data and connects back into core SAP environments, a four-day gap between fix and working public exploit leaves very little room for a normal change-approval cycle. - BleepingComputer - Patched 11 Aug 2026; exploitation 14 Aug; PoC 15 Aug 2026]]></description>
 </item>
@@ -156,7 +156,7 @@
 <title>[Critical] Metabase’s CVSS-10 SQL injection was exploited as a zero-day — Framework and Trezor’s fulfilment partner both confirmed breaches</title>
 <link>https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-metabase</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-72898</category>
 <description><![CDATA[CVE-2026-72898, an unauthenticated SQL injection in Metabase’s password-reset endpoint that yields administrative access, carries the maximum CVSS score of 10.0 and was added to CISA’s Known Exploited Vulnerabilities catalog on 11 August with a federal remediation deadline of 14 August. It affects open-source Metabase 0.58.0 through 0.63.x before 0.63.5 and Enterprise 1.58.0 through 1.63.x before 1.63.5, and attackers exploited it before a patch existed. Two victims have confirmed breaches: laptop maker Framework, whose notice covers names, emails, addresses, phone numbers and billing information for its customer base, and ShipMonk, the fulfilment partner for hardware-wallet maker Trezor, affecting roughly 13,689 Trezor customers — Trezor has said no seed phrases or private keys were exposed. Business-intelligence tools like Metabase are worth re-examining generally: they usually hold standing read credentials to the databases that matter most. - BleepingComputer / TechCrunch - KEV added 11 Aug 2026; Framework and Trezor disclosures 3–8 Aug 2026]]></description>
 </item>
@@ -164,7 +164,7 @@
 <title>[Critical] The macOS Screen Sharing authentication bypass is now in CISA KEV — roughly 40,000 Macs were still reachable on port 5900</title>
 <link>https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog</link>
 <guid isPermaLink="false">itthreatfeed:it:it-macosvnc</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-65400</category>
 <description><![CDATA[CVE-2026-65400 is an improper-authentication flaw in macOS Screen Sharing, rated CVSS 9.8, that CISA added to the Known Exploited Vulnerabilities catalog on 18 August with a 21 August federal deadline. Attackers have been scanning the internet for Macs with the Screen Sharing port (5900) exposed and using the bypass to obtain root access and install Monero cryptomining malware; the Netherlands’ NCSC-NL estimated roughly 40,000 Macs still reachable via the service after Apple’s fix. Apple patched the flaw on 6 August in macOS Tahoe 26.6.1, Sequoia 15.7.9 and Sonoma 14.8.9. Cryptomining is the payload being observed, but the access obtained is root on an endpoint — a foothold that is equally usable for credential theft or lateral movement. Enterprises running Mac fleets, especially shared lab machines or remote-access jump hosts, should not read this as a consumer-only problem. - SecurityWeek (NCSC-NL) • CISA KEV catalog - Patched 6 Aug 2026; KEV listing 18 Aug 2026]]></description>
 </item>
@@ -172,7 +172,7 @@
 <title>[High] A Ray code-injection flaw enters KEV — a malicious web page plus DNS rebinding can reach a developer’s local Ray cluster</title>
 <link>https://thehackernews.com/2026/08/cisa-flags-actively-exploited-ray-flaw.html</link>
 <guid isPermaLink="false">itthreatfeed:it:it-ray</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2025-62593</category>
 <description><![CDATA[CVE-2025-62593, a code-injection flaw in the Ray distributed-compute framework rated CVSS 9.4, was added to CISA’s KEV catalog on 17 August with a 20 August federal deadline. The underlying design issue is that Ray ships with no authentication on critical endpoints, so a developer simply browsing a malicious web page or loading a malicious advertisement can have that page use DNS rebinding to reach the Ray instance running on their own machine or local network and execute code on it. That makes this exploitable without any inbound network exposure, which defeats the usual “it’s only bound to localhost” reasoning. It is fixed in Ray 2.52.0. Ray clusters typically sit alongside training data and hold cloud credentials for object storage, so the blast radius is not limited to the developer’s workstation. - The Hacker News (CISA KEV) - KEV listing 17 Aug 2026; deadline 20 Aug 2026]]></description>
 </item>
@@ -180,7 +180,7 @@
 <title>[High] An Adobe Commerce flaw lets an unauthenticated attacker switch a shopping session into another customer’s account</title>
 <link>https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-adobe-commerce-flaw-to-hijack-customer-accounts/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-adobecommerce</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-71362</category>
 <description><![CDATA[CVE-2026-71362 in Adobe Commerce and Magento allows an unauthenticated attacker to switch a customer session over to a different customer’s account — no account of their own, no administrative rights and no user interaction required. Sansec has observed exploitation attempts. The practical consequence for a storefront is direct access to order history, saved addresses and stored payment methods belonging to other shoppers, and it is not the kind of abuse that leaves obvious traces in application logs, because the requests look like ordinary session activity. Any Adobe Commerce or Magento operator should treat this as a patch-this-week item and then work out whether customer accounts were accessed, since breach-notification duties may attach. - BleepingComputer (Sansec research) - Reported 12 Aug 2026]]></description>
 </item>
@@ -188,7 +188,7 @@
 <title>[High] August Patch Tuesday’s one exploited zero-day is a Windows WinSock privilege-escalation flaw tied to a Lazarus campaign</title>
 <link>https://www.bleepingcomputer.com/news/security/lazarus-hackers-exploited-windows-zero-day-to-target-defense-firms/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-patchtuesday</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Advisory</category><category>CVE-2026-68820</category>
 <description><![CDATA[Microsoft’s August 2026 Patch Tuesday addressed 398 CVEs, of which exactly one was under active exploitation at release: CVE-2026-68820, a use-after-free vulnerability in the Windows Ancillary Function Driver for WinSock (afd.sys), rated CVSS 7.0. It is a local elevation-of-privilege flaw taking an attacker who already has code execution up to SYSTEM, not an unauthenticated remote entry point. Check Point ties exploitation to North Korea’s Lazarus Group and its “Operation Dream Job” campaign against defence and aerospace organisations in France, Germany, Brazil and India, delivered via trojanised PDF viewers and DLL side-loading. CISA added the flaw to KEV on 11 August with a 25 August deadline. Because the danger is realised only after initial access, patching should be paired with the phishing and side-loading defences that block the delivery chain. - BleepingComputer / The Hacker News (Check Point research) - Patch Tuesday and KEV listing 11 Aug 2026; Lazarus reporting 12 Aug 2026]]></description>
 </item>
@@ -196,7 +196,7 @@
 <title>[Info] The new National Security Science and Technology Strategy names cybersecurity, OT/ICS resilience and technology supply chains as explicit priorities</title>
 <link>https://www.whitehouse.gov/wp-content/uploads/2026/08/NSSTS-082026.pdf</link>
 <guid isPermaLink="false">itthreatfeed:it:it-nssts</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Policy</category>
 <description><![CDATA[The National Security Science and Technology Strategy, released on 19 August, sets out four pillars and names cybersecurity, operational-technology and industrial-control-system resilience, and technology supply chains among its explicit priorities. It is a strategy document rather than a rule — nothing in it changes an obligation on any organisation today — but strategies of this kind tend to precede funding lines, procurement language and eventually sector requirements. The practical read for IT leaders is directional: supply-chain assurance for technology components, and the security of the boundary between enterprise IT and operational technology, are both on a trajectory toward more formal expectation rather than less. Organisations in critical-infrastructure supply chains may find these themes appearing in customer questionnaires and contract terms well before any regulation does. - National Security Science & Technology Strategy - Released 19 Aug 2026]]></description>
 </item>
@@ -204,7 +204,7 @@
 <title>[Info] A UK regulator warns professionals over putting confidential client data into public AI tools — a governance problem every IT team shares</title>
 <link>https://www.infosecurity-magazine.com/news/uk-legal-regulator-raises-ai/</link>
 <guid isPermaLink="false">itthreatfeed:it:it-sra-ai</guid>
-<pubDate>Wed, 19 Aug 2026 07:29:00 -0400</pubDate>
+<pubDate>Sun, 23 Aug 2026 13:34:00 -0400</pubDate>
 <category>Policy</category>
 <description><![CDATA[The UK Solicitors Regulation Authority issued a warning notice on 17 August, reported the following day, after finding solicitors submitting fabricated case law to courts and entering confidential client information into public AI tools. The SRA’s position is that practitioners remain fully accountable for AI output and must be able to demonstrate human oversight and risk-based governance. The specific regulator is sector-bound, but the underlying issue is not: any organisation with confidentiality obligations — to clients, patients, employees or contract counterparties — faces the same exposure when staff paste sensitive material into consumer AI services that were never covered by a data-processing agreement. It pairs directly with this edition’s Copilot findings: unsanctioned AI use and over-permissioned sanctioned AI are two halves of the same data-egress problem. - Infosecurity Magazine (UK SRA warning notice) - Notice issued 17 Aug 2026; reported 18 Aug 2026]]></description>
 </item>

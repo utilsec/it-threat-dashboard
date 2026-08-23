@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Government &amp; Public Sector</h1>
       <div class="header-sub">Federal, state &amp; local, and the defense industrial base.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Government IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>14</strong> stories across
+      <strong>18</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Government sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of government IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium. Current: 6.6 &mdash; Medium (upper).">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, driven by an exceptionally heavy federal patch cycle rather than one broad compromise. CISA added four actively exploited flaws to the KEV catalog on 18&nbsp;August with a 21&nbsp;August federal deadline (Windows IKEEXT, VMware vCenter, SharePoint, macOS Screen Sharing), following the Ray flaw added 17&nbsp;August with a 20&nbsp;August deadline, and it updated the Windows Task Host entry (CVE-2025-60710) to record ransomware abuse &mdash; a hunt-for-stragglers signal, not a new patch. CISA and the FBI also refreshed the Medusa advisory: more than 500 cumulative critical-infrastructure victims as of April 2026, government facilities among the core targets, and newly disclosed flaws weaponised within roughly 24 hours, sometimes before public disclosure. On the incident side, France&rsquo;s DGFiP confirmed a breach reaching about 680,000 people, Scotland&rsquo;s prosecution service lost around 300 staff records through an assessment contractor, and the DOJ charged 17 people over a 13-year Iranian-linked campaign against universities and at least five federal and state agencies. These are discrete exposures and single-organisation incidents; nothing here compromises a large portion of government IT at once, so the no-advisory-stacking rule caps this at the top of Medium. It rises on mass exploitation of one of the new KEV items against agency infrastructure, or a coordinated campaign across many jurisdictions; it falls once the 20&ndash;21&nbsp;August deadlines pass with no confirmed federal compromise.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium. The window gives government two confirmed large single-organisation breaches and one actively-exploited flaw whose install base skews public sector. Latvia&rsquo;s Road Traffic Safety Directorate exposed 1.2&nbsp;million individuals plus 200,000 legal entities &mdash; roughly two-thirds of the population &mdash; and France&rsquo;s DGFiP exposed 678,000 individuals and professionals. Zimbra CVE-2026-73570 (CVSS 8.9) is confirmed exploited by CERT&nbsp;Polska and entered KEV on 21&nbsp;August with a 24&nbsp;August federal deadline; its concentration in public-sector, university and municipal estates is what makes it a government story rather than a generic one. Under the hard rule these are discrete patch-and-hunt exposures and single-organisation incidents that do not aggregate into High. The APT29-linked clusters abusing Google OAuth consent flows, app-specific passwords and WhatsApp device linking lift the week above baseline because the tradecraft defeats MFA with no CVE and no patch to apply &mdash; but it is targeted espionage against a defined victim set, not something impacting a large portion of government IT environments. Two factors argue against scoring lower: the Zimbra precondition is common by default in legacy installs, and both breaches involve permanent, non-rotatable identifiers, so the fraud exposure persists indefinitely.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -760,7 +760,136 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-dgfip" data-published="2026-08-17">
+<div class="card" id="it-latvia-csdd-registry" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Latvia&rsquo;s vehicle registry loses data on two-thirds of the population &mdash; and the contracted IT provider never saw it happen</h3>
+        <p>Latvia&rsquo;s Road Traffic Safety Directorate (CSDD) has confirmed that attackers extracted records on 1.2 million individuals and 200,000 legal entities, roughly two-thirds of the national population. The exposed material is identity-dense rather than credential-dense: personal identity numbers, company registration numbers, licence plates, payment amounts and dates, and addresses lifted from vehicle registration certificates going back to 2008. CSDD characterises the intrusion as targeted exploitation of a vulnerability in an internet-exposed system; no CVE has been confirmed and no attribution has been made, so peers cannot patch their way out of the same exposure. Two details matter more than the headline count. First, the contracted IT provider, Tet, failed to detect the intrusion &mdash; the breakdown was in monitoring an outsourced estate, not only in a vulnerable component. Second, the record type is permanent: a personal identity number cannot be rotated the way a password can, so the fraud and impersonation window opened by this dataset runs for years rather than weeks. Governance consequences followed quickly, with the supervisory board resigning and chief Aivars Aksenoks stating he will step down. For government IT owners elsewhere this is the archetypal national-registry failure mode: a single authoritative identity system, reachable from the internet, operated under contract, where the operator&rsquo;s detection duties went untested until an adversary tested them.</p>
+        <div class="card-meta">
+          <span>CSDD vehicle registration systems &bull; 1.2M individuals + 200,000 legal entities &bull; CVE not confirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CSDD confirms targeted exploitation of an internet-exposed system; specific vulnerability not disclosed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE identified publicly</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; vector undisclosed; response is detection and contract control</span>
+            <span class="ops-cc"><b>Action:</b> Pull the list of internet-facing systems that read or write your authoritative registries and confirm each has a named owner, a patch cadence and an explicit detection responsibility. Then read the outsourcing contract specifically for monitoring: does it obligate log retention, alerting thresholds and notification timelines, and can you evidence the last time the provider actually raised an alert? Request 90 days of authentication and egress logs for those systems and hunt for bulk-read patterns. Where identity numbers are in scope, brief fraud and citizen-contact teams before the story reaches them.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Registry attack-surface and provider-detection review &mdash; 5 business days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-latvia-csdd-registry" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-latvia-csdd-registry">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record (CSDD confirmation)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 19 Aug 2026; exposed records date back to 2008; no attribution</span>
+        </div>
+        <a href="https://therecord.media/latvia-cyberattack-vehicle-data" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-dgfip-tax-breach" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>France&rsquo;s tax authority confirms 678,000 records taken &mdash; the breach surfaced when the data was posted, not when it was stolen</h3>
+        <p>The French Finance Ministry has confirmed that an actor operating as &ldquo;ZeroBytes&rdquo; reached DGFiP systems and the SPDC cadastral platform, exposing data on 678,000 individuals and professionals. Detection came on 12 August 2026, and it came from the outside: the intrusion surfaced when the actor listed the data on PwnForums. The ministry states that user IDs, passwords and online accounts were not compromised, which narrows account-takeover risk but does little for the exposed population, because the stolen fields amount to a financial profile &mdash; reference tax income, family quotient, withholding tax rate, company names, SIREN numbers, cadastral addresses and property sizes. ANSSI is investigating; no CVE or intrusion vector has been published. That combination is what makes this a government operations problem rather than a privacy footnote. Income band, household composition, employer identity and a mapped property address are precisely the inputs that make refund fraud and administrative impersonation convincing; a caller who already knows a taxpayer&rsquo;s withholding rate does not need to phish for it. The involvement of two platforms, the tax system and the cadastral system, also indicates exposure travelling across linked datasets rather than staying inside one application &mdash; the shape most revenue and land-registry estates share. With no vulnerability disclosed, comparable agencies cannot patch in response. They can only instrument and hunt.</p>
+        <div class="card-meta">
+          <span>DGFiP systems and SPDC cadastral platform &bull; 678,000 individuals and professionals &bull; No CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ministry-confirmed unauthorised access; data published on a criminal forum; vector not disclosed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; ANSSI investigating; credentials reported not compromised</span>
+            <span class="ops-cc"><b>Action:</b> Treat detection-by-forum as the defect to fix. This week, instrument bulk-read detection on your highest-value citizen datasets: alert on query volume, export jobs and API pulls that exceed normal caseworker baselines, per user account and per service identity. Map which platforms share identity keys with your primary tax, benefits or property systems and confirm each link carries its own authorisation and logging instead of inheriting trust. Confirm leak-forum and paste-site monitoring covers your organisation&rsquo;s identifiers. Pre-write the citizen notification and anti-fraud script now, naming specific field types, so it ships in hours.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Bulk-export detection on citizen datasets &mdash; 10 business days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-dgfip-tax-breach" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-dgfip-tax-breach">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (French Finance Ministry statement)</span>
+          <span class="dot">&bull;</span>
+          <span>Detected 12 Aug 2026; reported 17 Aug 2026; ANSSI investigation ongoing</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/french-tax-authority-data-breach-affects-678-000-individuals/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-apt29-oauth-device-linking" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Espionage</span>
+        </div>
+        <h3>Suspected Russian clusters are getting past MFA through Google OAuth and WhatsApp device linking &mdash; with no vulnerability involved</h3>
+        <p>Google Threat Intelligence Group, with corroborating work from Lumen Black Lotus Labs, ReliaQuest and Microsoft, has tied three clusters &mdash; UNC6293, UNC7005 and UNC5976 &mdash; to Ice Relic, the actor tracked elsewhere as APT29 or Midnight Blizzard. The striking feature is how little of the tradecraft depends on a flaw. The clusters phish for OAuth authorisation, steal application-specific passwords, and abuse WhatsApp device linking to attach an attacker-controlled device to a target&rsquo;s account. Around that sit DNS hijacking through compromised Wi-Fi gateways, the Vidar and AMOS infostealers, CornFlake RAT and the ChocoShell/CHERRYPIE families. A campaign designated CaptiveCrunch, running since May 2026, manipulates hotel and airport captive portals, and researchers report evidence of several MSP compromises. Targeting sits squarely in the public sector and its orbit: government bodies, academia, aerospace and defence, think tanks and NGOs across Europe and the United States, with collection interest in Ukraine and NATO. For agency security teams the implication is uncomfortable. Application-specific passwords and device linking are legitimate account features that sidestep multi-factor prompts by design, so completing an MFA rollout does not close them. Captive-portal manipulation targets exactly the population that travels for delegations and conferences. An MSP compromise reaches smaller agencies that have no monitoring of their own. There is nothing to patch; the control surface is identity configuration and identity telemetry.</p>
+        <div class="card-meta">
+          <span>Google Workspace / OAuth, app-specific passwords, WhatsApp device linking, MSP access &bull; No CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing campaigns confirmed by GTIG and corroborating vendors; CaptiveCrunch running since May 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; abuse of legitimate account features, not a CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; mitigation is identity configuration, consent control and travel practice</span>
+            <span class="ops-cc"><b>Action:</b> Audit application-specific passwords across staff accounts and revoke every one not tied to a documented system need; disable their creation where your tenant permits. Review third-party OAuth consent grants and move anyone handling sensitive material to admin-approved consent. Enable alerting on newly linked WhatsApp devices and on new mail-forwarding or delegate rules for that same population. Issue travel guidance before the next delegation: no captive-portal sign-ins, agency VPN or eSIM only, report portals requesting account credentials. Ask each MSP for 90 days of identity and admin-action logs and time-bound their tenant access.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> App-specific password revocation and OAuth consent audit &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apt29-oauth-device-linking" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apt29-oauth-device-linking">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Google Threat Intelligence Group; Lumen Black Lotus Labs, ReliaQuest, Microsoft)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 20 Aug 2026; CaptiveCrunch activity observed since May 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/suspected-russian-hackers-abuse-google.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-zimbra-snmp-public-sector" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>An exploited Zimbra command-injection flaw hits the self-hosted mail estate &mdash; and that estate is disproportionately public sector</h3>
+        <p>CERT Polska has confirmed in-the-wild exploitation of CVE-2026-73570, a command-injection flaw in Zimbra Collaboration Suite carrying a CVSS of 8.9. A crafted SMTP request reaches the SNMP notification path and executes operating-system commands as the <code>zimbra</code> user, with no authentication required. Affected builds are ZCS below 10.1.20 that have the <code>zimbra-snmp</code> package installed and SNMP notifications enabled. CISA added the flaw to the KEV catalogue on 21 August with a federal remediation date of 24 August. The reason this belongs on a government board rather than a generic advisory feed is the install base. Zimbra&rsquo;s centre of gravity is public sector, education, legal and nonprofit &mdash; organisations that chose self-hosted mail over a hyperscaler for cost, sovereignty or procurement reasons, and that often run it without a dedicated mail administrator. Execution as the <code>zimbra</code> user is not a foothold on a peripheral box: that account owns the mail store, so successful exploitation means reach into correspondence that is simultaneously citizen PII, procurement material and, in many jurisdictions, within public-records scope. The precondition looks narrow enough that operators will be tempted to assume it does not apply, yet the SNMP package is frequently present from a default or legacy installation rather than a deliberate decision. State and local bodies fall outside the federal deadline but carry the identical exposure.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-73570</span>
+          <span>Zimbra Collaboration Suite &lt; 10.1.20 with zimbra-snmp &bull; CVSS 8.9</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed by CERT Polska; unauthenticated RCE as the zimbra user via crafted SMTP</span>
+            <span class="ops-tag kev-on">In CISA KEV since 21 Aug 2026 &mdash; federal deadline 24 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; upgrade to ZCS 10.1.20 or later</span>
+            <span class="ops-cc"><b>Action:</b> Do not assume the precondition. On every Zimbra host, check whether <code>zimbra-snmp</code> is installed and whether SNMP notifications are enabled, and record the answer host by host rather than per environment. Upgrade to ZCS 10.1.20 or later; where a maintenance window blocks that, disable SNMP notifications or remove the package as an interim control and restrict inbound SMTP to known relays. Then hunt: review process ancestry for shells or network clients spawned under the zimbra account, check for new cron entries and unexpected content in the mail store, and rotate credentials held on the host.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or disable SNMP notifications &mdash; 24h (exploited, trivial to weaponise)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zimbra-snmp-public-sector" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-zimbra-snmp-public-sector">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (CERT Polska research)</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation confirmed 20 Aug 2026; KEV listed 21 Aug 2026; federal due date 24 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-dgfip" data-published="2026-08-17">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>

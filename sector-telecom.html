@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Telecom &amp; Media</h1>
       <div class="header-sub">Carriers, ISPs, mobile, cable &amp; media.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Telecom &amp; Media</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
+      <strong>17</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Telecom sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of telecom IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">4.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:48%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Telecom sits in low Medium: this window brings little new sector-native activity, and nothing is actively exploited against carrier infrastructure. The strongest telecom item &mdash; chained UNISOC modem flaws that reach kernel-privilege code execution over a VoLTE video call on budget Xiaomi, Motorola and Realme handsets &mdash; is proof-of-concept only, but with no vendor firmware fix and no response from UNISOC it is an unresolved exposure rather than a live event. The Threema DDoS is over, hit shared colocation infrastructure, and Threema is not certain it was even the intended target; On-Prem customers were unaffected. The 425,000 Vodafone employee-directory records are CLAIMED, and the likely route is infostealer-harvested credentials rather than any platform flaw &mdash; though directory data of that kind is precisely what drives SIM-swap and porting-fraud calls to carrier help desks. Evooo1Bot and the latest Mirai variant are chronic CPE and subscriber-edge problems, now monetised as proxy relay capacity, which lands on abuse desks and IP reputation rather than on network capacity. What keeps the score clear of Low is cross-cutting exploitation touching carrier IT estates: vCenter (361 victim IPs, reverse-SSH persistence), the Windows IKE/IKEEXT double free now in KEV, and the Cisco ASA/FTD VPN flaw. This moves toward High only on a confirmed carrier core-network or multi-operator compromise; it eases toward Low once UNISOC ships firmware and no new edge exploitation appears.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:55%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Up from 4.8 to 5.5, mid-Medium. Confirmed active exploitation now exists in the sector&rsquo;s own stories, so the no-exploitation cap no longer binds. Operation CameraSwarm compromised more than 14,530 Dahua devices in 35 days using credential attacks from 12,324 source addresses plus authentication bypass of two 2021 KEV entries against roughly 1,900 cameras, and the Android head-unit proxy botnet is spreading live through built-in OEM update channels. Neither, however, is a single issue widely impacting telecom IT estates: CameraSwarm is concentrated in Ukraine and Russia and hits subscriber-attached IoT rather than carrier core, and the head-unit botnet has no CVE, no attribution, and lands mainly as an M2M data-plan and IP-reputation problem. The Cisco Crosswork and Secure Workload cluster is maximum-severity &mdash; three CVSS 10.0 flaws plus a 9.9 on carrier OSS &mdash; but explicitly not exploited, not in KEV, and patched, which under this calibration sits near the bottom of the band regardless of score. The T-Mobile account of physically cutting a cable to expel Salt Typhoon is a retrospective with no live threat, valuable as an interconnect-containment lesson. No confirmed in-window telecom breach appears at all.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -741,7 +741,137 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-ringcentral" data-published="2026-08-10">
+<div class="card" id="it-tmobile-cable-cut" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>T-Mobile expelled Salt Typhoon by driving to a data centre and cutting a cable &mdash; the intruder was sitting on another carrier&rsquo;s router</h3>
+        <p>T-Mobile&rsquo;s security chief, Jeff Simon, is on the record describing how the carrier handled the 2024 Salt Typhoon campaign: analysts traced anomalous behaviour back to a router belonging to a different telecom company, and the response was to drive to a data centre near the Bellevue headquarters and physically snip the cable. T-Mobile went on to avoid the large-scale compromise that hit AT&amp;T, Verizon and other US carriers in the same campaign. The reporting does not establish that the cut alone was decisive, and the underlying intrusion set is two years old, so this belongs on the page as an operational case study rather than fresh threat activity. What earns it space is where the adversary was standing. Salt Typhoon did not have to breach T-Mobile directly; it needed a foothold at an interconnect partner whose equipment already sat inside a trusted path. Every operator carries dozens of those relationships &mdash; peering, transit, roaming, wholesale, managed-service handoffs &mdash; and most are governed by commercial agreements that say nothing useful about who may disconnect whom, at what hour, on whose authority. The technical lesson is that logical containment across an interconnect can be slower than a drive across town. The governance lesson is sharper: the decision to sever a partner&rsquo;s circuit had to be improvised, because nobody had written down in advance who was allowed to make it.</p>
+        <div class="card-meta">
+          <span>T-Mobile US &bull; interconnect and peering infrastructure &bull; Salt Typhoon (2024 campaign)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No current exploitation &mdash; retrospective account of a 2024 intrusion; the compromised router belonged to an unnamed partner carrier</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE involved</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; this is a containment-authority and interconnect-trust gap, not a software defect</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every interconnect, peering, roaming and wholesale partner whose equipment terminates inside your trust boundary, and mark which ones your NOC can isolate logically in under fifteen minutes. For the remainder, write the physical-disconnect runbook now: site, rack, port, the partner&rsquo;s out-of-hours escalation contact, and the named executive who can authorise a cut without waiting on legal review. Extend your core NetFlow and authentication-log monitoring to partner-facing routers, and rehearse one disconnect during a maintenance window this quarter.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Partner inventory and interconnect isolation runbook &mdash; 30 days (no live threat; closes a structural response gap)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-tmobile-cable-cut" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-tmobile-cable-cut">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>TechCrunch; SecurityWeek (Bloomberg reporting; T-Mobile security chief Jeff Simon on record)</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion campaign 2024; account published 19 Aug 2026; follow-up coverage 21 Aug 2026</span>
+        </div>
+        <a href="https://techcrunch.com/2026/08/19/t-mobile-chopped-a-cable-to-expel-chinese-hackers-from-its-network/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-cisco-crosswork-carrier-oss" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Three CVSS 10.0 flaws in Cisco Crosswork land in the carrier OSS layer &mdash; unexploited so far, but this is the software that drives the network</h3>
+        <p>Cisco has published fixes for nine issues across Crosswork and Secure Workload. On the Crosswork side, versions up to and including 7.2.1 carry CVE-2026-20030 (SQL injection), CVE-2026-20357 (missing authentication) and CVE-2026-20358 (filesystem control), all rated CVSS 10.0, plus CVE-2026-20359 at 9.9; the fix is 7.2.1-SP. Secure Workload is patched separately in 3.10.9.1 and 4.0.4.16 and carries two further 10.0 issues, CVE-2026-20315 and CVE-2026-20317. Cisco states none of these are known to be exploited, and no proof-of-concept has been reported, so the honest framing is a patch window rather than an incident. The reason it lands harder for operators than for a general enterprise is what Crosswork is. Data Gateway, Network Controller and Planning are service-provider automation: they hold device credentials, collect streaming telemetry from the transport estate, and push configuration change across it. Missing authentication on a platform of that kind is not a server compromise, it is credentialed control of the network the platform manages, with a ready-made channel for pushing change that looks entirely legitimate downstream. That is precisely the position state-aligned telecom intrusion sets have sought in recent years, so the window between advisory and weaponisation is the thing to spend this week on.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20030 / CVE-2026-20357 / CVE-2026-20358</span>
+          <span>Cisco Crosswork Data Gateway, Network Controller, Planning &le; 7.2.1 &bull; CVSS 10.0 (CVE-2026-20359: 9.9)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; Cisco reports no known in-the-wild use and no public exploit code as of the advisory</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Crosswork 7.2.1-SP; Secure Workload 3.10.9.1 or 4.0.4.16</span>
+            <span class="ops-cc"><b>Action:</b> Schedule Crosswork onto 7.2.1-SP and Secure Workload onto 3.10.9.1 or 4.0.4.16 inside the change window, and treat this as a management-plane exposure review rather than a single patch. Confirm no Crosswork web or API interface is reachable from a customer-facing VLAN, corporate LAN or the public internet; restrict it to a jump host by ACL. Rotate the device credentials Crosswork stores for the transport estate after upgrading, and pull the platform&rsquo;s access logs for unauthenticated requests preceding the patch date.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or network-isolate Crosswork management interfaces &mdash; 7 days (maximum severity, unauthenticated, no exploitation yet)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-crosswork-carrier-oss" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-crosswork-carrier-oss">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (Cisco advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory coverage 20&ndash;21 Aug 2026; no exploitation reported as of 23 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/cisco-patches-nine-crosswork-and-secure.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-cameraswarm-dahua" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Operation CameraSwarm took 14,530 Dahua devices in 35 days &mdash; and 283 of them were behind NAT</h3>
+        <p>Hunt.io has documented a single operator compromising more than 14,530 Dahua devices between 17 June and 22 July 2026. Three methods ran in parallel. Credential attacks, sourced from 12,324 unique IP addresses, did the bulk of the work. Authentication-bypass exploitation of CVE-2021-33044 and CVE-2021-33045 &mdash; both CVSS 9.8, both long-standing CISA KEV entries &mdash; accounted for 1,923 cameras. A third path abused the vendor&rsquo;s peer-to-peer relay service to reach 283 devices that had no inbound exposure at all. Compromises concentrated in Ukraine and Russia, and artifacts point to a Russian-speaking operator, though no vendor has made a formal attribution. For carriers the P2P figure is the one to sit with. Those 283 devices were behind NAT, which is the assumption most subscriber-side security rests on: nothing is port-forwarded, therefore nothing is reachable. A vendor cloud relay dissolves that boundary, and the traffic leaves the subscriber line looking like an ordinary outbound session to the manufacturer. The rest of the estate matters commercially rather than technically: compromised cameras on your access network are your address space, your abuse desk, your reputation blocks, and eventually your DDoS capacity pointed at your own customers. Five-year-old KEV flaws being productive at this scale is a statement about CPE patch reality, not about the flaws.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2021-33044 / CVE-2021-33045</span>
+          <span>Dahua IP cameras &bull; CVSS 9.8 (both) &bull; 14,530+ devices in 35 days</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed by Hunt.io; credential attacks from 12,324 IPs, auth-bypass against 1,923 cameras, P2P relay reaching 283 NAT&rsquo;d devices</span>
+            <span class="ops-tag kev-on">Both CVEs are established CISA KEV entries</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched upstream &mdash; both flaws were fixed by Dahua in 2021; exposure is unpatched fielded devices</span>
+            <span class="ops-cc"><b>Action:</b> Run a Dahua sweep across your own physical-security estate first, confirming firmware post-dates the 2021 fixes for both CVEs, and replace default or shared credentials rather than just rotating them. On the access network, query subscriber NetFlow for lines showing high-fanout outbound connection attempts consistent with credential spraying, and treat sustained sessions to vendor P2P relay infrastructure as a compromise indicator even where no ports are forwarded. Prepare abuse-desk notification templates for affected subscribers before the first block list arrives.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Own-estate firmware and credential audit &mdash; 72h; subscriber NetFlow hunt and abuse-desk playbook &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cameraswarm-dahua" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cameraswarm-dahua">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek; BleepingComputer (Hunt.io research)</span>
+          <span class="dot">&bull;</span>
+          <span>Campaign 17 Jun &ndash; 22 Jul 2026; reported 19&ndash;20 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/hackers-compromised-14500-dahua-devices.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-android-head-unit-proxy-botnet" data-published="2026-08-22">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Android car head units are being enrolled into a residential-proxy botnet through their own OEM update channel</h3>
+        <p>Researchers have confirmed malware spreading to Android-based automotive head units through the units&rsquo; built-in manufacturer update mechanism, monetised through ad fraud and by selling the infected devices as residential-proxy capacity. No CVE has been assigned, and no attribution has been published. The delivery path is the story: the compromise arrives over the channel the device is designed to trust implicitly, which means there is no user action to blame, no misconfiguration to correct at the subscriber end, and no patch a fleet operator can apply independently of the OEM. For a carrier this is a data-plan problem wearing a car&rsquo;s clothes. Connected-vehicle head units sit on embedded SIMs and machine-to-machine tariffs sold by mobile operators, which places the resulting proxy exit nodes inside mobile ASNs and bills the fraud traffic to carrier-issued subscriptions. That has two consequences worth separating. The first is commercial: unexplained data consumption on M2M lines that were provisioned on the assumption of predictable, low-volume telemetry. The second is reputational, and slower to reverse &mdash; mobile IP space carries unusual trust in fraud-scoring and bot-detection systems precisely because it is hard to rent, and a proxy network built on connected-vehicle plans erodes that for every other subscriber sharing the range. M2M and IoT tariffs are typically the least-monitored product line an operator runs.</p>
+        <div class="card-meta">
+          <span>Android automotive head units &bull; OEM over-the-air update channel &bull; no CVE assigned</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed research; infection spreads via the head units&rsquo; own OEM updater, used for ad fraud and residential-proxy capacity</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch available &mdash; remediation sits with the head-unit manufacturers whose update channel is the delivery vector</span>
+            <span class="ops-cc"><b>Action:</b> Pull consumption profiles for your M2M and connected-vehicle APNs and flag SIMs whose traffic volume or destination diversity has broken from the telemetry baseline those tariffs were priced on. Where the APN terminates on your own infrastructure, apply destination and protocol restrictions matching what the vehicle service actually needs rather than open internet access. Raise the update-channel integrity question with automotive OEM customers under contract now, and check whether your mobile ranges have started appearing on proxy-detection and bot-scoring block lists.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> M2M and connected-vehicle APN traffic baseline review &mdash; 14 days (active campaign, no subscriber-side fix)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-android-head-unit-proxy-botnet" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-android-head-unit-proxy-botnet">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer; The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 21&ndash;22 Aug 2026; no attribution published</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-infect-android-car-head-units-with-proxy-botnet-malware/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ringcentral" data-published="2026-08-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>

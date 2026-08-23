@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Healthcare &amp; Life Sciences</h1>
       <div class="header-sub">Hospitals, payers, pharma IT &amp; health-tech &mdash; current enterprise-IT threats.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Healthcare IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
+      <strong>19</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Healthcare sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of healthcare IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.4</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66%;"></span></div>
-      <div class="tl-why"><b>Why:</b> An unusually heavy run of <b>confirmed</b> third-party and business-associate breaches at real scale. Polish authorities confirmed criminal access to MyDr, a clinical software vendor serving 12,000+ facilities and tied into the national P1 e-Health platform, with up to 19 million people potentially in scope &mdash; the actors&rsquo; data-theft claims remain independently unverified, and the state rotated certificates pre-emptively. CareCloud confirmed 3.3 million individuals; as a revenue-cycle business associate, that one compromise creates notification duties across a long tail of covered entities. Baylor Genetics confirmed a June intrusion exposing lab results, insurance data and some SSNs. A 235 GB dump attributed to Healthcare Highways carries PHI a researcher verified, including employer-client data. Quantum Health traced an intrusion to a single vishing call &mdash; the sector&rsquo;s dominant entry route, and one MFA alone does not stop. Cross-sector exploitation reaches hospital IT too: CISA/FBI put Medusa past 500 critical-infrastructure victims with healthcare named and ~24h weaponisation; four new KEV items carry a 21 August deadline; vCenter is under mass exploitation. But each of these is a discrete incident at one organisation or a patchable exposure &mdash; no single issue is compromising a large portion of healthcare IT at once, so the rubric caps this in Medium and it sits at the top of the band. High would need one issue disrupting multiple unrelated health systems simultaneously.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:64%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium. The sector&rsquo;s week is dense but structurally discrete, which the hard rule caps below High. CareCloud is the single strongest upward pull: a confirmed intrusion into an AWS environment exposing 3,756,469 people&rsquo;s data &mdash; Social Security numbers, payment card details, medical and insurance records in one exfiltration &mdash; and because CareCloud serves more than 45,000 providers it propagates to many organisations at once. Alongside it sit further confirmed single-organisation disclosures: Amazon&rsquo;s One Medical senior-care unit at 153,174 patients through a third-party file store, Baylor Genetics, AnMed and Cameron Regional. The CISA, FBI and HHS update to the Medusa advisory names healthcare the primary target and passes 500 critical-infrastructure victims, but it is an advisory refresh rather than a new campaign, with no new leak-site victims since April&nbsp;2026. Countervailing pressure is real: the AHA warning on Siemens S7 controllers in hospital building-control systems relays a federal advisory assessed as reconnaissance and capability development, with no completed attacks and no CVEs named, and the Microsoft Teams helpdesk vishing tied to SynkLoader is socially delivered and requires user interaction rather than exploiting widely-deployed clinical software. Nothing here is hitting a large portion of healthcare IT estates at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -762,7 +762,135 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-carecloud" data-published="2026-08-18">
+<div class="card" id="it-carecloud-breach" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>CareCloud tells HHS that 3,756,469 people were exposed in an eight-hour AWS intrusion &mdash; and almost none of them are its own customers</h3>
+        <p>CareCloud has confirmed in HHS filings that 3,756,469 individuals were affected by an intrusion into its AWS environment between 10 and 16 March 2026, with attacker access lasting roughly eight hours. The exposed set is unusually broad for a healthcare disclosure: personal identifiers, Social Security numbers, other ID numbers, credit and debit card data, and medical and insurance information. CareCloud reported the incident to law enforcement and filed an 8-K with the SEC on 24 March, meaning the material-event filing preceded individual notification by about five months. No group has claimed the intrusion, no initial-access vector has been named, and there is no CVE. What makes this the week&rsquo;s most consequential healthcare disclosure is position rather than headcount. CareCloud is a revenue-cycle and electronic health record vendor serving more than 45,000 providers, so the affected individuals are patients of those practices, not CareCloud&rsquo;s own customers. Most of the exposed population has no direct relationship with the breached entity and little reason to recognise the notification when it lands. For provider organisations that inverts the usual incident-response posture: your patients sit inside someone else&rsquo;s breach, your front desk absorbs the calls, and your business-associate agreement decides who carries notification cost and regulatory exposure. The eight-hour dwell time is the other operational lesson. This was a fast, targeted staging operation against a cloud tenancy rather than a months-long ransomware siege, and detection tuned for slow lateral movement across an on-premises estate would not have registered it.</p>
+        <div class="card-meta">
+          <span>CareCloud AWS environment &bull; 3,756,469 individuals &bull; no CVE assigned</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No vulnerability named &mdash; confirmed intrusion into a cloud tenancy; ~8 hours of attacker access; no actor has claimed it</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE associated with this incident</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; response is business-associate scoping, notification and cloud-access hygiene</span>
+            <span class="ops-cc"><b>Action:</b> Pull your business-associate inventory and confirm whether CareCloud or its subsidiaries touch your revenue-cycle, billing or EHR stack. If so, request in writing this week the affected-individual list scoped to your patient panel, and settle who issues notifications and bears the cost. Brief patient-access and billing staff with a scripted answer before calls arrive. Separately, audit your own AWS tenancies for what makes an eight-hour intrusion productive: long-lived access keys, over-scoped IAM roles, and CloudTrail data events switched off on buckets holding PHI. Turn data-event logging on and alert on bulk object reads.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> BAA scope check and patient-facing call script &mdash; 5 business days; AWS key, IAM and CloudTrail audit &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-carecloud-breach" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-carecloud-breach">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record; BleepingComputer; TechCrunch (CareCloud HHS filing and SEC 8-K)</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion 10&ndash;16 Mar 2026; 8-K filed 24 Mar 2026; disclosure reported 19 Aug 2026</span>
+        </div>
+        <a href="https://therecord.media/electronic-health-record-company-carecloud-data-breach" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-one-medical-seniors" data-published="2026-08-19">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Amazon&rsquo;s One Medical senior-care unit reports 153,174 patients exposed &mdash; the breached records were inherited archives in third-party storage</h3>
+        <p>An HHS Office for Civil Rights posting confirms that 153,174 patients were affected by unauthorised access to a third-party file storage system used by Amazon&rsquo;s One Medical, discovered on 13 June 2026. The records involved are archival rather than active: legacy Iora Health and One Medical Seniors material inherited through acquisition. ShinyHunters claims to have taken 8.8 TB from the environment, but that volume is the actor&rsquo;s claim and has not been corroborated by Amazon or a named researcher &mdash; the OCR patient count is the only figure with an official source behind it. Proposed class actions against 1Life Healthcare have been filed in federal court in California. No CVE is involved. For senior-care providers and any health system carrying acquisition debt, the specific lesson is the archive. The breached data belonged to a company absorbed into another company absorbed into Amazon, and it sat in third-party storage that almost certainly fell outside the security review applied to production clinical systems. That is the standard shape of inherited risk in healthcare IT: retention obligations keep old records alive, integration programmes deprioritise them, and vendor inventories built around live systems never list them at all. The affected population also skews elderly, which raises the downstream fraud value of Medicare-linked identifiers and pairs badly with the Medicare-themed scam activity health systems are separately warning patients about this week. Note what is and is not established here: the patient count comes from an official OCR posting, while the 8.8 TB figure comes from the actor and should not be repeated as fact.</p>
+        <div class="card-meta">
+          <span>One Medical Seniors / legacy Iora Health archives in third-party file storage &bull; 153,174 patients &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No vulnerability named &mdash; unauthorised access to a third-party file store; the 8.8 TB figure is CLAIMED by ShinyHunters, not confirmed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE associated with this incident</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; remediation is vendor scoping, retention enforcement and access control on archived PHI</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every third-party file store holding records from acquired or sunset entities &mdash; migration shares, legacy document vaults, offboarded vendor SFTP &mdash; and map each to a current BAA and a named owner. Where the retention obligation has already lapsed, delete rather than re-secure. For what must be kept, pull it behind the same MFA, logging and quarterly access-review regime as production EHR data, and confirm the vendor supports tenant-level audit export. If you serve Medicare-age patients, brief call centres: breach and class-action publicity generates inbound calls that are themselves a phishing surface.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> inventory of legacy and third-party PHI stores &mdash; 30 days; BAA and retention review for acquired entities &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-one-medical-seniors" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-one-medical-seniors">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Becker&rsquo;s Hospital Review (HHS OCR posting; ShinyHunters claim unverified)</span>
+          <span class="dot">&bull;</span>
+          <span>Discovered 13 Jun 2026; OCR posting Aug 2026; reported 19 Aug 2026</span>
+        </div>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/153174-patients-affected-by-amazon-one-medical-senior-care-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-aha-siemens-s7-bms" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>The AHA tells hospitals their climate and door controllers are in scope of the S7 campaign &mdash; the assets in question sit under facilities, not IT</h3>
+        <p>The American Hospital Association issued an alert on 20 August pointing hospitals at the joint NSA/CISA/FBI/DOE/EPA advisory published two days earlier, which describes unattributed actors using AI-generated exploitation scripts disguised as legitimate monitoring tools, alongside internet-wide scanning, against Siemens S7-series programmable logic controllers. The agencies assess the activity as reconnaissance and capability development rather than completed attacks. No CVEs are specified; the broader advisory also names Schneider Electric and Rockwell/Allen-Bradley equipment. The AHA&rsquo;s contribution is to state plainly which hospital systems fall in scope: climate control and physical access control. That is the part most health systems will handle badly, because those controllers usually sit under facilities management rather than IT or clinical engineering, and are frequently absent from the asset inventory that feeds vulnerability management and patching. A compromised S7 governing air handling touches operating-theatre pressure differentials, isolation-room containment, pharmacy and laboratory temperature ranges and data-centre cooling; one governing door hardware touches physical security for controlled-substance storage, behavioural health units and neonatal wards. None of that presents as a patient-data risk, so none of it competes well for attention against the week&rsquo;s breach disclosures &mdash; which is precisely why it needs an owner named now. The honest read on likelihood: nothing here is confirmed exploitation of a hospital, and the federal assessment stops at reconnaissance. But scanning is indiscriminate, and an internet-exposed S7 controller in a hospital plant room is indistinguishable from one in a water utility. Exposure, not targeting, is the variable a health system actually controls this week.</p>
+        <div class="card-meta">
+          <span>Siemens S7-series PLCs in hospital BMS and physical access control; also Schneider Electric, Rockwell/Allen-Bradley &bull; no CVEs specified</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>AI-written exploit scripts and internet-wide scanning confirmed by five federal agencies; assessed as reconnaissance &mdash; no completed attacks reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; the advisory names no CVEs</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No specific patch &mdash; AHA guidance is inventory S7 controllers, patch, and disconnect from the internet or isolate</span>
+            <span class="ops-cc"><b>Action:</b> Ask facilities management &mdash; not IT &mdash; for a list of every Siemens S7, Schneider and Rockwell controller in the estate, including units installed by BMS integrators under maintenance contracts. Check each against your external scan and Shodan; anything reachable from the internet comes off this week, with vendor remote access replaced by a brokered jump host requiring MFA. Apply available vendor firmware in the next maintenance window and segment the BMS VLAN from clinical and corporate networks. Load the resulting controller list into the CMDB so it inherits routine vulnerability scanning.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> internet-exposure check on all S7 and BMS controllers &mdash; 7 days; full inventory and segmentation plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aha-siemens-s7-bms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-aha-siemens-s7-bms">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Becker&rsquo;s Hospital Review; The Record; The Hacker News; Cybersecurity Dive (joint federal advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>Joint advisory 18 Aug 2026; AHA alert 20 Aug 2026; reported 21 Aug 2026</span>
+        </div>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/aha-warns-hospitals-of-cyber-threats-on-building-control-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-teams-helpdesk-vishing" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Hospitals are telling staff that the Microsoft Teams call from &ldquo;IT&rdquo; may be an attacker &mdash; the lure matches SynkLoader, which profiles Active Directory before ransomware</h3>
+        <p>Multiple hospitals have issued confirmed internal advisories warning that a Teams call or chat purporting to come from the internal IT helpdesk may be an attacker. Malware research corroborates the technique independently: the SynkLoader campaign, reported 21 August, opens with Teams impersonation of IT and steers the target to a fake &ldquo;PowerShell Cleaner&rdquo; hosted on Microsoft Azure &mdash; a domain most allow-lists trust. The loader is multi-language, spanning Python, PowerShell, C# and C++, and was first compiled around 28 July 2026. Once resident it profiles Active Directory size and infrastructure, which researchers read as ransomware pre-staging rather than commodity credential theft. A module called PhishLocker renders a full-screen fake Windows 11 lock screen to harvest credentials; Alt+Tab exposes it. The actor is unattributed and no CVE is involved. Healthcare fits this lure for structural reasons rather than accidental ones. Clinical staff are conditioned to accept unscheduled IT contact mid-shift, rotate across sites and rosters often enough that an unfamiliar helpdesk name is unremarkable, and work under time pressure that makes &ldquo;just run this cleaner&rdquo; look like the fast path back to the chart. Teams external access, commonly left open for referring physicians and vendors, supplies the delivery route. The Active Directory profiling step is the detail that should set response priority: this is reconnaissance ahead of an encryption event, not opportunistic credential theft. Twenty-one health systems separately warned of a MyChart &ldquo;Medicare Kit&rdquo; scam in the same week, so patient-facing and staff-facing social engineering are running concurrently against the same institutions.</p>
+        <div class="card-meta">
+          <span>Microsoft Teams external access; SynkLoader loader with PhishLocker module; payload staged on Microsoft Azure &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; hospital advisories confirmed and SynkLoader delivery via Teams helpdesk impersonation corroborated by malware research; actor unattributed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; social-engineering campaign, no CVE involved</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; mitigation is Teams external-access policy, a staff verification rule and endpoint detection</span>
+            <span class="ops-cc"><b>Action:</b> Restrict Teams external access to an allow-list of federated domains and block unsolicited chat from outside tenants; where referring physicians or vendors genuinely need it, route them through one monitored channel. Publish a rule short enough to survive a night shift: the helpdesk never asks you to run a downloaded tool or retype credentials into a lock screen, and any such contact is verified by hanging up and dialling the internal number. Hunt for PowerShell and script-host processes spawned by Teams, and for downloads from Azure blob URLs outside your allow-list. Run a reporting drill.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Teams external-access review and all-staff bulletin &mdash; 72h; detection rules for Teams-spawned script hosts and a reporting drill &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-teams-helpdesk-vishing" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-teams-helpdesk-vishing">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Becker&rsquo;s Hospital Review (hospital advisories); BleepingComputer (SynkLoader research)</span>
+          <span class="dot">&bull;</span>
+          <span>SynkLoader first compiled ~28 Jul 2026; hospital warnings and research reporting 21 Aug 2026</span>
+        </div>
+        <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/hospitals-warn-staff-that-microsoft-teams-it-call-might-be-a-scam/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-carecloud" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>

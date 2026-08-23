@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Financial Services</h1>
       <div class="header-sub">Banks, fintech, insurance & crypto &mdash; what's hitting the sector now.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Financial Services IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>15</strong> stories across
+      <strong>19</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Financial Services sector, under the same rubric as the main IT dashboard. Score 6.5 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of financial-services IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Financial services took several distinct hits this week rather than one issue reaching across the sector&rsquo;s IT estate, which holds the score in upper Medium. The clearest confirmed item is Heights Finance: intruders reached a third-party cloud platform in early May 2026 and exposed records for at least 1.2 million people &mdash; names, SSNs, driver&rsquo;s licence and government ID numbers, bank account details and dates of birth &mdash; with Texas and South Carolina accounting for most of the count. Alongside it, Mandiant&rsquo;s BlackFile / UNC6671 has compromised 24+ organisations since January through voice phishing at roughly 1.5 new victims a day, demands opening near $3M; Flashpoint saw infrastructure staged against several large financial firms, but it is not confirmed that any of them were breached. European and Brazilian arrests over a ~&euro;30M fraud that abused a weakness at a banking service provider underline that outsourced payment plumbing is often the softest way in. Behind those sit crypto and tax-data losses &mdash; SafePal and Trezor customer lists, plus unverified claims against Bits of Gold and TaxAct. Cross-sector flaws under active exploitation &mdash; vCenter, Windows IKEEXT, SharePoint, Task Host &mdash; reach bank data centres but remain patch-and-hunt work. Under the no-advisory-stacking rule none of this aggregates into High. A confirmed compromise of a widely shared banking or payments platform would raise it; a quiet week would lower it.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:58%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Mid-Medium. This is a week of discrete single-organisation events rather than one issue widely impacting financial IT estates. The strongest driver is Apollo Global Management &mdash; a confirmed cloud intrusion between 6 and 10&nbsp;July, not discovered until 12&nbsp;August, exposing names, dates of birth, addresses and Social Security numbers, attributed by Google to BlackFile and The Com and delivered through voice phishing and IT-helpdesk impersonation rather than any product flaw. That is a genuine major breach, so the quiet-week cap does not bind &mdash; but the calibration is explicit that one confirmed breach is not High on its own, and Blackstone and Bain Capital were targeted with matching infrastructure without either confirming a compromise. The U.S. Bancorp item is a LockBit listing with no samples published and a specific bank denial pointing to a contractor of a third-party vendor, so it adds sector signal and almost no confirmed impact. The banking trojans &mdash; Manic&rsquo;s offline mesh exfiltration over Wi-Fi Direct and Bluetooth, Grandoreiro&rsquo;s Mexico campaign, ToxicPanda 2.0 scaling to roughly 350 targeted apps across 16 countries &mdash; are running against customer and staff endpoints, not institutions&rsquo; own infrastructure. iAuthFlow&nbsp;V2 is a documented capability from forum material, not an observed live incident. No actively-exploited flaw in widely-deployed banking software appears at all, and the no-advisory-stacking rule keeps these from aggregating upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -747,7 +747,135 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-blackfile" data-published="2026-08-17">
+<div class="card" id="it-apollo-blackfile-breach" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Apollo Global Management has confirmed a July cloud intrusion that exposed Social Security numbers &mdash; and the entry route was a help desk, not a vulnerability</h3>
+        <p>Apollo Global Management filed a California breach notification confirming that attackers accessed its cloud platforms between 6 and 10 July 2026, an intrusion the firm did not discover until 12 August &mdash; roughly a five-week detection gap. The exposed record set is the damaging kind: names, dates of birth, contact details, home addresses and Social Security numbers. Google attributes the activity to BlackFile, operating through the Redact, Pink, Helix and Falcon brands and affiliated with The Com, working by vishing and IT&nbsp;help-desk impersonation rather than any software flaw. There is no CVE. Extortion demands are reported to start around $3 million. Two distinctions deserve care. Apollo is the only confirmed victim: Blackstone and Bain Capital were targeted with malicious infrastructure, but a breach of either is NOT confirmed, and coverage that groups all three as compromised runs ahead of the evidence. And the initial access route was a human identity-verification process, which is what makes this a sector problem rather than one firm&rsquo;s bad week. Private-equity and asset-management shops concentrate SSN-bearing investor records, limited-partner data and live deal material into a small number of cloud tenants, and the same outsourced or thinly-staffed service desk that resets a portfolio-company employee&rsquo;s MFA also resets a partner&rsquo;s. A crew fluent in the sector&rsquo;s vocabulary can repeat this at any peer firm without touching an unpatched server.</p>
+        <div class="card-meta">
+          <span>Apollo cloud platforms &bull; No CVE &mdash; vishing and IT help-desk impersonation</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; intrusion confirmed by Apollo in a California breach notification; social engineering, no exploited software flaw</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; nothing to patch</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; the control is identity-verification process</span>
+            <span class="ops-cc"><b>Action:</b> Pull the help-desk MFA-reset and password-reset runbook this week and require a second, out-of-band factor before any reset on privileged or partner-level accounts &mdash; manager callback to a directory-listed number, or a video identity check. Log every reset and alert where a reset is followed within an hour by a new device enrolment. Review cloud-tenant sign-in logs for 6&ndash;10 July for logins from unfamiliar ASNs. Confirm which investor-record stores actually hold SSNs, and check that your IR retainer covers a vishing-driven cloud compromise with no malware to find.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Harden help-desk reset verification and hunt July cloud logins &mdash; 7 days (confirmed campaign, procedural fix)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apollo-blackfile-breach" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apollo-blackfile-breach">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CyberScoop; TechCrunch (Apollo breach notification; Google attribution)</span>
+          <span class="dot">&bull;</span>
+          <span>Access 6&ndash;10 Jul 2026; discovered 12 Aug 2026; disclosed 21 Aug 2026</span>
+        </div>
+        <a href="https://cyberscoop.com/apollo-discloses-data-breach-social-engineering-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-usbancorp-lockbit-claim" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Extortion Claim</span>
+        </div>
+        <h3>LockBit listed U.S. Bancorp with no samples published &mdash; the bank points to a contractor of a third-party vendor, two hops down its supply chain</h3>
+        <p>LockBit added U.S. Bancorp to its victim list on the morning of 21 August 2026 and threatened to leak within two weeks. In the reporting reviewed, the group published no samples &mdash; no file tree, no document set, nothing an outside analyst could use to test the claim. U.S. Bank&rsquo;s reply is more specific than a boilerplate denial: it states there is no evidence that its systems, networks or data repositories were compromised, and attributes the material to a contractor working for one of its third-party vendors, making this a fourth-party event. The matter has been referred to law enforcement. Nothing here is confirmed as a breach of the bank, and it should not be reported internally as one. The value to financial-services teams is in the shape of the claim rather than its truth. A leak-site post that names a large, recognisable bank while originating two hops down the supply chain produces two separate problems. The first is a communications and regulator-notification question the bank does not fully control, because the attacker sets the timing. The second is a due-diligence gap: most vendor contracts bind the direct supplier and say nothing about who that supplier subcontracts to, which means the fourth party is often invisible to the third-party risk programme that is supposed to cover it.</p>
+        <div class="card-meta">
+          <span>U.S. Bancorp &bull; No CVE &mdash; claimed fourth-party (vendor&rsquo;s contractor) incident</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Claimed only &mdash; LockBit listing with no samples published; U.S. Bank reports no evidence its own systems were compromised</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; no vulnerability identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; contractual and supply-chain control</span>
+            <span class="ops-cc"><b>Action:</b> Take the top tier of your vendor list and ask each supplier in writing this week to name the subcontractors that touch your data and where that data is processed. Check whether those contracts carry flow-down clauses obliging vendors to impose equivalent security and breach-notification terms on subcontractors, plus a right to be told of a subcontractor incident within a fixed window. Meanwhile hold the line internally and with customers: an unverified leak-site post with no samples is not a confirmed breach. Diarise the two-week deadline LockBit named and reassess then.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Subcontractor mapping for tier-one vendors and flow-down clause review &mdash; 30 days (claim unverified; the gap is structural)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-usbancorp-lockbit-claim" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-usbancorp-lockbit-claim">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Record (U.S. Bank statement; LockBit leak-site listing)</span>
+          <span class="dot">&bull;</span>
+          <span>Listed 21 Aug 2026; leak threatened within two weeks</span>
+        </div>
+        <a href="https://therecord.media/us-bank-says-breach-claims-related-to-fourth-party-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-banking-trojans-trio" data-published="2026-08-22">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Malware</span>
+        </div>
+        <h3>Three banking trojans surface at once &mdash; Manic relays stolen data over Bluetooth when C2 is blocked, and ToxicPanda 2.0 now targets roughly 350 financial apps</h3>
+        <p>ThreatFabric, Acronis TRU and Zimperium published near-simultaneous profiles of three unrelated financial-crime families. Manic is an Android banker and spyware hybrid aimed at Ukrainian banks and government services alongside Russian and European financial institutions and crypto/fintech platforms. Its notable capability is an offline mesh relay: when command-and-control is unreachable, it hands stolen data to nearby infected devices over Wi-Fi Direct and Bluetooth, which undercuts the assumption that severing network egress ends exfiltration. Grandoreiro, the long-running Brazil-origin Windows banker, has resurfaced in a Mexico campaign that sideloads a malicious DLL through a legitimate Duplicate Files Finder binary. ToxicPanda 2.0 is the largest change in scale: now active across 16 countries, carrying 167 remote commands and targeting roughly 350 financial applications, up from 16 in earlier versions, distributed from AWS-hosted infrastructure. None of these carries a CVE, and none compromises a bank&rsquo;s own infrastructure &mdash; which is exactly the difficulty. The attack surface is the customer&rsquo;s phone and the employee&rsquo;s desktop, where the institution has no agent, no patch cycle and little telemetry. ToxicPanda&rsquo;s jump from 16 to about 350 target apps means regional banks, credit unions and fintechs that previously sat below the targeting threshold are now inside it. Grandoreiro&rsquo;s abuse of a legitimate signed utility also means endpoint rules keyed on file reputation will stay quiet.</p>
+        <div class="card-meta">
+          <span>Android and Windows banking customers &bull; No CVE &mdash; Manic, Grandoreiro, ToxicPanda 2.0</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all three families confirmed in live campaigns by ThreatFabric, Acronis TRU and Zimperium</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; malware families, not a vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; fraud-detection and endpoint-hunting control</span>
+            <span class="ops-cc"><b>Action:</b> Check whether your mobile banking app performs accessibility-service and screen-overlay detection and whether you actually alert on it rather than logging it. Add device-attestation, root and hook-detection failures as step-up authentication triggers for high-value transfers and payee changes. For the Grandoreiro pattern, hunt staff endpoints for Duplicate Files Finder executables loading unsigned DLLs from user-writable paths. Brief fraud and contact-centre staff that a blocked C2 no longer implies contained exfiltration, and refresh sideloaded-app guidance for any Mexico or Eastern Europe customer footprint.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Mobile overlay/attestation alerting review and Grandoreiro sideloading hunt &mdash; 14 days (active campaigns, customer-side surface)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-banking-trojans-trio" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-banking-trojans-trio">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek; BleepingComputer; Dark Reading (ThreatFabric, Acronis TRU, Zimperium research)</span>
+          <span class="dot">&bull;</span>
+          <span>Manic reported 20 Aug 2026; Grandoreiro 20 Aug 2026; combined profile 22 Aug 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/banking-trojans-manic-grandoreiro-toxicpanda-2-0-in-the-spotlight/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-iauthflow-passkey-kit" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Phishing</span>
+        </div>
+        <h3>A $10,000 phishing kit enrols the attacker&rsquo;s own passkey &mdash; so a password reset and session revocation no longer evict them</h3>
+        <p>Abnormal Security has documented iAuthFlow V2, a phishing toolkit whose distinguishing behaviour is persistence rather than credential theft. During the phishing session the kit enrols an attacker-controlled passkey on the victim&rsquo;s account. Because a passkey is an independent registered authenticator rather than a stored secret, the standard containment sequence &mdash; force a password reset, revoke active sessions, re-enrol MFA &mdash; leaves the attacker&rsquo;s credential registered and still valid. Gmail is confirmed as a target. The kit sells at a $10,000 base price on a Russian-language forum. One caveat is load-bearing: Abnormal&rsquo;s analysis is drawn from forum material rather than a captured sample, so the capability is documented rather than observed in a live incident, and the extent of real-world deployment is unknown. For financial services the significance is that it inverts an assumption account-takeover playbooks are built on. Fraud and IR teams treat the password reset as the line after which an account is clean, and consequential decisions hang off that line &mdash; releasing a held transfer, restoring wire privileges, closing the case. If the intruder holds a registered passkey, the account was never actually recovered and those decisions are made on a false premise. The same logic runs on both sides of the house: customer banking accounts, and employee identity providers where a persistent authenticator on a privileged Entra or Okta account outlasts any single stolen session.</p>
+        <div class="card-meta">
+          <span>Identity providers and consumer accounts; Gmail confirmed as a target &bull; No CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Documented capability &mdash; Abnormal analysed forum material, not a malware sample; no in-the-wild incident confirmed</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; a phishing toolkit, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; the control is account-recovery procedure and IdP alerting</span>
+            <span class="ops-cc"><b>Action:</b> Amend the account-takeover playbook this week so the recovery step is enumerate and remove every registered authenticator &mdash; passkeys, security keys, authenticator apps &mdash; not just a password reset and session revocation. In your IdP, alert on passkey and FIDO credential registration events, treating any that land within an hour of a sign-in from a new device or unusual ASN as investigable rather than informational. Confirm your customer banking app shows registered passkeys to both the customer and the contact centre. Make an authenticator inventory a close-out criterion for every compromise case.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Update ATO recovery playbook and enable passkey-registration alerting &mdash; 14 days (capability documented, not yet observed in the wild)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-iauthflow-passkey-kit" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-iauthflow-passkey-kit">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (Abnormal Security analysis)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 21 Aug 2026; sold at $10,000 base on a Russian-language forum</span>
+        </div>
+        <a href="https://www.securityweek.com/new-phishing-toolkit-uses-passkeys-to-maintain-access-after-password-resets/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-blackfile" data-published="2026-08-17">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>

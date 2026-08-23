@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Professional &amp; Legal Services</h1>
       <div class="header-sub">Law, accounting, consulting &amp; staffing.</div>
       <div class="header-meta">
-        <span>Generated Wed, 19 Aug 2026, 7:29 AM ET</span>
+        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Professional &amp; Legal Services</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>13</strong> stories across
+      <strong>16</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Legal sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of legal IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">5.4</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:54%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Genuinely limited new legal-sector activity this week, and the score reflects that rather than manufactured urgency. The one item aimed squarely at law firms is Silent Ransom Group (UNC3753 / Luna Moth / Chatty Spider): fake IT-support calls, invoice pretexts, RMM-tool abuse and even physical technician impersonation, all aimed at litigation strategy and privileged client files. The May 2026 Fox Rothschild LLP incident and the proposed class action that followed remain the sector&rsquo;s cautionary case, and a privilege breach carries professional-conduct exposure on top of ordinary breach liability. Alongside it, Scotland&rsquo;s prosecution service had about 300 staff records exposed through a shared assessment contractor, and the UK Solicitors Regulation Authority put AI data handling formally in scope after finding fabricated case law filed in court and client confidences typed into public AI tools. Cross-sector exposure landing on firm IT is real but discrete: SharePoint &mdash; the backbone of most firms&rsquo; document management &mdash; plus Windows IKEEXT, vCenter and macOS Screen Sharing added to CISA KEV on 18 Aug, vCenter mass exploitation across 361 victim IPs, and Medusa weaponising new flaws inside roughly 24 hours. There is no confirmed mass compromise of firms and no exploited legal-sector platform, so this caps in Medium; the vishing campaign and the SharePoint and vCenter KEV items keep it off the floor. It rises with a confirmed law-firm breach or exploitation of case-management or e-discovery software.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:62%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Up from 5.4 to 6.2, upper Medium. The strongest driver is the sustained campaign against US law firms attributed to Silent Ransom Group, confirmed by an FBI FLASH and Mandiant reporting: vishing and helpdesk impersonation, abuse of legitimate remote-monitoring tooling, exfiltration over WinSCP and Rclone, and &mdash; unusually &mdash; in-person USB insertion by someone physically present in the office. One firm is named and now faces a proposed class action. It is live, sector-specific campaign activity rather than established sector-wide impact, and much of the primary reporting predates this window. The Apollo Global Management intrusion is a legal-exposure event as much as a financial one, given the deal and counterparty material private-equity firms hold, but it is a single-organisation breach reaching legal by adjacency, and Blackstone and Bain were targeted rather than confirmed breached. The patch pair is a discrete patch-and-hunt exposure: Zimbra CVE-2026-73570 is genuinely exploited and KEV-listed with a 24&nbsp;August deadline, and its install base skews heavily toward firms that avoided Microsoft licensing, while the Citrix NetScaler authentication bypass has no exploitation flagged. Under the no-stacking rule these do not aggregate into High.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -745,7 +745,105 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-copjustice" data-published="2026-08-12">
+<div class="card" id="it-silent-ransom-law-firms" data-published="2026-08-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>An FBI FLASH and a Mandiant report describe the same three-year campaign against US law firms &mdash; and it now includes operators walking in the door with USB drives</h3>
+        <p>The group tracked as Silent Ransom Group, UNC3753, Luna Moth and Chatty Spider has been working US law firms since spring 2023, and both an FBI FLASH alert and Google Mandiant&rsquo;s GTIG report &ldquo;Seeking Counsel&rdquo; confirm the campaign is still running. The tradecraft is almost entirely human. Operators call the firm with invoice-themed pretexts or pose as internal IT, talk a partner, paralegal or billing clerk into a screen-sharing session, and install a remote monitoring and management tool under the cover of routine support. Exfiltration runs over WinSCP and Rclone. There is no encryption stage at all &mdash; the leverage is the client data itself, which in a law firm means privileged material the firm cannot simply restore from backup. The outlier detail, and the one that breaks most legal threat models, is that operators have been sent in person to insert USB storage into victim machines. Physical access is not a hypothetical for a business built around reception areas, war rooms, deposition suites and visiting counsel. Fox Rothschild LLP is named in the reporting over a May 2026 incident and now faces a proposed class action in federal court in Pennsylvania, which is the part legal IT should carry to the management committee: the incident cost is not the ransom, it is the litigation and the client-notification obligations that follow a confirmed disclosure of privileged files.</p>
+        <div class="card-meta">
+          <span>US law firms &bull; Silent Ransom Group / UNC3753 / Luna Moth / Chatty Spider &bull; no CVE &mdash; social engineering, not a software flaw</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; campaign confirmed by FBI FLASH and Google Mandiant/GTIG; vishing, help-desk impersonation, RMM abuse and in-person USB insertion</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no vulnerability involved</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; this is an identity, help-desk and physical-access control problem</span>
+            <span class="ops-cc"><b>Action:</b> Put callback verification on the service desk this week: no password reset, MFA re-enrolment or remote-support session for anyone claiming to be a partner, paralegal or billing staff without calling back on the number held in the HR directory &mdash; never a number offered during the call. Application-control the RMM estate so only the one tool you actually deploy can execute, and alert on first run of anything else. Deny USB mass-storage by policy on reception, war-room and floor machines. Hunt 30 days of egress for WinSCP and Rclone traffic to consumer cloud endpoints, and brief front-of-house staff that an unescorted &ldquo;IT contractor&rdquo; is an incident.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk callback rule and USB device policy &mdash; 5 working days; WinSCP/Rclone egress hunt &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-silent-ransom-law-firms" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-silent-ransom-law-firms">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Boulevard; Dark Reading (FBI FLASH; Google Mandiant/GTIG &ldquo;Seeking Counsel&rdquo;)</span>
+          <span class="dot">&bull;</span>
+          <span>In-window coverage 18 Aug 2026; Mandiant report 5 Jun 2026; Fox Rothschild incident May 2026; targeting since spring 2023</span>
+        </div>
+        <a href="https://securityboulevard.com/2026/08/law-firms-increasingly-targeted-by-ransomware-vishing-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-apollo-legal-exposure" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Apollo&rsquo;s breach notification is a legal-sector event too &mdash; the same help-desk impersonation playbook is already pointed at outside counsel</h3>
+        <p>Apollo Global Management has filed a California breach notification confirming that attackers were inside its cloud platforms between 6 and 10 July 2026, an intrusion not discovered until 12 August. The exposed data is the damaging kind: names, dates of birth, contact details, home addresses and Social Security numbers. Google attributes the activity to BlackFile and its brands &mdash; Redact, Pink, Helix and Falcon &mdash; an affiliate cluster tied to The Com, operating through vishing and IT help-desk impersonation rather than any exploited software flaw. Extortion demands start at roughly $3 million. Blackstone and Bain Capital were targeted with malicious infrastructure, but a breach of either is NOT confirmed. Legal departments and outside counsel should read this as their event as much as a financial-services one. Private-equity cloud platforms hold what a deal team&rsquo;s document room holds: draft purchase agreements, limited-partner registers, diligence files and personal identifiers for investors and portfolio-company staff. Where a firm acted as transaction counsel, it is sitting on parallel copies of the same material. The intrusion method is the second half of the point &mdash; Mandiant documents this identical help-desk impersonation playbook running against US law firms, so the technique that worked at Apollo is already aimed at its advisers. Firms on Blackstone or Bain matters should assume adjacent targeting rather than wait for a notification, and should expect litigation-hold and client-notification questions this week regardless of whether their own environment was touched.</p>
+        <div class="card-meta">
+          <span>Apollo Global Management cloud platforms &bull; BlackFile / The Com &bull; no CVE &mdash; vishing and IT help-desk impersonation</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; intrusion CONFIRMED by Apollo&rsquo;s own breach notification; Blackstone and Bain targeted with infrastructure but NOT confirmed breached</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no vulnerability exploited</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; social-engineering intrusion against cloud platforms</span>
+            <span class="ops-cc"><b>Action:</b> Run a matter-level query today for engagements touching Apollo, Blackstone or Bain, and identify which document-management workspaces hold LP schedules, subscription agreements or diligence files carrying SSNs and dates of birth. Restrict those workspaces to the named deal team and switch on bulk-download alerting. Brief the service desk and the partners on those matters that inbound calls referencing live transactions are a known pretext, then re-verify every recent MFA re-enrolment and remote-support session on their accounts. Coordinate with the general counsel on litigation hold and client-notification obligations before outside inquiries arrive.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Matter-exposure query and deal-room access review &mdash; 48h; help-desk and partner briefing &mdash; 5 working days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apollo-legal-exposure" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apollo-legal-exposure">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CyberScoop; TechCrunch (California breach notification filed by Apollo; attribution by Google)</span>
+          <span class="dot">&bull;</span>
+          <span>Access 6&ndash;10 Jul 2026; discovered 12 Aug 2026; disclosed 21 Aug 2026</span>
+        </div>
+        <a href="https://cyberscoop.com/apollo-discloses-data-breach-social-engineering-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-legal-patch-priorities" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Two patch items outrank the rest of the queue for a law-firm estate &mdash; an exploited Zimbra command injection and a NetScaler authentication bypass</h3>
+        <p>Zimbra&rsquo;s CVE-2026-73570 (CVSS 8.9) is already being exploited: CERT Polska has confirmed in-the-wild activity in which a crafted SMTP request reaches the SNMP notification path and executes operating-system commands as the <code>zimbra</code> user, with no authentication required. It affects ZCS below 10.1.20 where the <code>zimbra-snmp</code> package is installed and SNMP notifications are enabled. CISA added it to KEV on 21 August with a 24 August federal due date. Zimbra&rsquo;s install base skews toward government, education and legal &mdash; small and mid-sized firms that wanted mail, calendar and document sharing without a Microsoft tenancy &mdash; so the population most likely to be running it overlaps closely with the population least able to run a 24-hour patch cycle. Mail-server compromise at a firm is a privilege event before it is an availability one. The Citrix item is the opposite shape. CVE-2026-19490 is a critical authentication bypass affecting NetScaler AAA vServer or Gateway deployments that have a SAML Action configured; no exploitation has been flagged and the exact CVSS is not confirmed in the advisory reporting. The same advisory carries CVE-2026-19489, a high-severity memory-overflow denial of service via SIP ALG on large-scale NAT. NetScaler is the remote-access front door for a great many firms, and an authentication bypass on it hands an attacker the same session context Silent Ransom Group currently works the phones to obtain.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-73570</span>
+          <span class="cve-badge">CVE-2026-19490</span>
+          <span>Zimbra Collaboration Suite &lt; 10.1.20 (CVSS 8.9) &bull; Citrix NetScaler ADC/Gateway &mdash; fixed in 14.1-73.32 / 13.1-63.21, CVSS not confirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active for Zimbra &mdash; exploitation confirmed by CERT Polska; NetScaler CVE-2026-19490 has NO exploitation flagged</span>
+            <span class="ops-tag kev-on">Zimbra in CISA KEV since 21 Aug 2026 &mdash; federal deadline 24 Aug; NetScaler not KEV-listed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; ZCS 10.1.20 or later; NetScaler 14.1-73.32 / 13.1-63.21 (FIPS 14.1-73.32 FIPS, 13.1-37.277 NDcPP)</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Zimbra first: on every ZCS host check whether the <code>zimbra-snmp</code> package is installed and whether SNMP notifications are enabled. If you cannot reach 10.1.20 before the 24 August date, disable SNMP notifications as the interim control and restrict inbound SMTP to your filtering gateways, then review mail logs and shell history for command execution under the zimbra account. On NetScaler, list every AAA vServer and Gateway with a SAML Action bound and book 14.1-73.32 or 13.1-63.21 &mdash; FIPS builds 14.1-73.32 FIPS or 13.1-37.277 NDcPP &mdash; into the next change window.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Zimbra patch or disable SNMP notifications &mdash; 24h (exploited); NetScaler upgrade &mdash; 7 days (not yet exploited, but remote-access edge)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-legal-patch-priorities" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-legal-patch-priorities">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek; BleepingComputer (CERT Polska research; Citrix advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>Zimbra exploitation confirmed 20 Aug 2026, KEV 21 Aug, federal due 24 Aug; Citrix advisory 20 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-copjustice" data-published="2026-08-12">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>

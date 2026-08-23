@@ -630,7 +630,7 @@
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>25</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -668,14 +668,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for enterprise IT, weighted across widely-deployed business software and services. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High and Critical require a significant issue actively impacting a large portion of IT environments (widespread in-the-wild exploitation of ubiquitous software, or a broad supply-chain compromise); multiple discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.8 sits at the top of Medium. This window brought an unusual density of <em>discrete</em> active exploitation: CISA added four actively-exploited flaws to KEV on 18&nbsp;August with a 21&nbsp;August deadline (Windows IKEEXT, VMware vCenter, SharePoint, macOS Screen Sharing), and Ray the day before. vCenter alone accounts for 361 victim IPs across 47 countries, with reverse-SSH persistence and Babuk-derived ransomware. SAP Commerce Cloud went from patch to public exploit in four days; Adobe Commerce and Metabase are both being exploited; and the refreshed CISA/FBI Medusa advisory shows a ransomware crew weaponising new vulnerabilities within roughly 24 hours, sometimes before disclosure. What keeps this out of High is the calibration&rsquo;s no-advisory-stacking rule: discrete actively-exploited flaws and single-organisation incidents &mdash; Cl0p&rsquo;s Windchill campaign, the claimed Entra directory theft &mdash; do not aggregate into High however many land at once, because each stays a bounded patch-and-hunt problem rather than one issue compromising a large share of IT environments simultaneously. vCenter is the closest candidate, and 361 victims in 47 countries is not most enterprises. High would need confirmation that a single flaw is driving mass, coordinated compromise across a large share of affected organisations, rather than opportunistic victim-by-victim exploitation.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:69%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.9 &mdash; the top of Medium, and capped there deliberately. The week added three more actively-exploited items to an already busy board: Zimbra&rsquo;s unauthenticated command-injection flaw (CVE-2026-73570, CVSS 8.9) is confirmed exploited and in KEV with a 24&nbsp;August federal deadline, the GitLab code-injection flaw has moved from emergency patch to in-the-wild exploitation, and two chained TrueConf Server flaws entered KEV after being used since July to distribute trojanised client installers. Those sit alongside the vCenter, Windows IKE, SharePoint and macOS KEV additions, the MLflow and Ray exploitation, and SAP Commerce Cloud&rsquo;s CVSS 10.0 under initial exploitation. Under this page&rsquo;s calibration none of that reaches High: these are discrete patch-and-hunt exposures, and the hard rule is that they do not aggregate &mdash; High requires a single issue actively impacting a large portion of IT environments. The incident side is the same shape: Apollo Global Management confirmed a vishing-led breach exposing SSNs, and the crates.io compromise poisoned a crate with 245&nbsp;million downloads for under two hours with no evidence it reached production. Both are serious and neither is widespread. One correction worth carrying: the CVSS 10.0 Entra ID flaw is <b>not</b> exploited &mdash; Microsoft retracted that flag on 21&nbsp;August.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -744,26 +744,26 @@
 
         <!-- Critical blips (inner ring, r=60) ranked 1-5, descending size -->
         <a href="#it-vcenter"><circle class="blip crit" cx="180.0" cy="95.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="99.8">1</text></a>
-        <a href="#it-kevaug18"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#it-medusa"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-gitlab"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
-        <a href="#it-sapcommerce"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
-        <a href="#it-clop-windchill"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
-        <a href="#it-metabase"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
-        <a href="#it-mlflow"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
-        <a href="#it-macosvnc"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
+        <a href="#it-zimbra"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-kevaug18"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-medusa"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
+        <a href="#it-gitlab"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
+        <a href="#it-sapcommerce"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
+        <a href="#it-clop-windchill"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-metabase"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
+        <a href="#it-mlflow"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
       </svg>
 
       <div class="radar-legend">
         <a href="#it-vcenter"><span class="ld crit"></span><b>1</b> vCenter RCE, KEV, exploited globally</a>
-        <a href="#it-kevaug18"><span class="ld crit"></span><b>2</b> Four new KEV entries, 21 Aug deadline</a>
-        <a href="#it-medusa"><span class="ld crit"></span><b>3</b> Medusa passes 500 CI victims</a>
-        <a href="#it-gitlab"><span class="ld crit"></span><b>4</b> GitLab emergency code-injection fix</a>
-        <a href="#it-sapcommerce"><span class="ld crit"></span><b>5</b> SAP Commerce Cloud CVSS 10 exploited</a>
-        <a href="#it-clop-windchill"><span class="ld high"></span><b>6</b> Cl0p bespoke Windchill web shell</a>
-        <a href="#it-metabase"><span class="ld high"></span><b>7</b> Metabase zero-day, confirmed victims</a>
-        <a href="#it-mlflow"><span class="ld high"></span><b>8</b> MLflow SSRF steals cloud credentials</a>
-        <a href="#it-macosvnc"><span class="ld high"></span><b>9</b> macOS Screen Sharing bypass in KEV</a>
+        <a href="#it-zimbra"><span class="ld crit"></span><b>2</b> Zimbra command injection exploited, KEV</a>
+        <a href="#it-kevaug18"><span class="ld crit"></span><b>3</b> Four new KEV entries, 21 Aug deadline</a>
+        <a href="#it-medusa"><span class="ld crit"></span><b>4</b> Medusa passes 500 CI victims</a>
+        <a href="#it-gitlab"><span class="ld crit"></span><b>5</b> GitLab code injection now exploited</a>
+        <a href="#it-sapcommerce"><span class="ld high"></span><b>6</b> SAP Commerce Cloud CVSS 10 exploited</a>
+        <a href="#it-clop-windchill"><span class="ld high"></span><b>7</b> Cl0p bespoke Windchill web shell</a>
+        <a href="#it-metabase"><span class="ld high"></span><b>8</b> Metabase zero-day, confirmed victims</a>
+        <a href="#it-mlflow"><span class="ld high"></span><b>9</b> MLflow SSRF steals cloud credentials</a>
       </div>
     </div>
 
@@ -802,7 +802,202 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-clop-windchill" data-published="2026-08-18">
+<div class="card" id="it-zimbra" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>An unauthenticated command-injection flaw in Zimbra is being exploited &mdash; and the affected install base is heavy in government, education and legal</h3>
+        <p>CERT Polska has confirmed in-the-wild exploitation of CVE-2026-73570, a command-injection flaw in Zimbra Collaboration Suite carrying a CVSS of 8.9. A crafted SMTP request reaches the SNMP notification path and executes operating-system commands as the <code>zimbra</code> user, with no authentication required. The affected configuration is specific rather than universal &mdash; ZCS below 10.1.20 with the <code>zimbra-snmp</code> package installed and SNMP notifications enabled &mdash; but that combination is common on long-lived on-premises deployments, which is exactly where Zimbra concentrates. CISA added the flaw to KEV on 21&nbsp;August with a federal remediation deadline of 24&nbsp;August, an unusually short window that reflects how little work the exploit requires. The reason this matters more than its CVSS suggests is the install base: Zimbra is disproportionately run by public-sector bodies, universities, law firms and nonprofits that chose it to avoid Microsoft licensing, and those organisations tend to have the smallest patch teams and the longest change windows. A mail server executing attacker commands is also a near-ideal foothold &mdash; it holds credentials, it is trusted by every internal system, and its outbound traffic looks legitimate.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-73570</span>
+          <span>Zimbra Collaboration Suite &lt; 10.1.20 &bull; CVSS 8.9</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed by CERT Polska; unauthenticated RCE as the zimbra user via crafted SMTP</span>
+            <span class="ops-tag kev-on">In CISA KEV since 21 Aug 2026 &mdash; federal deadline 24 Aug</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; upgrade to ZCS 10.1.20 or later</span>
+            <span class="ops-cc"><b>Action:</b> Identify every Zimbra instance you run, including ones inherited through acquisitions or departmental IT, and check two things: the version, and whether <code>zimbra-snmp</code> is installed with notifications enabled. Patch to 10.1.20 or later; if you cannot patch immediately, disabling SNMP notifications removes the exploit path. Then assume the window mattered &mdash; review shell history and process ancestry for the zimbra user, check for new cron entries and SSH keys, and rotate any credentials the mail server holds or could read.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or disable SNMP notifications &mdash; 24h (exploited, trivial to weaponise)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zimbra" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-zimbra">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (CERT Polska research)</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation confirmed 20 Aug 2026; KEV listed 21 Aug 2026; federal due date 24 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/attackers-exploit-zimbra-snmp-flaw-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-rustcrates" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident &mdash; Supply chain</span>
+        </div>
+        <h3>A compromised maintainer account poisoned a Rust crate with 245 million downloads &mdash; the malicious build was live for under two hours</h3>
+        <p>Attackers took over a maintainer account on crates.io and published malicious versions of three Rust packages: <code>arrayref</code> 0.3.10, <code>internment</code> 0.8.7 and <code>append-only-vec</code> 0.1.9. The significant one is <code>arrayref</code>, with roughly 245&nbsp;million all-time and 53.9&nbsp;million ninety-day downloads &mdash; a foundational dependency that appears deep in Rust build graphs rather than in anyone&rsquo;s direct requirements. The mechanism is worth understanding because it targeted the build rather than the runtime: the poisoned crates pulled in a typosquatted <code>proc-macro1</code> package whose build script fetched a second-stage implant that harvested credentials from Chrome, Brave and Edge profiles on the build machine. Developer workstations and CI runners hold cloud tokens, signing keys and source access, which makes them a higher-value target than most production hosts. The malicious versions were live for between 86 and 107 minutes before removal, and no evidence has emerged that a poisoned build reached production anywhere. Wiz reported infrastructure overlap with recent North Korean supply-chain activity; no vendor has made a formal attribution, and it should be treated as unconfirmed. There is no CVE, because nothing was vulnerable &mdash; the package was simply replaced.</p>
+        <div class="card-meta">
+          <span>crates.io &bull; arrayref, internment, append-only-vec &bull; Wiz research</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; malicious versions published and live 86&ndash;107 minutes; North Korea link reported by Wiz but not formally attributed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; account takeover and package replacement, not a software flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; malicious versions yanked; the exposure is anything that built during the window</span>
+            <span class="ops-cc"><b>Action:</b> Search your build logs and lockfiles for <code>arrayref</code> 0.3.10, <code>internment</code> 0.8.7, <code>append-only-vec</code> 0.1.9 or any <code>proc-macro1</code> reference, across the full 20&nbsp;August window and not just your direct dependencies. Any CI runner or developer machine that resolved those versions should be treated as credential-compromised: rotate cloud tokens, registry and signing credentials, and browser-stored secrets, and review what that identity could reach. Longer term, this is the argument for pinning and vendoring build-time dependencies and for running builds with credentials scoped to the build alone.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Build-log search and credential rotation for affected runners &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-rustcrates" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-rustcrates">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; BleepingComputer; SecurityWeek (Wiz research)</span>
+          <span class="dot">&bull;</span>
+          <span>Malicious versions published and removed 20 Aug 2026; analysis published 20&ndash;21 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/rust-supply-chain-attack-puts-build.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-apollo" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Apollo Global Management confirms a breach in a wave targeting financial giants &mdash; the entry point was the IT helpdesk, not a vulnerability</h3>
+        <p>Apollo Global Management has filed a California breach notification confirming that attackers accessed its cloud platforms between 6 and 10&nbsp;July 2026, a compromise not discovered until 12&nbsp;August. The exposed data includes names, dates of birth, contact details, home addresses and Social Security numbers. Google has attributed the activity to BlackFile and its associated brands &mdash; Redact, Pink, Helix and Falcon &mdash; a cluster affiliated with The Com, with extortion demands reported to start around $3&nbsp;million. The tradecraft is the part worth internalising: initial access came through voice phishing and impersonation of IT helpdesk staff, not through an unpatched product. Blackstone and Bain Capital were also targeted with matching infrastructure, though neither has confirmed a breach and both should be treated as targeted rather than compromised. Apollo is the first named victim of a campaign aimed squarely at large financial institutions, and the five-week gap between access and discovery is the number defenders should sit with. A vishing-led intrusion leaves no exploit signature and no malicious binary &mdash; it produces a legitimate session established through a legitimate credential reset, which is precisely what most detection stacks are built to ignore.</p>
+        <div class="card-meta">
+          <span>Apollo Global Management &bull; BlackFile / The Com &bull; Google attribution</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by Apollo in a California breach filing &mdash; SSNs exposed; Blackstone and Bain targeted with matching infrastructure but no breach confirmed at either</span>
+            <span class="ops-tag kev-off">No CVE &mdash; vishing and IT-helpdesk impersonation, not product exploitation</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the control is helpdesk identity verification</span>
+            <span class="ops-cc"><b>Action:</b> Treat your service desk as an attack surface with the same seriousness as your perimeter. Require an out-of-band verification step for any password or MFA reset &mdash; a callback to a number of record, a manager approval, or a verified video check &mdash; and make it unskippable regardless of claimed urgency or seniority. Then build the detection that vishing actually leaves: alert on MFA re-enrolment, on credential resets followed by logins from new devices or locations, and on high-value accounts whose reset was initiated by phone. Rehearse it with the helpdesk rather than documenting it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Helpdesk reset verification and MFA re-enrolment alerting &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apollo" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apollo">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CyberScoop; TechCrunch</span>
+          <span class="dot">&bull;</span>
+          <span>Intrusion 6&ndash;10 Jul 2026; discovered 12 Aug 2026; disclosed 21 Aug 2026</span>
+        </div>
+        <a href="https://cyberscoop.com/apollo-discloses-data-breach-social-engineering-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-trueconf" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Two exploited TrueConf Server flaws chain into host takeover &mdash; and the payload was a trojanised client installer</h3>
+        <p>CISA has added two TrueConf Server flaws to the KEV catalog with a remediation deadline of 3&nbsp;September. CVE-2026-72529 is a missing-authentication weakness: an unauthenticated attacker who can reach TCP&nbsp;4307 invokes an undocumented function to execute an arbitrary script. CVE-2026-72530 is a code-injection flaw that breaks that script out of its isolated environment and onto the host. Chained, they give unauthenticated remote code execution on the server. Both affect TrueConf Server up to 5.3.9, 5.4.0&ndash;5.4.9 and 5.5.0&ndash;5.5.5 on Windows and Linux. Exploitation has been observed since July&nbsp;2026, attributed to Head Mare and directed primarily at Russian organisations, but the delivery method is what generalises: rather than using the server as a foothold, the attackers modified the client installers it distributes, so every user who installed or updated the conferencing client from a compromised server received a trojanised binary from a source they had every reason to trust. Self-hosted conferencing servers are typically DMZ-facing, are frequently used to run vendor and support sessions, and are rarely on anyone&rsquo;s critical-asset list.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-72529, CVE-2026-72530</span>
+          <span>TrueConf Server &le;5.3.9, 5.4.0&ndash;5.4.9, 5.5.0&ndash;5.5.5 &bull; Windows and Linux</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active since Jul 2026 &mdash; attributed to Head Mare; used to distribute trojanised client installers, primarily at Russian organisations</span>
+            <span class="ops-tag kev-on">Both in CISA KEV since 21 Aug 2026 &mdash; federal deadline 3 Sep</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; update TrueConf Server to a fixed release</span>
+            <span class="ops-cc"><b>Action:</b> Patch TrueConf Server and, separately, restrict TCP&nbsp;4307 so it is not reachable from untrusted networks. Then treat the client side as the real problem: identify everyone who installed or updated the conferencing client from your server since July, and validate those binaries against vendor hashes rather than assuming them clean. More broadly, this is a prompt to inventory the self-hosted servers that distribute software to your users &mdash; conferencing, VPN, RMM, MDM &mdash; and confirm each one is patched, monitored and treated as a code-signing-adjacent asset.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and restrict 4307, then validate distributed client binaries &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trueconf" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-trueconf">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer; SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation observed since Jul 2026; KEV listed 21 Aug 2026; federal due date 3 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-actively-exploited-trueconf-server-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-awskeys" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Researchers found 9,300 live AWS access keys in public artifacts &mdash; 88% still worked, and 768 gave full account control</h3>
+        <p>Truffle Security published an analysis of AWS access keys exposed in public sources between August&nbsp;2022 and August&nbsp;2026, and the finding is not that keys leak &mdash; everyone knows keys leak &mdash; but that they stay valid. Of more than 9,300 exposed keys, 88% were still active when tested on 10&nbsp;August 2026. Among them: 526 root account keys, 242 keys belonging to IAM users with administrative policies, and 768 keys granting full control of the account they belonged to. Some 817 were traceable to identifiable companies. The single largest source was Hugging Face, accounting for 8,482 unique key exposures, which points at the specific failure mode &mdash; keys committed into model repositories, notebooks and published build artifacts rather than into obvious source control. That is a category most secret-scanning programmes do not cover, because it sits outside the code repository entirely. The operational lesson is about lifecycle rather than hygiene: an exposed key that nobody rotates is not a past incident, it is a standing credential, and a four-year-old leak is as exploitable as this morning&rsquo;s.</p>
+        <div class="card-meta">
+          <span>AWS IAM &bull; Truffle Security research &bull; Hugging Face named as largest source</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Research &mdash; no attributed exploitation reported; 88% of 9,300+ exposed keys confirmed active as of 10 Aug 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; credential exposure and non-rotation, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the control is scanning scope plus mandatory rotation</span>
+            <span class="ops-cc"><b>Action:</b> Extend secret scanning beyond your source repositories to everywhere your organisation publishes artifacts &mdash; model and dataset repositories, notebooks, container images, CI logs, published packages and documentation sites. Then attack the standing-credential problem directly: enumerate long-lived AWS access keys, especially root and admin-attached ones, and replace them with short-lived federated credentials or role assumption. Where a long-lived key must exist, give it an expiry and enforce it. Finally, verify that a key found in a public artifact triggers automatic revocation rather than a ticket.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Extend secret scanning to published artifacts; inventory and expire long-lived keys &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-awskeys" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-awskeys">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Truffle Security research)</span>
+          <span class="dot">&bull;</span>
+          <span>Research published 21 Aug 2026; key validity tested 10 Aug 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/hundreds-of-leaked-aws-keys-give-full-control-over-corporate-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-entraretract" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Microsoft flagged a CVSS 10.0 Entra ID flaw as exploited, then retracted it &mdash; worth correcting if it reached your risk register</h3>
+        <p>CVE-2026-69836 is a deserialization-of-untrusted-data flaw in Microsoft Entra ID rated CVSS 10.0, allowing unauthenticated remote code execution over the network. It was initially published with the exploitation status set to indicate in-the-wild activity, which drove a round of urgent coverage. On 21&nbsp;August Microsoft corrected that flag to &ldquo;No&rdquo;, stating the flaw has not been exploited. The issue is fully mitigated service-side and requires no customer action &mdash; there is nothing to patch, because there is nothing running in your estate. This is on the dashboard for one reason: a maximum-severity identity-provider flaw described as actively exploited is exactly the kind of item that gets escalated into an emergency change, briefed upward, and written into a risk register, and the correction travels far less widely than the original. If CVE-2026-69836 was raised in your organisation last week, it is worth going back and closing it properly rather than leaving a phantom critical open. The broader habit it argues for is checking the vendor&rsquo;s own advisory page for current exploitation status before acting on secondary reporting, since that field is revised in place and dated coverage does not update with it.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-69836</span>
+          <span>Microsoft Entra ID &bull; CVSS 10.0 &bull; service-side mitigated</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; Microsoft set the exploitation flag to &ldquo;No&rdquo; on 21 Aug 2026, correcting the initial publication; treat earlier &ldquo;exploited&rdquo; coverage as retracted</span>
+            <span class="ops-tag kev-off">Not in KEV &mdash; no exploitation established</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fully mitigated service-side by Microsoft &mdash; no customer action required</span>
+            <span class="ops-cc"><b>Action:</b> If this CVE was escalated in your organisation, close it out explicitly and record why, so it does not sit as an unresolved critical. Then use it as a process check: confirm that whoever triages vulnerability intelligence for you reads the vendor advisory&rsquo;s current exploitation field rather than acting on headline coverage, and that your register stores a link to the live advisory rather than a point-in-time severity. Retractions are rare enough that most triage workflows have no path for them, which is how phantom criticals accumulate.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Close out if escalated; confirm triage reads live vendor advisories &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-entraretract" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-entraretract">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; Cybersecurity Dive; SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Initially published as exploited; Microsoft corrected the flag 21 Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/08/microsoft-entra-id-flaw-cvss-100.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-clop-windchill" data-published="2026-08-18">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Incident</span>

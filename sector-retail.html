@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
+        <span>Generated Fri, 04 Sep 2026, 8:44 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>17</strong> stories across
+      <strong>19</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.2</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:62%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium. Retail has one genuinely actively-exploited item of its own: SAP Commerce Cloud CVE-2026-58231 at CVSS 10.0, with exploitation confirmed by Defused but explicitly limited to a single threat actor so far and mitigable through the IP Filter Set. That is a discrete patch-and-hunt exposure rather than an issue impacting a large portion of retail IT environments, so the hard rule bars it from carrying the page into High on its own. The second real driver is the CEVA Logistics compromise, confirmed downstream by Pok&eacute;mon Center&rsquo;s customer notification and cancelled orders in the UK and Germany, alongside other European brands and eight disrupted warehouses. It touches multiple retailers, but it is one supplier incident, with personal data affected and payment card data reported not accessed &mdash; and aggregating it with SAP Commerce into High is precisely what the no-advisory-stacking rule forbids. The remainder is weaker: Elementor Pro is patched with no observed exploitation and needs a non-default form configuration, and the &ldquo;zombie card&rdquo; work reviving expired Visa cards at POS terminals is confirmed academic research with no in-the-wild abuse and no CVE. Real exploitation plus a real multi-brand supplier breach lifts this above a quiet week; the single-actor scope holds it under 6.9.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:67%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium &mdash; a genuinely busy fortnight, but no single sector-wide compromise. Three large consumer-facing breaches landed: the alleged theft of 153 million driver&rsquo;s-licence scans from IDScan.net, whose ID-check terminals sit at roughly 20,000 retail, dispensary, hotel and car-rental counters; Carhartt&rsquo;s 12.9 million customer records taken from its Databricks tenant and published by ShinyHunters after a refused ransom; and 8.8 million Manchester Airports Group booking records dumped by FulcrumSec. Each is a single-organisation compromise with a bounded blast radius, and the no-advisory-stacking rule bars summing them into High. Exploitation of storefront software is the broader driver: Wordfence blocked more than 440,000 attempts against Elementor Pro (CVE-2026-32475) and Super Forms (CVE-2026-14894), both giving unauthenticated PHP execution on WordPress and WooCommerce sites, while Citrix NetScaler, SonicWall SMA 1000, PaperCut and JFrog Artifactory all moved into CISA KEV under active attack. That is estate-wide patch-and-hunt work rather than one issue hitting a large portion of retail IT at once &mdash; the WordPress flaws still require a published upload form, and the edge appliances are a subset of store and corporate perimeters. Real exploitation plus several large breaches keeps this well above a quiet week; the absence of any sector-wide event holds it under 6.9.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,16 +681,16 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-ceva-logistics" data-published="2026-08-17">
+    <div class="top-story" id="it-idscan-nexus" data-published="2026-09-01">
       <span class="top-story-pill">Top Story</span>
-      <h2>One 3PL breach at CEVA Logistics cascades into Pok&eacute;mon Center, Steam and a run of European retailers</h2>
-      <p>Pok&eacute;mon Center began notifying UK and Germany customers on 17 August that their data was exposed through a compromise at CEVA Logistics, the contract-logistics provider that handles its European fulfilment. Names, mailing addresses, phone numbers, email addresses and order contents were involved; payment card data was not, and some orders were cancelled as a result of the disruption. The same CEVA incident also reached Valve&rsquo;s Steam hardware customers in Europe. CEVA, part of the CMA CGM Group, was compromised on 29 July; eight European warehouses were affected and goods stopped shipping, with knock-on delivery delays reported at Bol, De Bijenkorf, ING and Ace &amp; Tate. Neither the initial access vector nor an extortion group claiming the intrusion has been made public. The lesson for retail security teams is not about Pok&eacute;mon Center&rsquo;s or Valve&rsquo;s own defences &mdash; no storefront, payment stack or corporate network belonging to those brands was the point of failure. It is that outsourced fulfilment concentrates customer order data and shipping capacity in a small number of providers, so a single intrusion produces breach notifications, cancelled orders and delivery outages across brands with no relationship to one another. Every retailer should be able to answer today which 3PLs hold its customer order data, what the contractual notification window is, and how long the business can keep shipping without them.</p>
+      <h2>A dark-web service is selling 153 million driver&rsquo;s licence scans traced to the ID-check terminals sitting on retail, hotel and rental counters</h2>
+      <p>On 1 September Brian Krebs reported that a new identity-theft service called Nexus, advertised on the Russian-language crime forum Exploit, was offering more than 153 million driver&rsquo;s licence images covering the United States and Canada, plus over 10 million identification cards, roughly 3 million travel documents and about 579,000 medical cards. Investigators traced the source to IDScan.net, a Louisiana identity-verification vendor that says it handles more than 21 million verifications a month across upwards of 20,000 locations and counts Target, Hertz, FedEx and Caesars Entertainment among its customers. The provenance evidence is what makes this a retail story rather than a generic data-broker leak: Krebs found his own and a family member&rsquo;s licences with timestamps matching Hertz rental transactions, and researcher Zach Edwards found his after presenting ID at a Las Vegas cannabis dispensary and at his hotel. The operators claimed to have been pulling fresh records continuously for more than a year, and roughly 400,000 new licences appeared within a day of the listing going live. The FBI&rsquo;s New Orleans office opened an inquiry; Nexus went offline within hours of publication, though buyers who already pulled the data still hold it. IDScan has acknowledged an internal investigation but has not publicly confirmed a compromise, and the true number of affected people is unknown. For any merchant that scans identity documents &mdash; age-restricted sales, returns-fraud controls, rental and check-in desks &mdash; the lesson is that the scanner vendor, not the store, became the aggregation point, and the customer relationship is still the retailer&rsquo;s.</p>
       <div class="card-meta">
-        <span>BleepingComputer / SecurityWeek</span>
+        <span>KrebsOnSecurity / BleepingComputer / SecurityWeek</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 17 Aug 2026 &mdash; CEVA intrusion 29 Jul</span>
+        <span>Reported 1 Sep 2026 &mdash; alleged; not confirmed by IDScan</span>
       </div>
-      <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -718,220 +718,191 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-ceva-logistics"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-sap-commerce-cloud"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#it-adobe-commerce-magento"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-vcenter-campaign"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
-        <a href="#it-kev-additions"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
-        <a href="#it-metabase-cve"><circle class="blip crit" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
-        <a href="#it-thehatman-retail"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-idscan-nexus"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-wordpress-storefront-rce"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-citrix-netscaler"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
+        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
+        <a href="#it-avada-woocommerce"><circle class="blip crit" cx="104.8" cy="61.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="104.8" y="64.6">6</text></a>
+        <a href="#it-mag-airports"><circle class="blip high" cx="315.2" cy="216.2" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="315.2" y="218.4">7</text></a>
+        <a href="#it-hit-casinos"><circle class="blip high" cx="62.0" cy="258.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="62.0" y="260.0">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-ceva-logistics"><span class="ld high"></span><b>1</b> CEVA 3PL breach cascades across brands</a>
-        <a href="#it-sap-commerce-cloud"><span class="ld crit"></span><b>2</b> SAP Commerce Cloud RCE exploited</a>
-        <a href="#it-adobe-commerce-magento"><span class="ld crit"></span><b>3</b> Adobe Commerce session hijacking</a>
-        <a href="#it-vcenter-campaign"><span class="ld crit"></span><b>4</b> vCenter mass-exploitation campaign</a>
-        <a href="#it-kev-additions"><span class="ld crit"></span><b>5</b> Four new CISA KEV additions</a>
-        <a href="#it-metabase-cve"><span class="ld crit"></span><b>6</b> Metabase zero-day, KEV-listed</a>
-        <a href="#it-thehatman-retail"><span class="ld high"></span><b>7</b> Claimed Entra directory theft</a>
+        <a href="#it-idscan-nexus"><span class="ld crit"></span><b>1</b> 153M licence scans traced to IDScan</a>
+        <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>2</b> Carhartt: 12.9M records published</a>
+        <a href="#it-wordpress-storefront-rce"><span class="ld crit"></span><b>3</b> 440k+ attacks on storefront plugins</a>
+        <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>4</b> Two NetScaler flaws under attack</a>
+        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>5</b> SonicWall SMA 1000 chain exploited</a>
+        <a href="#it-avada-woocommerce"><span class="ld crit"></span><b>6</b> Avada theme zero-click RCE (9.8)</a>
+        <a href="#it-mag-airports"><span class="ld high"></span><b>7</b> 8.8M airport booking records dumped</a>
+        <a href="#it-hit-casinos"><span class="ld high"></span><b>8</b> Casino and hotel group offline 3 days</a>
       </div>
     </div>
 
   </div>
 
-  
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="it-pokemon-center-ceva" data-published="2026-08-17">
+      <div class="card" id="it-carhartt-shinyhunters" data-published="2026-08-27">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-critical">Critical</span>
           <span class="category">Breach</span>
         </div>
-        <h3>Pok&eacute;mon Center is notifying UK and German customers and cancelling orders &mdash; the breach happened at its logistics provider, not at the retailer</h3>
-        <p>Pok&eacute;mon Center issued a customer notification on 17 August covering shoppers in the United Kingdom and Germany, and confirmed that some orders have been cancelled outright. The retailer&rsquo;s own systems are not the origin: the root cause is a breach at CEVA Logistics, its third-party fulfilment provider, between 29 July and 1 August 2026. The exposed fields are full names, mailing addresses, phone numbers, email addresses and order contents. Pok&eacute;mon Center states that payment card data was not accessed. There is no CVE &mdash; this is a supplier compromise, not a product flaw. The detail that matters for retail operators is that Pok&eacute;mon Center is one name on a longer list. The same CEVA incident has produced downstream notifications at Bol, De Bijenkorf, Ace &amp; Tate, Ajax and Valve&rsquo;s Steam hardware store, with eight European warehouses disrupted. CEVA itself has not publicly disclosed; every confirmation so far has come from its customers rather than the vendor. Whether ransomware was involved is unknown. That is the exposure shape most e-commerce brands carry and rarely model: a 3PL holds a live copy of the order book &mdash; names, addresses, phone numbers, purchase history, tracking numbers, in some cases gift-card messages &mdash; and a breach there produces notification duty, cancelled orders and brand damage for the retailer while the retailer&rsquo;s own estate stays untouched. The obligation to tell UK and German customers sits with the merchant of record, not the warehouse operator.</p>
+        <h3>Carhartt&rsquo;s customer database was taken out of its Databricks tenant, not its storefront &mdash; 12.9 million records are now public</h3>
+        <p>The ShinyHunters extortion crew claimed an intrusion at Carhartt on 13 August, demanded roughly $3.3 million, and published the data after the workwear brand declined to negotiate. Reporting on 27 August put the exposure at about 12.9 million accounts containing names, email addresses, phone numbers and postal addresses, together with internal corporate material and more than 15,000 carhartt.com employee addresses. Carhartt&rsquo;s statement was blunt: after review with leadership it would not move forward with negotiations. No payment card data has been reported as involved, and no CVE applies. The mechanism is what retail security teams should read closely. The data did not come out of the e-commerce platform, the store network or the ERP &mdash; it came out of a Databricks cloud analytics workspace, the place where marketing and merchandising teams assemble the full customer record precisely so it can be queried. That tier is usually provisioned by a data team rather than by IT security, is frequently reached with long-lived personal access tokens or OAuth app credentials rather than SSO with conditional access, and rarely carries the same egress monitoring as the transactional systems it copies from. ShinyHunters has spent 2026 harvesting exactly this class of target across SaaS and cloud data platforms. If your customer 360 lives in a lakehouse, the controls that matter are token lifetime, IP allow-listing, per-table access review and alerting on bulk export &mdash; not the WAF in front of checkout.</p>
         <div class="card-meta">
-          <span>Third-party fulfilment (CEVA Logistics) &bull; No CVE &bull; Payment card data not accessed</span>
+          <span>Databricks analytics tenant &bull; No CVE &bull; ~12.9M accounts &bull; No payment card data reported</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; live incident; exposure confirmed by Pok&eacute;mon Center, upstream breach confirmed only via CEVA&rsquo;s customers</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, supplier compromise</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; data published after refused extortion; ShinyHunters claims intrusion of 13 Aug 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, cloud tenant compromise</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; contractual and notification controls only</span>
-            <span class="ops-cc"><b>Action:</b> Pull the contract list for every 3PL, fulfilment and returns vendor and mark which of them hold order-level PII rather than just shipping labels &mdash; most retailers under-count this. For CEVA specifically, ask in writing for the exposure window, the exact field list and whether ransomware was involved, since customers rather than CEVA are the only disclosure source so far. Confirm your own notification clock under UK GDPR and German law runs from your knowledge date. Then brief fraud and support: real addresses plus order contents make delivery-problem phishing and refund scams convincing.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; identity, token and egress controls only</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every cloud analytics workspace that holds a copy of the customer record &mdash; Databricks, Snowflake, BigQuery, Redshift, whatever marketing stood up &mdash; and list who can query it and with what credential. Kill long-lived personal access tokens and service-principal secrets in favour of SSO with conditional access and short-lived tokens, then enable IP allow-listing where the platform supports it. Turn on and actually route query and export audit logs, with an alert on any single job exporting more than a few thousand customer rows. Finally, check whether corporate mailbox addresses are sitting in the same tables &mdash; the employee list in this dump becomes phishing target data.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Supplier exposure review and customer-notification check &mdash; 72h (notification duty already running)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-pokemon-center-ceva" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-pokemon-center-ceva">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Analytics-tenant credential and export-monitoring review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-carhartt-shinyhunters" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-carhartt-shinyhunters">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (Pok&eacute;mon Center notification); The Record (CEVA downstream victims)</span>
+          <span>BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>CEVA breach 29 Jul &ndash; 1 Aug 2026; Pok&eacute;mon Center notification 17 Aug 2026; CEVA has made no public disclosure</span>
+          <span>Claimed intrusion 13 Aug 2026; data published and reported 27 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/carhartt-data-breach-exposes-information-of-129-million-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-zombie-card-visa" data-published="2026-08-21">
+      <div class="card" id="it-mag-airports" data-published="2026-08-27">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
         </div>
-        <h3>Researchers can make expired Visa cards transact again at the terminal &mdash; and the control being bypassed sits in the POS, not in the merchant&rsquo;s stack</h3>
-        <p>Academic researchers have demonstrated a smartphone-relay attack that defeats the cryptographic checks performed during a card-present transaction and alters the expiration date presented to the terminal, with the result that an expired Visa card is accepted and authorised. The work is confirmed research, not observed criminal activity: no in-the-wild abuse has been reported, no CVE has been assigned, and the reporting reviewed puts no figure on how many terminal models, EMV kernel versions or acquirer configurations are affected. The researchers state explicitly that the technique does not work against Mastercard, American Express or Discover, which makes this a Visa-specific gap rather than a general EMV break. Retail is where this lands operationally even though it is fundamentally a payments-scheme problem. The bypassed defence lives in the card and the terminal, so nothing a merchant patches on its own e-commerce or store estate removes the exposure &mdash; remediation has to come from Visa and the terminal vendors. What a retailer can control is detection and vendor pressure. An approved authorisation on a card whose expiry date has already passed is anomalous by definition, and most merchants never inspect that field once the acquirer returns an approval, so the signature is both cheap to look for and unlikely to be in anyone&rsquo;s current monitoring. High-throughput card-present environments are the natural fit for the attack, because a relay needs physical proximity to a terminal and thrives where per-transaction scrutiny is lowest. Treat this as a monitoring and supplier-escalation item this week, not an incident.</p>
+        <h3>Admin keys left in front-end JavaScript: 8.8 million airport retail and booking records dumped after a refused ransom</h3>
+        <p>Manchester Airports Group, which runs Manchester, London Stansted and East Midlands airports, confirmed on 27 August that attackers had stolen customer data from its booking systems. The extortion group FulcrumSec claimed the intrusion, demanded payment, and after MAG refused published roughly 550GB. Reporting on the dump describes about 8.8 million email addresses and phone numbers, names, residential IP addresses, postcodes, browser user-agent strings, 108,077 unique UK vehicle registration plates, some 2.4 million purchase records covering car parking, lounge access and fast-track bookings, and 461,433 booking-related SMS messages. FulcrumSec&rsquo;s account of initial access is the part worth circulating internally: it says administrative keys were sitting in the front-end JavaScript served from the root domain of each of the three airport websites. That claim is the attacker&rsquo;s and MAG has not corroborated it, but it describes a failure mode any retail web team can reproduce &mdash; a build pipeline that inlines an API key intended for a server-side call into a bundle shipped to every browser. The commercial side of an airport is a retail estate: parking, lounges, priority security, duty-free adjacency, all sold through consumer e-commerce funnels with the same tag managers and third-party scripts as any online shop. The exposed combination of names, vehicle plates, travel dates and purchase history is unusually good raw material for targeted fraud.</p>
         <div class="card-meta">
-          <span>Visa card-present transactions at POS terminals &bull; No CVE &bull; Mastercard, Amex and Discover stated unaffected</span>
+          <span>Airport parking, lounge and fast-track e-commerce &bull; No CVE &bull; ~8.8M people &bull; ~550GB published</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Proof of concept &mdash; working academic demonstration; no in-the-wild abuse reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach confirmed by MAG; data published by FulcrumSec after ransom refused</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-no">No merchant-side patch &mdash; remediation sits with Visa and terminal vendors</span>
-            <span class="ops-cc"><b>Action:</b> Ask your acquirer and terminal vendor in writing this week whether your deployed EMV kernel versions are in scope and whether Visa has issued guidance; because the researchers say Mastercard, Amex and Discover are unaffected, scope the question by scheme. In parallel, query the last 90 days of settled card-present transactions for approvals where the presented expiry date had already passed &mdash; that is the observable signature and it costs nothing to run. Route hits to fraud for chargeback review and keep the query as a weekly control until the vendor answers.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; secrets management and front-end hygiene</span>
+            <span class="ops-cc"><b>Action:</b> Run a secret scan against the JavaScript your own sites actually serve, not just against the repository &mdash; pull the live bundles from production and grep them for API keys, bearer tokens and admin endpoints, because bundlers and tag managers introduce keys that never appear in source control. Add that scan to CI as a release gate. Separately, review which third-party scripts on your checkout and booking pages can read form fields, and set a Content-Security-Policy that names them explicitly. Then rotate anything found and check access logs for use of those keys from unexpected addresses.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Acquirer/terminal-vendor scoping request plus expired-expiry transaction query &mdash; 2 weeks (research stage, no observed abuse)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zombie-card-visa" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-zombie-card-visa">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Production JavaScript secret scan and key rotation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mag-airports" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mag-airports">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek &ldquo;In Other News&rdquo; roundup (academic research)</span>
+          <span>BleepingComputer (MAG disclosure, FulcrumSec claim); SecurityWeek (leak contents)</span>
           <span class="dot">&bull;</span>
-          <span>Reported 21 Aug 2026; no exploitation in the wild reported; affected terminal population not quantified</span>
+          <span>Disclosed 27 Aug 2026; ~550GB published over the following days; access method is the attacker&rsquo;s claim</span>
         </div>
-        <a href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/manchester-airports-group-data-on-8-8-million-people-leaked-after-ransom-refusal/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-elementor-pro-rce" data-published="2026-08-20">
+      <div class="card" id="it-hit-casinos" data-published="2026-08-31">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>A file-upload bypass in Elementor Pro puts RCE behind WordPress storefronts &mdash; but only where a non-default form setting is switched on</h3>
-        <p>Elementor Pro below 4.2.2 carries a file-upload validation bypass, tracked as CVE-2026-32475, that allows a PHP file to be written into a publicly reachable directory and then executed &mdash; a full remote-code-execution path into the web server. No exploitation had been observed at publication, and the CVSS score was not confirmed in the reporting reviewed. The fix shipped on 19 August. The exposure is narrower than the headline install base of 10M+ Elementor sites implies. Exploitation requires a published Elementor form containing a File Upload field with multiple-file upload enabled, and that option is off by default. The realistic target set is therefore sites that deliberately built an upload-bearing form: warranty and returns claims, custom-order briefs, wholesale account applications, artwork or spec uploads. Those are precisely the forms a small retailer adds once and then forgets. For this sector the risk is structural rather than technical. E-commerce WordPress properties are commonly built by an agency, handed over, and left with core auto-updates on but paid plugins unattended &mdash; Elementor Pro is licence-gated, so a lapsed licence silently stops security updates while the site continues to trade. That produces a long tail of unpatched storefronts holding session cookies, admin credentials and checkout-adjacent traffic behind an RCE, on infrastructure nobody has logged into since launch. Because a shell on a shop is worth materially more than one on a brochure site, the sensible planning assumption is that scanning follows the patch even though nothing has been seen yet.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-32475</span>
-          <span>Elementor Pro &lt; 4.2.2 &bull; CVSS not confirmed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>None observed &mdash; no exploitation reported at publication; requires a non-default form configuration</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Elementor Pro 4.2.2, released 19 Aug 2026</span>
-            <span class="ops-cc"><b>Action:</b> Inventory every WordPress property you own &mdash; main storefront, campaign microsites, agency-built landing pages, the ones nobody has touched since launch &mdash; and record the Elementor Pro version and licence status for each. Update anything below 4.2.2 first. Where you cannot patch immediately, open each published Elementor form and disable multiple-file upload on any File Upload field, which removes the precondition. Then search the uploads directory tree for .php files and review web-server logs for POSTs to form endpoints followed by direct requests to files under uploads. Renew lapsed Pro licences.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Update to 4.2.2, or disable multiple-file upload on public forms &mdash; 7 days (unexploited, and the precondition is quick to check)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-elementor-pro-rce" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-elementor-pro-rce">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (Elementor Pro advisory)</span>
-          <span class="dot">&bull;</span>
-          <span>Patch released 19 Aug 2026; reported 20 Aug 2026; no exploitation observed at publication</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/critical-elementor-pro-bug-exposes-wordpress-sites-to-rce-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-thehatman-retail" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Claimed Entra directory theft names McDonald&rsquo;s, Gap, IHG and Wyndham</h3>
-        <p>An actor calling itself TheHatman <b>claims</b> to have taken roughly 3.6 million employee-directory records from Microsoft Entra tenants, and retail and hospitality feature heavily in the victim list: McDonald&rsquo;s at a claimed 1.7 million records, plus Gap, IHG and Wyndham alongside TCS, Vodafone, HCL, Kyndryl and Hexaware. Hudson Rock ties most of the named organisations to earlier infostealer infections, which points to valid credentials harvested from infected endpoints rather than any vulnerability in Azure or Entra itself. No named retailer or hotel group has confirmed a compromise, so treat the whole claim as unverified. The security point stands regardless of the numbers: employee directory data &mdash; names, job titles, reporting lines, internal contact details &mdash; is the standard precursor to help-desk impersonation against store, franchise and property support lines, where a caller who already knows the org chart is far harder to challenge.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Claimed only &mdash; not confirmed by any named brand</span>
-            <span class="ops-tag kev-off">Credential reuse via infostealers, not a CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No platform vulnerability identified</span>
-            <span class="ops-cc"><b>Action:</b> Enforce phishing-resistant MFA on Entra accounts, revoke sessions and rotate credentials for any employee found in infostealer logs, and require callback or ticket-based verification before store and franchise help desks reset credentials.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk verification &amp; MFA review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-thehatman-retail" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-thehatman-retail">Open</button>
-          </div>
-        </div>
+        <h3>A cyberattack shut a casino and hotel group&rsquo;s tills, loyalty system and reception desks for three days</h3>
+        <p>Hit, one of Slovenia&rsquo;s largest gambling and tourism groups, with casinos, hotels and tourism businesses in Slovenia and Bosnia and Herzegovina, detected an information-security incident early in the week of 25 August and closed venues for roughly three days before beginning to reopen on 31 August. The outage list is a compact tour of hospitality IT: gaming systems, the loyalty programme, table games and bingo, plus cash registers and hotel reception. Staff fell back to handwritten receipts in the cafes, some employees were temporarily furloughed while systems were unavailable, and the first services restored were slot machines, with the rest following. Hit has declined to say whether data was stolen or how the attackers got in, citing the ongoing investigation, and no group has been publicly named. There is no CVE and no product advisory to act on here &mdash; the value is the operational shape. A hospitality operator lost the systems that take money and identify the customer at the same time, and the recovery order shows what had been designed to run standalone versus what depended on a central estate. Most retail and hospitality businesses have never actually tested trading with the till network down for three days: whether card terminals can run in store-and-forward mode, whether staff know the manual sales process, and how loyalty accrual is reconciled afterwards.</p>
         <div class="card-meta">
-          <span>SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; claimed, unverified</span>
+          <span>Casino, hotel and hospitality operator &bull; No CVE &bull; ~3 days of closures &bull; Data impact undisclosed</span>
         </div>
-        <a href="https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-wildberries" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Ukrainian officials claim disruption of Wildberries, one of Russia&rsquo;s largest online marketplaces</h3>
-        <p>Ukrainian officials have <b>claimed</b> responsibility for a cyber operation that disrupted Wildberries, one of Russia&rsquo;s largest e-commerce marketplaces, describing it as timed alongside kinetic strikes. The claim has not been independently verified and the operator has not published a technical account of the impact. Setting the geopolitics aside, the security-relevant fact for retail IT is the targeting itself: large consumer marketplaces are being treated as economic infrastructure in state-level conflict, which shifts the threat model for any platform operating in or adjacent to a conflict region away from data confidentiality and toward availability, order-pipeline integrity and the ability to keep taking and fulfilling orders during a sustained disruption.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Claimed by officials &mdash; impact not independently verified</span>
-            <span class="ops-tag kev-off">No tracked vulnerability disclosed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; incident confirmed by the operator; attacker and access vector not disclosed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not a patchable issue</span>
-            <span class="ops-cc"><b>Action:</b> Review DDoS and availability protection for storefront, marketplace and order-management platforms, and document a tested manual fallback for taking and fulfilling orders if the primary platform is unavailable for days rather than hours.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; resilience and manual-trading readiness</span>
+            <span class="ops-cc"><b>Action:</b> Take the outage list from this incident &mdash; POS and cash registers, loyalty, reception and booking, gaming or product-specific systems &mdash; and walk your own equivalents through a tabletop where the central estate is unavailable for 72 hours. Confirm in writing with your acquirer whether your terminals support offline store-and-forward authorisation, what the per-transaction floor limit is, and how long the queue can hold. Document and print the manual sales and check-in fallback so it does not live only on the intranet you have just lost, and agree in advance how loyalty points and stock movements are reconciled on restoration.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Availability &amp; fallback review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wildberries" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-wildberries">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Offline-trading tabletop and acquirer fallback confirmation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hit-casinos" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-hit-casinos">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>The Record</span>
           <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; claimed</span>
+          <span>Attack detected week of 25 Aug 2026; reopening from 31 Aug 2026; investigation ongoing</span>
         </div>
-        <a href="https://therecord.media/russia-wildberries-cyberattack-ukraine" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/slovenia-cyberattack-casinos-reopen" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-vcenter-campaign" data-published="2026-08-18">
+      <div class="card" id="it-hasbro-employee" data-published="2026-08-28">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident</span>
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
         </div>
-        <h3>vCenter flaw drives a mass-exploitation campaign &mdash; 361 victim IPs, reverse-SSH persistence and Babuk-derived ransomware</h3>
-        <p>Broadcom disclosed CVE-2026-59310 in VMSA-2026-0006 on 29 July: a directory-traversal flaw in the VMware vCenter syslog service, CVSS 9.8, with no workaround available. Exploitation moved fast. The first victims were seen connecting to attacker infrastructure on 3 August, and by 5 August roughly 95% of an eventual 361 victim IP addresses across 47 countries had already appeared, with Germany, the United States, Turkey, Iran and France most represented. The attacker gains root on vCenter, plants a cron job for reverse-SSH persistence, and in some cases deploys ransomware built from leaked Babuk source code. CISA added the CVE to its Known Exploited Vulnerabilities catalog on 18 August with a 21 August federal deadline. Retail relevance is direct: chain virtualisation estates, store back-office servers, warehouse and distribution-centre systems commonly sit on vSphere, and root on vCenter is a route to every virtual machine underneath it.</p>
+        <h3>Hasbro breach started with one compromised employee account and reached payroll-grade personal data</h3>
+        <p>Hasbro filed breach notifications with the Massachusetts Attorney General in late August covering at least 436 employees in that state; the company has not published a total figure. The exposed elements are the ones that carry the most downstream harm: names alongside email addresses, postal addresses, phone numbers, national identification numbers, financial account information, payment card numbers and driver&rsquo;s licence details. Hasbro says it contained the incident by disabling the compromised employee account, terminating the unauthorised access and adding further safeguards. It has not said when the intrusion was detected, has not named an attacker and has not linked this to the separate April 2026 cyberattack it disclosed as costing roughly $25 million in revenue. For a consumer-products company the instinct is to worry about the customer database, but this one went the other way. A single working account &mdash; not an exploited appliance, not a zero-day &mdash; produced access to HR and payroll-adjacent records, which is the pattern behind most identity-theft claims and the class actions that follow them. Consumer brands and retailers concentrate this data in a small number of HCM and payroll SaaS tenants that are often federated to the corporate identity provider but exempted from the strictest conditional-access rules because HR staff work from odd places. Phishing-resistant MFA on those tenants specifically, plus alerting on bulk record views, is a cheaper control than notification.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-59310</span>
-          <span>Broadcom VMware vCenter &bull; CVSS 9.8</span>
+          <span>Compromised employee account &bull; No CVE &bull; 436+ Massachusetts employees notified &bull; Total not disclosed</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361 victim IPs across 47 countries</span>
-            <span class="ops-tag kev-on">In CISA KEV (added 18 Aug 2026, due 21 Aug)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach confirmed via state regulator filing; detection date not disclosed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, account compromise</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; VMSA-2026-0006, no workaround available</span>
-            <span class="ops-cc"><b>Action:</b> Patch vCenter now, remove management interfaces from routable and internet-facing networks, then hunt for unexpected cron entries, new SSH keys and outbound SSH sessions originating from vCenter appliances.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; identity and access controls</span>
+            <span class="ops-cc"><b>Action:</b> Identify every application where a standard employee account can read other employees&rsquo; national ID numbers, bank details or payment cards &mdash; HCM, payroll, expenses, benefits, travel booking &mdash; and require phishing-resistant MFA plus device compliance for all of them, with no legacy-authentication exemptions. Add detection for a single account viewing or exporting an unusual number of employee records in a session. Review how long scanned identity documents are retained in the HR system; most retailers keep right-to-work and licence scans far longer than they need to.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency patch &amp; compromise hunt &mdash; 24&ndash;72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vcenter-campaign" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-vcenter-campaign">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> HR/payroll tenant access and MFA review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hasbro-employee" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-hasbro-employee">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / CISA KEV</span>
+          <span>BleepingComputer (Massachusetts AG notification)</span>
           <span class="dot">&bull;</span>
-          <span>Advisory 29 Jul 2026 &mdash; KEV-added 18 Aug</span>
+          <span>Notifications filed late Aug 2026; reported 28 Aug 2026; incident date not disclosed</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/critical-vmware-vcenter-rce-flaw-exploited-for-reverse-ssh-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/toy-making-giant-hasbro-disclose-data-breach-affecting-employees/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ceva-fulfilment" data-published="2026-08-17">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Still running: the CEVA Logistics compromise that produced breach notices at Pok&eacute;mon Center, Steam and a run of European retailers</h3>
+        <p>Carried forward from the previous edition and still the clearest third-party case study in this sector. Pok&eacute;mon Center notified UK and German customers on 17 August that names, mailing addresses, phone numbers, email addresses and order contents had been exposed through a compromise at CEVA Logistics, its European contract-fulfilment provider, and cancelled some orders as a result. Payment card data was reported as not accessed. The same CEVA intrusion, dated to 29 July, reached Valve&rsquo;s European Steam hardware buyers and produced delivery disruption at Bol, De Bijenkorf, Ace &amp; Tate and others, with eight European warehouses affected. As of this edition CEVA, part of the CMA CGM Group, has still not published its own disclosure &mdash; every confirmation has come from its retail customers &mdash; and no extortion group has claimed the intrusion. That silence is the durable lesson rather than a criticism of any one provider. When a 3PL holds a live copy of the order book, the retailer inherits the notification duty and the customer anger while depending on the provider for the facts it needs to notify accurately. The practical follow-up for anyone who opened this in August is unchanged and now overdue: get the exposure window and field list in writing, and confirm you can reconstruct which of your customers shipped through that provider without the provider&rsquo;s help.</p>
+        <div class="card-meta">
+          <span>Third-party fulfilment (CEVA Logistics) &bull; No CVE &bull; Payment card data reported not accessed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; downstream notifications continue; upstream provider has made no public disclosure</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, supplier compromise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; contractual and notification controls only</span>
+            <span class="ops-cc"><b>Action:</b> If you carried an action from the August edition, close it this week: written confirmation from every logistics, fulfilment and returns provider of the exposure window and exact field list, and a check that your own notification clock runs from your knowledge date. If you have not started, begin with the list of 3PLs that hold order-level PII rather than shipping labels only. Keep briefing fraud and contact-centre staff &mdash; genuine addresses plus order contents make delivery-problem and refund phishing convincing for months after the incident.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Close out supplier exposure requests &mdash; 14 days (carried over)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ceva-fulfilment" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ceva-fulfilment">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Pok&eacute;mon Center notification); The Record (CEVA downstream victims)</span>
+          <span class="dot">&bull;</span>
+          <span>CEVA intrusion from 29 Jul 2026; Pok&eacute;mon Center notification 17 Aug 2026; carried forward, still current</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -939,124 +910,135 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-      <div class="card" id="it-fulfilment-partner-risk" data-published="2026-08-17">
+      <div class="card" id="it-wordpress-storefront-rce" data-published="2026-09-04">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Wordfence blocked over 440,000 exploit attempts against two WordPress upload flaws &mdash; the Elementor Pro bug this page flagged as unexploited is now under mass attack</h3>
+        <p>The August edition carried Elementor Pro&rsquo;s file-upload bypass, CVE-2026-32475, as a patched issue with no observed exploitation. That has changed. Wordfence telemetry published in early September records more than 440,000 blocked attempts across two vulnerabilities: roughly 250,000 against Super Forms, CVE-2026-14894 at CVSS 9.8, fixed in 6.3.314, and around 190,000 against Elementor Pro, CVE-2026-32475 rated 9.0 to 9.8 and fixed in 4.2.2. Both are missing or bypassable file-type validation that lets an unauthenticated attacker write a PHP file into a web-reachable directory and then call it. The Elementor technique submits the form field as an array with an empty first element and PHP in the second, dropping a randomly named .php file into /wp-content/uploads/elementor/forms/; Super Forms attacks POST base64-encoded PHP to admin-ajax.php disguised as an image and then use the resulting uploader shell to stage more files. Super Forms attacks began on 14 July and peaked on 18 August; Elementor Pro exploitation started on 19 August, the day after details circulated, from about twenty source addresses. For retail this is the broadest live exposure of the fortnight. WooCommerce storefronts, campaign microsites and agency-built brand pages run on exactly these components, licence-gated plugins stop updating quietly when a licence lapses, and a shell on a shop yields session cookies, admin accounts and the ability to modify checkout pages.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-32475</span>
+          <span class="cve-badge">CVE-2026-14894</span>
+          <span>Elementor Pro &lt; 4.2.2, Super Forms &lt; 6.3.314 &bull; CVSS 9.0&ndash;9.8</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 440,000+ attempts blocked by Wordfence; Elementor exploitation from 19 Aug, Super Forms from 14 Jul</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Elementor Pro 4.2.2 (19 Aug 2026), Super Forms 6.3.314</span>
+            <span class="ops-cc"><b>Action:</b> Treat every WordPress property you own as in scope, including the ones marketing commissioned and nobody has logged into since launch. Confirm Elementor Pro is 4.2.2 or later and Super Forms 6.3.314 or later, and renew any lapsed Elementor Pro licence, because licence-gated plugins stop receiving security updates silently. Then assume compromise where you were slow: list every .php file under wp-content/uploads and specifically under /wp-content/uploads/elementor/forms/, review web logs for POSTs to admin-ajax.php or form endpoints followed by a direct GET of a file under uploads, and check for administrator accounts created since mid-August. Rotate database credentials and payment-gateway API keys on any site where you find a dropped file.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise-assessment sweep of all WordPress storefronts &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wordpress-storefront-rce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-wordpress-storefront-rce">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News / BleepingComputer, reporting Wordfence and Patchstack telemetry</span>
+          <span class="dot">&bull;</span>
+          <span>Telemetry published 3&ndash;4 Sep 2026; exploitation ongoing</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-faronics-screenconnect" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Research</span>
         </div>
-        <h3>One 3PL compromise, many retail brands: what the CEVA cascade shows about outsourced fulfilment</h3>
-        <p>The CEVA Logistics intrusion was a single compromise at a single contract-logistics provider, but the consequences landed on its retail customers. Pok&eacute;mon Center notified UK and Germany shoppers of exposed contact and order data and cancelled some orders; Valve&rsquo;s Steam hardware customers in Europe were caught in the same incident; and delivery delays were reported at Bol, De Bijenkorf, ING and Ace &amp; Tate after eight European warehouses stopped shipping. None of those brands had their own storefront, payment stack or corporate network breached. For retail this pattern is structural rather than unlucky: fulfilment, returns and last-mile delivery are outsourced almost universally, a handful of providers serve very large portions of the market, and a retailer&rsquo;s own controls stop at the 3PL&rsquo;s warehouse IT, analytics tooling and order-data stores. The practical framing is that your customer-data blast radius is the union of every processor that touches an order, and your shipping capacity has the same concentration risk.</p>
+        <h3>Attackers used a legitimate endpoint-deployment product to enrol victim machines and push ScreenConnect &mdash; 457 endpoints in a month</h3>
+        <p>Huntress reported on 1 September that a phishing campaign had abused Faronics Deploy, a legitimate endpoint-management platform, as its delivery mechanism. Emails posing as invoices, tax documents and business files linked to sites that profiled the visitor and walked them through downloading what looked like an Adobe document or reader. The file was a genuine, signed Faronics Deploy installer. Running it enrolled the machine into an attacker-controlled Faronics tenant, from which the attacker could run scripts remotely and install ConnectWise ScreenConnect as a durable second channel. Huntress counted more than 457 endpoints reached between 21 July and 20 August. Faronics was notified on 5 August, added anti-abuse measures and contacted affected organisations, and activity dropped off from 21 August. Retail is disproportionately exposed to this class of attack because remote-management and remote-support tooling is genuinely everywhere in the estate &mdash; store systems, kiosks, back-office PCs and franchisee machines are routinely supported by third parties, so an unexpected RMM agent looks like business as usual to a store manager and to a help desk. The defence is an allow-list rather than a detection: decide which remote-access products are sanctioned, alert on the installation of any other, and make sure finance and merchandising staff who receive invoice email have application-control coverage.</p>
+        <div class="card-meta">
+          <span>Faronics Deploy abused for delivery; ConnectWise ScreenConnect as second stage &bull; No CVE &bull; 457+ endpoints</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Pattern observation across confirmed incidents</span>
-            <span class="ops-tag kev-off">Not a single tracked vulnerability</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; campaign observed 21 Jul to 20 Aug 2026; declining after vendor remediation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; abuse of legitimate software, no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Vendor-concentration risk, not a patchable flaw</span>
-            <span class="ops-cc"><b>Action:</b> Map every 3PL, fulfilment, returns and analytics vendor that holds customer order data; require patch-cadence attestation and a contractual breach-notification window; and pre-write customer notification templates for processor-side breaches so legal review is not the bottleneck.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; vendor added anti-abuse controls; detection and application control</span>
+            <span class="ops-cc"><b>Action:</b> Write down which remote-monitoring and remote-support tools are sanctioned in your estate, including anything used by your POS vendor, franchisees and facilities contractors, and build a detection that fires on installation or execution of any other RMM or remote-access product. Hunt for the reported artefacts: ScriptRunner.log files under C:\ProgramData\Faronics\Logs\, unexpected Faronics enrolment, and ScreenConnect instances not in your inventory. Brief accounts-payable and store-support staff that invoice-themed emails leading to a &ldquo;document reader&rdquo; download are the current lure.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Third-party fulfilment risk review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fulfilment-partner-risk" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-fulfilment-partner-risk">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> RMM allow-list detection plus estate hunt &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-faronics-screenconnect" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-faronics-screenconnect">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / SecurityWeek</span>
+          <span>BleepingComputer, reporting Huntress research</span>
           <span class="dot">&bull;</span>
-          <span>Synthesis of Aug 2026 reporting</span>
+          <span>Published 1 Sep 2026; activity 21 Jul &ndash; 20 Aug 2026; vendor notified 5 Aug</span>
         </div>
-        <a href="https://www.securityweek.com/ceva-logistics-operations-disrupted-by-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-abuse-faronics-deploy-admin-tool-to-install-screenconnect/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-platform-patch-window" data-published="2026-08-15">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>E-commerce platform patch-to-exploit windows are now measured in days</h3>
-        <p>Two storefront platform flaws in the same week show how little runway retail IT teams get. SAP patched SAP Commerce Cloud&rsquo;s CVE-2026-58231 (CVSS 10.0) on 11 August; exploitation attempts were reported on 14 August and a public proof-of-concept had circulated by 15 August &mdash; three days from fix to live attacks. Adobe&rsquo;s 12 August Commerce and Magento update addressed CVE-2026-71362, and Sansec reported its WAF was already blocking exploitation attempts while Adobe was still stating it had no reports of in-the-wild exploitation. Two conclusions follow. First, publication of an e-commerce platform patch is a starting gun, so releases for the systems that run checkout belong in an emergency-change process rather than a monthly maintenance window. Second, &ldquo;the vendor reports no known exploitation&rdquo; is a lagging indicator and should not be used to justify deferring a storefront patch.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed for both platforms</span>
-            <span class="ops-tag kev-off">Neither CVE listed in CISA KEV as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available for both</span>
-            <span class="ops-cc"><b>Action:</b> Treat storefront platform releases as same-day emergency changes with a pre-staged rollback plan, and keep WAF virtual-patching capability ready for merchants and franchise sites that cannot patch inside 24 hours.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency e-commerce patching &mdash; 24&ndash;72h from vendor release</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-platform-patch-window" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-platform-patch-window">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Synthesis of 11&ndash;15 Aug 2026 reporting</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-medusa-refresh" data-published="2026-08-18">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>CISA and FBI refresh the Medusa advisory: 500+ victims and roughly 24-hour weaponisation of new flaws</h3>
-        <p>CISA and the FBI updated #StopRansomware advisory AA25-071A on 18 August. The cumulative victim count passed 500 critical-infrastructure organisations as of April 2026, up from about 300 in March 2025 &mdash; roughly 200 new victims in a year. The finding that should change patch planning is the tempo: Medusa weaponises newly disclosed vulnerabilities within about 24 hours, and has been observed using exploits up to a week <i>before</i> public disclosure, because the group buys exploits rather than developing them. Named target sectors include IT, financial services, government facilities, healthcare and critical manufacturing. Retailers were not called out by name, but they run the same internet-facing estate Medusa favours &mdash; remote access, file transfer and virtualisation &mdash; and a 24-hour weaponisation window makes a 30-day patch SLA for perimeter systems indefensible.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 500+ victims, ~24h weaponisation of new CVEs</span>
-            <span class="ops-tag kev-off">Advisory spans multiple KEV-listed CVEs</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Detection and hardening guidance, not a single patch</span>
-            <span class="ops-cc"><b>Action:</b> Pull the AA25-071A indicators and detection guidance into active hunts, and compress the emergency patch SLA for internet-facing systems to under 24 hours from vendor release rather than the standard critical window.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> IOC hunt &amp; perimeter SLA revision &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-medusa-refresh" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-medusa-refresh">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA / FBI (AA25-071A)</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory refreshed 18 Aug 2026</span>
-        </div>
-        <a href="https://www.ic3.gov/CSA/2026/260818.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-rubygems-typosquat" data-published="2026-08-18">
+      <div class="card" id="it-terminalfix-clickfix" data-published="2026-08-31">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Research</span>
         </div>
-        <h3>16 typosquatted RubyGems packages ship infostealers to developer machines</h3>
-        <p>Researchers identified 16 malicious RubyGems packages published under names close to legitimate ones. Once installed, they steal browser credential stores and cryptocurrency wallet data from the machine that pulled them. The retail angle is the dependency chain: a large share of storefront, checkout and back-office tooling is built on Ruby and Rails, and the credential stores on a developer workstation or a shared build runner routinely hold live sessions for the commerce platform admin, the payment gateway dashboard and the cloud console. One mistyped gem name in a Gemfile therefore reaches production access without ever touching a production system.</p>
+        <h3>Microsoft describes &ldquo;TerminalFix&rdquo;: fake Cloudflare checks that talk staff into pasting PowerShell, ending in a network pivot</h3>
+        <p>Microsoft published research on 31 August describing a ClickFix variant it calls TerminalFix. Compromised websites present a counterfeit Cloudflare CAPTCHA that instructs the visitor to paste a command into Windows Terminal, which unlike the classic Run-dialog version of the trick allows a long multi-line script. That command pulls a ZIP containing a legitimately signed executable alongside malicious DLLs, and a later stage hides code inside the pixel data of a PNG to evade inspection. Persistence is established through scheduled tasks and Registry keys that run hourly. The implant then enumerates Active Directory, looks for domain controllers, databases and backup servers, and stands up a custom Python reverse tunnel to gitnow[.]dev on port 443, turning the workstation into a pivot into the internal network. Microsoft did not name an actor or a targeted sector. Retail should read this as an ordinary-user problem rather than an admin one. Store managers, buyers and marketing staff browse supplier and comparison sites all day on machines that sit on networks reachable from store and payment infrastructure, and the lure requires no exploit at all &mdash; only a person following on-screen instructions. Blocking the paste-and-run pattern is largely a configuration exercise: constrain PowerShell for non-administrative users, and alert when Windows Terminal spawns a network-downloading child process.</p>
+        <div class="card-meta">
+          <span>ClickFix-style social engineering &bull; No CVE &bull; Reverse tunnel to gitnow[.]dev:443</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; malicious packages published and installed</span>
-            <span class="ops-tag kev-off">Supply-chain abuse, not a CVE</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; campaign observed and documented by Microsoft; no actor attribution published</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; social-engineering campaign, no CVE</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Packages removed from the registry</span>
-            <span class="ops-cc"><b>Action:</b> Pin and vendor gem dependencies, require lockfile diff review in CI, and rotate commerce-platform, payment-gateway and cloud credentials on any workstation or build runner that installed an unrecognised gem.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; configuration hardening and user awareness</span>
+            <span class="ops-cc"><b>Action:</b> Apply PowerShell constrained language mode or equivalent execution restrictions to non-administrative users, and alert on Windows Terminal or powershell.exe launching a process that immediately downloads from the internet. Block the reported command-and-control domain and hunt for scheduled tasks and Run keys created in the last month that execute hourly. Update security-awareness content: the message staff need is that no legitimate website ever asks you to copy a command into a terminal to prove you are human. Where compromise is suspected, rotate credentials from the affected endpoint rather than only reimaging it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Dependency audit &amp; credential rotation &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-rubygems-typosquat" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-rubygems-typosquat">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> PowerShell restriction, detection rule and awareness update &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-terminalfix-clickfix" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-terminalfix-clickfix">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News</span>
+          <span>BleepingComputer, reporting Microsoft Threat Intelligence</span>
           <span class="dot">&bull;</span>
-          <span>Reported 18 Aug 2026</span>
+          <span>Published 31 Aug 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/08/16-typosquatted-rubygems-packages-steal.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-zombie-card-visa" data-published="2026-08-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Carried forward: researchers can still make expired Visa cards transact at the terminal, and the fix sits with the scheme, not the merchant</h3>
+        <p>Reported on 21 August and unchanged since, this academic work demonstrates a smartphone-relay attack that defeats the cryptographic checks performed during a card-present transaction and alters the expiry date presented to the terminal, so an expired Visa card is accepted and authorised. It remains confirmed research rather than observed crime: no in-the-wild abuse has been reported, no CVE has been assigned, and no source has quantified how many terminal models, EMV kernel versions or acquirer configurations are in scope. The researchers state the technique does not work against Mastercard, American Express or Discover, so this is a Visa-specific gap rather than a general EMV break. The reason it stays on this page is that nothing a merchant patches removes the exposure &mdash; the defeated control lives in the card and the terminal, and remediation has to come from Visa and the terminal vendors. What a retailer can do is detect and escalate. An approved authorisation on a card whose expiry date has already passed is anomalous by definition, and almost no merchant inspects that field once the acquirer returns an approval, which makes it both a cheap query to run and an unlikely thing to already be monitored. High-throughput card-present environments are the natural target, because a relay needs physical proximity and works best where per-transaction scrutiny is lowest.</p>
+        <div class="card-meta">
+          <span>Visa card-present transactions at POS terminals &bull; No CVE &bull; Mastercard, Amex and Discover stated unaffected</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Proof of concept &mdash; working academic demonstration; still no in-the-wild abuse reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No merchant-side patch &mdash; remediation sits with Visa and terminal vendors</span>
+            <span class="ops-cc"><b>Action:</b> If you opened this in August, chase the answer: ask your acquirer and terminal vendor in writing whether your deployed EMV kernel versions are in scope and whether Visa has issued guidance, scoping the question by scheme since the other three are stated unaffected. Keep the detection running &mdash; query settled card-present transactions for approvals where the presented expiry date had already passed, route any hits to fraud for chargeback review, and treat it as a standing weekly control until the vendor responds.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Chase acquirer/terminal-vendor response; keep expired-expiry query running &mdash; 14 days (carried over)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zombie-card-visa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-zombie-card-visa">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek &ldquo;In Other News&rdquo; roundup (academic research)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 21 Aug 2026; carried forward &mdash; no change in exploitation status as of 4 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1064,174 +1046,241 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-sap-commerce-cloud" data-published="2026-08-15">
+      <div class="card" id="it-citrix-netscaler" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Max-severity SAP Commerce Cloud flaw exploited three days after the patch, with a public PoC</h3>
-        <p>SAP patched CVE-2026-58231 in SAP Commerce Cloud on 11 August 2026. Rated CVSS 10.0, the flaw combines insufficient authorisation checks with insufficient input validation, allowing an attacker to execute arbitrary code against internal components of the commerce platform. Exploitation attempts were reported on 14 August, and a public proof-of-concept was circulating by 15 August &mdash; three days from patch to live attacks, and four to a working exploit anyone can run. Commerce Cloud underpins storefronts, product catalogues and order management for large retailers, so code execution against it is a direct route to order and customer data and to the back-end systems sitting behind checkout. Any retailer running it should assume scanning is already under way and treat unpatched instances as presumed-compromised until log review says otherwise.</p>
+        <h3>Two NetScaler flaws are now being attacked &mdash; one reclassified from denial of service to root RCE, the other an authentication bypass with a public proof of concept</h3>
+        <p>Citrix NetScaler ADC and Gateway carry two separate problems that both matured during this window. CVE-2026-8452 was disclosed in June 2026 as a memory-overflow issue with denial-of-service impact; in August watchTowr demonstrated that it reaches root-level remote code execution, and CISA added it to the Known Exploited Vulnerabilities catalog on 26 August with a 29 August remediation deadline for federal agencies under Binding Operational Directive 26-04. Reporting describes indiscriminate scanning and web-shell deployment against exposed appliances. Separately, CVE-2026-19490 is a critical authentication bypass covered by Citrix&rsquo;s 19 August advisory, which did not flag it as exploited at the time; after a credible proof of concept was published, researcher Ryan Dewhurst of Previdian reported on 3 September that a NetScaler sensor received matching requests from three distinct addresses geolocated to Australia, the United States and Germany &mdash; evidence of exploitation attempts rather than confirmed compromise. Both issues require the appliance to be configured as a Gateway (SSL VPN, ICA Proxy, CVPN or RDP Proxy) or as an AAA virtual server, with SAML Action also in scope for the bypass depending on firmware. Shadowserver counts roughly 22,000 exposed ADC appliances and about 1,700 to 1,800 Gateway instances. In retail these boxes usually front head-office VPN, supplier extranets and store or franchise remote access, which puts them directly upstream of everything else on this page.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-58231</span>
-          <span>SAP Commerce Cloud &bull; CVSS 10.0</span>
+          <span class="cve-badge">CVE-2026-8452</span>
+          <span class="cve-badge">CVE-2026-19490</span>
+          <span>NetScaler ADC / Gateway &bull; Gateway VPN, ICA/CVPN/RDP Proxy or AAA vServer configurations</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation attempts 14 Aug, public PoC 15 Aug</span>
-            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CVE-2026-8452 exploited with web shells; CVE-2026-19490 attempts observed 3 Sep after public PoC</span>
+            <span class="ops-tag kev-on">CVE-2026-8452 added to CISA KEV 26 Aug 2026 &mdash; BOD 26-04 deadline 29 Aug</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (SAP, 11 Aug 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the SAP August patch immediately, reduce internet exposure of Commerce Cloud components, and hunt for unexpected code execution, new administrative accounts and anomalous access to order and customer tables.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed builds available from Citrix for both issues</span>
+            <span class="ops-cc"><b>Action:</b> Establish which of your NetScaler appliances run a Gateway or AAA virtual server, or have SAML Action enabled, and patch those first; an appliance with none of those configurations is not in scope for either issue. Because CVE-2026-8452 has been exploited to plant web shells, patching alone is not closure &mdash; review the filesystem for unexpected files under the web root, check for unrecognised administrator accounts and configuration changes, and terminate all active sessions after upgrading. Rotate any credentials or certificates the appliance holds, including LDAP bind accounts. Confirm the management interface is not reachable from the internet.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency patch &amp; exposure check &mdash; 24&ndash;48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sap-commerce-cloud" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sap-commerce-cloud">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise assessment of all Gateway/AAA appliances &mdash; 72h (deadline already passed for CVE-2026-8452)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-citrix-netscaler" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-citrix-netscaler">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer</span>
+          <span>BleepingComputer (CISA KEV order, 27 Aug; exploitation of auth bypass, 4 Sep)</span>
           <span class="dot">&bull;</span>
-          <span>Patched 11 Aug 2026 &mdash; exploited from 14 Aug</span>
+          <span>CVE-2026-8452 KEV 26 Aug 2026, due 29 Aug; CVE-2026-19490 attempts reported 3 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploiting-citrix-netscaler-rce-flaw-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-adobe-commerce-magento" data-published="2026-08-12">
+      <div class="card" id="it-sonicwall-sma1000" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Adobe Commerce / Magento flaw lets an unauthenticated attacker take over a shopper&rsquo;s session &mdash; no account, no interaction</h3>
-        <p>CVE-2026-71362, fixed in Adobe&rsquo;s 12 August Commerce and Magento update, allows an unauthenticated attacker to switch a customer session onto another customer&rsquo;s account. No account of their own, no administrative rights and no user interaction from the victim are required, which removes every mitigating factor a merchant would normally rely on to buy time. Adobe stated it had no reports of exploitation in the wild; e-commerce security firm Sansec said its WAF was already blocking exploitation attempts against merchants. Storefront operators should treat the August update as urgent on the strength of that second data point. A hijacked session exposes saved addresses, order history and stored payment tokens, and can be used to place orders as the victim &mdash; damage that surfaces as customer fraud complaints rather than as a security alert.</p>
+        <h3>SonicWall SMA 1000: a CVSS 10.0 server-side request forgery chained with command injection, exploited weeks after the last SMA ransomware wave</h3>
+        <p>SonicWall confirmed on 2 September that two SMA 1000 series flaws are being exploited together. CVE-2026-83548 is a server-side request forgery in the Appliance Work Place interface, scored CVSS 10.0, allowing unauthorised access to sensitive functions. CVE-2026-83549 is an OS command-injection flaw in the Appliance Management Console at CVSS 7.8. Chained, they give remote code execution on the appliance. CISA added both to the Known Exploited Vulnerabilities catalog in the first days of September with a federal remediation deadline days rather than weeks away, and SonicWall is telling all SMA 1000 customers to apply the latest hotfix immediately. This is the second exploitation wave against the same product line in months: attacks in June and July 2026 used CVE-2026-15409 and CVE-2026-15410 and were attributed to the actor tracked as UTA0533, with ransomware following in several cases. The Appliance Work Place component is the user-facing portal and is therefore typically published straight to the internet, which is what turns a maximum-severity SSRF into a practical entry point. Retailers use SMA appliances for exactly the population that makes them attractive: store managers, seasonal and third-party staff, and support vendors reaching back-office systems. Assume the appliance is a target and treat any that has been internet-facing and unpatched since 2 September as needing investigation, not just an upgrade.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-71362</span>
-          <span>Adobe Commerce / Magento</span>
+          <span class="cve-badge">CVE-2026-83548</span>
+          <span class="cve-badge">CVE-2026-83549</span>
+          <span>SonicWall SMA 1000 series &bull; CVSS 10.0 and 7.8 &bull; Chained for RCE</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation attempts observed by Sansec; Adobe reported none in the wild</span>
-            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed by SonicWall on 2 Sep 2026; flaws chained for remote code execution</span>
+            <span class="ops-tag kev-on">Added to CISA KEV in early Sep 2026 &mdash; short federal remediation deadline</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patch available (Adobe, 12 Aug 2026)</span>
-            <span class="ops-cc"><b>Action:</b> Apply the August Commerce/Magento update now; where immediate patching is not possible deploy WAF rules and invalidate active customer sessions, then review order and account-change logs for actions taken from unexpected sessions.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; SonicWall hotfix available for SMA 1000 series</span>
+            <span class="ops-cc"><b>Action:</b> Apply the SMA 1000 hotfix now, and while you are doing it restrict the Appliance Management Console so it is reachable only from an internal management network &mdash; the SSRF is far less useful without a reachable management plane behind it. Given confirmed exploitation, hunt before you close: review appliance logs for unexpected requests to the Appliance Work Place, check for new or modified administrator accounts, and reset credentials and MFA seeds for every account that authenticates through the appliance. If the device has been exposed and unpatched at any point since early September, treat it as suspect and rebuild rather than upgrade in place.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency patch or WAF mitigation &mdash; 24&ndash;48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-adobe-commerce-magento" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-adobe-commerce-magento">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Hotfix, management-plane restriction and compromise assessment &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sonicwall-sma1000" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sonicwall-sma1000">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer</span>
+          <span>Cybersecurity Dive, reporting SonicWall and CISA</span>
           <span class="dot">&bull;</span>
-          <span>Patched 12 Aug 2026</span>
+          <span>Exploitation confirmed 2 Sep 2026; prior SMA 1000 wave Jun&ndash;Jul 2026 (UTA0533)</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-adobe-commerce-flaw-to-hijack-customer-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cybersecuritydive.com/news/sonicwall-immediate-patching-chained-vulnerabilities/829567/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-kev-additions" data-published="2026-08-18">
+      <div class="card" id="it-avada-woocommerce" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>CISA adds four actively exploited flaws to KEV with a 21 August deadline</h3>
-        <p>CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalog on 18 August, with a 21 August remediation deadline for federal agencies: CVE-2026-33824, a double-free in the Microsoft Windows IKE service extensions (IKEEXT) leading to remote code execution; CVE-2026-59310, path traversal in Broadcom VMware vCenter leading to code execution; CVE-2026-55040, a weak-authentication security-feature bypass in Microsoft SharePoint; and CVE-2026-65400, improper authentication in Apple macOS Screen Sharing. A typical retail estate runs all four &mdash; Windows domain and VPN infrastructure at head office, vSphere behind store and distribution-centre back-office systems, SharePoint for merchandising and supplier collaboration, and macOS across design, marketing and merchandising teams. The federal deadline is a reasonable private-sector target given all four are confirmed under exploitation.</p>
+        <h3>A six-flaw chain in the Avada theme gives zero-click RCE on more than a million WordPress sites, many of them shops</h3>
+        <p>ThemeFusion patched CVE-2026-18431 on 26 August, a CVSS 9.8 issue that chains six separate weaknesses in the Avada theme and its required companion plugin Fusion Builder into a single zero-click, unauthenticated remote-code-execution path. Avada versions up to 7.16 and Fusion Builder up to 3.16 are affected; the fixes are 7.16.1 and 3.16.1. Because Fusion Builder is mandatory for Avada, every Avada installation is potentially in scope, and the theme has sold over a million licences. Wordfence&rsquo;s Argus framework found the chain on 30 July and notified the vendor on 5 August; full technical detail was withheld at publication to give site owners time to update, and no exploitation had been reported at that point. Successful exploitation lets an unauthenticated attacker run arbitrary PHP, which in practice means dropping malware, reading the database, creating rogue administrator accounts or redirecting visitors. Avada is one of the most common commercial themes behind WooCommerce storefronts, so the realistic worst case for a retailer is not defacement but a modified checkout template or an injected script that reads card fields as they are typed &mdash; the classic skimming outcome, arrived at through the theme rather than a third-party tag. Treat this alongside the Elementor Pro and Super Forms exploitation on this page as one patching exercise across the same estate.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-33824 / CVE-2026-59310 / CVE-2026-55040 / CVE-2026-65400</span>
-          <span>Microsoft, Broadcom &amp; Apple</span>
+          <span class="cve-badge">CVE-2026-18431</span>
+          <span>Avada &le; 7.16 and Fusion Builder &le; 3.16 &bull; CVSS 9.8 &bull; Fixed in 7.16.1 / 3.16.1</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all four confirmed exploited</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 18 Aug 2026 &mdash; due 21 Aug</span>
+            <span class="ops-tag ex-none"><span class="d"></span>None observed &mdash; no exploitation reported at publication; technical details withheld</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor patches available for all four</span>
-            <span class="ops-cc"><b>Action:</b> Inventory exposure to all four products, patch or mitigate by the 21 August deadline, and give priority to internet-reachable Windows IKE endpoints and any vCenter instance reachable from a user or store network.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Avada 7.16.1 and Fusion Builder 3.16.1, released 26 Aug 2026</span>
+            <span class="ops-cc"><b>Action:</b> Update Avada and Fusion Builder together on every site &mdash; patching only one leaves the chain intact. Commercial themes are licence-gated in the same way paid plugins are, so check that each site&rsquo;s ThemeFusion licence is still active and registered; a lapsed licence is the usual reason an agency-built shop silently stops updating. Once patched, compare your checkout and product templates against a known-good copy, and set a Content-Security-Policy plus subresource integrity on the scripts that run on payment pages so that a future template modification is visible rather than silent.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch or mitigate all four &mdash; by 21 Aug 2026</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-additions" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kev-additions">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Theme and builder update across all WordPress properties &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-avada-woocommerce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-avada-woocommerce">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA</span>
+          <span>BleepingComputer, reporting Wordfence</span>
           <span class="dot">&bull;</span>
-          <span>KEV additions 18 Aug 2026</span>
+          <span>Found 30 Jul 2026; vendor notified 5 Aug; patched and disclosed 26 Aug 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-avada-wordpress-theme-flaw-enables-zero-click-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-windows-task-host" data-published="2026-08-18">
+      <div class="card" id="it-jfrog-artifactory" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Attackers are minting admin tokens in JFrog Artifactory &mdash; and patching does not invalidate the ones they already made</h3>
+        <p>CVE-2026-82329 is an authentication bypass in self-managed JFrog Artifactory that lets an unauthenticated attacker with network access forge administrative tokens. JFrog released fixes on 28 August across 7.111.21, 7.117.28, 7.125.20, 7.133.29, 7.146.38 and 7.161.20; JFrog Cloud environments were already protected. Default deployments are exploitable. On 2 September watchTowr confirmed it had seen attackers minting themselves admin tokens in the wild, and the flaw was added to the CISA KEV catalog in the same early-September batch. With administrative access an attacker can enumerate users, groups and federated topologies, read artifacts, change security configuration and poison packages that downstream build systems already trust and pull automatically. The detail that catches teams out is that applying the patch does not revoke tokens that were issued before it &mdash; token cleanup is a separate remediation step. Retail is a heavier user of internal artifact repositories than its reputation suggests: e-commerce platform builds, mobile shopping apps, POS and kiosk images and store-device firmware all commonly flow through one. A poisoned artifact in that pipeline reaches production checkout code or store hardware without any further intrusion, which makes this a supply-chain exposure with a very short path to payment data.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-82329</span>
+          <span>JFrog Artifactory self-managed &bull; Fixed 28 Aug 2026 in 7.111.21 / 7.117.28 / 7.125.20 / 7.133.29 / 7.146.38 / 7.161.20</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; watchTowr observed attackers forging admin tokens; exploitable in default configurations</span>
+            <span class="ops-tag kev-on">Added to CISA KEV in early Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed releases available since 28 Aug 2026; JFrog Cloud unaffected</span>
+            <span class="ops-cc"><b>Action:</b> Patch to a fixed release, then revoke and reissue every access token, because the patch does not invalidate tokens minted before it &mdash; that second step is the one most teams miss. Audit administrator accounts, permission targets and any federation or replication configuration for changes made since late August. Verify checksums and signatures on recently published artifacts, especially anything consumed by your storefront, mobile app or POS and kiosk image pipelines, and rebuild from source where you cannot prove provenance. Remove Artifactory from direct internet exposure if it is reachable.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch, full token rotation and artifact-integrity review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-jfrog-artifactory" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-jfrog-artifactory">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer, reporting JFrog and watchTowr</span>
+          <span class="dot">&bull;</span>
+          <span>Patches 28 Aug 2026; exploitation reported 2 Sep 2026; incident scope not disclosed</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Windows Task Host privilege-escalation flaw now being abused by ransomware crews</h3>
-        <p>CISA updated its KEV entry for CVE-2025-60710 on 18 August to record that ransomware groups are now abusing the flaw. It is a link-following privilege-escalation issue in the Windows Task Host affecting Windows 11 and Windows Server 2025, taking a low-privileged local user to SYSTEM. Microsoft patched it in November 2025 and it entered the KEV catalog on 13 April 2026, so this is a hunt-for-stragglers signal rather than a new patch cycle. That is precisely why it matters in retail: the machines that miss routine patch rings are store back-office PCs, kiosk and POS-adjacent Windows hosts, warehouse terminals and long-lived servers that nobody wants to reboot during trading hours. Those are also the hosts an intruder reaches first after a store-level foothold.</p>
+        <h3>Chrome ships an emergency fix for the sixth actively exploited zero-day of 2026 &mdash; a V8 type confusion</h3>
+        <p>Google released a Chrome update on 4 September addressing CVE-2026-85046, a high-severity type-confusion flaw in the V8 JavaScript and WebAssembly engine, and stated it is aware that an exploit exists in the wild. Type confusion causes the engine to treat a block of memory as the wrong kind of object, which is a reliable route to code execution inside the renderer sandbox. The bug was reported by Salvatore Gulizia, who uses the handle Serotav. Fixed versions are 152.0.7977.82 and .83 on Windows and macOS and 152.0.7977.82 on Linux; the same release fixes nine other high-severity issues across crash reporting, networking, compositing and WebGL. Google withheld technical detail to give users time to update. This is the sixth actively exploited Chrome vulnerability patched in 2026. For retail the relevance is breadth rather than novelty. Chrome and Chromium-based browsers are the interface to nearly everything a head-office user touches &mdash; merchandising portals, supplier extranets, payment-provider consoles, the marketing and analytics stack &mdash; and they are also present on store back-office machines and on kiosks running Chrome or Edge in a locked-down mode that nobody includes in the patch cycle. Browser updates on those unmanaged edges are the routine gap, and a browser zero-day is a credible first step towards the session cookies that reach the systems on the rest of this page.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2025-60710</span>
-          <span>Microsoft Windows Task Host</span>
+          <span class="cve-badge">CVE-2026-85046</span>
+          <span>Chrome V8 engine &bull; Fixed in 152.0.7977.82/.83 (Windows, macOS) and 152.0.7977.82 (Linux)</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; now abused by ransomware gangs</span>
-            <span class="ops-tag kev-on">In CISA KEV since 13 Apr 2026 &mdash; entry updated 18 Aug</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google confirms an exploit exists in the wild; sixth exploited Chrome zero-day of 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched by Microsoft, November 2025</span>
-            <span class="ops-cc"><b>Action:</b> Sweep for hosts missing the November 2025 rollup, prioritising store back-office, kiosk and warehouse Windows systems outside the standard workstation patch ring, and schedule reboots for the long-lived servers that keep deferring them.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82/.83, released 4 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> Force the Chrome update through your management platform rather than relying on browser-initiated restarts, and set a maximum relaunch window so users cannot defer indefinitely. Then find the browsers outside management: store back-office PCs, kiosks and self-checkout screens running Chrome or a Chromium shell, digital-signage players, and contractor or franchisee laptops that touch your supplier portals. Update Chromium-based Edge and other derivatives once their corresponding builds ship. Report on version coverage by store rather than by fleet average, because a handful of unpatched store machines is where this actually bites.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Straggler patch sweep &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-windows-task-host" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-windows-task-host">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Enterprise-wide Chrome update including store and kiosk endpoints &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8-zeroday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-chrome-v8-zeroday">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / CISA KEV</span>
+          <span>BleepingComputer / The Hacker News, reporting the Google Chrome release</span>
           <span class="dot">&bull;</span>
-          <span>KEV entry updated 18 Aug 2026</span>
+          <span>Released 4 Sep 2026; technical details withheld</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-task-host-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/google-warns-of-new-chrome-zero-day-flaw-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-metabase-cve" data-published="2026-08-11">
+      <div class="card" id="it-papercut-chain" data-published="2026-08-31">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Metabase max-severity SQL injection remains KEV-listed after zero-day exploitation hit retail-adjacent vendors</h3>
-        <p>CISA added Metabase&rsquo;s CVE-2026-72898 (CVSS 10.0) to the Known Exploited Vulnerabilities catalog on 11 August 2026 with a 14 August federal deadline. The flaw is an unauthenticated SQL injection reachable via the <code>/reset_password</code> endpoint that grants full administrative access, affecting open-source Metabase 0.58.0&ndash;0.63.x before 0.63.5 and Enterprise 1.58.0&ndash;1.63.x before 1.63.5. It was exploited as a zero-day before any patch existed and was the root cause behind confirmed data thefts at laptop maker Framework and at fulfilment provider ShipMonk, the latter exposing contact and order records for Trezor customers. Metabase is widely used for internal analytics and BI at retailers and, more importantly, at the fulfilment and logistics vendors they hand order data to &mdash; which is exactly where it caused damage.</p>
+        <h3>PaperCut print management: two zero-days chained into unauthenticated full compromise, with three rounds of emergency patches</h3>
+        <p>PaperCut MF and NG are affected by two flaws being chained in live attacks. CVE-2026-81578 is an improper access-control issue that lets an unauthenticated attacker change system configuration; CVE-2026-82078 is unsafe dynamic class loading that permits arbitrary Java bytecode execution. Researchers describe the combination as point-and-shoot: no authentication is required, only a reachable IP address or hostname. CISA added CVE-2026-81578 to the KEV catalog on 31 August with a federal deadline of 11 September, and CVE-2026-82078 on 1 September with a deadline of 14 September. Exploitation was first reported on 27 August by an education-sector customer, and Huntress had confirmed roughly a dozen affected devices by the end of August, mostly in the United States with cases in Denmark and Ireland; observed victims so far span education, healthcare and construction rather than retail. PaperCut shipped three iterations of emergency patches, with later ones fixing bypasses of earlier fixes, so &ldquo;we patched&rdquo; from the first week is not the same as patched. Retail exposure is quiet but real: PaperCut commonly sits in head office and distribution centres handling shipping labels, picking lists and back-office printing, on a Windows server that is domain-joined, frequently reachable across the corporate network, and rarely treated as a security-relevant application.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-72898</span>
-          <span>Metabase &bull; CVSS 10.0</span>
+          <span class="cve-badge">CVE-2026-81578</span>
+          <span class="cve-badge">CVE-2026-82078</span>
+          <span>PaperCut MF and NG &bull; Chained for unauthenticated remote code execution</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited as a zero-day; drove confirmed breaches</span>
-            <span class="ops-tag kev-on">In CISA KEV (added 11 Aug 2026)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; zero-day exploitation from 27 Aug 2026; ~12 compromised devices confirmed by Huntress in late Aug</span>
+            <span class="ops-tag kev-on">CISA KEV: CVE-2026-81578 added 31 Aug (due 11 Sep); CVE-2026-82078 added 1 Sep (due 14 Sep)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in 0.63.5 (open-source) / 1.63.5 (Enterprise)</span>
-            <span class="ops-cc"><b>Action:</b> Patch every Metabase instance including those operated by fulfilment, logistics and analytics vendors, and review admin-account creation and access logs for signs of the /reset_password exploit.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; three emergency patch rounds; later releases fix bypasses of the earlier ones</span>
+            <span class="ops-cc"><b>Action:</b> Confirm you are on the latest PaperCut release, not merely on the first emergency patch, since later versions closed bypasses. Remove any internet exposure of the PaperCut admin interface immediately and restrict it to a management network. Because exploitation preceded the fix, hunt on the server: look for unexpected configuration or print-script changes, new administrator accounts, and Java processes spawning shells or network connections. The host is usually domain-joined, so if you find anything, treat it as a domain incident and rotate the service account and any cached credentials rather than just rebuilding the application.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &amp; log review &mdash; 24&ndash;72h (KEV, active exploitation)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-metabase-cve" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-metabase-cve">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Latest-version upgrade, exposure removal and host hunt &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-papercut-chain" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-papercut-chain">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV / BleepingComputer</span>
+          <span>Cybersecurity Dive / BleepingComputer, reporting PaperCut, CISA and Huntress</span>
           <span class="dot">&bull;</span>
-          <span>KEV-added 11 Aug 2026</span>
+          <span>Zero-day attacks from 27 Aug 2026; KEV additions 31 Aug and 1 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cybersecuritydive.com/news/papercut-emergency-patches-threat-actors-chained-vulnerabilities/829184/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-servicenow-max" data-published="2026-08-28">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>ServiceNow patches three maximum-severity flaws that need no authentication &mdash; nothing exploited yet, but the window is the point</h3>
+        <p>ServiceNow disclosed four vulnerabilities on 28 August, three of them rated maximum severity and all exploitable without authentication in low-complexity attacks. CVE-2026-18885 and CVE-2026-18886 are code-injection issues, the second also enabling privilege escalation; CVE-2026-74820 is a SQL injection that allows an attacker to read or modify instance data. CVE-2026-6876 is a high-severity sandbox escape that lets a user with basic privileges reach remote code execution. Patches are available across the Xanadu, Yokohama, Zurich and Australia release families, and ServiceNow says it is not aware of malicious exploitation against instances. That last point is why this sits at Medium rather than higher, and it is unlikely to stay true indefinitely: unauthenticated maximum-severity flaws in a widely deployed SaaS platform attract proof-of-concept work quickly, and the pattern elsewhere on this page &mdash; Elementor Pro attacked the day after details circulated, Citrix reclassified from denial of service to root RCE by third-party research &mdash; is that the interval between disclosure and exploitation is short. Retailers run ServiceNow as the ITSM and often HR and store-support system of record, which means it holds asset inventories, network diagrams, privileged access requests and store contact details: not payment data, but an excellent map for whoever gets in next.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-18885</span>
+          <span class="cve-badge">CVE-2026-18886</span>
+          <span class="cve-badge">CVE-2026-74820</span>
+          <span>ServiceNow &bull; Patched across Xanadu, Yokohama, Zurich and Australia releases</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>None observed &mdash; ServiceNow states it is not aware of malicious exploitation of instances</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixes published 28 Aug 2026 for supported release families</span>
+            <span class="ops-cc"><b>Action:</b> Check which release family each of your instances runs, including sub-production and any instance a systems integrator maintains on your behalf, and schedule the patch rather than waiting for the next quarterly upgrade. Confirm that your instances are not accepting unauthenticated requests from the open internet where an IP allow-list or private connectivity is available. Review which scoped applications and integration accounts hold broad table access, since a SQL-injection issue is worth far more against an instance where one integration user can read everything.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Instance patching and integration-permission review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-servicenow-max" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-servicenow-max">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer, reporting the ServiceNow advisories</span>
+          <span class="dot">&bull;</span>
+          <span>Published 28 Aug 2026; no known exploitation at time of writing</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/servicenow-warns-of-three-max-severity-security-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1239,34 +1288,63 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="it-processor-breach-duty" data-published="2026-08-17">
+      <div class="card" id="it-id-scan-liability" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy</span>
         </div>
-        <h3>A processor-side breach still lands on the retailer: notification duties after the CEVA compromise</h3>
-        <p>The CEVA Logistics incident produced customer notifications from Pok&eacute;mon Center and reached Valve&rsquo;s European Steam hardware buyers, even though the intrusion happened entirely inside a logistics contractor&rsquo;s environment. That is the ordinary operation of EU and UK data-protection law rather than an anomaly: where a 3PL processes personal data on a retailer&rsquo;s behalf, the retailer remains the controller and carries the notification obligation to regulators and to affected customers, on the regulator&rsquo;s clock rather than the contractor&rsquo;s. Retailers with European customers should confirm that their data-processing agreements set a notification window short enough to leave time to meet their own deadline, and that they can identify which customers shipped through a given provider in a given period without waiting on the provider to tell them.</p>
+        <h3>Class actions and an FBI inquiry follow the IDScan allegations &mdash; and the merchant that asked for the licence is still in the frame</h3>
+        <p>Within days of the Nexus listing being reported, multiple lawsuits were filed in Louisiana, where IDScan.net is based, and law firms began soliciting class-action claims; the FBI&rsquo;s New Orleans field office opened an inquiry. IDScan has acknowledged an internal investigation but has not publicly confirmed a breach, and the affected population has not been established. For retailers, hospitality operators and rental businesses, the question this raises is narrower and more answerable than the litigation: on what legal basis are you scanning identity documents at all, what does your vendor do with the image afterwards, and how long is it retained. Age-verification, returns-fraud and rental-risk workflows very often capture and transmit a full document image when a yes-or-no assertion would satisfy the business requirement, and the retention decision is usually the vendor&rsquo;s default rather than a considered choice by the merchant. Several US states and most European regimes constrain the collection and retention of scanned identity documents, and where a merchant is the controller, a vendor-side loss does not transfer the obligation. This is worth a scheduled review rather than an emergency: confirm the contractual position on retention and deletion, and whether your provider can operate in a verify-only mode that returns a result without keeping the image.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Regulatory obligation &mdash; not an exploitation event</span>
+            <span class="ops-tag ex-none">Legal and regulatory exposure &mdash; not an exploitation event</span>
             <span class="ops-tag kev-off">Not applicable</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-na">Not a technical or patch issue</span>
-            <span class="ops-cc"><b>Action:</b> Review data-processing agreements with logistics, fulfilment and returns vendors for breach-notification timelines, and confirm you can independently determine which customers and orders a given processor handled during any window.</span>
+            <span class="ops-cc"><b>Action:</b> List every point in your business where a customer&rsquo;s identity document is scanned or photographed &mdash; age-restricted sales, returns and refunds, rental and check-in, loyalty enrolment &mdash; and record which vendor processes it, whether the image is retained, for how long and where. Ask each provider in writing whether a verify-only mode is available that returns a pass or fail without storing the document, and confirm your data-processing agreement covers deletion and breach notification. Have privacy counsel confirm the retention position against the jurisdictions you trade in.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Processor contract &amp; notification-readiness review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-processor-breach-duty" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-processor-breach-duty">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Identity-document collection and retention review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-id-scan-liability" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-id-scan-liability">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / SecurityWeek</span>
+          <span>BleepingComputer (lawsuits) / KrebsOnSecurity (FBI inquiry)</span>
           <span class="dot">&bull;</span>
-          <span>Incident reporting 17 Aug 2026</span>
+          <span>Reported 1&ndash;4 Sep 2026; allegations unconfirmed by IDScan</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/idscan-sued-over-alleged-data-breach-affecting-153-million-drivers/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-kev-deadlines" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>KEV remediation deadlines are now landing days after disclosure &mdash; a useful benchmark even if you are not a federal agency</h3>
+        <p>Across this fortnight CISA added a run of edge and infrastructure flaws to the Known Exploited Vulnerabilities catalog with unusually short remediation windows under Binding Operational Directive 26-04. Citrix NetScaler CVE-2026-8452 was added on 26 August with a 29 August deadline &mdash; three days. PaperCut CVE-2026-81578 was added on 31 August due 11 September, and CVE-2026-82078 on 1 September due 14 September. The SonicWall SMA 1000 chain followed in the first days of September, again with a deadline days rather than weeks out. Retailers are not bound by BOD 26-04, but the catalog is the most useful free prioritisation feed available and the due dates encode CISA&rsquo;s read of how fast each flaw is being weaponised. The practical use is to set an internal service level against KEV membership rather than against CVSS: a KEV entry for a product you run on an internet-facing appliance should trigger the same-week change process, not the monthly one. That is easier to defend to a change advisory board than a score, and it maps cleanly onto the pattern this edition shows &mdash; exploitation starting the day after details circulate, and vendors shipping second and third patches when the first is bypassed.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Directive and prioritisation guidance &mdash; not an exploitation event in itself</span>
+            <span class="ops-tag kev-on">Reflects CISA KEV additions of 26 Aug, 31 Aug, 1 Sep and early Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">Process change rather than a patch</span>
+            <span class="ops-cc"><b>Action:</b> Subscribe your vulnerability-management process to the KEV catalog and define an internal SLA keyed to it &mdash; for example, KEV entries affecting internet-facing systems patched or mitigated within 72 hours and everything else within 14 days &mdash; then get that written into the change policy so emergency changes do not need to be argued each time. Map your product inventory against KEV automatically rather than by hand, and include appliances, print servers and e-commerce plugins in that inventory, since those are the categories that produced this fortnight&rsquo;s entries.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Adopt a KEV-keyed patching SLA in change policy &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-deadlines" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kev-deadlines">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer / Cybersecurity Dive, reporting CISA KEV additions</span>
+          <span class="dot">&bull;</span>
+          <span>KEV additions 26 Aug &ndash; early Sep 2026; deadlines 29 Aug, 11 Sep and 14 Sep</span>
+        </div>
+        <a href="https://www.cybersecuritydive.com/news/papercut-emergency-patches-threat-actors-chained-vulnerabilities/829184/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>

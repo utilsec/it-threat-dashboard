@@ -622,7 +622,7 @@
       <h1>IT Threat Intel for Financial Services</h1>
       <div class="header-sub">Banks, fintech, insurance & crypto &mdash; what's hitting the sector now.</div>
       <div class="header-meta">
-        <span>Generated Sun, 23 Aug 2026, 1:34 PM ET</span>
+        <span>Generated Fri, 04 Sep 2026, 8:44 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Financial Services IT</span>
       </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Financial Services sector, under the same rubric as the main IT dashboard. Score 6.5 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of financial-services IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">5.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:58%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Mid-Medium. This is a week of discrete single-organisation events rather than one issue widely impacting financial IT estates. The strongest driver is Apollo Global Management &mdash; a confirmed cloud intrusion between 6 and 10&nbsp;July, not discovered until 12&nbsp;August, exposing names, dates of birth, addresses and Social Security numbers, attributed by Google to BlackFile and The Com and delivered through voice phishing and IT-helpdesk impersonation rather than any product flaw. That is a genuine major breach, so the quiet-week cap does not bind &mdash; but the calibration is explicit that one confirmed breach is not High on its own, and Blackstone and Bain Capital were targeted with matching infrastructure without either confirming a compromise. The U.S. Bancorp item is a LockBit listing with no samples published and a specific bank denial pointing to a contractor of a third-party vendor, so it adds sector signal and almost no confirmed impact. The banking trojans &mdash; Manic&rsquo;s offline mesh exfiltration over Wi-Fi Direct and Bluetooth, Grandoreiro&rsquo;s Mexico campaign, ToxicPanda 2.0 scaling to roughly 350 targeted apps across 16 countries &mdash; are running against customer and staff endpoints, not institutions&rsquo; own infrastructure. iAuthFlow&nbsp;V2 is a documented capability from forum material, not an observed live incident. No actively-exploited flaw in widely-deployed banking software appears at all, and the no-advisory-stacking rule keeps these from aggregating upward.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, and up from 5.8 because this window brought real exploitation of software financial estates actually run. Citrix NetScaler (CVE-2026-8452) is being exploited for pre-auth code execution with web shells landing on gateways; Oracle WebLogic&rsquo;s CVSS&nbsp;10.0 proxy flaw is in KEV with a China-linked operator active in 100+ countries; SonicWall SMA&nbsp;1000 zero-days joined KEV on 2&nbsp;September; Chrome shipped its sixth exploited zero-day of the year. Three of those sit on remote-access or web tiers that front bank environments. Alongside them, Google&rsquo;s BREEZE COMET reporting confirms intruders reaching Pix, STR and Boleto payment credentials and pushing hundreds of fraudulent transfers within 48 hours &mdash; a sector-specific campaign, not a generic one &mdash; and the IDScan-linked sale of 153&nbsp;million driver-licence scans erodes the document evidence beneath remote onboarding. What holds this below High is that each is a discrete patch-and-hunt exposure or a single-organisation event, and the no-advisory-stacking rule bars aggregating them. BREEZE COMET is concentrated in Brazil with per-incident losses in the tens of thousands; the IDScan attribution is investigative, not vendor-confirmed; Apollo remains the campaign&rsquo;s only confirmed victim; and the U.S.&nbsp;Bancorp listing passed its deadline with no samples and no confirmed leak. No single issue is impacting a large portion of the sector&rsquo;s IT estates at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,16 +681,16 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-heightsfinance" data-published="2026-08-18">
+    <div class="top-story" id="it-breeze-comet" data-published="2026-09-01">
         <span class="top-story-pill">Top Story</span>
-        <h2>Heights Finance confirms breach of at least 1.2 million people via a third-party cloud platform</h2>
-        <p>Consumer lender Heights Finance has confirmed a data breach affecting at least 1.2 million individuals after intruders reached a third-party cloud platform holding customer records in early May 2026. The exposed material is the full identity-theft set: names, Social Security numbers, driver&rsquo;s licence and other government identification numbers, bank account details and dates of birth. The company reports that its loan management systems themselves were not touched &mdash; the loss sits with the outsourced platform, not the lending applications &mdash; which is precisely the pattern financial-services security teams keep meeting: the records leave through a vendor environment that sits outside the perimeter the institution instruments most heavily. Texas (734,828) and South Carolina (486,463) dominate the state-level counts, and no extortion crew has claimed the incident, so there is currently no leak-site listing to gauge what was taken or whether it will be published. For lenders and their downstream partners the practical work is twofold: confirm which third-party platforms hold copies of loan-origination and servicing records, and make sure contractual notification triggers and logging on those platforms are strong enough that an intrusion in early May would not take until August to surface publicly. Borrowers whose SSNs and bank account numbers are in scope face durable account-takeover and synthetic-identity risk that credit monitoring alone does not close.</p>
+        <h2>Google&rsquo;s threat group details BREEZE COMET &mdash; intruders who reach bank payment infrastructure and push hundreds of fraudulent transfers within 48 hours</h2>
+        <p>The Google Threat Intelligence Group and Mandiant published a detailed profile of BREEZE COMET (previously UNC5669, also tracked as Plump Spider), a financially motivated crew active since 2024 that has moved from opportunistic retail-banking fraud to direct intrusion into core financial plumbing. The targets are Brazilian banks, payment processors, fintechs and banking-software providers, and the objective is explicit: reach the National Financial System Network, obtain the mutual-TLS credentials used for Pix, STR and Boleto transfers, learn how the victim&rsquo;s own transfer approval and anti-fraud checks work, then move money. Initial access is voice phishing that impersonates IT support over phone and WhatsApp, followed by installation of legitimate RMM software such as AnyDesk; the group has also exploited vulnerable JBoss application servers, staged payloads on compromised Brazilian municipal government domains, attempted to recruit insiders, and physically connected rogue devices to retail networks. Once inside it runs a purpose-built toolkit &mdash; REALBREEZE for LDAP brute-forcing, COBALTSPIN for reverse SOCKS5 tunnelling across segmented financial networks, LIGHTPAINT for SoftEther VPN persistence, MILDFROST for DNS-tunnelled backdoor access, KICKPLATE masquerading as Windows Update Health Tools, and BOATBEAM posing as an IIS HTTPS listener on 443. It greps CI/CD systems and source repositories for hard-coded payment credentials using terms like <i>boleto</i>, <i>cnab</i>, <i>remessa</i> and instant-payment webhook patterns. Within 24 to 48 hours of establishing access the operators launch two waves of hundreds of fraudulent transactions, then clear event logs and delete their working directories. Google assesses the group is using large language models to generate reconnaissance scripts and automate deployment, and has observed infrastructure aimed at Nigeria, Paraguay, Ghana and Venezuela &mdash; so the model is being exported. For institutions outside Latin America the transferable lesson is the target selection: the crew is not after customer credentials, it is after the operator consoles, mTLS certificates and segmented payment networks that sit behind the retail banking layer, and it gets to them through a help desk and an RMM installer rather than an unpatched perimeter box.</p>
         <div class="card-meta">
-          <span>SecurityWeek (Heights Finance notification)</span>
+          <span>Google Threat Intelligence Group / Mandiant</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 18 Aug 2026 &mdash; intrusion into a third-party cloud platform in early May 2026; confirmed by the company</span>
+          <span>Published 1 Sep 2026 &mdash; activity observed from 2024 to present; confirmed intrusions and fraudulent transactions</span>
         </div>
-        <a href="https://www.securityweek.com/heights-finance-data-breach-impacts-at-least-1-2-million-individuals/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cloud.google.com/blog/topics/threat-intelligence/financially-motivated-threat-actor-breeze-comet-targets-brazil" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -718,266 +718,191 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-heightsfinance"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-kev0818"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#it-vcenter"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-blackfile"><circle class="blip high" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
-        <a href="#it-medusa"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
-        <a href="#it-taskhost"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
-        <a href="#it-gunra"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
-        <a href="#it-taxact"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
-        <a href="#it-walletvendors"><circle class="blip high" cx="227.9" cy="48.4" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="227.9" y="50.4">9</text></a>
+        <a href="#it-breeze-comet"><circle class="blip high" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-netscaler-8452"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-weblogic-21962"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
+        <a href="#it-kev-0902"><circle class="blip crit" cx="291.1" cy="94.8" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="291.1" y="98.1">4</text></a>
+        <a href="#it-idscan-nexus"><circle class="blip high" cx="155.7" cy="317.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="155.7" y="320.8">5</text></a>
+        <a href="#it-chrome-85046"><circle class="blip high" cx="104.8" cy="61.9" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="104.8" y="64.3">6</text></a>
+        <a href="#it-rmm-phish-46"><circle class="blip high" cx="315.2" cy="216.2" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="315.2" y="218.2">7</text></a>
+        <a href="#it-shaihulud-469"><circle class="blip high" cx="55.8" cy="244.6" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="55.8" y="246.6">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-heightsfinance"><span class="ld high"></span><b>1</b> Heights Finance breach, 1.2M+</a>
-        <a href="#it-kev0818"><span class="ld crit"></span><b>2</b> Four new CISA KEV items (18 Aug)</a>
-        <a href="#it-vcenter"><span class="ld crit"></span><b>3</b> VMware vCenter RCE exploited</a>
-        <a href="#it-blackfile"><span class="ld high"></span><b>4</b> BlackFile vishing campaign</a>
-        <a href="#it-medusa"><span class="ld high"></span><b>5</b> Medusa: 500+ CI victims</a>
-        <a href="#it-taskhost"><span class="ld high"></span><b>6</b> Windows Task Host abused by ransomware</a>
-        <a href="#it-gunra"><span class="ld high"></span><b>7</b> Gunra advisory names financial services</a>
-        <a href="#it-taxact"><span class="ld high"></span><b>8</b> TaxAct records claimed leaked</a>
-        <a href="#it-walletvendors"><span class="ld high"></span><b>9</b> Wallet vendors: SafePal, Trezor</a>
+        <a href="#it-breeze-comet"><span class="ld high"></span><b>1</b> BREEZE COMET hits bank payment rails</a>
+        <a href="#it-netscaler-8452"><span class="ld crit"></span><b>2</b> Citrix NetScaler RCE exploited</a>
+        <a href="#it-weblogic-21962"><span class="ld crit"></span><b>3</b> Oracle WebLogic/OHS CVSS 10.0 in KEV</a>
+        <a href="#it-kev-0902"><span class="ld crit"></span><b>4</b> Seven KEV additions, SonicWall SMA 1000</a>
+        <a href="#it-idscan-nexus"><span class="ld high"></span><b>5</b> 153M driver licence scans for sale</a>
+        <a href="#it-chrome-85046"><span class="ld high"></span><b>6</b> Chrome V8 zero-day exploited</a>
+        <a href="#it-rmm-phish-46"><span class="ld high"></span><b>7</b> RMM phishing across 46 countries</a>
+        <a href="#it-shaihulud-469"><span class="ld high"></span><b>8</b> Shai-Hulud now hunts 469 secret paths</a>
       </div>
     </div>
 
   </div>
 
-  
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-<div class="card" id="it-apollo-blackfile-breach" data-published="2026-08-21">
+<div class="card" id="it-idscan-nexus" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Breach</span>
         </div>
-        <h3>Apollo Global Management has confirmed a July cloud intrusion that exposed Social Security numbers &mdash; and the entry route was a help desk, not a vulnerability</h3>
-        <p>Apollo Global Management filed a California breach notification confirming that attackers accessed its cloud platforms between 6 and 10 July 2026, an intrusion the firm did not discover until 12 August &mdash; roughly a five-week detection gap. The exposed record set is the damaging kind: names, dates of birth, contact details, home addresses and Social Security numbers. Google attributes the activity to BlackFile, operating through the Redact, Pink, Helix and Falcon brands and affiliated with The Com, working by vishing and IT&nbsp;help-desk impersonation rather than any software flaw. There is no CVE. Extortion demands are reported to start around $3 million. Two distinctions deserve care. Apollo is the only confirmed victim: Blackstone and Bain Capital were targeted with malicious infrastructure, but a breach of either is NOT confirmed, and coverage that groups all three as compromised runs ahead of the evidence. And the initial access route was a human identity-verification process, which is what makes this a sector problem rather than one firm&rsquo;s bad week. Private-equity and asset-management shops concentrate SSN-bearing investor records, limited-partner data and live deal material into a small number of cloud tenants, and the same outsourced or thinly-staffed service desk that resets a portfolio-company employee&rsquo;s MFA also resets a partner&rsquo;s. A crew fluent in the sector&rsquo;s vocabulary can repeat this at any peer firm without touching an unpatched server.</p>
+        <h3>A dark-web service put 153 million driver licence scans on sale &mdash; and the evidence points at an identity-verification vendor banks rely on</h3>
+        <p>A marketplace calling itself Nexus appeared on 31 August 2026 offering searchable digital scans of more than 153 million US and Canadian driver licences, roughly 1.1 million of them Canadian, alongside over 10 million identification cards, more than 3 million travel documents and about 580,000 medical cards. Records were not single photographs: each licence came with roughly six image files &mdash; front, back and infrared or ultraviolet captures &mdash; plus a capture timestamp, which is the format an automated document-verification scanner produces rather than what a consumer uploads. Brian Krebs traced the likely origin to IDScan.net, a Louisiana identity-verification firm that processes tens of millions of verifications a month across more than 20,000 locations, by correlating timestamps on his own and others&rsquo; records with the exact dates those people had their IDs scanned at businesses using IDScan technology. <b>IDScan.net has not confirmed a breach</b>; the attribution rests on that correlation, and the company said only that it was investigating. The FBI&rsquo;s New Orleans field office opened an investigation, and the Nexus site went dark shortly after Krebs published. For banks, insurers and fintechs this is a direct hit on the evidence layer beneath onboarding. Remote account opening, step-up verification and contact-centre re-identification lean on a photographed government ID, and infrared and ultraviolet captures are precisely the security-feature images used to prove a document is genuine. A leaked corpus of authentic multi-spectrum scans lets an attacker satisfy a document check without ever holding the document.</p>
         <div class="card-meta">
-          <span>Apollo cloud platforms &bull; No CVE &mdash; vishing and IT help-desk impersonation</span>
+          <span>IDScan.net (unconfirmed) &bull; No CVE &mdash; identity-verification data exposure</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; intrusion confirmed by Apollo in a California breach notification; social engineering, no exploited software flaw</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; data was offered for sale on a live marketplace; source attribution is investigative, not vendor-confirmed</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; no product flaw identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; onboarding and identity-assurance control</span>
+            <span class="ops-cc"><b>Action:</b> Ask your identity-verification provider in writing this week whether IDScan.net sits anywhere in their document-capture chain, and whether captured images are retained and for how long. Where document capture is a control on its own, add a liveness or issuer-side validation step so that a genuine but stolen scan cannot pass unaided. Re-score onboarding and step-up rules on the assumption that a real front, back and UV image of a real licence is now obtainable, and watch for a rise in new-account and refund-deposit fraud over the coming weeks.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm vendor exposure and add a non-document assurance factor to onboarding &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-idscan-nexus" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-idscan-nexus">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Krebs on Security; SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Marketplace launched 31 Aug 2026; Krebs published 1 Sep 2026; FBI investigating &mdash; vendor breach not confirmed</span>
+        </div>
+        <a href="https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-apollo-blackfile" data-published="2026-08-24">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Apollo Global has completed its breach investigation: names, contact details and Social Security numbers taken in a July help-desk intrusion</h3>
+        <p>Apollo Global Management, which manages roughly $1.05 trillion in assets, has finished investigating an intrusion into its cloud platforms that ran from 6 to 10 July 2026 and confirmed that names, contact information and Social Security numbers were exposed. The company says it has found no evidence the data was published or used for fraud, and is offering identity protection and credit monitoring. It has not stated how many individuals are affected. The activity is linked to the cluster Google tracks as UNC6671 and known publicly as BlackFile, which emerged in early 2026 and runs IT-help-desk-themed voice phishing against large financial institutions in North America, Australia and the UK. There is no CVE: the entry route was a human identity-verification process, not a software flaw. Two points still deserve care. Apollo remains the only firm in this campaign with a confirmed compromise &mdash; other large financial names have been reported as targeted, and targeting is not intrusion. And the pattern is the reusable part: private-equity, asset-management and insurance groups concentrate investor and limited-partner records carrying SSNs into a small number of cloud tenants, and the same service desk that resets a junior analyst&rsquo;s MFA can reset a partner&rsquo;s. A crew that has learned the sector&rsquo;s job titles and vocabulary can repeat this at a peer firm without touching an unpatched server. BREEZE COMET, this week&rsquo;s top story, opens the same way.</p>
+        <div class="card-meta">
+          <span>Apollo Global Management cloud platforms &bull; No CVE &mdash; vishing and IT help-desk impersonation</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; intrusion confirmed by Apollo; investigation completed and notifications issued</span>
             <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; nothing to patch</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-na">No patch applicable &mdash; the control is identity-verification process</span>
-            <span class="ops-cc"><b>Action:</b> Pull the help-desk MFA-reset and password-reset runbook this week and require a second, out-of-band factor before any reset on privileged or partner-level accounts &mdash; manager callback to a directory-listed number, or a video identity check. Log every reset and alert where a reset is followed within an hour by a new device enrolment. Review cloud-tenant sign-in logs for 6&ndash;10 July for logins from unfamiliar ASNs. Confirm which investor-record stores actually hold SSNs, and check that your IR retainer covers a vishing-driven cloud compromise with no malware to find.</span>
+            <span class="ops-cc"><b>Action:</b> Require a second, out-of-band factor before any help-desk MFA or password reset on privileged, partner-level or payment-authorising accounts &mdash; a manager callback to a directory-listed number, or a video identity check. Alert where a reset is followed within an hour by a new device enrolment or a sign-in from an unfamiliar ASN. Review cloud-tenant sign-in logs for the 6&ndash;10 July window if you are a peer firm, confirm which investor-record stores actually hold SSNs, and check your IR retainer covers a social-engineering cloud compromise with no malware to find.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Harden help-desk reset verification and hunt July cloud logins &mdash; 7 days (confirmed campaign, procedural fix)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apollo-blackfile-breach" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-apollo-blackfile-breach">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Harden help-desk reset verification; hunt July cloud sign-ins &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apollo-blackfile" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apollo-blackfile">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CyberScoop; TechCrunch (Apollo breach notification; Google attribution)</span>
+          <span>SecurityWeek (Apollo breach notification; UNC6671/BlackFile attribution)</span>
           <span class="dot">&bull;</span>
-          <span>Access 6&ndash;10 Jul 2026; discovered 12 Aug 2026; disclosed 21 Aug 2026</span>
+          <span>Access 6&ndash;10 Jul 2026; investigation completed and reported 24 Aug 2026</span>
         </div>
-        <a href="https://cyberscoop.com/apollo-discloses-data-breach-social-engineering-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/personal-information-exposed-in-apollo-global-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-usbancorp-lockbit-claim" data-published="2026-08-21">
+<div class="card" id="it-stripe-merchant-keys" data-published="2026-08-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Payments</span>
+        </div>
+        <h3>Live Stripe merchant secret keys are circulating in bulk &mdash; enough to list customers, create charges and redirect refunds</h3>
+        <p>A dataset published on a criminal forum on 18 August 2026 by an actor using the handle &lsquo;Satanic&rsquo; contained live-mode Stripe secret keys for hundreds of merchant accounts together with roughly 33&ndash;35&nbsp;GB of customer and payment data: names, email addresses, phone numbers, postal addresses, partial card details such as brand, expiry and last four digits, IP addresses, transaction identifiers, invoices and active discount codes. Reporting puts the leak at 1,033 <code>sk_live_</code> keys across about 669 merchant folders and 688,363 customer records. Separately, researchers documented more than 50,000 exposed Stripe keys sitting in public GitHub repositories, unmasked GitHub Actions build logs and misconfigured web servers, and demonstrated that a single exposed key could be turned into a customer list, an attacker-created payment link and a live test charge within 17 hours. <b>Stripe itself was not breached</b> &mdash; every key belongs to a merchant that leaked its own credential. What makes this a financial-sector item rather than a merchant one is what a live secret key permits: enumerate customers and stored payment methods, create charges, issue refunds to an attacker-controlled destination, rewrite webhook endpoints so the merchant never sees the events, and in some configurations reach connected accounts through Stripe Connect. Acquirers, payment facilitators, banking-as-a-service providers and any institution with merchants or embedded-payments partners inherit the chargeback exposure and the fraud pattern, not the merchant alone.</p>
+        <div class="card-meta">
+          <span>Stripe merchant API keys &bull; No CVE &mdash; credential exposure by merchants, not a platform flaw</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; live keys published on a criminal forum; researchers demonstrated working abuse of an exposed key</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; secrets hygiene, not a vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; secrets management and payment-anomaly control</span>
+            <span class="ops-cc"><b>Action:</b> Scan your own repositories, CI logs and container images for <code>sk_live_</code> and equivalent payment-provider secrets, including full git history, and rotate anything found rather than merely deleting the commit. Replace unrestricted secret keys with restricted keys scoped to the operations each service actually needs, and pin webhook endpoints so a change requires a second approval. Alert on refunds issued to a destination that differs from the original payment method, on bulk customer-list reads, and on charges created outside your normal checkout path. If you sponsor merchants or embedded-payments partners, send them the same checklist this week.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Secret scan, key rotation and refund-destination alerting &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-stripe-merchant-keys" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-stripe-merchant-keys">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Hackread; Security Affairs (forum dataset; Ransomnews research)</span>
+          <span class="dot">&bull;</span>
+          <span>Dataset posted 18 Aug 2026; reported 19&ndash;20 Aug 2026 &mdash; carried forward, still unremediated for many merchants</span>
+        </div>
+        <a href="https://hackread.com/hacker-leak-stripe-merchant-api-keys-customer-records/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-thomson-ctrack" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Thomson Reuters&rsquo; court case-management platform was open for four months, exposing SSNs and sealed material</h3>
+        <p>West Publishing Corporation and Thomson Reuters Canada disclosed on 2 September 2026 that an unauthorised party accessed files from C-Track, the court case-management platform they operate, between 1 March and 29 June 2026. The intrusion was discovered on 30 June and courts were notified between 23 and 27 July, with public notice following at the start of September. The exposed files may contain names, Social Security numbers, driver licence numbers, dates of birth, medical information and health insurance information, and the vendor states that certain confidential, redacted or sealed material may also have been affected. Jurisdictions across eleven US states, the US Virgin Islands and Ontario are involved. No count of affected individuals has been published. This is not a financial institution, but it belongs on a financial-sector page for two reasons. First, court files are one of the richest sources of the verified name, SSN, date of birth and address combination that underpins synthetic-identity creation and knowledge-based verification at account opening &mdash; expect the downstream effect to appear as fraudulent applications weeks later rather than as an incident today. Second, the four-month dwell time in a document-rich hosted platform is the same third-party pattern that keeps producing sector losses: the records leave through a vendor environment that the institution relying on them never instruments.</p>
+        <div class="card-meta">
+          <span>Thomson Reuters / West Publishing C-Track &bull; No CVE disclosed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; unauthorised access acknowledged by the vendor; scope of affected individuals not yet published</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; intrusion method not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; fraud-monitoring and vendor-oversight control</span>
+            <span class="ops-cc"><b>Action:</b> Treat this, the IDScan corpus and the tax-data breaches of recent weeks as one cumulative supply of identity evidence and raise scrutiny on new-account applications that pass purely on document-plus-KBA checks. Add velocity and device-reputation signals at onboarding rather than tightening a single rule. Separately, ask which of your own hosted legal, e-discovery and records vendors process case material containing SSNs, and whether their contracts oblige notification within a fixed window &mdash; four months of access followed by two more months to public notice is the failure mode to design against.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Onboarding-fraud rule review and legal-vendor notification-clause check &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-thomson-ctrack" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-thomson-ctrack">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (West Publishing / Thomson Reuters Canada notices)</span>
+          <span class="dot">&bull;</span>
+          <span>Access 1 Mar &ndash; 29 Jun 2026; discovered 30 Jun; courts notified 23&ndash;27 Jul; public disclosure 2 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-usbank-lockbit" data-published="2026-08-21">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Extortion Claim</span>
         </div>
-        <h3>LockBit listed U.S. Bancorp with no samples published &mdash; the bank points to a contractor of a third-party vendor, two hops down its supply chain</h3>
-        <p>LockBit added U.S. Bancorp to its victim list on the morning of 21 August 2026 and threatened to leak within two weeks. In the reporting reviewed, the group published no samples &mdash; no file tree, no document set, nothing an outside analyst could use to test the claim. U.S. Bank&rsquo;s reply is more specific than a boilerplate denial: it states there is no evidence that its systems, networks or data repositories were compromised, and attributes the material to a contractor working for one of its third-party vendors, making this a fourth-party event. The matter has been referred to law enforcement. Nothing here is confirmed as a breach of the bank, and it should not be reported internally as one. The value to financial-services teams is in the shape of the claim rather than its truth. A leak-site post that names a large, recognisable bank while originating two hops down the supply chain produces two separate problems. The first is a communications and regulator-notification question the bank does not fully control, because the attacker sets the timing. The second is a due-diligence gap: most vendor contracts bind the direct supplier and say nothing about who that supplier subcontracts to, which means the fourth party is often invisible to the third-party risk programme that is supposed to cover it.</p>
+        <h3>LockBit&rsquo;s U.S. Bancorp deadline has come and gone with no samples and no confirmed leak</h3>
+        <p>LockBit listed U.S. Bancorp on its leak site on 21 August 2026 and threatened to publish within two weeks, putting the deadline in the first days of September. In the reporting reviewed for this update the group published no samples &mdash; no file tree, no document set, nothing an outside analyst could test &mdash; and no publication of data has been reported since. U.S. Bank&rsquo;s response was specific rather than boilerplate: it stated there was no evidence its systems, networks or data repositories were compromised, said the matter related to a fourth-party event outside its environment, and referred the case to law enforcement. <b>Nothing here is confirmed as a breach of the bank</b> and it should not be recorded internally as one; equally, the absence of a leak is not proof the claim was empty. The durable lesson is structural. A leak-site post that names a large, recognisable bank while originating two hops down the supply chain creates two problems the institution does not control. The first is timing: the attacker sets the clock on communications and regulator notification, not the bank. The second is visibility: most vendor contracts bind the direct supplier and say nothing about who that supplier subcontracts to, so the fourth party sits outside the third-party risk programme that is nominally responsible for it.</p>
         <div class="card-meta">
           <span>U.S. Bancorp &bull; No CVE &mdash; claimed fourth-party (vendor&rsquo;s contractor) incident</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Claimed only &mdash; LockBit listing with no samples published; U.S. Bank reports no evidence its own systems were compromised</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Claimed only &mdash; no samples published; U.S. Bank reports no evidence its own systems were compromised; no leak confirmed as of this update</span>
             <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; no vulnerability identified</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-na">No patch applicable &mdash; contractual and supply-chain control</span>
-            <span class="ops-cc"><b>Action:</b> Take the top tier of your vendor list and ask each supplier in writing this week to name the subcontractors that touch your data and where that data is processed. Check whether those contracts carry flow-down clauses obliging vendors to impose equivalent security and breach-notification terms on subcontractors, plus a right to be told of a subcontractor incident within a fixed window. Meanwhile hold the line internally and with customers: an unverified leak-site post with no samples is not a confirmed breach. Diarise the two-week deadline LockBit named and reassess then.</span>
+            <span class="ops-cc"><b>Action:</b> Ask your top-tier suppliers in writing to name the subcontractors that touch your data and where it is processed. Check whether those contracts carry flow-down clauses obliging vendors to impose equivalent security and breach-notification terms on subcontractors, plus a right to be told of a subcontractor incident inside a fixed window. Hold the line internally and with customers that an unverified leak-site post with no samples is not a confirmed breach, and keep a pre-drafted holding statement ready so the attacker&rsquo;s deadline does not set your communications timetable.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Subcontractor mapping for tier-one vendors and flow-down clause review &mdash; 30 days (claim unverified; the gap is structural)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-usbancorp-lockbit-claim" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-usbancorp-lockbit-claim">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Subcontractor mapping and flow-down clause review for tier-one vendors &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-usbank-lockbit" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-usbank-lockbit">Open</button>
           </div>
         </div>
         <div class="card-meta">
           <span>The Record (U.S. Bank statement; LockBit leak-site listing)</span>
           <span class="dot">&bull;</span>
-          <span>Listed 21 Aug 2026; leak threatened within two weeks</span>
+          <span>Listed 21 Aug 2026, leak threatened within two weeks &mdash; no publication reported in sources reviewed to 4 Sep 2026</span>
         </div>
         <a href="https://therecord.media/us-bank-says-breach-claims-related-to-fourth-party-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-banking-trojans-trio" data-published="2026-08-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Malware</span>
-        </div>
-        <h3>Three banking trojans surface at once &mdash; Manic relays stolen data over Bluetooth when C2 is blocked, and ToxicPanda 2.0 now targets roughly 350 financial apps</h3>
-        <p>ThreatFabric, Acronis TRU and Zimperium published near-simultaneous profiles of three unrelated financial-crime families. Manic is an Android banker and spyware hybrid aimed at Ukrainian banks and government services alongside Russian and European financial institutions and crypto/fintech platforms. Its notable capability is an offline mesh relay: when command-and-control is unreachable, it hands stolen data to nearby infected devices over Wi-Fi Direct and Bluetooth, which undercuts the assumption that severing network egress ends exfiltration. Grandoreiro, the long-running Brazil-origin Windows banker, has resurfaced in a Mexico campaign that sideloads a malicious DLL through a legitimate Duplicate Files Finder binary. ToxicPanda 2.0 is the largest change in scale: now active across 16 countries, carrying 167 remote commands and targeting roughly 350 financial applications, up from 16 in earlier versions, distributed from AWS-hosted infrastructure. None of these carries a CVE, and none compromises a bank&rsquo;s own infrastructure &mdash; which is exactly the difficulty. The attack surface is the customer&rsquo;s phone and the employee&rsquo;s desktop, where the institution has no agent, no patch cycle and little telemetry. ToxicPanda&rsquo;s jump from 16 to about 350 target apps means regional banks, credit unions and fintechs that previously sat below the targeting threshold are now inside it. Grandoreiro&rsquo;s abuse of a legitimate signed utility also means endpoint rules keyed on file reputation will stay quiet.</p>
-        <div class="card-meta">
-          <span>Android and Windows banking customers &bull; No CVE &mdash; Manic, Grandoreiro, ToxicPanda 2.0</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all three families confirmed in live campaigns by ThreatFabric, Acronis TRU and Zimperium</span>
-            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; malware families, not a vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; fraud-detection and endpoint-hunting control</span>
-            <span class="ops-cc"><b>Action:</b> Check whether your mobile banking app performs accessibility-service and screen-overlay detection and whether you actually alert on it rather than logging it. Add device-attestation, root and hook-detection failures as step-up authentication triggers for high-value transfers and payee changes. For the Grandoreiro pattern, hunt staff endpoints for Duplicate Files Finder executables loading unsigned DLLs from user-writable paths. Brief fraud and contact-centre staff that a blocked C2 no longer implies contained exfiltration, and refresh sideloaded-app guidance for any Mexico or Eastern Europe customer footprint.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Mobile overlay/attestation alerting review and Grandoreiro sideloading hunt &mdash; 14 days (active campaigns, customer-side surface)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-banking-trojans-trio" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-banking-trojans-trio">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek; BleepingComputer; Dark Reading (ThreatFabric, Acronis TRU, Zimperium research)</span>
-          <span class="dot">&bull;</span>
-          <span>Manic reported 20 Aug 2026; Grandoreiro 20 Aug 2026; combined profile 22 Aug 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/banking-trojans-manic-grandoreiro-toxicpanda-2-0-in-the-spotlight/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-iauthflow-passkey-kit" data-published="2026-08-21">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Phishing</span>
-        </div>
-        <h3>A $10,000 phishing kit enrols the attacker&rsquo;s own passkey &mdash; so a password reset and session revocation no longer evict them</h3>
-        <p>Abnormal Security has documented iAuthFlow V2, a phishing toolkit whose distinguishing behaviour is persistence rather than credential theft. During the phishing session the kit enrols an attacker-controlled passkey on the victim&rsquo;s account. Because a passkey is an independent registered authenticator rather than a stored secret, the standard containment sequence &mdash; force a password reset, revoke active sessions, re-enrol MFA &mdash; leaves the attacker&rsquo;s credential registered and still valid. Gmail is confirmed as a target. The kit sells at a $10,000 base price on a Russian-language forum. One caveat is load-bearing: Abnormal&rsquo;s analysis is drawn from forum material rather than a captured sample, so the capability is documented rather than observed in a live incident, and the extent of real-world deployment is unknown. For financial services the significance is that it inverts an assumption account-takeover playbooks are built on. Fraud and IR teams treat the password reset as the line after which an account is clean, and consequential decisions hang off that line &mdash; releasing a held transfer, restoring wire privileges, closing the case. If the intruder holds a registered passkey, the account was never actually recovered and those decisions are made on a false premise. The same logic runs on both sides of the house: customer banking accounts, and employee identity providers where a persistent authenticator on a privileged Entra or Okta account outlasts any single stolen session.</p>
-        <div class="card-meta">
-          <span>Identity providers and consumer accounts; Gmail confirmed as a target &bull; No CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Documented capability &mdash; Abnormal analysed forum material, not a malware sample; no in-the-wild incident confirmed</span>
-            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; a phishing toolkit, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; the control is account-recovery procedure and IdP alerting</span>
-            <span class="ops-cc"><b>Action:</b> Amend the account-takeover playbook this week so the recovery step is enumerate and remove every registered authenticator &mdash; passkeys, security keys, authenticator apps &mdash; not just a password reset and session revocation. In your IdP, alert on passkey and FIDO credential registration events, treating any that land within an hour of a sign-in from a new device or unusual ASN as investigable rather than informational. Confirm your customer banking app shows registered passkeys to both the customer and the contact centre. Make an authenticator inventory a close-out criterion for every compromise case.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Update ATO recovery playbook and enable passkey-registration alerting &mdash; 14 days (capability documented, not yet observed in the wild)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-iauthflow-passkey-kit" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-iauthflow-passkey-kit">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek (Abnormal Security analysis)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 21 Aug 2026; sold at $10,000 base on a Russian-language forum</span>
-        </div>
-        <a href="https://www.securityweek.com/new-phishing-toolkit-uses-passkeys-to-maintain-access-after-password-resets/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-blackfile" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>BlackFile extortion crews compromise 24+ organisations by phone, with financial firms squarely in scope</h3>
-        <p>Mandiant has published on a financially motivated cluster it tracks as UNC6671, operating publicly under four affiliate brands &mdash; Redact, Pink, Helix and Falcon &mdash; and collectively branded BlackFile. The group has compromised more than 24 organisations since January at a pace of roughly 1.5 new victims a day, and its initial access is almost entirely voice phishing: calls to staff and service desks that talk a target into approving access or resetting credentials, with no exploit required. Extortion demands open near $3 million. Flashpoint separately observed attacker infrastructure staged against Blackstone, Bain Capital, Moody&rsquo;s, CME and Apollo &mdash; <b>it is not confirmed that any of those firms were breached</b>; staged infrastructure indicates preparation or targeting interest, not intrusion, and none of the named firms has disclosed an incident. The practical read for banks, insurers and asset managers is that the sector&rsquo;s most active adversary right now walks in through the help desk, so identity-proofing procedure and call-handling discipline matter more this week than any single patch.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ~1.5 new victims per day since January</span>
-            <span class="ops-tag kev-off">Social engineering &mdash; no CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; identity and help-desk process control</span>
-            <span class="ops-cc"><b>Action:</b> Require out-of-band verification before any help-desk credential or MFA reset, remove the ability for a single agent to complete a reset unaided, and run a tabletop of a vishing call impersonating a senior executive or an IT vendor.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Help-desk identity-proofing review &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-blackfile" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-blackfile">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CyberScoop (Mandiant; Flashpoint infrastructure observations)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 17 Aug 2026 &mdash; campaign ongoing since January 2026</span>
-        </div>
-        <a href="https://cyberscoop.com/blackfile-cyberattacks-financial-sector/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-commerzbank" data-published="2026-08-14">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Arrests across Europe and Brazil over a &euro;30 million bank fraud that abused a service-provider weakness</h3>
-        <p>European and Brazilian authorities have arrested and charged suspects over a scheme that diverted roughly &euro;30 million from bank customer accounts by abusing a weakness introduced at a third-party banking service provider rather than by stealing customer credentials. The takedown spanned Germany and Brazil and involved coordinated law-enforcement action across both jurisdictions. The security lesson is uncomfortable and durable: the softest entry point into a bank is frequently its outsourced payment and transaction plumbing, where a defect in a provider&rsquo;s change or update can open a fraud window that the bank&rsquo;s own perimeter controls will never see. Detection in cases like this depends on transaction-anomaly monitoring that flags unusual direct-debit and transfer patterns quickly, not on network defences. The case also illustrates how long the tail is &mdash; the underlying fraud predates the arrests by a considerable margin, and cross-border evidence-gathering and asset seizure take years even when the facts are well documented.</p>
-        <div class="card-meta">
-          <span>BleepingComputer (European and Brazilian law-enforcement action)</span>
-          <span class="dot">&bull;</span>
-          <span>Arrests reported 14 Aug 2026 &mdash; provider weakness since remediated</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-arrested-over-30m-bank-fraud-exploiting-service-provider-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-walletvendors" data-published="2026-08-16">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>A run on hardware-wallet vendors: SafePal customer data now advertised for sale, days after Trezor</h3>
-        <p>SafePal has disclosed a breach affecting 39,798 customers, and the stolen information is now being advertised for sale &mdash; a material escalation over an exposure that stays private. It lands three days after Trezor disclosed a breach touching roughly 14,000 customers. Neither vendor reports that seed phrases, private keys or customer funds were affected; what left in both cases is customer and order data. The pattern is the point: two hardware-wallet vendors compromised inside a week through the ordinary support, CRM and fulfilment tooling that surrounds the product rather than through the wallets or any blockchain infrastructure, which suggests a shared weakness across the vendor ecosystem serving this market. The consequence for named holders is unusually concrete. A list that pairs a real name and home address with proof of hardware-wallet ownership is direct input for both targeted phishing and physical coercion, and it does not expire the way a password does.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SafePal data being advertised for sale</span>
-            <span class="ops-tag kev-off">Vendor compromise &mdash; no CVE stated</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No customer-side patch &mdash; vendor and awareness controls</span>
-            <span class="ops-cc"><b>Action:</b> If your institution custodies or services crypto assets, warn affected customers that their name-plus-ownership pairing is now circulating, and review which of your own support and fulfilment vendors hold customer contact data alongside a signal of asset holdings.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Customer notification and vendor review &mdash; 10 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-walletvendors" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-walletvendors">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (SafePal and Trezor disclosures)</span>
-          <span class="dot">&bull;</span>
-          <span>SafePal reported 16 Aug 2026; Trezor reported 13 Aug 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/safepal-data-breach-impacts-39-798-customers-stolen-info-for-sale/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-taxact" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>CLAIMED: 2 million-plus TaxAct records taken, with about 450,000 already published</h3>
-        <p>An actor claims to have acquired more than 2 million user records from tax-filing service TaxAct and says roughly 450,000 of them have already been published. <b>This is a claim, not a confirmed breach</b> &mdash; the company has not verified the assertion and the total remains unvalidated, though the portion said to be already leaked is the part most easily checked by researchers. Financial-crime teams should not wait for confirmation to act on the downstream risk. Tax-filing data is among the highest-value inputs to fraud against banks: it links verified names, Social Security numbers, income figures, employer details and often the bank account and routing numbers used for refund deposit. That combination directly enables refund fraud, but more importantly for institutions it supplies the raw material for synthetic-identity creation and for passing knowledge-based identity checks at account opening. Expect any large tax-data exposure to show up weeks later as a rise in fraudulent applications rather than as an immediate incident.</p>
-        <div class="card-meta">
-          <span>DataBreaches.net (actor claim; not confirmed by TaxAct)</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; CLAIMED, ~450,000 records said to be already published</span>
-        </div>
-        <a href="https://databreaches.net/2026/08/17/more-than-2-million-user-records-from-taxact-allegedly-acquired-450k-already-leaked/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-bitsofgold" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>CLAIMED: ~200,000 customer records from Israel&rsquo;s largest regulated crypto broker</h3>
-        <p>An actor claims to hold roughly 200,000 customer records taken from Bits of Gold, Israel&rsquo;s largest regulated cryptocurrency broker. <b>The claim is unverified</b> and has not been independently confirmed, so both the count and the contents should be treated as an assertion until the broker or a regulator says otherwise. If accurate, the sensitivity sits above the usual customer-list breach because a regulated broker&rsquo;s records are KYC-heavy by design: they tie verified government identity documents to specific customers and, by implication, to wallet holdings. That pairing is reusable &mdash; identity documents submitted once can be replayed against onboarding at other exchanges and financial institutions &mdash; and it exposes named individuals whose asset holdings can be inferred, the same targeting risk the hardware-wallet breaches raise. Institutions relying on document-image verification alone at onboarding should assume leaked KYC packets circulate and pair document checks with liveness or issuer-side validation.</p>
-        <div class="card-meta">
-          <span>DataBreaches.net (actor claim; not independently confirmed)</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; CLAIMED, ~200,000 customer records</span>
-        </div>
-        <a href="https://databreaches.net/2026/08/17/israels-largest-crypto-broker-bits-of-gold-hit-by-data-breach-affecting-200000-customers/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -985,94 +910,165 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-<div class="card" id="it-medusa" data-published="2026-08-18">
+<div class="card" id="it-rmm-phish-46" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Intel</span>
         </div>
-        <h3>CISA/FBI refresh the Medusa advisory: 500+ critical-infrastructure victims, financial services among them</h3>
-        <p>CISA and the FBI have updated their #StopRansomware advisory on Medusa (AA25-071A). The cumulative victim tally passed 500 critical-infrastructure organisations as of April 2026, up from roughly 300 in March 2025 &mdash; about 200 new victims in a year &mdash; with financial services named alongside healthcare, critical manufacturing, the defence industrial base, government facilities and IT. The finding that should change how banks schedule work is the tempo: the agencies assess that Medusa weaponises newly disclosed vulnerabilities within roughly 24 hours, and has been observed using exploits up to a week <i>before</i> public disclosure, because the operation buys exploits rather than developing them. That collapses the comfortable gap between a vendor advisory and real-world exploitation, and it means an internet-facing system left unpatched over a weekend is exposed for the whole window. For financial institutions running formal change control, the practical answer is a pre-approved emergency path for internet-facing systems that does not wait for the next change board.</p>
+        <h3>A phishing operation across 46 countries persuades staff to install real remote-management software &mdash; banking and finance are among the top targets</h3>
+        <p>Researchers have mapped a campaign spanning 46 countries in which fake documents talk recipients into installing legitimate remote monitoring and management tools. The United States accounts for about 45 per cent of observed activity, and 601 distinct cases have been linked to the operation. The delivery infrastructure is deliberately disposable: 425 phishing-kit URLs across 240 hosts, 94 per cent of which were seen for a single day, rotated through Vercel, GitHub Pages, Netlify, Amazon S3, Cloudflare R2 and compromised legitimate sites. Lures are the ordinary business kind &mdash; shipping and courier notices, Adobe PDF prompts, tax notices, Social Security Administration themes and invoices. Education, technology and government lead the target list, with banking, finance and manufacturing directly behind them. The technique matters more than the volume. Because the payload is signed, legitimate software that many organisations already use somewhere in the estate, endpoint controls keyed on file reputation stay quiet and the resulting session looks like sanctioned support. This is the same access pattern BREEZE COMET uses to reach Brazilian payment infrastructure and the same one the vishing crews behind the Apollo intrusion rely on: no exploit, no malware signature, just an authorised remote-control session opened by the user. The defensible control is an allowlist of approved RMM products enforced at execution, not detection of a malicious binary.</p>
+        <div class="card-meta">
+          <span>Global phishing campaign &bull; No CVE &mdash; abuse of legitimate RMM software</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 500+ critical-infrastructure victims cumulative</span>
-            <span class="ops-tag kev-off">RaaS operation &mdash; multiple underlying CVEs</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 601 linked cases across 46 countries; banking and finance named among leading target sectors</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; social engineering plus legitimate tooling</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; patch tempo and detection controls</span>
-            <span class="ops-cc"><b>Action:</b> Establish a standing emergency-change path that lets internet-facing systems be patched inside 24 hours of a vendor advisory, and validate the AA25-071A indicators against perimeter and identity logs.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; application-control and mail-layer control</span>
+            <span class="ops-cc"><b>Action:</b> Write down which RMM products your organisation actually sanctions, then block execution and installation of every other one via WDAC, AppLocker or your EDR&rsquo;s application control &mdash; ScreenConnect, AnyDesk, Atera, Splashtop, TeamViewer and Action1 are the usual unsanctioned arrivals. Alert on first-seen RMM process execution on any endpoint and on outbound connections to RMM cloud relays from workstations that have no support relationship. Because kit hosts live for a day, do not build detection on domains; build it on the installer and the process. Brief payments and treasury staff specifically: an inbound call plus a support-tool install request is the sector&rsquo;s current entry route.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Emergency-patch path review &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-medusa" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-medusa">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> RMM allowlist enforced and first-seen-RMM alerting enabled &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-rmm-phish-46" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-rmm-phish-46">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI #StopRansomware advisory AA25-071A (updated)</span>
+          <span>The Hacker News (campaign analysis)</span>
           <span class="dot">&bull;</span>
-          <span>Update published 18 Aug 2026 &mdash; victim tally current as of April 2026</span>
+          <span>Published 3 Sep 2026 &mdash; 425 kit URLs, 240 hosts, 46 countries</span>
         </div>
-        <a href="https://www.ic3.gov/CSA/2026/260818.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/us-becomes-top-target-in-rmm-phishing.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-windrelay" data-published="2026-08-12">
+<div class="card" id="it-mirage2fa" data-published="2026-08-25">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Intel</span>
         </div>
-        <h3>SpyNote + WindRelay turns bank customers into live NFC card relays during a fake support call</h3>
-        <p>Group-IB research describes a fraud chain aimed at bank customers in Czechia, Slovakia and Slovenia that starts with a vishing call from someone posing as bank support staff, talks the victim into installing the SpyNote RAT via abused Android Accessibility Services, then silently side-loads a companion tool called WindRelay. When the victim taps their contactless card against their own phone, WindRelay streams the live chip exchange to an attacker-controlled payment terminal, letting the fraudster complete a transaction as the card while the victim still physically holds it, often paired with fraudulent digital loan origination for a larger cash-out. Group-IB identified 23 samples on VirusTotal active between November 2025 and July 2026 and more than 70 command-and-control servers. Because the scheme never uses screen-sharing, it evades the RAT detections banks&rsquo; fraud and mobile-security teams typically rely on, making it a live, evolving threat to contactless payment security rather than a one-off scam.</p>
+        <h3>Mirage2FA phishing-as-a-service has hit 4,532 organisations by stealing the session rather than the password</h3>
+        <p>ANY.RUN published analysis of Mirage2FA, a commercial phishing-as-a-service kit aimed at Microsoft 365 that proxies the genuine Microsoft login flow and captures both credentials and the resulting session cookie. Because the victim completes a real multi-factor prompt against the real identity provider, conventional MFA does not stop the theft &mdash; the attacker simply replays the authenticated session. The researchers counted 4,532 unique organisation email domains targeted, assessed that around 48 per cent of targeted mailboxes were potentially compromised, and documented more than 9,000 potential session-theft events, with 63.7 per cent of victims in the United States and further activity in India, Singapore, the UK, Canada, Saudi Arabia and South Africa. Technology, manufacturing and education were the most-targeted industries in this dataset; finance is not called out, which is worth stating plainly. It belongs on this page anyway because of what a stolen Microsoft 365 session reaches in a bank or insurer: the mailbox used to approve payment-instruction changes, the SharePoint estate holding policy and client documents, and every downstream application federated behind the same SSO. It also pairs directly with the passkey-persistence tradecraft covered previously &mdash; a token-theft incident is an identity incident, and closing it means revoking tokens and enumerating registered authenticators, not resetting a password.</p>
+        <div class="card-meta">
+          <span>Microsoft 365 accounts &bull; No CVE &mdash; adversary-in-the-middle session theft</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; live fraud campaign, Central/Eastern Europe</span>
-            <span class="ops-tag kev-off">Mobile banking fraud &mdash; no CVE</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 4,532 targeted domains and 9,000+ potential session-theft events documented across 2024&ndash;2026</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; abuse of legitimate login flows</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No software patch &mdash; behavioural/detection control</span>
-            <span class="ops-cc"><b>Action:</b> Brief fraud-operations and customer-support teams on the WindRelay pattern, review mobile-banking app tamper and accessibility-service detections, and warn customers that legitimate bank staff never ask them to install remote-support software or tap their card to their phone.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; authentication-strength and session control</span>
+            <span class="ops-cc"><b>Action:</b> Move privileged, payments-authorising and finance-operations accounts to phishing-resistant authentication &mdash; FIDO2 security keys or platform passkeys with an authentication-strength conditional access policy that refuses anything weaker. Enable token protection and continuous access evaluation so a stolen cookie is bound to the originating device. Alert on impossible-travel and new-ASN sign-ins that reuse an existing session, and on mailbox rule creation or forwarding changes shortly after sign-in. Make token revocation plus an inventory of every registered authenticator a mandatory close-out step in the account-takeover playbook.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fraud-detection rule review &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-windrelay" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-windrelay">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing-resistant MFA on privileged and payment-approval accounts &mdash; 21 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mirage2fa" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mirage2fa">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Group-IB research</span>
+          <span>The Hacker News (ANY.RUN research)</span>
           <span class="dot">&bull;</span>
-          <span>Published 12 Aug 2026, covering activity Nov 2025 &ndash; Jul 2026</span>
+          <span>Published 25 Aug 2026 &mdash; campaign activity spanning 2024 to 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/mirage2fa-surge-hits-4500-us-and-eu.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-entra" data-published="2026-08-17">
+<div class="card" id="it-shaihulud-469" data-published="2026-09-03">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Intel</span>
+        </div>
+        <h3>Shai-Hulud now sweeps 469 credential locations across developer, CI/CD, cloud and AI tooling</h3>
+        <p>GitGuardian reported that the Shai-Hulud npm worm lineage has widened its credential sweep from 189 paths to 469 locations covering developer environments, CI/CD systems, cloud configuration and AI tool settings. The harvesting logic reads <code>.env</code> files, shell history, package-manager configuration, CLI caches, IDE settings and pipeline secrets, and the prizes it looks for are package-publishing credentials that let it propagate onward through trusted distribution, production cloud tokens, database credentials, Kubernetes cluster credentials and deployment-system tokens. The shift the researchers highlight is strategic rather than technical: instead of attacking trust relationships directly, the operators harvest credentials that are already sitting inside build environments. That is the same objective BREEZE COMET pursues when it greps CI/CD systems for hard-coded payment credentials, arrived at from a different direction. Financial institutions have spent a decade instrumenting production and comparatively little instrumenting the build plane, yet a bank&rsquo;s CI runners commonly hold cloud deployment roles, database credentials and, in fintech and payments engineering, live provider API keys &mdash; which is exactly what the Stripe key exposure demonstrated in practice. A compromise here does not look like an intrusion; it looks like a normal deployment.</p>
+        <div class="card-meta">
+          <span>npm ecosystem, CI/CD and cloud environments &bull; No CVE &mdash; supply-chain worm and credential stealer</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing npm supply-chain campaign; expanded harvesting observed by GitGuardian from early August 2026</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; malicious packages, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; secrets-management and pipeline-hardening control</span>
+            <span class="ops-cc"><b>Action:</b> Replace long-lived publishing and cloud credentials in pipelines with short-lived OIDC-federated tokens scoped to a single workflow, and remove standing cloud roles from build runners. Inventory what secrets your CI actually holds &mdash; most teams find live third-party API keys nobody remembers adding. Disable npm lifecycle scripts in CI (<code>npm ci --ignore-scripts</code>), pin dependencies by integrity hash, and require a review window before newly published transitive versions reach a build. Alert on outbound network connections from build runners to destinations outside your registry and artifact store.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> CI secrets inventory and OIDC migration for publishing credentials &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shaihulud-469" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-shaihulud-469">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (GitGuardian research)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 3 Sep 2026 &mdash; expansion identified by GitGuardian in early Aug 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/shai-huluds-reach-just-grew-to-469.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-loanlure-unicode" data-published="2026-09-04">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Phishing</span>
+        </div>
+        <h3>Microsoft details a business-lending phishing wave that hid its own keywords using invisible Unicode</h3>
+        <p>Microsoft&rsquo;s security research team published analysis of a high-volume phishing operation built around small-business finance lures &mdash; business loans, lines of credit and funding advances &mdash; aimed largely at Small Business Administration loan applicants. The evasion technique is the notable part: the operators inserted invisible Unicode tag characters from the U+E0000 to U+E007F range inside financial keywords, so that a word such as &lsquo;funding&rsquo; is fragmented at the byte level while still rendering normally to the recipient. Filters matching on literal keywords therefore see nothing to match. Volumes ran between roughly one and 2.37 million messages on weekdays, following a Monday-to-Friday pattern, peaking on 26 February 2026 before declining sharply after 15 May. The campaign used hundreds of finance-themed sender domains and relayed through a legitimate marketing platform&rsquo;s click-tracking infrastructure, which lends the links a reputable-looking domain. Fortra&rsquo;s research team had described the same invisible-character approach in September 2025. For banks and lenders there are two consequences. Content filtering that leans on keyword lists for financial-fraud themes can be bypassed by a technique that costs the sender nothing, and brand-impersonation monitoring keyed to your own name misses lures that impersonate the <i>category</i> &mdash; generic funding brands that borrowers cannot distinguish from a real lender.</p>
+        <div class="card-meta">
+          <span>Email security; small-business lending customers &bull; No CVE &mdash; filter-evasion technique</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active campaign documented by Microsoft &mdash; volumes declined sharply after 15 May 2026 but the evasion technique remains available</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; email filter evasion</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; mail-filtering and customer-awareness control</span>
+            <span class="ops-cc"><b>Action:</b> Ask your mail-security team to confirm the gateway normalises or strips Unicode tag characters (U+E0000&ndash;U+E007F) and zero-width joiners before keyword and brand matching, and add a detection for their presence in message bodies &mdash; legitimate business mail essentially never contains them. Extend brand-abuse monitoring beyond your own marks to generic lending and funding terms combined with newly registered domains. Where you originate small-business credit, remind applicants through your own channels how a genuine approach begins, since the lure impersonates the product category rather than any one lender.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Unicode normalisation check at the mail gateway and a detection rule for tag characters &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-loanlure-unicode" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-loanlure-unicode">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Microsoft security research; earlier Fortra FIRE analysis)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 4 Sep 2026 &mdash; campaign ran Feb to May 2026, peaking 26 Feb</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/phishing-campaign-sends-millions-of.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-two-socs" data-published="2026-08-25">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Intel</span>
         </div>
-        <h3>CLAIMED Entra directory theft is BEC and help-desk-impersonation fuel for the finance sector</h3>
-        <p>An actor calling itself &lsquo;TheHatman&rsquo; claims to have pulled employee directory data from Microsoft Entra tenants at a string of large enterprises using leaked credentials &mdash; roughly 3.6 million records in total, with McDonald&rsquo;s, TCS, Vodafone, HCL, IHG, Kyndryl, Gap, Hexaware and Wyndham named. <b>These are claims</b>, and Hudson Rock links most of the named victims to prior infostealer infections rather than to any vulnerability in the platform itself, so this reads as credential reuse against tenants rather than a break in Entra. Financial institutions are not on the named list, but the material matters to them anyway. Directory extracts are org charts: names, titles, managers, email formats and internal reporting lines. That is precisely the input a caller needs to impersonate a specific employee to a service desk, or a specific executive to a payments team &mdash; the same tradecraft the BlackFile crews are running against the sector right now. Treat any confirmed directory extract as a social-engineering enablement event, not merely a privacy incident.</p>
+        <h3>CISA&rsquo;s &lsquo;A Tale of Two SOCs&rsquo; shows one organisation fully compromised without noticing and another containing the same tradecraft in minutes</h3>
+        <p>CISA published red-team assessment report AA26-237A comparing two engagements. Organisation A, in government services and facilities, was compromised end to end without detecting the intrusion; Organisation B, a water and wastewater utility, spotted phishing payloads during execution and isolated the affected workstations within two to twenty minutes, before command-and-control could establish. Neither is a financial institution, which is worth saying up front &mdash; but the failure modes are ones bank and insurer SOCs share. In Organisation A, thousands of false positives from routine operations buried the genuine activity, several disconnected SOCs and endpoint tools had no shared visibility, analysts lacked the standing to escalate, and a legitimate alert on an SCCM server was written off as a false positive simply because nobody could identify who owned the system. The enabling weaknesses were equally familiar: the default machine account quota letting any domain user add computer accounts, an Active Directory Certificate Services template misconfigured in the ESC1 pattern, service-account passwords sitting in plaintext on reachable file shares, and static cloud access keys with no expiry and no revocation path, alongside over-permissioned Entra applications with broad mail-read rights. CISA&rsquo;s own summary is the line worth carrying into a board pack: detection tooling is only as good as the people, processes and ownership behind it.</p>
+        <div class="card-meta">
+          <span>CISA red team assessment AA26-237A &bull; No CVE &mdash; configuration and detection findings</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Claimed &mdash; credential-based tenant access, not a platform flaw</span>
-            <span class="ops-tag kev-off">No CVE &mdash; credential reuse</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Authorised red-team assessment &mdash; not an in-the-wild incident; findings reflect real tradecraft</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; misconfiguration and process findings</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; identity hygiene and conditional access</span>
-            <span class="ops-cc"><b>Action:</b> Audit which accounts and applications can enumerate the full directory, enforce conditional access and phishing-resistant MFA on those paths, and hunt for infostealer-sourced credentials belonging to your own staff in circulating logs.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; Active Directory hygiene and SOC-process control</span>
+            <span class="ops-cc"><b>Action:</b> Set the domain MachineAccountQuota to zero, audit ADCS templates for the ESC1 pattern (client authentication with requester-supplied subject and no manager approval), and sweep file shares and scripts for plaintext service-account credentials. Inventory static cloud access keys, set expiry, and confirm you have a tested revocation path. Review Entra application consents for broad Mail.Read or Mail.ReadWrite grants. On the process side, pick one recurring false-positive source and eliminate it rather than tuning it, and give every server an accountable owner recorded somewhere the SOC can query at 3am &mdash; the unowned SCCM box is how Organisation A was lost.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Directory-read scope audit &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-entra" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-entra">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> MachineAccountQuota, ESC1 and plaintext-credential sweep &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-two-socs" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-two-socs">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (actor claims; Hudson Rock analysis)</span>
+          <span>The Hacker News (CISA report AA26-237A)</span>
           <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; CLAIMED, ~3.6 million directory records</span>
+          <span>Reported 25 Aug 2026</span>
         </div>
-        <a href="https://www.securityweek.com/fortune-500-companies-hit-in-azure-data-theft-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/cisa-red-team-compromised-two-critical.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1080,138 +1076,175 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-<div class="card" id="it-kev0818" data-published="2026-08-18">
+<div class="card" id="it-netscaler-8452" data-published="2026-08-26">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Four new CISA KEV entries with a 21 August deadline &mdash; two of them near-universal in bank estates</h3>
-        <p>CISA added four actively exploited flaws to the Known Exploited Vulnerabilities catalog on 18 August 2026, setting a 21 August remediation deadline for federal agencies and, in practice, a sensible target for regulated financial institutions too. They are: <b>CVE-2026-33824</b>, a double free in the Microsoft Windows IKE service extensions (IKEEXT) leading to remote code execution; <b>CVE-2026-59310</b>, the Broadcom VMware vCenter path traversal already being exploited at scale; <b>CVE-2026-55040</b>, a weak-authentication security-feature bypass in Microsoft SharePoint; and <b>CVE-2026-65400</b>, improper authentication in Apple macOS Screen Sharing. For a typical bank or insurer, the first two are the priority: IKEEXT is present across the Windows fleet and sits on the IPsec path used for site-to-site connectivity, and vCenter manages the virtualisation platform underneath most of the data centre. SharePoint carries the sector&rsquo;s document and policy estate, which makes an authentication bypass there a confidentiality problem rather than an availability one.</p>
+        <h3>Citrix NetScaler is being exploited for pre-authentication code execution &mdash; web shells are already landing on gateways</h3>
+        <p>CVE-2026-8452 is a memory-overflow flaw in NetScaler ADC and NetScaler Gateway appliances configured as AAA virtual servers or Gateway VPN servers. Citrix&rsquo;s own advisory describes the consequence conservatively as unpredictable behaviour and denial of service; researchers demonstrated that it yields unauthenticated remote code execution, and watchTowr published proof-of-concept code on 14 August 2026. Exploitation began shortly afterwards. Attackers have been observed dropping web shells named <code>x.php</code> and <code>z.php</code> and running basic discovery commands such as <code>id</code> and <code>echo</code>; one vendor&rsquo;s telemetry recorded 36 exploitation attempts over twelve days from sources in several countries. CISA added the flaw to the Known Exploited Vulnerabilities catalog on 26 August 2026 with a 29 August federal remediation deadline. Fixed builds are 14.1-72.61 (FIPS), 13.1-63.18 and 13.1-37.272. For financial services this is the highest-priority item of the window. NetScaler Gateway is the remote-access and application-delivery front door in a very large share of bank, insurer and asset-manager estates, it terminates employee VPN and published-application sessions, and it sits by definition on the internet edge. A pre-auth foothold there is adjacent to identity infrastructure and to the internal networks the rest of this page&rsquo;s campaigns are trying to reach by phone.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-33824</span>
-          <span class="cve-badge">CVE-2026-59310</span>
-          <span class="cve-badge">CVE-2026-55040</span>
-          <span class="cve-badge">CVE-2026-65400</span>
+          <span class="cve-badge">CVE-2026-8452</span>
+          <span>Citrix NetScaler ADC / NetScaler Gateway (AAA and Gateway VPN virtual servers)</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed for all four</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 18 Aug 2026, deadline 21 Aug</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed &mdash; web shells deployed; public PoC released 14 Aug 2026</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 26 Aug 2026; federal remediation deadline 29 Aug</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor updates available (Microsoft, Broadcom, Apple)</span>
-            <span class="ops-cc"><b>Action:</b> Work the list in impact order &mdash; vCenter and Windows IKEEXT first, then SharePoint, then macOS Screen Sharing on any managed Mac fleet &mdash; and treat the 21 August date as your own deadline rather than a federal one.</span>
+            <span class="ops-tag patch-yes">Fixed in 14.1-72.61 (FIPS), 13.1-63.18 and 13.1-37.272</span>
+            <span class="ops-cc"><b>Action:</b> Patch every internet-facing NetScaler running an AAA or Gateway VPN virtual server now if you have not already; the federal deadline has passed and public exploit code has been available for three weeks. Then hunt regardless of patch state, because patching does not evict a foothold: look for unexpected <code>.php</code> files in web-served directories, unfamiliar processes and cron entries on the appliance, and outbound connections from the appliance itself. Rotate any credentials, session keys and certificates held on a device that could have been reached pre-patch, and force reauthentication of active gateway sessions.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> All four remediated &mdash; by 21 Aug 2026</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev0818" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kev0818">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch immediately; compromise hunt and credential rotation &mdash; 72 hours</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-netscaler-8452" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-netscaler-8452">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalog</span>
+          <span>SecurityWeek; The Hacker News (Citrix advisory; CISA KEV)</span>
           <span class="dot">&bull;</span>
-          <span>Added 18 Aug 2026 &mdash; federal remediation deadline 21 Aug 2026</span>
+          <span>PoC 14 Aug 2026; KEV listing 26 Aug 2026; exploitation reported 27 Aug 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/08/18/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-vcenter" data-published="2026-08-18">
+<div class="card" id="it-weblogic-21962" data-published="2026-08-24">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>VMware vCenter RCE under active exploitation &mdash; 361+ victim IPs, directly relevant to bank data centres</h3>
-        <p>A critical directory-traversal flaw in the vCenter Server syslog service (CVE-2026-59310, CVSS 9.8) gives unauthenticated remote code execution against the platform that manages virtual machines, datastores and, in most environments, backups. Broadcom patched it 29 July 2026; a DFIR firm recorded first attacker contact just five days later and had counted 361 distinct victim IPs across 47 countries by 7 August, with Germany, the US, Turkey, Iran and France most affected. The observed chain uses the path traversal to plant a malicious cron job for persistence, then the open-source reverse_ssh tool for command-and-control; a suspected China-nexus operator is deploying a Babuk-derived ransomware variant that researchers believe may be a smokescreen for deeper, longer-term intrusion. Banks and insurers running vSphere-based private clouds or on-premises data centres &mdash; which is most of the sector &mdash; are directly in scope: compromise of vCenter can cascade into every guest VM it manages, making this one of the highest-impact enterprise flaws of the window for financial-services infrastructure teams. CISA added the flaw to its Known Exploited Vulnerabilities catalog on 18 August 2026 with a 21 August federal remediation deadline.</p>
+        <h3>A CVSS 10.0 Oracle WebLogic proxy flaw is being exploited across 100+ countries by a China-linked operator</h3>
+        <p>CVE-2026-21962 is an improper access-control flaw in Oracle HTTP Server and the Oracle WebLogic Server Proxy Plug-in, scored CVSS 10.0, allowing an unauthenticated attacker with HTTP network access to create, delete or modify critical data. Oracle shipped patches in its January 2026 update. Exploitation has since been confirmed by several private threat-intelligence firms including GreyNoise, CloudSEK and SOCRadar, and a China-linked actor has been reported using it across more than 100 countries to deliver a downloader tracked as SNOWLIGHT. CISA added it to the Known Exploited Vulnerabilities catalog on 24 August 2026 with a federal remediation deadline of 27 August under Binding Operational Directive 26-04. The financial-sector relevance is straightforward: Oracle WebLogic and Oracle HTTP Server remain a common application tier under core banking front ends, insurance policy administration, treasury systems and internet-banking middleware, and the proxy plug-in typically sits in front of them where it is reachable. The window between a January patch and an August KEV listing is the familiar problem &mdash; the fix has existed for seven months, and the systems that still have not taken it are the ones held back by change control precisely because they are business-critical.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-59310</span>
-          <span>Broadcom / VMware vCenter &bull; CVSS 9.8</span>
+          <span class="cve-badge">CVE-2026-21962</span>
+          <span>Oracle HTTP Server / WebLogic Server Proxy Plug-in &bull; CVSS 10.0</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 361+ victim IPs across 47 countries</span>
-            <span class="ops-tag kev-on">CISA KEV 18 Aug 2026, federal deadline 21 Aug</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed by multiple intelligence vendors; SNOWLIGHT downloader delivered in 100+ countries</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 24 Aug 2026; federal deadline 27 Aug under BOD 26-04</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched: vCenter 9.1.0.0300, 9.0.2.0100, 8.0 U3/U2 fixed builds</span>
-            <span class="ops-cc"><b>Action:</b> Patch vCenter immediately if not already done, then hunt for unfamiliar cron jobs and reverse_ssh processes on management appliances regardless of patch status &mdash; assume possible pre-patch compromise given the five-day-to-mass-exploitation timeline.</span>
+            <span class="ops-tag patch-yes">Patched by Oracle in the January 2026 Critical Patch Update</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every Oracle HTTP Server and WebLogic proxy plug-in instance, including the ones fronting vendor-supplied banking and insurance applications where your team does not own the middleware, and confirm the January 2026 CPU is applied. Treat any internet-reachable instance as compromise-suspect and review web-server logs for anomalous requests and unexpected file writes back to January. If a system genuinely cannot be patched inside the week, put compensating controls in front of it &mdash; restrict source addresses, terminate at an inspecting proxy &mdash; and record the decision, because a CVSS 10.0 with confirmed exploitation is the case examiners ask about.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch and compromise hunt &mdash; 72 hours</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vcenter" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-vcenter">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch verification across all Oracle HTTP Server / WebLogic proxy instances &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-weblogic-21962" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-weblogic-21962">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>TheHackerNews / BleepingComputer</span>
+          <span>The Hacker News (Oracle advisory; CISA KEV; GreyNoise, CloudSEK, SOCRadar telemetry)</span>
           <span class="dot">&bull;</span>
-          <span>Patched 29 Jul 2026; added to CISA KEV 18 Aug 2026 &mdash; victim count as of 7 Aug 2026</span>
+          <span>Patched Jan 2026; KEV listing 24 Aug 2026, deadline 27 Aug; reported 25 Aug 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/08/suspected-china-nexus-actor-exploits.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/08/actively-exploited-oracle-weblogic-flaw.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-taskhost" data-published="2026-08-18">
+<div class="card" id="it-kev-0902" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Seven new KEV entries on 2 September &mdash; SonicWall SMA 1000 remote-access zero-days lead, and three of the seven are AI infrastructure</h3>
+        <p>CISA added seven actively exploited flaws to the Known Exploited Vulnerabilities catalog on 2 September 2026. The pair that matters most to a bank perimeter is <b>CVE-2026-83548</b>, a pre-authentication server-side request forgery in the SonicWall SMA 1000 Appliance Work Place interface scored CVSS 10.0, and <b>CVE-2026-83549</b>, an OS command injection in the SMA 1000 Appliance Management Console scored 7.8; SonicWall says it has observed exploitation of both, and chained they give unauthenticated remote code execution on a remote-access appliance. Affected models are the 6210, 7210 and 8200v, with hotfixes 12.4.3-03526 and 12.5.0-02952 or later. The rest of the batch: <b>CVE-2026-9586</b>, SQL injection in Sangoma Switchvox (9.3), used to drop reverse shells; <b>CVE-2026-82329</b>, improper authentication in JFrog Artifactory (9.8), used to mint administrative tokens and harvest credentials; <b>CVE-2026-49869</b>, OS command injection in Kestra OSS (10.0), linked to reverse shells and cryptocurrency miners; <b>CVE-2026-48710</b>, HTTP request smuggling in Kludex Starlette (6.5), chained with CVE-2026-42271 for code execution; and <b>CVE-2026-59822</b>, improper authentication in Berri LiteLLM (8.8), seen exploited in honeypots. Federal deadlines are 5 September for five of them and 16 September for the Starlette and LiteLLM entries. The Artifactory item deserves separate attention in this sector: an artifact repository with minted admin tokens is a direct path into the build plane that Shai-Hulud is also mining.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-83548</span>
+          <span class="cve-badge">CVE-2026-83549</span>
+          <span class="cve-badge">CVE-2026-82329</span>
+          <span class="cve-badge">CVE-2026-49869</span>
+          <span class="cve-badge">CVE-2026-9586</span>
+          <span class="cve-badge">CVE-2026-59822</span>
+          <span class="cve-badge">CVE-2026-48710</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation cited for all seven &mdash; vendor-observed for the SonicWall pair, honeypot and reverse-shell evidence for others</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 2 Sep 2026; deadlines 5 Sep and 16 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Vendor fixes available (SonicWall hotfixes 12.4.3-03526 / 12.5.0-02952 and later; JFrog, Sangoma, Kestra, LiteLLM, Starlette updates)</span>
+            <span class="ops-cc"><b>Action:</b> Work the list in blast-radius order: SonicWall SMA 1000 first because it is an internet-facing remote-access appliance and the vendor has seen the chain used, then JFrog Artifactory because an admin token there compromises everything you ship, then the rest. SonicWall published no indicators of compromise, so hunt behaviourally &mdash; unexpected outbound connections from the appliance, new administrative accounts, configuration changes outside your change record &mdash; and rotate appliance credentials and certificates. If you run Kestra, LiteLLM or Starlette anywhere in a data or AI pipeline, find out this week; these rarely appear in a CMDB.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> SonicWall SMA 1000 and JFrog Artifactory remediated &mdash; by 5 Sep 2026; remainder by 16 Sep</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-0902" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kev-0902">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (CISA KEV catalog; SonicWall advisory SNWLID-2026-0016)</span>
+          <span class="dot">&bull;</span>
+          <span>Added to KEV 2 Sep 2026 &mdash; federal deadlines 5 Sep and 16 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-chrome-85046" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Windows Task Host privilege-escalation flaw now being used by ransomware crews</h3>
-        <p>CISA has updated its KEV entry for CVE-2025-60710, a link-following privilege-escalation flaw in the Windows Task Host, to record that ransomware groups are now abusing it. The bug takes a low-privileged local user to SYSTEM on Windows 11 and Windows Server 2025 &mdash; the step that turns a single phished workstation or a compromised service account into domain-wide reach, which is exactly the pivot that separates a contained incident from an encrypted estate. Microsoft patched it in November 2025 and it entered KEV on 13 April 2026, so for most institutions this is not a new patch cycle but a hunt for stragglers: the machines that missed the November rollup, the servers held back by a change freeze, and the build images that were never refreshed. Given the vishing-led intrusions currently aimed at the sector, a reliable local-to-SYSTEM primitive on freshly built Windows Server 2025 hosts deserves a specific check rather than an assumption that the patch baseline is complete.</p>
+        <h3>Google patched a sixth actively exploited Chrome zero-day of the year &mdash; a V8 type confusion reachable from any web page</h3>
+        <p>Google released a Chrome update on 4 September 2026 fixing CVE-2026-85046, a type-confusion flaw in the V8 JavaScript engine that Google says is being exploited in the wild. The bug arises from array element type confusion and gives an attacker arbitrary read and write on the JavaScript heap, which is the standard primitive for arbitrary code execution inside the renderer sandbox from a crafted HTML page. It was reported by researcher Salvatore Gulizia. Fixed builds are 152.0.7977.82 and .83 on Windows and macOS and 152.0.7977.82 on Linux. Google withheld technical detail while users update, which is normal practice and means there is no public indicator to hunt on yet. This is the sixth actively exploited Chrome zero-day fixed since January 2026. For financial institutions the browser is not a peripheral concern: it is the client for internet banking administration consoles, cloud identity portals, trading and market-data terminals, SaaS payment platforms and the vendor portals through which staff approve transactions. A renderer compromise on a workstation that holds an authenticated session to any of those is a direct route to the session-theft outcome Mirage2FA achieves through phishing. Chromium-derived browsers &mdash; Edge, Brave, Opera and Electron-packaged desktop applications &mdash; need the same attention on the same schedule.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2025-60710</span>
-          <span>Microsoft Windows Task Host</span>
+          <span class="cve-badge">CVE-2026-85046</span>
+          <span>Google Chrome V8 &bull; Fixed in 152.0.7977.82/.83</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; now abused by ransomware operators</span>
-            <span class="ops-tag kev-on">In CISA KEV since 13 Apr 2026; entry updated 18 Aug</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed by Google; technical detail withheld pending update rollout</span>
+            <span class="ops-tag kev-off">Not in CISA KEV at time of writing &mdash; treat as equivalent priority</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched by Microsoft in November 2025</span>
-            <span class="ops-cc"><b>Action:</b> Report on Windows 11 and Server 2025 hosts missing the November 2025 rollup, including gold images and machines rebuilt from older media, and prioritise anything reachable from standard user accounts.</span>
+            <span class="ops-tag patch-yes">Patched: Chrome 152.0.7977.82/.83 (Windows, macOS), 152.0.7977.82 (Linux)</span>
+            <span class="ops-cc"><b>Action:</b> Force the Chrome update through your management platform rather than waiting for the background updater, and require a browser relaunch &mdash; the patch does not apply until the process restarts, which on a bank workstation can be days. Report on version compliance within 48 hours and chase the tail. Do the same for Edge and any other Chromium-based browser once the corresponding builds ship, and check whether Electron-packaged desktop applications in your estate bundle an old Chromium. Prioritise machines used for payment approval, trading and cloud administration.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch-coverage verification &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-taskhost" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-taskhost">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Fleet-wide Chrome update with enforced relaunch and version reporting &mdash; 48 hours</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-85046" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-chrome-85046">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer / CISA KEV</span>
+          <span>The Hacker News (Google Chrome stable channel release)</span>
           <span class="dot">&bull;</span>
-          <span>KEV entry updated 18 Aug 2026 &mdash; patched Nov 2025, KEV-listed 13 Apr 2026</span>
+          <span>Released 4 Sep 2026 &mdash; sixth exploited Chrome zero-day of 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/cisa-windows-task-host-flaw-now-exploited-by-ransomware-gangs/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-gunra" data-published="2026-08-10">
+<div class="card" id="it-cisco-nexus-20212" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Joint CISA/FBI advisory names financial services among Gunra ransomware's targets</h3>
-        <p>A joint CISA/FBI advisory (AA26-222A), published 10 August, details the Conti-derived Gunra ransomware-as-a-service operation and its double-extortion model, naming financial services alongside healthcare, government and other critical-infrastructure sectors among its targets. The group&rsquo;s documented initial-access route is internet-facing VPN gateways and firewalls, including known Fortinet flaws CVE-2024-55591 and CVE-2025-24472 &mdash; both older vulnerabilities that remain exploitable wherever they are left unpatched. Investigators also recorded MFA bypass during those intrusions, tens of terabytes exfiltrated through OneDrive and SharePoint in at least one case, and activity concentrated roughly between 22:00 and 06:00 victim local time &mdash; outside the hours most bank security operations are fully staffed. For financial-services security teams the advisory is a direct prompt to check exposed VPN and firewall infrastructure against these two CVEs specifically, since Gunra&rsquo;s targeting explicitly includes the sector rather than being a generic ransomware listing.</p>
+        <h3>Cisco Nexus 9000 switches expose two management ports to the network, allowing unauthenticated root code execution</h3>
+        <p>Cisco disclosed CVE-2026-20212 on 2 September 2026, a CVSS 9.8 flaw in Silicon One-based Nexus 9000 series switches where a service binds to an unrestricted IP address, leaving TCP ports 43210 and 43211 reachable and permitting unauthenticated remote code execution as root. Ten models are affected, including the N9K-C9804 and N9K-C9808 and the N9324C-SE1U, N9348Y2C6D-SE1U, N9364E and N9396 families, across NX-OS releases 10.3(1) through 10.6(3s). Cisco reports no known malicious exploitation at disclosure. Remediation is an upgrade to NX-OS 10.6(4) or later, or an infrastructure access control list blocking both ports, or the vendor&rsquo;s Live Protect shield lp00031. In the same release Cisco published a set of IOS XR advisories covering memory-safety, access-control, missing-authentication and certificate-validation issues, two of them also CVSS 9.8, affecting all current IOS XR trains. Nexus 9000 switches form the data-centre fabric in a large number of bank and insurer environments, frequently carrying the segmentation boundaries that separate payment and card-processing networks from general corporate traffic. Root on the switch is root on the boundary, which is why this belongs on the list despite no observed exploitation: the segmentation controls that BREEZE COMET tunnels around with COBALTSPIN are enforced by exactly this class of device.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20212</span>
+          <span>Cisco Nexus 9000 (Silicon One models) &bull; CVSS 9.8</span>
+        </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active RaaS operation, double extortion</span>
-            <span class="ops-tag kev-on">Underlying Fortinet CVEs (2024-55591, 2025-24472) previously KEV-listed</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known malicious exploitation reported by Cisco at disclosure</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; unauthenticated root RCE, patch on a short clock regardless</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available for both cited Fortinet CVEs</span>
-            <span class="ops-cc"><b>Action:</b> Confirm all internet-facing VPN gateways and firewalls, especially Fortinet devices, are patched against CVE-2024-55591 and CVE-2025-24472, and review the AA26-222A advisory's indicators against your perimeter logs.</span>
+            <span class="ops-tag patch-yes">Fixed in NX-OS 10.6(4) and later; ACL and Live Protect lp00031 available as mitigations</span>
+            <span class="ops-cc"><b>Action:</b> Identify which of your Nexus 9000 units are the affected Silicon One models &mdash; the flaw does not hit the whole 9000 family &mdash; and check NX-OS versions against the 10.3(1) to 10.6(3s) range. Where an upgrade cannot be scheduled immediately, apply an infrastructure ACL denying TCP 43210 and 43211 from everything except the management network, and verify it from a host on the data plane rather than assuming. Confirm switch management interfaces are on an out-of-band network at all, since exposure here depends entirely on who can reach those ports. Schedule the IOS XR maintenance updates in the same change window.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Perimeter VPN/firewall patch verification &mdash; 10 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gunra" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-gunra">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> ACL mitigation within 7 days; NX-OS upgrade at the next change window &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-nexus-20212" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-nexus-20212">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA / FBI joint advisory AA26-222A</span>
+          <span>The Hacker News (Cisco security advisories)</span>
           <span class="dot">&bull;</span>
-          <span>Published 10 Aug 2026</span>
+          <span>Advisory published 2 Sep 2026; reported 3 Sep 2026</span>
         </div>
-        <a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-222a" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/critical-cisco-nexus-9000-flaw-lets.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1219,45 +1252,104 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-<div class="card" id="it-liechtenstein" data-published="2026-08-17">
+<div class="card" id="it-taxact-ct-ag" data-published="2026-08-19">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Policy</span>
         </div>
-        <h3>Liechtenstein foundations and trusts registry breach exposes data central to bank AML due diligence</h3>
-        <p>Attackers accessed Liechtenstein&rsquo;s register of foundations and trusts and downloaded beneficial-owner names and personal details covering roughly 31,000 entities. The government says it will not pay a ransom. Liechtenstein foundations and trusts are commonly used structures in private banking and wealth-management relationships, and registries of this kind are exactly the records financial institutions rely on to satisfy anti-money-laundering and beneficial-ownership due-diligence obligations. A breach of the underlying registry data raises two distinct risks for banks: the exposed beneficial-ownership details could be used to build more convincing impersonation or business-email-compromise attacks against wealth-management clients, and institutions that rely on this registry as a source of truth for KYC/AML checks should treat its data as potentially less trustworthy until the government confirms the scope and integrity of what was accessed.</p>
+        <h3>Connecticut settles with TaxAct for $275,000 over marketing pixels that sent taxpayers&rsquo; financial details to Meta and Google</h3>
+        <p>The Connecticut Attorney General announced a $275,000 settlement with TaxAct on 19 August 2026, alleging that between January 2018 and December 2022 the company deployed Meta and Google tracking pixels and tags on its filing product and passed customer financial information to those platforms without telling customers, while its own privacy commitments said it protected that data and barred third parties from sharing it. The data described in the settlement is not incidental analytics: rounded adjusted gross income, rounded refund or amount owed, income types and deductions, number of dependents, whether charitable contributions were made, whether investment income was present, and mortgage and student-loan interest details. The remedies are the instructive part for compliance teams &mdash; TaxAct must stand up a review committee governing third-party tracking, adopt written policies for its use, run regular automated tag scanning of its site, maintain documentation of what each tag collects, and obtain two independent third-party audits. Every one of those is a control a bank, insurer or lender can be asked to evidence. Marketing and analytics tags are routinely added to account-opening flows, loan applications, quote engines and logged-in servicing pages by teams outside security, and the page context alone &mdash; a mortgage calculator, a hardship form &mdash; can be the disclosure. This settlement sets an enforcement template rather than breaking new legal ground, and other state attorneys general have shown the same appetite.</p>
         <div class="card-meta">
-          <span>Insurance Journal</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026</span>
+          <span>Connecticut Attorney General v. TaxAct &bull; $275,000 settlement &mdash; consumer privacy enforcement</span>
         </div>
-        <a href="https://www.insurancejournal.com/news/international/2026/08/17/881801.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Enforcement action concluded &mdash; no security incident; conduct covered Jan 2018 to Dec 2022</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; privacy and governance matter</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; web-governance and privacy control</span>
+            <span class="ops-cc"><b>Action:</b> Run a tag inventory across every customer-facing property this quarter, paying particular attention to authenticated servicing pages, application funnels and quote engines, and record for each tag what it collects and where the data goes. Confirm nothing fires before consent where consent is required, and that no tag sits on a page whose URL or context alone reveals a financial condition. Put a named owner and a change-approval step between marketing and production tag deployment, and add automated tag scanning so a tag added next quarter is noticed. Check your public privacy statements actually match what the tags do.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Tag inventory across customer-facing properties and consent verification &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-taxact-ct-ag" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-taxact-ct-ag">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Connecticut Office of the Attorney General (press release)</span>
+          <span class="dot">&bull;</span>
+          <span>Announced 19 Aug 2026 &mdash; conduct period Jan 2018 to Dec 2022</span>
+        </div>
+        <a href="https://portal.ct.gov/ag/press-releases/2026-press-releases/attorney-general-tong-announces-settlement-with-taxact" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-dgfip" data-published="2026-08-17">
+<div class="card" id="it-bod-2604" data-published="2026-06-10">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Policy</span>
         </div>
-        <h3>French tax authority breach hits ~680,000 &mdash; feeding the identity-fraud pipeline banks&rsquo; AML programmes must catch</h3>
-        <p>France&rsquo;s DGFiP tax authority has confirmed a breach affecting roughly 680,000 people. Attackers used a compromised employee account together with a third-party account to exfiltrate reference tax income figures, withholding rates, company identifiers and cadastral property data between June and July 2026. Passwords are not believed to have been taken. Notably, the intrusion surfaced only when the actor boasted about it on a hacking forum &mdash; a reminder that dwell time in a document-rich government system can outlast the detection controls guarding it. DGFiP is not a financial institution, but this is exactly the material that helps an attacker pass a bank&rsquo;s identity-verification and KYC checks: verified income, property holdings and business identifiers that back-stop a synthetic identity or make an account-takeover pretext convincing. Financial-crime and fraud teams should treat large government tax-data breaches as a leading indicator of subsequent account-opening and identity-fraud attempts rather than as a government IT story to note and move past.</p>
+        <h3>The three-day and fourteen-day clocks behind this month&rsquo;s KEV deadlines: BOD 26-04 in practice</h3>
+        <p>The remediation deadlines attached to the KEV additions on this page &mdash; 27 August for Oracle WebLogic, 29 August for Citrix NetScaler, 5 and 16 September for the 2 September batch &mdash; come from CISA Binding Operational Directive 26-04, issued 10 June 2026, which replaced the flat 14-day and six-month timelines of BOD 22-01 with a risk-scored model. Four variables decide the clock: whether the asset is publicly exposed, whether the flaw is in the KEV catalog, whether exploitation is automatable, and whether the technical impact is total or partial system control. The resulting matrix produces five outcomes, from three days with mandatory forensic triage for KEV flaws yielding total control of an exposed system, through three days without triage, fourteen days for most other KEV items, sixty days for lower-risk combinations, down to fix-on-upgrade where none of the four criteria are met. The methodology is CISA&rsquo;s Stakeholder-Specific Vulnerability Categorization rather than raw CVSS. Only federal civilian agencies must comply, but this is why it is carried here: financial regulators and examiners consistently reach for federal benchmarks when assessing whether a firm&rsquo;s patching standard is reasonable, and a bank whose policy still says &lsquo;critical within 30 days&rsquo; is now measurably behind a published government standard. The forensic-triage requirement is the part most firms have not budgeted for &mdash; the directive assumes an exposed, exploited, total-control flaw may already have been used.</p>
         <div class="card-meta">
-          <span>SecurityWeek (DGFiP confirmation)</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 17 Aug 2026 &mdash; exfiltration occurred between June and July 2026</span>
+          <span>CISA Binding Operational Directive 26-04 &bull; Federal civilian agencies; voluntary elsewhere</span>
         </div>
-        <a href="https://www.securityweek.com/680000-impacted-by-french-tax-authority-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Standing directive &mdash; carried forward as the framework behind current KEV deadlines, not new activity this window</span>
+            <span class="ops-tag kev-off">Sets KEV remediation timelines; not itself a vulnerability</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; vulnerability-management policy control</span>
+            <span class="ops-cc"><b>Action:</b> Re-express your vulnerability SLAs using the four BOD 26-04 variables instead of CVSS bands alone, so an internet-facing KEV flaw with total impact is not sitting in the same 30-day queue as an internal medium. Confirm you can actually answer &lsquo;is this asset publicly exposed?&rsquo; from data rather than opinion &mdash; that is usually the weakest input. Decide now who performs forensic triage on a three-day-tier finding and whether that is in your IR retainer. Bring the revised standard to the risk committee with the current KEV deadlines as the worked example.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Revised vulnerability-management standard drafted and tabled for governance &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bod-2604" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-bod-2604">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Tenable (analysis of CISA BOD 26-04)</span>
+          <span class="dot">&bull;</span>
+          <span>Directive issued 10 Jun 2026 &mdash; carried forward; governs the Sep 2026 KEV deadlines above</span>
+        </div>
+        <a href="https://www.tenable.com/blog/cisa-bod-26-04-FAQ-vulnerability-remediation-impact" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-fca-incident-rules" data-published="2026-03-18">
+        <div class="card-header">
+          <span class="severity sev-low">Low</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>No new financial-regulator activity this window &mdash; the standing deadline is the FCA incident and third-party regime landing in March 2027</h3>
+        <p>Nothing new emerged from the SEC, NYDFS, the FFIEC agencies, the EBA or the FCA between 23 August and 4 September 2026 in the sources reviewed for this update, and it is more useful to say so than to inflate a commentary piece into a policy event. The obligation that is actually approaching is the one the FCA confirmed on 18 March 2026, jointly with the Prudential Regulation Authority and the Bank of England, covering operational incident reporting and third-party arrangements. It takes effect on 18 March 2027, giving firms a twelve-month implementation period that is now roughly half spent. The regime introduces a single reporting portal shared across the three authorities, removes duplicate reporting obligations for payment service providers and credit rating agencies, allows most solo-regulated firms to submit a short form, and provides clearer guidance on thresholds, definitions and responsibilities. The FCA noted that around 40 per cent of incidents reported to it in 2025 involved a third party, citing large cloud and CDN disruptions as examples &mdash; which is the same fourth-party visibility problem the U.S. Bancorp claim illustrates from the other side. The practical preparation is unglamorous: know which incidents cross the threshold, know who signs the submission, and know your material third-party arrangements well enough to report on them within the clock. Firms in scope of both this regime and the EU&rsquo;s DORA will be running two sets of definitions.</p>
+        <div class="card-meta">
+          <span>FCA, PRA and Bank of England &bull; UK-regulated firms &mdash; effective 18 Mar 2027</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Confirmed rules with a future effective date &mdash; carried forward; no new regulator activity in this window</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; regulatory reporting obligation</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; incident-reporting and third-party governance control</span>
+            <span class="ops-cc"><b>Action:</b> With roughly six months of the implementation window left, run a tabletop against the new thresholds using a real past incident and see whether your team can decide reportability, assemble the facts and name the approver inside the required time. Reconcile your material third-party register against what you would actually have to declare, including subcontractors. Where you are in scope of both the UK regime and DORA, map the two definition sets side by side now rather than during an incident, and give one named person the reporting decision in the incident-management plan.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Reportability tabletop and third-party register reconciliation &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fca-incident-rules" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fca-incident-rules">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>FCA (news story: new incident and third party rules)</span>
+          <span class="dot">&bull;</span>
+          <span>Confirmed 18 Mar 2026; in force 18 Mar 2027 &mdash; carried forward, re-checked this run</span>
+        </div>
+        <a href="https://www.fca.org.uk/news/news-stories/fca-confirms-new-incident-and-third-party-rules-bolster-resilience" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
-
-  
-
-  
-
-  
-
-  
 
   <!-- FOOTER -->
   <div class="footer">

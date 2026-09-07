@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Sun, 06 Sep 2026, 9:20 AM ET</span>
+        <span>Generated Mon, 07 Sep 2026, 8:22 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>20</strong> stories across
+      <strong>22</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">7.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">7.0</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:75%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Raised from 6.7 to High. The trigger is a confirmed, unpatched zero-day in the software a very large share of retail runs its checkout on: Sansec published StyleSmuggler on 5 September, unauthenticated remote code execution reproduced on Magento Open Source 2.4.7, 2.4.8 and 2.4.9, with exploitation observed from 4 September, a Rust backdoor reading live session data out of Redis, and no CVE, advisory, patch or official workaround from Adobe. A first victim on a fully patched 2.4.6-p15 means currency is no defence, and Disrex independently handled further cases. That alone meets the bar of confirmed active exploitation of widely deployed software. It is not alone: Wordfence has now blocked more than 440,000 attempts against Super Forms (CVE-2026-14894) and Elementor Pro (CVE-2026-32475), both unauthenticated file upload leading to PHP execution on WordPress and WooCommerce sites, and Netskope counted over 5,400 compromised WordPress and PrestaShop sites serving ClickFix lures from blockchain-hosted payloads. Edge exposure adds to it &mdash; SonicWall SMA 1000 zero-days under attack, and NetScaler CVE-2026-19490 exploitation attempts observed on 3 September after a public proof of concept. Three large consumer breaches (IDScan, Carhartt, Manchester Airports Group) sit behind that but are single-organisation events and are not stacked into the score. It stays at 7.5 rather than higher because the Magento victim count remains small and unpublished, and Adobe&rsquo;s 8 September release may close it.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:70%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 7.0 &mdash; the bottom of High, and it sits there on one item rather than on volume. Three days after Sansec published StyleSmuggler, Adobe has still issued no CVE, advisory, patch or workaround: unauthenticated remote code execution reproduced on Magento Open Source 2.4.7, 2.4.8 and 2.4.9, exploitation observed from 4 September, a Rust implant reading live session data out of Redis, and a first victim who was fully patched on 2.4.6-p15. Adobe&rsquo;s bulletin index still shows nothing for Commerce and the next scheduled release is 8 September. Every Magento and Adobe Commerce merchant is exposed with no vendor fix to apply, and that single condition is what lifts this page above the Medium cap. Nothing else is stacked on top of it. The rest is discrete and largely patchable: Wordfence has blocked over 440,000 attempts against Super Forms (CVE-2026-14894) and Elementor Pro (CVE-2026-32475); N-able closed a maximum-severity N-central pre-auth RCE (CVE-2026-86218) on 6 September; ConnectWise has a ScreenConnect file-transfer flaw with mitigation but no patch; MikroTik routers are being taken over via CVE-2026-67276; NetScaler and SonicWall SMA edge flaws stay under attack. The large consumer breaches behind them &mdash; IDScan, Carhartt, Manchester Airports Group &mdash; are single-organisation events and do not raise the score. It is 7.0 rather than higher because confirmed Magento victims remain few and unpublished, community mitigations are circulating, and Adobe may close it on 8 September.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -683,15 +683,15 @@
 
     <div class="top-story" id="it-magento-stylesmuggler" data-published="2026-09-05">
       <span class="top-story-pill">Top Story</span>
-      <h2>An unpatched Magento and Adobe Commerce zero-day is backdooring live stores right now, and there is no vendor fix to apply</h2>
-      <p>On 5 September the Dutch e-commerce forensics firm Sansec published details of a flaw it calls StyleSmuggler &mdash; unauthenticated remote code execution in Magento Open Source and Adobe Commerce &mdash; and said explicitly that it was publishing early because stores were being compromised as it wrote. Sansec reproduced the exploit on Magento Open Source 2.4.7, 2.4.8 and 2.4.9 and reports that all current versions are affected; the first victim it examined was running 2.4.6-p15 with the August 2026 patches already applied, so being up to date is not protection here. As of 6 September there is no CVE identifier, no Adobe advisory, no patch and no official workaround: Adobe&rsquo;s security bulletin index has not moved since 11 August, and while the next scheduled release was 8 September, coverage for this issue was unconfirmed at the time of writing. The chain is quiet. Attackers plant PHP inside files Magento generates for itself, such as failure reports, then trigger execution through the standard &ldquo;Payment Transaction Failed Reminder&rdquo; email as the message is rendered, abusing the dependency-injection compiler classes to include an attacker-controlled path. No shopper or administrator has to click anything. What lands is a stripped, statically linked Rust implant of roughly 1.9MB built for x86-64 and arm64, masquerading as the kernel thread <code>[kworker/u:8:0]</code>, sitting at <code>~/.local/share/.gvfsd/gvfsd-user</code> and restored by a cron entry every five minutes; one variant opened 28 connections to the store&rsquo;s Redis instance on port 6379 to read session storage &mdash; that is live customer sessions, not just files. Sansec dates the first exploitation it observed to 4 September, and the Dutch agency Disrex independently handled three confirmed or attempted compromises. Sansec has not published a victim count. For any merchant running Magento or Adobe Commerce, this is a hunt-first item: assume the platform is exposed, look for the indicators, and treat mitigation as the interim answer until Adobe ships something.</p>
+      <h2>Day three of an unpatched Magento and Adobe Commerce zero-day that is backdooring live stores, and Adobe has still shipped nothing</h2>
+      <p>On 5 September the Dutch e-commerce forensics firm Sansec published a flaw it calls StyleSmuggler &mdash; unauthenticated remote code execution in Magento Open Source and Adobe Commerce &mdash; saying plainly that it was publishing early because stores were being compromised as it wrote. Sansec reproduced the exploit on Magento Open Source 2.4.7, 2.4.8 and 2.4.9 and reports that all current versions are affected; the first victim it examined was running 2.4.6-p15 with the August 2026 patches applied, so being current is not protection. As of the morning of 7 September nothing has changed on the vendor side: there is no CVE identifier, no Adobe advisory, no patch and no official workaround. Adobe&rsquo;s public security bulletin index still shows nothing for Commerce or Magento in September &mdash; its most recent postings are the 25 August batch for other products &mdash; and the next scheduled Commerce release is 8 September, with coverage for this issue unconfirmed. The chain is quiet. Attackers plant PHP inside files Magento generates for itself, such as failure reports, then trigger execution through the standard &ldquo;Payment Transaction Failed Reminder&rdquo; email as the message is rendered, abusing dependency-injection compiler classes to include an attacker-controlled path. Nothing has to be clicked, and the mail does not have to be delivered. What lands is a stripped, statically linked Rust implant of roughly 1.9MB built for x86-64 and arm64, masquerading as the kernel thread <code>[kworker/u:8:0]</code>, sitting at <code>~/.local/share/.gvfsd/gvfsd-user</code> and restored by a cron entry every five minutes; one store carried 1,728 duplicate cron lines that reappeared the instant they were removed, and one variant opened 28 connections to the store&rsquo;s Redis instance on port 6379 to read session storage &mdash; live customer sessions, not just files. Sansec dates the first exploitation it observed to 4 September; the Dutch hosting firm Disrex independently handled two confirmed compromises and one attempted one. Neither has published a victim count, so the confirmed population is small and the exposed population is every Magento merchant. Until Adobe moves, the interim answers being circulated are Sansec&rsquo;s advice to disable GraphQL, community server-side patches from ProxiBlue, Disrex and Graycore, disabling <code>proc_open</code> in the PHP <code>disable_functions</code> list, and mounting <code>/tmp</code>, <code>/var/tmp</code> and <code>/dev/shm</code> with <code>noexec</code>. Treat this as hunt-first: assume the platform is exposed, look for the indicators, and do not wait for a bulletin to start looking.</p>
       <div class="card-meta">
-        <span>Magento Open Source &amp; Adobe Commerce, all current versions incl. 2.4.9 &bull; No CVE assigned &bull; No vendor patch as of 6 Sep 2026 &bull; Exploitation confirmed from 4 Sep</span>
+        <span>Magento Open Source &amp; Adobe Commerce, all current versions incl. 2.4.9 &bull; No CVE assigned &bull; No vendor patch as of 7 Sep 2026 &bull; Exploitation confirmed from 4 Sep</span>
       </div>
       <div class="card-meta">
-        <span>Sansec (discovery and IoCs) / The Hacker News (corroboration, Disrex cases)</span>
+        <span>Sansec (discovery and IoCs) / The Hacker News (corroboration, Disrex cases) / Adobe security bulletin index (checked 7 Sep)</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 5 Sep 2026 &mdash; confirmed active exploitation; unpatched at time of writing</span>
+        <span>Disclosed 5 Sep 2026 &mdash; confirmed active exploitation; still unpatched at time of writing</span>
       </div>
       <a href="https://sansec.io/research/stylesmuggler" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
@@ -722,27 +722,32 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#it-magento-stylesmuggler"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-idscan-nexus"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
-        <a href="#it-wordpress-storefront-rce"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
-        <a href="#it-citrix-netscaler"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
-        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="104.8" cy="61.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="104.8" y="64.6">6</text></a>
-        <a href="#it-avada-woocommerce"><circle class="blip crit" cx="315.2" cy="216.2" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="315.2" y="218.4">7</text></a>
-        <a href="#it-mag-airports"><circle class="blip high" cx="62.0" cy="258.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="62.0" y="260.0">8</text></a>
+        <a href="#it-nable-ncentral"><circle class="blip crit" cx="237.4" cy="242.7" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="237.4" y="247.1">2</text></a>
+        <a href="#it-idscan-nexus"><circle class="blip crit" cx="60.5" cy="169.5" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="60.5" y="173.7">3</text></a>
+        <a href="#it-wordpress-storefront-rce"><circle class="blip crit" cx="231.6" cy="140.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="231.6" y="144.3">4</text></a>
+        <a href="#it-screenconnect-filetransfer"><circle class="blip crit" cx="154.0" cy="327.7" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="154.0" y="331.2">5</text></a>
+        <a href="#it-mikrotik-routeros"><circle class="blip crit" cx="126.3" cy="95.7" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="126.3" y="98.9">6</text></a>
+        <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="310.4" cy="214.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="310.4" y="217.8">7</text></a>
+        <a href="#it-citrix-netscaler"><circle class="blip crit" cx="113.5" cy="214.6" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="113.5" y="217.2">8</text></a>
+        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="219.3" cy="71.9" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="219.3" y="74.2">9</text></a>
+        <a href="#it-mag-airports"><circle class="blip high" cx="235.5" cy="314.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="235.5" y="315.9">10</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>1</b> Magento 0-day backdooring stores, no patch</a>
-        <a href="#it-idscan-nexus"><span class="ld crit"></span><b>2</b> 153M licence scans traced to IDScan</a>
-        <a href="#it-wordpress-storefront-rce"><span class="ld crit"></span><b>3</b> 440k+ attacks on storefront plugins</a>
-        <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>4</b> Carhartt: 12.9M records published</a>
-        <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>5</b> Two NetScaler flaws under attack</a>
-        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>6</b> SonicWall SMA 1000 zero-days exploited</a>
-        <a href="#it-avada-woocommerce"><span class="ld crit"></span><b>7</b> Avada theme zero-click RCE (9.8)</a>
-        <a href="#it-mag-airports"><span class="ld high"></span><b>8</b> 8.8M airport booking records dumped</a>
+        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>1</b> Magento 0-day still unpatched, stores backdoored</a>
+        <a href="#it-nable-ncentral"><span class="ld crit"></span><b>2</b> N-central CVSS 10 pre-auth RCE exploited</a>
+        <a href="#it-idscan-nexus"><span class="ld crit"></span><b>3</b> 153M licence scans traced to IDScan</a>
+        <a href="#it-wordpress-storefront-rce"><span class="ld crit"></span><b>4</b> 440k+ attacks on storefront plugins</a>
+        <a href="#it-screenconnect-filetransfer"><span class="ld crit"></span><b>5</b> ScreenConnect file transfer abused, no fix</a>
+        <a href="#it-mikrotik-routeros"><span class="ld crit"></span><b>6</b> MikroTik SSH bypass exploited on routers</a>
+        <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>7</b> Carhartt: 12.9M records published</a>
+        <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>8</b> Two NetScaler flaws under attack</a>
+        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>9</b> SonicWall SMA 1000 zero-days exploited</a>
+        <a href="#it-mag-airports"><span class="ld high"></span><b>10</b> 8.8M airport retail records dumped</a>
       </div>
     </div>
 
   </div>
+
 
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
@@ -778,6 +783,39 @@
           <span>Reported 1&ndash;5 Sep 2026 &mdash; alleged; not confirmed by IDScan</span>
         </div>
         <a href="https://www.securityweek.com/153-million-driver-license-images-offered-on-dark-web/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-trezor-shipmonk" data-published="2026-09-05">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>A fulfilment partner still held order data it had certified as deleted &mdash; and the count jumped from 13,689 to 67,000 customers</h3>
+        <p>Trezor disclosed on 5 September that far more of its customers were caught in the breach at third-party fulfilment provider ShipMonk than it first reported: 67,000 people in the United States, against the 13,689 it disclosed in August. The exposed fields are names, email addresses, phone numbers, shipping addresses and order numbers. The hardware-wallet brand is incidental; the retention failure is the story. The records date from November 2019 to August 2021, long past Trezor&rsquo;s own 90-day retention policy for order data, and Trezor says it repeatedly asked for and received written confirmation from ShipMonk that the data had been deleted in line with contract, data policy and prior correspondence. It had not been. Reporting attributes the intrusion to the ShinyHunters extortion group &mdash; the same crew behind the Carhartt dump on this page &mdash; using a critical SQL injection flaw in Metabase, tracked as CVE-2026-72898 with a CVSS score of 10.0, to reach data held in ShipMonk&rsquo;s systems; the breach was discovered on 10 August 2026. ShipMonk has not publicly acknowledged the incident. Trezor has notified affected customers and warned them to expect social engineering built on the shipping details. Any merchant that hands names and delivery addresses to a 3PL, a returns processor, a print-and-fulfil partner or a marketing agency carries the same exposure, and the shape of it is worth naming plainly: a deletion certificate is a claim, not a control, and the customer will hold the brand responsible for the partner&rsquo;s filing cabinet.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-72898</span>
+          <span>Third-party fulfilment provider &bull; Metabase SQL injection, CVSS 10.0 &bull; 67,000 US customers &bull; No payment card data reported</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach discovered 10 Aug 2026; ShinyHunters attribution per reporting; ShipMonk has not publicly acknowledged it</span>
+            <span class="ops-tag kev-off">CISA KEV status for CVE-2026-72898 not confirmed as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable to the merchant &mdash; third-party retention and assurance controls</span>
+            <span class="ops-cc"><b>Action:</b> List every partner that receives customer names and delivery addresses &mdash; 3PL and fulfilment, returns and repairs, print-and-mail, loyalty and marketing agencies &mdash; and for each one record what data goes, what the contract says about retention, and when deletion was last evidenced rather than asserted. Replace deletion attestations with evidence: a dated deletion report, a system-generated retention configuration screenshot, or an audit right you actually exercise. Where a partner runs self-hosted analytics such as Metabase, Grafana or a BI tool over your data, ask what version it is on and whether it is internet-facing. Set a calendar review rather than trusting an annual questionnaire.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Third-party retention evidence review for fulfilment and logistics partners &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trezor-shipmonk" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-trezor-shipmonk">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Trezor disclosure)</span>
+          <span class="dot">&bull;</span>
+          <span>Breach discovered 10 Aug 2026; revised figure disclosed 5 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-carhartt-shinyhunters" data-published="2026-08-27">
         <div class="card-header">
@@ -843,39 +881,6 @@
         </div>
         <a href="https://www.securityweek.com/manchester-airports-group-data-on-8-8-million-people-leaked-after-ransom-refusal/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-trezor-shipmonk" data-published="2026-09-05">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>A fulfilment partner still held order data it had certified as deleted &mdash; and the count jumped from 13,689 to 67,000 customers</h3>
-        <p>Trezor disclosed on 5 September that far more of its customers were caught in the breach at third-party fulfilment provider ShipMonk than it first reported: 67,000 people in the United States, against the 13,689 it disclosed in August. The exposed fields are names, email addresses, phone numbers, shipping addresses and order numbers. The hardware-wallet brand is incidental; the retention failure is the story. The records date from November 2019 to August 2021, long past Trezor&rsquo;s own 90-day retention policy for order data, and Trezor says it repeatedly asked for and received written confirmation from ShipMonk that the data had been deleted in line with contract, data policy and prior correspondence. It had not been. Reporting attributes the intrusion to the ShinyHunters extortion group &mdash; the same crew behind the Carhartt dump on this page &mdash; using a critical SQL injection flaw in Metabase, tracked as CVE-2026-72898 with a CVSS score of 10.0, to reach data held in ShipMonk&rsquo;s systems; the breach was discovered on 10 August 2026. ShipMonk has not publicly acknowledged the incident. Trezor has notified affected customers and warned them to expect social engineering built on the shipping details. Any merchant that hands names and delivery addresses to a 3PL, a returns processor, a print-and-fulfil partner or a marketing agency carries the same exposure, and the shape of it is worth naming plainly: a deletion certificate is a claim, not a control, and the customer will hold the brand responsible for the partner&rsquo;s filing cabinet.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-72898</span>
-          <span>Third-party fulfilment provider &bull; Metabase SQL injection, CVSS 10.0 &bull; 67,000 US customers &bull; No payment card data reported</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach discovered 10 Aug 2026; ShinyHunters attribution per reporting; ShipMonk has not publicly acknowledged it</span>
-            <span class="ops-tag kev-off">CISA KEV status for CVE-2026-72898 not confirmed as of this edition</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable to the merchant &mdash; third-party retention and assurance controls</span>
-            <span class="ops-cc"><b>Action:</b> List every partner that receives customer names and delivery addresses &mdash; 3PL and fulfilment, returns and repairs, print-and-mail, loyalty and marketing agencies &mdash; and for each one record what data goes, what the contract says about retention, and when deletion was last evidenced rather than asserted. Replace deletion attestations with evidence: a dated deletion report, a system-generated retention configuration screenshot, or an audit right you actually exercise. Where a partner runs self-hosted analytics such as Metabase, Grafana or a BI tool over your data, ask what version it is on and whether it is internet-facing. Set a calendar review rather than trusting an annual questionnaire.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Third-party retention evidence review for fulfilment and logistics partners &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trezor-shipmonk" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-trezor-shipmonk">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News (Trezor disclosure)</span>
-          <span class="dot">&bull;</span>
-          <span>Breach discovered 10 Aug 2026; revised figure disclosed 5 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
       <div class="card" id="it-hit-casinos" data-published="2026-08-31">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -907,38 +912,6 @@
           <span>Attack detected week of 25 Aug 2026; reopening from 31 Aug 2026; investigation ongoing</span>
         </div>
         <a href="https://therecord.media/slovenia-cyberattack-casinos-reopen" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-ceva-fulfilment" data-published="2026-08-17">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Still running: the CEVA Logistics compromise that produced breach notices at Pok&eacute;mon Center, Steam and a run of European retailers</h3>
-        <p>Carried forward from the previous edition and still the clearest third-party case study in this sector. Pok&eacute;mon Center notified UK and German customers on 17 August that names, mailing addresses, phone numbers, email addresses and order contents had been exposed through a compromise at CEVA Logistics, its European contract-fulfilment provider, and cancelled some orders as a result. Payment card data was reported as not accessed. The same CEVA intrusion, dated to 29 July, reached Valve&rsquo;s European Steam hardware buyers and produced delivery disruption at Bol, De Bijenkorf, Ace &amp; Tate and others, with eight European warehouses affected. As of this edition CEVA, part of the CMA CGM Group, has still not published its own disclosure &mdash; every confirmation has come from its retail customers &mdash; and no extortion group has claimed the intrusion. That silence is the durable lesson rather than a criticism of any one provider. When a 3PL holds a live copy of the order book, the retailer inherits the notification duty and the customer anger while depending on the provider for the facts it needs to notify accurately. The practical follow-up for anyone who opened this in August is unchanged and now overdue: get the exposure window and field list in writing, and confirm you can reconstruct which of your customers shipped through that provider without the provider&rsquo;s help.</p>
-        <div class="card-meta">
-          <span>Third-party fulfilment (CEVA Logistics) &bull; No CVE &bull; Payment card data reported not accessed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; downstream notifications continue; upstream provider has made no public disclosure</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, supplier compromise</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; contractual and notification controls only</span>
-            <span class="ops-cc"><b>Action:</b> If you carried an action from the August edition, close it this week: written confirmation from every logistics, fulfilment and returns provider of the exposure window and exact field list, and a check that your own notification clock runs from your knowledge date. If you have not started, begin with the list of 3PLs that hold order-level PII rather than shipping labels only. Keep briefing fraud and contact-centre staff &mdash; genuine addresses plus order contents make delivery-problem and refund phishing convincing for months after the incident.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Close out supplier exposure requests &mdash; 14 days (carried over)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ceva-fulfilment" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-ceva-fulfilment">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (Pok&eacute;mon Center notification); The Record (CEVA downstream victims)</span>
-          <span class="dot">&bull;</span>
-          <span>CEVA intrusion from 29 Jul 2026; Pok&eacute;mon Center notification 17 Aug 2026; carried forward, still current</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/pokemon-center-data-breach-exposes-customer-info-cancels-some-orders/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1082,6 +1055,106 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="it-nable-ncentral" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>N-able ships a fourth N-central hotfix in five weeks for a maximum-severity pre-authentication RCE &mdash; the platform many retail chains&rsquo; outsourced IT runs on</h3>
+        <p>N-able released N-central 2026.3 Hotfix 4 on 6 September to close CVE-2026-86218, a maximum-severity remote code execution flaw that an unauthenticated attacker can reach over the network against an internet-exposed instance using a low-complexity attack. On the question that matters most, the sourcing is not fully aligned and should be read carefully: Huntress, which surfaced the issue, quotes N-able saying that a third independent researcher alerted it to a new vulnerability already exploited in the wild and unrelated to the previously disclosed flaws, while N-able&rsquo;s customer-facing statement reported to BleepingComputer on 7 September says it has no confirmations of exploitation in production environments. Either way the company&rsquo;s instruction is unambiguous: on-premises customers should move to 2026.3 HF4 immediately. This is the fourth round in five weeks. CVE-2026-86206 and CVE-2026-86207 were addressed in 2026.3.1.13 on 5 September after Huntress reconstructed an exploit chain matching intrusions in which attackers created unauthorised administrative accounts with manipulated email naming; in early August, CVE-2026-18556 and CVE-2026-18577 were abused through the Take Control feature to pivot onto managed endpoints and stand up Cloudflare tunnels for persistence across multiple organisations. The Shadowserver Foundation counts roughly 1,500 N-central servers reachable from the internet, concentrated in the United States and Europe. The retail exposure here is indirect but severe: N-central is a remote monitoring and management platform, and a large share of small chains, franchise groups and independent stores buy their IT from a managed service provider that runs one. Whoever controls the RMM controls the agent on every till, back-office PC and server it manages, which is precisely the path several 2026 ransomware crews have taken.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-86218</span>
+          <span>N-able N-central, on-premises &bull; Fixed in 2026.3 Hotfix 4 (6 Sep 2026) &bull; ~1,500 instances exposed online</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Disputed wording &mdash; N-able quoted by Huntress as saying exploited in the wild; N-able tells press it has no confirmed production exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; N-central 2026.3 HF4, released 6 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> If you run N-central yourself, apply HF4 now and take the management interface off the public internet. If your stores are managed by an MSP, this is a supplier question and it is fair to ask it in writing today: is your N-central on 2026.3 HF4, was it internet-facing before 6 September, and what compromise assessment have you run given the August Take Control abuse? On your own side, review remote-management agents for unexpected sessions, look for administrator accounts created since early August &mdash; including odd email formats &mdash; and for unexplained Cloudflare tunnel or remote-access tooling on managed endpoints.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or obtain written MSP confirmation &mdash; 48h; endpoint review for RMM-sourced persistence &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nable-ncentral" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nable-ncentral">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (7 Sep) / Huntress research blog (6 Sep) / Shadowserver exposure counts</span>
+          <span class="dot">&bull;</span>
+          <span>Hotfix released 6 Sep 2026 &mdash; exploitation status characterised differently by N-able and Huntress</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-screenconnect-filetransfer" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>ConnectWise warns of a ScreenConnect file-transfer flaw with no patch yet, while Huntress documents rogue instances spreading scripts machine to machine</h3>
+        <p>ConnectWise disclosed on 7 September that it has identified an issue affecting file transfer behaviour in ScreenConnect Remote Support and Access sessions, in both cloud and on-premises deployments. There is no CVE identifier and no fix yet; the company says an identifier and an official fix will be issued within the week, and in the meantime points administrators at a permissions change rather than an update. Keep two things separate here. ConnectWise has described a product flaw and has not published a finding of active exploitation of it. Separately, Huntress has documented intrusions in which attackers stood up rogue ScreenConnect instances after social engineering a victim into installing a client, then used file transfer to drop a set of VBScript files, numbered 1.vbs through 4.vbs, which propagated to systems as they connected &mdash; behaviour the researchers describe as worm-like across a network. Those incidents also involved persistence, additional ScreenConnect installations, tunnelling, security-tool modification and cryptocurrency mining. Whether the documented abuse depends on the flaw ConnectWise is fixing is not something either party has stated plainly, so treat the campaign as confirmed and the exploitation of this specific issue as unconfirmed. Shadowserver counts roughly 6,000 ScreenConnect instances exposed online. For retail this is the same shape of problem as the N-central item: remote support tooling is how head office, the point-of-sale vendor and the MSP reach the store, ScreenConnect has a long history of ransomware and state-actor abuse, and a file-transfer channel that moves scripts between connected machines maps directly onto an estate of near-identical tills.</p>
+        <div class="card-meta">
+          <span>ConnectWise ScreenConnect, cloud and on-premises &bull; No CVE assigned as of 7 Sep 2026 &bull; ~6,000 instances exposed online</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not confirmed for this flaw &mdash; separately, Huntress documents active abuse of ScreenConnect file transfer by rogue instances</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch yet &mdash; vendor promises a CVE and fix within the week; permissions mitigation only</span>
+            <span class="ops-cc"><b>Action:</b> Apply the vendor mitigation now: in Administration &gt; Security &gt; Roles, clear the TransferFiles permission &mdash; TransferFilesInSession on older builds &mdash; for every session group, and restore it deliberately once the fix ships. Then hunt: review ScreenConnect audit logs for RunFiles and RanFiles entries tied to guest processes, look for ScreenConnect instances in your estate that you did not deploy, and check that your relay or on-premises server is not needlessly internet-exposed. Remind store and support staff that a call asking them to install a remote-support client is the opening move in this campaign, not an unusual one.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Disable file transfer permissions &mdash; 24h; audit-log review for unauthorised instances &mdash; 72h; patch when released</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-screenconnect-filetransfer" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-screenconnect-filetransfer">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>ConnectWise advisory via BleepingComputer (7 Sep) / Help Net Security on Huntress incident data (7 Sep)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 7 Sep 2026 &mdash; unpatched; mitigation available</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-mikrotik-routeros" data-published="2026-09-06">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CERT Polska: MikroTik routers are being taken over through an SSH authentication bypass &mdash; the cheap box in the back of a lot of stores and restaurants</h3>
+        <p>CERT Polska issued a warning that critical MikroTik RouterOS vulnerabilities are being actively exploited and that immediate updating is required. The headline flaw, CVE-2026-67276, is an SSH authentication bypass caused by improper public-key verification, rated CVSS 9.2; CVE-2026-86060, also 9.2, is an SSH privilege escalation through crafted usernames; CVE-2026-67277, at 8.8, is a memory-disclosure and denial-of-service issue in the bandwidth-test service, and four further vulnerabilities were disclosed alongside them. Chained, they let an attacker take full control of a device with internet-reachable SSH without authenticating at all. MikroTik has released fixes in 7.25beta3, 7.24.2, 7.23.4 and 6.49.21. The forensic markers CERT Polska published are unusually clean, and any retailer with these devices should search for them today: log entries reading <code>login failure for user -2</code> and <code>user [name] added by ssh:-2@[ip]</code>, and the creation of a privileged account named <code>ops</code>. Observed activity was traced to 82.192.72.4 from 2 September and to 103.102.31.18. CERT Polska is explicit that the absence of a marker does not rule out an earlier compromise. The retail relevance is simply where these devices sit. MikroTik hardware is inexpensive, capable and extremely common as the router or edge firewall in single stores, franchise sites, restaurants, salons and small hotel properties &mdash; often installed by a contractor years ago, rarely inventoried centrally, and frequently with management left reachable so the contractor can get back in. A router under attacker control sits between the payment terminal and the acquirer.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-67276</span>
+          <span class="cve-badge">CVE-2026-86060</span>
+          <span class="cve-badge">CVE-2026-67277</span>
+          <span>MikroTik RouterOS &bull; Fixed in 7.25beta3, 7.24.2, 7.23.4 and 6.49.21</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CERT Polska reports successful device takeovers, earliest observed activity 2 Sep 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; upgrade to 7.24.2, 7.23.4 or 6.49.21 depending on branch</span>
+            <span class="ops-cc"><b>Action:</b> Inventory first, because the usual failure here is not knowing the devices exist: find every MikroTik in stores, warehouses and franchise sites, including ones installed by contractors. Upgrade to a fixed release, and until you can, remove SSH and the bandwidth-test service from internet exposure and restrict management to a known address range. Then check each device for the published indicators &mdash; the <code>-2</code> log entries and an <code>ops</code> account &mdash; and review the full user list, scheduler entries, scripts and firewall rules for changes you did not make. Treat a device that shows any marker as compromised: reset it to a known-good configuration and change every credential it held rather than patching in place.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Remove SSH exposure &mdash; 24h; patch estate &mdash; 7 days; indicator sweep of all sites &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mikrotik-routeros" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mikrotik-routeros">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CERT Polska advisory (primary) / BleepingComputer and The Hacker News corroboration</span>
+          <span class="dot">&bull;</span>
+          <span>Warning published 6 Sep 2026 &mdash; confirmed exploitation from 2 Sep</span>
+        </div>
+        <a href="https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-citrix-netscaler" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>

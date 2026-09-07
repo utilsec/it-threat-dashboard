@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Telecom &amp; Media</h1>
       <div class="header-sub">Carriers, ISPs, mobile, cable &amp; media.</div>
       <div class="header-meta">
-        <span>Generated Sun, 06 Sep 2026, 9:25 AM ET</span>
+        <span>Generated Mon, 07 Sep 2026, 8:22 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Telecom &amp; Media</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>18</strong> stories across
+      <strong>12</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Telecom sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of telecom IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Up from 6.4 to 6.8, upper Medium &mdash; the window&rsquo;s defining item is not a new CVE but confirmed intrusion tradecraft aimed squarely at carrier-class infrastructure. Sygnia documented a China-nexus group, Fire Ant, running custom implants on Cisco IOS XR routers and TACACS servers: hidden GRE tunnels absent from configuration history, suppressed syslog, AAA and SNMP records, credential harvesting from the authentication path, and packet captures exported to external FTP. That is an operator&rsquo;s own routing and AAA layer turned into a collection platform, and it degrades the very telemetry used to find it. Edge exploitation continued alongside: the critical NetScaler authentication bypass CVE-2026-19490 moved from public proof-of-concept to observed attacks in about a day, drawing a Belgian national warning against 22,000+ exposed appliances, while KEV-listed exploitation of Sangoma Switchvox telephony, SonicWall SMA1000 and an earlier NetScaler flaw all remain live. New unexploited critical exposure arrived in HPE ArubaOS-CX &mdash; a CVSS 9.8 unauthenticated RCE plus 23 further flaws &mdash; and in two Cisco IOS XR RCEs. The band stays Medium because no confirmed carrier or ISP breach was disclosed this window, Sygnia did not name the victim&rsquo;s sector, and these remain discrete patch-and-hunt exposures rather than one issue degrading a large portion of telecom IT.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:69%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.9 &mdash; the top of the Medium band, up from 6.8, and capped there. The window&rsquo;s defining item is active exploitation of MikroTik RouterOS, the router platform underpinning a large share of ISP, WISP and small-carrier access networks. CERT Polska disclosed six flaws on 5 September, among them an SSH authentication bypass and an argument-injection privilege escalation both rated CVSS 9.2, and confirmed attacks from at least 2 September against internet-exposed SSH. Takeover requires no credentials, and the published indicators &mdash; an SSH user &ldquo;-2&rdquo; in login-failure logs, a new privileged account named &ldquo;ops&rdquo; &mdash; mean operators can check tonight. Three other actively-exploited items remain live on carrier-adjacent kit: the Citrix NetScaler authentication bypass CVE-2026-19490, KEV-listed SQL injection in Sangoma Switchvox telephony, and chained SonicWall SMA1000 zero-days. Behind them sits Sygnia&rsquo;s Fire Ant research documenting China-nexus implants inside Cisco IOS XR routers and TACACS servers, with syslog suppression that degrades the telemetry used to find them. New unexploited critical exposure arrived from Cisco on 2 September: a CVSS 9.8 unauthenticated root RCE in Nexus 9000 Silicon One switches, plus an IOS XR hardening release carrying two more 9.8s. The band stays Medium because no carrier or ISP disclosed a confirmed breach this window and no victim count has been published for the MikroTik attacks &mdash; discrete patch-and-hunt exposures, not one issue degrading a large portion of telecom IT.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,17 +681,17 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-fireant-iosxr-routers" data-published="2026-08-31">
+    <div class="top-story" id="it-mikrotik-routeros-ssh" data-published="2026-09-05">
         <span class="top-story-pill">Top Story</span>
-        <h2>A China-nexus group is living inside Cisco IOS XR routers and TACACS servers, turning carrier-class network gear into a listening post</h2>
-        <p>Sygnia has published incident-response research documenting new activity by Fire Ant, a China-nexus intrusion set whose operations the firm assesses as strongly overlapping with UNC3886 while stopping short of conclusive attribution. What makes it the lead item for this sector is that it is not another CVE. The group moved off the VMware hypervisor estates it was known for in 2025 and onto the network layer itself: Cisco IOS XR routers, TACACS authentication servers and Linux management hosts. On the routers a custom implant ran behind a fake system service and executed only during alternating hours to limit its exposure to observation, while a second backdoor, BridgeAgent, presented itself as legitimate Zabbix monitoring software and supplied tunnelling and persistence. The operators created GRE tunnel interfaces that left no entry in configuration history, and suppressed the syslog messages that would have described them. A separate tool, TacTap, injected into the authentication process on TACACS servers to harvest credentials as they were used. The routers then became collection platforms: packet captures written on the device and uploaded to external FTP servers, exposing internal topology, administrative sessions, authentication flows, routing relationships and the traffic exchanged with connected networks. Sygnia describes a &ldquo;target behind the target&rdquo; pattern, in which trusted infrastructure is used to probe the high-value networks that connect to it over SSH, web services, SMB/RPC and RDP.</p>
-        <p>For a carrier or ISP this is the uncomfortable kind of intrusion report, because it lands on exactly the assets that usually sit outside the security programme rather than inside it. IOS XR is the operating system of the service-provider core; TACACS is the system that decides who may touch it. Compromise both and an adversary holds traffic visibility, credential flow and the authorisation layer at once. The second half of the finding is arguably worse than the first: the actor suppressed AAA requests, SNMP traps and command output, so the telemetry an operator would reach for to answer &ldquo;has this happened to us&rdquo; is the same telemetry the actor was editing. Sygnia&rsquo;s guidance is to treat routers, TACACS servers, hypervisors and jump hosts as first-class forensic and Tier-0 assets rather than as plumbing &mdash; export their telemetry to independently administered systems, validate logs against more than one source of evidence, keep out-of-band access that does not traverse the equipment being investigated, and limit the blast radius of trust between connected networks. Sygnia declined to name the victim&rsquo;s sector or location, and has published indicators of compromise, YARA rules and hunting guidance. There is no patch here, because no vulnerability was named: this is a hunting exercise, and the two Cisco IOS XR code-execution advisories further down this page are the reason not to defer it.</p>
+        <h2>Attackers are taking over internet-exposed MikroTik routers through SSH with no credentials, and CERT Polska says it started on 2 September</h2>
+        <p>CERT Polska published an advisory on 5 September 2026 describing six vulnerabilities in MikroTik RouterOS and, separately, confirming that two of them are already being chained in the wild for complete device takeover. The two that matter most are CVE-2026-67276, a signature-verification failure in which RouterOS does not compare the complete RSA public key when matching an SSH authentication request, and CVE-2026-86060, an argument-injection flaw in SSH login handling that escalates a session to administrator when a username contains characters the platform should have rejected. Both are rated CVSS 9.2. The remaining four cover a bandwidth-test service reachable without authentication that can restart the kernel (CVE-2026-67277, CVSS 8.8), acceptance of malformed RSA PKCS#1 v1.5 signatures enabling TLS impersonation (CVE-2026-67278), an SSH state-machine defect that enters the connection protocol after a client-requested rekey and permits unauthenticated file operations (CVE-2026-67279), and an uninitialised-pointer read in the WebFig <code>/jsproxy</code> path that discloses credentials without authentication (CVE-2026-67281). MikroTik shipped fixes on 3 September in RouterOS 6.49.21, 7.23.4, 7.24.2 and 7.25beta3. CERT Polska recorded exploitation from at least 2 September, sourced to 82.192.72.4 and 103.102.31.18, and reached the findings with AI-assisted binary and protocol analysis validated by hand on live devices.</p>
+        <p>This is the item on this page most likely to describe equipment you actually operate. RouterOS is not a niche enterprise product &mdash; it is the low-cost routing, PPPoE-termination and wireless-backhaul platform that a very large number of ISPs, WISPs, hosting providers and small carriers build their access networks on, and MikroTik boxes routinely sit at the customer edge with management interfaces facing the internet because that is how they are provisioned and supported. An unauthenticated path to administrator on a device in that position gives an attacker routing control, tunnel creation, DNS redirection, traffic interception and a residential-looking egress point in one step, and history says MikroTik compromises get monetised as proxy and botnet infrastructure rather than cleaned up quietly. The saving grace is that CERT Polska published usable indicators. Look for log lines reading <code>login failure for user -2 from &lt;ip&gt; via ssh</code>, for <code>user &lt;name&gt; added by ssh:-2@&lt;ip&gt;</code>, and for the presence of a privileged account named <code>ops</code>; any of the three should be treated as a compromise rather than a curiosity. Patch first, then hunt, because patching a router that already has an attacker-created admin account does not remove the attacker. Where an immediate upgrade is not possible, CERT Polska&rsquo;s interim advice is to take SSH and the bandwidth-test server off any internet-facing interface until the update lands. No victim count and no attacker attribution have been published, and neither The Hacker News&rsquo;s review of the warning nor CERT Polska&rsquo;s own posts state how many devices have been taken over &mdash; so treat scale as unknown rather than small.</p>
         <div class="card-meta">
-          <span>Sygnia research; BleepingComputer; Cybersecurity Dive (Fire Ant; assessed overlap with UNC3886)</span>
+          <span>CERT Polska advisories (5 Sep 2026); The Hacker News; CyberInsider; SecurityAffairs</span>
           <span class="dot">&bull;</span>
-          <span>Published 31 Aug 2026</span>
+          <span>Exploitation observed from 2 Sep 2026; MikroTik fixes 3 Sep 2026; CERT Polska warning 5 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/chinese-fire-ant-hackers-turn-cisco-routers-into-spying-platforms/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -719,23 +719,23 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-fireant-iosxr-routers"><circle class="blip crit" cx="180.0" cy="132.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="136.8">1</text></a>
+        <a href="#it-mikrotik-routeros-ssh"><circle class="blip crit" cx="180.0" cy="132.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="136.8">1</text></a>
         <a href="#it-netscaler-19490-authbypass"><circle class="blip crit" cx="218.0" cy="213.0" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="218.0" y="217.3">2</text></a>
         <a href="#it-switchvox-exploited"><circle class="blip crit" cx="140.0" cy="215.0" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="140.0" y="218.8">3</text></a>
         <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="132.0" cy="152.0" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="132.0" y="155.5">4</text></a>
-        <a href="#it-arubaos-cx-rce"><circle class="blip crit" cx="232.0" cy="148.0" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="232.0" y="151.2">5</text></a>
-        <a href="#it-cisco-iosxr-rce"><circle class="blip crit" cx="180.0" cy="245.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="247.9">6</text></a>
-        <a href="#it-netscaler-8452-webshells"><circle class="blip high" cx="95.0" cy="105.0" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="95.0" y="107.6">7</text></a>
+        <a href="#it-cisco-nexus9000-root"><circle class="blip crit" cx="232.0" cy="148.0" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="232.0" y="151.2">5</text></a>
+        <a href="#it-cisco-iosxr-hardening"><circle class="blip crit" cx="180.0" cy="245.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="180.0" y="247.9">6</text></a>
+        <a href="#it-fireant-iosxr-routers"><circle class="blip high" cx="95.0" cy="105.0" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="95.0" y="107.6">7</text></a>
         <a href="#it-chrome-zeroday-v8"><circle class="blip high" cx="272.0" cy="252.0" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="272.0" y="254.2">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-fireant-iosxr-routers"><span class="ld crit"></span><b>1</b> Fire Ant implants in IOS XR routers</a>
+        <a href="#it-mikrotik-routeros-ssh"><span class="ld crit"></span><b>1</b> MikroTik RouterOS SSH takeover, exploited</a>
         <a href="#it-netscaler-19490-authbypass"><span class="ld crit"></span><b>2</b> NetScaler auth bypass now exploited</a>
         <a href="#it-switchvox-exploited"><span class="ld crit"></span><b>3</b> Switchvox VoIP SQLi exploited, in KEV</a>
         <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>4</b> SonicWall SMA1000 zero-days chained</a>
-        <a href="#it-arubaos-cx-rce"><span class="ld crit"></span><b>5</b> ArubaOS-CX 9.8 unauthenticated RCE</a>
-        <a href="#it-cisco-iosxr-rce"><span class="ld crit"></span><b>6</b> Cisco IOS XR 9.8 RCE pair patched</a>
-        <a href="#it-netscaler-8452-webshells"><span class="ld high"></span><b>7</b> NetScaler RCE exploited, web shells</a>
+        <a href="#it-cisco-nexus9000-root"><span class="ld crit"></span><b>5</b> Nexus 9000 Silicon One 9.8 root RCE</a>
+        <a href="#it-cisco-iosxr-hardening"><span class="ld crit"></span><b>6</b> IOS XR hardening release, two 9.8s</a>
+        <a href="#it-fireant-iosxr-routers"><span class="ld high"></span><b>7</b> Fire Ant implants in IOS XR routers</a>
         <a href="#it-chrome-zeroday-v8"><span class="ld high"></span><b>8</b> Chrome V8 zero-day exploited, in KEV</a>
       </div>
     </div>
@@ -751,8 +751,8 @@
           <span class="severity sev-critical">Critical</span>
           <span class="category">Incident</span>
         </div>
-        <h3>A second NetScaler flaw, this one an authentication bypass, went from public proof-of-concept to live exploitation in about a day</h3>
-        <p>CVE-2026-19490 is a critical authentication bypass in Citrix NetScaler ADC and Gateway, disclosed in a Citrix advisory on 19 August 2026. It affects appliances configured as an AAA virtual server or as a Gateway &mdash; SSL VPN, ICA Proxy, CVPN or RDP Proxy &mdash; with the precise impact varying by firmware and SAML Action configuration. After a proof-of-concept appeared publicly, Ryan Dewhurst of Previdian recorded exploitation attempts from three countries on 3 September, and Belgium&rsquo;s national cybersecurity centre issued its own exploitation warning the following day. Shadowserver counts more than 22,000 exposed NetScaler ADC appliances and close to 1,700 Gateway instances worldwide, though how many are patched is unknown. This is the second NetScaler item on this page in the same window, and the pairing is the point: one flaw was under-rated and exploited six weeks after its patch, the other was correctly rated critical and exploited roughly a day after exploit code became public. Neither timeline leaves room for a monthly appliance cycle. Authentication bypass is also the worst failure mode for a device in this role, because it strips the control that everything behind the Gateway assumes is holding &mdash; MFA, conditional access, session identity &mdash; without generating a failed-login signal for anyone to notice.</p>
+        <h3>A critical NetScaler authentication bypass went from public proof-of-concept to live exploitation in about a day</h3>
+        <p>CVE-2026-19490 is a critical authentication bypass in Citrix NetScaler ADC and Gateway, disclosed in a Citrix advisory on 19 August 2026. It affects appliances configured as an AAA virtual server or as a Gateway &mdash; SSL VPN, ICA Proxy, CVPN or RDP Proxy &mdash; with the precise impact varying by firmware and SAML Action configuration. SecurityWeek reported at disclosure that exploitation was expected; it arrived quickly. After a proof-of-concept appeared publicly, Ryan Dewhurst of Previdian recorded exploitation attempts from three countries on 3 September, and Belgium&rsquo;s national cybersecurity centre issued its own warning the following day. Shadowserver counts more than 22,000 exposed NetScaler ADC appliances and close to 1,700 Gateway instances worldwide, though how many are patched is unknown. Authentication bypass is the worst failure mode for a device in this role, because it strips the control everything behind the Gateway assumes is holding &mdash; MFA, conditional access, session identity &mdash; without generating a failed-login signal for anyone to notice. For carriers and ISPs, NetScaler typically fronts customer self-service portals, provisioning front ends and staff application access, so a bypass there is an identity problem before it is an appliance problem.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-19490</span>
           <span>Citrix NetScaler ADC / Gateway as AAA vserver or Gateway (SSL VPN, ICA Proxy, CVPN, RDP Proxy) &bull; 22,000+ ADC appliances exposed</span>
@@ -760,7 +760,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Previdian observed exploitation attempts from three countries on 3 Sep 2026 following public PoC release; Belgian CCB issued a warning</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of 6 Sep 2026 &mdash; no federal deadline attached yet</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026 &mdash; no federal deadline attached yet</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; Citrix security bulletin CTX696939, published 19 Aug 2026</span>
@@ -773,7 +773,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (Citrix bulletin CTX696939; Previdian; Shadowserver; Belgian Centre for Cybersecurity)</span>
+          <span>BleepingComputer; SecurityWeek (Citrix bulletin CTX696939; Previdian; Shadowserver; Belgian Centre for Cybersecurity)</span>
           <span class="dot">&bull;</span>
           <span>Advisory 19 Aug 2026; exploitation observed 3 Sep 2026; reported 4 Sep 2026</span>
         </div>
@@ -786,7 +786,7 @@
           <span class="category">Incident</span>
         </div>
         <h3>Attackers are exploiting an unauthenticated SQL injection in Sangoma Switchvox to reach code execution on enterprise phone systems</h3>
-        <p>Last edition&rsquo;s lead item, and still live. CVE-2026-9586 is an unauthenticated SQL injection in Sangoma Switchvox, the VoIP and unified-communications platform used to run enterprise PBX estates, rated CVSS 9.3 and exploited in the wild. The defect sits in an XML-processing endpoint that concatenates an unauthenticated <code>PhoneIP</code> parameter straight into PostgreSQL queries with no parameterisation, so an attacker who can reach the interface can run arbitrary SQL and pivot from there to code execution. Horizon3 confirmed live exploitation and published indicators of compromise; CISA added the CVE to the Known Exploited Vulnerabilities catalog on 2 September with a 5 September federal remediation date, and reporting on that KEV batch describes post-exploitation activity including reverse shells and credential harvesting. It matters more on this page than on a general IT one because Switchvox is not general-purpose enterprise software &mdash; it is telephony infrastructure, deployed by carriers, MVNOs, hosted-voice providers and the channel partners who resell them, and it typically sits close to SIP trunks and provisioning data rather than in a hardened data-centre tier. A database compromise on a PBX is not just a server; it is extension mappings, SIP registration credentials, call detail records and voicemail &mdash; the raw materials for toll fraud, for caller-ID spoofing that survives downstream trust checks, and for quiet call-metadata collection. The federal deadline has now passed. Treat any internet-reachable Switchvox as compromised until proven otherwise, and start with the SIP and administrative credentials it holds rather than with the patch alone.</p>
+        <p>CVE-2026-9586 is an unauthenticated SQL injection in Sangoma Switchvox, the VoIP and unified-communications platform used to run enterprise PBX estates, rated CVSS 9.3 and exploited in the wild. The defect sits in an XML-processing endpoint that concatenates an unauthenticated <code>PhoneIP</code> parameter straight into PostgreSQL queries with no parameterisation, so an attacker who can reach the interface can run arbitrary SQL and pivot from there to code execution. Horizon3 confirmed live exploitation and published indicators of compromise; CISA added the CVE to the Known Exploited Vulnerabilities catalog on 2 September with a 5 September federal remediation date, and reporting on that KEV batch describes post-exploitation activity including reverse shells and credential harvesting. It matters more on this page than on a general IT one because Switchvox is telephony infrastructure &mdash; deployed by carriers, MVNOs, hosted-voice providers and the channel partners who resell them, and typically sitting close to SIP trunks and provisioning data rather than in a hardened data-centre tier. A database compromise on a PBX is not just a server; it is extension mappings, SIP registration credentials, call detail records and voicemail &mdash; the raw materials for toll fraud, for caller-ID spoofing that survives downstream trust checks, and for quiet call-metadata collection. The federal deadline has now passed. Treat any internet-reachable Switchvox as compromised until proven otherwise, and start with the SIP and administrative credentials it holds rather than with the patch alone.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-9586</span>
           <span>Sangoma Switchvox VoIP / UC platform &bull; CVSS 9.3 &bull; unauthenticated SQL injection leading to code execution</span>
@@ -828,11 +828,11 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; SonicWall confirms in-the-wild chaining of both flaws for remote code execution; exploited as zero-days</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 2 Sep 2026 &mdash; remediation date 5 Sep 2026</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 2 Sep 2026 &mdash; federal remediation date 5 Sep 2026, now elapsed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; SonicWall directs customers to the latest SMA1000 hotfix build</span>
-            <span class="ops-cc"><b>Action:</b> Apply the SMA1000 hotfix now rather than at the next change window, and treat every exposed appliance as presumed-accessed given the July-onward pattern of zero-days against this product line. Reset administrative and service-account passwords on the appliance, revoke and reissue active VPN sessions and tokens, and rotate any credentials that authenticate through it &mdash; including engineer accounts used for element-management and OSS access. Pull management-console logs for unexplained command execution and outbound connections preceding the patch, and restrict the management interface to an internal jump host.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; SonicWall has published fixed SMA1000 firmware; apply the vendor advisory build</span>
+            <span class="ops-cc"><b>Action:</b> Patch SMA1000 6210, 7210 and 8200v appliances now and restrict management-console reachability to an administrative network. Because exploitation preceded the advisory, work the estate as a compromise assessment: rotate appliance administrative credentials, API keys and any shared secrets, force re-authentication for all users, and review access logs for Workplace-interface requests reaching internal services and for unexpected command execution on the management console. Give priority to accounts belonging to field engineers, NOC staff and outsourced support, whose sessions reach the widest set of internal systems.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Patch and credential rotation &mdash; 72h; compromise-assessment sweep of remote-access estate &mdash; 14 days</span>
@@ -841,346 +841,175 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer; SecurityWeek (SonicWall advisory; CISA KEV; Shadowserver exposure data)</span>
+          <span>SonicWall PSIRT; CISA KEV; BleepingComputer; SecurityWeek</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed and KEV-listed 2 Sep 2026</span>
+          <span>KEV listing and reporting 2 Sep 2026</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-coder-registry-terraform" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Attackers added their own servers to Coder&rsquo;s Cloudflare pool and served credential-stealing Terraform modules for fourteen hours</h3>
-        <p>Coder has disclosed that an attacker gained access to its Cloudflare infrastructure and added unauthorised IP addresses to the pool serving its module registry. For roughly fourteen hours on 31 August 2026, between 07:35 and 21:45 UTC, Cloudflare routed a share of module requests to attacker-controlled servers that returned tampered Terraform modules. The malicious code was an information stealer aimed at exactly what a provisioning workflow has in memory: provisioner environment variables and secrets, cloud API keys, CI/CD credentials, SSH keys, OIDC tokens and database passwords. Coder has published patched releases 2.37.0, 2.36.4, 2.35.7 and 2.34.9, SQL queries to identify affected cached modules, and the attacker domain <code>coder-infra[.]com</code> as an indicator &mdash; but it has also been candid that it cannot see the attacker&rsquo;s server logs and therefore cannot enumerate which deployments were served the malicious version. That candour is the operationally important part. For network operators the relevance is not the product so much as the pattern: infrastructure-as-code is how modern carriers build network automation, provisioning pipelines and lab environments, and the credentials a provisioner holds are frequently the ones with the broadest reach into cloud accounts and network tooling. A fourteen-hour window in a dependency-fetch path is long enough, and the absence of definitive telemetry means the safe assumption is exposure rather than a clean bill of health.</p>
-        <div class="card-meta">
-          <span>Coder module registry &bull; attack window 31 Aug 2026, 07:35&ndash;21:45 UTC &bull; fixed in 2.37.0, 2.36.4, 2.35.7, 2.34.9 &bull; indicator: coder-infra[.]com</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Coder states malicious modules were served from attacker infrastructure during the window; affected deployments cannot be enumerated</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; a vendor infrastructure compromise, not a product CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Remediated &mdash; unauthorised IPs removed and patched Coder releases published</span>
-            <span class="ops-cc"><b>Action:</b> If you run Coder, upgrade to a patched release and run Coder&rsquo;s SQL queries against cached modules. Then work the credential problem regardless of what the queries return: rotate provisioner environment secrets, cloud API keys, CI/CD tokens, SSH keys and database passwords that any workspace built or refreshed on 31 August could have held, and check egress logs and DNS resolver records for <code>coder-infra[.]com</code>. More broadly, use this to test whether your infrastructure-as-code pipelines pin module versions and verify checksums, and whether a provisioner in your environment holds credentials wider than the job it performs.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade and cached-module check &mdash; 72h; credential rotation for provisioner-held secrets &mdash; 7 days; module pinning and checksum review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-coder-registry-terraform" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-coder-registry-terraform">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer; SC Media (Coder security advisory)</span>
-          <span class="dot">&bull;</span>
-          <span>Incident 31 Aug 2026; disclosed and reported 3 Sep 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/coders-registry-infrastructure-compromised-to-push-malicious-modules/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-netscaler-8452-webshells" data-published="2026-08-27">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>A NetScaler flaw Citrix described as a denial-of-service issue turned out to allow code execution, and web shells followed within days</h3>
-        <p>Citrix patched CVE-2026-8452 on 30 June 2026 and characterised it as a high-severity memory overflow leading to unpredictable behaviour and denial of service. On 14 August researchers at watchTowr published an analysis showing the same defect reaches unauthenticated remote code execution, along with proof-of-concept code. Exploitation followed quickly: Previdian and Defused observed in-the-wild attacks that deployed web shells and ran reconnaissance commands such as <code>id</code> and <code>echo</code> on compromised appliances. CISA added the CVE to the KEV catalog on 26 August with a 29 August federal deadline. Affected builds include 14.1-72.61 (FIPS), 13.1-63.18 and 13.1-37.272. The operational lesson is about triage inputs rather than about Citrix. Organisations that scheduled this patch by its stated impact &mdash; a denial-of-service bug on an appliance with an HA pair behind it &mdash; made a defensible call on the information available and still ended up six weeks behind a working exploit. NetScaler sits in front of carrier customer portals, self-service and provisioning front ends, and internal application access; a web shell there is a foothold with reverse-proxy visibility into whatever it fronts. Where an edge appliance is concerned, treat the vendor&rsquo;s severity as a floor, not a verdict, and re-check anything patched slowly this summer for the artefacts these campaigns left behind.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-8452</span>
-          <span>Citrix NetScaler ADC / Gateway 14.1-72.61 (FIPS), 13.1-63.18, 13.1-37.272 &bull; unauthenticated RCE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; web shells and reconnaissance commands observed by Previdian and Defused after watchTowr published a PoC on 14 Aug 2026</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 26 Aug 2026 &mdash; federal deadline 29 Aug 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixes shipped 30 Jun 2026; see Citrix bulletin for the fixed build for your branch</span>
-            <span class="ops-cc"><b>Action:</b> Confirm every NetScaler ADC and Gateway is past the June build for its branch, then hunt rather than stop there. Diff the appliance filesystem against a known-good image for unexpected files in web-served paths, review NetScaler logs for anomalous shell-command execution and unusual outbound connections since mid-August, and rotate appliance administrative credentials and any session-signing material. Where appliances front customer self-service or provisioning applications, extend the hunt to the back-end systems those virtual servers proxy.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch verification &mdash; 48h; web-shell and lateral-movement hunt on all NetScaler estate &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-netscaler-8452-webshells" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-netscaler-8452-webshells">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek (watchTowr analysis; Previdian and Defused telemetry; CISA KEV)</span>
-          <span class="dot">&bull;</span>
-          <span>Patched 30 Jun 2026; PoC 14 Aug 2026; KEV 26 Aug 2026; reported 27 Aug 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
-  
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-      <div class="card" id="it-unisoc-volte" data-published="2026-08-17">
+      <div class="card" id="it-fireant-iosxr-routers" data-published="2026-08-31">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Research</span>
+          <span class="category">Threat Intel</span>
         </div>
-        <h3>The UNISOC modem chain reached over a VoLTE video call is still unfixed &mdash; no vendor firmware update, no response from the chipset maker</h3>
-        <p>Carried forward and re-checked this edition: the UNISOC modem research published by SSD Secure Disclosure on 17 August, credited to independent researcher 0x50594d, remains without a vendor fix. The chain lets an attacker with modem-level code execution disable Memory Protection Unit controls and reach Android kernel memory, escalating out of the modem context into the ability to modify kernel code. Researchers demonstrated the final stage by placing a VoLTE video call to the target handset, which puts the trigger on the operator&rsquo;s own IMS signalling path rather than on anything a subscriber installs or clicks. Devices confirmed affected include the Xiaomi Redmi A5 and the Motorola E13, with testing also performed on a Realme C33; SSD is explicit that this is not an exhaustive list of affected handsets. These are high-volume budget devices, and in some markets a single model represents a meaningful share of an operator&rsquo;s active fleet. The work is proof-of-concept and there are no reports of exploitation in the wild. What keeps it on the page is the remediation gap: with no firmware to push, network-side controls are the only lever operators hold. That means IMS and VoLTE monitoring for anomalous video-call session setup, screening and rate-limiting of malformed signalling, and an accurate model-level inventory so exposure can be quantified now and remediated whenever firmware eventually ships.</p>
+        <h3>A China-nexus group is living inside Cisco IOS XR routers and TACACS servers, turning carrier-class network gear into a listening post</h3>
+        <p>Sygnia has published incident-response research documenting activity by Fire Ant, a China-nexus intrusion set whose operations the firm assesses as strongly overlapping with UNC3886 while noting differences in filenames, paths and implementation that stop short of conclusive attribution. What makes it matter for this sector is that it is not a CVE. The group moved off the VMware hypervisor estates it was known for and onto the network layer itself: Cisco IOS XR routers, TACACS authentication servers and Linux management hosts. On the routers a custom implant ran behind a fake system service on an alternating schedule to limit its exposure to observation, while a second backdoor, BridgeAgent, presented itself as a legitimate Zabbix monitoring agent and supplied tunnelling and persistence. The operators created GRE tunnel interfaces that left no entry in configuration history and suppressed the syslog messages that would have described them, took interactive shell access without logging, and manipulated file timestamps to frustrate forensics. The routers then became collection platforms, with packet captures written on the device and uploaded to external FTP servers &mdash; exposing internal topology, administrative sessions, authentication flows and routing relationships. Sygnia describes a &ldquo;target behind the target&rdquo; pattern, in which trusted infrastructure is used to reach the high-value networks that connect to it.</p>
+        <p>For a carrier or ISP this lands on exactly the assets that usually sit outside the security programme rather than inside it. IOS XR is the operating system of the service-provider core; TACACS decides who may touch it. Compromise both and an adversary holds traffic visibility, credential flow and the authorisation layer at once. The second half of the finding is worse than the first: because the actor suppressed logging, the telemetry an operator would reach for to answer &ldquo;has this happened to us&rdquo; is the same telemetry the actor was editing. Sygnia&rsquo;s guidance is to treat routers, TACACS servers, hypervisors and jump hosts as first-class forensic and Tier-0 assets &mdash; export their telemetry to independently administered systems, validate logs against more than one source of evidence, keep out-of-band access that does not traverse the equipment being investigated, and limit the blast radius of trust between connected networks. Sygnia declined to name the victim&rsquo;s sector or location and has published indicators of compromise, YARA rules and hunting guidance. There is no patch, because no vulnerability was named: this is a hunting exercise, and the IOS XR hardening release further down this page is the reason not to defer it.</p>
         <div class="card-meta">
-          <span>UNISOC modem firmware &bull; Xiaomi Redmi A5, Motorola E13, Realme C33 tested &bull; trigger reached over a VoLTE video call</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; proof-of-concept research; no in-the-wild activity reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned in the disclosure</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Unpatched &mdash; re-checked 6 Sep 2026: no vendor firmware update identified and UNISOC has not responded to the researchers</span>
-            <span class="ops-cc"><b>Action:</b> Because no fix exists to distribute, treat this as a network-control problem. Build a model-level inventory of UNISOC-based handsets active on your network so the exposed population is a number rather than a guess. Instrument the IMS core for anomalous video-call session setup &mdash; unusual INVITE patterns, malformed SDP, repeated setup attempts against single subscribers &mdash; and apply rate limiting and screening at the signalling border, including on roaming and interconnect paths where the call may originate. Open a tracked channel with device vendors and UNISOC and record the non-response.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Handset-model exposure inventory &mdash; 30 days; IMS signalling anomaly monitoring &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-unisoc-volte" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-unisoc-volte">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Infosecurity Magazine (SSD Secure Disclosure; researcher 0x50594d)</span>
+          <span>Sygnia research; BleepingComputer (Fire Ant; assessed overlap with UNC3886)</span>
           <span class="dot">&bull;</span>
-          <span>Published 17 Aug 2026; still no fix as of 6 Sep 2026</span>
+          <span>Published 31 Aug 2026</span>
         </div>
-        <a href="https://www.infosecurity-magazine.com/news/unisoc-modem-flaw-rce-calls/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/chinese-fire-ant-hackers-turn-cisco-routers-into-spying-platforms/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-clickfix-blockchain" data-published="2026-09-05">
+      <div class="card" id="it-cameraswarm-dahua" data-published="2026-08-19">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
+          <span class="category">Threat Intel</span>
         </div>
-        <h3>More than 5,400 hacked websites are serving ClickFix lures whose payload logic lives on a public blockchain, so there is no takedown target</h3>
-        <p>Netskope has published analysis of a long-running campaign that has compromised over 5,400 websites, predominantly small-business WordPress and PrestaShop installations, and injected script that displays a ClickFix lure: a fake CAPTCHA instructing the visitor to open the Windows Run dialog and paste a PowerShell command. The distinguishing feature is where the payload logic lives. Rather than a hosted staging server, the operators store it in a smart contract on the BNB Smart Chain testnet &mdash; the technique commonly labelled EtherHiding &mdash; so the delivery infrastructure sits on a public, immutable, permissionless ledger. There is no host to seize, no registrar to notify and no domain to sinkhole, and the operators can change the payload by writing a new transaction. Netskope also documented an evolution in which the injected code opens a WebRTC peer connection and data channel, giving the attacker a covert encrypted path that blends into ordinary browser traffic rather than presenting as a conventional command-and-control beacon. Telemetry showed roughly 300 infected sites active on a given day, peaking at 536 endpoint calls during August. For carriers and ISPs the exposure runs in two directions: staff workstations meeting these lures during ordinary browsing, and hosting or web-services businesses whose customer sites are the compromised population being used to serve them.</p>
+        <h3>An operator quietly took over 14,530 Dahua cameras in 35 days, concentrating on Russian and CIS telecom netblocks</h3>
+        <p>Threat-intelligence firm Hunt.io found an exposed operator directory and reconstructed a campaign it calls CameraSwarm, in which a single actor compromised 14,530 Dahua IP cameras between 17 June and 22 July 2026. The toolkit was ordinary but methodical: internet-wide scanning with masscan against Dahua&rsquo;s port 37777, an asyncio credential brute-forcing engine that reached 12,324 unique IP addresses, and a binary called p2pwn that chained older authentication bypasses &mdash; CVE-2021-33044 and CVE-2021-33045 &mdash; to plant persistent backdoor accounts on a further 1,923 devices. A cloud-relay technique using serial numbers and embedded SDK credentials reached 283 more cameras sitting behind NAT, and Hunt.io reports that 89.4% of live serial numbers it tested exposed an access channel without authentication. Results were exported in the XML format used by Dahua&rsquo;s enterprise management software and exfiltrated through a Telegram pipeline. The telecom angle is in the targeting rather than the tooling: after early reconnaissance that touched Mexican and Vietnamese ISP ranges, the operator&rsquo;s focus settled on Russian and CIS telecom netblocks, with Ukraine holding the largest share of compromised devices. That is a reminder that the surveillance estate hanging off an access network is part of the operator&rsquo;s attack surface whether or not the operator owns it &mdash; NAT is not a control, cloud P2P relays route around perimeter filtering, and a camera fleet with default or reused credentials becomes durable infrastructure inside customer address space.</p>
         <div class="card-meta">
-          <span>5,400+ compromised WordPress and PrestaShop sites &bull; payload logic in BNB Smart Chain testnet smart contracts (EtherHiding) &bull; WebRTC data-channel stager &bull; ~300 sites active daily</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing campaign observed in Netskope telemetry through August 2026</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; a delivery technique and campaign, not a single vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; mitigation is user-execution control and CMS hygiene rather than a patch</span>
-            <span class="ops-cc"><b>Action:</b> Detect the ClickFix execution pattern directly: the Windows Run dialog history key (<code>RunMRU</code>) populated with a PowerShell or <code>mshta</code> string is a high-fidelity signal, and clipboard-to-Run execution can be constrained by policy. Brief staff that a genuine CAPTCHA never asks you to paste a command. Because the next stage is fetched from a blockchain RPC endpoint rather than a domain, domain blocklists will not carry the load &mdash; watch for browser processes making RPC calls to public chain endpoints and for unexpected WebRTC data channels from browser sessions. If you host customer websites, run a sweep for injected script across WordPress and PrestaShop estates and press plugin patching on the tenants you can reach.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> RunMRU and clipboard-execution detection &mdash; 14 days; hosted-site injection sweep &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-clickfix-blockchain" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-clickfix-blockchain">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (Netskope research)</span>
+          <span>Hunt.io research; BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Published 5 Sep 2026</span>
+          <span>Campaign 17 Jun &ndash; 22 Jul 2026; research reported 19 Aug 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/over-5-400-hacked-sites-serve-clickfix-payloads-stored-on-the-blockchain/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-postgres-postgreshell" data-published="2026-09-04">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>A twelve-year-old PostgreSQL flaw lets a replication account load arbitrary code and become a permanent superuser</h3>
-        <p>Researchers at Cyera have disclosed CVE-2026-6471, nicknamed PostGREShell, a missing-authorisation defect in PostgreSQL&rsquo;s logical decoding that has been present since version 9.4. An account holding only replication privileges &mdash; a low-tier role usually granted to backup jobs, read replicas and change-data-capture pipelines &mdash; can pass an unsanitised filesystem path directly to <code>dlopen()</code>, bypassing the restriction that output plugins must load from an administrator-controlled directory. Code loaded that way runs inside the PostgreSQL address space with no sandbox and no checks on internal API calls, which Cyera turned into remote code execution, escalation to permanent superuser and a persistent backdoor. It is rated CVSS 7.2 because it requires that replication credential rather than being reachable unauthenticated. Fixes are in 18.6, 17.11, 16.15, 15.19 and 14.24; branches before 14 are affected but out of support. No exploitation has been reported. The reason it earns space on a telecom page is the trust assumption it breaks. Replication accounts are handed out freely, held in automation and backup tooling rather than in a vault, and rarely rotated, because the role has always been understood as read-only movement of data. In carrier environments those databases hold subscriber records, CDRs, provisioning state and billing &mdash; and the account assumed to be able only to copy them turns out to be able to own the server.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-6471</span>
-          <span>PostgreSQL 9.4 through 18 &bull; CVSS 7.2 &bull; fixed in 18.6, 17.11, 16.15, 15.19, 14.24 &bull; requires a replication-privileged account</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; researcher disclosure by Cyera; no in-the-wild activity reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; update to 18.6, 17.11, 16.15, 15.19 or 14.24; branches before 14 are out of support and need migration</span>
-            <span class="ops-cc"><b>Action:</b> Inventory the PostgreSQL instances backing subscriber, CDR, provisioning and billing systems and schedule the minor-version upgrade &mdash; these are patch-level releases, not major upgrades. In parallel, audit who actually holds <code>REPLICATION</code>: enumerate the roles, map each to the backup job, replica or CDC pipeline that needs it, and remove the rest. Rotate replication credentials wherever they are embedded in automation, restrict replication connections by host in <code>pg_hba.conf</code>, and treat managed-database services the same way by confirming with the provider which patch level is running.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Replication-role audit &mdash; 14 days; minor-version upgrade of subscriber and billing databases &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-postgres-postgreshell" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-postgres-postgreshell">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek (Cyera research; PostgreSQL project releases)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 4 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/12-year-old-postgresql-vulnerability-enables-database-server-takeover/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-falconflank-poc" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>A public proof-of-concept turns a CrowdStrike Falcon remediation feature into local SYSTEM on fully patched Windows</h3>
-        <p>A researcher publishing as Chaotic Eclipse has released FalconFlank, a proof-of-concept privilege-escalation technique that abuses the CrowdStrike Falcon sensor&rsquo;s suspicious-macro removal feature to obtain SYSTEM on fully updated Windows 11 25H2 and Windows Server 2025. No CVE has been assigned. CrowdStrike says it is investigating, advises customers to disable the Microsoft Office File Suspicious Macro Removal policy setting as a mitigation, and states that customers remain protected by the Cloud Anti-malware for Microsoft Office Files settings. The researcher notes that detections may already fire on the unmodified proof-of-concept, so testing requires exclusions or obfuscation &mdash; which cuts both ways, since it also indicates the technique is at least partly detectable. This follows the same researcher&rsquo;s earlier HardBreacher and ShieldBreak releases against Kaspersky and Microsoft Defender, and that run is the more durable point: endpoint agents are installed everywhere, run as SYSTEM and are trusted by design, which makes their own remediation logic a recurring escalation surface. It is a local escalation requiring existing code execution rather than an entry point, so the honest rating is Medium; but on a carrier estate the machines running this agent include NOC and OSS operator workstations and jump hosts, where SYSTEM on one box is the difference between a contained foothold and access to the tooling that reaches the network.</p>
-        <div class="card-meta">
-          <span>CrowdStrike Falcon sensor on Windows 11 25H2 and Windows Server 2025 &bull; no CVE assigned &bull; local privilege escalation to SYSTEM &bull; public proof-of-concept</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; public proof-of-concept only; no in-the-wild abuse reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Unpatched &mdash; CrowdStrike is investigating; the vendor mitigation is a policy setting change, not a sensor update</span>
-            <span class="ops-cc"><b>Action:</b> Follow the vendor guidance and disable the Microsoft Office File Suspicious Macro Removal policy where the compensating Cloud Anti-malware for Microsoft Office Files setting is enabled, prioritising NOC, OSS and engineering workstations and any jump host that reaches network management. Track the CrowdStrike advisory for a sensor fix and re-enable the setting when one ships. More generally, verify that your own detection content covers local privilege escalation to SYSTEM rather than relying on the agent to police itself, and confirm that a SYSTEM compromise on an operator workstation would not by itself yield working credentials for element-management or OSS platforms.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Policy mitigation on privileged workstations &mdash; 7 days; vendor-fix tracking &mdash; until resolved</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-falconflank-poc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-falconflank-poc">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News; BleepingComputer (researcher Chaotic Eclipse; CrowdStrike statement)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 3 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/researcher-releases-falconflank-poc.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/hackers-compromise-14-500-dahua-web-cameras-in-35-day-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
 
-  
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-arubaos-cx-rce" data-published="2026-09-01">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>HPE patches an unauthenticated CVSS 9.8 code-execution flaw in ArubaOS-CX, alongside 23 more switch vulnerabilities in one bulletin</h3>
-        <p>HPE Aruba Networking has published a bulletin fixing CVE-2026-73749, a buffer overflow in an ArubaOS-CX daemon rated CVSS 9.8 that an unauthenticated remote attacker can reach with specially crafted packets to execute code with elevated privileges on the switch. It arrives with 23 further CVEs scored between 8.1 and 8.8, and the list reads as a catalogue of the ways an appliance operating system goes wrong: an authentication bypass (CVE-2026-73779), predictable factory-default credentials (CVE-2026-73778), command injection (CVE-2026-73751 and CVE-2026-73753), arbitrary file write (CVE-2026-73752) and stored cross-site scripting in the web interface (CVE-2026-73781). HPE reports no known exploitation and no public exploit code at publication. Fixed builds are 10.18.1002 or later for the 10.18 branch, then 10.17.1030, 10.16.1060, 10.13.1190 and 10.10.1181, the last of which is an end-of-maintenance release. ArubaOS-CX runs enterprise and data-centre switching, which for an operator means the fabric under the OSS and BSS estate, the NOC, and the data centres hosting service platforms &mdash; the layer that is supposed to be a trusted substrate rather than an attack surface. The predictable-default-credentials entry deserves separate attention, because patching alone will not resolve it on any switch commissioned from factory defaults and never re-keyed.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-73749 (+23 more)</span>
-          <span>HPE Aruba Networking AOS-CX &bull; CVSS 9.8 unauthenticated RCE &bull; fixed in 10.18.1002, 10.17.1030, 10.16.1060, 10.13.1190, 10.10.1181</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; HPE reports no known in-the-wild activity and no public exploit code as of the bulletin</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed AOS-CX builds published for the 10.18, 10.17, 10.16, 10.13 and 10.10 branches</span>
-            <span class="ops-cc"><b>Action:</b> Map every AOS-CX switch to its branch and fixed build, and upgrade data-centre and OSS/BSS fabric first. Separately from the patch, handle the predictable-factory-default-credentials issue: identify switches commissioned from defaults and re-key their local accounts and any device certificates or keys derived at commissioning. Confirm that switch management and web interfaces are reachable only from an out-of-band management network or a jump host, never from user or customer VLANs, since several flaws in this bulletin only matter to an attacker who can reach the management plane. Where a device sits on the 10.10 end-of-maintenance branch, put it on a replacement plan rather than a patch plan.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fixed-build mapping and management-plane reachability check &mdash; 7 days; staged data-centre fabric upgrade &mdash; 30 days; default-credential re-keying &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-arubaos-cx-rce" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-arubaos-cx-rce">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer; SecurityWeek (HPE Aruba Networking security bulletin)</span>
-          <span class="dot">&bull;</span>
-          <span>Bulletin published 1 Sep 2026; reported 3&ndash;4 Sep 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-critical-arubaos-cx-remote-code-execution-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-cisco-iosxr-rce" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Two CVSS 9.8 remote code execution flaws land in Cisco IOS XR &mdash; the operating system running much of the carrier core</h3>
-        <p>Cisco has patched CVE-2026-20274 and CVE-2026-20279, both rated CVSS 9.8, in IOS XR. The advisory describes memory corruption and memory-safety defects together with improper access control, and the outcome is remote code execution on affected devices. Cisco reports no known exploitation and no public exploit code at the time of disclosure, so this is a patch window rather than an incident. It leads the advisories section on the telecom page because of where IOS XR runs. This is not enterprise switching software; it is the operating system on service-provider aggregation, core and peering routers &mdash; the platforms carrying customer traffic, terminating peering and transit sessions, and holding the BGP state that determines where prefixes go. Code execution on a router in that position is not a compromised server. It is the ability to alter forwarding, mirror traffic, manipulate routing advertisements, or simply drop a device that a large customer population depends on, and it does so from a platform that is frequently reachable from peers and transit partners rather than only from an internal management network. The other complication is change control: core routers are exactly the estate where patching is slowest, because the maintenance window is negotiated and the blast radius of a bad upgrade is enormous. Start the change process now, and in the meantime verify that management-plane access is filtered to your own address space.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20274 / CVE-2026-20279</span>
-          <span>Cisco IOS XR &bull; CVSS 9.8 (both) &bull; memory corruption and improper access control leading to RCE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; Cisco reports no known in-the-wild activity as of the advisory</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed IOS XR releases published by Cisco; use the Cisco Software Checker for your platform and train</span>
-            <span class="ops-cc"><b>Action:</b> Identify every IOS XR platform in the aggregation, core and peering layers and map each to its fixed release now, before the maintenance window is negotiated. While the upgrade is queued, harden the management plane: infrastructure ACLs and control-plane policing restricting management and routing protocol reachability to your own and authorised peer address space, no management exposure on customer-facing or peering interfaces, and confirmation that out-of-band access does not itself terminate on an unpatched device. Enable and centralise IOS XR logging so post-patch anomaly review has something to work with, and export it to a system the router itself cannot reach &mdash; the campaign in this edition&rsquo;s top story suppressed syslog, AAA and SNMP records on the device.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fixed-release mapping and management-plane ACL verification &mdash; 7 days; staged core upgrade &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-iosxr-rce" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisco-iosxr-rce">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek (Cisco advisories)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 3 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/cisco-warns-of-unpatched-secure-email-flaws-patches-critical-switch-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-cisco-nexus9000-root" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
+          <span class="category">Vulnerability</span>
         </div>
-        <h3>Cisco Nexus 9000 switches listen on two undocumented TCP ports in the default routing instance, and reaching them gives root</h3>
-        <p>CVE-2026-20212 is a CVSS 9.8 flaw in Silicon One-based Cisco Nexus 9000 switches caused by a service binding to an unrestricted IP address. The effect is that TCP ports 43210 and 43211 are open in the default Layer 3 virtual routing instance, and an unauthenticated attacker who can reach them can execute code with root privileges; the advisory also notes the S1HAL process can crash and reload the device. Ten models are affected, including the N9K-C9804 and N9K-C9808 chassis and the N9324C-SE1U, N9348Y2C6D-SE1U, N9364E-SG2-O, N9364E-SG2-Q, N9396T12C-SE1, N9348Y12C-SE1, N9396Y12C-SE1 and N9336C-SE1. NX-OS releases 10.3(1) through 10.6(3s) are in scope, with the fix in 10.6(4) or later. Cisco reports no known exploitation. The detail that deserves attention is the default VRF. Operators build careful separation between management and data planes, and a service silently listening in the default routing instance defeats that design by putting an unauthenticated root path on whatever that instance can reach. In carrier data centres these switches carry customer-facing and internal fabric traffic alike, so the practical question is not whether you patch but what is currently able to send a packet to those two ports. Cisco offers infrastructure ACLs blocking 43210 and 43211 as an interim control, which is the right immediate move where an upgrade cannot be scheduled quickly.</p>
+        <h3>Cisco Nexus 9000 switches with Silicon One silicon expose two TCP ports in the default VRF that lead to unauthenticated root code execution</h3>
+        <p>Cisco published a critical advisory on 2 September 2026 for CVE-2026-20212, a CVSS 9.8 remote code execution flaw in Nexus 9000 Series switches built on Silicon One ASICs. The advisory states that TCP ports 43210 and 43211 are reachable in the default Layer 3 virtual routing and forwarding instance, and that an unauthenticated remote attacker who can reach them can execute arbitrary code with root privileges on the switch. Affected hardware includes the N9K-C9804 and N9K-C9808 chassis and a set of fixed switches &mdash; N9324C-SE1U, N9348Y2C6D-SE1U, N9364E-SG2-O, N9364E-SG2-Q, N9396T12C-SE1, N9348Y12C-SE1, N9396Y12C-SE1 and N9336C-SE1. Cisco PSIRT says it is not aware of public exploit code or malicious use. For telecom and media operators the exposure follows deployment: these are high-density data-centre and AI-fabric switches, increasingly used in the compute estates that carriers build for network analytics, media processing and hosted services, and the vulnerable ports being open in the <em>default</em> VRF means the risk depends on how far that VRF reaches rather than on a feature someone opted into. Root on a switch is not a device compromise so much as a fabric compromise: traffic mirroring, VLAN manipulation and a persistent foothold under the visibility of most host-based tooling.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-20212</span>
-          <span>Cisco Nexus 9000 Silicon One models &bull; NX-OS 10.3(1)&ndash;10.6(3s) &bull; CVSS 9.8 &bull; fixed in 10.6(4)+</span>
+          <span>Cisco Nexus 9000 Series with Silicon One ASIC (N9K-C9804 / C9808 and listed fixed switches) &bull; CVSS 9.8 &bull; TCP 43210 and 43211 in default L3 VRF</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; no known malicious activity reported as of disclosure</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; Cisco PSIRT reports no public announcements or malicious use as of the advisory</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; NX-OS 10.6(4) or higher; Cisco also lists Live Protect shield lp00031 with limited support</span>
-            <span class="ops-cc"><b>Action:</b> Determine which of the ten affected Silicon One models you run and on which NX-OS train, then apply infrastructure ACLs denying TCP 43210 and 43211 today as the interim control &mdash; that is faster than the upgrade and closes the reachable path. Schedule the move to 10.6(4) or later. Independently, audit what else is listening in the default VRF across your Nexus estate rather than assuming management separation holds, and confirm no fabric switch has the default routing instance reachable from customer-facing or partner address space.</span>
+            <span class="ops-tag patch-yes">Fixed software available &mdash; identify the applicable release with the Cisco Software Checker referenced in the advisory</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Nexus 9000 units against the model list in the advisory, since only Silicon One based platforms are in scope, and schedule the fixed NX-OS release named by the Cisco Software Checker for your exact hardware and train. Until then apply the advisory&rsquo;s workarounds: an infrastructure access control list denying TCP 43210 and 43211 from anything outside the management plane, and the Live Protect shields Cisco provides. Verify the ports are not reachable from customer-facing, partner or general server VLANs, and confirm the default L3 VRF on these switches is not carrying traffic you assumed was segmented away.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Infrastructure ACL for ports 43210/43211 &mdash; 72h; NX-OS upgrade to 10.6(4)+ &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Infrastructure ACL for TCP 43210/43211 &mdash; 72h; NX-OS upgrade to the Software Checker release &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-nexus9000-root" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-cisco-nexus9000-root">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News; SecurityWeek (Cisco advisory)</span>
+          <span>Cisco Security Advisory cisco-sa-n9k-s1-rce-EH8dEtr; The Hacker News; SecurityWeek</span>
           <span class="dot">&bull;</span>
           <span>Published 2 Sep 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/09/critical-cisco-nexus-9000-flaw-lets.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-chrome-zeroday-v8" data-published="2026-09-04">
+      <div class="card" id="it-cisco-iosxr-hardening" data-published="2026-09-02">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Vulnerability</span>
         </div>
-        <h3>Google patches the sixth actively exploited Chrome zero-day of 2026, a V8 type confusion already added to KEV</h3>
-        <p>Google has shipped Chrome 152 to fix CVE-2026-85046, a type confusion defect in the V8 JavaScript and WebAssembly engine that is being exploited in the wild. Rated high severity at CVSS 8.8, it allows a remote attacker to execute arbitrary code inside the renderer sandbox through a crafted web page; the reporting researcher, Salvatore Gulizia, describes a compiler bug in which an array holding <code>PACKED_ELEMENTS</code> receives the <code>PACKED_SMI_ELEMENTS</code> map, which can be converted into arbitrary read and write on the JavaScript heap. Fixed versions are 152.0.7977.82 and .83 on Windows and macOS and 152.0.7977.82 on Linux. CISA added the CVE to the Known Exploited Vulnerabilities catalog with a federal remediation date of 18 September 2026. This is the sixth Chrome zero-day exploited in the wild this year, and Google has not described the attacks. Browser zero-days do not usually read as telecom stories, but the delivery path matters here: for carriers the browser is how NOC and OSS engineers reach element management, provisioning portals and cloud consoles, and a renderer compromise on one of those workstations lands inside the session context those consoles trust. Chromium-derived browsers, including Edge, Brave, Vivaldi and Opera, inherit the same V8 defect and need their own updates.</p>
+        <h3>Cisco&rsquo;s September IOS XR hardening release patches seven internally found flaws, two of them CVSS 9.8, across every IOS XR release</h3>
+        <p>On the same day as the Nexus advisory, Cisco published a security hardening release for IOS XR Software covering multiple vulnerabilities found during its own internal testing. Cisco grouped the findings by weakness class and assigned one CVE per group: CVE-2026-20274 (improper control of a resource through its lifetime, CVSS 9.8), CVE-2026-20279 (improper access control, CVSS 9.8), CVE-2026-20275 (incorrect calculation, 8.8), CVE-2026-20278 (improper neutralisation, 8.8), CVE-2026-20280 (improper check or handling of exceptional conditions, 8.8), CVE-2026-20276 (insufficient control flow management, 8.6) and CVE-2026-20277 (protection mechanism failure, 8.2). The advisory states that all releases of Cisco IOS XR Software, including IOS XR7 (LNT), are affected regardless of device configuration, and that none of the issues are known to be actively exploited. That scoping is what makes this a service-provider item rather than a routine patch note: IOS XR runs the aggregation and core routers of carriers and large ISPs, and &ldquo;regardless of configuration&rdquo; removes the usual mitigation of not having enabled the affected feature. Read it alongside the Fire Ant research on this page. Nothing links the two, but an actor already demonstrating implant persistence on IOS XR is the reason a hardening release with two 9.8s should not queue behind the next maintenance window by default.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-85046</span>
-          <span>Google Chrome before 152.0.7977.82/.83 &bull; CVSS 8.8 &bull; V8 type confusion &bull; KEV remediation date 18 Sep 2026</span>
+          <span class="cve-badge">CVE-2026-20274 / CVE-2026-20279 (9.8) + CVE-2026-20275 / 20276 / 20277 / 20278 / 20280</span>
+          <span>All Cisco IOS XR Software releases including IOS XR7 (LNT) &bull; affected regardless of device configuration</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google confirms an exploit exists in the wild; attack details not disclosed</span>
-            <span class="ops-tag kev-on">Added to CISA KEV &mdash; federal remediation date 18 Sep 2026</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; internally discovered by Cisco; PSIRT reports no public announcements or malicious use</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82/.83; Chromium-based browsers require their own vendor updates</span>
-            <span class="ops-cc"><b>Action:</b> Force the Chrome update rather than waiting for users to restart their browsers, and confirm the enrolled fleet has actually applied it &mdash; Chrome only completes the update on relaunch, and long-lived NOC sessions rarely relaunch. Extend the same check to Edge, Brave, Vivaldi and Opera on managed devices, and to any browser embedded in kiosk, digital-signage or engineer-workstation images. Prioritise workstations that reach element management, provisioning portals and cloud consoles, and verify that session tokens for those consoles are short-lived and re-authenticated rather than persisting in the browser profile.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed releases and SMUs listed in the hardening advisory (first published 2 Sep 2026, updated 4 Sep 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Treat this as a fleet-wide exercise rather than a per-feature triage, because Cisco states every IOS XR release is affected regardless of configuration. Map your routers to trains, pull the fixed release or SMU named in the advisory for each, and sequence core and aggregation devices through a maintenance plan that does not leave a partially patched fabric for weeks. In the interim, tighten management-plane access to IOS XR devices, restrict who can reach control-plane services, and make sure router telemetry is exported to a system that a compromised router cannot edit.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and release mapping &mdash; 7 days; SMU or upgrade rollout for core and aggregation routers &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-iosxr-hardening" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-iosxr-hardening">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco Security Advisory cisco-sa-hardening-iosxr-qg64NcM</span>
+          <span class="dot">&bull;</span>
+          <span>First published 2 Sep 2026; last updated 4 Sep 2026</span>
+        </div>
+        <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-hardening-iosxr-qg64NcM" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-cisco-sip-phone-dos" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>A memory-exhaustion flaw lets an unauthenticated attacker knock Cisco desk phones offline until someone reboots them by hand</h3>
+        <p>CVE-2026-20281 is a high-severity denial-of-service vulnerability, rated CVSS 7.5, affecting Cisco Desk Phone 9800 Series, IP Phone 7800 and 8800 Series and Video Phone 8875 handsets running SIP Software. An unauthenticated remote attacker who sends a continuous stream of crafted HTTP packets causes the device to consume memory until it stops serving, and recovery requires a manual reboot. Two conditions narrow the exposure usefully: the phone must be registered to Cisco Unified Communications Manager, and Web Access must be enabled, which it is not by default. Cisco fixed it in SIP Software 5.0(1) for the Desk Phone 9800 Series and Video Phone 8875, 14.4(1)SR3 for the IP Phone 7800 and 8800 Series, 14.4(1)SR4 for the IP Phone 8845 and 8865, and 11.0(6)SR8 for the Wireless IP Phone 8821, and PSIRT reports no known exploitation. It earns a place on this page because voice is the service that gets noticed when it fails and because handsets are the least-inventoried endpoints most organisations own. A denial of service that needs a physical reboot per device is an operationally expensive failure across a contact centre, a NOC or a broadcast facility, and it is the sort of flaw that gets rediscovered by a bored scanner long after the advisory scrolls off the page.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20281</span>
+          <span>Cisco Desk Phone 9800, IP Phone 7800 / 8800, Video Phone 8875, Wireless IP Phone 8821 &bull; CVSS 7.5 &bull; requires CUCM registration and Web Access enabled (off by default)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; Cisco PSIRT reports no public exploit code or malicious use</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; SIP Software 5.0(1); 14.4(1)SR3; 14.4(1)SR4 for 8845/8865; 11.0(6)SR8 for the 8821</span>
+            <span class="ops-cc"><b>Action:</b> Check whether Web Access is enabled on your phone configuration profiles in Unified Communications Manager; if it was switched on for troubleshooting and never switched back, turning it off removes the exposure immediately and costs nothing. Then schedule the firmware loads named in the advisory through your normal CUCM device-pack process. Make sure the voice VLAN is not reachable from general user or guest networks, since this attack only needs HTTP to the handset, and note which phones would need a physical reboot to recover so the recovery cost is understood before it is tested for you.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Disable Web Access where not required &mdash; 7 days; firmware rollout across the handset estate &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-sip-phone-dos" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-sip-phone-dos">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco Security Advisory cisco-sa-phone-dos-txMYNRzv</span>
+          <span class="dot">&bull;</span>
+          <span>Published 2 Sep 2026</span>
+        </div>
+        <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-phone-dos-txMYNRzv" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-chrome-zeroday-v8" data-published="2026-09-04">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Google shipped an emergency Chrome fix for a V8 type-confusion flaw already being exploited &mdash; the sixth Chrome zero-day of 2026</h3>
+        <p>Google released an out-of-band Chrome update on 4 September 2026 for CVE-2026-85046, a type-confusion vulnerability in the V8 JavaScript engine that Google says is being exploited in the wild. Fixed builds are 152.0.7977.82 and .83, and this is the sixth Chrome zero-day patched during 2026. Google has withheld technical detail while the fix propagates, which is standard practice and also the reason not to wait for a write-up before rolling it out. Chrome is not a telecom product, but it is where a network engineer authenticates to the element manager, where a NOC operator drives the ticketing system, and where the OSS/BSS and provisioning consoles are actually used &mdash; and V8 type confusion is the bug class that historically yields renderer code execution from a visited page. Chromium-derived browsers and embedded Chromium in management consoles inherit the defect and lag behind on updates, so an estate that only counts Chrome installations will under-report its exposure. Priority order writes itself: privileged administrative workstations first, then the general fleet, then anything embedding Chromium.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-85046</span>
+          <span>Google Chrome V8 engine &bull; type confusion &bull; fixed in 152.0.7977.82 / .83 &bull; sixth Chrome zero-day of 2026</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states an exploit for CVE-2026-85046 exists in the wild</span>
+            <span class="ops-tag kev-off">Verify current CISA KEV status before relying on a federal deadline</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82 / .83, released 4 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> Force the update through your browser management policy rather than relying on background updates, and confirm relaunch, since Chrome does not apply the fix until the browser restarts. Start with workstations that hold administrative access to network management, provisioning, billing and customer-data systems. Then extend the check to Chromium-derived browsers &mdash; Edge, Brave, Opera, Vivaldi &mdash; and to vendor management consoles and thick clients that embed a Chromium runtime, which are the installations least likely to appear in a browser inventory report.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Forced update and relaunch verification on privileged workstations &mdash; 72h; full managed fleet including Chromium derivatives &mdash; 14 days</span>
@@ -1189,147 +1018,61 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News; SecurityWeek (Google Chrome release notes; CISA KEV)</span>
+          <span>Google Chrome release blog; The Hacker News; BleepingComputer</span>
           <span class="dot">&bull;</span>
           <span>Published 4 Sep 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/09/google-releases-chrome-update-to-patch.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-jfrog-artifactory-kev" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Attackers are minting administrator tokens on self-hosted JFrog Artifactory, and CISA has put the flaw in KEV</h3>
-        <p>CVE-2026-82329 is an authentication weakness in JFrog Artifactory that, in the default configuration, allows an unauthenticated attacker with network access to obtain administrative privileges. JFrog&rsquo;s CTO has clarified that this is improper authentication rather than remote code execution, and that it affects self-hosted deployments only rather than the SaaS platform; cloud instances were patched on 28 August 2026. watchTowr reported in-the-wild exploitation shortly after disclosure, describing attackers minting administrator tokens and enumerating users, groups and credential sets. CISA added the CVE to the Known Exploited Vulnerabilities catalog on 2 September with a 5 September federal remediation date, scoring it CVSS 9.8. Fixed self-hosted versions are 7.111.21, 7.117.28, 7.125.20, 7.133.29, 7.146.38 and 7.161.20. An artifact repository is a build boundary rather than an ordinary application: it holds the binaries, container images and firmware packages that get deployed, along with the service credentials that push and pull them. In a carrier environment that can extend to network-function images and automation packages, so administrative access is not simply data theft &mdash; it is the ability to influence what gets installed next, and the credential enumeration reported here is the reconnaissance that precedes exactly that.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-82329</span>
-          <span>JFrog Artifactory self-hosted &bull; CVSS 9.8 &bull; fixed in 7.111.21, 7.117.28, 7.125.20, 7.133.29, 7.146.38, 7.161.20 &bull; SaaS not affected</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; watchTowr reported in-the-wild exploitation with administrator tokens minted and user, group and credential sets enumerated</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 2 Sep 2026 &mdash; federal remediation date 5 Sep 2026, now elapsed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; upgrade self-hosted Artifactory to a fixed 7.x release; JFrog patched cloud instances on 28 Aug 2026</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade self-hosted Artifactory immediately and remove it from direct internet reachability if it is exposed. Then assume enumeration: revoke and reissue administrative and service access tokens, rotate the credentials CI/CD systems use to authenticate to the repository, and review the audit log for token creation, permission changes and unusual artifact reads since late August. Check the integrity of recently published artifacts and images &mdash; particularly any network-function or automation packages &mdash; against known-good checksums, and verify that artifact signing, if you use it, was not bypassed by an administrative account during the exposure window.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade and token revocation &mdash; 72h; audit-log review and artifact integrity check &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-jfrog-artifactory-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-jfrog-artifactory-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek; The Hacker News (JFrog advisory; watchTowr; CISA KEV)</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation reported 1 Sep 2026; KEV listing 2 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/critical-jfrog-artifactory-vulnerability-reportedly-exploited-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-cisco-securemail-smime" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Two publicly disclosed S/MIME flaws in Cisco Secure Email remain unpatched, weakening encrypted mail against an on-path attacker</h3>
-        <p>Cisco has acknowledged CVE-2026-20354 and CVE-2026-20355, two medium-severity flaws in Secure Email affecting AsyncOS 16.5.0 and earlier, and no fix is available. Insufficient validation in the S/MIME handling means an attacker in a man-in-the-middle position may be able to recover plaintext from communications the sender believed were encrypted. Both have been publicly disclosed, and Cisco reports no evidence of exploitation. The severity is honest &mdash; this is not remote code execution and it requires an on-path position &mdash; but the combination of no patch, public disclosure and a defeat of the confidentiality control itself is what puts it on the page. Secure Email gateways sit in front of corporate mail for a large share of carriers, and S/MIME is typically deployed precisely where the content matters: legal correspondence, lawful-intercept and regulatory submissions, interconnect and wholesale contract negotiation, and executive communication. Those are also the categories most likely to be worth an adversary&rsquo;s effort to reach an on-path position. Until Cisco ships a fix there is nothing to install, so the response is compensating: know which correspondence relies on S/MIME through the gateway, and where the sensitivity justifies it, move that traffic to a channel whose protection does not depend on this implementation.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20354 / CVE-2026-20355</span>
-          <span>Cisco Secure Email, AsyncOS 16.5.0 and earlier &bull; medium severity &bull; S/MIME plaintext recovery via man-in-the-middle</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; publicly disclosed but no in-the-wild activity reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no federal deadline attached</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Unpatched &mdash; Cisco has acknowledged both flaws; no fixed AsyncOS release available as of 3 Sep 2026</span>
-            <span class="ops-cc"><b>Action:</b> Identify which business processes actually depend on S/MIME through Secure Email &mdash; typically legal, regulatory, lawful-intercept and wholesale contracting &mdash; and brief those teams that the confidentiality guarantee is currently weaker than assumed. For the highest-sensitivity correspondence, route it through an alternative protected channel until Cisco ships a fix. Enforce TLS on mail transport to raise the bar for reaching an on-path position, subscribe to the Cisco PSIRT advisory so you catch the fix on release, and track this as an accepted risk with a review date rather than closing it.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Dependency review and stakeholder briefing &mdash; 14 days; patch on vendor release &mdash; track until fixed</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-securemail-smime" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisco-securemail-smime">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek (Cisco advisories)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 3 Sep 2026 &mdash; unpatched at time of writing</span>
-        </div>
-        <a href="https://www.securityweek.com/cisco-warns-of-unpatched-secure-email-flaws-patches-critical-switch-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
-  
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="it-kev-three-day-deadlines" data-published="2026-09-04">
+      <div class="card" id="it-kev-three-day-deadlines" data-published="2026-09-03">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
+          <span class="severity sev-medium">Medium</span>
           <span class="category">Policy</span>
         </div>
-        <h3>CISA is now attaching three-day remediation deadlines to KEV listings, and the compressed clock is reshaping what a patch cycle has to look like</h3>
-        <p>Across this window CISA repeatedly gave federal agencies about three days to remediate newly KEV-listed flaws rather than the two weeks that was once typical. The Zimbra flaw listed on 26 August carried a three-day deadline; the Citrix NetScaler entry added the same day was due on 29 August; the seven vulnerabilities added on 2 September, including Sangoma Switchvox and both SonicWall SMA1000 zero-days, carried 5 September dates, with two lower-severity items given until 16 September. Reporting on the Switchvox listing attributes the three-day window to Binding Operational Directive 26-04. The directive binds US federal civilian agencies, so most carriers are not legally in scope, but the practical effect reaches further. KEV deadlines are increasingly written into government and enterprise contracts, referenced by auditors, and used by insurers as a benchmark for what reasonable remediation looks like &mdash; and a telecom operator with public-sector customers will find the shorter clock arriving through those routes regardless of direct applicability. The operational question is uncomfortable but concrete: for the edge appliances and network platforms on this page, can your change process move from a KEV listing to a patched estate in seventy-two hours, and if not, which specific approval, test or maintenance-window step is the constraint? That is worth answering before a contract clause answers it for you.</p>
+        <h3>CISA added seven exploited vulnerabilities to KEV on 2 September with three-day remediation dates, and the schedule is the story</h3>
+        <p>CISA placed seven actively-exploited flaws in the Known Exploited Vulnerabilities catalog on 2 September 2026 with federal remediation dates of 5 September &mdash; three days. The batch covers CVE-2026-9586, the unauthenticated SQL injection in Sangoma Switchvox telephony; CVE-2026-83548 and CVE-2026-83549, the SonicWall SMA1000 pair; CVE-2026-82329, an improper-authentication flaw in JFrog Artifactory rated 9.8 and linked to reverse shells and stolen admin tokens; CVE-2026-49869, a CVSS 10.0 command injection in Kestra OSS associated with reverse shells and crypto mining; CVE-2026-59822, an improper-authentication issue in Berri LiteLLM&rsquo;s MCP handling rated 8.8; and CVE-2026-48710, a request-smuggling flaw in Kludex Starlette rated 6.5 and chained with CVE-2026-42271. Two of the seven &mdash; Switchvox and SMA1000 &mdash; sit on infrastructure that carriers, hosted-voice providers and their channel partners run directly. KEV binds federal civilian agencies, not private operators, but the deadline length is the useful signal for everyone else: a three-day clock is CISA saying exploitation is happening now rather than expected later. If your change process cannot move a telephony platform or a remote-access concentrator inside a week, that gap is a policy decision worth making deliberately rather than discovering during an incident.</p>
         <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalog &bull; three-day remediation windows observed on 26 Aug and 2 Sep 2026 listings &bull; attributed to BOD 26-04</span>
+          <span class="cve-badge">CVE-2026-9586 / 83548 / 83549 / 82329 / 49869 / 59822 / 48710</span>
+          <span>CISA Known Exploited Vulnerabilities catalog &bull; seven additions on 2 Sep 2026 &bull; federal remediation date 5 Sep 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; regulatory directive, not a vulnerability</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; this concerns the KEV process itself</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; KEV listing requires evidence of in-the-wild exploitation for every entry</span>
+            <span class="ops-tag kev-on">All seven added to CISA KEV 2 Sep 2026 &mdash; deadline 5 Sep 2026, now elapsed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; the change is to remediation timelines and contractual expectations</span>
-            <span class="ops-cc"><b>Action:</b> Measure your actual elapsed time from KEV listing to patched estate for the last three KEV items that affected you, and identify the specific step that consumes the most days. Review government, enterprise and wholesale contracts for clauses that reference CISA KEV timelines, and check whether your cyber-insurance questionnaire does the same. Where a seventy-two-hour turnaround is genuinely impossible for core network platforms, document the compensating controls and the risk acceptance now, in writing, rather than improvising the justification during an audit.</span>
+            <span class="ops-tag patch-yes">Vendor fixes available for the listed products</span>
+            <span class="ops-cc"><b>Action:</b> Run the KEV catalog against your own asset inventory rather than reading it as federal news, and give priority to Switchvox and SMA1000 if either is present. Where your organisation carries contractual security obligations to enterprise or government customers, check whether those contracts reference KEV timelines, because a three-day federal deadline increasingly becomes the benchmark auditors and customers cite. Consider whether your standard patch SLA for internet-facing telephony and remote-access systems should be shortened to match the pace at which these listings are now arriving.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> KEV-to-patched elapsed-time measurement &mdash; 30 days; contract and insurance clause review &mdash; 60 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory cross-check against the 2 Sep KEV batch &mdash; 48h; SLA policy review for internet-facing voice and remote access &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-three-day-deadlines" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-kev-three-day-deadlines">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek; Cybersecurity Dive (CISA KEV listings of 26 Aug and 2 Sep 2026)</span>
+          <span>CISA Known Exploited Vulnerabilities catalog; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Observed across 26 Aug &ndash; 4 Sep 2026</span>
+          <span>KEV additions 2 Sep 2026; reported 3 Sep 2026</span>
         </div>
-        <a href="https://www.securityweek.com/sangoma-switchvox-vulnerabilities-exploited-in-the-wild/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-g7-pqc-call" data-published="2026-09-03">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
+          <span class="severity sev-info">Informational</span>
           <span class="category">Policy</span>
         </div>
-        <h3>The G7 tells governments to treat the quantum threat as near-term, with procurement deadlines that will reach telecom supply chains from 2027</h3>
-        <p>France&rsquo;s national cybersecurity agency ANSSI, chairing the G7 Cybersecurity Working Group, has published a call to action urging governments and organisations to accelerate the move to quantum-safe encryption. Its central argument is a reframing: the quantum threat should be treated as a near-term problem demanding action now rather than a distant future concern, on the harvest-now-decrypt-later logic that traffic captured today can be decrypted once a capable machine exists. Recommendations to organisations are to identify systems holding critical data and prioritise them, adopt phased risk-based transition strategies built on a cryptographic asset inventory, and fold quantum-safe products into normal renewal schedules rather than running a separate programme. Five priorities are set out for governments and industry: raising awareness, national transition strategies and supply chains, research and development, public-private partnership, and integrating post-quantum cryptography into cybersecurity requirements. Two dates carry weight for procurement. ANSSI will stop vetting products that lack quantum-safe encryption from 2027, and post-quantum security becomes mandatory in some security-product procurement by 2030. Canada, France, Germany, Italy, Japan, the UK and the US signed, with endorsement from the European Commission and ENISA. The document names critical infrastructure generally rather than telecom specifically, but carriers sit unusually exposed: long-lived transport encryption, subscriber authentication material and interconnect trust all rest on cryptography with equipment refresh cycles measured in many years.</p>
+        <h3>France&rsquo;s ANSSI and its G7 partners are pressing public and private organisations to start the post-quantum migration now</h3>
+        <p>ANSSI, working through the G7 Cyber Expert Group, published a joint call to action on 3 September 2026 urging public and private organisations to accelerate the transition to post-quantum cryptography, with European guidance pointing at a 2026 start for transition planning. The reasoning is the familiar &ldquo;harvest now, decrypt later&rdquo; argument: traffic and stored data captured today can be decrypted once a cryptographically relevant quantum computer exists, so the migration clock is set by the sensitivity lifetime of the data rather than by the arrival date of the machine. That argument bites harder in telecom than in most sectors. Operators run some of the longest-lived cryptographic estates anywhere &mdash; subscriber authentication keys, SIM and eSIM provisioning material, roaming and interconnect security, backhaul and transport encryption, lawful-intercept infrastructure, and hardware in the field on refresh cycles measured in a decade. Very little of it can be re-keyed on a software release. The practical first step in the G7 material is not a technology purchase but an inventory: know where cryptography is used, which algorithms and key lengths, in what hardware, and how long each protected item must stay confidential. Nothing here is a mandate, and no telecom-specific deadline has been set, but building a cryptographic asset register is the item that governs how expensive everything after it becomes.</p>
         <div class="card-meta">
-          <span>G7 Cybersecurity Working Group, chaired by ANSSI &bull; endorsed by the European Commission and ENISA &bull; ANSSI vetting change from 2027; some procurement mandates by 2030</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none">Not applicable &mdash; policy call to action, not a vulnerability</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; no CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; this is a multi-year cryptographic transition programme</span>
-            <span class="ops-cc"><b>Action:</b> Start with the cryptographic asset inventory the document asks for, and scope it to telecom realities: optical and microwave transport encryption, IPsec and MACsec on interconnect and backhaul, subscriber authentication and key material, PKI for element management, and the code-signing chains behind network element firmware. Identify which of those sit on hardware whose refresh cycle extends past 2030, because those are the decisions being made now. Add post-quantum capability as a scored requirement in network equipment RFPs from the next procurement round rather than the one after.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Cryptographic asset inventory &mdash; 90 days; PQC requirements added to network procurement criteria &mdash; next RFP cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-g7-pqc-call" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-g7-pqc-call">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Infosecurity Magazine (ANSSI / G7 Cybersecurity Working Group)</span>
+          <span>Infosecurity Magazine (ANSSI / G7 Cyber Expert Group)</span>
           <span class="dot">&bull;</span>
           <span>Published 3 Sep 2026</span>
         </div>

@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Fri, 04 Sep 2026, 8:44 PM ET</span>
+        <span>Generated Sun, 06 Sep 2026, 9:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>19</strong> stories across
+      <strong>20</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -665,15 +665,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
+    <div class="tl-score"><span class="tl-num">7.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
-        <span class="tl-band">Medium</span>
+        <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:67%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium &mdash; a genuinely busy fortnight, but no single sector-wide compromise. Three large consumer-facing breaches landed: the alleged theft of 153 million driver&rsquo;s-licence scans from IDScan.net, whose ID-check terminals sit at roughly 20,000 retail, dispensary, hotel and car-rental counters; Carhartt&rsquo;s 12.9 million customer records taken from its Databricks tenant and published by ShinyHunters after a refused ransom; and 8.8 million Manchester Airports Group booking records dumped by FulcrumSec. Each is a single-organisation compromise with a bounded blast radius, and the no-advisory-stacking rule bars summing them into High. Exploitation of storefront software is the broader driver: Wordfence blocked more than 440,000 attempts against Elementor Pro (CVE-2026-32475) and Super Forms (CVE-2026-14894), both giving unauthenticated PHP execution on WordPress and WooCommerce sites, while Citrix NetScaler, SonicWall SMA 1000, PaperCut and JFrog Artifactory all moved into CISA KEV under active attack. That is estate-wide patch-and-hunt work rather than one issue hitting a large portion of retail IT at once &mdash; the WordPress flaws still require a published upload form, and the edge appliances are a subset of store and corporate perimeters. Real exploitation plus several large breaches keeps this well above a quiet week; the absence of any sector-wide event holds it under 6.9.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:75%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Raised from 6.7 to High. The trigger is a confirmed, unpatched zero-day in the software a very large share of retail runs its checkout on: Sansec published StyleSmuggler on 5 September, unauthenticated remote code execution reproduced on Magento Open Source 2.4.7, 2.4.8 and 2.4.9, with exploitation observed from 4 September, a Rust backdoor reading live session data out of Redis, and no CVE, advisory, patch or official workaround from Adobe. A first victim on a fully patched 2.4.6-p15 means currency is no defence, and Disrex independently handled further cases. That alone meets the bar of confirmed active exploitation of widely deployed software. It is not alone: Wordfence has now blocked more than 440,000 attempts against Super Forms (CVE-2026-14894) and Elementor Pro (CVE-2026-32475), both unauthenticated file upload leading to PHP execution on WordPress and WooCommerce sites, and Netskope counted over 5,400 compromised WordPress and PrestaShop sites serving ClickFix lures from blockchain-hosted payloads. Edge exposure adds to it &mdash; SonicWall SMA 1000 zero-days under attack, and NetScaler CVE-2026-19490 exploitation attempts observed on 3 September after a public proof of concept. Three large consumer breaches (IDScan, Carhartt, Manchester Airports Group) sit behind that but are single-organisation events and are not stacked into the score. It stays at 7.5 rather than higher because the Magento victim count remains small and unpublished, and Adobe&rsquo;s 8 September release may close it.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,16 +681,19 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-idscan-nexus" data-published="2026-09-01">
+    <div class="top-story" id="it-magento-stylesmuggler" data-published="2026-09-05">
       <span class="top-story-pill">Top Story</span>
-      <h2>A dark-web service is selling 153 million driver&rsquo;s licence scans traced to the ID-check terminals sitting on retail, hotel and rental counters</h2>
-      <p>On 1 September Brian Krebs reported that a new identity-theft service called Nexus, advertised on the Russian-language crime forum Exploit, was offering more than 153 million driver&rsquo;s licence images covering the United States and Canada, plus over 10 million identification cards, roughly 3 million travel documents and about 579,000 medical cards. Investigators traced the source to IDScan.net, a Louisiana identity-verification vendor that says it handles more than 21 million verifications a month across upwards of 20,000 locations and counts Target, Hertz, FedEx and Caesars Entertainment among its customers. The provenance evidence is what makes this a retail story rather than a generic data-broker leak: Krebs found his own and a family member&rsquo;s licences with timestamps matching Hertz rental transactions, and researcher Zach Edwards found his after presenting ID at a Las Vegas cannabis dispensary and at his hotel. The operators claimed to have been pulling fresh records continuously for more than a year, and roughly 400,000 new licences appeared within a day of the listing going live. The FBI&rsquo;s New Orleans office opened an inquiry; Nexus went offline within hours of publication, though buyers who already pulled the data still hold it. IDScan has acknowledged an internal investigation but has not publicly confirmed a compromise, and the true number of affected people is unknown. For any merchant that scans identity documents &mdash; age-restricted sales, returns-fraud controls, rental and check-in desks &mdash; the lesson is that the scanner vendor, not the store, became the aggregation point, and the customer relationship is still the retailer&rsquo;s.</p>
+      <h2>An unpatched Magento and Adobe Commerce zero-day is backdooring live stores right now, and there is no vendor fix to apply</h2>
+      <p>On 5 September the Dutch e-commerce forensics firm Sansec published details of a flaw it calls StyleSmuggler &mdash; unauthenticated remote code execution in Magento Open Source and Adobe Commerce &mdash; and said explicitly that it was publishing early because stores were being compromised as it wrote. Sansec reproduced the exploit on Magento Open Source 2.4.7, 2.4.8 and 2.4.9 and reports that all current versions are affected; the first victim it examined was running 2.4.6-p15 with the August 2026 patches already applied, so being up to date is not protection here. As of 6 September there is no CVE identifier, no Adobe advisory, no patch and no official workaround: Adobe&rsquo;s security bulletin index has not moved since 11 August, and while the next scheduled release was 8 September, coverage for this issue was unconfirmed at the time of writing. The chain is quiet. Attackers plant PHP inside files Magento generates for itself, such as failure reports, then trigger execution through the standard &ldquo;Payment Transaction Failed Reminder&rdquo; email as the message is rendered, abusing the dependency-injection compiler classes to include an attacker-controlled path. No shopper or administrator has to click anything. What lands is a stripped, statically linked Rust implant of roughly 1.9MB built for x86-64 and arm64, masquerading as the kernel thread <code>[kworker/u:8:0]</code>, sitting at <code>~/.local/share/.gvfsd/gvfsd-user</code> and restored by a cron entry every five minutes; one variant opened 28 connections to the store&rsquo;s Redis instance on port 6379 to read session storage &mdash; that is live customer sessions, not just files. Sansec dates the first exploitation it observed to 4 September, and the Dutch agency Disrex independently handled three confirmed or attempted compromises. Sansec has not published a victim count. For any merchant running Magento or Adobe Commerce, this is a hunt-first item: assume the platform is exposed, look for the indicators, and treat mitigation as the interim answer until Adobe ships something.</p>
       <div class="card-meta">
-        <span>KrebsOnSecurity / BleepingComputer / SecurityWeek</span>
-        <span class="dot">&bull;</span>
-        <span>Reported 1 Sep 2026 &mdash; alleged; not confirmed by IDScan</span>
+        <span>Magento Open Source &amp; Adobe Commerce, all current versions incl. 2.4.9 &bull; No CVE assigned &bull; No vendor patch as of 6 Sep 2026 &bull; Exploitation confirmed from 4 Sep</span>
       </div>
-      <a href="https://krebsonsecurity.com/2026/09/fbi-probes-service-selling-153m-drivers-licenses/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <div class="card-meta">
+        <span>Sansec (discovery and IoCs) / The Hacker News (corroboration, Disrex cases)</span>
+        <span class="dot">&bull;</span>
+        <span>Disclosed 5 Sep 2026 &mdash; confirmed active exploitation; unpatched at time of writing</span>
+      </div>
+      <a href="https://sansec.io/research/stylesmuggler" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -718,24 +721,24 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-idscan-nexus"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
+        <a href="#it-magento-stylesmuggler"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-idscan-nexus"><circle class="blip crit" cx="237.4" cy="242.7" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="237.4" y="247.0">2</text></a>
         <a href="#it-wordpress-storefront-rce"><circle class="blip crit" cx="95.3" cy="172.6" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="95.3" y="176.4">3</text></a>
-        <a href="#it-citrix-netscaler"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
-        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
-        <a href="#it-avada-woocommerce"><circle class="blip crit" cx="104.8" cy="61.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="104.8" y="64.6">6</text></a>
-        <a href="#it-mag-airports"><circle class="blip high" cx="315.2" cy="216.2" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="315.2" y="218.4">7</text></a>
-        <a href="#it-hit-casinos"><circle class="blip high" cx="62.0" cy="258.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="62.0" y="260.0">8</text></a>
+        <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="247.4" cy="128.3" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="247.4" y="131.6">4</text></a>
+        <a href="#it-citrix-netscaler"><circle class="blip crit" cx="165.2" cy="263.7" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="165.2" y="266.6">5</text></a>
+        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="104.8" cy="61.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="104.8" y="64.6">6</text></a>
+        <a href="#it-avada-woocommerce"><circle class="blip crit" cx="315.2" cy="216.2" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="315.2" y="218.4">7</text></a>
+        <a href="#it-mag-airports"><circle class="blip high" cx="62.0" cy="258.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="62.0" y="260.0">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-idscan-nexus"><span class="ld crit"></span><b>1</b> 153M licence scans traced to IDScan</a>
-        <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>2</b> Carhartt: 12.9M records published</a>
+        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>1</b> Magento 0-day backdooring stores, no patch</a>
+        <a href="#it-idscan-nexus"><span class="ld crit"></span><b>2</b> 153M licence scans traced to IDScan</a>
         <a href="#it-wordpress-storefront-rce"><span class="ld crit"></span><b>3</b> 440k+ attacks on storefront plugins</a>
-        <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>4</b> Two NetScaler flaws under attack</a>
-        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>5</b> SonicWall SMA 1000 chain exploited</a>
-        <a href="#it-avada-woocommerce"><span class="ld crit"></span><b>6</b> Avada theme zero-click RCE (9.8)</a>
-        <a href="#it-mag-airports"><span class="ld high"></span><b>7</b> 8.8M airport booking records dumped</a>
-        <a href="#it-hit-casinos"><span class="ld high"></span><b>8</b> Casino and hotel group offline 3 days</a>
+        <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>4</b> Carhartt: 12.9M records published</a>
+        <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>5</b> Two NetScaler flaws under attack</a>
+        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>6</b> SonicWall SMA 1000 zero-days exploited</a>
+        <a href="#it-avada-woocommerce"><span class="ld crit"></span><b>7</b> Avada theme zero-click RCE (9.8)</a>
+        <a href="#it-mag-airports"><span class="ld high"></span><b>8</b> 8.8M airport booking records dumped</a>
       </div>
     </div>
 
@@ -744,6 +747,38 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-idscan-nexus" data-published="2026-09-01">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>A dark-web service sold 153 million driver&rsquo;s licence scans traced to the ID-check terminals on retail, hotel and rental counters</h3>
+        <p>On 1 September Brian Krebs reported that an identity-theft service called Nexus, advertised on the Russian-language crime forum Exploit, was offering more than 153 million driver&rsquo;s licence images covering the United States and Canada, plus over 10 million identification cards, roughly 3 million travel documents and about 579,000 medical cards. Investigators traced the source to IDScan.net, a Louisiana identity-verification vendor that says it handles more than 21 million verifications a month across upwards of 20,000 locations and counts Target, Hertz, FedEx and Caesars Entertainment among its customers. The provenance evidence is what makes this a retail story rather than a generic data-broker leak: Krebs found his own and a family member&rsquo;s licences with timestamps matching Hertz rental transactions, and researcher Zach Edwards found his after presenting ID at a Las Vegas cannabis dispensary and at his hotel. The operators claimed to have been pulling fresh records continuously for more than a year, and roughly 400,000 new licences appeared within a day of the listing going live. The FBI&rsquo;s New Orleans office opened an inquiry; Nexus went offline within hours of publication, though buyers who already pulled the data still hold it. SecurityWeek carried the account on 3 September and lawsuits followed within days. IDScan has acknowledged an internal investigation but has not publicly confirmed a compromise, and the true number of affected people is unknown. For any merchant that scans identity documents &mdash; age-restricted sales, returns-fraud controls, rental and check-in desks &mdash; the lesson is that the scanner vendor, not the store, became the aggregation point, and the customer relationship is still the retailer&rsquo;s.</p>
+        <div class="card-meta">
+          <span>Identity-verification vendor &bull; No CVE &bull; 153M+ licence images claimed &bull; Alleged; not confirmed by IDScan</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; data offered for sale and partially distributed; source of the images alleged, not vendor-confirmed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; vendor due diligence and data-minimisation</span>
+            <span class="ops-cc"><b>Action:</b> Identify every counter, kiosk or app in your estate that scans or photographs a customer identity document, and name the vendor behind each. Ask each vendor in writing whether document images are retained, where, for how long and under whose control, and whether a verify-only mode is available that returns a pass or fail without keeping the image. Where retention is not required by law, switch it off. Brief store, rental and front-desk staff that customers may ask about this, and prepare a factual holding line &mdash; the customer will come to you, not to the scanner vendor.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Identity-scanning vendor inventory and retention confirmation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-idscan-nexus" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-idscan-nexus">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>KrebsOnSecurity (1 Sep) / SecurityWeek (3 Sep) / BleepingComputer (5 Sep)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 1&ndash;5 Sep 2026 &mdash; alleged; not confirmed by IDScan</span>
+        </div>
+        <a href="https://www.securityweek.com/153-million-driver-license-images-offered-on-dark-web/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-carhartt-shinyhunters" data-published="2026-08-27">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -808,6 +843,39 @@
         </div>
         <a href="https://www.securityweek.com/manchester-airports-group-data-on-8-8-million-people-leaked-after-ransom-refusal/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="it-trezor-shipmonk" data-published="2026-09-05">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>A fulfilment partner still held order data it had certified as deleted &mdash; and the count jumped from 13,689 to 67,000 customers</h3>
+        <p>Trezor disclosed on 5 September that far more of its customers were caught in the breach at third-party fulfilment provider ShipMonk than it first reported: 67,000 people in the United States, against the 13,689 it disclosed in August. The exposed fields are names, email addresses, phone numbers, shipping addresses and order numbers. The hardware-wallet brand is incidental; the retention failure is the story. The records date from November 2019 to August 2021, long past Trezor&rsquo;s own 90-day retention policy for order data, and Trezor says it repeatedly asked for and received written confirmation from ShipMonk that the data had been deleted in line with contract, data policy and prior correspondence. It had not been. Reporting attributes the intrusion to the ShinyHunters extortion group &mdash; the same crew behind the Carhartt dump on this page &mdash; using a critical SQL injection flaw in Metabase, tracked as CVE-2026-72898 with a CVSS score of 10.0, to reach data held in ShipMonk&rsquo;s systems; the breach was discovered on 10 August 2026. ShipMonk has not publicly acknowledged the incident. Trezor has notified affected customers and warned them to expect social engineering built on the shipping details. Any merchant that hands names and delivery addresses to a 3PL, a returns processor, a print-and-fulfil partner or a marketing agency carries the same exposure, and the shape of it is worth naming plainly: a deletion certificate is a claim, not a control, and the customer will hold the brand responsible for the partner&rsquo;s filing cabinet.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-72898</span>
+          <span>Third-party fulfilment provider &bull; Metabase SQL injection, CVSS 10.0 &bull; 67,000 US customers &bull; No payment card data reported</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach discovered 10 Aug 2026; ShinyHunters attribution per reporting; ShipMonk has not publicly acknowledged it</span>
+            <span class="ops-tag kev-off">CISA KEV status for CVE-2026-72898 not confirmed as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable to the merchant &mdash; third-party retention and assurance controls</span>
+            <span class="ops-cc"><b>Action:</b> List every partner that receives customer names and delivery addresses &mdash; 3PL and fulfilment, returns and repairs, print-and-mail, loyalty and marketing agencies &mdash; and for each one record what data goes, what the contract says about retention, and when deletion was last evidenced rather than asserted. Replace deletion attestations with evidence: a dated deletion report, a system-generated retention configuration screenshot, or an audit right you actually exercise. Where a partner runs self-hosted analytics such as Metabase, Grafana or a BI tool over your data, ask what version it is on and whether it is internet-facing. Set a calendar review rather than trusting an annual questionnaire.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Third-party retention evidence review for fulfilment and logistics partners &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-trezor-shipmonk" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-trezor-shipmonk">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Trezor disclosure)</span>
+          <span class="dot">&bull;</span>
+          <span>Breach discovered 10 Aug 2026; revised figure disclosed 5 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/trezor-says-shipmonk-breach-exposed.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-hit-casinos" data-published="2026-08-31">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -839,38 +907,6 @@
           <span>Attack detected week of 25 Aug 2026; reopening from 31 Aug 2026; investigation ongoing</span>
         </div>
         <a href="https://therecord.media/slovenia-cyberattack-casinos-reopen" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-hasbro-employee" data-published="2026-08-28">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Hasbro breach started with one compromised employee account and reached payroll-grade personal data</h3>
-        <p>Hasbro filed breach notifications with the Massachusetts Attorney General in late August covering at least 436 employees in that state; the company has not published a total figure. The exposed elements are the ones that carry the most downstream harm: names alongside email addresses, postal addresses, phone numbers, national identification numbers, financial account information, payment card numbers and driver&rsquo;s licence details. Hasbro says it contained the incident by disabling the compromised employee account, terminating the unauthorised access and adding further safeguards. It has not said when the intrusion was detected, has not named an attacker and has not linked this to the separate April 2026 cyberattack it disclosed as costing roughly $25 million in revenue. For a consumer-products company the instinct is to worry about the customer database, but this one went the other way. A single working account &mdash; not an exploited appliance, not a zero-day &mdash; produced access to HR and payroll-adjacent records, which is the pattern behind most identity-theft claims and the class actions that follow them. Consumer brands and retailers concentrate this data in a small number of HCM and payroll SaaS tenants that are often federated to the corporate identity provider but exempted from the strictest conditional-access rules because HR staff work from odd places. Phishing-resistant MFA on those tenants specifically, plus alerting on bulk record views, is a cheaper control than notification.</p>
-        <div class="card-meta">
-          <span>Compromised employee account &bull; No CVE &bull; 436+ Massachusetts employees notified &bull; Total not disclosed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; breach confirmed via state regulator filing; detection date not disclosed</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE, account compromise</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; identity and access controls</span>
-            <span class="ops-cc"><b>Action:</b> Identify every application where a standard employee account can read other employees&rsquo; national ID numbers, bank details or payment cards &mdash; HCM, payroll, expenses, benefits, travel booking &mdash; and require phishing-resistant MFA plus device compliance for all of them, with no legacy-authentication exemptions. Add detection for a single account viewing or exporting an unusual number of employee records in a session. Review how long scanned identity documents are retained in the HR system; most retailers keep right-to-work and licence scans far longer than they need to.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> HR/payroll tenant access and MFA review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hasbro-employee" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-hasbro-employee">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (Massachusetts AG notification)</span>
-          <span class="dot">&bull;</span>
-          <span>Notifications filed late Aug 2026; reported 28 Aug 2026; incident date not disclosed</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/toy-making-giant-hasbro-disclose-data-breach-affecting-employees/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-ceva-fulfilment" data-published="2026-08-17">
         <div class="card-header">
@@ -944,6 +980,38 @@
         </div>
         <a href="https://thehackernews.com/2026/09/over-440000-exploit-attempts-target.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="it-clickfix-blockchain" data-published="2026-09-05">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>More than 5,400 hacked sites &mdash; WordPress and PrestaShop among them &mdash; are serving fake verification prompts whose payload lives on a blockchain</h3>
+        <p>Netskope reported on 5 September that it had identified over 5,400 compromised websites, predominantly WordPress and PrestaShop installations, injected with script that serves ClickFix lures: a fake CAPTCHA or verification prompt that persuades the visitor to copy a PowerShell command and run it themselves, so no exploit and no download prompt is involved. What makes the campaign awkward to disrupt is where the payload is kept. The operators use the EtherHiding technique, storing the malicious code in smart contracts on the BNB Smart Chain testnet, so there is no host to suspend and no domain to seize &mdash; the compromised site simply reads the contract. Netskope recorded activity climbing steadily since spring, peaking at 536 sites contacting BSC endpoints in a single day, and describes a newer variant that replaces the PowerShell stage with a WebRTC data-channel stager: it creates a peer connection and data channel that bypasses the standard handshake, giving the operator an encrypted path for dynamic code execution with no file written to disk. PrestaShop&rsquo;s presence in that population is the retail angle, and there are two consequences for merchants. A compromised storefront is not only a card-skimming risk; it can be turned into a delivery mechanism against your own shoppers, and the reputational damage from a customer who was told to paste a command by your site is comparable to a skimmer. Second, the identical lure works on staff &mdash; store managers, help-desk users and marketing teams are the population most likely to comply with an on-screen instruction to fix a page that appears broken.</p>
+        <div class="card-meta">
+          <span>WordPress and PrestaShop storefronts &bull; No CVE &bull; 5,400+ compromised sites &bull; EtherHiding on BNB Smart Chain testnet</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing campaign with rising volume through Aug 2026; research published 5 Sep</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; campaign, not a single CVE</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch &mdash; CMS hygiene, site integrity monitoring and user hardening</span>
+            <span class="ops-cc"><b>Action:</b> Fetch the JavaScript your own storefronts actually serve to a browser, from a clean network, and diff it against what you expect &mdash; injected loaders sit in theme files and header includes, not in your repository. Put file-integrity monitoring on the CMS document root of every WordPress, PrestaShop, WooCommerce and Magento property you own, including microsites and campaign landing pages that no one owns any more. On the endpoint side, the whole ClickFix class dies if users cannot paste into a command prompt: consider disabling the Windows Run dialog by policy for store and back-office staff, enable PowerShell script-block logging and constrained language mode, and alert on clipboard-sourced PowerShell. Add a line to store-staff briefings: no legitimate website ever asks you to paste a command.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Storefront integrity monitoring plus ClickFix endpoint and awareness controls &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-clickfix-blockchain" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-clickfix-blockchain">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer, reporting Netskope research</span>
+          <span class="dot">&bull;</span>
+          <span>Published 5 Sep 2026; campaign activity observed through spring and summer 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/over-5-400-hacked-sites-serve-clickfix-payloads-stored-on-the-blockchain/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-faronics-screenconnect" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1008,45 +1076,13 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-zombie-card-visa" data-published="2026-08-21">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>Carried forward: researchers can still make expired Visa cards transact at the terminal, and the fix sits with the scheme, not the merchant</h3>
-        <p>Reported on 21 August and unchanged since, this academic work demonstrates a smartphone-relay attack that defeats the cryptographic checks performed during a card-present transaction and alters the expiry date presented to the terminal, so an expired Visa card is accepted and authorised. It remains confirmed research rather than observed crime: no in-the-wild abuse has been reported, no CVE has been assigned, and no source has quantified how many terminal models, EMV kernel versions or acquirer configurations are in scope. The researchers state the technique does not work against Mastercard, American Express or Discover, so this is a Visa-specific gap rather than a general EMV break. The reason it stays on this page is that nothing a merchant patches removes the exposure &mdash; the defeated control lives in the card and the terminal, and remediation has to come from Visa and the terminal vendors. What a retailer can do is detect and escalate. An approved authorisation on a card whose expiry date has already passed is anomalous by definition, and almost no merchant inspects that field once the acquirer returns an approval, which makes it both a cheap query to run and an unlikely thing to already be monitored. High-throughput card-present environments are the natural target, because a relay needs physical proximity and works best where per-transaction scrutiny is lowest.</p>
-        <div class="card-meta">
-          <span>Visa card-present transactions at POS terminals &bull; No CVE &bull; Mastercard, Amex and Discover stated unaffected</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Proof of concept &mdash; working academic demonstration; still no in-the-wild abuse reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE assigned</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">No merchant-side patch &mdash; remediation sits with Visa and terminal vendors</span>
-            <span class="ops-cc"><b>Action:</b> If you opened this in August, chase the answer: ask your acquirer and terminal vendor in writing whether your deployed EMV kernel versions are in scope and whether Visa has issued guidance, scoping the question by scheme since the other three are stated unaffected. Keep the detection running &mdash; query settled card-present transactions for approvals where the presented expiry date had already passed, route any hits to fraud for chargeback review, and treat it as a standing weekly control until the vendor responds.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Chase acquirer/terminal-vendor response; keep expired-expiry query running &mdash; 14 days (carried over)</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-zombie-card-visa" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-zombie-card-visa">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SecurityWeek &ldquo;In Other News&rdquo; roundup (academic research)</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 21 Aug 2026; carried forward &mdash; no change in exploitation status as of 4 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/in-other-news-zombie-card-attack-t-mobile-cut-cable-to-stop-hackers-github-denies-ai-caused-bug/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-citrix-netscaler" data-published="2026-08-26">
+      <div class="card" id="it-citrix-netscaler" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
@@ -1147,38 +1183,38 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/critical-avada-wordpress-theme-flaw-enables-zero-click-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-jfrog-artifactory" data-published="2026-09-02">
+      <div class="card" id="it-wp-migration-sqli" data-published="2026-09-03">
         <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
+          <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Attackers are minting admin tokens in JFrog Artifactory &mdash; and patching does not invalidate the ones they already made</h3>
-        <p>CVE-2026-82329 is an authentication bypass in self-managed JFrog Artifactory that lets an unauthenticated attacker with network access forge administrative tokens. JFrog released fixes on 28 August across 7.111.21, 7.117.28, 7.125.20, 7.133.29, 7.146.38 and 7.161.20; JFrog Cloud environments were already protected. Default deployments are exploitable. On 2 September watchTowr confirmed it had seen attackers minting themselves admin tokens in the wild, and the flaw was added to the CISA KEV catalog in the same early-September batch. With administrative access an attacker can enumerate users, groups and federated topologies, read artifacts, change security configuration and poison packages that downstream build systems already trust and pull automatically. The detail that catches teams out is that applying the patch does not revoke tokens that were issued before it &mdash; token cleanup is a separate remediation step. Retail is a heavier user of internal artifact repositories than its reputation suggests: e-commerce platform builds, mobile shopping apps, POS and kiosk images and store-device firmware all commonly flow through one. A poisoned artifact in that pipeline reaches production checkout code or store hardware without any further intrusion, which makes this a supply-chain exposure with a very short path to payment data.</p>
+        <h3>All-in-One WP Migration: a second-order SQL injection on roughly 3.2 million unpatched sites, and only about a third have updated</h3>
+        <p>SecurityWeek reported on 3 September that CVE-2026-19949, a second-order SQL injection in the archive-restore functionality of the All-in-One WP Migration and Backup plugin, carries a CVSS score of 8.8 and was found by Defiant, the security firm behind Wordfence. The plugin has more than 5 million active installations; as of 3 September roughly 3.2 million sites were still running a vulnerable build, with only about 35 per cent moved to the fixed 7.110 released on 20 August 2026. Every version up to and including 7.109 is affected. The described attack path is worse than the score alone suggests: an unauthenticated attacker can extract secret keys through trackback functionality and then deploy a malicious plugin, which is complete site compromise rather than data disclosure. No exploitation had been reported at the time of writing, and that is exactly the window in which this is cheap to fix &mdash; the Elementor Pro entry elsewhere on this page sat in the same position ten days ago and is now under mass attack. Migration and backup plugins deserve particular attention in retail estates for two reasons. They are the plugins an agency installs during a replatform and nobody removes from production afterwards, and the archives they create routinely contain the entire customer and order database in a single file that is often left readable under the web root.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-82329</span>
-          <span>JFrog Artifactory self-managed &bull; Fixed 28 Aug 2026 in 7.111.21 / 7.117.28 / 7.125.20 / 7.133.29 / 7.146.38 / 7.161.20</span>
+          <span class="cve-badge">CVE-2026-19949</span>
+          <span>All-in-One WP Migration and Backup &bull; CVSS 8.8 &bull; Affected &le;7.109, fixed in 7.110 (20 Aug 2026) &bull; ~3.2M vulnerable sites</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; watchTowr observed attackers forging admin tokens; exploitable in default configurations</span>
-            <span class="ops-tag kev-on">Added to CISA KEV in early Sep 2026</span>
+            <span class="ops-tag ex-none">No confirmed exploitation reported as of this edition &mdash; patch window still open</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed releases available since 28 Aug 2026; JFrog Cloud unaffected</span>
-            <span class="ops-cc"><b>Action:</b> Patch to a fixed release, then revoke and reissue every access token, because the patch does not invalidate tokens minted before it &mdash; that second step is the one most teams miss. Audit administrator accounts, permission targets and any federation or replication configuration for changes made since late August. Verify checksums and signatures on recently published artifacts, especially anything consumed by your storefront, mobile app or POS and kiosk image pipelines, and rebuild from source where you cannot prove provenance. Remove Artifactory from direct internet exposure if it is reachable.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; update to 7.110 or later</span>
+            <span class="ops-cc"><b>Action:</b> Enumerate every WordPress and WooCommerce property your organisation owns, including agency-managed sites, staging environments and brand microsites, and check the installed version of All-in-One WP Migration; update anything at 7.109 or below to 7.110 or later. Where the plugin is not in active use, deactivate and delete it rather than leaving it dormant &mdash; a deactivated plugin still ships code. While you are there, confirm that no <code>.wpress</code> or similar backup archives are sitting in a web-reachable directory, because those files hold your customer and order tables in the clear. Then decide who owns WordPress patching for the estate, since 65 per cent of installs not having updated in a fortnight is the real finding here.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch, full token rotation and artifact-integrity review &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-jfrog-artifactory" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-jfrog-artifactory">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Update or remove All-in-One WP Migration across the estate &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wp-migration-sqli" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-wp-migration-sqli">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer, reporting JFrog and watchTowr</span>
+          <span>SecurityWeek, reporting Defiant / Wordfence research</span>
           <span class="dot">&bull;</span>
-          <span>Patches 28 Aug 2026; exploitation reported 2 Sep 2026; incident scope not disclosed</span>
+          <span>Fix released 20 Aug 2026; exposure reported 3 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-jfrog-artifactory-flaw-to-forge-admin-tokens/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/over-3-million-wordpress-sites-affected-by-migration-plugin-vulnerability/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-04">
         <div class="card-header">
@@ -1247,40 +1283,38 @@
         </div>
         <a href="https://www.cybersecuritydive.com/news/papercut-emergency-patches-threat-actors-chained-vulnerabilities/829184/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-servicenow-max" data-published="2026-08-28">
+      <div class="card" id="it-aruba-cx-rce" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>ServiceNow patches three maximum-severity flaws that need no authentication &mdash; nothing exploited yet, but the window is the point</h3>
-        <p>ServiceNow disclosed four vulnerabilities on 28 August, three of them rated maximum severity and all exploitable without authentication in low-complexity attacks. CVE-2026-18885 and CVE-2026-18886 are code-injection issues, the second also enabling privilege escalation; CVE-2026-74820 is a SQL injection that allows an attacker to read or modify instance data. CVE-2026-6876 is a high-severity sandbox escape that lets a user with basic privileges reach remote code execution. Patches are available across the Xanadu, Yokohama, Zurich and Australia release families, and ServiceNow says it is not aware of malicious exploitation against instances. That last point is why this sits at Medium rather than higher, and it is unlikely to stay true indefinitely: unauthenticated maximum-severity flaws in a widely deployed SaaS platform attract proof-of-concept work quickly, and the pattern elsewhere on this page &mdash; Elementor Pro attacked the day after details circulated, Citrix reclassified from denial of service to root RCE by third-party research &mdash; is that the interval between disclosure and exploitation is short. Retailers run ServiceNow as the ITSM and often HR and store-support system of record, which means it holds asset inventories, network diagrams, privileged access requests and store contact details: not payment data, but an excellent map for whoever gets in next.</p>
+        <h3>HPE patches unauthenticated remote code execution in ArubaOS-CX &mdash; the switches sitting in the back of the shop</h3>
+        <p>HPE published fixes on 3 September for CVE-2026-73749, a buffer overflow in an ArubaOS-CX daemon that an unauthenticated remote attacker can reach by sending specially crafted packets to the affected service, resulting in remote code execution with elevated privileges. The affected trains are 10.18.0001 and earlier, 10.17.1021 and earlier, 10.16.1051 and earlier, 10.13.1180 and earlier, and 10.10.1180 and earlier; fixed builds are 10.18.1002, 10.17.1030, 10.16.1060, 10.13.1190 and 10.10.1181 and later. HPE said it was not aware of active exploitation or of any publicly available proof-of-concept exploit at publication. It sits at Medium on this page for exactly that reason, and because a switch management plane should not be reachable from an untrusted network in the first place. It is here at all because ArubaOS-CX is very common in store, distribution-centre and back-office networks, and store switching is the layer most likely to be years behind on firmware &mdash; upgrading it means a maintenance window that risks trading, so it gets deferred, repeatedly. That same layer is what enforces the separation between the card-handling VLAN, the back-office VLAN and guest wi-fi, which is a PCI DSS segmentation control as well as a security one. A flaw that yields elevated code execution on the device doing the segmenting is worth a scheduled fix even without exploitation.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-18885</span>
-          <span class="cve-badge">CVE-2026-18886</span>
-          <span class="cve-badge">CVE-2026-74820</span>
-          <span>ServiceNow &bull; Patched across Xanadu, Yokohama, Zurich and Australia releases</span>
+          <span class="cve-badge">CVE-2026-73749</span>
+          <span>HPE ArubaOS-CX switches &bull; Unauthenticated RCE via crafted packets &bull; Fixed in 10.18.1002 / 10.17.1030 / 10.16.1060 / 10.13.1190 / 10.10.1181 and later</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>None observed &mdash; ServiceNow states it is not aware of malicious exploitation of instances</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
+            <span class="ops-tag ex-none">No active exploitation or public proof of concept known to HPE at publication</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixes published 28 Aug 2026 for supported release families</span>
-            <span class="ops-cc"><b>Action:</b> Check which release family each of your instances runs, including sub-production and any instance a systems integrator maintains on your behalf, and schedule the patch rather than waiting for the next quarterly upgrade. Confirm that your instances are not accepting unauthenticated requests from the open internet where an IP allow-list or private connectivity is available. Review which scoped applications and integration accounts hold broad table access, since a SQL-injection issue is worth far more against an instance where one integration user can read everything.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; fixed ArubaOS-CX builds available from HPE</span>
+            <span class="ops-cc"><b>Action:</b> Pull a firmware inventory across every ArubaOS-CX switch you run, and make sure the list actually includes store comms cabinets and distribution-centre closets rather than only the data centre &mdash; those are the ones that fall off the asset register. Compare against the affected trains and schedule upgrades into existing maintenance windows; where a store cannot take an outage, prioritise by whether that switch carries card-handling traffic. Independently of the patch, verify that switch management interfaces are on an isolated management VLAN unreachable from guest wi-fi, the POS VLAN and any supplier or contractor network, and that default and shared credentials have been retired. If your PCI segmentation testing has never included reaching switch management from the guest network, add it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Instance patching and integration-permission review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-servicenow-max" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-servicenow-max">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Firmware inventory and store-switch upgrade plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aruba-cx-rce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-aruba-cx-rce">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer, reporting the ServiceNow advisories</span>
+          <span>BleepingComputer, reporting the HPE advisory</span>
           <span class="dot">&bull;</span>
-          <span>Published 28 Aug 2026; no known exploitation at time of writing</span>
+          <span>Advisory and fixed builds published 3 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/servicenow-warns-of-three-max-severity-security-vulnerabilities/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-critical-arubaos-cx-remote-code-execution-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1288,7 +1322,7 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
-      <div class="card" id="it-id-scan-liability" data-published="2026-09-04">
+      <div class="card" id="it-id-scan-liability" data-published="2026-09-05">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy</span>
@@ -1313,7 +1347,7 @@
         <div class="card-meta">
           <span>BleepingComputer (lawsuits) / KrebsOnSecurity (FBI inquiry)</span>
           <span class="dot">&bull;</span>
-          <span>Reported 1&ndash;4 Sep 2026; allegations unconfirmed by IDScan</span>
+          <span>Reported 1&ndash;5 Sep 2026; allegations unconfirmed by IDScan</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/idscan-sued-over-alleged-data-breach-affecting-153-million-drivers/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1349,7 +1383,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>

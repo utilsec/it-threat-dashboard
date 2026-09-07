@@ -622,7 +622,7 @@
       <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
       <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
       <div class="header-meta">
-        <span>Generated Fri, 04 Sep 2026, 8:44 PM ET</span>
+        <span>Generated Sun, 06 Sep 2026, 9:20 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
       </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Nonprofit sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of nonprofit IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:65%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Upper Medium, and driven by the web tier rather than by anything aimed at the sector. No nonprofit or charity breach was disclosed in the 23 Aug &ndash; 4 Sep window at all; Beacon CRM is carried forward from 14 August with no new findings. The score is set by Elementor Pro CVE-2026-32475, now confirmed under mass exploitation &mdash; roughly 190,000 blocked attempts since the 19 August patch, against 6M+ installs &mdash; alongside Super Forms CVE-2026-14894 at 250,000 attempts. Unauthenticated file upload to remote code execution on WordPress form pages is close to a direct hit on the sector&rsquo;s most common internet-facing asset, so this is not an abstract cross-industry item. Adding to it: an actively exploited Citrix NetScaler auth bypass, an exploited Chrome V8 zero-day, seven KEV additions on 2 September, and an unpatched SQL injection in a backup plugin on 3.25M sites. The Pegasus zero-click confirmed by the Citizen Lab is the sector&rsquo;s own story but is narrowly targeted at individual activists and already fixed in iOS 18.4.1. It stays in Medium because these are discrete patch-and-hunt exposures, not one compromise spreading across nonprofit estates, and the rubric caps stacked exploited flaws at 6.9.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:68%;"></span></div>
+      <div class="tl-why"><b>Why:</b> Upper Medium, and once again set by the internet-facing tier rather than by anything aimed at the sector. No nonprofit, charity or NGO breach was disclosed anywhere in the 28 Aug &ndash; 6 Sep window; Beacon CRM carries forward from 14 August with no new findings, so this is an honestly quiet fortnight for sector-specific activity. What lifts the number two-tenths is the shape of the exposures rather than their number. CERT Polska confirmed active exploitation from 2 September of a MikroTik RouterOS chain giving unauthenticated administrative control of the router &mdash; the cheapest capable gear in the sector, and the box most likely to sit unpatched in a small office or an overseas field site. Sansec confirmed a Magento and Adobe Commerce zero-day being used to backdoor stores from 4 September, with no CVE, no patch and no vendor advisory yet. Around those: Elementor Pro remains under mass attack at roughly 190,000 blocked attempts, Citrix NetScaler exploitation continues, Google shipped its sixth exploited Chrome zero-day of the year, and eight flaws entered CISA KEV between 2 and 4 September. It stays in Medium rather than High because each is a discrete patch-and-hunt exposure with a fix or a workable mitigation, not one compromise spreading across nonprofit estates, and the rubric caps stacked exploited flaws at 6.9.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,31 +681,37 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-pegasus-civilsociety" data-published="2026-09-02">
+    <div class="top-story" id="it-mikrotik-mikrotrick" data-published="2026-09-05">
       <span class="top-story-pill">Top Story</span>
-      <h2>Citizen Lab confirms a Pegasus iMessage zero-click on a pro-democracy activist&rsquo;s iPhone &mdash; the one threat aimed squarely at civil society this cycle</h2>
-      <p>On 2 September the Citizen Lab published forensic confirmation that a member of Serbia&rsquo;s student pro-democracy movement had an iPhone infected with NSO Group&rsquo;s Pegasus spyware through an iMessage zero-click exploit, with high-confidence indicators of infection spanning December 2025 to January 2026. The target requested anonymity. Reporting around the disclosure places it alongside at least fourteen people in Serbia found to have faced advanced spyware since early 2026 &mdash; student activists, opposition politicians and a local councillor &mdash; and a second device infected with an Android implant resembling the NoviSpy family, discovered after the phone was confiscated by police. The Citizen Lab notes the targeting sits ahead of key 2026 election cycles. Two things make this the sector&rsquo;s story rather than a general one. First, the exploit chain required no interaction at all: no link clicked, no attachment opened, none of the behaviour that ordinary staff phishing training addresses. Second, Apple had already closed it &mdash; the zero-click was rendered ineffective by iOS 18.4.1 &mdash; so the population still exposed was the population running old builds. For advocacy, human-rights, humanitarian and faith organisations, that reframes device patching from hygiene into the single highest-value control available, and it makes Apple&rsquo;s Threat Notifications something a named person should be watching for, not something an individual staff member quietly deals with alone. The honest caveat: nobody has published a CVE tying this specific chain to a numbered flaw, and attribution of the operator has not been made in the report.</p>
+      <h2>Attackers are taking over MikroTik routers through internet-facing SSH with no password at all &mdash; and MikroTik is the cheapest capable box in the sector</h2>
+      <p>On 5 September CERT Polska, Poland&rsquo;s national CERT, published confirmation that vulnerabilities it disclosed in MikroTik RouterOS are being exploited in the wild, chained into an attack it calls <em>MikroTrick</em>. The chain gives an unauthenticated attacker full administrative control of a router whose SSH service is reachable from the internet. CVE-2026-67276 (CVSS 9.2) is the entry point: RouterOS did not properly verify the public key presented during SSH authentication, so someone who knows a valid username and the corresponding public modulus can log in without ever holding the private key. CVE-2026-86060 (CVSS 9.2) then takes that session to full admin, through improper handling of disallowed characters in the username. A third issue, CVE-2026-67277 (CVSS 8.8), lets the bandwidth-test service disclose uninitialised kernel memory or be restarted remotely. CERT Polska reports attacks observed since at least 2 September, from source addresses 82.192.72.4 and 103.102.31.18. Fixed builds are 6.49.21, 7.23.4, 7.24.2 and 7.25beta3. This is the top story for nonprofits not because MikroTik is glamorous but because of who owns one. It is the router that ends up in small charities, community organisations, faith groups, hospices and overseas field offices precisely because it does serious routing for very little money &mdash; frequently installed once by a volunteer, a founding trustee&rsquo;s nephew or a contractor who has long since moved on, and then never touched again. The exposure here is not a misconfiguration you made; it is a device nobody has logged into for four years with management left open to the internet. If the router is compromised, everything behind it is reachable and every DNS lookup on your network is the attacker&rsquo;s to steer.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; forensic infection indicators verified by the Citizen Lab; iMessage zero-click, no user interaction</span>
-          <span class="ops-tag kev-off">No CVE published for this chain &mdash; mitigated by an Apple patch, not by a KEV-listed identifier</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CERT Polska confirms exploitation in the wild since at least 2 Sep 2026, with named source addresses and log indicators</span>
+          <span class="ops-tag kev-off">Not in CISA KEV at generation time &mdash; check the catalog directly; a national CERT confirmation is the stronger signal here</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-yes">Fixed &mdash; the exploit is ineffective from iOS 18.4.1 onward; keep devices on current builds</span>
-          <span class="ops-cc"><b>Action:</b> Get every staff, volunteer and trustee iPhone onto a current iOS build this month and stop treating device updates as optional for people doing advocacy, casework or field work. Turn on Lockdown Mode for anyone plausibly of interest to a state &mdash; campaigners, investigators, journalists you work with, staff travelling to sensitive places &mdash; and accept the feature loss. Name one person who owns Apple Threat Notifications and Google&rsquo;s equivalent, tell staff to forward such a notice immediately rather than dismiss it, and write down in advance who you would call: Access Now&rsquo;s Digital Security Helpline and the Citizen Lab both take civil-society referrals at no cost.</span>
+          <span class="ops-tag patch-yes">Patched &mdash; RouterOS 6.49.21, 7.23.4, 7.24.2 and 7.25beta3 contain the fixes</span>
+          <span class="ops-cc"><b>Action:</b> Find out today whether you own a MikroTik &mdash; ask your MSP, your volunteer IT helper, or look at the box in the comms cupboard &mdash; and include branch, field and pop-up sites, which is where these usually hide. Update to a fixed build immediately. Until you have, disable internet-facing SSH, WWW/WWW-SSL and bandwidth-test, and restrict management to trusted internal addresses. Then hunt: CERT Polska flags log lines reading <code>login failure for user -2</code> and <code>user added by ssh:-2@[ip]</code>, and the presence of a privileged account named <code>ops</code>. Check for unfamiliar users, scripts, schedulers and firewall or DNS changes, and review the device-mode &ldquo;Flagged&rdquo; status after updating. Treat a router that was exposed and unpatched as compromised and rebuild its configuration from scratch rather than trusting a clean-looking user list.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Fleet iOS/Android update sweep and Lockdown Mode decisions for at-risk staff &mdash; 14 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-pegasus-civilsociety" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="it-pegasus-civilsociety">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Identify and patch or isolate every MikroTik &mdash; 72h; configuration and log review for exposed devices &mdash; 7 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mikrotik-mikrotrick" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="it-mikrotik-mikrotrick">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>The Citizen Lab; The Hacker News; Infosecurity Magazine</span>
-        <span class="dot">&bull;</span>
-        <span>Infection Dec 2025 &ndash; Jan 2026 &mdash; published 2 Sep 2026, widely reported 3 Sep 2026</span>
+        <span class="cve-badge">CVE-2026-67276</span>
+        <span class="cve-badge">CVE-2026-86060</span>
+        <span class="cve-badge">CVE-2026-67277</span>
+        <span>RouterOS before 6.49.21 / 7.23.4 / 7.24.2</span>
       </div>
-      <a href="https://citizenlab.ca/research/pegasus-spyware-infection-of-serbian-activist/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <div class="card-meta">
+        <span>CERT Polska (cert.pl); The Hacker News</span>
+        <span class="dot">&bull;</span>
+        <span>Exploitation observed from 2 Sep &mdash; confirmed and published 5 Sep 2026</span>
+      </div>
+      <a href="https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -733,24 +739,24 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-elementor-superforms"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.8">1</text></a>
-        <a href="#it-citrix-netscaler-exploited"><circle class="blip crit" cx="248.2" cy="119.8" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="248.2" y="124.1">2</text></a>
-        <a href="#it-kev-0902"><circle class="blip crit" cx="93.6" cy="145.7" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="93.6" y="149.5">3</text></a>
-        <a href="#it-pegasus-civilsociety"><circle class="blip high" cx="266.9" cy="238.6" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="266.9" y="241.9">4</text></a>
-        <a href="#it-chrome-v8-zeroday"><circle class="blip high" cx="112.4" cy="262.3" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="112.4" y="265.2">5</text></a>
-        <a href="#it-wp-migration-sqli"><circle class="blip high" cx="188.6" cy="318.4" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="188.6" y="320.8">6</text></a>
-        <a href="#it-dropbox-lenovo-idp"><circle class="blip high" cx="46.2" cy="216.9" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="46.2" y="218.9">7</text></a>
-        <a href="#it-rmm-phishing"><circle class="blip high" cx="316.1" cy="164.8" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="316.1" y="166.8">8</text></a>
+        <a href="#it-magento-stylesmuggler"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.8">1</text></a>
+        <a href="#it-mikrotik-mikrotrick"><circle class="blip crit" cx="248.2" cy="119.8" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="248.2" y="124.1">2</text></a>
+        <a href="#it-elementor-superforms"><circle class="blip crit" cx="93.6" cy="145.7" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="93.6" y="149.5">3</text></a>
+        <a href="#it-citrix-netscaler-exploited"><circle class="blip crit" cx="266.9" cy="238.6" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="266.9" y="241.9">4</text></a>
+        <a href="#it-kev-early-sept"><circle class="blip crit" cx="112.4" cy="262.3" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="112.4" y="265.2">5</text></a>
+        <a href="#it-chrome-v8-zeroday"><circle class="blip high" cx="188.6" cy="318.4" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="188.6" y="320.8">6</text></a>
+        <a href="#it-clickfix-blockchain"><circle class="blip high" cx="46.2" cy="216.9" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="46.2" y="218.9">7</text></a>
+        <a href="#it-wp-migration-sqli"><circle class="blip high" cx="316.1" cy="164.8" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="316.1" y="166.8">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-elementor-superforms"><span class="ld crit"></span><b>1</b> 440k+ attacks on Elementor Pro &amp; Super Forms</a>
-        <a href="#it-citrix-netscaler-exploited"><span class="ld crit"></span><b>2</b> Citrix NetScaler auth bypass exploited</a>
-        <a href="#it-kev-0902"><span class="ld crit"></span><b>3</b> Seven KEV additions, 5 &amp; 16 Sep deadlines</a>
-        <a href="#it-pegasus-civilsociety"><span class="ld high"></span><b>4</b> Pegasus zero-click on an activist&rsquo;s iPhone</a>
-        <a href="#it-chrome-v8-zeroday"><span class="ld high"></span><b>5</b> Chrome V8 zero-day exploited in the wild</a>
-        <a href="#it-wp-migration-sqli"><span class="ld high"></span><b>6</b> WP Migration backup plugin SQLi, 5M sites</a>
-        <a href="#it-dropbox-lenovo-idp"><span class="ld high"></span><b>7</b> 5,000 Dropbox accounts taken via Lenovo ID</a>
-        <a href="#it-rmm-phishing"><span class="ld high"></span><b>8</b> RMM-installer phishing across 46 countries</a>
+        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>1</b> Unpatched Magento zero-day backdooring stores</a>
+        <a href="#it-mikrotik-mikrotrick"><span class="ld crit"></span><b>2</b> MikroTik routers taken over via exposed SSH</a>
+        <a href="#it-elementor-superforms"><span class="ld crit"></span><b>3</b> 440k+ attacks on Elementor Pro &amp; Super Forms</a>
+        <a href="#it-citrix-netscaler-exploited"><span class="ld crit"></span><b>4</b> Citrix NetScaler auth bypass exploited</a>
+        <a href="#it-kev-early-sept"><span class="ld crit"></span><b>5</b> Eight KEV additions, 5&ndash;18 Sep deadlines</a>
+        <a href="#it-chrome-v8-zeroday"><span class="ld high"></span><b>6</b> Chrome V8 zero-day exploited in the wild</a>
+        <a href="#it-clickfix-blockchain"><span class="ld high"></span><b>7</b> 5,400 hacked sites serving ClickFix payloads</a>
+        <a href="#it-wp-migration-sqli"><span class="ld high"></span><b>8</b> WP Migration backup plugin SQLi, 3.25M sites</a>
       </div>
     </div>
 
@@ -759,6 +765,39 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-magento-stylesmuggler" data-published="2026-09-05">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>An unpatched Magento zero-day is backdooring online stores right now, and Adobe has published nothing</h3>
+        <p>Sansec, the Dutch e-commerce forensics firm, disclosed on 5 September that a previously unknown flaw it names <em>StyleSmuggler</em> is being used to plant backdoors in Magento Open Source and Adobe Commerce stores. It gives an unauthenticated attacker remote code execution with no user interaction. The exploit runs in two stages: PHP code is smuggled in through Magento&rsquo;s failure-report mechanism, then executed by triggering the built-in &ldquo;Payment Transaction Failed Reminder&rdquo; email job. The implant that follows disguises itself as a Linux kernel thread, re-establishes itself through cron, and reads session data out of Redis. Sansec says every current version is affected, with compromises confirmed on 2.4.6-p15, 2.4.7, 2.4.8 and 2.4.9. Exploitation began on 4 September; both Sansec and the Disrex Group have confirmed live victims, and Disrex logged 26 distinct attacker source addresses across two incidents. Be clear about the state of play: as of this edition there is no CVE identifier, no patch and no Adobe advisory. Adobe&rsquo;s next scheduled release is 8 September. Nonprofits reach Magento by a predictable route &mdash; a charity shop moved online, merchandise, Christmas cards, event ticketing, membership fulfilment &mdash; usually built years ago by an agency that is no longer on retainer, which means nobody is watching for an advisory that has not been written yet.</p>
+        <div class="card-meta">
+          <span>No CVE assigned as of 6 Sep 2026 &bull; Magento Open Source &amp; Adobe Commerce, all current versions including 2.4.9</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed compromises from 4 Sep 2026, documented independently by Sansec and the Disrex Group</span>
+            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no CVE identifier has been assigned yet, so there is nothing for the catalog to list</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">Unpatched &mdash; no Adobe advisory or fix at generation time; next scheduled release 8 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> If any part of your organisation sells anything on Magento or Adobe Commerce, treat this as live. Watch for Adobe&rsquo;s 8 September release and apply it the day it lands. In the meantime, work through Sansec&rsquo;s published indicators of compromise, and look specifically for cron entries you did not create and for processes masquerading as kernel threads. Because the implant reads session data from Redis, assume administrator sessions are exposed: force a logout of all admin sessions and rotate admin credentials and API keys. Ask whoever hosts the store &mdash; agency, volunteer or platform partner &mdash; in writing today what version you are on and who will apply the fix, and do not accept &ldquo;it updates automatically&rdquo; as an answer.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm exposure and owner &mdash; 24h; apply the vendor fix once released &mdash; 72h; IOC sweep &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-magento-stylesmuggler" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-magento-stylesmuggler">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Sansec research; The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation from 4 Sep &mdash; disclosed 5 Sep 2026</span>
+        </div>
+        <a href="https://sansec.io/research/stylesmuggler" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-elementor-superforms" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -828,70 +867,37 @@
         <a href="https://www.bleepingcomputer.com/news/security/hackers-target-critical-citrix-netscaler-auth-bypass-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-dropbox-lenovo-idp" data-published="2026-09-02">
+      <div class="card" id="it-clickfix-blockchain" data-published="2026-09-05">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Breach</span>
+          <span class="category">Incident</span>
         </div>
-        <h3>About 5,000 Dropbox accounts were taken over through a flaw in Lenovo&rsquo;s email verification &mdash; no password required</h3>
-        <p>Dropbox has told affected customers that a weakness in Lenovo&rsquo;s email verification process let an unauthorised party register Lenovo IDs using other people&rsquo;s email addresses. Because Dropbox accepted Lenovo&rsquo;s identity provider as a sign-in method, registering a Lenovo ID against someone&rsquo;s address was enough to reach their Dropbox account without ever knowing the password. Roughly 5,000 accounts were affected between 4 and 21 August 2026, and Reuters reported that the attacker viewed and downloaded content from some of them. Dropbox has expired all Lenovo ID sessions and now requires a password when that route is used; Lenovo described the problem as a legacy integration between Lenovo ID and Dropbox and said its own customers were not affected. For nonprofits the lesson is not about Lenovo. Small organisations lean heavily on consumer and prosumer SaaS &mdash; Dropbox, Google Drive, Canva, Mailchimp, a giving platform &mdash; and every one of those accounts usually offers several ways in: a password, a Google or Microsoft sign-in, and often one or two federated options nobody chose deliberately. Your MFA policy protects the route you thought about. It does nothing about the alternative sign-in path a vendor enabled by default, and a weakness at the far end of that path is not something you will detect. This is worth an hour: open the security settings of every SaaS tool holding beneficiary, donor or safeguarding data and turn off every linked sign-in method your organisation does not actively use.</p>
+        <h3>More than 5,400 hacked WordPress and PrestaShop sites are serving fake CAPTCHA lures, with the payload parked on a blockchain</h3>
+        <p>Netskope reported on 5 September that it has identified over 5,400 compromised websites &mdash; predominantly WordPress, with PrestaShop also represented &mdash; injected with code that pulls its next stage from a smart contract on the BNB Smart Chain testnet. The technique, known as EtherHiding, matters because there is no malicious server to seize: the payload lives on a public blockchain that cannot be taken down or blocklisted in the usual way, and the attackers can swap it whenever they like. What visitors see is ClickFix: a fake CAPTCHA or &ldquo;verify you are human&rdquo; box that instructs them to paste a command into the Windows Run dialog or a terminal. Netskope observed the campaign shifting from that PowerShell stage to a WebRTC data-channel loader that opens an encrypted channel back to the attacker and runs whatever it receives. Traffic grew steadily through spring 2026, with roughly 400 infected sites contacting blockchain endpoints daily in August and a peak of 536. How the sites are being compromised in the first place is still unknown. There are two sides to this for a nonprofit. Your own site could be one of the 5,400, quietly attacking your supporters; and your staff and volunteers are exactly the audience that a &ldquo;paste this to continue&rdquo; box catches, because it does not look like a download and it does not look like a phish.</p>
         <div class="card-meta">
-          <span>Dropbox &bull; Lenovo ID identity-provider integration &bull; no CVE assigned</span>
+          <span>Netskope Threat Labs &bull; 5,400+ compromised sites &bull; WordPress and PrestaShop &bull; EtherHiding on BNB Smart Chain testnet</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Dropbox notified affected users; content viewed and downloaded from some accounts</span>
-            <span class="ops-tag kev-off">Not applicable to KEV &mdash; a provider-side identity flaw, not a numbered software vulnerability</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ongoing campaign, ~400 infected sites contacting blockchain endpoints per day in August 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; this is site compromise plus user-executed social engineering, not a single named vulnerability</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No customer patch &mdash; Dropbox expired Lenovo ID sessions and now requires a password on that path</span>
-            <span class="ops-cc"><b>Action:</b> In every SaaS account holding donor, beneficiary or safeguarding data, open the connected-accounts or sign-in-methods page and disable every federated login your organisation does not deliberately use. Confirm MFA is enforced on the sign-in routes that remain, not just the primary one. For Dropbox specifically, review the account activity and file-access history for the 4&ndash;21 August window and sign out all devices. Keep a short written list of which identity provider is authoritative for each tool, and treat any new sign-in option a vendor adds as a change to review rather than a feature.</span>
+            <span class="ops-tag patch-na">No patch &mdash; keep the CMS and every plugin current, and tell staff the rule below</span>
+            <span class="ops-cc"><b>Action:</b> Teach one sentence and repeat it until it is boring: no legitimate website ever asks you to copy a command into Windows Run, PowerShell or Terminal &mdash; if a page asks, close it and report it. Put that in your induction for volunteers and trustees, not just for staff. On the estate side, block BNB Smart Chain testnet RPC endpoints at your DNS or web filter (Netskope has published the indicators) and watch for outbound UDP that looks like WebRTC from machines that have no business making calls. Then check your own web properties: update WordPress core, themes and plugins, remove anything you no longer use, and scan for injected JavaScript in theme headers and footers.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> SaaS sign-in-method audit &mdash; 7 days; Dropbox activity review for affected tenants &mdash; 48h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-dropbox-lenovo-idp" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-dropbox-lenovo-idp">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Staff and volunteer briefing &mdash; 14 days; own-site plugin update and injection scan &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-clickfix-blockchain" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-clickfix-blockchain">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (Dropbox and Lenovo statements; Reuters)</span>
+          <span>Netskope Threat Labs, via BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>Account takeovers 4&ndash;21 Aug 2026; reported 2 Sep 2026</span>
+          <span>Campaign ongoing since spring 2026 &mdash; reported 5 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/dropbox-accounts-breached-through-lenovo-email-verification-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-thomson-reuters-ctrack" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>A court case-management vendor held backups some courts say they never authorised &mdash; and those backups were breached</h3>
-        <p>Thomson Reuters has disclosed that an unauthorised party accessed files in the cloud environment supporting C-Track, the court case-management platform run by its West Publishing unit, between 1 March and 29 June 2026. Courts were notified between 23 and 27 July and the public announcement came on 2 September. The exposed data spans names, Social Security numbers, driver&rsquo;s licence numbers, dates of birth, medical and health-insurance information, and material described as confidential, redacted or sealed, across eleven US states, the US Virgin Islands and Ontario. No affected-individual count has been published, the responsible party is unknown, Thomson Reuters says there is no evidence of fraud or misuse to date, and North Dakota has noted an active criminal investigation. The detail worth carrying into your own supplier conversations is this: some of the courts said the breached data sat in backups they had not asked Thomson Reuters to keep. Legal-aid charities, advocacy organisations, victim-support services and refugee and immigration NGOs hand exactly this class of record &mdash; identity documents, medical detail, protected-status information &mdash; to specialist case-management vendors. Contracts usually say a great deal about what the vendor may process and almost nothing about what it retains, where, and for how long after you stop using it. That gap is the finding here, and it is answerable with a written question rather than a tool.</p>
-        <div class="card-meta">
-          <span>Thomson Reuters / West Publishing &bull; C-Track cloud environment &bull; no CVE disclosed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; unauthorised access to backup files, 1 Mar &ndash; 29 Jun 2026; affected-individual count not published</span>
-            <span class="ops-tag kev-off">No CVE &mdash; cause of the intrusion has not been disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; vendor incident response, court notification and criminal investigation</span>
-            <span class="ops-cc"><b>Action:</b> For each vendor holding beneficiary, client or casework records, ask in writing what backup copies it retains, in which jurisdiction, for how long, and what happens to them if you terminate. Ask specifically whether it holds copies you never requested. Where the answer is unsatisfactory, get a retention and deletion commitment written into the next contract renewal rather than raising it after an incident. Separately, confirm you could produce, within a day, a list of which of your people&rsquo;s records sit with which supplier &mdash; that list is what a notification obligation runs on.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Written retention and deletion questions to casework vendors &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-thomson-reuters-ctrack" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-thomson-reuters-ctrack">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News (Thomson Reuters and state court notifications)</span>
-          <span class="dot">&bull;</span>
-          <span>Intrusion 1 Mar &ndash; 29 Jun 2026; courts notified 23&ndash;27 Jul; disclosed 2 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/thomson-reuters-court-software-breach.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/over-5-400-hacked-sites-serve-clickfix-payloads-stored-on-the-blockchain/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-beacon-crm-charities" data-published="2026-08-14">
@@ -920,7 +926,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (Beacon statement) &mdash; carried forward, re-checked 4 Sep 2026</span>
+          <span>SecurityWeek (Beacon statement) &mdash; carried forward, re-checked 6 Sep 2026</span>
           <span class="dot">&bull;</span>
           <span>Intrusion 27&ndash;28 Jul 2026; customers notified 3 Aug; reported 14 Aug 2026</span>
         </div>
@@ -932,6 +938,39 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="it-revstealer-defender" data-published="2026-09-02">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Commodity malware now turns Microsoft Defender and Windows Update off on the way in &mdash; which matters most where Defender is the only control you have</h3>
+        <p>Elastic Security Labs published research on 2 September documenting four modules distributed alongside REVSTEALER, an infostealer sold commercially since at least February 2026. Elastic matched roughly 4,700 samples on VirusTotal over the past year. The module worth your attention is LockAppHost: before running a cryptocurrency miner, it adds Microsoft Defender exclusions for common folders and file types, disables five Windows Update services, deletes eleven scheduled update tasks and two malware-removal tasks, and hides the miner inside legitimate Windows processes. It obtains administrator rights by abusing the built-in Windows CMSTP utility. The other three modules steal wallet files, browser extensions and typed passwords (ProManager), hijack the clipboard to swap cryptocurrency addresses and collect recovery phrases (WinUpdate), and turn the machine into a reverse proxy for the attacker&rsquo;s traffic (SoftManager). Delivery is through game-cheat lures promoted by at least seventeen YouTube channels, many of them hijacked from their original owners, and through fake software downloads &mdash; including a bogus free desktop app impersonating a well-known AI assistant. Two things make this a nonprofit item rather than a gamer one. Most nonprofits run Microsoft Defender because it comes with the Microsoft nonprofit grant and there is no budget for anything else, so malware whose first act is to switch it off removes the entire control. And shared, loaned and hand-me-down laptops used by volunteers, placements and family members are precisely where a game-cheat download lands.</p>
+        <div class="card-meta">
+          <span>Elastic Security Labs &bull; ~4,700 samples on VirusTotal &bull; modules: ProManager, WinUpdate, SoftManager, LockAppHost</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; commodity malware in circulation; sold as a service since at least Feb 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; abuse of legitimate Windows features (CMSTP, Defender exclusions, update services)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; configuration hardening, monitoring and download policy</span>
+            <span class="ops-cc"><b>Action:</b> Get alerted when Defender exclusions are added or when Windows Update services stop &mdash; those two signals catch this whole family and are free to configure. If you manage devices with Intune or a similar tool, lock Defender settings with tamper protection so a local administrator cannot add exclusions. Treat &ldquo;my updates stopped working&rdquo; as a security report, not a helpdesk annoyance. Set a plain rule that software is installed from official vendor sites or your own approved list only, and say out loud that this now includes AI tools, because fake AI installers are an active lure. If a shared or loaned laptop shows any of this, rebuild it, change the user&rsquo;s passwords and end their active sessions rather than trusting a password reset alone.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Defender tamper protection and exclusion alerting &mdash; 30 days; download policy communicated &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-revstealer-defender" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-revstealer-defender">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Elastic Security Labs, via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Research published 2 Sep 2026, reported 6 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-rmm-phishing" data-published="2026-09-03">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -997,83 +1036,50 @@
         </div>
         <a href="https://thehackernews.com/2026/09/phishing-campaign-sends-millions-of.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-      <div class="card" id="it-shaihulud-credentials" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>The Shai-Hulud credential stealer now hunts 469 places where secrets are left lying around</h3>
-        <p>GitGuardian researchers found in early August that the Shai-Hulud infostealer worm had expanded from 189 to 469 credential locations, sweeping developer environments, CI/CD tooling, cloud configuration files and, newly, AI tool configuration. Its propagation model is the reason it matters: the credentials it steals include package-publishing tokens, so a compromised developer becomes a route to publishing malicious code through a trusted package, which then reaches everyone who installs it. GitGuardian sets the backdrop at 28.65 million new hardcoded secrets pushed into public GitHub commits during 2025, up 34 percent year on year. Very few nonprofits maintain a software team, so the direct exposure is low &mdash; but the indirect route is short and familiar. A volunteer developer, a freelance contractor or a digital agency builds your donation page, your event site or a small integration between your CRM and your finance system. That person&rsquo;s laptop holds your API keys. If it is compromised, the attacker has your keys without ever touching your network, and you have no visibility into any of it. The question to put to whoever builds things for you is short: where are our credentials stored, are any of them long-lived, and how would you tell us if your machine were compromised.</p>
-        <div class="card-meta">
-          <span>GitGuardian &bull; 469 credential locations, up from 189 &bull; package-publishing tokens enable onward spread</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; variant observed in the wild by GitGuardian in early Aug 2026 and still spreading</span>
-            <span class="ops-tag kev-off">No CVE &mdash; credential theft and supply-chain propagation, not a single product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; rotate long-lived secrets and scope third-party access</span>
-            <span class="ops-cc"><b>Action:</b> List every API key, integration token and cloud credential you have issued to a contractor, agency or volunteer developer, and set an expiry on each. Replace long-lived keys with short-lived, narrowly scoped credentials wherever the platform supports it, and revoke anything belonging to someone who has finished their work. Add a line to development contracts requiring notification if the developer&rsquo;s own environment is compromised. If you host code in a public repository, run a secret scan over its history, not just the current files.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Third-party credential inventory and revocation of stale keys &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shaihulud-credentials" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-shaihulud-credentials">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News (GitGuardian research)</span>
-          <span class="dot">&bull;</span>
-          <span>Variant found early Aug 2026; reported 3 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/shai-huluds-reach-just-grew-to-469.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-kev-0902" data-published="2026-09-02">
+      <div class="card" id="it-kev-early-sept" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Seven vulnerabilities entered the CISA KEV catalog on 2 September with deadlines of 5 and 16 September</h3>
-        <p>CISA added seven actively-exploited flaws to the Known Exploited Vulnerabilities catalog on 2 September 2026. The pair carrying the shortest fuse are SonicWall SMA 1000 CVE-2026-83548, a server-side request forgery rated 10.0 in the appliance WorkPlace interface, and CVE-2026-83549, a post-authentication command injection rated 7.8 in the management console; SonicWall confirms both are being used together as a chain and urges an immediate hotfix upgrade for the 6210, 7210 and 8200v models. SSL-VPN on SonicWall firewalls and the SMA 100 series are not affected. Shadowserver counts over 400 internet-exposed SMA1000 devices. Where compromise is suspected, SonicWall&rsquo;s guidance is to re-image the appliance and reset credentials and TOTP tokens &mdash; patching alone is not enough. The rest of the batch: Sangoma Switchvox CVE-2026-9586, an unauthenticated SQL injection rated 9.3 that Horizon3 honeypots saw exploited on 30 August for reverse shells, fixed in 8.4.0.2 with roughly 4,000 devices exposed; JFrog Artifactory CVE-2026-82329, an improper-authentication flaw rated 9.8 that watchTowr observed being used to mint administrator tokens, fixed on 28 August &mdash; and note that upgrading does not invalidate a token already issued; Starlette CVE-2026-48710, request smuggling at 6.5, chained with CVE-2026-42271; Kestra OSS CVE-2026-49869, command injection at 10.0; and Berri LiteLLM CVE-2026-59822, improper authentication at 8.8. Federal remediation deadlines are 5 and 16 September.</p>
+        <h3>Eight vulnerabilities entered the CISA KEV catalog between 2 and 4 September, with federal deadlines running from 5 to 18 September</h3>
+        <p>CISA added seven actively exploited flaws on 2 September and one more on 4 September. The 2 September batch: two SonicWall SMA 1000 flaws, CVE-2026-83548 (CVSS 10.0, server-side request forgery) and CVE-2026-83549 (CVSS 7.8, OS command injection), both due 5 September; CVE-2026-9586 in Sangoma Switchvox (CVSS 9.3, SQL injection), being used to drop reverse shells, due 5 September; CVE-2026-82329 in JFrog Artifactory (CVSS 9.8, authentication bypass), with attackers minting administrator tokens, due 5 September; CVE-2026-49869 in Kestra OSS (CVSS 10.0, OS command injection), used for reverse shells, crypto miners and data harvesting, due 5 September; CVE-2026-48710 in Kludex Starlette (CVSS 6.5, HTTP request smuggling), due 16 September; and CVE-2026-59822 in BerriAI LiteLLM (CVSS 8.8, authentication bypass in the MCP endpoint), chained for remote code execution, due 16 September. On 4 September CISA added CVE-2026-85046, the actively exploited Chromium V8 type-confusion flaw, due 18 September. Two observations for this audience. First, the honest one: most nonprofits will own none of the SonicWall, Artifactory, Kestra or LiteLLM products, and pretending otherwise wastes your time. Second, the pattern is worth noticing &mdash; three of the eight sit in AI and developer infrastructure, which is exactly the kind of thing a digital-transformation grant quietly funds and nobody then patches. The KEV due dates are binding on US federal agencies, not on you, but they are a free, credible prioritisation list and a reasonable thing to hand a supplier.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-83548</span>
           <span class="cve-badge">CVE-2026-83549</span>
           <span class="cve-badge">CVE-2026-9586</span>
           <span class="cve-badge">CVE-2026-82329</span>
-          <span class="cve-badge">CVE-2026-48710</span>
           <span class="cve-badge">CVE-2026-49869</span>
+          <span class="cve-badge">CVE-2026-48710</span>
           <span class="cve-badge">CVE-2026-59822</span>
-          <span>SonicWall SMA 1000 &bull; Sangoma Switchvox &bull; JFrog Artifactory &bull; Starlette &bull; Kestra OSS &bull; Berri LiteLLM</span>
+          <span class="cve-badge">CVE-2026-85046</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; KEV listing means CISA has evidence of exploitation for every CVE in this batch</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 2 Sep 2026 &mdash; federal remediation deadlines 5 Sep and 16 Sep 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; KEV listing means CISA has evidence of exploitation for every one of these</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 2 and 4 Sep 2026; remediation due 5, 16 and 18 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; SonicWall SMA 1000 hotfix; Switchvox 8.4.0.2; Artifactory fixes released 28 Aug 2026</span>
-            <span class="ops-cc"><b>Action:</b> Most nonprofits will match on none of this, and that is a legitimate answer &mdash; but check rather than assume, because Switchvox is a low-cost phone system that turns up in charities and SonicWall appliances are common in the small-business tier that sells into the sector. If you run an SMA 1000, apply the hotfix now, and if there is any sign of compromise re-image it and reset credentials and TOTP tokens rather than patching in place. Switchvox goes to 8.4.0.2. For Artifactory, patch and then revoke existing administrator tokens, since upgrading does not invalidate one already issued. If an MSP owns your edge and phone systems, send them this list and ask for a written answer.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; vendor fixes exist for all eight; the KEV entry links each advisory</span>
+            <span class="ops-cc"><b>Action:</b> Spend ten minutes, not an afternoon. Read the eight product names against your asset list &mdash; and if you do not have an asset list, that is the actual finding, and a spreadsheet started this week is a legitimate first version. Chromium V8 is the one that almost certainly applies to you: confirm Chrome and every Chromium-based browser across staff and volunteer devices has restarted into a patched build, because an unrestarted browser is an unpatched browser. If a supplier or MSP runs anything on the list, send them the KEV entry and ask for a patch date in writing. Subscribing to the KEV feed itself is free and gives a very small IT function a defensible way to decide what to do first.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm whether any listed product is in your estate &mdash; 72h; patch or re-image anything that matches &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-0902" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kev-0902">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Browser fleet restart check &mdash; 72h; supplier confirmations for any listed product &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-early-sept" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kev-early-sept">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV catalog, corroborated by BleepingComputer (SonicWall, Sangoma/Horizon3, JFrog/watchTowr)</span>
+          <span>CISA KEV catalog; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>KEV additions 2 Sep 2026; deadlines 5 and 16 Sep 2026</span>
+          <span>Added 2 and 4 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-04">
@@ -1182,19 +1188,37 @@
         <a href="https://www.bleepingcomputer.com/news/security/french-hospital-fined-500-000-after-breach-exposes-data-of-727-000/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-nlccyberalliance" data-published="2026-08-11">
+      <div class="card" id="it-charitycommission-beacon" data-published="2026-08-07">
         <div class="card-header">
           <span class="severity sev-info">Info</span>
           <span class="category">Policy</span>
         </div>
-        <h3>Carried forward: a membership body is buying security assessments centrally for members who could never fund them individually</h3>
-        <p>The National League of Cities, a membership association representing US municipalities, is partnering with the nonprofit CyberAlliance to provide free cybersecurity assistance to under-resourced local governments. The programme uses an AI assistant to translate technical assessment findings into plain recommendations that city managers and elected officials can act on. It followed the compromises of water utilities in several states, which exposed how little in-house security capacity many small public bodies have. It stays on the page because nothing in the current window supersedes it and the model is directly transferable to the association-and-membership side of this sector: a national body commissioning assessment once, centrally, for organisations that could never each afford it, then doing the translation work so a non-technical board can approve a budget line. Umbrella bodies, diocesan and denominational offices, funders and sector infrastructure organisations weighing something similar now have a live example to point at rather than a hypothetical. If you sit on the board of a membership body, it is a reasonable thing to raise: the cost of one shared assessment programme against the cost of one member&rsquo;s ransomware incident.</p>
+        <h3>Carried forward: the Charity Commission and the ICO have published joint guidance for charities caught in the Beacon incident &mdash; and it doubles as a generic incident playbook</h3>
+        <p>The Charity Commission for England and Wales, working with the Information Commissioner&rsquo;s Office, published guidance on 7 August for charities affected by the Beacon CRM security incident. It stays on this page because the Beacon workstream is still live for many organisations and because nothing in the current window replaces it. The guidance asks trustees to do four things: report the matter as a serious incident where it results in, or risks, significant harm, loss or damage to the charity, its beneficiaries, assets, services or reputation; read the Commission&rsquo;s existing guidance on dealing with cyber crime alongside the ICO&rsquo;s guidance for organisations; work out their own obligations to notify the ICO and the individuals whose data sat in Beacon, rather than assuming the supplier has done it; and communicate clearly with stakeholders, which the Commission frames as central to retaining trust rather than as a public-relations afterthought. The Commission also acknowledged that the volume of incident reports has slowed its processing and said it will keep its regulatory engagement proportionate &mdash; a useful thing for an anxious trustee board to know. Read past the Beacon specifics and this is a compact template for any supplier breach: decide whether it is a reportable serious incident, separate the supplier&rsquo;s duty to notify from your own, and say something honest to your supporters early. Worth putting in front of your board even if you have never used Beacon.</p>
         <div class="card-meta">
-          <span>StateScoop &mdash; carried forward, re-checked 4 Sep 2026</span>
-          <span class="dot">&bull;</span>
-          <span>Announced 11 Aug 2026</span>
+          <span>Charity Commission for England and Wales, with the ICO &bull; serious incident reporting &bull; UK GDPR notification duties</span>
         </div>
-        <a href="https://statescoop.com/with-aid-of-ai-nonprofit-will-offer-cybersecurity-assistance-to-local-governments/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none">Regulatory guidance &mdash; no exploitation; issued in response to the Beacon CRM incident</span>
+            <span class="ops-tag kev-off">No CVE &mdash; governance, incident reporting and data-protection notification practice</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; trustee and governance action</span>
+            <span class="ops-cc"><b>Action:</b> Whether or not Beacon touched you, use the guidance as a dry run. Write down now who decides whether an incident is a &ldquo;serious incident&rdquo; for reporting purposes, and who signs off notifying the ICO within 72 hours &mdash; if the answer is &ldquo;the person who is on leave&rdquo;, name a deputy. Confirm that your supplier contracts oblige the supplier to tell you promptly, and be clear that their notification does not discharge your own duty to the people in the data. Draft the first supporter-facing message in advance, in plain language, so you are editing rather than composing on the worst day. Put the outcome in the board minutes: trustees are the ones the regulator addresses here.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Named incident decision-makers and deputy recorded &mdash; 30 days; draft stakeholder notification held ready &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-charitycommission-beacon" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-charitycommission-beacon">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>GOV.UK / Charity Commission &mdash; carried forward, re-checked 6 Sep 2026</span>
+          <span class="dot">&bull;</span>
+          <span>Published 7 Aug 2026</span>
+        </div>
+        <a href="https://www.gov.uk/government/news/guidance-for-charities-affected-by-the-beacon-cyber-security-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>

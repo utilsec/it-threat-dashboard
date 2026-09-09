@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Mon, 07 Sep 2026, 8:22 AM ET</span>
+        <span>Generated Wed, 09 Sep 2026, 9:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>22</strong> stories across
+      <strong>23</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">7.0</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">7.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:70%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 7.0 &mdash; the bottom of High, and it sits there on one item rather than on volume. Three days after Sansec published StyleSmuggler, Adobe has still issued no CVE, advisory, patch or workaround: unauthenticated remote code execution reproduced on Magento Open Source 2.4.7, 2.4.8 and 2.4.9, exploitation observed from 4 September, a Rust implant reading live session data out of Redis, and a first victim who was fully patched on 2.4.6-p15. Adobe&rsquo;s bulletin index still shows nothing for Commerce and the next scheduled release is 8 September. Every Magento and Adobe Commerce merchant is exposed with no vendor fix to apply, and that single condition is what lifts this page above the Medium cap. Nothing else is stacked on top of it. The rest is discrete and largely patchable: Wordfence has blocked over 440,000 attempts against Super Forms (CVE-2026-14894) and Elementor Pro (CVE-2026-32475); N-able closed a maximum-severity N-central pre-auth RCE (CVE-2026-86218) on 6 September; ConnectWise has a ScreenConnect file-transfer flaw with mitigation but no patch; MikroTik routers are being taken over via CVE-2026-67276; NetScaler and SonicWall SMA edge flaws stay under attack. The large consumer breaches behind them &mdash; IDScan, Carhartt, Manchester Airports Group &mdash; are single-organisation events and do not raise the score. It is 7.0 rather than higher because confirmed Magento victims remain few and unpublished, community mitigations are circulating, and Adobe may close it on 8 September.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:78.0%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 7.8 &mdash; up from 7.0, and firmly in High. The Magento zero-day is no longer an unpatched unknown, but it has been confirmed as worse than the early reporting suggested. Adobe shipped an out-of-band fix, assigned <b>CVE-2026-75650</b> at CVSS&nbsp;10.0, confirmed exploitation in the wild against merchants, and CISA added it to KEV on 8&nbsp;September. Every version of Adobe Commerce and Magento Open Source is affected, Sansec observed exploitation from 4&nbsp;September, and attackers used it to plant a Rust backdoor and a PHP web shell. Exploitation preceded the patch, so the population of merchants that must hunt rather than merely patch is the whole installed base &mdash; one issue reaching a large portion of retail IT, which is what High means. Alongside it: N-able N-central, the RMM platform behind many chains&rsquo; outsourced IT, is now KEV-listed at CVSS&nbsp;10.0 with confirmed pre-authentication exploitation; two Windows zero-days were fixed and KEV-listed in the largest Patch Tuesday on record; ConnectWise disclosed a further ScreenConnect flaw with no patch; Elementor Pro, MikroTik, NetScaler and SonicWall remain under attack; and the DoppelCart network is running 119,000+ fake storefronts harvesting cards. It is not higher because the confirmed Magento victim count remains unpublished and a fix now exists to apply. Unexploited advisories do not aggregate upward &mdash; this is driven by confirmed exploitation of platforms merchants actually run.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,19 +681,20 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-magento-stylesmuggler" data-published="2026-09-05">
+    <div class="top-story" id="it-magento-cve-75650" data-published="2026-09-08">
       <span class="top-story-pill">Top Story</span>
-      <h2>Day three of an unpatched Magento and Adobe Commerce zero-day that is backdooring live stores, and Adobe has still shipped nothing</h2>
-      <p>On 5 September the Dutch e-commerce forensics firm Sansec published a flaw it calls StyleSmuggler &mdash; unauthenticated remote code execution in Magento Open Source and Adobe Commerce &mdash; saying plainly that it was publishing early because stores were being compromised as it wrote. Sansec reproduced the exploit on Magento Open Source 2.4.7, 2.4.8 and 2.4.9 and reports that all current versions are affected; the first victim it examined was running 2.4.6-p15 with the August 2026 patches applied, so being current is not protection. As of the morning of 7 September nothing has changed on the vendor side: there is no CVE identifier, no Adobe advisory, no patch and no official workaround. Adobe&rsquo;s public security bulletin index still shows nothing for Commerce or Magento in September &mdash; its most recent postings are the 25 August batch for other products &mdash; and the next scheduled Commerce release is 8 September, with coverage for this issue unconfirmed. The chain is quiet. Attackers plant PHP inside files Magento generates for itself, such as failure reports, then trigger execution through the standard &ldquo;Payment Transaction Failed Reminder&rdquo; email as the message is rendered, abusing dependency-injection compiler classes to include an attacker-controlled path. Nothing has to be clicked, and the mail does not have to be delivered. What lands is a stripped, statically linked Rust implant of roughly 1.9MB built for x86-64 and arm64, masquerading as the kernel thread <code>[kworker/u:8:0]</code>, sitting at <code>~/.local/share/.gvfsd/gvfsd-user</code> and restored by a cron entry every five minutes; one store carried 1,728 duplicate cron lines that reappeared the instant they were removed, and one variant opened 28 connections to the store&rsquo;s Redis instance on port 6379 to read session storage &mdash; live customer sessions, not just files. Sansec dates the first exploitation it observed to 4 September; the Dutch hosting firm Disrex independently handled two confirmed compromises and one attempted one. Neither has published a victim count, so the confirmed population is small and the exposed population is every Magento merchant. Until Adobe moves, the interim answers being circulated are Sansec&rsquo;s advice to disable GraphQL, community server-side patches from ProxiBlue, Disrex and Graycore, disabling <code>proc_open</code> in the PHP <code>disable_functions</code> list, and mounting <code>/tmp</code>, <code>/var/tmp</code> and <code>/dev/shm</code> with <code>noexec</code>. Treat this as hunt-first: assume the platform is exposed, look for the indicators, and do not wait for a bulletin to start looking.</p>
+      <h2>Adobe patches an exploited Magento zero-day at CVSS 10.0, and CISA adds it to KEV</h2>
+      <p>Adobe has shipped an out-of-band patch for the Magento and Adobe Commerce zero-day now tracked as CVE-2026-75650, rated CVSS 10.0 and affecting every version of Adobe Commerce and Magento Open Source. Adobe confirmed exploitation in the wild against merchants; Sansec, which first published the flaw as StyleSmuggler, observed exploitation from 4 September. CISA added it to the Known Exploited Vulnerabilities catalog on 8 September. The technique abuses Magento&rsquo;s template system: PHP code is injected and then executed when the platform renders a standard &ldquo;Payment Transaction Failed Reminder&rdquo; email, so nothing has to be clicked and the message does not have to be delivered. Attackers used the access to deploy a Rust backdoor and a PHP web shell. The same Adobe release fixed more than 170 vulnerabilities. Because exploitation began before the fix existed, patching alone does not close this out.</p>
       <div class="card-meta">
-        <span>Magento Open Source &amp; Adobe Commerce, all current versions incl. 2.4.9 &bull; No CVE assigned &bull; No vendor patch as of 7 Sep 2026 &bull; Exploitation confirmed from 4 Sep</span>
+        <span class="cve-badge">CVE-2026-75650</span>
+        <span>Adobe Commerce &amp; Magento Open Source, all versions &bull; CVSS 10.0 &bull; template-engine PHP code injection &bull; out-of-band patch available &bull; KEV-listed 8 Sep 2026</span>
       </div>
       <div class="card-meta">
-        <span>Sansec (discovery and IoCs) / The Hacker News (corroboration, Disrex cases) / Adobe security bulletin index (checked 7 Sep)</span>
+        <span>CISA Known Exploited Vulnerabilities catalog; Adobe security bulletin; Sansec (discovery and IoCs)</span>
         <span class="dot">&bull;</span>
-        <span>Disclosed 5 Sep 2026 &mdash; confirmed active exploitation; still unpatched at time of writing</span>
+        <span>Exploitation observed from 4 Sep; Adobe out-of-band patch and KEV addition 8 Sep 2026</span>
       </div>
-      <a href="https://sansec.io/research/stylesmuggler" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -721,7 +722,7 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-magento-stylesmuggler"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-magento-cve-75650"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
         <a href="#it-nable-ncentral"><circle class="blip crit" cx="237.4" cy="242.7" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="237.4" y="247.1">2</text></a>
         <a href="#it-idscan-nexus"><circle class="blip crit" cx="60.5" cy="169.5" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="60.5" y="173.7">3</text></a>
         <a href="#it-wordpress-storefront-rce"><circle class="blip crit" cx="231.6" cy="140.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="231.6" y="144.3">4</text></a>
@@ -730,10 +731,10 @@
         <a href="#it-carhartt-shinyhunters"><circle class="blip crit" cx="310.4" cy="214.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="310.4" y="217.8">7</text></a>
         <a href="#it-citrix-netscaler"><circle class="blip crit" cx="113.5" cy="214.6" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="113.5" y="217.2">8</text></a>
         <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="219.3" cy="71.9" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="219.3" y="74.2">9</text></a>
-        <a href="#it-mag-airports"><circle class="blip high" cx="235.5" cy="314.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="235.5" y="315.9">10</text></a>
+        <a href="#it-doppelcart"><circle class="blip high" cx="235.5" cy="314.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="235.5" y="315.9">10</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>1</b> Magento 0-day still unpatched, stores backdoored</a>
+        <a href="#it-magento-cve-75650"><span class="ld crit"></span><b>1</b> Magento CVSS 10 zero-day patched, in KEV</a>
         <a href="#it-nable-ncentral"><span class="ld crit"></span><b>2</b> N-central CVSS 10 pre-auth RCE exploited</a>
         <a href="#it-idscan-nexus"><span class="ld crit"></span><b>3</b> 153M licence scans traced to IDScan</a>
         <a href="#it-wordpress-storefront-rce"><span class="ld crit"></span><b>4</b> 440k+ attacks on storefront plugins</a>
@@ -742,7 +743,7 @@
         <a href="#it-carhartt-shinyhunters"><span class="ld crit"></span><b>7</b> Carhartt: 12.9M records published</a>
         <a href="#it-citrix-netscaler"><span class="ld crit"></span><b>8</b> Two NetScaler flaws under attack</a>
         <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>9</b> SonicWall SMA 1000 zero-days exploited</a>
-        <a href="#it-mag-airports"><span class="ld high"></span><b>10</b> 8.8M airport retail records dumped</a>
+        <a href="#it-doppelcart"><span class="ld high"></span><b>10</b> 119,000 fake shops harvesting cards</a>
       </div>
     </div>
 
@@ -752,6 +753,39 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-doppelcart" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>A fraud network is running more than 119,000 fake storefronts to harvest shoppers&rsquo; card details</h3>
+        <p>Researchers reported on 8 September 2026 a fraud operation named DoppelCart that runs over 119,000 domains hosting fake online shops whose purpose is to collect payment card details at checkout. The scale is the point: at that volume the operators can rotate through domains faster than blocklists and takedown processes work, so any individual site being killed costs them nothing. For legitimate merchants the exposure runs in two directions. The first is direct fraud pressure &mdash; cards harvested from these sites are used elsewhere, which shows up in your chargeback and authorisation-decline rates without anything having gone wrong on your own platform. The second is brand impersonation, and it is the one merchants usually discover late. Storefronts of this kind routinely copy real product imagery, descriptions, logos and even policy pages, so customers who are defrauded believe they bought from you, complain to you, and post about you. Practically, that makes brand monitoring a security function rather than a marketing one, and it makes your customer-service inbox a threat-intelligence feed: complaints about an order you have no record of are usually the first signal that your brand is being cloned.</p>
+        <div class="card-meta">
+          <span>119,000+ domains hosting fake storefronts &bull; payment card harvesting at checkout &bull; no CVE &mdash; fraud infrastructure, not a software flaw</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; network documented by researchers with a domain count; individual operators not attributed</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no vulnerability involved</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; brand monitoring, takedown process and fraud controls</span>
+            <span class="ops-cc"><b>Action:</b> Put a brand and domain monitoring service on your trading names and flagship product lines, and agree in advance who files takedown requests and with which registrars and hosting providers &mdash; the delay in most cases is deciding who owns it, not the filing itself. Brief customer service to escalate any contact about an order you have no record of, and log those reports centrally. Review chargeback and authorisation-decline trends with your payment provider for signs of harvested cards being tested against your store. Publish a short &ldquo;how to tell you are on our real site&rdquo; note for customers, listing your genuine domains, and make sure your own checkout does not train shoppers to accept unfamiliar payment domains.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Brand and domain monitoring in place with a named takedown owner &mdash; 30 days; customer-service escalation path for phantom orders &mdash; 14 days; fraud-trend review with payment provider &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-doppelcart" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-doppelcart">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 8 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/doppelcart-fraud-network-uses-119-000-fake-shops-to-steal-credit-cards/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-idscan-nexus" data-published="2026-09-01">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1017,45 +1051,48 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/hackers-abuse-faronics-deploy-admin-tool-to-install-screenconnect/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-terminalfix-clickfix" data-published="2026-08-31">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Research</span>
-        </div>
-        <h3>Microsoft describes &ldquo;TerminalFix&rdquo;: fake Cloudflare checks that talk staff into pasting PowerShell, ending in a network pivot</h3>
-        <p>Microsoft published research on 31 August describing a ClickFix variant it calls TerminalFix. Compromised websites present a counterfeit Cloudflare CAPTCHA that instructs the visitor to paste a command into Windows Terminal, which unlike the classic Run-dialog version of the trick allows a long multi-line script. That command pulls a ZIP containing a legitimately signed executable alongside malicious DLLs, and a later stage hides code inside the pixel data of a PNG to evade inspection. Persistence is established through scheduled tasks and Registry keys that run hourly. The implant then enumerates Active Directory, looks for domain controllers, databases and backup servers, and stands up a custom Python reverse tunnel to gitnow[.]dev on port 443, turning the workstation into a pivot into the internal network. Microsoft did not name an actor or a targeted sector. Retail should read this as an ordinary-user problem rather than an admin one. Store managers, buyers and marketing staff browse supplier and comparison sites all day on machines that sit on networks reachable from store and payment infrastructure, and the lure requires no exploit at all &mdash; only a person following on-screen instructions. Blocking the paste-and-run pattern is largely a configuration exercise: constrain PowerShell for non-administrative users, and alert when Windows Terminal spawns a network-downloading child process.</p>
-        <div class="card-meta">
-          <span>ClickFix-style social engineering &bull; No CVE &bull; Reverse tunnel to gitnow[.]dev:443</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; campaign observed and documented by Microsoft; no actor attribution published</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; social-engineering campaign, no CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; configuration hardening and user awareness</span>
-            <span class="ops-cc"><b>Action:</b> Apply PowerShell constrained language mode or equivalent execution restrictions to non-administrative users, and alert on Windows Terminal or powershell.exe launching a process that immediately downloads from the internet. Block the reported command-and-control domain and hunt for scheduled tasks and Run keys created in the last month that execute hourly. Update security-awareness content: the message staff need is that no legitimate website ever asks you to copy a command into a terminal to prove you are human. Where compromise is suspected, rotate credentials from the affected endpoint rather than only reimaging it.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> PowerShell restriction, detection rule and awareness update &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-terminalfix-clickfix" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-terminalfix-clickfix">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer, reporting Microsoft Threat Intelligence</span>
-          <span class="dot">&bull;</span>
-          <span>Published 31 Aug 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/microsoft-warns-of-terminalfix-attacks-deploying-reverse-tunnels/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-nable-ncentral" data-published="2026-09-07">
+      <div class="card" id="it-msft-patch-tuesday" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Microsoft&rsquo;s largest Patch Tuesday on record carries two exploited Windows zero-days, both giving SYSTEM</h3>
+        <p>Microsoft released its biggest security update ever on 8 September 2026 &mdash; 974 CVEs by Microsoft&rsquo;s count, 966 by BleepingComputer&rsquo;s, 999 counting third-party items, with more than a hundred rated critical. Two are confirmed under active exploitation and were added to CISA&rsquo;s KEV catalog the same day. <strong>CVE-2026-81963</strong> is an elevation-of-privilege flaw in the Windows Update Stack caused by link following, and <strong>CVE-2026-85880</strong> is a heap-based buffer overflow in Windows ALPC; both are CVSS 7.8 and both yield SYSTEM. Neither is an initial access route. They are the escalation step that turns a phished head-office login, a malicious document or an abused remote-support session into control of the machine &mdash; which in retail means the back-office PC that talks to the payment estate, the store server, or the workstation an operator uses to administer the till network. The practical difficulty is triage across a distributed estate: no chain patches 974 CVEs on an emergency schedule, and stores are the sites with the least reliable maintenance windows. Separate the two exploited flaws from the monthly baseline and reconcile builds afterwards, because a release this large leaves a tail of machines that quietly failed.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-81963</span>
+          <span class="cve-badge">CVE-2026-85880</span>
+          <span>Microsoft September 2026 update &mdash; 974 CVEs, 100+ critical &bull; both zero-days CVSS 7.8, elevation of privilege to SYSTEM</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Microsoft acknowledged in-the-wild exploitation of both zero-days; no reported exploitation of the rest of the release</span>
+            <span class="ops-tag kev-on">Both CVEs added to CISA KEV on 8 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixes shipped in the September 2026 Patch Tuesday release</span>
+            <span class="ops-cc"><b>Action:</b> Deploy the September release on an emergency track for CVE-2026-81963 and CVE-2026-85880, prioritising back-office and store-server machines that sit adjacent to payment and till infrastructure, then head-office endpoints, then the rest by exposure. Because store estates patch unevenly, ask your patching platform for a per-site compliance report rather than an overall percentage, and chase the outliers by name. Confirm that machines have restarted, since a downloaded-but-unapplied update protects nobody. Where a managed provider handles patching for stores, get the deployment date and coverage figures in writing this month.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Two exploited zero-days on back-office and store systems &mdash; 7 days; internet-facing and critical servers &mdash; 14 days; remainder with per-site build reconciliation &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-msft-patch-tuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-msft-patch-tuesday">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CyberScoop; BleepingComputer; SecurityWeek (Microsoft advisories)</span>
+          <span class="dot">&bull;</span>
+          <span>Released 8 Sep 2026; both zero-days KEV-listed the same day</span>
+        </div>
+        <a href="https://cyberscoop.com/microsoft-patch-tuesday-september-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-nable-ncentral" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
@@ -1068,8 +1105,8 @@
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Disputed wording &mdash; N-able quoted by Huntress as saying exploited in the wild; N-able tells press it has no confirmed production exploitation</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of 7 Sep 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; N-able has confirmed exploitation in the wild; Huntress observed attacks against the N-central API and appliance logs from 4 Sep 2026</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 8 Sep 2026 &mdash; federal remediation deadline 11 Sep</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; N-central 2026.3 HF4, released 6 Sep 2026</span>
@@ -1082,9 +1119,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (7 Sep) / Huntress research blog (6 Sep) / Shadowserver exposure counts</span>
+          <span>CISA Known Exploited Vulnerabilities catalog (8 Sep) / BleepingComputer / Huntress research blog / Shadowserver exposure counts</span>
           <span class="dot">&bull;</span>
-          <span>Hotfix released 6 Sep 2026 &mdash; exploitation status characterised differently by N-able and Huntress</span>
+          <span>Hotfix released 5&ndash;6 Sep 2026; KEV addition 8 Sep 2026, federal deadline 11 Sep</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/n-able-patches-max-severity-n-central-flaw-amid-ongoing-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1460,7 +1497,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, the SANS Internet Storm Center, Dark Reading, The Register, The Hacker News and SecurityWeek, plus vendor and product advisories (Microsoft, Oracle, Cisco, Citrix, Progress, SimpleHelp, Fortinet) and Sysdig threat research. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, MikroTik, N-able, ConnectWise) and research from Sansec, Citizen Lab and Amnesty International. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

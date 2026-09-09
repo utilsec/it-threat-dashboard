@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Education</h1>
       <div class="header-sub">K-12 districts, universities &amp; ed-tech.</div>
       <div class="header-meta">
-        <span>Generated Mon, 07 Sep 2026, 8:22 AM ET</span>
+        <span>Generated Wed, 09 Sep 2026, 9:15 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Education IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>17</strong> stories across
+      <strong>19</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -665,15 +665,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires confirmed active exploitation of software that is widely deployed across education IT, or a major confirmed breach.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#f97316;--tl-bg:#fff7ed;--tl-bd:#fed7aa;--tl-bgd:rgba(249,115,22,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Score 7.3 — High. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires confirmed active exploitation of software that is widely deployed across education IT, or a major confirmed breach.">
+    <div class="tl-score"><span class="tl-num">7.3</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
-        <span class="tl-band">Medium</span>
+        <span class="tl-band">High</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68%;"></span></div>
-      <div class="tl-why"><b>Why:</b> Top of Medium, driven by one confirmed education-shaped intrusion set rather than by volume. Arctic Wolf documented attackers chaining CVE-2026-81578 and CVE-2026-82078 in PaperCut NG/MF against education organisations in the US and Europe, K-12 through large universities, creating a privileged local account, dumping registry hives to reach the SAM database and searching PaperCut&rsquo;s own configuration files for LDAP binds, secrets and tokens. Print management is one of the few product categories whose core market is schools, so read that as targeting; the federal KEV deadlines fall on 11 and 14 September. Around it: Citrix NetScaler CVE-2026-19490 is now being exploited against the standard campus VPN and virtual-lab gateway, MikroTik routers are being taken over through exposed SSH, the Chrome V8 zero-day matters on Chromebook fleets that update on a student&rsquo;s reboot habits, and HPE patched an unauthenticated RCE in ArubaOS-CX just after the summer switch-maintenance window closed. Held below High deliberately: Shadowserver counted roughly 204 exposed PaperCut instances worldwide, no named district or university has confirmed a breach this window, the education leak-site postings are attacker claims, and every item above has a vendor fix. Several discrete exploited flaws plus unconfirmed single-organisation claims do not aggregate into High. Raises it: an institution confirming a compromise traced to PaperCut or NetScaler. Lowers it: the KEV deadlines met with no education incident.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:73.0%;"></span></div>
+      <div class="tl-why"><b>Why:</b> High, up from 6.8, because the sector now has a confirmed incident with real operational impact alongside exploitation aimed squarely at school software. Springfield, Massachusetts closed all of its schools on Tuesday 8&nbsp;September after a cyber incident affected systems needed for essential operations; the scope is still under investigation, and Everett, Massachusetts closed City Hall the same day after a separate incident, with officials not saying whether the two are related. That is a district losing a school day, not a claim on a leak site. The PaperCut campaign continues to drive the rest: Arctic Wolf documented attackers chaining CVE-2026-81578 and CVE-2026-82078 against K-12 districts and universities in the US and Europe, creating privileged accounts and harvesting credentials, with both flaws in CISA&nbsp;KEV. Add the two exploited Windows zero-days in Microsoft&rsquo;s 8&nbsp;September Patch Tuesday (CVE-2026-81963 and CVE-2026-85880, both CVSS&nbsp;7.8, both KEV-listed the same day), N-able N-central CVE-2026-86218 at CVSS&nbsp;10.0 with vendor-confirmed exploitation, and a ConnectWise ScreenConnect flaw disclosed 7&nbsp;September with no patch at disclosure. Held below 9.0: one district is affected, not many, and unexploited advisory volume does not aggregate upward.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,31 +681,31 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-papercut" data-published="2026-09-05">
+    <div class="top-story" id="it-springfield-schools" data-published="2026-09-08">
         <span class="top-story-pill">Top Story</span>
-        <h2>Arctic Wolf confirms the PaperCut intrusions are landing on schools and universities &mdash; and the attackers are there for credentials, not printing</h2>
-        <p>The PaperCut story stopped being a generic advisory this week. On 5 September, Arctic Wolf&rsquo;s Adversary Research team published an analysis of intrusions it observed against education organisations in the United States and Europe, ranging from K-12 schools to major universities, in which attackers chained <b>CVE-2026-81578</b> (an improper access control flaw that lets an unauthenticated attacker change system configuration) with <b>CVE-2026-82078</b> (unsafe dynamic class loading in the database connection utilities, allowing arbitrary Java bytecode execution) in PaperCut NG and MF. Huntress researcher John Hammond described the chain as a &ldquo;point and shoot&rdquo; full compromise. What happened after the exploit is the part that matters. Arctic Wolf describes ordinary reconnaissance first &mdash; <code>whoami</code>, <code>tasklist</code>, <code>ver</code>, <code>uname</code> &mdash; then the creation of a privileged local account named <i>Administrator17</i>, then credential harvesting: <code>lsa_collect.exe</code> and <code>lsa_collect_small.exe</code> variants and <code>save_hives.exe</code> dumping Windows registry hives, with registry key extraction aimed at reconstructing the BootKey and reaching the SAM database. The attackers also ran <code>findstr</code> against PaperCut&rsquo;s own configuration files looking for the strings <i>password</i>, <i>secret</i>, <i>ldap</i>, <i>bind</i> and <i>token</i>, and deployed a Meterpreter Java payload. Two addresses were named in the reporting: 45.142.193[.]132 for tool delivery and 194.180.48[.]134 for the Meterpreter session. The timeline is tight. PaperCut published its bulletin on 27 August covering versions 24, 25 and 26; an emergency patch followed on 28 August and had to be followed the same day by a second build after watchTowr found multiple patch bypasses and a further authentication bypass. CISA added the two flaws to the Known Exploited Vulnerabilities catalog in the last days of August, with federal remediation deadlines of 11 September for CVE-2026-81578 and 14 September for CVE-2026-82078. Shadowserver counted around 204 exposed instances at risk of remote code execution at the start of this week, roughly 60 of them in the United States, with confirmed cases reported in Denmark and Ireland alongside the US activity; Cybersecurity Dive named education, healthcare and construction as the sectors seen so far. Read the target selection plainly rather than as coincidence. Print management is one of the few software categories where schools, colleges and universities are the core market rather than an afterthought; PaperCut servers are usually domain-joined because they enforce per-student quotas and charge accounts against directory services; and they are frequently owned by a print or desktop team rather than by security. That is a credential store sitting in a low-attention part of the estate, and the LDAP bind details in its configuration files are the reason someone bothered.</p>
+        <h2>Springfield, Massachusetts closes every school after a cyber incident hits systems needed to operate</h2>
+        <p>The Springfield, Massachusetts school district closed all of its schools on Tuesday 8 September 2026 after a cyber incident affected systems needed for essential operations. Officials have not detailed what was taken or how the intrusion began, and the scope remains under investigation. The same day, the city of Everett, Massachusetts closed City Hall following a separate incident detected around 6:30 on Sunday evening; police, fire, public works, schools and libraries there continued to operate. Officials have not said whether the two are related, and no group has publicly claimed either. The detail that should register for district technology leaders is the decision itself: Springfield judged that the systems it needed to open safely were unavailable, so it closed. Transport routing, food service, attendance, building access and emergency notification all sit on ordinary IT, and losing them closes a school as effectively as a snowstorm.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; education-sector intrusions in the US and Europe documented by Arctic Wolf; exploitation confirmed by the vendor and by CISA</span>
-            <span class="ops-tag kev-on">CVE-2026-81578 and CVE-2026-82078 both in CISA KEV (added late Aug 2026; federal deadlines 11 Sep and 14 Sep)</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; district-wide closure on 8 Sep; cause, entry vector and data impact all still under investigation</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; the initial access vector has not been disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched 28 Aug 2026 &mdash; the first emergency build was bypassed and replaced the same day; confirm you are on the second build, not the first</span>
-            <span class="ops-cc"><b>Action:</b> Treat every PaperCut NG/MF server as a credential-exposure incident until you have checked it, not as a patching ticket. Take the admin and client interfaces off the internet today. Patch to the current release rather than the first 28 August hotfix. Then hunt against the published behaviour: look for unexpected local accounts &mdash; <i>Administrator17</i> specifically, and any account created on the print server since 27 August; look for <code>save_hives.exe</code>, <code>lsa_collect</code> variants, <code>findstr</code> runs against PaperCut config files and Java processes spawned by the PaperCut service; and check outbound connections from the print VLAN to the two addresses named above. If the server is domain-joined, assume the service account and any cached credentials are burned and rotate them, starting with the LDAP bind account in PaperCut&rsquo;s configuration.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; this is a continuity, communications and recovery question</span>
+            <span class="ops-cc"><b>Action:</b> Write down, before you need it, which systems must be available for your schools to open safely &mdash; transport routing, attendance, food service allergen records, door access, emergency notification and the phone system &mdash; and confirm each has a tested offline fallback that a school secretary can actually run. Check that your notification path to families does not depend on the same network and directory as everything else; a closure announcement is worthless if the tool that sends it is down too. Rehearse a two-day and a two-week outage separately, because the second one exhausts the paper packets stocked for the first. Confirm you can reach your incident-response retainer, insurer and state or regional cybersecurity contact out of band, and agree in advance who speaks to families and press.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Remove external exposure &mdash; today; patch, hunt and rotate the LDAP bind and service accounts &mdash; by 11&ndash;14 Sep, matching the federal deadlines</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-papercut" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-papercut">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Essential-systems list and offline fallback test &mdash; 30 days; out-of-band family notification check &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-springfield-schools" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-springfield-schools">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News; Arctic Wolf; Cybersecurity Dive; SecurityWeek; Huntress; Rapid7</span>
+          <span>The Record (Recorded Future News) &mdash; Springfield Public Schools and City of Everett, Massachusetts</span>
           <span class="dot">&bull;</span>
-          <span>Bulletin 27 Aug 2026; KEV late Aug 2026; education-sector intrusions reported 5 Sep 2026</span>
+          <span>Schools closed Tue 8 Sep 2026; Everett incident detected around 6:30 p.m. Sunday &mdash; confirmed closures, scope under investigation</span>
         </div>
-        <a href="https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/springfield-schools-everett-city-hall-massachusetts-cyber-incidents" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -733,24 +733,24 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-papercut"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.8">1</text></a>
-        <a href="#it-netscaler-exploited"><circle class="blip crit" cx="244.0" cy="243.0" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="244.0" y="247.3">2</text></a>
-        <a href="#it-aruba-cx"><circle class="blip crit" cx="92.0" cy="168.0" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="92.0" y="171.8">3</text></a>
-        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="252.0" cy="122.0" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="252.0" y="125.3">4</text></a>
-        <a href="#it-kev-sep2"><circle class="blip crit" cx="150.0" cy="316.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="150.0" y="318.9">5</text></a>
-        <a href="#it-chrome-v8"><circle class="blip high" cx="106.0" cy="64.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="106.0" y="66.4">6</text></a>
-        <a href="#it-mikrotik-ssh"><circle class="blip high" cx="313.0" cy="214.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="313.0" y="216.0">7</text></a>
-        <a href="#it-exchange-authbypass"><circle class="blip high" cx="58.0" cy="248.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="58.0" y="250.0">8</text></a>
+        <a href="#it-springfield-schools"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.8">1</text></a>
+        <a href="#it-papercut"><circle class="blip crit" cx="244.0" cy="243.0" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="244.0" y="247.3">2</text></a>
+        <a href="#it-kev-0908-nable"><circle class="blip crit" cx="92.0" cy="168.0" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="92.0" y="171.8">3</text></a>
+        <a href="#it-msft-patch-tuesday"><circle class="blip crit" cx="252.0" cy="122.0" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="252.0" y="125.3">4</text></a>
+        <a href="#it-screenconnect-nopatch"><circle class="blip crit" cx="150.0" cy="316.0" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="150.0" y="318.9">5</text></a>
+        <a href="#it-mathspace"><circle class="blip high" cx="106.0" cy="64.0" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="106.0" y="66.4">6</text></a>
+        <a href="#it-netscaler-exploited"><circle class="blip high" cx="313.0" cy="214.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="313.0" y="216.0">7</text></a>
+        <a href="#it-prey-0058"><circle class="blip high" cx="58.0" cy="248.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="58.0" y="250.0">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-papercut"><span class="ld crit"></span><b>1</b> PaperCut credential theft in schools</a>
-        <a href="#it-netscaler-exploited"><span class="ld crit"></span><b>2</b> Citrix NetScaler auth bypass exploited</a>
-        <a href="#it-aruba-cx"><span class="ld crit"></span><b>3</b> ArubaOS-CX unauthenticated RCE</a>
-        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>4</b> SonicWall SMA 1000 zero-days chained</a>
-        <a href="#it-kev-sep2"><span class="ld crit"></span><b>5</b> Seven KEV additions on 2 Sep</a>
-        <a href="#it-chrome-v8"><span class="ld high"></span><b>6</b> Chrome V8 zero-day exploited</a>
-        <a href="#it-mikrotik-ssh"><span class="ld high"></span><b>7</b> MikroTik routers hijacked via SSH</a>
-        <a href="#it-exchange-authbypass"><span class="ld high"></span><b>8</b> Exchange auth bypass, 22k unpatched</a>
+        <a href="#it-springfield-schools"><span class="ld crit"></span><b>1</b> Springfield closes all schools after incident</a>
+        <a href="#it-papercut"><span class="ld crit"></span><b>2</b> PaperCut credential theft in schools</a>
+        <a href="#it-kev-0908-nable"><span class="ld crit"></span><b>3</b> N-able N-central CVSS 10 exploited</a>
+        <a href="#it-msft-patch-tuesday"><span class="ld crit"></span><b>4</b> Two exploited Windows zero-days</a>
+        <a href="#it-screenconnect-nopatch"><span class="ld crit"></span><b>5</b> ScreenConnect flaw with no patch</a>
+        <a href="#it-mathspace"><span class="ld high"></span><b>6</b> Mathspace breach &mdash; 1M+ affected</a>
+        <a href="#it-netscaler-exploited"><span class="ld high"></span><b>7</b> Citrix NetScaler auth bypass exploited</a>
+        <a href="#it-prey-0058"><span class="ld high"></span><b>8</b> PREY-0058 vishes IT help desks</a>
       </div>
     </div>
 
@@ -760,6 +760,39 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-mathspace" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Mathspace discloses a breach affecting more than a million students, teachers, staff and parents through a self-hosted reporting tool</h3>
+        <p>The education technology provider Mathspace disclosed on 7 September 2026 a data breach affecting more than one million students, teachers, school staff and parents or guardians. The company says attackers reached a self-hosted Metabase instance it used for internal reporting. That detail is the whole lesson. Metabase is a business-intelligence front end, not a product feature; it exists so staff can query the production data without touching it, which means it is routinely pointed at a database containing everything and is routinely stood up by a data or analytics team rather than by whoever owns the application&rsquo;s security. It is also the kind of internal tool that quietly acquires an internet-facing address so people can use it from home. For schools and districts the exposure is one you did not configure and cannot patch: a supplier&rsquo;s internal analytics stack now sits in your data-protection scope, and it holds records on children. Notification duties, parent communication and any state student-privacy obligations fall to the district as much as to the vendor.</p>
+        <div class="card-meta">
+          <span>Mathspace &bull; No CVE &mdash; compromise of a self-hosted Metabase reporting instance</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; disclosed by the vendor; more than 1 million people affected</span>
+            <span class="ops-tag kev-off">No CVE named and no KEV entry &mdash; vendor infrastructure compromise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies to customers &mdash; vendor due diligence and notification response</span>
+            <span class="ops-cc"><b>Action:</b> Establish whether Mathspace is in use anywhere in your district, including in single classrooms adopted without a central purchase, and ask the vendor in writing what data categories were involved and what notification it is issuing. Get your student-privacy and communications leads involved early rather than after parents ask. More broadly, add a specific question to your edtech due-diligence template about internal analytics and reporting tools: whether any business-intelligence platform can reach production student data, whether it is internet-facing, and how access to it is authenticated. Also review your own estate for the same pattern &mdash; a self-hosted reporting tool with a wide database view is a common shortcut in school IT too.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirm vendor use and notification position &mdash; 7 days; internal reporting-tool exposure review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mathspace" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mathspace">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer &mdash; Mathspace disclosure</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 7 Sep 2026 &mdash; confirmed by the vendor</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/mathspace-discloses-data-breach-affecting-over-1-million-people/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-edu-ransomware-claims" data-published="2026-09-04">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -860,75 +893,76 @@
         <a href="https://thehackernews.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-dahua-cameras" data-published="2026-09-04">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>More than 14,500 Dahua cameras compromised in a campaign building attack infrastructure &mdash; and campus camera fleets are counted in the thousands</h3>
-        <p>Researchers reported a large-scale campaign that has compromised over 14,500 Dahua network cameras, using them to build attack infrastructure rather than to spy on what the cameras see. That distinction matters for how you triage it. The value of a compromised camera to this kind of operation is its address, its uptime and its position inside a network, not its video; the devices become relays, scanners and staging points. Education carries an outsized share of this exposure because a single district or campus commonly runs hundreds to thousands of cameras across school buildings, car parks, athletic facilities and residence halls, purchased over a decade through different capital projects, often installed and maintained by a physical-security contractor rather than by IT, and frequently sitting on a flat VLAN with routable access to administrative systems. The firmware is rarely patched because nobody owns patching it, and the web interfaces are sometimes deliberately published so that a school resource officer or an athletics director can view a feed from home. No education organisation has been named in this campaign; the point is the asset class, and the fact that most institutions cannot currently produce an accurate count of the cameras on their own network.</p>
-        <div class="card-meta">
-          <span>Dahua network cameras &bull; 14,500+ devices compromised &bull; infrastructure-building campaign</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; mass compromise of internet-reachable cameras reported 4 Sep 2026; no education organisation named</span>
-            <span class="ops-tag kev-off">No single CVE attributed in the reporting</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Segmentation and exposure reduction first; firmware updates where the vendor still supports the model</span>
-            <span class="ops-cc"><b>Action:</b> Ask your physical-security team or contractor for the camera inventory and reconcile it against what your own network discovery finds &mdash; expect a gap. Remove any camera or NVR web interface published to the internet and replace remote viewing with VPN access. Put the camera estate on its own VLAN with no routable path to the SIS, finance, directory services or staff endpoints, and default-deny outbound internet from that VLAN except to what the vendor genuinely requires. Change default and shared credentials, and identify end-of-support models that will never receive firmware so the replacement cost lands in the next capital cycle rather than in an incident.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Remove internet exposure of camera interfaces &mdash; 7 days; camera VLAN segmentation review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-dahua-cameras" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-dahua-cameras">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Security research reporting</span>
-          <span class="dot">&bull;</span>
-          <span>4 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
-      <div class="card" id="it-edu-ransomware-trend" data-published="2026-08-10">
+      <div class="card" id="it-prey-0058" data-published="2026-09-07">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Research</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Actor</span>
         </div>
-        <h3>K-12 ransomware fell in the first half of 2026 while higher education rose &mdash; and two thirds of the attacks were never confirmed by anyone</h3>
-        <p>Comparitech&rsquo;s education ransomware report for the first half of 2026, the most recent sector-wide dataset available, found K-12 attacks down 26 per cent worldwide against the second half of 2025 while higher education rose by more than 8 per cent. In the United States, 34 attacks were recorded on educational institutions, a 44 per cent decline from 61 in the preceding six months; the US accounted for 33 per cent of the 104 education-sector attacks recorded globally. Elsewhere the direction reversed: the United Kingdom recorded 13 attacks, a 225 per cent increase, with Brazil up 33 per cent to eight and Thailand up 150 per cent to five. The number to sit with is that of those 104 global attacks, only 36 were confirmed by the institution itself &mdash; the rest rest on attacker claims. That ratio is the single most useful thing in the report for anyone reading leak-site counts, including the ones on this page: roughly two thirds of what circulates as an education ransomware statistic has never been acknowledged by the organisation named. Read the trend lines with that caveat attached, and read the divergence between K-12 and higher education as a shift in where affiliates believe the payment is, not as evidence that schools have become harder targets.</p>
+        <h3>PREY-0058 is calling IT help desks to reach senior staff, then stealing the session instead of the password</h3>
+        <p>Arctic Wolf published research on 7 September 2026 on a data-theft and extortion cluster it tracks as PREY-0058. The route in is the IT service desk: the actor telephones posing as a senior employee, persuades an agent to run a credential or multi-factor reset, and then uses adversary-in-the-middle infrastructure to capture the authenticated session token rather than the password itself. Sign-ins come through residential proxy addresses so the location looks unremarkable, and the group then works through Microsoft 365 and other connected SaaS collecting data to extort. Arctic Wolf notes overlap with the cluster Mandiant tracks as UNC6671. Schools, colleges and universities are unusually exposed to this shape of attack. Service desks handle enormous reset volumes at term start, often with student workers on the phones, and the caller claiming to be a dean, a principal or a director of finance is exactly the caller an agent is least inclined to challenge. The fix is a verification step nobody is allowed to skip, not a training reminder.</p>
         <div class="card-meta">
-          <span>Comparitech H1 2026 education ransomware data &bull; 104 global attacks, 36 confirmed &bull; K-12 down 26%, higher ed up 8%+</span>
+          <span>Arctic Wolf (PREY-0058; overlaps Mandiant UNC6671) &bull; No CVE &mdash; help-desk social engineering and token theft</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Research &mdash; sector trend data, not an incident</span>
-            <span class="ops-tag kev-off">Not applicable</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active campaign &mdash; confirmed intrusions reported by the researcher, followed by extortion</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; process and identity control</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; planning input</span>
-            <span class="ops-cc"><b>Action:</b> Use the confirmed-versus-claimed ratio when you brief a board or a school committee, because it is the difference between an honest risk picture and a headline count. If you are in higher education, the rising line is yours &mdash; make the case for the residence-hall network, the research estate and the devolved departmental IT that a district-style programme does not cover. If you are in K-12, do not read the falling line as safety: the same report notes that individual incidents continued to cancel classes and expose thousands of student and staff records.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; service-desk verification and session-token control</span>
+            <span class="ops-cc"><b>Action:</b> Set one verification standard for every credential or MFA reset and remove the agent&rsquo;s discretion to waive it &mdash; callback to a number already in the directory, supervisor confirmation, or an in-app approval. Brief senior leadership first so an urgent call from a dean or superintendent does not turn into a complaint against the help desk. Move IT, identity, finance and student-records administrators to phishing-resistant authenticators. Alert on new device registrations and on token use from residential proxy ranges, and make sure a technician can revoke every session for a user in minutes. Term start is the peak risk window; staff the desk accordingly.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Feed into the next governance or board risk briefing &mdash; next scheduled cycle</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-edu-ransomware-trend" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-edu-ransomware-trend">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Non-waivable help-desk reset verification &mdash; 14 days; phishing-resistant MFA for administrators &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-prey-0058" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-prey-0058">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Comparitech; Government Technology</span>
+          <span>The Hacker News &mdash; Arctic Wolf research</span>
           <span class="dot">&bull;</span>
-          <span>H1 2026 data; reported 10 Aug 2026</span>
+          <span>Published 7 Sep 2026 &mdash; confirmed by the researcher</span>
         </div>
-        <a href="https://www.govtech.com/education/k-12/ransomware-attacks-on-k-12-trend-down-higher-ed-trend-up-in-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-bigbear-phaas" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Phishing</span>
+        </div>
+        <h3>BigBear 2.0 phishing service bypassed MFA at 258 organisations and took over 5,000 Microsoft 365 credentials</h3>
+        <p>Researchers reported on 7 September 2026 that a phishing-as-a-service platform called BigBear 2.0 defeated multi-factor authentication at 258 organisations and harvested more than 5,000 Microsoft 365 credentials. It works by adversary-in-the-middle: the service proxies the genuine Microsoft sign-in, relays whatever challenge the real site issues, and keeps the authenticated session cookie once the user completes it. The victim sees a normal, successful login and has nothing to report. For schools and universities the significance is that defeating MFA is now a purchased service rather than a specialist skill, arriving in the same weeks as term-start credential churn. Codes by text or email and push approvals all sit inside what these kits handle; origin-bound FIDO2 credentials do not, because the browser refuses to release them to a look-alike domain. A stolen staff session in education typically reaches student records, payroll and the finance system, which is why the accounts to harden first are administrative rather than academic.</p>
+        <div class="card-meta">
+          <span>BigBear 2.0 phishing-as-a-service &bull; No CVE &mdash; adversary-in-the-middle session theft</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; 258 organisations affected and more than 5,000 credentials stolen, per the reported research</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; authentication control, not a product flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; phishing-resistant authentication and conditional access</span>
+            <span class="ops-cc"><b>Action:</b> Roll phishing-resistant authenticators to the accounts that matter most first: identity and email administrators, student information system and finance staff, HR and payroll, and anyone who can export records in bulk. Where the rollout is incomplete, add conditional-access rules binding sessions to managed devices so a stolen cookie replayed elsewhere fails. Hunt now for unusual token use, new mailbox forwarding rules and unexpected OAuth application consents created since late August. Treat any confirmed session theft involving student records as a privacy incident from the outset, and check your state notification obligations before scoping is complete.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Phishing-resistant MFA for administrative and records roles &mdash; 30 days; token-abuse hunt &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bigbear-phaas" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-bigbear-phaas">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Published 7 Sep 2026 &mdash; reported research</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/bigbear-microsoft-365-phishing-service-bypassed-mfa-at-258-organizations/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-unit42-ai-breach" data-published="2026-09-03">
@@ -1035,72 +1069,142 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-aruba-cx" data-published="2026-09-03">
+      <div class="card" id="it-papercut" data-published="2026-09-05">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
+          <span class="category">Exploited</span>
         </div>
-        <h3>HPE patched an unauthenticated RCE in ArubaOS-CX &mdash; the switch operating system running a large share of campus networks</h3>
-        <p><b>CVE-2026-73749</b> is a buffer overflow in ArubaOS-CX that allows an unauthenticated remote attacker to execute code on the switch. HPE published fixed builds on 3 September: upgrade 10.18.0001 to 10.18.1002 or later, 10.17.1021 and earlier to 10.17.1030 or later, 10.16.1051 and earlier to 10.16.1060 or later, 10.13.1180 and earlier to 10.13.1190 or later, and 10.10.1180 and earlier to 10.10.1181 or later. The same bulletin carries a further 23 issues rated between 8.1 and 8.8, tracked as CVE-2026-73750 through CVE-2026-73753 and CVE-2026-73777 through CVE-2026-73782 among others. HPE stated that at publication it was not aware of active exploitation or of a public proof-of-concept, and urges upgrading. Two things make this awkward for education specifically. AOS-CX is core and access switching for a very large number of universities and school districts, and switch firmware in this sector typically moves on an annual or summer-break cadence &mdash; a window that closed a fortnight ago, which means the honest answer to &ldquo;when can we take a maintenance outage on the core?&rdquo; is often May. The second is that campus switch management interfaces are frequently reachable from the general staff network rather than from an isolated out-of-band VLAN, because that was easier when the network was built and nobody has revisited it since. Unauthenticated remote code execution on a switch is control of the segment and of the traffic crossing it, so the compensating control worth acting on today &mdash; before the firmware plan &mdash; is the reachability of the management plane.</p>
+        <h3>The PaperCut intrusions are landing on schools and universities &mdash; and the attackers are there for credentials, not printing</h3>
+        <p>Arctic Wolf published an analysis on 5 September 2026 of intrusions it observed against education organisations in the United States and Europe, from K-12 districts to major universities, in which attackers chained <b>CVE-2026-81578</b> (an improper access control flaw letting an unauthenticated attacker change system configuration) with <b>CVE-2026-82078</b> (unsafe dynamic class loading in the database connection utilities, allowing arbitrary Java bytecode execution) in PaperCut NG and MF. Both were added to CISA&rsquo;s Known Exploited Vulnerabilities catalog on 31 August. After the exploit the activity is unglamorous and consistent: basic reconnaissance, creation of a privileged local account, registry hive collection aimed at reaching the SAM database, searches through PaperCut&rsquo;s own configuration files for LDAP bind details, secrets and tokens, and Metasploit and Meterpreter Java payloads. Read the target selection plainly. Print management is one of the few software categories whose core market is schools; PaperCut servers are usually domain-joined because they enforce per-student quotas against directory services; and they are often owned by a print or desktop team rather than by security. That is a credential store in a low-attention corner of the estate.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-73749</span>
-          <span>HPE ArubaOS-CX &bull; unauthenticated RCE &bull; 23 further issues rated 8.1&ndash;8.8 in the same bulletin</span>
+          <span class="cve-badge">CVE-2026-81578</span>
+          <span class="cve-badge">CVE-2026-82078</span>
+          <span>PaperCut NG and MF &mdash; auth bypass chained to remote code execution; both CVEs added to CISA KEV 31 Aug 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No exploitation observed and no public proof-of-concept at HPE&rsquo;s publication &mdash; but unauthenticated, network-reachable RCE, so treat it as a short fuse</span>
-            <span class="ops-tag kev-off">Not in CISA KEV at time of writing</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; education-sector intrusions in the US and Europe documented by Arctic Wolf; exploitation confirmed by the vendor and by CISA</span>
+            <span class="ops-tag kev-on">Both CVEs in CISA KEV, added 31 Aug 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed builds published 3 Sep 2026: 10.18.1002+, 10.17.1030+, 10.16.1060+, 10.13.1190+, 10.10.1181+</span>
-            <span class="ops-cc"><b>Action:</b> Do the reachability work first, because it is faster than a core-switch maintenance window. Confirm that switch management addresses are only reachable from an out-of-band or restricted management VLAN, not from the staff or student network, and apply control-plane access lists where the platform supports it. Then build the upgrade plan against the branch table above rather than a general &ldquo;latest firmware&rdquo; instruction, and schedule access-layer switches ahead of the core so most of the estate is covered before you need the outage. Include closet switches at remote school sites, which are usually the last to be touched and the least monitored.</span>
+            <span class="ops-tag patch-yes">Patched by PaperCut &mdash; the first emergency build was bypassed and replaced; confirm you are on the current release, not the first hotfix</span>
+            <span class="ops-cc"><b>Action:</b> Take PaperCut servers off the internet today &mdash; that is the single highest-value step, and it is the advice the researchers lead with. Then hunt rather than just patch: look for command interpreters spawned by <code>pc-app.exe</code>, which is the clearest signal of post-exploitation on these servers, plus unexpected local accounts created since late August, registry hive dump tools, and Java processes spawned by the PaperCut service. Check outbound connections from the print VLAN. If the server is domain-joined, treat the service account and the LDAP bind credential in PaperCut&rsquo;s configuration as compromised and rotate them.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-plane reachability check &mdash; 72 hours; access-layer firmware upgrade &mdash; 30 days; core at the next available window</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aruba-cx" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-aruba-cx">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Remove external exposure &mdash; today; patch, hunt for interpreters spawned by pc-app.exe and rotate the LDAP bind and service accounts &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-papercut" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-papercut">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer; HPE security bulletin; SC Media</span>
+          <span>The Hacker News; Arctic Wolf; Cybersecurity Dive; SecurityWeek; Huntress</span>
           <span class="dot">&bull;</span>
-          <span>3 Sep 2026</span>
+          <span>Education-sector intrusions reported 5 Sep 2026; both CVEs in KEV since 31 Aug 2026 &mdash; confirmed</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-critical-arubaos-cx-remote-code-execution-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/attackers-exploit-papercut-flaws-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-chrome-v8" data-published="2026-09-04">
+      <div class="card" id="it-msft-patch-tuesday" data-published="2026-09-08">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Vulnerability</span>
         </div>
-        <h3>Chrome V8 zero-day exploited in the wild &mdash; the sixth this year, on the browser that is the whole endpoint in most classrooms</h3>
-        <p>Google patched <b>CVE-2026-85046</b>, a type-confusion flaw in the V8 JavaScript and WebAssembly engine, and acknowledged that an exploit for it exists in the wild. Type confusion means the engine treats one object type as another, corrupting memory in a way that a crafted page can steer toward code execution. Fixed builds are 152.0.7977.82 and .83; Google withheld technical detail to buy patching time, as it usually does while an exploit is circulating. This is the sixth actively exploited Chrome flaw fixed during 2026. The education angle is scale rather than novelty. In K-12 in particular the browser is not one application among many &mdash; it is the entire student computing environment, and a managed Chromebook fleet numbering in the thousands per district updates on a channel and a reboot cadence that IT controls only loosely, because the device belongs to a student who may not restart it for weeks. Verify enforcement rather than assuming it: set the minimum version policy in the admin console, pull the reported version distribution across the fleet, and identify the tail of devices that has not taken the update. On the staff side the same check applies to Chrome and to Chromium-based Edge on managed laptops, and to the personal machines that reach institutional systems through a browser session.</p>
+        <h3>Microsoft&rsquo;s largest Patch Tuesday on record includes two Windows zero-days already being exploited</h3>
+        <p>Microsoft released its September 2026 updates on 8 September, the largest Patch Tuesday it has ever shipped: 974 CVEs by Microsoft&rsquo;s count, 999 including third-party entries, with BleepingComputer counting 966 Microsoft flaws and over 100 rated critical. The volume is not the operational story. Two fixes close vulnerabilities attackers are already using: CVE-2026-81963, a link-following elevation-of-privilege flaw in the Windows Update Stack, and CVE-2026-85880, a heap-based buffer overflow in Windows ALPC. Both score CVSS 7.8, both grant SYSTEM, and CISA added both to the Known Exploited Vulnerabilities catalog the same day. An exploited 7.8 should outrank an unexploited 9.8 in any patch queue. For districts and campuses the practical difficulty is that September is the worst month to push a fleet-wide reboot, and lab, library, kiosk and cart machines are precisely the shared endpoints where a local privilege escalation pays off. Triage rather than defer: emergency-track the two exploited flaws on shared, administrative and internet-facing systems, and let the rest follow normal rings.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-85046</span>
-          <span>Chrome V8 type confusion &bull; fixed in 152.0.7977.82/.83 &bull; sixth exploited Chrome flaw of 2026</span>
+          <span class="cve-badge">CVE-2026-81963</span>
+          <span class="cve-badge">CVE-2026-85880</span>
+          <span>Microsoft &mdash; September 2026 Patch Tuesday; both zero-days CVSS 7.8, both KEV-listed 8 Sep 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google confirms an exploit for CVE-2026-85046 exists in the wild</span>
-            <span class="ops-tag kev-off">KEV status unconfirmed at time of writing &mdash; vendor-confirmed in-the-wild exploitation is reason enough to move; check the catalog for the current listing</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation of both zero-days &mdash; acknowledged by Microsoft and reflected in the KEV listing</span>
+            <span class="ops-tag kev-on">Both CVEs added to CISA KEV on 8 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in Chrome 152.0.7977.82/.83</span>
-            <span class="ops-cc"><b>Action:</b> Push the update through your management console rather than relying on the browser&rsquo;s own restart prompt, and set a minimum-version policy so devices below the fixed build are blocked or forced to relaunch. Pull the version distribution report for both the Chromebook fleet and staff endpoints and chase the tail rather than reporting the average. Include Chromium-based Edge in the check. Where students take devices home across a weekend, expect the update to land days late and plan the enforcement date accordingly rather than closing the ticket when the policy is set.</span>
+            <span class="ops-tag patch-yes">Patches available &mdash; September 2026 cumulative updates</span>
+            <span class="ops-cc"><b>Action:</b> Split the release. Emergency-track CVE-2026-81963 and CVE-2026-85880 on domain controllers, administrator endpoints, remote-access and jump hosts, internet-facing servers and shared lab, library and cart machines; let the remaining flaws follow your normal maintenance rings. Force a reboot deadline rather than waiting for students and staff to restart, because these updates do not apply until the machine cycles. Confirm your reporting checks September build numbers rather than CVE lists, and pull a compliance report a week later instead of assuming the policy worked.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fleet-wide update and version-compliance report &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-chrome-v8">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exploited zero-days &mdash; 3 days on privileged and shared systems; remainder &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-msft-patch-tuesday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-msft-patch-tuesday">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Google Chrome release blog; BleepingComputer; The Hacker News; Help Net Security</span>
+          <span>CyberScoop; BleepingComputer; SecurityWeek &mdash; Microsoft September 2026 Patch Tuesday</span>
           <span class="dot">&bull;</span>
-          <span>Patched 4 Sep 2026</span>
+          <span>Released 8 Sep 2026 &mdash; vendor-confirmed; exploitation confirmed for two CVEs</span>
         </div>
-        <a href="https://chromereleases.googleblog.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://cyberscoop.com/microsoft-patch-tuesday-september-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-kev-0908-nable" data-published="2026-09-08">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">KEV</span>
+        </div>
+        <h3>CISA adds four vulnerabilities to KEV, led by N-able N-central at CVSS 10.0 with confirmed exploitation</h3>
+        <p>CISA added four vulnerabilities to the Known Exploited Vulnerabilities catalog on 8 September 2026, all with vendor patches available. The first to act on is CVE-2026-86218 in N-able N-central, a static code injection defect scoring CVSS 10.0 that gives remote code execution without authentication. N-able has confirmed exploitation in the wild; Huntress reported attacks against N-central&rsquo;s API and appliance logs from 4 September, and N-able shipped 2026.3 Hotfix 4 on 5 September &mdash; its fourth hotfix in five weeks. The federal remediation deadline is 11 September. The batch also includes CVE-2026-75650, a maximum-severity template-engine injection in Adobe Commerce and Magento with confirmed exploitation, plus the two exploited Windows zero-days from the same day. N-central is a remote monitoring and management platform, and that is the education angle: many smaller districts, independent schools and multi-academy trusts do not run it themselves, but the managed service provider that supports their devices does. An RMM console is built to reach every endpoint it manages.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-86218</span>
+          <span class="cve-badge">CVE-2026-75650</span>
+          <span>N-able N-central CVSS 10.0, pre-auth RCE &mdash; FCEB remediation deadline 11 Sep 2026</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; N-able confirmed in-the-wild attacks; Huntress observed activity from 4 Sep</span>
+            <span class="ops-tag kev-on">All four CVEs added to CISA KEV on 8 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patches available &mdash; N-central 2026.3 Hotfix 4, released 5 Sep 2026</span>
+            <span class="ops-cc"><b>Action:</b> If you run N-central, apply Hotfix 4 now and treat the server as suspect until you have reviewed API and appliance logs back to at least 1 September for unexpected authentication, scripts and agent tasks. If a managed service provider or a shared regional IT service supports your schools, ask them in writing today whether they run N-central, whether they have patched, and what their log review found &mdash; and be prepared to suspend their remote access until you have an answer. Confirm you know how to disable a provider&rsquo;s access quickly, and that someone other than that provider can do it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and log review &mdash; 3 days; written MSP confirmation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-0908-nable" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kev-0908-nable">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA Known Exploited Vulnerabilities catalog; N-able; Huntress</span>
+          <span class="dot">&bull;</span>
+          <span>KEV additions 8 Sep 2026; N-able hotfix 5 Sep 2026 &mdash; agency- and vendor-confirmed</span>
+        </div>
+        <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-screenconnect-nopatch" data-published="2026-09-07">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>ConnectWise discloses a ScreenConnect flaw with no patch, alongside a worm-like campaign from backdoored instances</h3>
+        <p>ConnectWise disclosed a new vulnerability in ScreenConnect Remote Access on 7 September 2026 with no fix available, publishing temporary mitigations and saying a patch would follow later in the week. Separately, researchers reported a worm-like campaign in which backdoored ScreenConnect instances transfer and execute payloads to clients that newly connect &mdash; making the remote-support tool the delivery mechanism rather than the target. The two are distinct but they compound. ScreenConnect is widely used by managed service providers and by the vendors that support school devices and building systems, so one compromised instance reaches every downstream estate attached to it. Most schools exposed here are exposed through a supplier, not through their own installation. Because there is no patch at disclosure, the only available response until the fix lands is to reduce who can reach the server and to confirm that your providers have done the same.</p>
+        <div class="card-meta">
+          <span>ConnectWise ScreenConnect Remote Access &mdash; no patch at disclosure; vendor mitigations published</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active worm-like campaign reported against backdoored instances; exploitation of the newly disclosed flaw not confirmed</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No patch at disclosure &mdash; vendor mitigations only, fix expected later in the week of 7 Sep</span>
+            <span class="ops-cc"><b>Action:</b> Apply ConnectWise&rsquo;s mitigations now and set a watch so the fix goes on within days of release. Restrict administrative access to any self-hosted ScreenConnect server to named source addresses and require phishing-resistant MFA on it. Inventory remote-support agents across staff and student devices, including agents installed by interactive-display, building-system and edtech vendors, and remove any that nobody can account for &mdash; unmanaged support agents on classroom machines are a recurring audit finding. Ask each supplier with standing remote access whether they use ScreenConnect and how they will notify you if their instance is affected.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Mitigations applied and remote-support agent inventory &mdash; 7 days; patch on release &mdash; 3 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-screenconnect-nopatch" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-screenconnect-nopatch">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer &mdash; ConnectWise advisory and researcher reporting</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 7 Sep 2026 &mdash; vendor-confirmed flaw; worm-like campaign reported by researchers</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-sonicwall-sma1000" data-published="2026-09-02">
@@ -1248,39 +1352,6 @@
         <a href="https://www.aesa.us/2026/08/31/used-releases-guidance-on-ed-tech-in-schools-and-annual-update-on-ferpa-and-ppra/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-cisak12" data-published="2026-08-14">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy</span>
-        </div>
-        <h3>CISA&rsquo;s free K-12 guides are the baseline to measure against &mdash; and they arrived while districts were losing other free support</h3>
-        <p>CISA released two free K-12 cybersecurity resources: one aimed at school leaders building a cybersecurity programme from a standing start, and one for cybersecurity leaders trying to sustain a programme already in place. The recommendations are deliberately unexotic &mdash; protect student and staff login credentials, safeguard devices, perform and test backups, write and rehearse an incident response plan, run training and awareness, protect sensitive data, adopt CISA&rsquo;s Cross-Sector Cybersecurity Performance Goals and build a longer-term plan against the NIST Cybersecurity Framework. CISA frames schools as attractive targets partly because so much about them is a matter of public record. The supporting figures are worth keeping: more than 1,300 disclosed school cybersecurity incidents between 2018 and 2021, and 34 ransomware attacks on US K-12 and higher education institutions in the first half of 2026 of which only 12 were confirmed. One cited example, a Texas district breached in March 2026, affected 26,629 individuals and took the district&rsquo;s systems down for five days. The value of these guides for a small district is less the content than the citation: they give a technology director something authoritative to put in front of a board that has been asked for money.</p>
-        <div class="card-meta">
-          <span>CISA &bull; two free K-12 guides &bull; 34 US education ransomware attacks in H1 2026, 12 confirmed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Guidance &mdash; not a threat or vulnerability</span>
-            <span class="ops-tag kev-off">Not applicable</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; programme guidance</span>
-            <span class="ops-cc"><b>Action:</b> Assign the two CISA guides to whoever owns K-12 or campus security programme management and map current practice against the credential, device, backup and incident-response checklist, recording where you fall short rather than where you comply. Where MS-ISAC was your threat-intelligence source, name what now fills that role &mdash; a state education agency feed, a regional consortium, K12 SIX, or a commercial feed shared across districts &mdash; and put a cost against it before the budget conversation, not after.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Gap review against CISA guidance and threat-intel source decision &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisak12" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisak12">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>K-12 Dive; CISA</span>
-          <span class="dot">&bull;</span>
-          <span>14 Aug 2026</span>
-        </div>
-        <a href="https://www.k12dive.com/news/cisa-issues-k-12-cybersecurity-guidance-as-schools-risks-persist/827841/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-msisac-funding" data-published="2026-08-28">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1320,7 +1391,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, the SANS Internet Storm Center, Dark Reading, The Register, The Hacker News and SecurityWeek, plus vendor and product advisories (Microsoft, Oracle, Cisco, Citrix, Progress, SimpleHelp, Fortinet) and Sysdig threat research. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, vendor and product advisories (Microsoft, N-able, ConnectWise, PaperCut, Adobe, Citrix), and vendor threat research from Arctic Wolf, CrowdStrike and Google Threat Intelligence Group, alongside reporting from The Record, BleepingComputer, The Hacker News, CyberScoop, SecurityWeek and Cybersecurity Dive. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

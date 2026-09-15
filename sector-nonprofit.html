@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
       <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
       <div class="header-meta">
-        <span>Generated Fri, 11 Sep 2026, 8:00 AM ET</span>
+        <span>Generated Tue, 15 Sep 2026, 11:32 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>20</strong> stories across
+      <strong>21</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Nonprofit sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of nonprofit IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.8 &mdash; upper Medium, a tenth above yesterday, and the increment is entirely cross-cutting: nothing happened to a charity, NGO or foundation this week. Two things moved. Microsoft documented on 10&nbsp;September two initial-access clusters, Storm-3032 and Storm-3121, that phone staff posing as the IT help desk, steer them onto a personal device and a fake Microsoft sign-in page, then use the Graph API to draw SharePoint, OneDrive and Exchange data out in small periodic transfers and sell the access on. That is the attack path an organisation with no dedicated security staff is least able to notice, and Microsoft&nbsp;365 is where donor and programme data lives. Second, Cisco Talos attributed exploitation of the CVSS&nbsp;10.0 Secure Firewall Management Center flaw to three separate clusters &mdash; one planting a Cyclops Blink variant linked to the Russian state group Sandworm, one deploying Qilin ransomware &mdash; with the federal patch deadline on 12&nbsp;September, alongside a Citrix NetScaler bypass with 56 documented exploitation attempts and a Fortinet flaw carrying the PivotC2 trojan onto 178 devices. Almost no nonprofit runs that kit; almost every nonprofit sits behind someone who does, making it a question for your IT provider, not a patch job. Standing exposure carries over: ransomware use of a WatchGuard Firebox flaw, N-able N-central at CVSS&nbsp;10.0, two exploited Windows zero-days, an unpatched ScreenConnect flaw and MFA-bypass phishing at 258 organisations. It stays in Medium because these remain discrete patch-and-hunt exposures, which under the rubric do not aggregate into High.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:69.0%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.9 &mdash; the top of Medium, and for once the driver belongs to this sector. Researchers disclosed on 15&nbsp;September a spear-phishing campaign running since 1&nbsp;September in which the China-linked actor UTA0560 targeted multiple NGOs directly, routing victims through a compromised US university website into a chain of three zero-days &mdash; CVE-2026-85046 and CVE-2026-87491 in Chrome&rsquo;s V8 engine, then CVE-2026-85880 in Windows ALPC &mdash; to install the GRIMWEDGE backdoor. All three are patched, but the browser fixes sat in the open Chromium tree before reaching stable Chrome and the campaign ran in that gap. A confirmed, actively-exploited nation-state chain aimed at NGOs is a genuine driver and lifts this page to the top of the band. Around it sits a heavy cross-industry week: Cisco&rsquo;s CVSS&nbsp;10.0 firewall-management flaw exploited by three clusters including a Sandworm implant, GitLab&rsquo;s CVSS&nbsp;10.0 unauthenticated file-read bug in KEV and probed within hours, a ScreenConnect flaw at CVSS&nbsp;9.9 spreading worm-like through remote-support sessions &mdash; the tool your outsourced IT provider most likely uses &mdash; a root RCE in Cisco&rsquo;s email gateway, and Microsoft&rsquo;s largest ever update carrying two exploited Windows zero-days. It stops at 6.9 because these remain discrete patch-and-hunt exposures and a campaign against a subset of organisations; under the rubric High needs one issue actively impacting a large portion of IT environments, and nothing here does.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,35 +681,37 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-autistici-shutdown" data-published="2026-09-06">
+    <div class="top-story" id="it-grimwedge-ngo" data-published="2026-09-15">
       <span class="top-story-pill">Top Story</span>
-      <h2>Italian tech collective serving civil-society groups shuts down, taking its email, web and mailing-list hosting with it</h2>
-      <p>Autistici/Inventati, a volunteer-run Italian technology collective that provided privacy-focused infrastructure to civil-society groups, announced on 6 September that it is dissolving and closing all of its services. The sequence was quick. The US State Department designated the collective an extremist group on 26 August. Two days later the Public Interest Registry suspended its domain, and Banca Etica suspended its account the same day over sanctions risk. With no domain and no banking, the collective concluded it could not continue. What disappears with it is working infrastructure: roughly 16,000 email addresses, 1,500 websites, 5,500 mailing lists and around 10,000 blogs. For the organisations relying on those services this is an availability event with no incident response available and no vendor to escalate to, and the practical question is where the data and the mailing lists go next.</p>
+      <h2>A nation-state zero-day chain is being aimed at NGOs directly &mdash; three Chrome and Windows zero-days, delivered through a hijacked university website</h2>
+      <p>Researchers disclosed on 15 September a spear-phishing campaign that has been running since 1 September against multiple non-governmental organisations, attributed with moderate confidence to the China-linked actor tracked as UTA0560. The targeting is the point: NGOs were the intended victims, not collateral damage from something aimed elsewhere. Recipients were sent links pointing at a legitimate US university website, which the actor had compromised through a reflected cross-site scripting flaw and used purely as a redirect &mdash; so the domain in the email read as academic and trustworthy, and the university itself was infrastructure rather than target. Anyone who followed the link was driven through a chain of three zero-days: <strong>CVE-2026-85046</strong> and <strong>CVE-2026-87491</strong> in Chrome&rsquo;s V8 JavaScript engine to get code running and escape the browser sandbox, then <strong>CVE-2026-85880</strong>, a heap overflow in Windows ALPC, to take SYSTEM on the machine. The payload is a multi-stage JavaScript backdoor researchers call GRIMWEDGE, capable of reconnaissance, file and process management and command execution; a related cluster deployed a credential stealer named LONGTALE. Researchers also note a patch gap &mdash; fixes for the browser bugs existed in the open-source Chromium tree before they reached stable Chrome, and the campaign ran inside that window. All three flaws are now patched, and CVE-2026-85880 is in CISA&rsquo;s KEV catalog. No organisation defends against a browser-plus-kernel zero-day chain by patching faster than the attacker; what it can do is keep the window short, isolate the people most likely to be targeted, and know who in the organisation those people are.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; the collective announced its dissolution and the closure of all services; domain and banking suspensions confirmed by the parties involved</span>
-          <span class="ops-tag kev-off">No CVE &mdash; service withdrawal and third-party dependency, not a compromise</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; researchers confirmed the exploit chain and its use in the wild; the attribution to China-linked UTA0560 is researcher-assessed, not officially confirmed</span>
+          <span class="ops-tag kev-on">CVE-2026-85880 in CISA KEV via the September Patch Tuesday zero-day listing; Google confirms in-the-wild exploitation of both Chrome flaws</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch applies &mdash; the exposure is provider concentration and data portability</span>
-          <span class="ops-cc"><b>Action:</b> If your organisation, a partner or a grantee holds mailboxes, websites, mailing lists or blogs with this provider, export everything now rather than after the shutdown date &mdash; mailbox contents, list subscriber files, site files and databases &mdash; and store a copy somewhere you control. Publish a forwarding or redirection plan for anyone who reaches you at an affected address. More broadly, list the free and volunteer-run services your operations depend on, note which of them hold the only copy of something, and give each a named owner and a documented exit route. Where a service is central to your work, ask whether a paid or contractual arrangement would give you notice and an export path that a free one cannot.</span>
+          <span class="ops-tag patch-yes">Patched &mdash; current Chrome stable builds and the September 2026 Windows cumulative updates carry all three fixes</span>
+          <span class="ops-cc"><b>Action:</b> Start with the browser, because that is where the chain begins. Tell every member of staff, volunteer and trustee to fully close and reopen Chrome today &mdash; the update only applies on relaunch &mdash; and do the same for Edge, Brave, Opera and Vivaldi, which share the engine. Confirm Windows machines have installed the September updates and actually restarted. Then do the part that matters more than patching: write down who in your organisation is a plausible target for a state actor &mdash; people working on human rights, sanctions, diaspora communities, investigations or anything a government would rather you did not publish &mdash; and treat their devices differently. That means a managed, up-to-date laptop rather than a personal one, phishing-resistant multi-factor authentication, and somewhere to report a suspicious email that is a person, not a policy. Tell those staff, plainly, that they are targets; people who know they are targeted behave differently. If a device is suspected, take it off the network and get help rather than reimaging it, because the forensic evidence is the only way you will learn what was taken.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Export mail, lists and site data from affected services &mdash; immediate; forwarding and communication plan for affected addresses &mdash; 7 days; dependency list for free and volunteer-run services &mdash; 30 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-autistici-shutdown" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="it-autistici-shutdown">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Chrome relaunch and Windows restart confirmed &mdash; 72h; named list of higher-risk staff and their devices &mdash; 14 days; managed device and phishing-resistant MFA for that group &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-grimwedge-ngo" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="it-grimwedge-ngo">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>No CVE &mdash; infrastructure availability and third-party dependency</span>
-        <span>~16,000 email addresses &bull; 1,500 websites &bull; 5,500 mailing lists &bull; ~10,000 blogs</span>
+        <span class="cve-badge">CVE-2026-85046</span>
+        <span class="cve-badge">CVE-2026-87491</span>
+        <span class="cve-badge">CVE-2026-85880</span>
+        <span>Chrome V8 and sandbox escape &bull; Windows ALPC elevation of privilege &bull; GRIMWEDGE backdoor and LONGTALE stealer</span>
       </div>
       <div class="card-meta">
-        <span>The Record</span>
+        <span>The Hacker News</span>
         <span class="dot">&bull;</span>
-        <span>Designation 26 Aug; domain and account suspensions 28 Aug; shutdown announced 6 Sep 2026</span>
+        <span>Campaign active from 1 Sep 2026; publicly disclosed 15 Sep 2026</span>
       </div>
-      <a href="https://therecord.media/autistici-inventati-shuts-down-after-us-terrorist-designation" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://thehackernews.com/2026/09/china-linked-hackers-exploit-chrome.html" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -737,28 +739,28 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-autistici-shutdown"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.7">1</text></a>
+        <a href="#it-grimwedge-ngo"><circle class="blip crit" cx="180.0" cy="42.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="46.7">1</text></a>
         <a href="#it-cisco-citrix-fortinet-kev"><circle class="blip crit" cx="270.1" cy="278.4" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="270.1" y="282.8">2</text></a>
-        <a href="#it-kev-8sep-nable"><circle class="blip crit" cx="51.7" cy="168.7" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="51.7" y="172.9">3</text></a>
-        <a href="#it-serbia-spyware"><circle class="blip crit" cx="278.6" cy="104.4" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="278.6" y="108.3">4</text></a>
-        <a href="#it-magento-stylesmuggler"><circle class="blip crit" cx="159.2" cy="297.8" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="159.2" y="301.4">5</text></a>
-        <a href="#it-sonicwall-sma1000"><circle class="blip crit" cx="118.3" cy="83.0" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="118.3" y="86.3">6</text></a>
-        <a href="#it-watchguard-firebox-ransomware"><circle class="blip high" cx="286.6" cy="208.7" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="286.6" y="211.7">7</text></a>
+        <a href="#it-gitlab-pathtraversal"><circle class="blip crit" cx="51.7" cy="168.7" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="51.7" y="172.9">3</text></a>
+        <a href="#it-screenconnect-worm"><circle class="blip crit" cx="278.6" cy="104.4" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="278.6" y="108.3">4</text></a>
+        <a href="#it-cisco-esa-rce"><circle class="blip crit" cx="159.2" cy="297.8" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="159.2" y="301.4">5</text></a>
+        <a href="#it-serbia-spyware"><circle class="blip crit" cx="118.3" cy="83.0" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="118.3" y="86.3">6</text></a>
+        <a href="#it-chrome-v8-zeroday"><circle class="blip high" cx="286.6" cy="208.7" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="286.6" y="211.7">7</text></a>
         <a href="#it-msft-patch-tuesday"><circle class="blip high" cx="86.1" cy="228.8" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="86.1" y="231.5">8</text></a>
-        <a href="#it-bigbear-paas"><circle class="blip high" cx="214.7" cy="84.9" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="214.7" y="87.4">9</text></a>
-        <a href="#it-screenconnect-nopatch"><circle class="blip high" cx="216.9" cy="269.3" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="216.9" y="271.5">10</text></a>
+        <a href="#it-watchguard-firebox-ransomware"><circle class="blip high" cx="214.7" cy="84.9" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="214.7" y="87.4">9</text></a>
+        <a href="#it-autistici-shutdown"><circle class="blip high" cx="216.9" cy="269.3" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="216.9" y="271.5">10</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-autistici-shutdown"><span class="ld crit"></span><b>1</b> Civil-society hosting collective shuts down</a>
+        <a href="#it-grimwedge-ngo"><span class="ld crit"></span><b>1</b> Nation-state zero-day chain aimed at NGOs</a>
         <a href="#it-cisco-citrix-fortinet-kev"><span class="ld crit"></span><b>2</b> Cisco FMC 10.0: Sandworm implant + Qilin</a>
-        <a href="#it-kev-8sep-nable"><span class="ld crit"></span><b>3</b> N-able N-central CVSS 10.0 in KEV</a>
-        <a href="#it-serbia-spyware"><span class="ld crit"></span><b>4</b> Pegasus and NoviSpy confirmed on activist devices</a>
-        <a href="#it-magento-stylesmuggler"><span class="ld crit"></span><b>5</b> Magento zero-day exploited, now patched</a>
-        <a href="#it-sonicwall-sma1000"><span class="ld crit"></span><b>6</b> SonicWall SMA1000 zero-days exploited, in KEV</a>
-        <a href="#it-watchguard-firebox-ransomware"><span class="ld high"></span><b>7</b> WatchGuard Firebox flaw used in ransomware</a>
+        <a href="#it-gitlab-pathtraversal"><span class="ld crit"></span><b>3</b> GitLab CVSS 10.0 file read, exploited</a>
+        <a href="#it-screenconnect-worm"><span class="ld crit"></span><b>4</b> ScreenConnect 9.9 spreading worm-like</a>
+        <a href="#it-cisco-esa-rce"><span class="ld crit"></span><b>5</b> Cisco email gateway root RCE exploited</a>
+        <a href="#it-serbia-spyware"><span class="ld crit"></span><b>6</b> Pegasus and NoviSpy confirmed on activist devices</a>
+        <a href="#it-chrome-v8-zeroday"><span class="ld high"></span><b>7</b> Two exploited Chrome V8 zero-days</a>
         <a href="#it-msft-patch-tuesday"><span class="ld high"></span><b>8</b> Two Windows zero-days exploited</a>
-        <a href="#it-bigbear-paas"><span class="ld high"></span><b>9</b> Phishing service bypassed MFA at 258 orgs</a>
-        <a href="#it-screenconnect-nopatch"><span class="ld high"></span><b>10</b> ScreenConnect flaw with no patch</a>
+        <a href="#it-watchguard-firebox-ransomware"><span class="ld high"></span><b>9</b> WatchGuard Firebox flaw used in ransomware</a>
+        <a href="#it-autistici-shutdown"><span class="ld high"></span><b>10</b> Civil-society hosting collective shuts down</a>
       </div>
     </div>
 
@@ -767,6 +769,40 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-autistici-shutdown" data-published="2026-09-06">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Italian tech collective serving civil-society groups shuts down, taking its email, web and mailing-list hosting with it</h3>
+        <p>Autistici/Inventati, a volunteer-run Italian technology collective that provided privacy-focused infrastructure to civil-society groups, announced on 6 September that it is dissolving and closing all of its services. The sequence was quick. The US State Department designated the collective an extremist group on 26 August. Two days later the Public Interest Registry suspended its domain, and Banca Etica suspended its account the same day over sanctions risk. With no domain and no banking, the collective concluded it could not continue. What disappears with it is working infrastructure: roughly 16,000 email addresses, 1,500 websites, 5,500 mailing lists and around 10,000 blogs. For the organisations relying on those services this is an availability event with no incident response available and no vendor to escalate to, and the practical question is where the data and the mailing lists go next.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; the collective announced its dissolution and the closure of all services; domain and banking suspensions confirmed by the parties involved</span>
+            <span class="ops-tag kev-off">No CVE &mdash; service withdrawal and third-party dependency, not a compromise</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; the exposure is provider concentration and data portability</span>
+            <span class="ops-cc"><b>Action:</b> If your organisation, a partner or a grantee holds mailboxes, websites, mailing lists or blogs with this provider, export everything now rather than after the shutdown date &mdash; mailbox contents, list subscriber files, site files and databases &mdash; and store a copy somewhere you control. Publish a forwarding or redirection plan for anyone who reaches you at an affected address. More broadly, list the free and volunteer-run services your operations depend on, note which of them hold the only copy of something, and give each a named owner and a documented exit route. Where a service is central to your work, ask whether a paid or contractual arrangement would give you notice and an export path that a free one cannot.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Export mail, lists and site data from affected services &mdash; immediate; forwarding and communication plan for affected addresses &mdash; 7 days; dependency list for free and volunteer-run services &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-autistici-shutdown" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-autistici-shutdown">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>No CVE &mdash; infrastructure availability and third-party dependency</span>
+          <span>~16,000 email addresses &bull; 1,500 websites &bull; 5,500 mailing lists &bull; ~10,000 blogs</span>
+        </div>
+        <div class="card-meta">
+          <span>The Record</span>
+          <span class="dot">&bull;</span>
+          <span>Designation 26 Aug; domain and account suspensions 28 Aug; shutdown announced 6 Sep 2026</span>
+        </div>
+        <a href="https://therecord.media/autistici-inventati-shuts-down-after-us-terrorist-designation" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-serbia-spyware" data-published="2026-09-02">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -899,39 +935,6 @@
           <span>Exploitation observed from 2 Sep &mdash; published 5 Sep 2026, re-checked 7 Sep</span>
         </div>
         <a href="https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-aws-root-spraying" data-published="2026-08-31">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Someone spent a month guessing AWS root passwords at 150+ organisations &mdash; the account nonprofits set up once and never revisit</h3>
-        <p>Datadog Security Labs published research on 31 August describing a password-spraying campaign that attempted to sign in as the AWS <em>root</em> user across more than 150 organisations between 24 July and 23 August 2026. Spraying deliberately keeps the volume low to avoid lockouts and detection: the median organisation saw only two failed attempts across the whole month, and the busiest saw eight. Datadog reports no successful authentications in the activity it observed. The source addresses were spread across many countries and autonomous systems &mdash; hosting providers and residential proxies &mdash; so blocking by geography achieves nothing, and the traffic presented two recurring browser user-agent strings. The reason this earns space on a nonprofit page despite causing no known compromise is what the AWS root account typically <em>is</em> in this sector. Many nonprofits hold AWS through a credits or grant programme, and the root account was created years ago by a consultant, a volunteer or a founding staff member, secured with a shared password in a document, tied to a mailbox nobody reads, and never touched again because day-to-day work happens under other logins. It is the one credential that cannot be restricted by policy and can undo every other control &mdash; and it is the one nobody owns.</p>
-        <div class="card-meta">
-          <span>150+ organisations targeted &bull; 24 Jul &ndash; 23 Aug 2026 &bull; median two failed attempts per organisation &bull; no successful authentications observed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active campaign &mdash; but Datadog observed no successful authentications; this is reconnaissance-grade pressure, not a confirmed compromise</span>
-            <span class="ops-tag kev-off">No CVE &mdash; credential guessing against a cloud console, not a software flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; MFA on the root user, credential hygiene and log monitoring</span>
-            <span class="ops-cc"><b>Action:</b> Find out who holds your AWS root credentials and which mailbox the account is registered to &mdash; if either answer is &ldquo;a former volunteer&rdquo;, fix that first by recovering the account through AWS support. Enable phishing-resistant multi-factor authentication on the root user, ideally a hardware key held by a named officer with a second key stored securely offsite. Delete any root access keys; they should not exist. Stop using root for routine work entirely and do everything through separate identities. Turn on CloudTrail if it is off, and set an alert on root <code>ConsoleLogin</code> events so any sign-in reaches a human. Apply the same review to any other cloud tenancy you obtained through a grant or credits programme, because they were all set up the same way.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Hardware MFA on the root user and root access keys deleted &mdash; 14 days; root sign-in alerting &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aws-root-spraying" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-aws-root-spraying">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Datadog Security Labs</span>
-          <span class="dot">&bull;</span>
-          <span>Campaign 24 Jul &ndash; 23 Aug 2026; published 31 Aug 2026</span>
-        </div>
-        <a href="https://securitylabs.datadoghq.com/articles/aws-root-user-bruteforce-campaign/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -1110,6 +1113,74 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="it-gitlab-pathtraversal" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>A maximum-severity GitLab flaw lets anyone read files off the server without logging in &mdash; and it was being probed within hours</h3>
+        <p>GitLab disclosed and patched <strong>CVE-2026-85706</strong> on 11 September, a path-traversal flaw in the repository commits interface rated CVSS 10.0. An unauthenticated attacker &mdash; no account, no token, nothing &mdash; can read arbitrary files off a self-managed GitLab server in a single HTTP request, provided the instance has at least one public project. That means configuration files, deployment secrets, database credentials and CI/CD tokens, which is why a file-read bug scores the same as remote code execution here: whatever the server can read, the attacker can read, and credentials are what is stored there. Affected versions are 18.7 through 19.1.8, 19.2 through 19.2.6 and 19.3 through 19.3.2; the fixes are 19.1.8, 19.2.6 and 19.3.2. CISA added it to the KEV catalog and set a federal patch deadline of 14 September, and researchers reported internet-wide scanning almost immediately after disclosure. GitLab&rsquo;s hosted service was not affected. Most charities do not run GitLab, but a meaningful minority do without thinking of it in those terms &mdash; the digital team that builds the website, the data unit maintaining a beneficiary database, a university partner hosting a shared research repository. If your organisation has developers, contractors or a partner writing code for you, someone is running a code repository somewhere, and the question worth asking today is whose it is and whether it has been patched.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-85706</span>
+          <span>CVSS 10.0 &bull; unauthenticated arbitrary file read &bull; self-managed GitLab CE/EE 18.7&ndash;19.3.2 &bull; hosted GitLab.com unaffected</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA and GitLab both confirm exploitation; researchers observed internet-wide probing within hours of disclosure</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 11&ndash;12 Sep 2026; federal patch deadline 14 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; GitLab 19.1.8, 19.2.6 and 19.3.2</span>
+            <span class="ops-cc"><b>Action:</b> Ask whoever builds or maintains software for you &mdash; in-house developer, agency, volunteer technologist, academic partner &mdash; whether they run a self-managed GitLab instance that touches your work, and if so get written confirmation it is on 19.1.8, 19.2.6 or 19.3.2 or later. Because this flaw reads secrets rather than breaking things, patching alone is not enough: any instance that was exposed and unpatched should have its stored credentials, deployment keys and API tokens rotated on the assumption they were taken. If you cannot get a straight answer within a few days, treat the credentials that instance held as compromised and rotate them anyway. More generally, keep a short written list of the code repositories and developer tools that hold keys to your systems, and who is responsible for patching each.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Confirmation of patch status from developers or partners &mdash; 72h; credential and token rotation on any exposed instance &mdash; 7 days; written inventory of code repositories holding your secrets &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gitlab-pathtraversal" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gitlab-pathtraversal">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CyberScoop; BleepingComputer; Dark Reading (GitLab and CISA advisories)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed and patched 11 Sep 2026; in-the-wild exploitation confirmed 14 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-cisco-esa-rce" data-published="2026-09-15">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>A crafted email is enough to take root on Cisco&rsquo;s Secure Email Gateway &mdash; the appliance that reads everything before you do</h3>
+        <p>Cisco confirmed active exploitation of <strong>CVE-2026-76461</strong>, a CVSS 9.8 flaw in Secure Email Gateway and Secure Email and Web Manager. An unauthenticated attacker sends an email containing SQL injection payloads into the appliance&rsquo;s parsing path and ends up running arbitrary commands as root on the underlying operating system. There is no workaround; the fixes are AsyncOS 15.5.5-0141, 16.0.4-302 and 16.5.0-780. The reason this matters beyond the usual patch-now framing is what the device does: an email security gateway sees every message entering and leaving the organisation, in plaintext, before filtering. Root on that appliance is read access to your correspondence &mdash; with donors, with beneficiaries, with journalists, with sources, with legal counsel &mdash; and a position from which to send mail that is indistinguishable from yours. This is the third Cisco enterprise product under confirmed exploitation in the same week, alongside Secure Firewall Management Center. Very few nonprofits own one of these appliances directly; a great many sit behind a shared email platform, a federation, a parent charity or a managed provider that does, so the useful action here is a question upwards rather than a patch downwards.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-76461</span>
+          <span>CVSS 9.8 &bull; unauthenticated root RCE via crafted email &bull; no workaround &bull; fixed in AsyncOS 15.5.5-0141 / 16.0.4-302 / 16.5.0-780</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco confirms exploitation in the wild against Secure Email Gateway appliances in all configurations</span>
+            <span class="ops-tag kev-off">Check the CISA KEV catalog directly for current status &mdash; too recent to confirm a listing at time of writing</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; AsyncOS 15.5.5-0141, 16.0.4-302 and 16.5.0-780; Cisco states no workaround exists</span>
+            <span class="ops-cc"><b>Action:</b> Ask your IT provider, your umbrella body or whoever runs your email whether a Cisco Secure Email Gateway or Secure Email and Web Manager sits in front of your mail, and if so when the AsyncOS fix will be applied &mdash; a date, not a reassurance. If one was internet-reachable and unpatched, ask what was done to check for compromise, because a root RCE on a mail gateway is a confidentiality incident and not merely an availability risk. Separately, this is a good week to confirm that correspondence which genuinely must stay private &mdash; source contact, casework, safeguarding, legal advice &mdash; does not rely solely on a mail gateway you do not control for its protection.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Written answer on whether the appliance is in your mail path &mdash; 5 working days; patch date or compromise assessment confirmed &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-esa-rce" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-esa-rce">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SecurityWeek (Cisco advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation confirmed and reported 15 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/root-rce-zero-day-in-cisco-secure-email-gateway-under-active-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-watchguard-firebox-ransomware" data-published="2026-09-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1220,7 +1291,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>Microsoft&rsquo;s largest ever update includes two Windows zero-days already being exploited &mdash; let the machines install it</h3>
-        <p>Microsoft released its biggest security update on record on 8 September 2026: 974 CVEs by its own count, 966 by BleepingComputer&rsquo;s, 999 including third-party items, with more than a hundred rated critical. Two are confirmed under active exploitation and were added to CISA&rsquo;s KEV catalog the same day. <strong>CVE-2026-81963</strong> is an elevation-of-privilege flaw in the Windows Update Stack; <strong>CVE-2026-85880</strong> is a heap-based buffer overflow in Windows ALPC. Both are rated CVSS 7.8 and both hand an attacker full control of the machine. Neither gets an attacker in on its own &mdash; they are what turns a phished login or a malicious document into control of the laptop and everything stored on it. For a small organisation the honest guidance is short. This is not a release to defer while you plan a change window, and the machines most likely to miss it are the ones nobody owns: the laptop a volunteer brings in, the reception PC that stays on for months, the old machine in the branch office. Make sure automatic updates are on and that devices are restarted, because an update that downloads but never applies protects nobody.</p>
+        <p>Microsoft released its biggest security update on record on 8 September 2026: 974 CVEs by its own count, 966 by BleepingComputer&rsquo;s, 999 including third-party items, with more than a hundred rated critical. Two are confirmed under active exploitation and were added to CISA&rsquo;s KEV catalog the same day. <strong>CVE-2026-81963</strong> is an elevation-of-privilege flaw in the Windows Update Stack; <strong>CVE-2026-85880</strong> is a heap-based buffer overflow in Windows ALPC. Both are rated CVSS 7.8 and both hand an attacker full control of the machine. Neither gets an attacker in on its own &mdash; they are what turns a phished login or a malicious document into control of the laptop and everything stored on it. That is not hypothetical for this sector: CVE-2026-85880 is the privilege-escalation link in the zero-day chain a China-linked actor ran against NGOs from 1 September, described in this edition&rsquo;s top story. For a small organisation the honest guidance is short. This is not a release to defer while you plan a change window, and the machines most likely to miss it are the ones nobody owns: the laptop a volunteer brings in, the reception PC that stays on for months, the old machine in the branch office. Make sure automatic updates are on and that devices are restarted, because an update that downloads but never applies protects nobody.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-81963</span>
           <span class="cve-badge">CVE-2026-85880</span>
@@ -1249,37 +1320,38 @@
         <a href="https://cyberscoop.com/microsoft-patch-tuesday-september-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-screenconnect-nopatch" data-published="2026-09-07">
+      <div class="card" id="it-screenconnect-worm" data-published="2026-09-14">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>ConnectWise disclosed a ScreenConnect flaw with no patch available, and a worm-like campaign is spreading through backdoored servers</h3>
-        <p>ConnectWise disclosed a new flaw in ScreenConnect Remote Access on 7 September 2026 with no fix ready, publishing temporary mitigations and saying a patch would follow later that week. Separately, researchers reported a worm-like campaign using backdoored ScreenConnect servers to push and run payloads on clients as they connect &mdash; so one compromised server reaches every device that checks in. The two are separate findings and the campaign has not been linked to the new flaw. ScreenConnect is one of the tools outsourced IT providers most commonly use to reach the desktops they support, which for this sector usually means it is installed on your machines by someone else&rsquo;s decision. That is worth knowing rather than worrying about: remote-support software is legitimate and useful, but it is also the single piece of software on a charity laptop that grants a stranger full control if it is misused. Past ScreenConnect flaws have been picked up quickly by ransomware crews, so while an advisory is open with no patch, the sensible step is to confirm someone has actually applied the mitigations.</p>
+        <h3>The ScreenConnect flaw now has a patch, a KEV listing and worm-like spread &mdash; and outsourced IT is the norm in this sector</h3>
+        <p>ConnectWise has patched <strong>CVE-2026-84869</strong>, a missing-authorization flaw in ScreenConnect rated CVSS 9.9, and CISA added it to the KEV catalog on 12 September with a three-day federal patch deadline under Binding Operational Directive 26-04. Exploitation has been running since 20 August. The mechanics are why this one spreads: an attacker abuses a live remote-support session to transfer and execute files on the connected machine without the person at the keyboard confirming anything, then uses social engineering to get victims to run a modified ScreenConnect client that looks for other active sessions and pushes VBScript payloads onto every machine it finds. One compromised support console reaches every device it is connected to. Fixed in version 26.6.5; where an upgrade cannot happen immediately, disabling the TransferFiles permission blunts it. For this sector the relevant fact is that ScreenConnect is rarely your decision &mdash; it is on your laptops because an outsourced IT provider or a shared services arrangement put it there, which makes it the one piece of software on a charity machine that hands a stranger full control if it is misused, and the one you cannot patch yourself.</p>
         <div class="card-meta">
-          <span>ConnectWise ScreenConnect Remote Access &bull; no patch available at disclosure &mdash; temporary mitigations published; separately reported worm-like campaign via backdoored instances</span>
+          <span class="cve-badge">CVE-2026-84869</span>
+          <span>CVSS 9.9 &bull; missing authorization / improper privilege management &bull; worm-like propagation via active support sessions &bull; fixed in 26.6.5</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported against the newly disclosed flaw; the worm-like campaign through backdoored instances is separately reported and not attributed to it</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ConnectWise and CISA confirm exploitation, running since 20 Aug 2026, with worm-like spread between connected machines</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 12 Sep 2026; three-day federal patch deadline under BOD 26-04</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-no">No patch at disclosure &mdash; ConnectWise published temporary mitigations on 7 Sep 2026 with a fix planned later that week</span>
-            <span class="ops-cc"><b>Action:</b> Ask your IT provider in writing whether it uses ConnectWise ScreenConnect to reach your devices, whether the 7 September mitigations have been applied, and when the permanent patch will be installed. Then look at your own machines: check the installed programs list for remote-support tools, and ask about anything you do not recognise &mdash; more than one charity has found leftover software from a provider it stopped using years ago. Where remote support is only needed occasionally, ask whether it can be attended-only, so a session requires someone at the keyboard to approve it rather than running unattended in the background.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; ScreenConnect 26.6.5; interim mitigation is to disable the TransferFiles permission</span>
+            <span class="ops-cc"><b>Action:</b> Ask your IT provider in writing whether it uses ConnectWise ScreenConnect to reach your devices, whether its server and clients are on 26.6.5, and on what date that happened &mdash; given exploitation began on 20 August, also ask what checking was done for unauthorised file transfers in the intervening weeks. Then look at your own machines: check installed programs for remote-support tools and query anything you do not recognise, because more than one charity has found leftover software from a provider it stopped using years ago. Where remote support is only needed occasionally, ask whether it can be made attended-only, so a session needs someone at the keyboard to approve it rather than running unattended in the background.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Written confirmation from your IT provider &mdash; 5 working days; remote-support software inventory on your own devices &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-screenconnect-nopatch" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-screenconnect-nopatch">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Written confirmation of patch date from your IT provider &mdash; 5 working days; remote-support software inventory on your own devices &mdash; 14 days; attended-only review &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-screenconnect-worm" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-screenconnect-worm">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (ConnectWise advisory)</span>
+          <span>SecurityWeek; The Hacker News (ConnectWise and CISA advisories)</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed 7 Sep 2026; permanent fix pending at time of writing</span>
+          <span>Exploitation from 20 Aug 2026; KEV listing 12 Sep 2026; reported 14 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/connectwise-patches-screenconnect-vulnerability-exploited-in-worm-like-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-sonicwall-sma1000" data-published="2026-09-02">
@@ -1317,77 +1389,41 @@
         <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-04">
+      <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-09">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Google ships an emergency Chrome fix for the sixth zero-day of 2026 &mdash; and browsers are where nonprofit work actually happens</h3>
-        <p>Google released an emergency Chrome update on 4 September addressing CVE-2026-85046, a type-confusion flaw in the V8 JavaScript engine that Google says is being exploited in the wild. Fixed builds are 152.0.7977.82 and .83, and this is the sixth Chrome zero-day exploited in attacks during 2026. Type confusion in V8 is a serious class of bug: it can let a malicious web page break out of the assumptions the JavaScript engine makes about memory, which is the first step toward running code on the machine. Google is, as usual, withholding technical detail until the majority of users have updated. This is a genuinely universal item, but it has a particular edge for nonprofits, whose entire operating estate is a browser &mdash; the CRM, the fundraising platform, the grant portal, the payroll bureau, the case-management system and the bank all live in Chrome tabs on a laptop that may be shared, may be personally owned, and may not be managed by anyone. Chrome updates on relaunch, and the machines most likely to be many versions behind belong to the volunteer whose browser has not been closed since spring. Do not forget the derivatives: Microsoft Edge, Brave, Opera and Vivaldi are built on the same engine and need their own updates.</p>
+        <h3>Two exploited Chrome V8 zero-days in a fortnight &mdash; and both turn out to be links in the chain aimed at NGOs</h3>
+        <p>Google shipped an emergency Chrome update on 4 September for <strong>CVE-2026-85046</strong>, a type-confusion flaw in the V8 JavaScript engine exploited in the wild, fixed in builds 152.0.7977.82 and .83. It followed on 9 September with a second emergency fix for <strong>CVE-2026-87491</strong>, an out-of-bounds write in V8 that allows a sandbox escape from a crafted web page, fixed in 153.0.8010.36 and .37 &mdash; Chrome&rsquo;s seventh in-the-wild zero-day of 2026. Both are now known to be the browser half of the GRIMWEDGE exploit chain that a China-linked actor used against NGOs from 1 September, which makes this the rare Chrome advisory with a named victim profile that matches this page. Researchers described a patch gap: the underlying fixes landed in the open-source Chromium tree before they reached stable Chrome, giving anyone watching that tree a window. Google withholds technical detail until most users have updated. For nonprofits the browser is not one application among many, it is the operating estate &mdash; the CRM, the fundraising platform, the grant portal, the payroll bureau, the case-management system and the bank all live in tabs, often on a laptop that is shared, personally owned, or managed by nobody. Chrome only applies its update on relaunch, and the machines furthest behind belong to the volunteer whose browser has not been closed since spring.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-85046</span>
-          <span>V8 type confusion &bull; fixed in Chrome 152.0.7977.82 / .83 &bull; sixth exploited Chrome zero-day of 2026</span>
+          <span class="cve-badge">CVE-2026-87491</span>
+          <span>V8 type confusion and out-of-bounds write &bull; fixed in Chrome 152.0.7977.82/.83 and 153.0.8010.36/.37 &bull; seventh exploited Chrome zero-day of 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states an exploit for CVE-2026-85046 exists in the wild</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states exploits for both flaws exist in the wild; both are chained in the GRIMWEDGE campaign against NGOs</span>
             <span class="ops-tag kev-off">Check the CISA KEV catalog directly for current status &mdash; exploited Chrome flaws are routinely added</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82 / .83; Chromium-based browsers require their own vendor updates</span>
-            <span class="ops-cc"><b>Action:</b> Tell everyone &mdash; staff, volunteers, trustees, anyone using a personal device for your work &mdash; to fully close and reopen Chrome today, because the update only takes effect on relaunch and a browser that has been open for weeks is still vulnerable. If you manage devices centrally, force the update and check your fleet&rsquo;s reported versions rather than assuming. Do the same for Edge, Brave, Opera and Vivaldi, which share the engine. This is also the moment for the wider point: if unmanaged personal laptops access your donor database, case notes or bank, you have no way to know whether they are patched at all &mdash; write down which systems that applies to and decide what you are willing to accept.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82/.83 and 153.0.8010.36/.37; Chromium-based browsers need their own vendor updates</span>
+            <span class="ops-cc"><b>Action:</b> Tell everyone &mdash; staff, volunteers, trustees, anyone using a personal device for your work &mdash; to fully close and reopen Chrome today, because the update only takes effect on relaunch and a browser that has been open for weeks is still vulnerable. If you manage devices centrally, force the update and check your fleet&rsquo;s reported versions rather than assuming. Do the same for Edge, Brave, Opera and Vivaldi, which share the engine. Then take the wider point seriously: if unmanaged personal laptops reach your donor database, case notes or bank, you have no way of knowing whether they are patched at all &mdash; write down which systems that applies to and decide what you are prepared to accept.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Browser relaunch communicated and managed fleet updated &mdash; 72h; Chromium derivatives verified &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Browser relaunch communicated and managed fleet updated &mdash; 72h; Chromium derivatives verified &mdash; 7 days; unmanaged-device exposure written down &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8-zeroday" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-chrome-v8-zeroday">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Google Chrome release blog; BleepingComputer, The Hacker News, Help Net Security</span>
+          <span>Google Chrome release blog; Help Net Security, BleepingComputer, The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Emergency update released 4 Sep 2026</span>
+          <span>Emergency updates 4 Sep and 9 Sep 2026</span>
         </div>
-        <a href="https://chromereleases.googleblog.com/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.helpnetsecurity.com/2026/09/09/google-chrome-cve-2026-87491-zero-day-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-kev-early-sept" data-published="2026-09-03">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Seven vulnerabilities entered the CISA KEV catalog on 2 September, several of them in the free and open-source tooling small teams rely on</h3>
-        <p>CISA added seven vulnerabilities to its Known Exploited Vulnerabilities catalog on 2 September 2026. Alongside the two SonicWall SMA1000 flaws covered above, the additions are: CVE-2026-9586, a SQL injection in Sangoma Switchvox scored 9.3; CVE-2026-82329, an improper authentication flaw in JFrog Artifactory scored 9.8 and reported to yield reverse shells and administrative tokens; CVE-2026-48710, a request-smuggling flaw in the Kludex Starlette Python framework scored 6.5, observed chained with CVE-2026-42271; CVE-2026-49869, a command-injection flaw in Kestra OSS scored 10.0 and reported to be used for reverse shells and cryptocurrency mining; and CVE-2026-59822, an improper authentication flaw in Berri LiteLLM scored 8.8, affecting its Model Context Protocol handling. KEV listing means confirmed exploitation, not theoretical risk, and it obliges United States federal agencies to remediate within a fixed deadline &mdash; a useful benchmark for everyone else. The nonprofit relevance is in the middle of that list rather than at the top. Switchvox is a small-business phone system; Starlette, Kestra and LiteLLM are open-source components that arrive inside a bespoke website, a data pipeline or an AI pilot built by a volunteer developer, a fellowship programme or a pro-bono agency. Nobody in the organisation may know they are running, and no vendor will email you when they need patching.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-9586</span>
-          <span class="cve-badge">CVE-2026-82329</span>
-          <span class="cve-badge">CVE-2026-48710</span>
-          <span class="cve-badge">CVE-2026-49869</span>
-          <span class="cve-badge">CVE-2026-59822</span>
-          <span>Plus CVE-2026-83548 and CVE-2026-83549 (SonicWall) &bull; seven additions dated 2 Sep 2026</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; KEV inclusion requires reliable evidence of exploitation in the wild</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; all seven added 2 Sep 2026, with BOD 22-01 remediation deadlines for federal agencies</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor fixes are available for these products &mdash; check each vendor&rsquo;s advisory for the fixed version</span>
-            <span class="ops-cc"><b>Action:</b> Do not try to track all seven. Ask two questions instead. First, do we run any of these products &mdash; a Switchvox phone system, a JFrog Artifactory instance, or anything a developer built for us using Starlette, Kestra or LiteLLM? For most small charities the honest answer to the second half is &ldquo;we would have to ask the person who built it&rdquo;, which is itself the finding: get the list of components from whoever maintains your website, database or AI pilot, and get it in writing. Second, is anyone patching those components at all, or did maintenance end when the project grant did? Subscribe to the CISA KEV feed &mdash; it is free, short, and the single best prioritisation list available to an organisation with no security team.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Confirm exposure to the seven listed products &mdash; 7 days; patch any confirmed instance &mdash; 14 days; component inventory from developers &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-early-sept" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kev-early-sept">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalog; The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Added 2 Sep 2026, reported 3 Sep 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 

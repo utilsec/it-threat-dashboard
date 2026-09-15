@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Government &amp; Public Sector</h1>
       <div class="header-sub">Federal, state &amp; local, and the defense industrial base.</div>
       <div class="header-meta">
-        <span>Generated Fri, 11 Sep 2026, 8:00 AM ET</span>
+        <span>Generated Tue, 15 Sep 2026, 11:35 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Government IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>32</strong> stories across
+      <strong>31</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -673,7 +673,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:69.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.9 &mdash; Medium, held at the band ceiling and re-tested, not carried forward. The Cisco Secure FMC escalation is materially worse than yesterday: Talos now attributes CVE-2026-20079 exploitation to three clusters, one deploying a Cyclops&nbsp;Blink variant it links to Sandworm and one deploying Qilin ransomware after using FMC&rsquo;s own tooling for recon and credential theft, with the BOD&nbsp;22-01 federal deadline tomorrow. That is the strongest High argument this page has held, and it still does not clear the bar. High requires one issue <b>actively impacting</b> a large portion of IT environments; this is severe, targeted exploitation of one appliance family with fixed software available, and no agency estate is reported compromised at scale. Espionage and ransomware converging raises the cost of being unpatched &mdash; it does not widen the reach, and a remediation duty, however binding and however close, is an obligation rather than an impact. The firmer figures in the same KEV action point the same way: 56 documented exploitation attempts against Citrix CVE-2026-19490, 178 devices compromised via Fortinet CVE-2025-25249. Countable exposures, not estate-wide compromise. The confirmed incidents &mdash; Berlin, Springfield and Everett, Winona County, the C-Track breach &mdash; are each one body or one platform, and anti-stacking caps that at 6.9 however many accumulate. The Florida DMV claim is still unconfirmed.</div>
+      <div class="tl-why"><b>Why:</b> 6.9 &mdash; Medium, re-derived at the band ceiling rather than carried forward. The sector lead is the IDScan breach: unauthorised access to the identity-verification vendor&rsquo;s cloud platform is confirmed and the FBI is investigating, but the 153&nbsp;million licence-scan figure is the seller&rsquo;s claim taken from the leaked dataset, not a verified count. Two further confirmed exposures sit beside it &mdash; Florida&rsquo;s DAVID driver database, reached with stolen law-enforcement credentials, and 246,000 Japanese government-personnel records exposed through a VPN flaw. Federal remediation deadlines drove the operational week: Cisco Secure&nbsp;FMC CVE-2026-20079 (CVSS&nbsp;10.0, three exploitation clusters, deadline 12&nbsp;September, now passed), GitLab CVE-2026-85706 (CVSS&nbsp;10.0, deadline 14&nbsp;September), ScreenConnect CVE-2026-84869 on a three-day clock, plus Citrix, Fortinet, MikroTik and JFrog. High requires one issue <b>actively impacting</b> a large portion of IT environments. What is here instead is a stack of discrete patch-and-hunt exposures with fixed software available, and incidents that are each one organisation or one platform; anti-stacking caps that at 6.9 however many accumulate. Microsoft&rsquo;s record Patch Tuesday and its six emergency follow-ups did reach across estates, but a regression is an availability fault, not a compromise.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,31 +681,32 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-cisco-fmc-kev" data-published="2026-09-11">
+    <div class="top-story" id="it-idscan-licenses" data-published="2026-09-11">
         <span class="top-story-pill">Top Story</span>
-        <h2>Deadline tomorrow: Cisco Talos now attributes Secure FMC exploitation to three clusters &mdash; one deploying a Sandworm-linked implant, one deploying Qilin ransomware &mdash; with the federal remediation date on 12&nbsp;September</h2>
-        <p><b>Escalation, 11&nbsp;September.</b> Cisco Talos has confirmed that CVE-2026-20079 &mdash; a CVSS&nbsp;10.0 authentication bypass in the Secure Firewall Management Center web interface that gives an unauthenticated remote attacker root &mdash; is being exploited by at least three distinct activity clusters, and the character of that exploitation has changed. Talos tracks UAT-12197 planting JSP web shells and Java command executors to harvest credentials; UAT-11823 deploying Netcat reverse shells and a variant of Cyclops&nbsp;Blink, a modular ELF implant Talos describes as previously attributed to the Russian state-sponsored group Sandworm; and UAT-11988, a ransomware operation that used FMC&rsquo;s own built-in tooling for reconnaissance, credential theft and security-tool termination before deploying Qilin ransomware on selected systems. Espionage and ransomware are now operating on the same security-management appliance. Cisco has confirmed the findings and shipped hotfixes; a second flaw, CVE-2026-20316 (CVSS&nbsp;5.3), permits an unauthenticated low-privilege login usable in chaining.</p>
-        <p><b>The clock.</b> CISA added CVE-2026-20079 to the Known Exploited Vulnerabilities catalog on 9&nbsp;September and set a Federal Civilian Executive Branch remediation deadline of <b>12&nbsp;September 2026 &mdash; tomorrow</b> &mdash; under BOD&nbsp;22-01. The same KEV action covers two other network-edge products with updated exploitation figures: Citrix NetScaler ADC and Gateway authentication bypass CVE-2026-19490 (CVSS&nbsp;9.3), with <b>56 documented exploitation attempts</b> since early September; and Fortinet FortiOS, FortiSwitchManager and FortiSASE CVE-2025-25249 (CVSS&nbsp;7.3), now weaponised to deliver the PivotC2 remote-access trojan, with <b>178 devices compromised</b> across more than 3,000 targeted IP addresses, mostly in the United States, attributed in reporting to suspected Russian-speaking actors. Two details shape the response. There is no workaround for the Cisco flaw: the fixed software has to be installed. And FMC is a management plane rather than an endpoint, so an attacker who reaches root there inherits the policy governing the firewalls beneath it &mdash; which is also why Cisco says a device that was already compromised needs remediating separately, because patching closes the route in without evicting anyone already inside.</p>
+        <h2>IDScan confirms an attacker reached customer data on its cloud platform, the FBI is investigating &mdash; and the dataset advertised for sale is claimed to hold 153&nbsp;million driving-licence scans</h2>
+        <p><b>What is confirmed.</b> IDScan.net, an identity-verification vendor whose document-scanning software sits at car-hire counters, hotel desks, retailers, financial institutions and a range of government-adjacent identity checkpoints, issued a breach notice dated 4&nbsp;September and by 11&nbsp;September had confirmed unauthorised access to customer data held on its cloud platform. The FBI is investigating. IDScan says it has locked the platform down and is offering free credit and identity monitoring to affected individuals. <b>What is claimed.</b> A dark-web marketplace known as &ldquo;Nexus&rdquo; advertised a searchable service offering more than 153&nbsp;million driving-licence scans, roughly 10&nbsp;million other identification cards, more than 3&nbsp;million travel documents and 579,000 medical cards. That accounting comes from journalist Brian Krebs, working from the leaked dataset, and was not disclosed by IDScan; the company has not said how many customers or how many individuals are affected, and has not verified the scale. The distinction matters and should survive into whatever briefing you write: the intrusion is established, the number is the seller&rsquo;s own advertisement of it.</p>
+        <p><b>Why a private breach is a public-sector problem.</b> The documents involved are government-issued credentials held by a commercial intermediary. Very few agencies contract with an identity-verification vendor directly; they inherit the exposure through a contractor, a licensing partner, a payment processor or a benefits administrator that does, which is why an incident like this rarely shows up in an agency&rsquo;s own supplier register. The operational consequence is narrow and specific. A great deal of citizen-facing identity proofing &mdash; benefits enrolment, licence renewal, records requests, tax account recovery, first-time account creation &mdash; still leans on the assumption that a clear photograph of a driving licence is hard for a stranger to obtain. If a bulk corpus of licence images is circulating, that assumption no longer carries weight on its own, and it fails quietly: the fraudulent submission looks better than the genuine one, because it is a clean scan rather than a phone photograph taken in a car park. This is also the week&rsquo;s second driver-data incident, alongside Florida&rsquo;s confirmed breach of its DAVID driver database through stolen law-enforcement credentials. Two independent routes to the same category of record in one week is the argument for treating licence images as compromised by default rather than waiting for a victim count.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed by Cisco Talos; three clusters, including a Sandworm-linked implant and Qilin ransomware deployment</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026, FCEB remediation deadline 12 Sep 2026 &mdash; ONE DAY OUT</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; IDScan confirms unauthorised access to customer data on its cloud platform; FBI investigating. The 153&nbsp;million figure is CLAIMED &mdash; reported from the leaked dataset, not verified by the vendor</span>
+            <span class="ops-tag kev-off">No CVE &mdash; reported as unauthorised access to a cloud platform; no vulnerability has been identified publicly</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed software available for all three CVEs &mdash; no workaround for the Cisco flaw</span>
-            <span class="ops-cc"><b>Action &mdash; one working day remains:</b> Federal civilian agencies have a binding 12&nbsp;September date on all three entries, which is tomorrow; anything not remediated by then is an overdue BOD&nbsp;22-01 item, so decide today which instances will be patched and which will be disconnected, and record the decision. State, local, tribal and territorial bodies should hold themselves to the same clock, because the exploitation is real whether or not the directive applies to you. Start by establishing whether any Secure FMC or Security Cloud Control instance is reachable from the internet, including instances stood up by a contractor or an integrator under a managed-service agreement, and get the patch date in writing from whoever operates it. Because there is no mitigation to fall back on, an instance that cannot be patched by the deadline should be taken off the internet rather than logged as an exception. Then assume the possibility of prior compromise rather than treating it as a contingency &mdash; with Talos describing credential harvesting via web shells, a Cyclops&nbsp;Blink-variant implant and hands-on use of FMC&rsquo;s own tooling to disable security controls, patching alone does not close the incident. Review FMC administrative accounts, API tokens and pushed policy changes for anything you did not authorise; check firewall rule sets against your own change record rather than against the appliance&rsquo;s current state; look for JSP files and Netcat or reverse-shell processes on the appliance; and rotate every credential the FMC held or could read. Fold the Citrix and Fortinet entries into the same change window so all three close together.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; the response is identity-proofing controls, fraud monitoring and supplier assurance</span>
+            <span class="ops-cc"><b>Action:</b> Treat a submitted image of a driving licence as evidence that someone possesses a copy of the document, not that they are the person on it. Walk the list of citizen-facing services where a licence image alone unlocks an account, a benefit, a renewal, a records request or a tax account, and require a second independent factor on each &mdash; a liveness-checked selfie match, a knowledge check against data the agency already holds, or an out-of-band confirmation to a channel the applicant did not just supply. Next, work the supply chain rather than the vendor: ask each contractor, licensing partner and benefits administrator in writing whether IDScan or any reseller of it sits anywhere in their identity flow, whether captured document images are retained at all and for how long, and which subprocessors hold copies. Get the answer in writing even where you expect it to be no, because the register you build is reusable for the next vendor incident. Then brief the people who will meet the consequences first: fraud and benefits-integrity teams, call-centre and counter staff, and anyone who approves an identity exception, all of whom need to hear plainly that image quality is no longer a signal of legitimacy. Finally, prepare the citizen-facing side now &mdash; decide who answers &ldquo;was my licence in this?&rdquo; and what you will tell them, given that the vendor has not published a figure and may not.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Cisco, Citrix and Fortinet patching &mdash; by the 12 Sep 2026 federal deadline, i.e. tomorrow; internet exposure check &mdash; today; credential rotation and compromise assessment on any exposed FMC &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisco-fmc-kev">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Identity-proofing control review on licence-image-only flows &mdash; 14 days; written supplier enquiry across contractors and benefits partners &mdash; 5 business days; fraud, counter and call-centre briefing &mdash; 48h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-idscan-licenses" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-idscan-licenses">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20079</span>
-          <span>With CVE-2026-20316, CVE-2026-19490 and CVE-2025-25249 &bull; Cisco Talos, Cisco PSIRT and CISA KEV &bull; FCEB deadline 12 Sep 2026</span>
+          <span>The Record &bull; BleepingComputer &bull; Krebs on Security</span>
+          <span class="dot">&bull;</span>
+          <span>Breach notice 4 Sep 2026 &bull; confirmation and FBI investigation reported ~11 Sep 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/idscan-data-breach-notice-drivers-licenses" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -733,24 +734,24 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-cisco-fmc-kev"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-berlin-second-leak"><circle class="blip crit" cx="243.9" cy="248.1" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="243.9" y="252.9">2</text></a>
-        <a href="#it-kev-0908"><circle class="blip crit" cx="92.7" cy="167.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="92.7" y="171.7">3</text></a>
-        <a href="#it-papercut-kev"><circle class="blip crit" cx="288.4" cy="99.6" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="288.4" y="103.4">4</text></a>
-        <a href="#it-springfield-everett"><circle class="blip high" cx="150.2" cy="315.6" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="150.2" y="318.9">5</text></a>
-        <a href="#it-watchguard-ransomware"><circle class="blip high" cx="108.4" cy="64.8" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="108.4" y="67.5">6</text></a>
-        <a href="#it-f5rootkit"><circle class="blip high" cx="312.7" cy="221.5" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="312.7" y="223.7">7</text></a>
-        <a href="#it-ctrack-courts"><circle class="blip high" cx="58.4" cy="248.9" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="58.4" y="251.1">8</text></a>
+        <a href="#it-idscan-licenses"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
+        <a href="#it-cisco-fmc-kev"><circle class="blip crit" cx="243.9" cy="248.1" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="243.9" y="252.9">2</text></a>
+        <a href="#it-gitlab-85706"><circle class="blip crit" cx="92.7" cy="167.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="92.7" y="171.7">3</text></a>
+        <a href="#it-screenconnect"><circle class="blip crit" cx="288.4" cy="99.6" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="288.4" y="103.4">4</text></a>
+        <a href="#it-shinyhunters-david"><circle class="blip high" cx="150.2" cy="315.6" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="150.2" y="318.9">5</text></a>
+        <a href="#it-japan-digital-agency"><circle class="blip high" cx="108.4" cy="64.8" r="7.5"/><text class="blip-num" style="font-size:6.8px" x="108.4" y="67.5">6</text></a>
+        <a href="#it-red-heron-gitea"><circle class="blip high" cx="312.7" cy="221.5" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="312.7" y="223.7">7</text></a>
+        <a href="#it-msft-sept-patch"><circle class="blip high" cx="58.4" cy="248.9" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="58.4" y="251.1">8</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-cisco-fmc-kev"><span class="ld crit"></span><b>1</b> Sandworm-linked and Qilin actors on Cisco FMC; deadline 12 Sep</a>
-        <a href="#it-berlin-second-leak"><span class="ld crit"></span><b>2</b> Second Berlin leak after ransom refused</a>
-        <a href="#it-kev-0908"><span class="ld crit"></span><b>3</b> Four exploited flaws added to KEV, 8 Sep</a>
-        <a href="#it-papercut-kev"><span class="ld crit"></span><b>4</b> PaperCut zero-days, deadline 14 Sep</a>
-        <a href="#it-springfield-everett"><span class="ld high"></span><b>5</b> Schools and City Hall closed, Massachusetts</a>
-        <a href="#it-watchguard-ransomware"><span class="ld high"></span><b>6</b> WatchGuard Firebox flaw used in ransomware</a>
-        <a href="#it-f5rootkit"><span class="ld high"></span><b>7</b> Fileless rootkit on F5 BIG-IP APM</a>
-        <a href="#it-ctrack-courts"><span class="ld high"></span><b>8</b> C-Track court records breach</a>
+        <a href="#it-idscan-licenses"><span class="ld crit"></span><b>1</b> IDScan breach confirmed; 153M licence scans claimed for sale</a>
+        <a href="#it-cisco-fmc-kev"><span class="ld crit"></span><b>2</b> Three clusters exploiting Cisco Secure FMC; deadline passed</a>
+        <a href="#it-gitlab-85706"><span class="ld crit"></span><b>3</b> GitLab CVSS 10.0 exploited; federal deadline 14 Sep</a>
+        <a href="#it-screenconnect"><span class="ld crit"></span><b>4</b> ScreenConnect worm-like attacks; 3-day KEV deadline</a>
+        <a href="#it-shinyhunters-david"><span class="ld high"></span><b>5</b> Florida confirms driver-database breach</a>
+        <a href="#it-japan-digital-agency"><span class="ld high"></span><b>6</b> 246,000 Japanese government-personnel records exposed</a>
+        <a href="#it-red-heron-gitea"><span class="ld high"></span><b>7</b> Gitea RCE used against government and election bodies</a>
+        <a href="#it-msft-sept-patch"><span class="ld high"></span><b>8</b> Record Patch Tuesday, two zero-days, RDS regression</a>
       </div>
     </div>
 
@@ -824,37 +825,34 @@
         </div>
         <a href="https://therecord.media/springfield-schools-everett-city-hall-massachusetts-cyber-incidents" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-shinyhunters-david" data-published="2026-09-08">
+      <div class="card" id="it-shinyhunters-david" data-published="2026-09-11">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident &mdash; Claimed</span>
+          <span class="severity sev-high">High</span>
+          <span class="category">Data Breach</span>
         </div>
-        <h3>ShinyHunters claims it took more than 200,000 records from Florida&rsquo;s DAVID driver database &mdash; the state has not confirmed it</h3>
-        <p>The extortion group ShinyHunters claims to have breached DAVID, the Florida driver database platform used by law enforcement and other authorised users, and to have taken more than 200,000 records. Treat this as a claim: as of this edition the state has not confirmed a breach, and no independent verification has been published. It is recorded here because the claimed target is a controlled law-enforcement data platform rather than a public-facing service, and because a false claim about such a system carries its own operational cost in verification work. It also follows a separate incident in which more than 153&nbsp;million US and Canadian driver&rsquo;s licence scans, reportedly originating with identity-verification vendor IDScan.net, were offered on dark-web forums. The two are distinct events, but together they point at the same weakness: verification schemes that treat a licence image or a licence record as proof of identity.</p>
-        <div class="card-meta">
-          <span>Florida DAVID driver database platform &bull; 200,000+ records claimed &bull; unconfirmed by the state</span>
-        </div>
+        <h3>Florida confirms its driver database was reached with credentials stolen from a law-enforcement officer&rsquo;s personal device &mdash; no software flaw involved</h3>
+        <p>On 11&nbsp;September Florida officials confirmed unauthorised access to DAVID, the state&rsquo;s driver and vehicle information system used by law-enforcement and other authorised agencies. The route in was credentials stolen from a law-enforcement officer&rsquo;s personal device rather than any vulnerability in the application; reporting by The&nbsp;Record links the intrusion to the ShinyHunters extortion group. The reported impact centres on driver-record data, and the state has not published a final affected-record count. The response so far is credential revocation, a review of multi-factor authentication covering law-enforcement access to driver data, and notification processes now under way. The control lesson sits with the account rather than the system: DAVID behaved exactly as designed for a session it had every reason to trust, which is why no patch closes this and no vulnerability scan would have found it. Any system where an authorised external user&rsquo;s credential unlocks bulk citizen records &mdash; driver data, benefits, court files, tax accounts &mdash; needs that credential bound to a managed device and the session watched for query volume, because a lookup rate no human could sustain is usually the only signal the application itself can see. Coming in the same week as the IDScan disclosure, it is the second independent route to driver-licence data in seven days.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Claimed &mdash; attacker assertion only; not confirmed by the state and not independently verified as of this edition</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; no vulnerability identified publicly</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by Florida officials &mdash; stolen-credential access, not exploitation of a software flaw; final affected-record count not published</span>
+            <span class="ops-tag kev-off">No CVE &mdash; credential compromise, no vulnerability involved</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; response is access review on controlled data platforms and identity-proofing controls</span>
-            <span class="ops-cc"><b>Action:</b> If you administer or consume a controlled driver or law-enforcement data platform, review who holds access and how it is authenticated: shared accounts, contractor access and dormant credentials are the usual route into systems of this kind, and access-audit records are what let you answer a claim like this quickly. Pull query logs for volume anomalies rather than only for policy violations. More broadly, and regardless of whether this particular claim is substantiated, stop treating a licence image or licence record as sufficient identity proof for benefits, licensing or tax services &mdash; require a second independent factor. Prepare a short, factual holding statement for claims that have not been verified, so communications do not have to improvise under pressure.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; the controls are device binding, access review and query-rate monitoring</span>
+            <span class="ops-cc"><b>Action:</b> Pull the list of external and partner accounts that can query citizen-record systems in bulk, and check three things for each: whether the credential can be used from an unmanaged personal device, whether multi-factor is enforced rather than merely available, and when the account was last used. Dormant authorised accounts are the ones that get harvested quietly. Add a query-volume threshold and an out-of-hours alert on bulk lookup interfaces, because volume is the one abuse signal visible to the application when the credential itself is valid. Where access is granted to another organisation under an agreement, put the device and MFA requirements into the agreement text rather than leaving them as an assumption, and set a re-attestation date. Finally, retain enough query-level logging to answer &ldquo;what did this account look at?&rdquo; months later &mdash; that question, not the initial alert, is what drives the notification scope.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Access and query-log review on controlled platforms &mdash; 14 days; identity-proofing review &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> External bulk-query account review &mdash; 14 days; MFA and managed-device enforcement on partner accounts &mdash; 30 days; query-rate alerting &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-shinyhunters-david" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-shinyhunters-david">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer</span>
+          <span>BleepingComputer &bull; The Record &bull; statements from Florida officials</span>
           <span class="dot">&bull;</span>
-          <span>Claim reported 8 Sep 2026</span>
+          <span>Confirmed 11 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/shinyhunters-hackers-claim-breach-of-florida-david-dmv-database/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/florida-confirms-dmv-database-breached-via-stolen-police-account/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-f5rootkit" data-published="2026-09-08">
         <div class="card-header">
@@ -888,66 +886,62 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/hackers-breach-f5-big-ip-apm-devices-to-deploy-linux-rootkit/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-screenconnect" data-published="2026-09-07">
+      <div class="card" id="it-screenconnect" data-published="2026-09-14">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
         </div>
-        <h3>ConnectWise disclosed a ScreenConnect Remote Access flaw with no patch available, while backdoored instances push payloads to connecting clients</h3>
-        <p>ConnectWise disclosed a new flaw in ScreenConnect Remote Access on 7&nbsp;September without a fix, publishing temporary mitigations and indicating a patch later in the week. Separately, researchers reported a worm-like campaign in which backdoored ScreenConnect instances transfer and execute payloads onto clients as they connect. For public-sector bodies the exposure often arrives through a supplier: ScreenConnect is heavily used by managed service providers, and small agencies, districts and municipalities are exactly the organisations that outsource endpoint support. That means the instance capable of reaching your machines may not be one you can patch, inventory or even see. The first useful step is establishing which remote-support tooling can reach your estate and who is accountable for each instance &mdash; a question worth answering in writing, before it is needed.</p>
-        <div class="card-meta">
-          <span>ConnectWise ScreenConnect Remote Access &bull; mitigations published at disclosure; fix expected within the week</span>
-        </div>
+        <h3>The ScreenConnect flaw now has a CVE, a patch and a three-day federal deadline &mdash; and a worm-like spread pattern that moves between connected machines</h3>
+        <p>ConnectWise has patched CVE-2026-84869 (CVSS&nbsp;9.9), a missing-authorisation and improper-privilege-management flaw in ScreenConnect that lets an attacker transfer and execute files across an active remote-support session without the host confirming it. CISA added the flaw to the Known Exploited Vulnerabilities catalog on 12&nbsp;September and, under Binding Operational Directive&nbsp;26-04, gave federal civilian agencies three days to remediate. Exploitation has been running since around 20&nbsp;August. The propagation pattern is what earns the attention: attackers abuse legitimate support sessions to move files, then use social engineering to get a victim to run a modified ScreenConnect client that detects active sessions on the machine and pushes VBScript payloads onto the systems connected to them. That is worm-like movement travelling along a trust relationship rather than a network path. For public-sector bodies the exposure usually arrives through a supplier, because ScreenConnect is heavily used by managed service providers and it is small agencies, districts, county offices and municipalities that outsource endpoint support &mdash; so the instance able to reach your machines may not be one you can patch, inventory or even see. Fixed in version&nbsp;26.6.5; the interim mitigation is to disable the TransferFiles permission.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; researchers report backdoored instances transferring and executing payloads to newly connected clients</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; ConnectWise and CISA both confirm exploitation, with worm-like propagation between connected machines since ~20 Aug 2026</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 12 Sep 2026; three-day federal remediation deadline under BOD 26-04</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-no">No patch at disclosure &mdash; temporary mitigations published 7 Sep 2026</span>
-            <span class="ops-cc"><b>Action:</b> Apply the published mitigations on any instance you operate and restrict file-transfer permissions on session roles that do not need them. Then work the supplier side, which is where most public-sector exposure lives: ask every managed service provider and support contractor in writing which remote-support product they use to reach your endpoints, what mitigation they have applied, and when they expect to patch, and record the answers. Take management interfaces off the public internet. Hunt session audit logs for file transfers and command execution no technician can account for, and check endpoints connected during the exposure window for unexpected persistence. Rebuild confirmed-affected hosts from clean media rather than cleaning in place.</span>
+            <span class="ops-tag patch-yes">Patched in ScreenConnect 26.6.5 &mdash; interim mitigation is to disable the TransferFiles permission</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade any instance you operate to 26.6.5 and, until that is done, strip the TransferFiles permission from every session role that does not demonstrably need it. Then work the supplier side, which is where most public-sector exposure lives: ask every managed service provider and support contractor in writing which remote-support product reaches your endpoints, what version it runs, when it was patched, and whether they have hunted their own session logs &mdash; and record the answers, because the register is reusable. Take remote-support management interfaces off the public internet. Hunt session audit logs for file transfers and command execution no technician can account for since 20&nbsp;August, and check endpoints that were connected during that window for unexpected persistence and for ScreenConnect client binaries that did not come from the vendor. Rebuild confirmed-affected hosts from clean media rather than cleaning in place. Because the spread depends on a user running a modified client, tell staff plainly that a support technician will never ask them to download and run an installer sent over chat or email.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Mitigations and supplier enquiry &mdash; 24h; patch on release &mdash; 24h from availability</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or disable TransferFiles &mdash; 24h; written supplier enquiry &mdash; 48h; session-log hunt back to 20 Aug &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-screenconnect" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-screenconnect">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>ConnectWise advisory; BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Disclosed 7 Sep 2026</span>
+          <span class="cve-badge">CVE-2026-84869</span>
+          <span>ConnectWise ScreenConnect &bull; CVSS 9.9 &bull; SecurityWeek and CISA KEV &bull; KEV addition 12 Sep 2026</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/connectwise-warns-of-new-screenconnect-flaw-without-patch/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/connectwise-patches-screenconnect-vulnerability-exploited-in-worm-like-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-idscan-licenses" data-published="2026-09-07">
+      <div class="card" id="it-japan-digital-agency" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
+          <span class="category">Data Breach</span>
         </div>
-        <h3>Four class actions and an FBI investigation follow a dark-web service that advertised scans of a claimed 153&nbsp;million US and Canadian driving licences</h3>
-        <p>On 31&nbsp;August 2026 an actor using the name &ldquo;Nexus&rdquo; advertised a searchable dark-web service offering images of what it claimed were more than 153&nbsp;million US and Canadian driving licences, over 10&nbsp;million other identification cards, and several million travel documents. Reporting on 2&nbsp;September pointed to IDScan.net, an identity-verification vendor whose scanning software sits at car-hire counters, hotels and other identity-checking points. The FBI opened an investigation and the service went offline shortly afterwards. The company says only that it is investigating; it has not confirmed a breach, so the 153&nbsp;million figure remains a seller&rsquo;s claim. By 7&nbsp;September at least four class actions had been filed. The public-sector angle is that these are government-issued credentials, and identity proofing for benefits, licensing and tax services broadly assumes a good image of one is hard to obtain.</p>
+        <h3>Japan&rsquo;s Digital Agency says a VPN flaw exposed 246,000 government-personnel records, in a breach window that closed two months before disclosure</h3>
+        <p>Japan&rsquo;s Digital Agency disclosed on 14&nbsp;September that a vulnerability in the VPN serving its Government Solution Service infrastructure allowed unauthorised access to roughly 246,000 records covering government employees and public officials &mdash; names, email addresses, telephone numbers and some postal addresses. National identification numbers, bank details and pension numbers were not exposed. The flaw was medium-severity and not a zero-day, and the breach window ran June to July&nbsp;2026, two months before the disclosure. No misuse has been detected to date. The agency suspended affected accounts, isolated the network, stood up a dedicated support line and issued phishing warnings to those affected. Two things are worth carrying away. First, the flaw was neither novel nor maximum severity, which is the ordinary case: remote-access gear does not need a headline vulnerability to produce a headline exposure, and this lands in the same week as actively exploited authentication bypasses in Citrix NetScaler and Cisco Secure&nbsp;FMC and urgent warnings on Check Point VPN. Second, the data is directory-grade rather than financial, and that is precisely why the agency&rsquo;s first outbound action was a phishing warning &mdash; a verified list of a quarter of a million public officials with working contact details is the raw material for targeted phishing and impersonation aimed at other government bodies, including yours.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Under investigation &mdash; FBI case opened; vendor says it is investigating and has not confirmed a breach; the advertised service is offline</span>
-            <span class="ops-tag kev-off">No CVE &mdash; no vulnerability has been identified publicly</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by Japan&rsquo;s Digital Agency &mdash; ~246,000 records; breach window June&ndash;July 2026; no misuse detected to date</span>
+            <span class="ops-tag kev-off">CVE not specified in the disclosure &mdash; described as a medium-severity VPN flaw, not a zero-day</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; response is identity-proofing controls, fraud monitoring and supplier assurance</span>
-            <span class="ops-cc"><b>Action:</b> Treat a submitted image of a driving licence as evidence that someone possesses a copy of the document, not that they are the holder. Review every citizen-facing service where a licence photo alone unlocks an account, a benefit, a renewal or a tax record, and require a second independent factor &mdash; a liveness-checked selfie match, a knowledge check against data the agency already holds, or an out-of-band confirmation. Ask your identity-verification supplier in writing whether captured document images are retained at all, for how long, and whether any subprocessor holds copies. Brief fraud, benefits-integrity and call-centre teams that image quality is no longer a signal of legitimacy.</span>
+            <span class="ops-tag patch-na">Response is account suspension, network isolation and phishing warnings &mdash; patch details not published</span>
+            <span class="ops-cc"><b>Action:</b> Take the two halves separately. On remote access: build the list of every VPN and gateway appliance terminating staff or supplier sessions, with firmware version and last patch date against each, and treat anything more than one cycle behind as a finding rather than a backlog item &mdash; this week alone has put Citrix, Cisco, Check Point and Fortinet remote-access products in front of you. Confirm that VPN authentication logs are retained long enough to answer a two-month-old question, because that is the length of window this disclosure actually describes. On the phishing consequence: assume published directories of public officials are in circulation and raise the bar on inbound requests that lean on a colleague&rsquo;s identity &mdash; payment-detail changes, urgent document requests, credential resets initiated by phone. Give staff a named out-of-band verification route and make using it unremarkable. Where your own staff directory is published, review how much of it genuinely needs to be public.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Identity-proofing control review &mdash; 14 days; supplier written enquiry &mdash; 5 business days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-idscan-licenses" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-idscan-licenses">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> VPN and gateway firmware inventory &mdash; 7 days; authentication-log retention check &mdash; 14 days; targeted-phishing briefing and verification route &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-japan-digital-agency" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-japan-digital-agency">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Krebs on Security &bull; corroborated by Infosecurity Magazine, SecurityWeek and TechCrunch</span>
+          <span>BleepingComputer &bull; Japan Digital Agency disclosure</span>
           <span class="dot">&bull;</span>
-          <span>Service advertised 31 Aug 2026 &bull; FBI investigation reported 2&ndash;3 Sep 2026 &bull; class actions reported 7 Sep 2026</span>
+          <span>Disclosed 14 Sep 2026 &bull; breach window June&ndash;July 2026</span>
         </div>
-        <a href="https://www.infosecurity-magazine.com/news/multiple-class-action-lawsuits/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/japans-digital-agency-says-vpn-flaw-exposed-246-000-personnel-records/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-ctrack-courts" data-published="2026-09-03">
         <div class="card-header">
@@ -1007,34 +1001,33 @@
         </div>
         <a href="https://www.mprnews.org/story/2026/09/06/winona-county-attacked-again-in-cyberattack-after-paying-128-ransom" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-qtfy-seizure" data-published="2026-08-26">
+      <div class="card" id="it-red-heron-gitea" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Nation-State</span>
         </div>
-        <h3>The QTFY takedown named federal victims from NASA to the US Senate &mdash; and the joint advisory was reissued on 2&nbsp;September</h3>
-        <p>On 26&nbsp;August 2026 the Justice Department and FBI announced court-authorised domain seizures that rendered two platforms inoperable: QScan, a vulnerability-scanning and automated-infection platform aimed at internet-facing devices, and QTRouter, an obfuscation network used to conceal the origin of intrusions. The activity is attributed to a group tracked as QTFY, described in the announcement as employed by Nanjing Xinjiuwei Network Technology Company and offering services to Chinese state customers. The victim list published with the announcement is unusually specific for federal agencies: NASA, the Federal Reserve, the Department of Energy, the Department of Justice, the Department of Health and Human Services, the National Institutes of Health, and the US Senate. A joint FBI/NSA cybersecurity advisory, product ID JCSA-20260826-01, carries indicators of compromise drawn from analysis of QTFY activity dating back to at least 2018 and was reissued on 2&nbsp;September; Lumen&rsquo;s Black Lotus Labs published complementary tradecraft analysis. The advisory names defence, telecommunications, government and higher education among targeted sectors, and describes exploitation of VPN systems, cloud services and other internet-facing applications. The important framing for defenders is that a seizure removes infrastructure, not access. Where this group established persistence over years, that persistence survives the takedown, and the hunting work now falls to each victim organisation.</p>
+        <h3>A crew tracked as Red Heron automated a Gitea exploit, scanned 1,386 servers and confirmed compromises at 13 organisations across government, defence and election bodies</h3>
+        <p>Researchers disclosed on 14&nbsp;September that a threat actor they call Red Heron has been exploiting CVE-2026-60004, a critical remote code execution flaw in the self-hosted Gitea code forge, since 29&nbsp;July. Gitea patched the flaw at disclosure in July&nbsp;2026, so every confirmed victim was running an instance that was never updated. The actors wrapped a public proof-of-concept in a Python framework that registers an account, exploits the server, steals repositories and clears its traces, then ran it against 1,386 Gitea instances across seven countries. Confirmed compromises span 13 organisations in the United States, Canada, Taiwan, Argentina, Qatar and Sri&nbsp;Lanka, across government, defence, election, public-safety, energy, aerospace and telecommunications. In one Taiwanese victim the operators obtained root on a three-node Proxmox cluster and installed a Linux rootkit tracked as SIXZUT that patches 15 kernel functions to stay hidden. Attribution to a China-linked operation is researcher-assessed at moderate confidence, on tooling and infrastructure overlap rather than any official finding. The detail that matters for public-sector estates is where Gitea tends to live: it is the lightweight forge a small team stands up on a spare virtual machine when the central developer platform is too slow to onboard, which means it frequently sits outside the asset register and outside the vulnerability-scanning scope.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed state-sponsored activity since at least 2018 &mdash; platforms seized 26 Aug 2026; established access is unaffected by the seizure</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; the group exploited a range of internet-facing VPN, cloud and application flaws</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active since 29 Jul 2026 &mdash; 13 confirmed organisational compromises; attribution researcher-assessed at moderate confidence</span>
+            <span class="ops-tag kev-off">Not listed in CISA KEV in the reporting reviewed &mdash; patched since July 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">Mitigation is threat hunting against published IOCs plus edge-device patching and segmentation</span>
-            <span class="ops-cc"><b>Action:</b> Pull the indicators from JCSA-20260826-01 and hunt them across at least twelve months of retained telemetry &mdash; edge-device logs, VPN authentication, egress netflow and cloud sign-in records &mdash; rather than only forward from today. Prioritise the three mitigations the agencies lead with: apply current firmware to edge devices, reduce what internet-facing applications disclose about internal topology and versions, and segment critical systems away from edge devices so that a compromised appliance is not adjacent to a domain controller or a records system. If your telemetry retention is shorter than the campaign, say so in your risk register: a takedown announcement covering activity since 2018 is not something a 30-day log window can answer.</span>
+            <span class="ops-tag patch-yes">Patched since the July 2026 Gitea disclosure &mdash; this is exploitation of instances that were never updated</span>
+            <span class="ops-cc"><b>Action:</b> First find the instances. Sweep for self-hosted code forges &mdash; Gitea, Gogs, Forgejo and the like &mdash; by scanning your own address space and querying cloud accounts for virtual machines nobody has claimed, rather than by consulting the asset register, because the register is the thing that missed them. Patch anything running a pre-July&nbsp;2026 Gitea build, and take unpatched instances off the internet the same day rather than scheduling the work. Then assume repository theft rather than ruling it out: review account registrations and repository clone or pull events since late July, look for accounts created by an unfamiliar route, and treat any secret committed into a reachable repository &mdash; deployment keys, cloud credentials, API tokens, signing material &mdash; as needing rotation on the assumption it has been read. Where a forge ran on a hypervisor or cluster host, check the host itself and not only the guest, given the Proxmox and rootkit activity described. Longer term, make standing up a code forge a route with a named owner, so the next one is inventoried on day one.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Retrospective IOC hunt &mdash; 14 days; edge-device firmware review &mdash; 30 days; edge-to-core segmentation review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-qtfy-seizure" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-qtfy-seizure">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Self-hosted forge discovery sweep &mdash; 7 days; patch or remove internet exposure &mdash; 24h from discovery; repository access review and secret rotation &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-red-heron-gitea" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-red-heron-gitea">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>US Department of Justice, Office of Public Affairs &bull; joint FBI/NSA advisory JCSA-20260826-01, reissued 2 Sep 2026</span>
-          <span class="dot">&bull;</span>
-          <span>Seizures announced 26 Aug 2026 &bull; Advisory update 2 Sep 2026</span>
+          <span class="cve-badge">CVE-2026-60004</span>
+          <span>Gitea &bull; The Hacker News &bull; exploitation since 29 Jul 2026, disclosed 14 Sep 2026</span>
         </div>
-        <a href="https://www.justice.gov/opa/pr/justice-department-and-fbi-seize-platforms-operated-and-used-china-state-sponsored-hackers" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/red-heron-exploits-gitea-rce-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-mag-leak" data-published="2026-09-03">
         <div class="card-header">
@@ -1065,36 +1058,7 @@
         </div>
         <a href="https://www.securityweek.com/manchester-airports-group-data-on-8-8-million-people-leaked-after-ransom-refusal/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-merrimack-county" data-published="2026-09-01">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>A New Hampshire county spends a week on paper after a network security incident cuts dispatch access to records</h3>
-        <p>Merrimack County, New Hampshire fell back to manual processes for around a week following a network security incident that began in late August&nbsp;2026, with services still degraded into early September. Reporting by the Concord Monitor described disruption to county functions including the Register of Deeds and dispatch access to records systems. The county has not published an attribution, a ransomware brand or an initial access vector, and no CVE has been associated with the incident. It is a small case and deliberately included as one: the pattern of a mid-sized county losing records access, running deeds and dispatch on paper for days, and giving little public technical detail is the most common shape of a government cyber incident in the United States, and it very rarely produces a national headline. The operational lessons sit in the fallback rather than the intrusion. Deeds recording has statutory timing consequences, and dispatch access to criminal-history and warrant data has officer-safety consequences; both need a written, rehearsed manual procedure that does not assume any county network is available, and a documented catch-up process for the backlog once systems return. Counties that have never timed how long a paper day actually takes tend to discover the answer during the incident.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed disruption &mdash; county-acknowledged network security incident; no attribution, brand or vector published</span>
-            <span class="ops-tag kev-off">No CVE &mdash; nothing published tying the incident to a specific vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; action is manual continuity procedures for statutory county functions</span>
-            <span class="ops-cc"><b>Action:</b> Take the two functions with legal or safety consequences &mdash; deeds and land records, and dispatch access to criminal-history and warrant data &mdash; and write the paper procedure for each on the assumption that no county system is reachable. Include where the blank forms live physically, who is authorised to sign, how a recording is time-stamped for statutory purposes, and what the backlog reconciliation looks like on day one of recovery. Then run it for half a day as an exercise and time it. Confirm your state fusion centre and MS-ISAC contact details are printed somewhere reachable without the network, and that at least two people know how to declare an incident to your cyber insurer without email.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Written manual procedures for deeds and dispatch &mdash; 45 days; timed half-day paper exercise &mdash; 90 days; offline contact sheet &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-merrimack-county" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-merrimack-county">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Concord Monitor</span>
-          <span class="dot">&bull;</span>
-          <span>Incident began late Aug 2026 &bull; Services still degraded 1 Sep 2026</span>
-        </div>
-        <a href="https://www.concordmonitor.com/2026/09/01/county-services-disrupted-cyberattack-nh/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-    </div>
   </div>
 
   <div class="section">
@@ -1196,34 +1160,33 @@
         </div>
         <a href="https://thehackernews.com/2026/09/autonomous-ai-agents-compromise.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-hookedge-apt28" data-published="2026-08-28">
+      <div class="card" id="it-grimwedge" data-published="2026-09-15">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Nation-State</span>
         </div>
-        <h3>A new APT28-linked backdoor hides its command channel inside a legitimate webhook service, targeting European government and diplomatic bodies</h3>
-        <p>Recorded Future&rsquo;s Insikt Group has documented a previously unreported Windows backdoor it calls HOOKEDGE, used against government and diplomatic organisations in Romania, Spain and T&uuml;rkiye between September&nbsp;2025 and April&nbsp;2026. Insikt attributes the activity with moderate confidence to the Russian state-sponsored group it tracks as BlueDelta, more widely known as APT28 or Fancy&nbsp;Bear, and describes the implant as a direct evolutionary successor to the earlier HEADLACE backdoor, sharing code architecture and the same habit of abusing legitimate webhook services. Delivery is a macro-enabled Word document with a diplomatic-themed lure; the macro writes six files into the user profile directory and starts the installation chain, which establishes a scheduled task that runs every thirty minutes and then deletes the installer files. Command and control, payload staging and exfiltration all run through webhook[.]site. The backdoor pulls .cmd payloads using headless Microsoft&nbsp;Edge in hidden mode, executes them, and returns results inside HTML files. Deployment is two-stage: broad reconnaissance at a thirty-minute beacon, then a second-stage payload at a five-minute interval for hands-on operator control against selected targets. No CVE is involved &mdash; the entry point is a macro and a user. That is what makes it relevant beyond the three named countries: nothing here needs a vulnerability, and nothing here needs infrastructure a blocklist would already know.</p>
+        <h3>A spear-phishing campaign chained Chrome and Windows zero-days against NGOs &mdash; and ran part of its infrastructure from a compromised US university website</h3>
+        <p>Researchers disclosed on 15&nbsp;September a campaign active since 1&nbsp;September in which two related clusters, tracked as UTA0560 and JungleBamboo and assessed by the researchers as overlapping with the China-linked group APT31, delivered a multi-stage JavaScript backdoor named GRIMWEDGE and a credential stealer named LONGTALE through spear-phishing. The chain used two Chrome flaws, CVE-2026-85046 and CVE-2026-87491 &mdash; V8 and sandbox-escape bugs Google has confirmed were exploited in the wild &mdash; together with CVE-2026-85880, the Windows ALPC elevation-of-privilege zero-day fixed in this month&rsquo;s Patch Tuesday, to move from browser to SYSTEM. The browser exploitation exploited a patch gap: fixes existed in the Chromium open-source tree before they reached the stable Chrome channel, so the public code effectively described the bug while the shipped browser was still vulnerable. Attribution is researcher-assessed on tooling and infrastructure overlap, not an official finding. Targets were non-governmental organisations, but the two details that generalise to public-sector estates are these. The zero-days are not target-specific: any unpatched Chrome and Windows build is exposed to the same chain. And the attack infrastructure included a compromised US university website &mdash; a legitimate, well-reputed domain, which is exactly the case reputation-based web filtering is worst at. Patch Chrome on its own release cadence rather than folding it into the monthly Windows cycle, because this month the two clocks were a fortnight apart.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active espionage campaign &mdash; observed Sep 2025 to Apr 2026 against government and diplomatic targets; attribution to APT28/BlueDelta is moderate confidence</span>
-            <span class="ops-tag kev-off">No CVE &mdash; initial access is a macro-enabled document, not a software vulnerability</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active since 1 Sep 2026 &mdash; exploit chain confirmed by researchers and Google; attribution researcher-assessed</span>
+            <span class="ops-tag kev-on">CVE-2026-85880 listed via the September Patch Tuesday zero-day entries; Chrome flaws confirmed exploited by Google</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; mitigation is macro policy, scheduled-task monitoring and egress control on webhook services</span>
-            <span class="ops-cc"><b>Action:</b> Block macros in Office files that originate from the internet by policy rather than by prompt, and verify the policy actually applies to the diplomatic and ministerial mailboxes most likely to receive a themed lure &mdash; those users are often the ones with an exception. Hunt for scheduled tasks created in user context with short recurrence intervals, and for headless Edge or Chrome launches spawned by a non-browser parent process; both are cheap, high-signal detections here. Treat webhook[.]site and comparable request-capture services as unnecessary for most government endpoints and block them at egress, then alert on attempts. Finally, keep the beacon-interval detail: a thirty-minute pattern that shortens to five minutes is a strong signal that an operator has moved from collection to hands-on activity on that host.</span>
+            <span class="ops-tag patch-yes">Patches available for all three flaws &mdash; Chrome stable channel and the September 2026 Windows updates</span>
+            <span class="ops-cc"><b>Action:</b> Verify Chrome version compliance as a measured figure rather than an assumption &mdash; enterprise auto-update is frequently broken on machines that have not been rebooted in weeks, and browser patching on this chain is the control that matters. Force a restart where the installed version trails the stable channel. Confirm the September Windows updates carrying CVE-2026-85880 are deployed, including on the estate that sat out the cumulative update because of the Remote Desktop Services regression, since deferring that update also defers this fix. Do not rely on domain reputation to catch the delivery stage: a compromised university site carries clean reputation, valid certificates and often an allow-list entry, so the useful signals are the behaviours downstream &mdash; a browser process spawning a script interpreter, unexpected child processes under the browser, and outbound connections from browser-launched code. Brief high-risk staff &mdash; policy, grants, international programmes, anyone who corresponds with external organisations &mdash; that a link from a known institution is not a safety property.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-macro policy verification &mdash; 14 days; scheduled-task and headless-browser detections &mdash; 21 days; webhook-service egress block &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hookedge-apt28" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-hookedge-apt28">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Chrome version compliance report and forced restart &mdash; 72h; September Windows update coverage check including deferred estate &mdash; 7 days; browser-spawned-process detection review &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-grimwedge" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-grimwedge">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Recorded Future Insikt Group &bull; reported by The Hacker News and Security Affairs</span>
-          <span class="dot">&bull;</span>
-          <span>Activity Sep 2025&ndash;Apr 2026 &bull; Research published 28 Aug 2026</span>
+          <span class="cve-badge">CVE-2026-85046</span>
+          <span>With CVE-2026-87491 and CVE-2026-85880 &bull; The Hacker News &bull; disclosed 15 Sep 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/08/apt28-linked-hookedge-backdoor-targets.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/09/china-linked-hackers-exploit-chrome.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-pentagon-adid" data-published="2026-09-04">
         <div class="card-header">
@@ -1253,35 +1216,6 @@
           <span>Changes made during 2026, Air Force completed Jul 2026 &bull; Reported 4 Sep 2026</span>
         </div>
         <a href="https://techcrunch.com/2026/09/04/us-military-disabled-ad-tracking-on-troops-devices-following-reports-of-targeted-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-gambling-goblin" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Campaign</span>
-        </div>
-        <h3>A crew is renting out the trust in government domains: malicious Apache modules turn .gov.br and .jus.br sites into betting relays</h3>
-        <p>Check Point Research has documented a campaign it links to the cluster known as Gambling Goblin, associated with Earth Berberoka, in which attackers install malicious Apache modules on compromised web servers belonging to Brazilian government and judicial bodies. The modules act as reverse proxies: a visitor who arrives from a search engine is quietly served attacker-controlled gambling and sports-betting content while the address bar still shows a .gov.br or .jus.br domain, and the modules strip security headers so that injected content executes without interference. ANY.RUN had previously reported at least twenty .gov.br portals belonging to Brazilian municipalities and police forces being abused this way. The immediate purpose is search-engine-optimisation fraud &mdash; the operators are monetising the ranking authority that a government domain carries &mdash; but researchers note the same access positions them to distribute malware or fake application-store pages at any point. Reporting also flags a practical problem for defenders: module filenames, paths and hashes have not been published, so administrators cannot simply check a hash list. The generalisable risk is that a government domain is a reputational asset an attacker can monetise without touching any citizen data, which means an intrusion of this kind produces none of the signals a data-loss-focused monitoring programme is watching for.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active campaign &mdash; compromised government and judicial web servers in Brazil serving attacker content to search-engine referrals</span>
-            <span class="ops-tag kev-off">No CVE published &mdash; the modules are a post-compromise persistence and monetisation mechanism</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; action is web-server module integrity checking and referrer-based content testing</span>
-            <span class="ops-cc"><b>Action:</b> Inventory the loaded modules on every internet-facing Apache instance you own and compare them against the package manifest from your distribution &mdash; a module present on disk that no package owns is the finding here, and it is checkable without vendor hashes. Enable and review file-integrity monitoring on the modules directory and the Apache configuration. Test your own public sites the way a victim reaches them: request pages with a search-engine referrer and a mobile user agent from an external network, because the redirect is conditional and will not appear to an administrator browsing directly. Alert on unexpected removal of security response headers, which is a reliable side effect of this technique. Include contractor-hosted and legacy departmental sites, which is where an unattended Apache usually lives.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Apache module inventory versus package manifest &mdash; 21 days; referrer-conditional content test across public sites &mdash; 30 days; header-integrity alerting &mdash; 45 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gambling-goblin" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-gambling-goblin">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Check Point Research &bull; earlier reporting from ANY.RUN &bull; via The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 2 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/malicious-apache-modules-hijack.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-rmm-phishing" data-published="2026-09-03">
         <div class="card-header">
@@ -1318,6 +1252,62 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
+      <div class="card" id="it-cisco-fmc-kev" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Three activity clusters are working Cisco Secure FMC &mdash; one deploying a Cyclops&nbsp;Blink variant, one deploying Qilin ransomware &mdash; and the federal remediation date has now passed</h3>
+        <p>CVE-2026-20079 is a CVSS&nbsp;10.0 authentication bypass in the web interface of Cisco Secure Firewall Management Center that hands an unauthenticated remote attacker root through crafted HTTP requests. Cisco has confirmed evidence of exploit activity in the wild. Researchers at Cisco Talos and partners describe at least three distinct clusters: one planting JSP web shells and malicious Java archives to harvest credentials; one deploying an upgraded 64-bit Linux variant of Cyclops&nbsp;Blink, a modular implant researchers attribute to the Russian state-linked group Sandworm and which the FBI disrupted in 2022; and a suspected Qilin ransomware affiliate running pre-ransomware reconnaissance using FMC&rsquo;s own built-in tooling before deployment. Those attributions are researcher assessments based on tooling and infrastructure, not official findings. A second flaw, CVE-2026-20316 (CVSS&nbsp;5.3), permits a hardcoded low-privilege credential login usable in chaining. CISA added CVE-2026-20079 to the Known Exploited Vulnerabilities catalog on 9&nbsp;September with a Federal Civilian Executive Branch remediation deadline of 12&nbsp;September, which has now passed; hotfixes are available and Cisco&rsquo;s full hardening release was scheduled for the week of 16&nbsp;September. The same KEV action covered Citrix NetScaler ADC and Gateway CVE-2026-19490 (CVSS&nbsp;9.3), an authentication bypass on AAA virtual servers and Gateway configurations used for SSL&nbsp;VPN, ICA&nbsp;Proxy, CVPN and RDP&nbsp;Proxy, and Fortinet CVE-2025-25249 (CVSS&nbsp;7.3) in FortiOS, FortiSwitchManager and FortiSASE, reported weaponised to deliver the PivotC2 remote-access trojan across roughly 178 compromised devices. FMC is a management plane rather than an endpoint: root there inherits the policy governing every firewall beneath it.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco confirms exploit activity; three clusters described by Talos and partners, including a Cyclops Blink variant and a Qilin ransomware affiliate</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 9 Sep 2026; the 12 Sep 2026 FCEB remediation deadline has passed, so unremediated instances are overdue BOD 22-01 items</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Hotfixes available for all three vendors &mdash; there is no workaround for CVE-2026-20079, the fixed software has to be installed</span>
+            <span class="ops-cc"><b>Action:</b> The deadline has gone, so the question is no longer scheduling but closure. Produce a written position for every Secure&nbsp;FMC and Security Cloud Control instance in scope: patched on this date, or disconnected on this date, or an overdue exception with a named owner. Include instances stood up by a contractor or integrator under a managed-service agreement, and get the patch date from whoever operates it in writing. Because there is no mitigation to fall back on, an instance that still cannot be patched belongs off the internet rather than on an exceptions list. Then treat prior compromise as the working assumption rather than a contingency &mdash; with credential harvesting via web shells, an implant, and hands-on use of FMC&rsquo;s own tooling to disable security controls all described, patching closes the route in without evicting anyone already inside. Review FMC administrative accounts, API tokens and pushed policy changes against your own change record rather than against the appliance&rsquo;s current state, look for unexpected JSP files and reverse-shell or Netcat processes on the appliance, and rotate every credential the FMC held or could read. Close the Citrix and Fortinet entries in the same change window so all three are answered together.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Written patched-or-disconnected position on every instance &mdash; 48h; internet-exposure check &mdash; immediate; credential rotation and compromise assessment on any exposed FMC &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-fmc-kev" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-fmc-kev">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-20079</span>
+          <span>With CVE-2026-20316, CVE-2026-19490 and CVE-2025-25249 &bull; Cisco Talos, Cisco PSIRT and CISA KEV &bull; Dark Reading, Help Net Security</span>
+        </div>
+        <a href="https://www.darkreading.com/cyberattacks-data-breaches/sandworm-chains-cisco-vulnerabilities-cyclops-blink" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-gitlab-85706" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>GitLab&rsquo;s CVSS&nbsp;10.0 path-traversal flaw went from disclosure to confirmed in-the-wild exploitation in three days, with a 14&nbsp;September federal deadline attached</h3>
+        <p>CVE-2026-85706 is an unauthenticated path traversal in the repository commits interface of self-managed GitLab that lets an attacker read arbitrary files from the server in a single HTTP request &mdash; no credentials, no chain. GitLab disclosed and patched it on 11&nbsp;September in 19.3.2 and later; affected versions run from 18.7 through 19.1.8, plus 19.2 and 19.3 before the fix. GitLab.com SaaS customers were not affected. CISA added the flaw to the Known Exploited Vulnerabilities catalog on 11&ndash;12&nbsp;September and set a Federal Civilian Executive Branch remediation deadline of 14&nbsp;September; both CISA and GitLab confirmed active exploitation by 14&nbsp;September, and WatchTowr Labs reported internet-wide scanning and probing beginning almost immediately after disclosure. For public-sector estates the exposure is rarely the GitLab server itself. Self-managed GitLab is where agency and contractor source code, deployment manifests, infrastructure-as-code, CI/CD runner registration tokens and cloud credentials sit together, and a single unauthenticated arbitrary file read is enough to lift a secrets file or a runner configuration. That makes the consequence a credential-recovery exercise rather than a patching one, and it is why supplier instances matter as much as your own: a contractor&rsquo;s unpatched GitLab can hold the keys to your environment.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed by CISA and GitLab; internet-wide scanning reported within hours of disclosure</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 11&ndash;12 Sep 2026; FCEB remediation deadline 14 Sep 2026, now passed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched in GitLab 19.3.2 and later &mdash; affected 18.7&ndash;19.1.8, 19.2 and 19.3 prior to the fix; GitLab.com SaaS not affected</span>
+            <span class="ops-cc"><b>Action:</b> Patch every self-managed instance to 19.3.2 or later and confirm the running version rather than the intended one. Where an instance cannot be patched today, remove it from the internet &mdash; the flaw is unauthenticated, so network reachability is the whole exposure. Then work the assumption that files were read: rotate CI/CD runner registration tokens, deploy keys, personal and project access tokens, cloud credentials referenced in pipeline configuration, and any secret checked into a repository, and re-issue rather than merely revoke. Review web-server access logs for traversal-shaped requests against the commits endpoint going back to 11&nbsp;September, and keep those logs beyond their usual retention. Extend the same three questions to every contractor and integrator that runs a code forge holding your code or your credentials &mdash; version, patch date, and whether they have rotated &mdash; and get the answers in writing. Finally, use this to remove the standing weakness rather than only the flaw: long-lived secrets stored in a repository are the reason a file-read bug becomes an environment compromise.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch or remove internet exposure &mdash; immediate; CI/CD and cloud credential rotation &mdash; 72h; supplier forge enquiry &mdash; 5 business days; access-log review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gitlab-85706" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gitlab-85706">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-85706</span>
+          <span>GitLab self-managed &bull; CVSS 10.0 &bull; CISA KEV, BleepingComputer, CyberScoop &bull; FCEB deadline 14 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-watchguard-ransomware" data-published="2026-09-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1384,110 +1374,61 @@
         </div>
         <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-papercut-kev" data-published="2026-08-31">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Two PaperCut NG/MF flaws are being exploited as a chain, with a 14&nbsp;September federal deadline &mdash; and print servers are everywhere in government</h3>
-        <p>CISA added two PaperCut NG/MF vulnerabilities to the Known Exploited Vulnerabilities catalog on 31&nbsp;August 2026, directing federal civilian agencies to remediate by 14&nbsp;September. CVE-2026-81578, rated CVSS&nbsp;8.8, is a missing-authentication-for-critical-function flaw: a specially crafted request makes the server render one page while executing an action belonging to another, permitting configuration changes without authenticating. CVE-2026-82078, rated CVSS&nbsp;9.4, is an unsafe reflection issue reachable through PaperCut&rsquo;s database utilities that allows loading of unsafe Java classes and therefore arbitrary code execution on the server. Reporting stresses that the two should be treated as a chainable pair and remediated together rather than triaged separately on their individual scores. The intrusions observed by Huntress in customer environments were not sophisticated: attackers dropped malicious Java class files into PaperCut&rsquo;s installation directory, ran basic reconnaissance commands such as <code>whoami</code>, <code>ver</code> and <code>tasklist</code>, then deleted their files, leaving a distinctive database-log artefact referencing an in-memory Derby database with a &ldquo;pwn&rdquo; name. Exploitation against version&nbsp;24 was documented before patches were available. The exposure picture is the uncomfortable part: analysis cited alongside the KEV listing indicates roughly 47&nbsp;per&nbsp;cent of tracked PaperCut installations run version&nbsp;23 or earlier, releases that do not currently have a fix. Print management is a system nobody in security thinks about and everybody in government uses &mdash; agencies, courts, schools, universities and health bodies &mdash; and the server typically holds directory credentials, sits inside the trusted network, and is granted broad access so it can serve every department.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-81578</span>
-          <span class="cve-badge">CVE-2026-82078</span>
-          <span>CVSS 8.8 / 9.4 &bull; PaperCut NG and PaperCut MF &bull; KEV added 31 Aug 2026, deadline 14 Sep 2026</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploited in the wild as a chain; intrusions confirmed by Huntress in customer environments</span>
-            <span class="ops-tag kev-on">CISA KEV, added 31 Aug 2026 &mdash; federal remediation deadline 14 Sep 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed builds available for supported releases; version 23 and earlier reportedly lack a fix</span>
-            <span class="ops-cc"><b>Action:</b> Find your PaperCut servers first &mdash; they are frequently owned by facilities, estates or a print-services contractor rather than by IT, so a CMDB query alone will miss them; search for the service by port and process across the estate. Upgrade to a fixed build immediately, and where you are on version&nbsp;23 or earlier treat the upgrade path itself as the emergency, not the patch. Until fixed, remove any internet exposure of the admin and web interfaces and restrict access to a management network. Because the first flaw needs no authentication and exploitation is trivial, assume compromise on any server that was internet-reachable: inspect the PaperCut installation directory for unexpected .class files, review database logs for the reported in-memory Derby artefact, and rotate the service account and any directory credentials the server holds.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch &mdash; by 14 Sep 2026 (KEV deadline); internet exposure removal &mdash; immediate; compromise assessment on exposed servers &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-papercut-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-papercut-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA KEV &bull; Security Affairs and Rapid7 &bull; exploitation detail from Huntress</span>
-          <span class="dot">&bull;</span>
-          <span>KEV addition 31 Aug 2026 &mdash; federal deadline 14 Sep 2026</span>
-        </div>
-        <a href="https://securityaffairs.com/198200/security/u-s-cisa-adds-papercut-ng-mf-flaws-to-its-known-exploited-vulnerabilities-catalog.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-sonicwall-sma1000" data-published="2026-09-02">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Two SonicWall SMA&nbsp;1000 zero-days exploited in the wild, KEV-listed with a 5&nbsp;September federal deadline</h3>
-        <p>SonicWall published an advisory on 2&nbsp;September 2026 confirming active exploitation of two flaws in its SMA&nbsp;1000 secure remote access appliances, and CISA added both to the Known Exploited Vulnerabilities catalog the same day with a remediation deadline of 5&nbsp;September for federal civilian agencies. CVE-2026-83548 is a server-side request forgery in the WorkPlace interface rated CVSS&nbsp;10.0. CVE-2026-83549 is a post-authentication OS command injection in the Management Console rated 7.8, which on its own requires administrative privileges. Reporting indicates the pair may be usable as a chain, with the SSRF supplying the reach that the command injection otherwise lacks &mdash; which is why the lower-scored flaw should not be deferred on its CVSS alone. Affected models are the SMA&nbsp;1000 series 6210, 7210 and 8200v; SonicWall states the issue does not affect SSL-VPN on its firewalls or the SMA&nbsp;100 series, and directs customers to the latest hotfix build. The SMA&nbsp;1000 line is marketed to large enterprises, government and critical infrastructure, so the installed base is concentrated exactly where the consequences are highest. The appliance sits at the perimeter of the remote-access path, which makes a compromise here a credential and session problem rather than only a host problem: anything the appliance brokered &mdash; user sessions, cached credentials, the trust that downstream systems place in an authenticated tunnel &mdash; has to be treated as suspect too.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-83548</span>
-          <span class="cve-badge">CVE-2026-83549</span>
-          <span>CVSS 10.0 / 7.8 &bull; SMA 1000 series 6210, 7210, 8200v &bull; KEV added 2 Sep 2026</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; vendor-confirmed zero-day exploitation; the two flaws may be chainable</span>
-            <span class="ops-tag kev-on">CISA KEV, added 2 Sep 2026 &mdash; federal remediation deadline 5 Sep 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Hotfix builds available from SonicWall for the SMA 1000 series</span>
-            <span class="ops-cc"><b>Action:</b> Apply the hotfix now if you have not; the federal deadline has already passed and non-federal bodies should treat it as equally urgent. Then work the assumption that the appliance was reachable and may have been used: force a password reset and MFA re-enrolment for every account that authenticated through the SMA&nbsp;1000, invalidate active sessions, and rotate any service account or directory credential configured on the appliance. Pull the management console logs and look for administrative actions and configuration changes you cannot attribute to a named change record. Confirm the management interface is not reachable from the internet &mdash; it should be on a management network with source restrictions regardless of patch level &mdash; and check whether the appliance can initiate outbound connections it has no business making, which is what an SSRF turns into reach.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Hotfix &mdash; immediate (deadline passed); credential and session invalidation &mdash; 72 hours; management-plane exposure review &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sonicwall-sma1000" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sonicwall-sma1000">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>SonicWall PSIRT and CISA KEV &bull; corroborated by BleepingComputer, SecurityWeek and Rapid7</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory and KEV addition 2 Sep 2026 &bull; Federal deadline 5 Sep 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-actively-exploited-sma1000-zero-day-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-kev-0902" data-published="2026-09-02">
+      <div class="card" id="it-msft-sept-patch" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Seven flaws added to KEV on 2&nbsp;September &mdash; and three of them are AI and automation infrastructure</h3>
-        <p>CISA added seven vulnerabilities to the Known Exploited Vulnerabilities catalog on 2&nbsp;September 2026. Alongside the two SonicWall SMA&nbsp;1000 entries are CVE-2026-9586, SQL injection in Sangoma Switchvox (CVSS&nbsp;9.3); CVE-2026-82329, improper authentication in JFrog Artifactory (9.8); CVE-2026-49869, OS command injection in Kestra OSS (10.0); CVE-2026-59822, improper authentication in Berri LiteLLM (8.8); and CVE-2026-48710, HTTP request smuggling in the Starlette Python framework (6.5). The exploitation reported against the last few is worth reading carefully, because it is not espionage. Operators used the Kestra flaw to establish a reverse shell, enumerate the container environment and deploy a cryptocurrency miner, and abused the LiteLLM authentication weakness to extract API credentials and model configurations; the Artifactory flaw has been used to obtain reverse shells and administrative tokens. That is commodity monetisation of AI and workflow-orchestration infrastructure, and it is a warning for agencies standing up AI pilots. These components rarely appear in a configuration management database, are often deployed by data or platform teams outside the normal server build process, and hold exactly the credentials &mdash; model API keys, artifact repository tokens, orchestration secrets &mdash; that make onward movement easy. Artifactory in particular sits in the build chain, where a compromise stops being a server problem and becomes a software supply-chain problem for everything that agency ships or deploys.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-9586</span>
-          <span class="cve-badge">CVE-2026-82329</span>
-          <span class="cve-badge">CVE-2026-49869</span>
-          <span class="cve-badge">CVE-2026-59822</span>
-          <span class="cve-badge">CVE-2026-48710</span>
-          <span>Plus CVE-2026-83548 and CVE-2026-83549 (SonicWall) &bull; KEV added 2 Sep 2026</span>
-        </div>
+        <h3>Microsoft&rsquo;s largest Patch Tuesday on record carried two exploited zero-days &mdash; then six emergency fixes after the update broke Remote Desktop Services</h3>
+        <p>The 8&nbsp;September release addressed 966&ndash;974 vulnerabilities &mdash; 105 critical, 438 elevation-of-privilege and 258 remote code execution &mdash; including two already being exploited: CVE-2026-81963, a link-following elevation-of-privilege flaw in the Windows Update stack, and CVE-2026-85880, a heap buffer overflow in Windows ALPC. Both give SYSTEM on a machine an attacker already touches, and CISA added both to KEV following disclosure; CVE-2026-85880 is the same bug chained into the GRIMWEDGE campaign covered in this edition. The sheer count forced triage rather than deployment across most estates. Then came the regression: on 14&nbsp;September Microsoft shipped out-of-band update KB5129195 to fix Remote Desktop connections dropping after several minutes, sign-in failures, and servers hanging at configuration prompts, with MMC and File&nbsp;Explorer also affected. It is the sixth emergency patch stemming from this month&rsquo;s cumulative update. Agencies felt both halves directly and they pull in opposite directions: the zero-days argue for deploying immediately, the RDS breakage gives every operator of a terminal-server estate a concrete reason to have held back. The way through is to separate them &mdash; the fix for the availability problem is itself an update, not a rollback, so the estate that deferred September is carrying both an availability fault and two exploited privilege-escalation flaws.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; all seven listed on the basis of confirmed exploitation; reverse shells and crypto mining reported against the AI and automation components</span>
-            <span class="ops-tag kev-on">CISA KEV, added 2 Sep 2026 &mdash; federal remediation deadlines set under BOD 26-04</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CVE-2026-81963 and CVE-2026-85880 confirmed exploited by Microsoft and added to KEV</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; both September zero-days listed following disclosure</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Vendor and upstream fixes available for all listed products</span>
-            <span class="ops-cc"><b>Action:</b> Work the list by where the software actually runs, not by CVSS. Ask your data, platform and AI teams directly whether Kestra, LiteLLM, Starlette or Artifactory are deployed anywhere &mdash; these are exactly the components that never reached the asset inventory. Where any is running, patch to the fixed release and then hunt for the reported post-exploitation behaviour: unexpected container processes, outbound connections to mining pools, and use of model API keys or repository tokens from unfamiliar addresses. Rotate every credential those services hold, including build tokens issued by Artifactory. Confirm none of them is reachable from the internet without an authenticating proxy in front. If your agency has an AI pilot, add its supporting components to the asset register this week rather than after the pilot concludes.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; 8 Sep 2026 cumulative updates, plus out-of-band KB5129195 released 14 Sep 2026 for the Remote Desktop Services regression</span>
+            <span class="ops-cc"><b>Action:</b> Treat the two exploited elevation-of-privilege flaws as the priority within a release nobody can deploy in full at once: they convert any foothold &mdash; a phished session, a browser exploit, a compromised contractor account &mdash; into SYSTEM, so they belong ahead of the critical-rated bugs on internal servers. Then find the estate that paused: query for machines still on the August build and count them, because a deferral decided in an incident bridge on the 9th tends to persist quietly. Deploy KB5129195 to Remote Desktop Services hosts and confirm session stability before re-enabling the wider rollout, and tell the service desk what the symptom looked like so repeat tickets are recognised rather than re-investigated. Where a change-freeze or a maintenance window blocks the cumulative update, record it as an accepted risk against the two KEV entries specifically, with an owner and a date, rather than as a generic patching delay.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Discovery of listed components &mdash; 7 days; patching where found &mdash; per KEV deadline; credential rotation and hunt &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kev-0902" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kev-0902">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Two KEV zero-days deployed &mdash; 7 days; count of machines still on the August build &mdash; 48h; KB5129195 on RDS hosts &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-msft-sept-patch" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-msft-sept-patch">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV catalog &bull; reported by The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>KEV additions 2 Sep 2026 &bull; Reported 3 Sep 2026</span>
+          <span class="cve-badge">CVE-2026-81963</span>
+          <span>With CVE-2026-85880 &bull; Microsoft security bulletins &bull; BleepingComputer, The Record, Infosecurity Magazine &bull; 8 and 14 Sep 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/09/cisa-adds-seven-exploited-flaws-as.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.infosecurity-magazine.com/news/microsoft-releases-emergency-patch/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-jfrog-artifactory" data-published="2026-09-12">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Three JFrog Artifactory flaws chained to administrator in under five minutes, with a custom Rust backdoor at the end of it</h3>
+        <p>Attackers are chaining CVE-2026-42018 (token disclosure, CVSS&nbsp;7.5) to obtain an internal anonymous-user JWT even where anonymous access has been disabled, then CVE-2026-42016 (insufficient token validation and privilege escalation, CVSS&nbsp;8.1) to escalate to administrator &mdash; in some observed cases in under five minutes &mdash; before deploying a custom Rust-based command-and-control backdoor. A third flaw, CVE-2026-82329, is a critical authentication bypass in the same product. CISA added CVE-2026-42016 and CVE-2026-42018 to the Known Exploited Vulnerabilities catalog on 12&nbsp;September; fixes are available in 7.111.21 and later depending on branch. Researchers estimate that between 49% and 62% of internet-reachable Artifactory instances remain vulnerable to at least one of the three. The reason this belongs on a public-sector page rather than a developer one is where Artifactory sits: it is the package and artifact registry between a supplier&rsquo;s build pipeline and an agency&rsquo;s deployment, so administrator control of it means control of what gets installed downstream. That makes an Artifactory takeover a software-supply-chain event rather than a tooling outage &mdash; the third such exposure in a single week alongside GitLab and Gitea.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; confirmed exploitation with backdoor deployment; 49&ndash;62% of internet-reachable instances estimated still vulnerable</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-42016 and CVE-2026-42018 added 12 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched in 7.111.21 and later, depending on release branch</span>
+            <span class="ops-cc"><b>Action:</b> Patch to the fixed branch build and take the management interface off the public internet, since the estimated vulnerable population is defined by internet reachability. Because the chain ends in administrator access, treat the registry contents as suspect rather than the server alone: review administrator accounts and access tokens created or used since early September, check repository and permission-target configuration against your own change record, and verify the integrity of recently published artefacts against their expected checksums before anything else consumes them. Rotate tokens held by build agents and deployment pipelines that authenticate to the registry. Ask suppliers who ship you binaries through their own Artifactory the same questions &mdash; version, patch date, whether administrator activity has been reviewed &mdash; because a compromised upstream registry is indistinguishable from a healthy one at the point of download.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and remove internet exposure &mdash; 72h; administrator and token review &mdash; 7 days; artefact integrity verification and supplier enquiry &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-jfrog-artifactory" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-jfrog-artifactory">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-42016</span>
+          <span>With CVE-2026-42018 and CVE-2026-82329 &bull; JFrog Artifactory &bull; CISA KEV, SecurityWeek, BleepingComputer &bull; KEV addition 12 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/three-jfrog-artifactory-flaws-exploited-for-backdoor-deployment/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-aruba-aoscx" data-published="2026-09-03">
         <div class="card-header">
@@ -1522,38 +1463,38 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-critical-arubaos-cx-remote-code-execution-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-chrome-v8-85046" data-published="2026-09-04">
+      <div class="card" id="it-chrome-v8-87491" data-published="2026-09-09">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Google patches a Chrome V8 zero-day already being exploited &mdash; the sixth of 2026</h3>
-        <p>Google shipped a Chrome stable channel update on 4&nbsp;September 2026 fixing CVE-2026-85046, a type-confusion flaw in the V8 JavaScript and WebAssembly engine for which Google says an exploit exists in the wild. The fixed builds are 152.0.7977.82 and 152.0.7977.83. Google has not published targeting details, which is its normal practice while an investigation is open and while a majority of users are still updating; it should not be read as reassurance. This is the sixth Chrome zero-day patched in 2026. For government estates the browser is the highest-volume attack surface there is, and it is also the one where patch compliance is most often assumed rather than measured, because Chrome updates itself in the background and staff do not restart it. That is the gap to close: a browser that has downloaded the update but has not been relaunched is still running the vulnerable build, and a fleet that reports &ldquo;managed by Chrome Enterprise&rdquo; is not the same as a fleet that reports a version number. The same underlying fix flows to Chromium-derived browsers &mdash; Edge, Brave, Opera, Vivaldi and others &mdash; on their own vendors&rsquo; release schedules, which lag Google&rsquo;s by days, so an estate standardised on Edge is not covered by patching Chrome.</p>
+        <h3>Google ships a second emergency Chrome fix in a week &mdash; CVE-2026-87491 is the seventh V8 zero-day of 2026, and it is the one chained in the GRIMWEDGE campaign</h3>
+        <p>Google released an emergency Chrome stable-channel update on 9&nbsp;September 2026 fixing CVE-2026-87491, an out-of-bounds write in the V8 JavaScript and WebAssembly engine that lets an attacker run code inside the browser sandbox from a crafted page. Google states that an exploit for it exists in the wild. The fixed builds are 153.0.8010.36 and 153.0.8010.37. It is the seventh Chrome zero-day patched in 2026, arriving five days after CVE-2026-85046, and it is the same flaw researchers describe as part of the GRIMWEDGE exploit chain covered in this edition &mdash; so the interval between &ldquo;patched&rdquo; and &ldquo;used in a named campaign&rdquo; here was days, not months. For government estates the browser remains the highest-volume attack surface there is, and it is also the one where patch compliance is most often assumed rather than measured, because Chrome updates itself in the background and staff do not restart it. That is the gap to close: a browser that has downloaded the update but has not been relaunched is still running the vulnerable build, and a fleet that reports &ldquo;managed by Chrome Enterprise&rdquo; is not the same as a fleet that reports a version number. The same underlying fix flows to Chromium-derived browsers &mdash; Edge, Brave, Opera, Vivaldi and others &mdash; on their own vendors&rsquo; schedules, which lag Google&rsquo;s by days, so an estate standardised on Edge is not covered by patching Chrome.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-85046</span>
-          <span>Type confusion in V8 &bull; Fixed in Chrome 152.0.7977.82/.83 &bull; Exploit reported in the wild</span>
+          <span class="cve-badge">CVE-2026-87491</span>
+          <span>Out-of-bounds write in V8 &bull; Fixed in Chrome 153.0.8010.36/.37 &bull; Exploit confirmed in the wild by Google</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states an exploit for CVE-2026-85046 exists in the wild; targeting details not published</span>
-            <span class="ops-tag kev-off">Not listed in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states an exploit exists in the wild; the same CVE appears in the GRIMWEDGE exploit chain</span>
+            <span class="ops-tag kev-off">KEV status not separately confirmed in the reporting reviewed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in Chrome 152.0.7977.82/.83; Chromium-based browsers follow on separate schedules</span>
-            <span class="ops-cc"><b>Action:</b> Do not treat browser auto-update as done. Set a policy that forces a relaunch within a defined window after an update is staged, and then measure actual installed versions across the fleet rather than trusting the update channel &mdash; management consoles and endpoint inventory both report a version, and the discrepancy between the two is your real exposure. Do the same for every Chromium-derived browser in use, including Edge, which many public bodies run as the default without tracking it as a separate patching stream. Include kiosks, self-service terminals, digital signage and shared library or reception machines: those never restart, and they are the ones members of the public touch.</span>
+            <span class="ops-tag patch-yes">Fixed in Chrome 153.0.8010.36/.37; Chromium-based browsers follow on separate schedules</span>
+            <span class="ops-cc"><b>Action:</b> Do not treat browser auto-update as done. Set a policy that forces a relaunch within a defined window after an update is staged, then measure actual installed versions across the fleet rather than trusting the update channel &mdash; management consoles and endpoint inventory both report a version, and the discrepancy between the two is your real exposure. Do the same for every Chromium-derived browser in use, including Edge, which many public bodies run as the default without tracking it as a separate patching stream. Include kiosks, self-service terminals, digital signage and shared library or reception machines: those never restart, and they are the ones members of the public touch. Given that this month&rsquo;s browser fixes arrived on a different clock from the Windows cumulative update, keep the two patching streams separate in your reporting so a deferred Windows rollout does not quietly hold back the browser as well.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Forced relaunch policy &mdash; 7 days; measured version compliance report &mdash; 14 days; kiosk and shared-terminal sweep &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8-85046" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-chrome-v8-85046">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Forced relaunch policy &mdash; 72h; measured version compliance report &mdash; 7 days; kiosk and shared-terminal sweep &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8-87491" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-chrome-v8-87491">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Google Chrome releases blog &bull; corroborated by Help Net Security, BleepingComputer and The Hacker News</span>
+          <span>Google Chrome releases blog &bull; Help Net Security &bull; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Update released 4 Sep 2026</span>
+          <span>Emergency update released 9 Sep 2026</span>
         </div>
-        <a href="https://www.helpnetsecurity.com/2026/09/04/google-chrome-zero-day-cve-2026-85046/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.helpnetsecurity.com/2026/09/09/google-chrome-cve-2026-87491-zero-day-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
@@ -1657,34 +1598,34 @@
         </div>
         <a href="https://www.securityweek.com/uk-moves-to-block-high-risk-tech-suppliers-from-critical-infrastructure/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-cisa2015-cr" data-published="2026-09-01">
+      <div class="card" id="it-eu-cra-reporting" data-published="2026-09-11">
         <div class="card-header">
-          <span class="severity sev-info">Info</span>
+          <span class="severity sev-medium">Medium</span>
           <span class="category">Policy</span>
         </div>
-        <h3>The 2015 cyber information-sharing law gets another short extension, now running to 11&nbsp;December</h3>
-        <p>A continuing resolution approved in the House carries a temporary extension of the Cybersecurity Information Sharing Act of 2015, moving its expiry to 11&nbsp;December 2026. The law provides the liability protections under which private companies voluntarily share cyber threat indicators with federal agencies including CISA and the NSA without exposure to lawsuits or regulatory penalties &mdash; protection that matters because the shared material frequently contains personal or proprietary information belonging to the organisations and individuals caught up in an intrusion. The same package extends the Technology Modernization Fund and the Federal Cybersecurity Enhancement Act. Reporting notes that efforts to secure a long-term reauthorisation have been repeatedly deferred over the past year despite broad support, and that industry groups and federal officials have warned a lapse would reduce voluntary private-sector disclosure and disrupt the flow of indicators between private and government networks. For government IT teams the practical significance is planning rather than politics: sharing arrangements that depend on this framework &mdash; including some ISAC and ISAO participation terms and automated indicator exchange &mdash; now carry a December decision point, and any agreement or procurement you sign in the meantime should be read on the assumption that the statutory basis has a date on it.</p>
+        <h3>EU Cyber Resilience Act reporting obligations take effect: 24 hours to notify an actively exploited vulnerability or a severe incident</h3>
+        <p>The incident-reporting provisions of the EU Cyber Resilience Act came into effect around 12&nbsp;September 2026. Manufacturers of products with digital elements placed on the EU market must notify actively exploited vulnerabilities and severe security incidents affecting the security of their products within a 24-hour early-warning window, with fuller reporting following. Who it affects, stated plainly: any organisation placing connected or software-enabled products on the EU market, which includes public-sector bodies and public-sector-owned entities that develop and supply such products, and indirectly every public buyer of them. The practical consequence for a purchaser is a change of tempo rather than a new duty &mdash; the obligation sits with the manufacturer, so notifications about an exploited flaw in something you operate will now arrive on a regulatory clock rather than on the supplier&rsquo;s own communications timetable, and the first message may well be an early warning with little detail attached. Two pieces of preparation follow. Confirm with suppliers of connected products which channel a customer notification will actually reach, and who at your organisation receives it out of hours. And map this obligation against the incident-reporting duties you already carry, so that one event does not start several clocks nobody has counted.</p>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Legislative development &mdash; no vulnerability or exploitation involved</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; statutory framework for threat-information sharing</span>
+            <span class="ops-tag ex-active"><span class="d"></span>In force &mdash; reporting provisions effective ~12 Sep 2026 under the EU Cyber Resilience Act</span>
+            <span class="ops-tag kev-off">No CVE &mdash; regulatory obligation, not a vulnerability</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; action is reviewing sharing agreements against the new expiry date</span>
-            <span class="ops-cc"><b>Action:</b> List the threat-sharing arrangements your organisation relies on &mdash; automated indicator exchange with CISA, ISAC or ISAO membership, sector partnerships, and any contractual sharing with vendors &mdash; and record for each whether its terms reference the 2015 Act&rsquo;s liability protections. Put 11&nbsp;December 2026 in your governance calendar with a named owner, and ask your legal counsel now, not in December, what changes about your sharing obligations and protections if the framework lapses rather than being reauthorised. If you are signing a multi-year agreement that assumes these protections, add a clause covering the possibility that they change.</span>
+            <span class="ops-tag patch-na">No patch applicable &mdash; the work is notification routing, supplier contact points and obligation mapping</span>
+            <span class="ops-cc"><b>Action:</b> If your organisation places connected or software-enabled products on the EU market, establish now who can make a 24-hour notification, through which channel, and on what evidence threshold &mdash; a 24-hour window is short enough that the decision cannot be made for the first time during an incident. If you are a buyer, ask each supplier of connected products for the named contact route through which customer notifications will be sent, confirm it lands somewhere monitored out of hours, and expect early warnings thin on detail. Either way, lay the new obligation alongside the ones you already have and identify where a single event triggers more than one report, so the sequencing is decided in advance rather than improvised.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of sharing arrangements &mdash; 30 days; legal position documented &mdash; 45 days; calendar checkpoint &mdash; before 11 Dec 2026</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisa2015-cr" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisa2015-cr">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Supplier notification-channel confirmation &mdash; 30 days; internal 24-hour notification decision path, where in scope &mdash; 30 days; obligation mapping &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-eu-cra-reporting" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-eu-cra-reporting">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Defense One</span>
+          <span>Dark Reading &bull; Infosecurity Magazine &bull; EU Cyber Resilience Act</span>
           <span class="dot">&bull;</span>
-          <span>Reported 1 Sep 2026 &bull; New expiry 11 Dec 2026</span>
+          <span>Reporting provisions effective ~12 Sep 2026</span>
         </div>
-        <a href="https://www.defenseone.com/policy/2026/09/stopgap-funding-bill-temporarily-extends-key-cyber-info-sharing-law/415768/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.darkreading.com/cybersecurity-operations/eu-cyber-resilience-act-reporting-requirements" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-g7-pqc" data-published="2026-09-03">
         <div class="card-header">

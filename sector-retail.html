@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Tue, 15 Sep 2026, 11:33 AM ET</span>
+        <span>Generated Wed, 16 Sep 2026, 7:57 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>28</strong> stories across
+      <strong>32</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.5</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.6 &mdash; down from 7.2 and out of High, re-derived on this week&rsquo;s merits. The driver that justified High has receded: Magento <b>CVE-2026-75650</b> was patched out of band on 8&nbsp;September and nothing further surfaced in the 8&ndash;15&nbsp;September window &mdash; no confirmed victim count and no revised guidance &mdash; and nothing replaced it at that scale. High is reserved for one issue actively impacting a large portion of retail IT environments; what remains is a busy but discrete week, which is upper Medium. The exploitation reaching merchants is cross-industry infrastructure, not retail platforms. ConnectWise ScreenConnect <b>CVE-2026-84869</b> (CVSS&nbsp;9.9) now has a patch and a 12&nbsp;September KEV listing on a three-day federal deadline, with confirmed worm-like spread between connected machines &mdash; the item reaching store estates most directly, because remote support is how head office, the POS vendor and the MSP get to the till. Alongside it: GitLab <b>CVE-2026-85706</b> (CVSS&nbsp;10.0, KEV), Cisco Secure Email Gateway <b>CVE-2026-76461</b> (CVSS&nbsp;9.8, root RCE, no workaround), Cisco Secure FMC <b>CVE-2026-20079</b> still under exploitation, JFrog Artifactory chained to admin, and Microsoft&rsquo;s record Patch Tuesday with two exploited zero-days. Each is a discrete patch-and-hunt exposure; they do not aggregate upward. The only retail-specific item is SAP Commerce Cloud <b>CVE-2026-76969</b> (CVSS&nbsp;9.4), patched with no reported exploitation &mdash; a 4 alone. No named-retailer breach, skimming campaign or POS incident surfaced.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:65.0%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.5 &mdash; eased from 6.6 and still upper Medium, re-derived from this edition&rsquo;s cards. Nothing meets the High test of one issue compromising a large share of retail IT environments, and the old Magento <b>CVE-2026-75650</b> driver has receded further with no victim count published. The new item closest to the storefront is confirmed but bounded: the Admin Menu Editor Pro update channel was hijacked on 14&nbsp;September and pushed a backdoor to 1,500+ WordPress sites &mdash; a supply-chain hit on the platform many shops run on, at limited scale. The item reaching store estates most directly is still ConnectWise ScreenConnect <b>CVE-2026-84869</b> (CVSS&nbsp;9.9, KEV, worm-like spread), with no new victim counts. Alongside it: Cisco Secure Email Gateway <b>CVE-2026-76461</b> (CVSS&nbsp;9.8, exploited zero-day, KEV due 17&nbsp;September), GitLab <b>CVE-2026-85706</b> (CVSS&nbsp;10.0, KEV), Cisco Secure FMC exploitation by three clusters, and JFrog Artifactory. Lower-order additions &mdash; limited, targeted exploitation of Acronis&rsquo;s cPanel backup plugin <b>CVE-2026-87886</b>, exploitation attempts against WSO2 API Manager <b>CVE-2026-5430</b>, and mass scanning of exposed Vite dev servers &mdash; are discrete patch-and-hunt exposures that do not aggregate upward. SAP Commerce Cloud <b>CVE-2026-76969</b> remains unexploited. No named-retailer breach, skimming campaign or POS incident surfaced, and no KEV additions were published on 15 or 16&nbsp;September as of this morning.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -684,15 +684,15 @@
     <div class="top-story" id="it-screenconnect-84869" data-published="2026-09-14">
       <span class="top-story-pill">Top Story</span>
       <h2>The ScreenConnect file-transfer flaw now has a CVE, a patch and a three-day federal deadline &mdash; and confirmed worm-like spread between connected machines</h2>
-      <p>ConnectWise has closed out the ScreenConnect issue it disclosed without a fix on 7 September. It is now tracked as CVE-2026-84869, a missing-authorisation and improper-privilege-management flaw scored CVSS 9.9, fixed in version 26.6.5. ConnectWise has confirmed exploitation and CISA added the flaw to the Known Exploited Vulnerabilities catalog on 12 September, giving federal agencies three days to remediate under Binding Operational Directive 26-04 &mdash; one of the shortest windows CISA has set. The attack pattern is the one Huntress described last week, now tied to a named vulnerability: attackers abuse legitimate remote-support sessions to transfer and execute files without the host confirming, then socially engineer a victim into running a modified ScreenConnect client that detects active sessions and propagates VBScript payloads to the machines connected to them. Where 26.6.5 cannot be deployed immediately, ConnectWise&rsquo;s interim mitigation is to clear the TransferFiles permission. For a retail estate this is the sharpest cross-industry item of the week, because remote support is the path by which head office, the point-of-sale vendor and the managed service provider all reach the store. An estate of near-identical tills hanging off one support tool is precisely the topology worm-like propagation is built for, and the social-engineering step means the patch alone does not settle it: a staff member persuaded to install a client is still an unplanned instance in your environment.</p>
+      <p>ConnectWise has closed out the ScreenConnect issue it disclosed without a fix on 7 September. It is now tracked as CVE-2026-84869, a missing-authorisation and improper-privilege-management flaw scored CVSS 9.9, fixed in version 26.6.5. ConnectWise has confirmed exploitation and CISA added the flaw to the Known Exploited Vulnerabilities catalog late last week &mdash; 11 or 12 September, as reports differ on the exact day &mdash; giving federal agencies three days to remediate under Binding Operational Directive 26-04 &mdash; one of the shortest windows CISA has set. The attack pattern is the one Huntress described last week, now tied to a named vulnerability: attackers abuse legitimate remote-support sessions to transfer and execute files without the host confirming, then socially engineer a victim into running a modified ScreenConnect client that detects active sessions and propagates VBScript payloads to the machines connected to them. Where 26.6.5 cannot be deployed immediately, ConnectWise&rsquo;s interim mitigation is to clear the TransferFiles permission. For a retail estate this is the sharpest cross-industry item of the week, because remote support is the path by which head office, the point-of-sale vendor and the managed service provider all reach the store. An estate of near-identical tills hanging off one support tool is precisely the topology worm-like propagation is built for, and the social-engineering step means the patch alone does not settle it: a staff member persuaded to install a client is still an unplanned instance in your environment. As of 16 September no victim counts or revised guidance have been published.</p>
       <div class="card-meta">
         <span class="cve-badge">CVE-2026-84869</span>
-        <span>ConnectWise ScreenConnect, cloud and on-premises &bull; CVSS 9.9 &bull; missing authorisation in session file transfer &bull; fixed in 26.6.5 &bull; KEV-listed 12 Sep 2026 under BOD 26-04</span>
+        <span>ConnectWise ScreenConnect, cloud and on-premises &bull; CVSS 9.9 &bull; missing authorisation in session file transfer &bull; fixed in 26.6.5 &bull; KEV-listed 11 Sep 2026 under BOD 26-04</span>
       </div>
       <div class="card-meta">
         <span>SecurityWeek on the ConnectWise patch and confirmed exploitation; CISA Known Exploited Vulnerabilities catalog and Binding Operational Directive 26-04</span>
         <span class="dot">&bull;</span>
-        <span>Exploitation observed from 20 Aug 2026; KEV addition 12 Sep; patch and reporting 14 Sep 2026</span>
+        <span>Exploitation observed from 20 Aug 2026; KEV addition 11 Sep; patch and reporting 14 Sep 2026</span>
       </div>
       <a href="https://www.securityweek.com/connectwise-patches-screenconnect-vulnerability-exploited-in-worm-like-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
@@ -753,6 +753,39 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-admin-menu-editor-pro" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>A hijacked update server pushed a backdoored Admin Menu Editor Pro to more than 1,500 WordPress sites &mdash; the sites that updated promptly are the ones infected</h3>
+        <p>The developer of Admin Menu Editor Pro, a premium WordPress plugin, has confirmed that an attacker gained access to the server hosting adminmenueditor.com and used the plugin&rsquo;s own update mechanism to push a malicious version 2.35 between roughly 06:00 and 13:00 UTC on 14 September. The replacement release, 2.36, was also compromised later that day. The backdoor drops a web shell at includes/wp-user-consent.php, creates a /wp-content/object-cache/ directory and database options beginning wp_ocache, and adds a hidden administrator account whose username begins with wp_. BleepingComputer, reporting the vendor notice on 15 September, puts the reach at at least 230 customers and more than 1,500 sites. There is no CVE, because this is not a coding flaw but a compromised distribution channel; version 2.34 is confirmed clean. For merchants the lesson is the delivery path rather than this one plugin. Automatic updates are normally the control that closes exposure windows; here they were the infection route. A hidden administrator on a WordPress storefront is enough to alter checkout pages, harvest session cookies and read order data, so any affected shop should be treated as compromised, not merely out of date.</p>
+        <div class="card-meta">
+          <span>Admin Menu Editor Pro 2.35 and 2.36 (14 Sep 2026 releases) &bull; malicious update via the vendor&rsquo;s update channel &bull; no CVE &mdash; supply-chain compromise</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; vendor notice; at least 230 customers and 1,500+ sites received a backdoored update</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Remediation available &mdash; restore from a pre-14 Sep backup or remove plugin and artifacts; 2.34 confirmed clean</span>
+            <span class="ops-cc"><b>Action:</b> Check every WordPress property you own, including agency-built microsites, for Admin Menu Editor Pro and its installed version. Any site that took 2.35 or 2.36 should be restored from a backup taken before 14 September, or have the plugin removed and every artifact cleaned out: includes/wp-user-consent.php, the /wp-content/object-cache/ directory, wp_ocache options in the database, and any administrator account beginning wp_ that you did not create. Reinstall only a confirmed-clean build, then rotate WordPress administrator passwords, database credentials and payment-gateway API keys on affected sites.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and clean-up of affected storefronts &mdash; 48h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-admin-menu-editor-pro" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-admin-menu-editor-pro">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Admin Menu Editor developer incident notice, reported by BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Vendor notice 14 Sep 2026; reported 15 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-doppelcart" data-published="2026-09-08">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -889,6 +922,40 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="it-vite-39364" data-published="2026-09-14">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Mass scanning is pulling cloud keys out of exposed Vite dev servers &mdash; a front-end build tool left listening on the internet</h3>
+        <p>F5 Labs research, reported by BleepingComputer on 14 September and The Hacker News on 15 September, describes a mass-scanning campaign seen in August against internet-exposed Vite development servers. Attackers append query strings such as ?raw, ?import&amp;raw or ?import&amp;url&amp;inline to bypass Vite&rsquo;s server.fs.deny protection and read files it should refuse to serve: .env files, AWS and Azure credentials, Terraform state and /proc/self/environ. The underlying flaw is CVE-2026-39364, CVSS 8.2, covered by a Vite advisory in April 2026. It only affects dev servers deliberately exposed beyond the local machine, and no KEV listing or compromise count has been reported. The retail angle is who runs these servers. Storefront front ends are routinely built on JavaScript toolchains by agencies and contractors, and a development or preview server opened up for a stakeholder review can hold the same cloud and third-party service keys that production uses.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-39364</span>
+          <span>Vite dev server exposed beyond localhost &bull; CVSS 8.2 &bull; server.fs.deny bypass via query parameters</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; mass scanning observed by F5 Labs in Aug 2026; compromise count not published</span>
+            <span class="ops-tag kev-off">Not reported in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; update Vite (advisory April 2026); do not expose dev servers publicly</span>
+            <span class="ops-cc"><b>Action:</b> Use external attack-surface data and cloud security-group reviews to find Vite development or preview servers reachable from the internet, including those run by agencies and contractors on your behalf, and take them off the public internet. Update Vite across projects. Anywhere a dev server was exposed, treat the environment files and cloud credentials on that host as stolen: rotate them and review cloud audit logs for use of those keys.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposure sweep and secret rotation &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vite-39364" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-vite-39364">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News / BleepingComputer, reporting F5 Labs research</span>
+          <span class="dot">&bull;</span>
+          <span>Scanning observed Aug 2026; reported 14&ndash;15 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/mass-scanning-campaign-exploits-vite.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-passkey-phishing" data-published="2026-09-13">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1072,7 +1139,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; CISA and GitLab both report in-the-wild activity; internet-wide scanning observed within hours of disclosure</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 11&ndash;12 Sep 2026 &mdash; federal remediation deadline 14 Sep</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 11 Sep 2026 &mdash; federal remediation deadline 14 Sep</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; upgrade to 19.1.8, 19.2.6 or 19.3.2; GitLab.com SaaS unaffected</span>
@@ -1092,25 +1159,25 @@
         <a href="https://www.bleepingcomputer.com/news/security/cisa-hackers-now-exploit-max-severity-gitlab-flaw-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-cisco-esa-76461" data-published="2026-09-15">
+      <div class="card" id="it-cisco-esa-76461" data-published="2026-09-14">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
         <h3>A crafted email is enough to get root on a Cisco Secure Email Gateway &mdash; CVE-2026-76461 is being exploited and there is no workaround</h3>
-        <p>Cisco has confirmed active exploitation of CVE-2026-76461, a SQL injection in the email-parsing path of Secure Email Gateway and Secure Email and Web Manager, scored CVSS 9.8. An unauthenticated remote attacker sends a message containing an injection payload and gains command execution with root privileges on the underlying operating system. Every configuration is affected, there is no workaround, and the only remedy is the fixed AsyncOS builds &mdash; 15.5.5-0141, 16.0.4-302 and 16.5.0-780 &mdash; shipped alongside a Cisco hardening advisory. Reporting on 15 September places the flaw in CISA&rsquo;s Known Exploited Vulnerabilities catalog with a federal remediation deadline of 17 September. This is the third Cisco enterprise product under confirmed exploitation in the same week, after Secure Firewall Management Center and the Cisco device chain Sandworm is using to redeploy Cyclops Blink. What makes the delivery mechanism awkward for retail specifically is that the attack arrives through the one channel a merchant cannot close. An email gateway exists to accept mail from strangers: order enquiries, supplier invoices, carrier notifications, returns and chargeback correspondence all land there, and the appliance parses every one of them before a human sees it. Root on that appliance is read access to the accounts-payable and customer-service mail flow, the ability to alter messages in transit, and a foothold in a DMZ segment that usually has a permitted path inwards.</p>
+        <p>Cisco has confirmed active exploitation of CVE-2026-76461, a SQL injection in the email-parsing path of Cisco AsyncOS for Secure Email Gateway, physical and virtual, scored CVSS 9.8. An unauthenticated remote attacker sends a message containing an injection payload and gains command execution with root privileges on the underlying operating system. Every configuration is affected, there is no workaround, and the only remedy is the fixed AsyncOS builds &mdash; 15.5.5-0141, 16.0.4-302x (confirm the exact build on Cisco&rsquo;s advisory) and 16.5.0-780. Cisco published advisory cisco-sa-esa-inj-2bLVGmhX on 14 September, says multiple customers were likely compromised before disclosure, and has contacted affected Secure Email Cloud customers with indicators of compromise; attribution is unknown. CISA added the flaw to the Known Exploited Vulnerabilities catalog the same day, 14 September, with a federal remediation deadline of 17 September. Secure Email and Web Manager and Secure Web Appliance are not affected. It follows Secure Firewall Management Center as the second Cisco security product under confirmed exploitation in a week. What makes the delivery mechanism awkward for retail specifically is that the attack arrives through the one channel a merchant cannot close. An email gateway exists to accept mail from strangers: order enquiries, supplier invoices, carrier notifications, returns and chargeback correspondence all land there, and the appliance parses every one of them before a human sees it. Root on that appliance is read access to the accounts-payable and customer-service mail flow, the ability to alter messages in transit, and a foothold in a DMZ segment that usually has a permitted path inwards.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-76461</span>
-          <span>Cisco Secure Email Gateway &amp; Secure Email and Web Manager, all configurations &bull; CVSS 9.8 &bull; unauthenticated root command execution via crafted email &bull; no workaround</span>
+          <span>Cisco Secure Email Gateway (AsyncOS, physical and virtual), all configurations &bull; CVSS 9.8 &bull; unauthenticated root command execution via crafted email &bull; no workaround</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco states exploitation in the wild; disclosed as a zero-day</span>
-            <span class="ops-tag kev-on">Reported as added to CISA KEV &mdash; federal remediation deadline 17 Sep 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco states exploitation in the wild; disclosed as a zero-day, with multiple customers likely compromised beforehand</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 14 Sep 2026 &mdash; federal remediation deadline 17 Sep 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; AsyncOS 15.5.5-0141, 16.0.4-302, 16.5.0-780; no workaround exists</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade AsyncOS on every Secure Email Gateway and Secure Email and Web Manager appliance on the shortest change window you can obtain; there is no configuration change that buys you time. Because the flaw was exploited before disclosure, follow the upgrade with a compromise assessment on the appliance rather than treating the patch as closure: check for administrator accounts and SSH keys you did not create, review the message-tracking and system logs for parsing errors clustered around unusual senders, confirm no unexpected outbound connections from the appliance, and rotate the LDAP, Active Directory and SMTP relay credentials the gateway holds. Treat the appliance as a DMZ host with an inward path and verify what that path actually permits.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; AsyncOS 15.5.5-0141, 16.0.4-302x, 16.5.0-780; no workaround exists</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade AsyncOS on every Secure Email Gateway appliance on the shortest change window you can obtain; there is no configuration change that buys you time. Because the flaw was exploited before disclosure, follow the upgrade with a compromise assessment on the appliance rather than treating the patch as closure: check for administrator accounts and SSH keys you did not create, review the message-tracking and system logs for parsing errors clustered around unusual senders, confirm no unexpected outbound connections from the appliance, and rotate the LDAP, Active Directory and SMTP relay credentials the gateway holds. Treat the appliance as a DMZ host with an inward path and verify what that path actually permits.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> AsyncOS upgrade on all appliances &mdash; 48h; appliance compromise assessment and credential rotation &mdash; 7 days</span>
@@ -1119,11 +1186,79 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News; SecurityWeek; Cisco security advisory and hardening guidance</span>
+          <span>Cisco advisory cisco-sa-esa-inj-2bLVGmhX; SecurityWeek; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Disclosed and reported under active exploitation 15 Sep 2026</span>
+          <span>Advisory and KEV addition 14 Sep 2026; outlet coverage 15 Sep 2026</span>
         </div>
         <a href="https://www.securityweek.com/root-rce-zero-day-in-cisco-secure-email-gateway-under-active-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-wso2-apim-5430" data-published="2026-09-16">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Attackers are trying to forge admin tokens on WSO2 API Manager &mdash; a CVSS 9.8 JWT bypass in the gateway that can front commerce APIs</h3>
+        <p>The Hacker News reported on 16 September that watchTowr honeypots began seeing exploitation attempts on 13 September against CVE-2026-5430 in WSO2 API Manager. Versions 4.1.0 through 4.6.0, along with API Control Plane, Traffic Manager and Universal Gateway 4.5.0 and 4.6.0, accept JSON Web Tokens signed with unsupported algorithms, which lets an attacker forge an administrator token and take over accounts. The flaw is rated CVSS 9.8. What has been observed so far is attempts: no compromised organisations have been counted, no KEV listing has been reported, and the report rests on a single outlet citing watchTowr. Fixes are available as community pull requests on GitHub and as update levels for subscribers. For retail the relevance is architectural. An API manager sits in front of the order, inventory, loyalty and payment APIs that mobile apps, marketplaces and fulfilment partners call, and a forged administrator token on the gateway is control over who may call what.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-5430</span>
+          <span>WSO2 API Manager 4.1.0&ndash;4.6.0; API Control Plane, Traffic Manager, Universal Gateway 4.5.0/4.6.0 &bull; CVSS 9.8 &bull; JWT algorithm validation bypass</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploitation attempts &mdash; watchTowr honeypots from 13 Sep 2026; no confirmed victims reported</span>
+            <span class="ops-tag kev-off">Not reported in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; GitHub pull requests (community) and update levels (subscribers)</span>
+            <span class="ops-cc"><b>Action:</b> Identify any WSO2 API Manager or gateway component in your estate or run by an integration partner, and apply the fix for your edition. Then review administrator, publisher and application activity since 13 September for tokens, applications or API definitions you did not create. Where management and publisher interfaces are internet-reachable, restrict them to administrative networks while you patch.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and audit review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wso2-apim-5430" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-wso2-apim-5430">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News, citing watchTowr honeypot observations</span>
+          <span class="dot">&bull;</span>
+          <span>Attempts from 13 Sep 2026; reported 16 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/active-exploitation-attempts-target.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-acronis-cpanel-87886" data-published="2026-09-15">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Acronis confirms limited, targeted exploitation of a privilege-escalation flaw in its cPanel &amp; WHM backup plugin &mdash; the hosting layer many small merchants never see</h3>
+        <p>Acronis has disclosed CVE-2026-87886 in advisory SEC-10986: a local privilege escalation on Linux, caused by insecure file permissions, in the Acronis Backup plugin for cPanel &amp; WHM and the Acronis Backup extension for Plesk. The company says it has seen exploitation in limited, targeted attacks against the cPanel &amp; WHM plugin, based on a report from a potentially affected customer. The flaw is low-complexity but requires an authenticated foothold on the server. Fixes are in cPanel &amp; WHM plugin 1.9.3 HF3 and Plesk extension 1.8.11, and no KEV listing has been reported. For retail the exposure sits one layer below the storefront. Small and mid-sized merchants often run their shops on managed or shared cPanel and Plesk hosting, where a backup plugin operates with elevated rights on the host. A local privilege escalation turns a low-privilege foothold &mdash; a compromised plugin or a stolen hosting-panel login &mdash; into root on that server, and with it every site and backup the server holds.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-87886</span>
+          <span>Acronis Backup plugin for cPanel &amp; WHM and Plesk extension &bull; Linux local privilege escalation &bull; authentication required</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Limited, targeted exploitation &mdash; per Acronis, against the cPanel &amp; WHM plugin</span>
+            <span class="ops-tag kev-off">Not reported in CISA KEV as of this edition</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; cPanel &amp; WHM plugin 1.9.3 HF3; Plesk extension 1.8.11</span>
+            <span class="ops-cc"><b>Action:</b> If you run your own cPanel &amp; WHM or Plesk servers, confirm the Acronis Backup plugin or extension is at the fixed build. If a hosting provider runs the panel for you, ask them directly whether the plugin is installed and when it was updated rather than assuming. Because exploitation needs a local foothold, pair the update with a check on affected hosts for unexpected local or panel accounts, new scheduled tasks and unfamiliar files in web directories.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Update, or written confirmation from your hosting provider &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-acronis-cpanel-87886" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-acronis-cpanel-87886">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Acronis security advisory SEC-10986, reported by Help Net Security and BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory and reporting 15&ndash;16 Sep 2026</span>
+        </div>
+        <a href="https://www.helpnetsecurity.com/2026/09/16/acronis-backup-plugin-vulnerability-exploited-cve-2026-87886/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-sap-commerce-76969" data-published="2026-09-08">
@@ -1238,18 +1373,19 @@
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Talos now ties the exploited CVSS 10.0 Secure Firewall Management Center bypass to three actor clusters &mdash; one deploying a Sandworm-linked implant, one deploying Qilin ransomware</h3>
-        <p>Cisco has confirmed active exploitation of CVE-2026-20079, an authentication bypass in Secure Firewall Management Center and Security Cloud Control scored CVSS 10.0. An unauthenticated remote attacker can bypass authentication and execute commands as root. CISA added it to the Known Exploited Vulnerabilities catalog on 9 September with a federal remediation deadline of 12 September. There is no workaround: the patched software has to be installed, and Cisco&rsquo;s guidance is that an already-compromised device needs remediation separate from the upgrade. Update, 11 September: Cisco Talos has published attribution that materially changes the shape of this. Exploitation of CVE-2026-20079, chained in places with CVE-2026-20316 (CVSS 5.3, an unauthenticated low-privilege login), is now attributed to at least three distinct clusters. UAT-12197 planted JSP web shells and Java command executors to harvest credentials. UAT-11823 deployed Netcat reverse shells and, more significantly, a variant of Cyclops Blink &mdash; a modular ELF implant previously attributed to the Russian state-sponsored group Sandworm. UAT-11988 used the management centre&rsquo;s own built-in tooling for reconnaissance, credential theft and security-tool termination, then deployed Qilin ransomware on selected systems. Cisco has confirmed the findings and released hotfixes. Espionage and ransomware operating on the same security-management platform is the part that matters: the same unauthenticated root access supports quiet, long-dwell policy manipulation and a fast extortion event, and the two require different responses. CISA&rsquo;s KEV bundle carrying that 12 September deadline, reported on 10 September, includes two further actively exploited edge flaws: Citrix CVE-2026-19490 (CVSS 9.3), the NetScaler authentication bypass covered separately on this page, and Fortinet CVE-2025-25249 (CVSS 7.3) in FortiOS and FortiSwitchManager, which is being used to deploy the PivotC2 RAT against more than 3,000 targeted addresses, with 178 devices compromised, concentrated in the United States and attributed to suspected Russian-speaking actors. The retail exposure is specific. Firewall Management Center is not a firewall; it is the single console that authors and pushes policy to every Cisco Secure Firewall in the estate. In a chain that means the rules segmenting the cardholder-data environment from the corporate network, the store and distribution-centre perimeters, and the tunnels back to head office. Root on the management plane is the ability to rewrite that segmentation quietly and have every enforcement point accept it, which is a materially worse outcome than the compromise of any one firewall.</p>
+        <h3>Talos ties exploitation of Cisco Secure Firewall Management Center to three actor clusters &mdash; one with Sandworm-linked tooling, one that deployed Qilin ransomware through a second, static-credential flaw</h3>
+        <p>Cisco has confirmed active exploitation of CVE-2026-20079, an authentication bypass in Secure Firewall Management Center and Security Cloud Control scored CVSS 10.0. An unauthenticated remote attacker can bypass authentication and execute commands as root. CISA added it to the Known Exploited Vulnerabilities catalog on 9 September with a federal remediation deadline of 12 September. There is no workaround: the patched software has to be installed, and Cisco&rsquo;s guidance is that an already-compromised device needs remediation separate from the upgrade. Update, 11 September: Cisco Talos has published attribution that materially changes the shape of this. Talos tracks at least three distinct clusters across CVE-2026-20079 and a second flaw, CVE-2026-20316 (CVSS 5.3, static credentials), and they did not all come in the same way. UAT-12197, unattributed, exploited CVE-2026-20079 and planted JSP web shells and Java command executors to harvest credentials. UAT-11823 chained CVE-2026-20079 with CVE-2026-20316 and deployed Netcat reverse shells and a variant of Cyclops Blink; Talos describes it as an APT whose tooling overlaps with Sandworm &mdash; a link, not an attribution. UAT-11988, a ransomware operator, entered through CVE-2026-20316 alone using the static credentials, used the management centre&rsquo;s own built-in tooling for reconnaissance, credential theft and security-tool termination, and ultimately deployed Qilin ransomware. CVE-2026-20316 has been in the KEV catalog since 29 July, with a federal deadline of 1 August and known ransomware use. Cisco has confirmed the findings and released hotfixes. Espionage and ransomware operating on the same security-management platform is the part that matters: access to the same management plane supports quiet, long-dwell policy manipulation and a fast extortion event, and the two require different responses. CISA&rsquo;s KEV bundle carrying that 12 September deadline, reported on 10 September, includes two further actively exploited edge flaws: Citrix CVE-2026-19490 (CVSS 9.3), the NetScaler authentication bypass covered separately on this page, and Fortinet CVE-2025-25249 (CVSS 7.3) in FortiOS and FortiSwitchManager, which is being used to deploy the PivotC2 RAT against more than 3,000 targeted addresses, with 178 devices compromised, concentrated in the United States and attributed to suspected Russian-speaking actors. The retail exposure is specific. Firewall Management Center is not a firewall; it is the single console that authors and pushes policy to every Cisco Secure Firewall in the estate. In a chain that means the rules segmenting the cardholder-data environment from the corporate network, the store and distribution-centre perimeters, and the tunnels back to head office. Root on the management plane is the ability to rewrite that segmentation quietly and have every enforcement point accept it, which is a materially worse outcome than the compromise of any one firewall.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-20079</span>
+          <span class="cve-badge">CVE-2026-20316</span>
           <span class="cve-badge">CVE-2026-19490</span>
           <span class="cve-badge">CVE-2025-25249</span>
           <span>Cisco Secure Firewall Management Center &amp; Security Cloud Control &bull; CVSS 10.0 &bull; unauthenticated command execution as root &bull; no workaround &bull; three exploitation clusters (Talos)</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco Talos attributes activity to three clusters, including a Sandworm-linked Cyclops Blink variant and Qilin ransomware deployment</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 9 Sep 2026 &mdash; federal remediation deadline 12 Sep, shared with the Citrix and Fortinet entries</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Cisco Talos attributes activity to three clusters, including a cluster with tooling overlapping Sandworm (Cyclops Blink variant) and a Qilin ransomware operator that entered through CVE-2026-20316</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 9 Sep 2026 &mdash; federal remediation deadline 12 Sep, shared with the Citrix and Fortinet entries; CVE-2026-20316 KEV-listed 29 Jul (deadline 1 Aug), ransomware use known</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; fixed releases available from Cisco; no workaround exists</span>
@@ -1264,7 +1400,7 @@
         <div class="card-meta">
           <span>The Hacker News, reporting Cisco Talos (11 Sep); BleepingComputer / SecurityWeek on Cisco PSIRT; The Hacker News on the CISA KEV bundle (10 Sep)</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation confirmed 9 Sep 2026; KEV addition 9 Sep 2026, federal deadline 12 Sep; Talos attribution published 11 Sep 2026</span>
+          <span>Exploitation confirmed 9 Sep 2026; KEV addition 9 Sep 2026, federal deadline 12 Sep; Talos analysis dated 9 Sep 2026, reported 11 Sep</span>
         </div>
         <a href="https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1675,7 +1811,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, MikroTik, N-able, ConnectWise) and research from Sansec, Citizen Lab and Amnesty International. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>Prior run (10&nbsp;September&nbsp;2026, 11:45&nbsp;AM&nbsp;ET):</em> a one-day incremental. Sources were re-queried; the retail-specific picture did not change state &mdash; no confirmed breach at a named retail chain surfaced in the window, and the Magento, DoppelCart and payment-fraud items stand as published. Two cards were added, both cross-cutting: Cisco Secure Firewall Management Center CVE-2026-20079 (CVSS 10.0, confirmed exploited, KEV 9&nbsp;September, federal deadline 12&nbsp;September), and CISA&rsquo;s 10&nbsp;September confirmation that ransomware operators are exploiting WatchGuard Firebox CVE-2025-14733. The NetScaler card was updated because CVE-2026-19490 moved from observed attempts to a KEV listing in the same 12&nbsp;September bundle, which also covers Fortinet CVE-2025-25249; the Chrome card was updated for a second exploited V8 zero-day, CVE-2026-87491, and the BlueMoon exploit-kit research. Nothing was retired: the oldest cards on the page date from 26&ndash;27&nbsp;August and remain load-bearing retail context, and count discipline caps net change at two. The threat level was recomputed to <b>7.5 (High)</b>, eased from 7.8 &mdash; the Magento installed-base argument still meets the High test, but the patch has now been available two days and confirmed victim numbers remain unpublished, while the new KEV entries are discrete perimeter exposures that do not aggregate upward. <em>This run (11&nbsp;September&nbsp;2026, 8:00&nbsp;AM&nbsp;ET):</em> a roughly 20-hour incremental. Sources were re-queried; no retail-sector-specific incident &mdash; point-of-sale malware, Magecart, or a named retailer breach &mdash; was published in the 9&ndash;11&nbsp;September window that is distinct from the IDScan.net story, and that gap is reported rather than padded. Two cards changed state. The IDScan.net card moves from alleged to <b>confirmed</b>: IDScan.net has acknowledged unauthorised access to its cloud platform, discovered around 1&nbsp;September and disclosed on 4&nbsp;September, with more than 153&nbsp;million driver&rsquo;s licence scans, about 10&nbsp;million identification cards, 3&nbsp;million travel documents and 579,000 medical cards exposed, and the FBI investigating; the related liability card was corrected for the same reason. The Cisco Secure Firewall Management Center card was rewritten for Cisco Talos&rsquo;s 11&nbsp;September attribution of CVE-2026-20079 exploitation to three clusters &mdash; one deploying a Sandworm-linked Cyclops Blink variant, one deploying Qilin ransomware &mdash; and two stale figures in it were corrected against current reporting: the Fortinet CVE-2025-25249 campaign is 178 compromised devices across more than 3,000 targeted addresses, at CVSS&nbsp;7.3. The NetScaler card gained the 56 documented exploitation attempts against CVE-2026-19490. One card was added: Microsoft&rsquo;s documentation of the Storm-3032 / Storm-3121 help-desk vishing and BYOD-to-Graph-API initial-access campaign, carried as cross-cutting because retail help desks and seasonal staffing are the named technique&rsquo;s natural target, and carried explicitly as a documented campaign with no confirmed corporate breach attributed to it. Nothing was retired; net change is one card, within the &plusmn;2 limit. The threat level was recomputed to <b>7.2 (High)</b>, eased from 7.5. The Magento installed-base argument still satisfies the High test &mdash; one flaw in software ubiquitous across retail, exploited before a fix existed &mdash; but the patch is now three days old, so the share of merchants still open to fresh compromise is falling, and with confirmed victim numbers still unpublished the score now rests almost entirely on the hunt obligation owed by anyone breached between 4 and 8&nbsp;September. That obligation does not expire, which is why this is not yet Medium; if no victim data or new exploitation is published, the next run should move it there. The Cisco, Citrix, Fortinet and IDScan items were weighed and held out of the score as discrete exposures that do not aggregate into a higher band.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, MikroTik, N-able, ConnectWise) and research from Sansec, Citizen Lab and Amnesty International. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This run (16&nbsp;September&nbsp;2026):</em> an incremental update. Four cards were added: the Admin Menu Editor Pro WordPress supply-chain backdoor, exploited Acronis Backup plugin for cPanel &amp; WHM CVE-2026-87886, exploitation attempts against WSO2 API Manager CVE-2026-5430, and mass scanning of exposed Vite dev servers (CVE-2026-39364). The Cisco Secure Email Gateway card was corrected (advisory and KEV addition 14&nbsp;September; Secure Email and Web Manager not affected). The Secure Firewall Management Center card now separates the three Talos clusters by entry flaw: the Qilin operator came in through CVE-2026-20316, and the Cyclops Blink cluster is Sandworm-linked by tooling overlap, not attributed. The ScreenConnect KEV date is confirmed as 11&nbsp;September from the KEV catalog. Nothing was retired. Threat level eased to <b>6.5 (Medium)</b>.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

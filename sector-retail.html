@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Thu, 24 Sep 2026, 6:15 AM ET</span>
+        <span>Generated Fri, 25 Sep 2026, 10:47 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>35</strong> stories across
+      <strong>38</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -666,14 +666,14 @@
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
   <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Retail sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue impacting a large portion of retail IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.6 &mdash; Medium, re-derived from this edition&rsquo;s cards and level with 22&nbsp;September. The new lead is the largest retail item in the window but rests on one source: Gambit reports an operator using open-source AI-agent frameworks to plant skimmers on at least 119 sites since July and to take more than 600,000 card records from two companies. No victim has been named or has confirmed, so it cannot lift the score to High. WordPress core <b>CVE-2026-87902</b> was exploited within hours of its 22&nbsp;September fix, per Patchstack, but code execution needs specific server conditions and there is no compromised-store count. Four edge and management flaws entered KEV on 22&nbsp;September: F5 BIG-IP APM, Arista VeloCloud Orchestrator and two Check Point bugs, one of them the VPN flaw this page carried as unexploited. Each is discrete and has a fix. BigCommerce/Ribon stays bounded, with a small number of stores and no card data, and IDScan moves to a Canadian regulator investigation. The carried Cisco, ScreenConnect, Zyxel and Magento items do not stack. More confirmed exploitation offsets the ageing of the BigCommerce incident, so the score holds. High would need confirmed compromise of a large share of merchants, for example victims confirming the skimming campaign at scale.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
+      <div class="tl-why"><b>Why:</b> 6.8 &mdash; Medium, up from 6.6. CISA added Adobe Commerce and Magento Open Source <b>CVE-2026-71362</b> to KEV on 24&nbsp;September: an unauthenticated authorisation flaw that lets an attacker move a session into another shopper&rsquo;s account, on a platform much of mid-market e-commerce runs on. Adobe fixed it in August, so exposure sits with stores that have not applied APSB26-92, and no compromised-store count has been published. It is the second exploited Magento flaw this month, after StyleSmuggler. WSO2 API Manager <b>CVE-2026-5430</b> entered KEV the same day. Gambit&rsquo;s AI-agent skimming campaign now has a second outlet, but every figure is still the vendor&rsquo;s and no victim has been named. Master of Malt&rsquo;s notice and the ASUS eShop notice are confirmed single-merchant exposures of contact and order data, with no card data. Proofpoint&rsquo;s Chilean password spray compromised seven service accounts at one retailer. Each is a discrete patch-and-hunt exposure or a single-organisation incident, so they do not stack into High; the KEV listing in a core retail platform moves the score toward the top of Medium. High would need confirmed compromise of a large share of merchants, such as a published count of stores hit through CVE-2026-71362 or victims confirming the skimming campaign at scale.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,19 +681,19 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-ai-agent-skimming" data-published="2026-09-23">
+    <div class="top-story" id="it-adobe-commerce-71362" data-published="2026-09-24">
       <span class="top-story-pill">Top Story</span>
-      <h2>Researchers say an operator let AI agents run a card-skimming campaign end to end &mdash; skimmers on at least 119 sites and more than 600,000 card records, by one vendor&rsquo;s count, with no victim yet named</h2>
-      <p>Gambit, a security start-up, has published an investigation, reported by BleepingComputer on 23 September, into a financially motivated operator who used open-source AI-agent frameworks to find, break into and skim e-commerce and booking sites. According to Gambit the human operator, who appears to be Chinese-speaking, gave the agents short instructions on the goal and left them to do the rest: Strix handled vulnerability scanning, Cairn autonomous exploitation, and Hermes orchestrated the campaign, configured by the operator to drive a Claude Opus 4.6 model; the reporting describes the attacker&rsquo;s own use of the frameworks and does not describe any compromise of the model provider. The researchers say the campaign ran from at least July to 22 September, infected at least 119 websites with skimmers, breached at least 27 companies in five days between 10 and 15 September across 105 separate attack waves, and cost the operator roughly $12,000&ndash;18,000, about $25 per target. The 600,000-plus valid card records came from two companies, with skimmers placed at five more. Victims are described only by type: a Fortune 500 hospitality company, a major US airline, a large US industrial-supplies distributor and an online fashion retailer. Skimmers were placed by whatever the access allowed: code appended to legitimate JavaScript files, script tags on checkout pages or inside Google tag blocks, poisoned S3/CDN content and server-side caches, altered database fields, modified Kubernetes deployments and cron jobs. The agents were also told to wipe card data from Magento databases after exfiltration, which Gambit warns turns a skimming incident into a data-loss one. How the sites were first breached is not stated, and no CVE is named. Every figure here comes from a single vendor; no affected company has been named or has confirmed, and no regulator or card-brand statement has appeared. What is new is not the skimmer but the economics: a low per-target cost and dozens of attack waves a day mean small and mid-sized storefronts that were never worth a human operator&rsquo;s time are now in range. Merchants should treat checkout-page integrity as a monitored control rather than a one-off review: inventory every script that loads on payment pages, alert on changes to them, their tag-manager containers and CDN or cache content, and keep tested database backups in case a cleanup routine runs.</p>
+      <h2>CISA adds Adobe Commerce and Magento flaw CVE-2026-71362 to KEV &mdash; an unauthenticated attacker can switch a shopper&rsquo;s session into another customer&rsquo;s account; fixed in August, federal deadline 27 September</h2>
+      <p>CISA added CVE-2026-71362 to its Known Exploited Vulnerabilities catalog on 24 September with a federal remediation deadline of 27 September. The flaw is an incorrect-authorisation bug (CWE-863) in Adobe Commerce and Magento Open Source, rated CVSS 9.1 by Adobe and exploitable without authentication. Adobe fixed it on 11 August in bulletin APSB26-92 and describes the impact as privilege escalation; Sansec, which tracks Magento attacks, calls it an unauthenticated customer account takeover. As reported by The Hacker News, an attacker can switch a customer session to another customer&rsquo;s account and read that customer&rsquo;s data. Affected releases are Adobe Commerce 2.4.4 to 2.4.9 (July 2026 and earlier), Adobe Commerce B2B 1.3.3 to 1.5.3 and Magento Open Source 2.4.6 to 2.4.9; the August security releases fix it. On exploitation, Sansec says it detected and blocked attempts in August, and Previdian reported honeypot hits from an Australian IP address on 10 September. Adobe&rsquo;s bulletin said at release that it knew of no exploits. No count of compromised stores or affected shoppers has been published. This is a separate flaw from StyleSmuggler (CVE-2026-75650), the template-injection bug exploited from 4 September and still carried in Critical Advisories below, so a store patched for StyleSmuggler may still be exposed here. It leads this edition because it is agency-confirmed exploitation in one of the most widely deployed retail commerce platforms. For a merchant the harm is account takeover without a password: saved addresses, order history, stored contact details and, where enabled, store credit, loyalty balances or B2B purchasing rights. A store two releases behind, a staging copy or an agency-hosted microsite is enough to be in scope. Confirm that every Adobe Commerce and Magento instance is on the August release or later, then review customer-account activity since early August for sessions that jumped between accounts, and for email, address or password changes nobody asked for.</p>
       <div class="card-meta">
-        <span>E-commerce, airline and hospitality checkout pages &bull; AI-agent-driven intrusion and skimmer injection (JavaScript, tag blocks, CDN/cache poisoning, database, Kubernetes, cron) &bull; 119+ sites, 600,000+ card records from two companies, per Gambit &bull; no CVE named &bull; victims unnamed and unconfirmed</span>
+        <span>Adobe Commerce 2.4.4&ndash;2.4.9, Commerce B2B 1.3.3&ndash;1.5.3, Magento Open Source 2.4.6&ndash;2.4.9 (July 2026 releases and earlier) &bull; CWE-863 incorrect authorisation, unauthenticated &bull; CVSS 9.1 &bull; fixed in APSB26-92 (11 Aug 2026) &bull; CISA KEV 24 Sep 2026, due 27 Sep &bull; no compromised-store count published</span>
       </div>
       <div class="card-meta">
-        <span>BleepingComputer, reporting Gambit&rsquo;s investigation (single vendor source)</span>
+        <span>Adobe security bulletin APSB26-92; Sansec; CISA KEV via The Hacker News and SecurityAffairs</span>
         <span class="dot">&bull;</span>
-        <span>Campaign July&ndash;22 Sep 2026; 27 companies breached 10&ndash;15 Sep; reported 23 Sep 2026</span>
+        <span>Patched 11 Aug 2026; attempts from Aug; honeypot hits 10 Sep; added to KEV 24 Sep 2026</span>
       </div>
-      <a href="https://www.bleepingcomputer.com/news/security/malicious-ai-agents-steal-600k-credit-cards-infect-100-plus-sites-with-skimmers/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://helpx.adobe.com/security/products/magento/apsb26-92.html" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -721,32 +721,34 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-ai-agent-skimming"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.8">1</text></a>
-        <a href="#it-wordpress-87902"><circle class="blip crit" cx="237.4" cy="242.7" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="237.4" y="247.2">2</text></a>
-        <a href="#it-checkpoint-vpn"><circle class="blip crit" cx="60.5" cy="169.5" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="60.5" y="173.7">3</text></a>
-        <a href="#it-kev-0922-edge"><circle class="blip crit" cx="231.6" cy="140.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="231.6" y="144.2">4</text></a>
-        <a href="#it-bigcommerce-ribon"><circle class="blip crit" cx="154.0" cy="327.7" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="154.0" y="331.2">5</text></a>
-        <a href="#it-screenconnect-84869"><circle class="blip crit" cx="126.3" cy="95.7" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="126.3" y="98.9">6</text></a>
-        <a href="#it-cisco-ise-76460"><circle class="blip crit" cx="310.4" cy="214.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="310.4" y="217.8">7</text></a>
-        <a href="#it-magento-cve-75650"><circle class="blip crit" cx="113.5" cy="214.6" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="113.5" y="217.3">8</text></a>
-        <a href="#it-brevo-supply-chain"><circle class="blip crit" cx="219.3" cy="71.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="219.3" y="74.5">9</text></a>
-        <a href="#it-idscan-nexus"><circle class="blip high" cx="235.5" cy="314.0" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="235.5" y="316.2">10</text></a>
-        <a href="#it-eviltokens-phaas"><circle class="blip high" cx="80.0" cy="262.0" r="6.5"/><text class="blip-num" style="font-size:5.9px" x="80.0" y="264.1">11</text></a>
-        <a href="#it-zyxel-gs1900-7273"><circle class="blip high" cx="300.0" cy="118.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="300.0" y="119.9">12</text></a>
+        <a href="#it-adobe-commerce-71362"><circle class="blip crit" cx="180.0" cy="40.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="44.9">1</text></a>
+        <a href="#it-ai-agent-skimming"><circle class="blip crit" cx="237.4" cy="242.7" r="14.0"/><text class="blip-num" style="font-size:12.6px" x="237.4" y="247.2">2</text></a>
+        <a href="#it-wordpress-87902"><circle class="blip crit" cx="60.5" cy="169.5" r="13.0"/><text class="blip-num" style="font-size:11.7px" x="60.5" y="173.7">3</text></a>
+        <a href="#it-checkpoint-vpn"><circle class="blip crit" cx="231.6" cy="140.4" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="231.6" y="144.3">4</text></a>
+        <a href="#it-kev-0922-edge"><circle class="blip crit" cx="154.0" cy="327.7" r="11.0"/><text class="blip-num" style="font-size:9.9px" x="154.0" y="331.3">5</text></a>
+        <a href="#it-wso2-apim-5430"><circle class="blip crit" cx="126.3" cy="95.7" r="10.0"/><text class="blip-num" style="font-size:9.0px" x="126.3" y="98.9">6</text></a>
+        <a href="#it-bigcommerce-ribon"><circle class="blip crit" cx="310.4" cy="214.9" r="9.0"/><text class="blip-num" style="font-size:8.1px" x="310.4" y="217.8">7</text></a>
+        <a href="#it-screenconnect-84869"><circle class="blip crit" cx="113.5" cy="214.6" r="8.5"/><text class="blip-num" style="font-size:7.7px" x="113.5" y="217.4">8</text></a>
+        <a href="#it-magento-cve-75650"><circle class="blip crit" cx="219.3" cy="71.9" r="8.0"/><text class="blip-num" style="font-size:7.2px" x="219.3" y="74.5">9</text></a>
+        <a href="#it-cisco-ise-76460"><circle class="blip high" cx="235.5" cy="314.0" r="7.0"/><text class="blip-num" style="font-size:6.3px" x="235.5" y="316.3">10</text></a>
+        <a href="#it-brevo-supply-chain"><circle class="blip high" cx="80.0" cy="262.0" r="6.5"/><text class="blip-num" style="font-size:5.9px" x="80.0" y="264.1">11</text></a>
+        <a href="#it-teamfiltration-chile"><circle class="blip high" cx="300.0" cy="118.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="300.0" y="119.9">12</text></a>
+        <a href="#it-asus-eshop"><circle class="blip high" cx="95.0" cy="300.0" r="5.5"/><text class="blip-num" style="font-size:5.0px" x="95.0" y="301.8">13</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-ai-agent-skimming"><span class="ld crit"></span><b>1</b> AI-agent skimming: 119+ sites, 600k cards (Gambit)</a>
-        <a href="#it-wordpress-87902"><span class="ld crit"></span><b>2</b> WordPress core CVE-2026-87902 exploited</a>
-        <a href="#it-checkpoint-vpn"><span class="ld crit"></span><b>3</b> Check Point VPN 85102 now exploited, KEV</a>
-        <a href="#it-kev-0922-edge"><span class="ld crit"></span><b>4</b> KEV 22 Sep: F5 APM, Arista VCO, Check Point mgmt</a>
-        <a href="#it-bigcommerce-ribon"><span class="ld crit"></span><b>5</b> BigCommerce/Ribon: shopper records pulled</a>
-        <a href="#it-screenconnect-84869"><span class="ld crit"></span><b>6</b> ScreenConnect CVSS 9.9 exploited, worm-like</a>
-        <a href="#it-cisco-ise-76460"><span class="ld crit"></span><b>7</b> Cisco ISE CVSS 10 zero-day, KEV</a>
-        <a href="#it-magento-cve-75650"><span class="ld crit"></span><b>8</b> Magento StyleSmuggler: hunt still open</a>
-        <a href="#it-brevo-supply-chain"><span class="ld crit"></span><b>9</b> Brevo scripts hijacked: ClickFix + WP backdoor</a>
-        <a href="#it-idscan-nexus"><span class="ld high"></span><b>10</b> IDScan 153M breach: Canada opens probe</a>
-        <a href="#it-eviltokens-phaas"><span class="ld high"></span><b>11</b> EvilTokens device-code PhaaS disrupted</a>
-        <a href="#it-zyxel-gs1900-7273"><span class="ld high"></span><b>12</b> Zyxel GS1900 switches: 996 hit, KEV</a>
+        <a href="#it-adobe-commerce-71362"><span class="ld crit"></span><b>1</b> Adobe Commerce CVE-2026-71362 exploited, KEV</a>
+        <a href="#it-ai-agent-skimming"><span class="ld crit"></span><b>2</b> AI-agent skimming: 27 orgs, 600k cards (Gambit)</a>
+        <a href="#it-wordpress-87902"><span class="ld crit"></span><b>3</b> WordPress core CVE-2026-87902 exploited</a>
+        <a href="#it-checkpoint-vpn"><span class="ld crit"></span><b>4</b> Check Point VPN 85102 now exploited, KEV</a>
+        <a href="#it-kev-0922-edge"><span class="ld crit"></span><b>5</b> KEV 22 Sep: F5 APM, Arista VCO, Check Point mgmt</a>
+        <a href="#it-wso2-apim-5430"><span class="ld crit"></span><b>6</b> WSO2 API Manager JWT bypass now in KEV</a>
+        <a href="#it-bigcommerce-ribon"><span class="ld crit"></span><b>7</b> BigCommerce/Ribon: Master of Malt notice</a>
+        <a href="#it-screenconnect-84869"><span class="ld crit"></span><b>8</b> ScreenConnect CVSS 9.9 exploited, worm-like</a>
+        <a href="#it-magento-cve-75650"><span class="ld crit"></span><b>9</b> Magento StyleSmuggler: hunt still open</a>
+        <a href="#it-cisco-ise-76460"><span class="ld high"></span><b>10</b> Cisco ISE CVSS 10 zero-day, KEV</a>
+        <a href="#it-brevo-supply-chain"><span class="ld high"></span><b>11</b> Brevo scripts hijacked: ClickFix + WP backdoor</a>
+        <a href="#it-teamfiltration-chile"><span class="ld high"></span><b>12</b> TeamFiltration spray: 7 retail service accounts</a>
+        <a href="#it-asus-eshop"><span class="ld high"></span><b>13</b> ASUS eShop: order and contact data notice</a>
       </div>
     </div>
 
@@ -756,19 +758,85 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="it-bigcommerce-ribon" data-published="2026-09-22">
+      <div class="card" id="it-ai-agent-skimming" data-published="2026-09-25">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Gambit&rsquo;s AI-agent skimming campaign: 27 organisations breached, skimmers confirmed on 19 of their sites and more than 600,000 card records taken from two of them &mdash; still one vendor&rsquo;s figures, with no victim named</h3>
+        <p>Gambit, an AI-security company, has published an investigation, reported by BleepingComputer on 23 September and The Register on 25 September, into a financially motivated operator who used three open-source AI-agent frameworks to find, break into and skim e-commerce and booking sites. According to Gambit, Strix handled vulnerability scanning, Cairn autonomous exploitation and Hermes orchestration, with the human operator giving the agents short goal instructions; the reporting describes the attacker&rsquo;s own use of the frameworks and does not describe any compromise of the model provider. The Register&rsquo;s account, citing Gambit&rsquo;s threat-intelligence director Eyal Sela, puts 27 companies breached &ldquo;to varying degrees&rdquo;, skimmers ordered against all 27 and confirmed present on 19 of their websites, and more than 600,000 card records &ldquo;from just two victim companies&rdquo;. Separately, more than 100 other infected sites have been identified, for at least 119 in all. The operator&rsquo;s spend was roughly $12,000&ndash;18,000. Gambit also says the agents ran deletion or cleanup routines that could disrupt a victim&rsquo;s operations, &ldquo;and this has indeed happened in some of the breaches&rdquo;, which turns a skimming incident into a data-loss one. Victims are described only by type: a Fortune 500 hospitality company, a major US airline, a private US industrial-supplies distributor and a US online fashion retailer. How the sites were first breached is not stated and no CVE is named. It led the 24 September edition and moves down because the figures still come from a single vendor, with no company, regulator or card brand confirming any of them, while the new lead is agency-confirmed exploitation. What stays true either way is the economics: at about $25 a scan, small and mid-sized storefronts that were never worth a human operator&rsquo;s time are now in range.</p>
+        <div class="card-meta">
+          <span>E-commerce, airline and hospitality checkout pages &bull; AI-agent-driven intrusion and skimmer injection (JavaScript, tag blocks, CDN/cache poisoning, database, Kubernetes, cron) &bull; 27 organisations, skimmers confirmed on 19 sites, 119+ infected sites, 600,000+ card records from two companies, per Gambit &bull; no CVE named &bull; victims unnamed and unconfirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Reported by one vendor (Gambit) and carried by two outlets &mdash; no victim has named itself or confirmed</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE named; initial access not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No single patch applies &mdash; checkout-page integrity monitoring and backups are the controls</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every script that loads on payment and booking pages, including tag-manager containers, and alert on any change to them or to CDN and cache content. Review Kubernetes deployments, cron jobs and database fields that feed checkout templates for entries nobody made. Keep tested, offline database backups so an agent&rsquo;s &ldquo;cleanup&rdquo; routine cannot turn a card-theft incident into lost order data. If your acquirer or card brand contacts you about a common point of purchase, treat it as this pattern until ruled out.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Payment-page script inventory and change alerting &mdash; 14 days; backup restore test &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ai-agent-skimming" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ai-agent-skimming">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Register (25 Sep) and BleepingComputer (23 Sep), reporting Gambit&rsquo;s investigation (single vendor source)</span>
+          <span class="dot">&bull;</span>
+          <span>Campaign July&ndash;22 Sep 2026; 27 companies breached 10&ndash;15 Sep; first reported 23 Sep, updated 25 Sep 2026</span>
+        </div>
+        <a href="https://www.theregister.com/security/2026/09/25/crook-used-three-open-source-agents-to-break-into-a-fortune-500-hospitality-company-a-major-us-airline-and-25-other-orgs/5299012" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-asus-eshop" data-published="2026-09-24">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>ASUS tells eShop customers that order records and contact details &ldquo;may have been accessed&rdquo; &mdash; no card or bank data, and no count, region or timeline given</h3>
+        <p>ASUS has emailed customers of its online store about &ldquo;unauthorized access to part of the Asus eShop environment&rdquo;, according to The Register on 24 September. The notice says &ldquo;certain customer order information, including contact details and order records, may have been accessed&rdquo;. ASUS says payment-card details, bank-account details and other financial information were not affected, that it has found no evidence of continued unauthorised access or of misuse of the data, and that it considers the risk of misuse low. It advises customers to watch for unexpected emails, texts or calls that mention previous purchases. The notice gives no number of affected customers, no region and no dates for the intrusion, and ASUS had not answered The Register&rsquo;s questions at publication. This rests on the customer notice as reported by one outlet, so the scope is unknown. It follows the same pattern as Master of Malt this week: contact and order data, no card data. For any retailer, and for any manufacturer that sells direct, order history is exactly the material that makes a delivery, refund or warranty scam convincing, because the caller can quote a real product and a real order date.</p>
+        <div class="card-meta">
+          <span>ASUS eShop (direct-to-consumer online store) &bull; unauthorised access to part of the eShop environment &bull; contact details and order records possibly accessed &bull; no payment-card, bank or other financial data, per ASUS &bull; no CVE &bull; scope not disclosed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by ASUS customer notice &mdash; scope, region and dates not disclosed; one outlet reporting</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE; intrusion method not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; customer-facing fraud risk from exposed order data</span>
+            <span class="ops-cc"><b>Action:</b> If you run a direct-to-consumer store, check that you could say within a day which customers&rsquo; order records a given system exposes, because a notice without a count or a date range invites follow-up from regulators and customers alike. Brief contact-centre staff that callers quoting real orders are not thereby verified, and keep refund and address changes behind a check that an order number alone cannot pass.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Contact-centre verification brief &mdash; 7 days; order-data exposure mapping &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-asus-eshop" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-asus-eshop">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Register, reporting ASUS&rsquo;s customer email (single outlet)</span>
+          <span class="dot">&bull;</span>
+          <span>Customer notice reported 24 Sep 2026; intrusion dates not disclosed</span>
+        </div>
+        <a href="https://www.theregister.com/security/2026/09/24/someone-went-shopping-in-asuss-eshop-for-customer-data/5298860" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-bigcommerce-ribon" data-published="2026-09-23">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Breach</span>
         </div>
         <h3>BigCommerce&rsquo;s Ribon app compromise: the stolen key was used from 13 to 17 September and Master of Malt says customer records were pulled &ldquo;page by page&rdquo; until it was revoked &mdash; no card data reported</h3>
-        <p>BigCommerce, the hosted e-commerce platform, has told merchants that attackers obtained an access key belonging to Ribon and Ribon 1.5, third-party shopping-experience apps from its marketplace owned by Be A Part Of, a Fastr company, and used it to inject malicious scripts into &ldquo;a small number of merchant storefronts&rdquo;. SecurityWeek, reporting on 22 September, sets out the timeline: the credentials were misused from 13 to 17 September, revoked on 17 September, and merchants were notified on 18 September. The data taken was names, email addresses, phone numbers and addresses; BigCommerce says passwords and payment-card data are held separately, and no card data has been reported taken. BigCommerce says its own platform was not breached. The UK spirits retailer Master of Malt, the first store to confirm it was affected, says that once the attackers had the Ribon key &ldquo;they used it to access data held inside BigCommerce&rdquo;, downloading customer records one page at a time until the key was disabled, a day after the developer detected the misuse. The app was installed on hundreds of storefronts, so BigCommerce&rsquo;s &ldquo;small number&rdquo; is the figure to watch, and no count has been published. Neither Be A Part Of nor Fastr had commented at publication. It led the 22 September edition and moves down now because the scope stays bounded and no further merchants have been named. For shoppers the risk is delivery and refund scams that use a real name, address and recent order, and they will contact the retailer, not the app developer.</p>
+        <p>BigCommerce, the hosted e-commerce platform, has told merchants that attackers obtained an access key belonging to Ribon and Ribon 1.5, third-party shopping-experience apps from its marketplace owned by Be A Part Of, a Fastr company, and used it to inject malicious scripts into &ldquo;a small number of merchant storefronts&rdquo;. SecurityWeek, reporting on 22 September, sets out the timeline: the credentials were misused from 13 to 17 September, revoked on 17 September, and merchants were notified on 18 September. The data taken was names, email addresses, phone numbers and addresses; BigCommerce says passwords and payment-card data are held separately, and no card data has been reported taken. BigCommerce says its own platform was not breached. The UK spirits retailer Master of Malt, the first store to confirm it was affected, says that once the attackers had the Ribon key &ldquo;they used it to access data held inside BigCommerce&rdquo;, downloading customer records one page at a time until the key was disabled, a day after the developer detected the misuse. The app was installed on hundreds of storefronts, so BigCommerce&rsquo;s &ldquo;small number&rdquo; is the figure to watch, and no count has been published. Neither Be A Part Of nor Fastr had commented at publication. In its notice to customers, reported by The Register on 23 September, Master of Malt&rsquo;s founder Justin Petszaft wrote that &ldquo;the attackers had access to your name, email address, phone number, and address&rdquo; and asked customers to &ldquo;be extra vigilant against potential phone calls, spam and phishing attacks&rdquo;; the retailer says BigCommerce&rsquo;s security team uninstalled the Ribon app the day the attack was discovered, that there is no ongoing compromise, and that payment data and passwords are held in a separate system that was not affected. No customer count was given, and no other merchant has been named. For shoppers the risk is delivery and refund scams that use a real name, address and recent order, and they will contact the retailer, not the app developer.</p>
         <div class="card-meta">
           <span>BigCommerce merchant storefronts running Ribon / Ribon 1.5 &bull; compromised app access key used for script injection and data access, 13&ndash;17 Sep 2026 &bull; names, emails, phone numbers, addresses &bull; no card data or passwords reported &bull; no CVE &mdash; third-party app compromise</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; BigCommerce merchant notice and Master of Malt statement; &ldquo;a small number&rdquo; of storefronts, no count published</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; BigCommerce merchant notice and Master of Malt&rsquo;s customer notice; &ldquo;a small number&rdquo; of storefronts, no count published</span>
             <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE; compromised third-party app credentials</span>
           </div>
           <div class="ops-row">
@@ -782,9 +850,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>SecurityWeek (22 Sep), carrying BigCommerce&rsquo;s statement and Master of Malt&rsquo;s investigation; BleepingComputer (21 Sep)</span>
+          <span>SecurityWeek (22 Sep), carrying BigCommerce&rsquo;s statement and Master of Malt&rsquo;s investigation; The Register (23 Sep), carrying Master of Malt&rsquo;s customer notice; BleepingComputer (21 Sep)</span>
           <span class="dot">&bull;</span>
-          <span>Misuse 13&ndash;17 Sep 2026; key revoked 17 Sep; merchants notified 18 Sep; timeline reported 22 Sep 2026</span>
+          <span>Misuse 13&ndash;17 Sep 2026; key revoked 17 Sep; merchants notified 18 Sep; timeline reported 22 Sep; Master of Malt notice reported 23 Sep 2026</span>
         </div>
         <a href="https://www.securityweek.com/bigcommerce-data-stolen-via-ribon-apps-hack/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -893,6 +961,39 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+
+      <div class="card" id="it-teamfiltration-chile" data-published="2026-09-24">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>A TeamFiltration password spray against Chilean retail and financial Microsoft 365 tenants got into seven forgotten service accounts at a major retailer &mdash; all using default passwords</h3>
+        <p>Proofpoint has described a password-spraying campaign, which it tracks as UNK_CondorFiltration, that used the TeamFiltration tool against more than 5,700 accounts in 28 Microsoft 365 tenants belonging to retail and financial institutions in Chile, as reported by The Hacker News and Dark Reading on 24 September. The spray came from 1,487 AWS EC2 addresses in three waves: 21&ndash;24 July against two banks, 26&ndash;28 July against one financial institution, and 13&ndash;16 August against a major retailer, peaking at 1,560 accounts on 15 August. That last wave produced all seven compromises, and every one was a service or functional account with a default password. Within about two minutes of a successful sign-in the operators were using German VPN nodes to reach Office, OneDrive, Teams, SharePoint Online and the Azure Portal and to request Microsoft Graph tokens. Proofpoint says sign-in events alone cannot be taken as evidence of exfiltration, so data theft is not confirmed and the victims are not named. For retailers the lesson is the account type rather than the tool: shared mailboxes, store and warehouse kiosks, reporting and integration accounts are often exempted from MFA, never rotated and never reviewed, and a spray only needs one of them.</p>
+        <div class="card-meta">
+          <span>Microsoft 365 / Entra ID tenants, Chilean retail and financial sectors &bull; TeamFiltration password spray from 1,487 AWS EC2 IPs, July&ndash;August 2026 &bull; 5,700+ accounts in 28 tenants targeted; 7 service accounts with default passwords compromised at one retailer &bull; no CVE &mdash; weak credentials</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Proofpoint research; 7 accounts compromised, data theft not confirmed</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE; password spraying</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; credential hygiene and Conditional Access on non-human accounts</span>
+            <span class="ops-cc"><b>Action:</b> List every service, shared and functional account in Entra ID, including store, kiosk and integration accounts, and disable those nobody owns. Replace default or shared passwords, and bring the rest under MFA or a Conditional Access policy that limits them to known locations or workload identities. Alert on the TeamFiltration user agent and on bursts of failed sign-ins from cloud-hosting address ranges.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Service-account inventory and default-password sweep &mdash; 14 days; Conditional Access for non-human accounts &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-teamfiltration-chile" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-teamfiltration-chile">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News and Dark Reading, reporting Proofpoint research</span>
+          <span class="dot">&bull;</span>
+          <span>Spray waves 21 Jul&ndash;16 Aug 2026; research reported 24 Sep 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/09/teamfiltration-compromises-seven.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 
       <div class="card" id="it-eviltokens-phaas" data-published="2026-09-22">
         <div class="card-header">
@@ -1270,38 +1371,38 @@
         <a href="https://www.securityweek.com/root-rce-zero-day-in-cisco-secure-email-gateway-under-active-exploitation/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-wso2-apim-5430" data-published="2026-09-16">
+      <div class="card" id="it-wso2-apim-5430" data-published="2026-09-24">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>Attackers are trying to forge admin tokens on WSO2 API Manager &mdash; a CVSS 9.8 JWT bypass in the gateway that can front commerce APIs</h3>
-        <p>The Hacker News reported on 16 September that watchTowr honeypots began seeing exploitation attempts on 13 September against CVE-2026-5430 in WSO2 API Manager. Versions 4.1.0 through 4.6.0, along with API Control Plane, Traffic Manager and Universal Gateway 4.5.0 and 4.6.0, accept JSON Web Tokens signed with unsupported algorithms, which lets an attacker forge an administrator token and take over accounts. The flaw is rated CVSS 9.8. What has been observed so far is attempts: no compromised organisations have been counted, no KEV listing has been reported, and the report rests on a single outlet citing watchTowr. Fixes are available as community pull requests on GitHub and as update levels for subscribers. For retail the relevance is architectural. An API manager sits in front of the order, inventory, loyalty and payment APIs that mobile apps, marketplaces and fulfilment partners call, and a forged administrator token on the gateway is control over who may call what.</p>
+        <h3>WSO2 API Manager&rsquo;s JWT authentication bypass CVE-2026-5430 joins CISA KEV &mdash; attempts to forge admin tokens since 13 September, federal deadline 27 September, on the gateway that can front commerce APIs</h3>
+        <p>CISA added CVE-2026-5430 to its Known Exploited Vulnerabilities catalog on 24 September, with a federal remediation deadline of 27 September. WSO2&rsquo;s own advisory, WSO2-2026-5328, describes the flaw this way: JWT authentication &ldquo;can be bypassed when a token is signed using an unsupported algorithm, allowing unauthorized access&rdquo;, which can lead to administrator account takeover. WSO2 rates it CVSS 10.0, adjusted to 9.8 in single-tenant deployments. Affected are API Manager 4.1.0 to 4.6.0 and API Control Plane, Traffic Manager and Universal Gateway 4.5.0 and 4.6.0. The Hacker News first reported on 16 September that watchTowr honeypots had captured exploitation attempts from 13 September. Some coverage of the KEV listing describes the bug as path traversal and file upload; this card follows WSO2&rsquo;s description. No compromised organisations have been counted. Fixes are available as update levels for subscribers and as community pull requests on GitHub. For retail the relevance is architectural. An API manager sits in front of the order, inventory, loyalty and payment APIs that mobile apps, marketplaces and fulfilment partners call, and a forged administrator token on the gateway gives control over who may call what.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-5430</span>
-          <span>WSO2 API Manager 4.1.0&ndash;4.6.0; API Control Plane, Traffic Manager, Universal Gateway 4.5.0/4.6.0 &bull; CVSS 9.8 &bull; JWT algorithm validation bypass</span>
+          <span>WSO2 API Manager 4.1.0&ndash;4.6.0; API Control Plane, Traffic Manager, Universal Gateway 4.5.0/4.6.0 &bull; CVSS 10.0 (9.8 single-tenant) per WSO2 &bull; JWT authentication bypass via unsupported signing algorithm</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation attempts &mdash; watchTowr honeypots from 13 Sep 2026; no confirmed victims reported</span>
-            <span class="ops-tag kev-off">Not reported in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited &mdash; CISA KEV listing 24 Sep 2026; watchTowr honeypot attempts from 13 Sep; no victim count published</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 24 Sep 2026 &mdash; federal due date 27 Sep</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed &mdash; GitHub pull requests (community) and update levels (subscribers)</span>
-            <span class="ops-cc"><b>Action:</b> Identify any WSO2 API Manager or gateway component in your estate or run by an integration partner, and apply the fix for your edition. Then review administrator, publisher and application activity since 13 September for tokens, applications or API definitions you did not create. Where management and publisher interfaces are internet-reachable, restrict them to administrative networks while you patch.</span>
+            <span class="ops-tag patch-yes">Fixed &mdash; WSO2-2026-5328 update levels (subscribers) and GitHub pull requests (community)</span>
+            <span class="ops-cc"><b>Action:</b> Identify any WSO2 API Manager or gateway component in your estate or run by an integration partner, and apply the fix for your edition. Review administrator, publisher and application activity since 13 September for tokens signed with unexpected algorithms and for applications or API definitions you did not create. Rotate consumer keys, secrets and backend credentials held in the gateway if anything looks wrong. Where management and publisher interfaces are internet-reachable, restrict them to administrative networks.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patch and audit review &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and audit review &mdash; 72h (KEV-listed); credential rotation where activity is suspect &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wso2-apim-5430" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-wso2-apim-5430">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News, citing watchTowr honeypot observations</span>
+          <span>WSO2 security advisory WSO2-2026-5328; CISA KEV via The Hacker News and SecurityWeek; watchTowr honeypot observations</span>
           <span class="dot">&bull;</span>
-          <span>Attempts from 13 Sep 2026; reported 16 Sep 2026</span>
+          <span>Attempts from 13 Sep 2026; first reported 16 Sep; added to KEV 24 Sep 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/09/active-exploitation-attempts-target.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2026/WSO2-2026-5328/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-orkes-conductor-58138" data-published="2026-09-19">
@@ -1938,7 +2039,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, MikroTik, N-able, ConnectWise) and research from Sansec, Citizen Lab, Amnesty International, Gambit and Patchstack; vendor advisories from Check Point, F5 and Arista; Microsoft&rsquo;s Digital Crimes Unit; the Office of the Privacy Commissioner of Canada; and reporting from Help Net Security and SecurityAffairs. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (24&nbsp;September&nbsp;2026).</em> Sources re-queried for 21&ndash;24&nbsp;September, including the CISA KEV additions of 22&nbsp;September. New lead: Gambit&rsquo;s report of an AI-agent-driven skimming campaign (single vendor source; victims unnamed and unconfirmed). Added: WordPress core CVE-2026-87902 (exploited per Patchstack), a KEV roll-up for F5 BIG-IP APM CVE-2026-94127, Arista VeloCloud Orchestrator CVE-2026-93952 and Check Point CVE-2026-93616, and the Microsoft disruption of the EvilTokens device-code phishing service. Updated: Check Point VPN CVE-2026-85102 corrected from unexploited to exploited since 12&nbsp;September and in KEV; BigCommerce/Ribon moved from the lead to a card with SecurityWeek&rsquo;s timeline and Master of Malt&rsquo;s account; IDScan updated with the Canadian privacy commissioner&rsquo;s investigation; Click2Shell and the Check Point management card cross-referenced to the new items. Nothing retired; the page grows from 31 to 35 stories. Threat level held at 6.6 Medium: more confirmed exploitation, but no confirmed wide merchant compromise.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, MikroTik, N-able, ConnectWise) and research from Sansec, Citizen Lab, Amnesty International, Gambit and Patchstack; vendor advisories from Check Point, F5 and Arista; Microsoft&rsquo;s Digital Crimes Unit; the Office of the Privacy Commissioner of Canada; and reporting from Help Net Security and SecurityAffairs. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (25&nbsp;September&nbsp;2026).</em> Sources re-queried for 23&ndash;25&nbsp;September, including the CISA KEV additions of 24&nbsp;September, Adobe&rsquo;s APSB26-92 bulletin, WSO2&rsquo;s advisory WSO2-2026-5328, Proofpoint research and reporting from The Register and Dark Reading. New lead: Adobe Commerce / Magento Open Source CVE-2026-71362, added to KEV on 24&nbsp;September (a separate flaw from StyleSmuggler CVE-2026-75650). Added: the ASUS eShop customer-data notice (single outlet) and Proofpoint&rsquo;s TeamFiltration password spray against Chilean retail and financial Microsoft 365 tenants. Updated: the AI-agent skimming campaign moved from the lead to a card with The Register&rsquo;s 25&nbsp;September figures (still vendor-reported, victims unnamed); BigCommerce/Ribon with Master of Malt&rsquo;s customer notice; WSO2 CVE-2026-5430 now in KEV and described per WSO2&rsquo;s own advisory. Nothing retired; the page grows from 35 to 38 stories. Threat level 6.6 &rarr; 6.8 Medium: a KEV-listed flaw in a core retail platform, but no confirmed wide merchant compromise.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

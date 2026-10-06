@@ -622,13 +622,13 @@
       <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
       <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
       <div class="header-meta">
-        <span>Generated Fri, 25 Sep 2026, 10:47 AM ET</span>
+        <span>Generated Tue, 6 Oct 2026, 10:03 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>31</strong> stories across
+      <strong>39</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -673,7 +673,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:65.0%;"></span></div>
-      <div class="tl-why"><b>Why:</b> 6.5 &mdash; Medium, up slightly from 6.4 and re-derived from this edition&rsquo;s own stories. New this edition: DIVD, the Dutch volunteer-run non-profit that warns organisations about their vulnerable systems, said on 25&nbsp;September that it had been compromised. It has blocked access, called in forensic responders and reported the incident to the Dutch data-protection authority, the NCSC and the police. It believes an AI agent carried out the attack, but that is its own early assessment, and it has not said what was reached; an update is promised for 28&nbsp;September. Canada&rsquo;s Cyber Centre reports exploitation of Roundcube webmail flaw CVE-2026-48842, patched in May, without giving attack details. The WordPress core flaw CVE-2026-87902 has moved from probing to payloads written onto servers, though no compromised site has been named. The Belgian federation intrusions remain confirmed. It rises because the sector has a fresh confirmed incident and a second exploited flaw in software small organisations commonly use. It stays below High because these are discrete exposures and single-organisation incidents, and neither flaw has been reported in CISA&rsquo;s KEV catalog. High needs one issue actively compromising a large portion of nonprofit environments. Confirmed mass compromise of charity websites or webmail would move it.</div>
+      <div class="tl-why"><b>Why 6.5 (Medium):</b> Several exploited flaws and one confirmed non-profit breach, but no single issue is compromising a large share of nonprofits.<br><b>Top threat:</b> Two Zammad helpdesk zero-days, used to breach the non-profit DIVD and added to CISA&rsquo;s KEV catalog on 2&nbsp;October.<br><b>Confirmed breaches:</b> DIVD, where volunteer email addresses and possibly contact details got out; no other non-profit breach verified 26&nbsp;September&ndash;6&nbsp;October.<br><b>Also watching:</b> Citrix NetScaler exploitation campaign; FortiMail and Cisco SD-WAN zero-days; WordPress CVE-2026-87902; Russian and China-aligned phishing of NGOs and think tanks.<br><b>What would raise it:</b> Confirmed mass compromise of charity websites, webmail or a widely used donor platform.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -681,35 +681,39 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-    <div class="top-story" id="it-divd-agentic-ai-breach" data-published="2026-09-25">
+    <div class="top-story" id="it-divd-agentic-ai-breach" data-published="2026-10-02">
       <span class="top-story-pill">Top Story</span>
-      <h2>DIVD, the volunteer-run Dutch non-profit that warns organisations about their exposed systems, says it has been hacked &mdash; and believes an AI agent carried out the attack</h2>
-      <p>The Dutch Institute for Vulnerability Disclosure (DIVD), a volunteer-run non-profit that scans the internet for vulnerable systems and alerts their owners, and a CVE Numbering Authority, said on 25 September that it had been compromised. In a statement on LinkedIn, reported the same day by DataBreaches.net, DIVD said it noticed suspicious activity, investigated and confirmed the compromise, and immediately blocked access to its infrastructure. It has engaged a third-party incident-response team for forensic work, reported the incident to the Dutch data-protection authority (Autoriteit Persoonsgegevens), the National Cyber Security Centre and the police, and informed &ldquo;directly involved parties&rdquo;. It says it is treating the situation &ldquo;as a worst-case-scenario&rdquo; and will &ldquo;assume breach until proven otherwise&rdquo;. DIVD describes it as &ldquo;an attack we have not seen before&rdquo;, because &ldquo;the modus operandi indicates that this is an agentic AI powered attack&rdquo;. That is DIVD&rsquo;s own early assessment; it has not published the evidence behind it, and no one else has confirmed it. What is not yet known: how the attacker got in, which systems and data were reached, and who was behind it. DIVD has promised a public update on Monday 28 September. It leads this page because it is a non-profit incident confirmed by the victim itself, and because of what it shows: a small organisation of security specialists, run largely by volunteers, was still breached, and responded in the right order &mdash; contain, bring in outside forensics, notify the regulator and police, tell the people affected, then say so publicly. Most charities could not do those steps in a day without having written them down beforehand.</p>
+      <h2>DIVD, the volunteer-run Dutch non-profit that warns organisations about exposed systems, says attackers broke in through two Zammad helpdesk zero-days &mdash; now in CISA&rsquo;s KEV catalog &mdash; and volunteer contact data got out</h2>
+      <p>The Dutch Institute for Vulnerability Disclosure (DIVD), a volunteer-run non-profit that scans the internet for vulnerable systems, alerts their owners and acts as a CVE Numbering Authority, has now published how it was breached. Its case file, DIVD-2026-00014 (last updated 1 October), sets out the timeline: first malicious access on 21 September; activity detected, datacentre access blocked and a response team formed on 22 September; the flaw reported to Zammad, partners notified and a first public statement on LinkedIn on 24 September (earlier editions of this page dated that statement 25 September, the day it was first reported); a limited CVE disclosure on 26 September; a findings update on 28 September; the zero-day announcement on 30 September; and an overview of the data involved on 1 October. The way in was Zammad, the open-source helpdesk DIVD runs. Two previously unknown flaws &mdash; <strong>CVE-2026-102489</strong>, a session-fixation bug that leads to code execution, and <strong>CVE-2026-102490</strong>, a privilege-escalation bug &mdash; were chained, DIVD says, for session hijacking, remote code execution and escalation to root. CISA added both to its Known Exploited Vulnerabilities catalog on 2 October with a federal deadline of 5 October; Infosecurity Magazine reports the chain at CVSS 9.4. On impact, DIVD says &ldquo;volunteer data got out, such as DIVD email addresses and possibly contact details&rdquo;. It has reported the incident to the Autoriteit Persoonsgegevens and NCSC-NL, and its first statement also named the police. DIVD still believes an AI agent ran the attack: it says the attacker&rsquo;s scripts contained notes in which the agent justified its own actions, and it describes an intrusion that was loud and messy, with the agent choosing each next step itself. That remains DIVD&rsquo;s own assessment; no one else has independently confirmed it, and no attacker has been named. DIVD has opened a second case, DIVD-2026-00015, to scan for exposed, vulnerable Zammad servers and warn their owners, and it advises all Zammad users to upgrade to version 7 or take the system offline. It leads this page because it is a non-profit breach confirmed and documented by the victim itself, and because the lessons are now concrete: a helpdesk holds the contact details of everyone who has ever written in, a self-hosted one facing the internet is an entry point, and once a volunteer list is out, phishing that borrows the organisation&rsquo;s own name is the likely next step.</p>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; DIVD&rsquo;s own statement; AI-agent involvement is DIVD&rsquo;s early assessment, not independently verified; entry point, affected systems and data not disclosed; update promised 28 Sep</span>
-          <span class="ops-tag kev-off">No CVE &mdash; DIVD has not said how access was obtained</span>
+          <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; DIVD&rsquo;s own case file; entry through two Zammad zero-days that CISA lists as exploited; volunteer email addresses and possibly contact details exposed; AI-agent involvement is DIVD&rsquo;s assessment, not independently verified</span>
+          <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-102489 and CVE-2026-102490 added 2 Oct 2026; federal deadline 5 Oct 2026 (passed)</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch applies &mdash; incident-response readiness, access review and caution with unexpected notifications</span>
-          <span class="ops-cc"><b>Action:</b> Write down, on one page, what your organisation would do in the first 24 hours of a confirmed compromise: who can cut off access to email, the website and cloud systems; which outside firm or cyber-insurer helpline you would call for forensics; which data-protection authority you must notify and by when; and who tells staff, volunteers and supporters. Check that your key systems keep logs long enough for someone to investigate afterwards, and that every administrator account uses multi-factor authentication. Faster, automated attacks leave less time between a weakness appearing and it being used, so shorten the time it takes you to patch anything that faces the internet. Until DIVD says what data was reached, treat any unexpected vulnerability-notification email that claims to come from DIVD with care and check it against DIVD&rsquo;s own website before acting on links or attachments.</span>
+          <span class="ops-tag patch-yes">Fixed in Zammad 7 &mdash; DIVD advises all Zammad users to upgrade to version 7 or take the system offline</span>
+          <span class="ops-cc"><b>Action:</b> Find out whether your organisation, or a provider on its behalf, runs Zammad &mdash; for a supporter helpdesk, a volunteer enquiry inbox or IT support &mdash; and upgrade it to version 7 now, or take it offline until you can. If it was reachable from the internet before the upgrade, look for sessions, administrator accounts and API tokens you do not recognise from mid-September onwards, and rotate the passwords and keys stored in or used by it. More widely, list every helpdesk or ticketing system you run yourselves and who can reach it from the internet. Write down, on one page, what you would do in the first 24 hours of a confirmed compromise: who cuts off access, which forensics firm or insurer helpline you call, which data-protection authority you notify and who tells volunteers and supporters. Because DIVD volunteer addresses are now out, check any unexpected email claiming to come from DIVD against DIVD&rsquo;s own website before acting on it.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> One-page first-24-hours incident plan with named contacts &mdash; 14 days; MFA confirmed on every administrator account &mdash; 30 days; log-retention check on email, website and cloud systems &mdash; 30 days</span>
+          <span class="ops-sla"><b>Suggested SLA:</b> Zammad upgraded to version 7 or taken offline &mdash; 72h; compromise review of any internet-facing instance &mdash; 7 days; one-page first-24-hours incident plan &mdash; 14 days</span>
           <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-divd-agentic-ai-breach" data-placeholder="Assign&hellip;"></span></span>
           <button class="status-pill st-open" data-key="it-divd-agentic-ai-breach">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>No CVE &mdash; confirmed compromise of the infrastructure of DIVD, a volunteer-run vulnerability-disclosure non-profit</span>
-        <span>Access blocked &bull; third-party forensics engaged &bull; reported to the Autoriteit Persoonsgegevens, the NCSC and the police &bull; AI-agent involvement is DIVD&rsquo;s own assessment &bull; impact not yet stated</span>
+        <span class="cve-badge">CVE-2026-102489</span>
+        <span class="cve-badge">CVE-2026-102490</span>
+        <span>Zammad helpdesk &bull; session fixation leading to code execution, chained with privilege escalation to root &bull; used to breach DIVD, a volunteer-run vulnerability-disclosure non-profit</span>
       </div>
       <div class="card-meta">
-        <span>DIVD statement (LinkedIn) via DataBreaches.net</span>
-        <span class="dot">&bull;</span>
-        <span>Statement and notifications 25 Sep 2026; public update promised 28 Sep 2026</span>
+        <span>Volunteer email addresses and possibly contact details exposed &bull; reported to the Autoriteit Persoonsgegevens and NCSC-NL &bull; AI-agent involvement is DIVD&rsquo;s own assessment &bull; DIVD scanning for exposed Zammad servers (DIVD-2026-00015)</span>
       </div>
-      <a href="https://databreaches.net/2026/09/25/divd-dutch-institute-for-vulnerability-disclosure-investigating-agentic-ai-powered-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <div class="card-meta">
+        <span>DIVD case files DIVD-2026-00014 and DIVD-2026-00015; CISA KEV catalog; BleepingComputer; Infosecurity Magazine</span>
+        <span class="dot">&bull;</span>
+        <span>First access 21 Sep; first statement 24 Sep; zero-day announcement 30 Sep; data overview 1 Oct; KEV addition 2 Oct 2026 (deadline 5 Oct)</span>
+      </div>
+      <a href="https://csirt.divd.nl/cases/DIVD-2026-00014/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
 
     <div class="radar-panel">
@@ -738,31 +742,35 @@
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#it-divd-agentic-ai-breach"><circle class="blip high" cx="180.0" cy="52.0" r="15.0"/><text class="blip-num" style="font-size:13.5px" x="180.0" y="56.6">1</text></a>
-        <a href="#it-wordpress-cve-2026-87902"><circle class="blip crit" cx="248.9" cy="255.2" r="14.1"/><text class="blip-num" style="font-size:12.7px" x="248.9" y="259.6">2</text></a>
-        <a href="#it-roundcube-48842"><circle class="blip high" cx="64.4" cy="169.9" r="13.2"/><text class="blip-num" style="font-size:11.9px" x="64.4" y="174.0">3</text></a>
-        <a href="#it-belgian-sports-federations"><circle class="blip high" cx="249.8" cy="126.4" r="12.3"/><text class="blip-num" style="font-size:11.1px" x="249.8" y="130.2">4</text></a>
-        <a href="#it-grimwedge-ngo"><circle class="blip crit" cx="162.3" cy="280.5" r="11.4"/><text class="blip-num" style="font-size:10.3px" x="162.3" y="284.0">5</text></a>
-        <a href="#it-kev-0922-edge"><circle class="blip crit" cx="117.7" cy="82.2" r="10.5"/><text class="blip-num" style="font-size:9.5px" x="117.7" y="85.5">6</text></a>
-        <a href="#it-eviltokens-disrupted"><circle class="blip high" cx="303.6" cy="213.1" r="9.6"/><text class="blip-num" style="font-size:8.6px" x="303.6" y="216.1">7</text></a>
-        <a href="#it-brevo-supply-chain"><circle class="blip high" cx="55.8" cy="244.6" r="8.7"/><text class="blip-num" style="font-size:7.8px" x="55.8" y="247.3">8</text></a>
-        <a href="#it-screenconnect-worm"><circle class="blip crit" cx="223.8" cy="59.7" r="7.8"/><text class="blip-num" style="font-size:7.0px" x="223.8" y="62.1">9</text></a>
-        <a href="#it-cisco-esa-rce"><circle class="blip crit" cx="233.6" cy="309.3" r="6.9"/><text class="blip-num" style="font-size:6.2px" x="233.6" y="311.4">10</text></a>
-        <a href="#it-zyxel-gs1900-kev"><circle class="blip high" cx="290.0" cy="100.0" r="6.0"/><text class="blip-num" style="font-size:5.4px" x="290.0" y="101.9">11</text></a>
-        <a href="#it-mikrotik-mikrotrick"><circle class="blip crit" cx="95.0" cy="300.0" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="95.0" y="301.6">12</text></a>
+        <a href="#it-citrix-netscaler-zero-days"><circle class="blip crit" cx="248.9" cy="255.2" r="14.2"/><text class="blip-num" style="font-size:12.8px" x="248.9" y="259.6">2</text></a>
+        <a href="#it-fortimail-cve-2026-104286"><circle class="blip crit" cx="64.4" cy="169.9" r="13.5"/><text class="blip-num" style="font-size:12.2px" x="64.4" y="174.1">3</text></a>
+        <a href="#it-cisco-sdwan-cve-2026-76504"><circle class="blip crit" cx="249.8" cy="126.4" r="12.7"/><text class="blip-num" style="font-size:11.4px" x="249.8" y="130.3">4</text></a>
+        <a href="#it-star-blizzard-redflick"><circle class="blip high" cx="162.3" cy="280.5" r="12.0"/><text class="blip-num" style="font-size:10.8px" x="162.3" y="284.2">5</text></a>
+        <a href="#it-wordpress-cve-2026-87902"><circle class="blip crit" cx="117.7" cy="82.2" r="11.2"/><text class="blip-num" style="font-size:10.1px" x="117.7" y="85.7">6</text></a>
+        <a href="#it-mikrotik-mikrotrick"><circle class="blip crit" cx="303.6" cy="213.1" r="10.4"/><text class="blip-num" style="font-size:9.4px" x="303.6" y="216.3">7</text></a>
+        <a href="#it-apple-coregraphics-86950"><circle class="blip high" cx="55.8" cy="244.6" r="9.7"/><text class="blip-num" style="font-size:8.7px" x="55.8" y="247.6">8</text></a>
+        <a href="#it-grimwedge-ngo"><circle class="blip crit" cx="223.8" cy="59.7" r="8.9"/><text class="blip-num" style="font-size:8.0px" x="223.8" y="62.5">9</text></a>
+        <a href="#it-sharepoint-cve-2026-65660"><circle class="blip high" cx="233.6" cy="309.3" r="8.1"/><text class="blip-num" style="font-size:7.3px" x="233.6" y="311.8">10</text></a>
+        <a href="#it-roundcube-48842"><circle class="blip high" cx="290.0" cy="100.0" r="7.4"/><text class="blip-num" style="font-size:6.7px" x="290.0" y="102.3">11</text></a>
+        <a href="#it-belgian-sports-federations"><circle class="blip high" cx="95.0" cy="300.0" r="6.6"/><text class="blip-num" style="font-size:5.9px" x="95.0" y="302.0">12</text></a>
+        <a href="#it-kev-0922-edge"><circle class="blip crit" cx="130.0" cy="228.0" r="5.9"/><text class="blip-num" style="font-size:5.3px" x="130.0" y="229.8">13</text></a>
+        <a href="#it-brevo-supply-chain"><circle class="blip high" cx="305.0" cy="155.0" r="5.1"/><text class="blip-num" style="font-size:4.6px" x="305.0" y="156.6">14</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-divd-agentic-ai-breach"><span class="ld high"></span><b>1</b> DIVD non-profit hacked; it suspects an AI agent</a>
-        <a href="#it-wordpress-cve-2026-87902"><span class="ld crit"></span><b>2</b> WordPress CVE-2026-87902: payloads written to servers</a>
-        <a href="#it-roundcube-48842"><span class="ld high"></span><b>3</b> Roundcube webmail CVE-2026-48842 exploited</a>
-        <a href="#it-belgian-sports-federations"><span class="ld high"></span><b>4</b> Belgian sports federations: intrusions confirmed, 260k+ records claimed</a>
-        <a href="#it-grimwedge-ngo"><span class="ld crit"></span><b>5</b> Zero-day chain: UTA0565 adds CLEANGULP, spoofed think-tank lures</a>
-        <a href="#it-kev-0922-edge"><span class="ld crit"></span><b>6</b> Check Point VPN/Spark + F5 APM exploited, KEV 22 Sep</a>
-        <a href="#it-eviltokens-disrupted"><span class="ld high"></span><b>7</b> EvilTokens device-code phishing: 12k+ accounts, disrupted</a>
-        <a href="#it-brevo-supply-chain"><span class="ld high"></span><b>8</b> Brevo scripts hijacked: ClickFix + WP backdoor</a>
-        <a href="#it-screenconnect-worm"><span class="ld crit"></span><b>9</b> ScreenConnect 9.9 spreading worm-like</a>
-        <a href="#it-cisco-esa-rce"><span class="ld crit"></span><b>10</b> Cisco email gateway root RCE exploited</a>
-        <a href="#it-zyxel-gs1900-kev"><span class="ld high"></span><b>11</b> Zyxel GS1900 switches: 996 hijacked, KEV</a>
-        <a href="#it-mikrotik-mikrotrick"><span class="ld crit"></span><b>12</b> MikroTik router takeover, KEV-listed</a>
+        <a href="#it-divd-agentic-ai-breach"><span class="ld high"></span><b>1</b> DIVD breached via Zammad zero-days, now in KEV</a>
+        <a href="#it-citrix-netscaler-zero-days"><span class="ld crit"></span><b>2</b> Citrix NetScaler: three exploited flaws, all in KEV</a>
+        <a href="#it-fortimail-cve-2026-104286"><span class="ld crit"></span><b>3</b> FortiMail zero-day exploited; fixed releases listed</a>
+        <a href="#it-cisco-sdwan-cve-2026-76504"><span class="ld crit"></span><b>4</b> Cisco SD-WAN Manager auth bypass exploited, KEV</a>
+        <a href="#it-star-blizzard-redflick"><span class="ld high"></span><b>5</b> Star Blizzard RedFlick phishing hits NGOs, think tanks</a>
+        <a href="#it-wordpress-cve-2026-87902"><span class="ld crit"></span><b>6</b> WordPress CVE-2026-87902 exploited, in KEV</a>
+        <a href="#it-mikrotik-mikrotrick"><span class="ld crit"></span><b>7</b> MikroTik takeover chain in KEV; new web flaw</a>
+        <a href="#it-apple-coregraphics-86950"><span class="ld high"></span><b>8</b> Apple CoreGraphics flaw used against targeted people</a>
+        <a href="#it-grimwedge-ngo"><span class="ld crit"></span><b>9</b> Zero-day chain aimed at NGOs: three China-linked users</a>
+        <a href="#it-sharepoint-cve-2026-65660"><span class="ld high"></span><b>10</b> SharePoint CVE-2026-65660 attacked, KEV 25 Sep</a>
+        <a href="#it-roundcube-48842"><span class="ld high"></span><b>11</b> Roundcube webmail CVE-2026-48842 exploited</a>
+        <a href="#it-belgian-sports-federations"><span class="ld high"></span><b>12</b> Belgian sports federations: intrusions confirmed, 260k+ records claimed</a>
+        <a href="#it-kev-0922-edge"><span class="ld crit"></span><b>13</b> Check Point VPN/Spark + F5 APM exploited, KEV 22 Sep</a>
+        <a href="#it-brevo-supply-chain"><span class="ld high"></span><b>14</b> Brevo scripts hijacked: ClickFix + WP backdoor</a>
       </div>
     </div>
 
@@ -941,60 +949,28 @@
         <a href="https://www.bleepingcomputer.com/news/security/malcious-admin-menu-editor-pro-plugin-backdoors-1-500-wordpress-sites/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-magento-stylesmuggler" data-published="2026-09-08">
+      <div class="card" id="it-mikrotik-mikrotrick" data-published="2026-09-29">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Incident</span>
         </div>
-        <h3>The Magento zero-day backdooring online stores now has a CVE, an emergency patch and a place in CISA&rsquo;s KEV catalog</h3>
-        <p>Sansec, the Dutch e-commerce forensics firm, reported on 5 September that a previously unknown flaw it names <em>StyleSmuggler</em> is being used to plant backdoors in Magento Open Source and Adobe Commerce stores. Sansec describes it as giving an unauthenticated attacker remote code execution with no user interaction, delivered in two stages: PHP code is smuggled in through the platform, then executed by triggering a built-in scheduled email job. The implant that follows disguises itself as a system process, re-establishes itself through cron, and reads session data. Sansec observed exploitation from 4 September. The position has since changed for the better: the flaw is now tracked as <strong>CVE-2026-75650</strong> at CVSS 10.0, affecting all versions of Adobe Commerce and Magento Open Source, Adobe has shipped an out-of-band patch and confirmed exploitation in the wild against merchants, and CISA added it to the Known Exploited Vulnerabilities catalog on 8 September. Attackers used it to deploy a Rust backdoor and a PHP web shell; the injection path abuses Magento&rsquo;s template system through a &ldquo;Payment Transaction Failed Reminder&rdquo; email. The same Adobe release fixed over 170 vulnerabilities. CrowdSec telemetry published on 14 September counted 2,760 exploit signals between 9 and 13 September, peaking at 1,303 on 11 September, from some 500 unique attacking addresses; volume has since halved but still runs more than ten times the first day&rsquo;s level, and there is still no published count of compromised stores. Nonprofits reach Magento by a predictable route &mdash; a charity shop moved online, merchandise, Christmas cards, event ticketing, membership fulfilment &mdash; usually built years ago by an agency that is no longer on retainer, which means nobody is watching for an advisory that has not been written yet. If your store takes card payments, the exposure is not only your own data.</p>
+        <h3>Attackers are taking over MikroTik routers through internet-facing SSH; CISA has listed a third RouterOS flaw in KEV and warned of a fourth in web management &mdash; the cheapest capable box in the sector</h3>
+        <p>CERT Polska, Poland&rsquo;s national CERT, published confirmation on 5 September that vulnerabilities it disclosed in MikroTik RouterOS are being exploited in the wild, in a two-flaw chain it calls <em>MikroTrick</em> that gives an unauthenticated attacker administrative control of a router whose SSH service is reachable from the internet. CERT Polska reports attacks observed since about 2 September; its 22&nbsp;September technical analysis names the two CVEs that make up the chain: <strong>CVE-2026-67279</strong>, an SSH flaw that lets an unauthenticated client open a session channel and send a command, combined with <strong>CVE-2026-86060</strong>, an argument-injection flaw. New on 25 September: CISA added CVE-2026-67279 (CVSS 6.9) to its Known Exploited Vulnerabilities catalog with a federal deadline of 28 September, noting that it can be chained to exploit CVE-2026-86060 without authentication. CVE-2026-86060 and CVE-2026-67277, a bandwidth-test flaw, were added on 10 September with a 13 September deadline, which has passed. CVE-2026-67276 is not in the catalog. MikroTik lists fixes in RouterOS 7.24.2, 7.23.4 and 6.49.21, with 7.24.3 and 7.23.6 also covering CVE-2026-67278 according to CERT Polska, and says the upgrade runs a compromise check that writes a critical log entry if the device has been tampered with. New on 29 September: a CISA advisory, ICSA-26-272-06, covers a separate flaw, <strong>CVE-2026-84411</strong>, an integer underflow in RouterOS&rsquo;s web-management interface that an unauthenticated attacker can use to run code or crash the router. CISA scores it 9.8 and lists versions before 7.24 as affected, so by its listing a router patched on the 7.23 or 6.49 branch for the SSH chain is still exposed to this one. It is not in the KEV catalog and no exploitation has been reported. This matters to nonprofits not because MikroTik is glamorous but because of who owns one. It is the router that ends up in small charities, community organisations, faith groups, hospices and overseas field offices precisely because it does serious routing for very little money &mdash; frequently installed once by a volunteer, a trustee&rsquo;s relative or a contractor who has long since moved on, and then never touched again. The exposure is not a misconfiguration you made; it is a device nobody has logged into for years with management left open to the internet. If the router falls, everything behind it is reachable and every DNS lookup on your network is the attacker&rsquo;s to steer.</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-75650</span>
-          <span>Adobe Commerce &amp; Magento Open Source, all versions &bull; CVSS 10.0 &bull; template-engine PHP code injection &rarr; remote code execution</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploited &mdash; Adobe confirmed in-the-wild exploitation against merchants; Sansec observed exploitation from 4 Sep 2026</span>
-            <span class="ops-tag kev-on">Added to CISA KEV on 8 Sep 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Adobe shipped an out-of-band fix; the same release addressed over 170 vulnerabilities</span>
-            <span class="ops-cc"><b>Action:</b> Establish today whether you run Magento or Adobe Commerce anywhere &mdash; the shop, the ticketing page, the Christmas card store, an old campaign microsite &mdash; and find out who, if anyone, currently maintains it. Apply Adobe&rsquo;s out-of-band patch as an emergency change; the flaw is exploited and now KEV-listed. Because exploitation began before the fix existed, patching is not enough on its own. Hunt as well: review scheduled tasks and cron entries for anything you did not create, look for recently modified PHP files and unfamiliar admin users, and check outbound connections from the web server. Take a clean, offline copy of your order and customer data now. If you find evidence of compromise, treat card and supporter data as exposed, involve your payment provider, and be ready to notify your data-protection regulator. Subscribe to Adobe&rsquo;s security bulletin so the patch does not pass you by.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Identify all Magento estates and apply the Adobe patch &mdash; 48h; compromise hunt on any internet-facing store &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-magento-stylesmuggler" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-magento-stylesmuggler">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA Known Exploited Vulnerabilities catalog; Adobe security bulletin; Sansec</span>
-          <span class="dot">&bull;</span>
-          <span>Exploitation from 4 Sep; Adobe out-of-band patch and KEV addition 8 Sep 2026</span>
-        </div>
-        <a href="https://www.cisa.gov/news-events/alerts/2026/09/08/cisa-adds-four-known-exploited-vulnerabilities-catalog" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-mikrotik-mikrotrick" data-published="2026-09-10">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Attackers are taking over MikroTik routers through internet-facing SSH &mdash; the cheapest capable box in the sector</h3>
-        <p>CERT Polska, Poland&rsquo;s national CERT, published confirmation on 5 September that vulnerabilities it disclosed in MikroTik RouterOS are being exploited in the wild, chained into an attack it calls <em>MikroTrick</em>. The chain gives an unauthenticated attacker administrative control of a router whose SSH service is reachable from the internet: a flaw in how RouterOS verified the public key presented during SSH authentication provides the entry point, and improper handling of disallowed characters in the username then escalates that session to full administrator. A third issue affects the bandwidth-test service. CERT Polska reports attacks observed since at least 2 September. Updated: CISA added CVE-2026-86060 (argument injection) to the KEV catalog on 10 September with a 13 September federal deadline, which has passed. CVE-2026-67277, the bandwidth-test memory-disclosure flaw, was added to KEV the same day with the same deadline; CVE-2026-67276, the signature-verification half of the chain, is not itself a KEV entry. MikroTik lists fixes in RouterOS 7.24.2, 7.23.4 and 6.49.21, with 7.24.3 and 7.23.6 also covering CVE-2026-67278 according to CERT Polska, and says the upgrade runs a compromise check that writes a critical log entry if the device has been tampered with. This matters to nonprofits not because MikroTik is glamorous but because of who owns one. It is the router that ends up in small charities, community organisations, faith groups, hospices and overseas field offices precisely because it does serious routing for very little money &mdash; frequently installed once by a volunteer, a trustee&rsquo;s relative or a contractor who has long since moved on, and then never touched again. The exposure is not a misconfiguration you made; it is a device nobody has logged into for years with management left open to the internet. If the router falls, everything behind it is reachable and every DNS lookup on your network is the attacker&rsquo;s to steer.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-67277</span>
+          <span class="cve-badge">CVE-2026-67279</span>
           <span class="cve-badge">CVE-2026-86060</span>
-          <span>MikroTik RouterOS &bull; SSH public-key verification and username handling flaws (also CVE-2026-67276, CVE-2026-67278) &bull; fixed in 7.24.2 / 7.23.4 / 6.49.21 (7.24.3 / 7.23.6 for CVE-2026-67278)</span>
+          <span class="cve-badge">CVE-2026-67277</span>
+          <span class="cve-badge">CVE-2026-84411</span>
+          <span>MikroTik RouterOS &bull; SSH session-workflow flaw chained with argument injection; bandwidth-test flaw (also CVE-2026-67276, CVE-2026-67278) &bull; fixed in 7.24.2 / 7.23.4 / 6.49.21 (7.24.3 / 7.23.6 for CVE-2026-67278) &bull; CVE-2026-84411 web-management flaw: versions before 7.24 affected (CISA)</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CERT Polska confirms exploitation in the wild since at least 2 Sep 2026, with log indicators published</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-86060 and CVE-2026-67277 added 10 Sep 2026, federal deadline 13 Sep 2026 (passed); CVE-2026-67276 is not in the catalogue</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CERT Polska confirms exploitation in the wild since about 2 Sep 2026, with log indicators published; three flaws now KEV-listed</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-67279 added 25 Sep 2026, federal deadline 28 Sep 2026; CVE-2026-86060 and CVE-2026-67277 added 10 Sep 2026, deadline 13 Sep 2026 (passed); CVE-2026-67276 is not in the catalog; CVE-2026-84411 (CISA advisory 29 Sep) is not in KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; RouterOS 7.24.2, 7.23.4 and 6.49.21 (7.24.3 / 7.23.6 for CVE-2026-67278); the upgrade runs a built-in compromise check</span>
-            <span class="ops-cc"><b>Action:</b> Find out today whether you own a MikroTik &mdash; ask your MSP, your volunteer IT helper, or look at the box in the comms cupboard &mdash; and include branch, field and pop-up sites, which is where these usually hide. Update to a fixed build immediately, then read the device log for the critical entry MikroTik&rsquo;s built-in compromise check writes. Until you have updated, disable internet-facing SSH, the web management interfaces and bandwidth-test, and restrict management to trusted internal addresses. Then hunt using the log indicators in the CERT Polska advisory, and check for unfamiliar users, scripts, schedulers and firewall or DNS changes. Treat a router that was exposed and unpatched as compromised, and rebuild its configuration from scratch rather than trusting a clean-looking user list.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; RouterOS 7.24.2, 7.23.4 and 6.49.21 (7.24.3 / 7.23.6 for CVE-2026-67278); the upgrade runs a built-in compromise check; CVE-2026-84411 needs 7.24 or later</span>
+            <span class="ops-cc"><b>Action:</b> Find out today whether you own a MikroTik &mdash; ask your MSP, your volunteer IT helper, or look at the box in the comms cupboard &mdash; and include branch, field and pop-up sites, which is where these usually hide. Update to a fixed build immediately &mdash; 7.24 or later where the hardware allows, which per CISA also covers CVE-2026-84411 &mdash; then read the device log for the critical entry MikroTik&rsquo;s built-in compromise check writes. Until you have updated, disable internet-facing SSH, the web management interfaces and bandwidth-test, and restrict management to trusted internal addresses. Then hunt using the log indicators in the CERT Polska advisory, and check for unfamiliar users, scripts, schedulers and firewall or DNS changes. Treat a router that was exposed and unpatched as compromised, and rebuild its configuration from scratch rather than trusting a clean-looking user list.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Identify and patch or isolate every MikroTik &mdash; 72h; configuration and log review for exposed devices &mdash; 7 days</span>
@@ -1003,9 +979,9 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CERT Polska (cert.pl); MikroTik advisory; CISA KEV catalog</span>
+          <span>CERT Polska (cert.pl); MikroTik advisory; CISA KEV catalog; CISA ICS advisory ICSA-26-272-06; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Exploitation observed from 2 Sep &mdash; published 5 Sep 2026; KEV listing (CVE-2026-86060) 10 Sep 2026; KEV status re-checked 21 Sep 2026</span>
+          <span>Exploitation observed from about 2 Sep &mdash; published 5 Sep 2026; KEV listing (CVE-2026-86060, CVE-2026-67277) 10 Sep 2026; CVE-2026-67279 added to KEV 25 Sep 2026 (deadline 28 Sep); CISA advisory for CVE-2026-84411 29 Sep 2026</span>
         </div>
         <a href="https://cert.pl/en/posts/2026/09/vulnerabilities-in-mikrotik-routeros-actively-exploited/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1016,6 +992,171 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="it-star-blizzard-redflick" data-published="2026-09-29">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Microsoft says Russia&rsquo;s Star Blizzard now needs one opened file to plant a backdoor &mdash; and NGOs and think tanks are among the 100-plus organisations it hit this year</h3>
+        <p>Microsoft Threat Intelligence published an analysis on 29 September of <strong>Star Blizzard</strong>, which it describes as a Russian state threat actor and which CISA attributes as subordinate to the FSB&rsquo;s Centre 18. Microsoft counts at least 13 large-scale phishing campaigns between January and August 2026 affecting more than 100 organisations, mainly in the United States and the United Kingdom, with Ukraine the primary focus. The targets it lists are government officials, NGOs, think tanks, security researchers, academia, media, financial institutions and diplomatic organisations, including Ukrainian civil-society groups. The lures included tax-audit and fine notices, payment notices, internal-looking messages and invitations to conferences and peace forums in the names of well-known policy institutes. What is new is the delivery, which Microsoft calls <em>RedFlick</em>: a password-protected archive holds a virtual disk image, which holds a disguised shortcut that runs an installer, which sets up scheduled tasks posing as system components. It needs a single user action &mdash; less than the earlier ClickFix-style chains &mdash; and ends with <strong>CosmicPulse</strong>, a Python backdoor that fetches further code and steals documents. For civil society the lesson is an old one with less room for error: a password-protected attachment from a plausible conference organiser deserves suspicion in itself, because the password also stops email security tools from looking inside.</p>
+        <div class="card-meta">
+          <span>Star Blizzard &bull; Russian state actor (Microsoft); subordinate to FSB Centre 18 (CISA) &bull; RedFlick chain: archive, VHDX disk image, shortcut, MSI installer, scheduled tasks &bull; CosmicPulse Python backdoor &bull; 13+ campaigns, 100+ organisations</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Microsoft reports at least 13 campaigns from January to August 2026 against more than 100 organisations, including NGOs and think tanks; attribution is Microsoft&rsquo;s and CISA&rsquo;s</span>
+            <span class="ops-tag kev-off">No CVE &mdash; relies on a user opening a file</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; phishing-resistant sign-in, attachment controls and endpoint protection</span>
+            <span class="ops-cc"><b>Action:</b> Tell staff who work on Russia, Ukraine, security policy or diplomacy that conference invitations, payment notices and tax letters carrying password-protected attachments are a known Star Blizzard pattern, and that the safe response is to check with the sender through a contact they already have. If you use Microsoft 365, ask your IT provider to turn on Safe Links and Safe Attachments, to block disk-image files such as VHDX and ISO arriving by email where possible, and to move high-risk staff to phishing-resistant sign-in such as passkeys or security keys. Make sure endpoint protection on their laptops runs in blocking mode rather than only reporting.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Briefing for high-risk staff &mdash; 7 days; disk-image attachments blocked and Safe Attachments on &mdash; 14 days; phishing-resistant sign-in for high-risk staff &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-star-blizzard-redflick" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-star-blizzard-redflick">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Threat Intelligence (Microsoft Security Blog)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 29 Sep 2026; campaigns January&ndash;August 2026</span>
+        </div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/29/star-blizzard-refines-phishing-and-malware-delivery-with-the-redflick-technique/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-ta419-ai-policy-phishing" data-published="2026-10-01">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>A China-aligned group posed as AI-policy experts to phish think tanks &mdash; and its fake Microsoft sign-in captured MFA codes and session cookies as well as passwords</h3>
+        <p>Proofpoint published research on 1 October on <strong>TA419</strong>, a group it describes as China-aligned and espionage-motivated, which from April 2025 to July 2026 targeted think tanks, universities, legal-sector organisations and policy institutes working on AI policy and national security in the United States and Japan. The approach relied on credibility rather than malware. Emails impersonated real people &mdash; a former deputy director at the White House Office of Science and Technology Policy, an economist and a senior Anthropic employee &mdash; and offered seats on an AI policy advisory committee, Senate reports on AI export controls or papers on the military use of AI models. The links ran through URL shorteners and a Cloudflare Turnstile check, which keeps automated scanners out, to a browser-in-the-browser page that relayed the victim&rsquo;s real Microsoft sign-in to the attacker as it happened. That adversary-in-the-middle design captures the password, the one-time MFA code and the session cookie, so ordinary MFA does not stop it. Proofpoint recommends phishing-resistant, origin-bound sign-in such as passkeys, and checking unexpected approaches from experts through a channel you already trust. Policy think tanks are nonprofits, and their staff are paid to answer exactly this kind of email.</p>
+        <div class="card-meta">
+          <span>TA419 &bull; China-aligned, espionage-motivated (Proofpoint) &bull; impersonation of AI-policy experts &bull; URL shorteners, Cloudflare Turnstile, browser-in-the-browser and adversary-in-the-middle Microsoft sign-in &bull; April 2025&ndash;July 2026</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Observed &mdash; Proofpoint documents activity from April 2025 to July 2026 against think tanks, universities, legal-sector and policy organisations; attribution is Proofpoint&rsquo;s</span>
+            <span class="ops-tag kev-off">No CVE &mdash; credential and session theft through a relayed sign-in</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; phishing-resistant authentication and out-of-band verification</span>
+            <span class="ops-cc"><b>Action:</b> Move researchers, fellows, communications staff and senior leaders &mdash; the people outside experts write to &mdash; onto passkeys or hardware security keys for Microsoft 365, because one-time codes and push approvals can be relayed and these cannot. Ask your IT provider whether Conditional Access can limit sign-ins to managed or known devices, which makes a stolen session cookie harder to reuse. Agree a simple rule: an unexpected invitation from a well-known figure is confirmed through a contact you already have before anyone signs in through its link.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Out-of-band verification rule briefed &mdash; 7 days; passkeys or security keys for high-exposure staff &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ta419-ai-policy-phishing" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ta419-ai-policy-phishing">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Proofpoint Threat Insight; The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Published 1 Oct 2026; activity April 2025&ndash;July 2026</span>
+        </div>
+        <a href="https://www.proofpoint.com/us/blog/threat-insight/hallucinating-credibility-china-aligned-ta419-impersonates-its-way-us-ai-policy" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-needymantis-medical-nonprofits" data-published="2026-09-28">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Microsoft details NeedyMantis, China-linked malware used against medical nonprofits and intergovernmental organisations &mdash; it hides behind Poedit, curl, Vim and TightVNC</h3>
+        <p>Microsoft Threat Intelligence published an analysis on 28 September of <strong>NeedyMantis</strong>, a modular post-compromise malware family it has seen in a limited number of targeted operations since October 2025. The targets it names are telecommunications organisations, universities, medical nonprofits, intergovernmental organisations and government contractors. Microsoft says the activity is consistent with threat actors it associates with operating from China, but it has not determined that all of it comes from the same operator. NeedyMantis is not how the attackers get in &mdash; Microsoft does not say how they do &mdash; but how they stay. It is loaded by DLL side-loading through copies of ordinary, legitimate programs (the Poedit translation editor, curl, the Vim text editor and the TightVNC remote-access tool), disguises its files as Microsoft Office, Broadcom, Intel and NVIDIA components, talks to its controllers over WebSockets and loads extra modules on demand. For a nonprofit that works in health or with international bodies, the practical point is that the programs being abused are the kind a volunteer translator or an IT helper might legitimately install, so an unexplained copy of one in an odd folder is worth asking about.</p>
+        <div class="card-meta">
+          <span>NeedyMantis &bull; modular post-compromise malware &bull; DLL side-loading via Poedit, curl, Vim and TightVNC &bull; WebSocket command and control &bull; activity Microsoft associates with threat actors operating from China &bull; since October 2025</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Microsoft observes use in a limited number of targeted operations, including against medical nonprofits and intergovernmental organisations; initial access not stated</span>
+            <span class="ops-tag kev-off">No CVE &mdash; malware deployed after access is gained</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; endpoint protection settings and hunting</span>
+            <span class="ops-cc"><b>Action:</b> If you use Microsoft Defender, ask your IT provider to confirm that cloud-delivered protection, block at first sight, network protection and EDR in block mode are switched on, as Microsoft recommends. Ask them to search network and DNS logs for the command-and-control domain listed in Microsoft&rsquo;s post, and devices for copies of Poedit, curl, Vim or TightVNC sitting outside their normal install folders. If you work with health data or intergovernmental partners, treat any hit as an incident rather than a curiosity.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Defender protection settings confirmed &mdash; 14 days; domain and file hunt completed &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-needymantis-medical-nonprofits" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-needymantis-medical-nonprofits">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Threat Intelligence (Microsoft Security Blog)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 28 Sep 2026; activity since October 2025</span>
+        </div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/28/needymantis-unpacking-a-post-compromise-malware-family-used-in-targeted-operations/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-mddr-2026-ngos" data-published="2026-10-01">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>Microsoft&rsquo;s annual defence report ranks NGOs among the ten sectors threat actors hit most, at 8% &mdash; and says flaws are now weaponised in well under a day</h3>
+        <p>Microsoft published its Digital Defense Report 2026 on 1 October, covering July 2025 to June 2026. Its chart of the ten sectors most impacted by threat actors, drawn from Microsoft Threat Intelligence, puts government agencies and services first at 27%, followed by IT at 17%, research and academia at 14% and communications infrastructure at 9%; transportation and NGOs each account for 8%, ahead of the defence industrial base (7%), critical manufacturing (5%), financial services (4%) and energy (3%). The chart counts all threat actors seen impacting Microsoft customers, criminal as well as state-backed, so it is not a measure of nation-state targeting alone. The report also says the median time from a vulnerability being discovered to being weaponised is now &ldquo;well below 24 hours&rdquo;, and that from January to June 2026 the most impacted countries were the United States (25.5%), Israel (7.6%) and Ukraine (4.8%). For this sector the figures say two things. NGOs are not a niche target: by Microsoft&rsquo;s count they are hit about as often as transport. And the gap between a fix being published and the flaw being used is now shorter than most charities&rsquo; patch cycle, which is the case for automatic updates and for exposing fewer systems to the internet.</p>
+        <div class="card-meta">
+          <span>Microsoft Digital Defense Report 2026 &bull; July 2025&ndash;June 2026 &bull; NGOs 8% of sectors impacted (all threat actors, not only nation-state) &bull; median discovery-to-weaponisation well below 24 hours</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Annual report &mdash; aggregate figures, no single campaign</span>
+            <span class="ops-tag kev-off">No CVE &mdash; threat-landscape research</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; patch-speed and exposure planning</span>
+            <span class="ops-cc"><b>Action:</b> Use the report&rsquo;s timing figure to set a target with your IT provider: security updates for anything facing the internet &mdash; website, VPN, firewall, email gateway, remote-access tools &mdash; installed within days rather than at the next monthly visit, and automatic updates on for laptops and phones. Ask for a list of every system you expose to the internet and switch off the ones nobody needs.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing patch target agreed with IT provider &mdash; 30 days; internet-exposure list reviewed &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-mddr-2026-ngos" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-mddr-2026-ngos">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Digital Defense Report 2026 (PDF); BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Published 1 Oct 2026; covers July 2025&ndash;June 2026</span>
+        </div>
+        <a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/2026-Microsoft-Digital-Defense-Report.pdf" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-storm-2570-multi-raas" data-published="2026-09-24">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Microsoft profiles a ransomware affiliate that switches between four brands &mdash; and lists NGOs among the sectors it has hit</h3>
+        <p>Microsoft Threat Intelligence published a profile on 24 September of <strong>Storm-2570</strong>, a ransomware affiliate it has tracked since April 2025 that has deployed four different ransomware families &mdash; Qilin, DragonForce, Anubis and BERT &mdash; while its hands-on methods stay the same. Microsoft lists the sectors it has targeted as healthcare, education, government, financial services, energy, retail, IT, food and agriculture, consumer services, commercial facilities, non-government organisations (NGOs), chemicals, critical manufacturing and transportation, in the United States, Canada, the United Kingdom, Spain, the Netherlands and Puerto Rico. How it first gets in &ldquo;remains unconfirmed&rdquo;. Once inside, it relies on legitimate remote-management tools such as Atera, MeshAgent, ScreenConnect, Splashtop and NinjaRMM, moves between machines with PsExec, Impacket and NetExec, steals credentials with Mimikatz, LaZagne and ntdsutil, and copies data out with Rclone or s5cmd. Microsoft names no victims. The practical lesson for a charity is in that toolset: most of it is the same remote-support software an IT provider or volunteer might install, so an unexpected remote-access agent on a laptop or server is worth asking about rather than assuming someone authorised it. The change of ransomware brand also means a ransom note tells you little about who you are dealing with.</p>
+        <div class="card-meta">
+          <span>Storm-2570 &bull; ransomware affiliate deploying Qilin, DragonForce, Anubis and BERT &bull; tracked since April 2025 &bull; NGOs among listed target sectors &bull; initial access unconfirmed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Microsoft reports deployments across many sectors, including NGOs; initial access unconfirmed; no victims named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; Microsoft has not confirmed how the group gets in</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; remote-tool control, tamper protection, MFA and tested backups</span>
+            <span class="ops-cc"><b>Action:</b> Agree with your IT provider a short list of the remote-access tools that are allowed on your devices, and ask them to remove or block any others; Microsoft names Atera, MeshAgent, ScreenConnect, Splashtop and NinjaRMM among those this group uses. Require multi-factor authentication on the remote-management tool you do use. If you use Microsoft Defender, ask your provider to turn on tamper protection, so an intruder cannot switch security software off, and the attack surface reduction rules Microsoft recommends against PsExec, WMI and credential theft. Keep an offline or otherwise protected copy of the donor database and finance system, and test that you can restore it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Approved remote-access tool list agreed with IT provider &mdash; 14 days; MFA on the remote-management tool and Defender tamper protection on &mdash; 30 days; backup restore test &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-storm-2570-multi-raas" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-storm-2570-multi-raas">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft Threat Intelligence (Microsoft Security Blog)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 24 Sep 2026</span>
+        </div>
+        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-chosen-brick-iran" data-published="2026-09-15">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1256,38 +1397,243 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-wordpress-cve-2026-87902" data-published="2026-09-23">
+      <div class="card" id="it-citrix-netscaler-zero-days" data-published="2026-10-04">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Advisory</span>
         </div>
-        <h3>A WordPress core flaw was being exploited within five hours of its patch &mdash; the charity website, the event microsite and the old campaign site all need 7.1.2</h3>
-        <p>WordPress released <strong>7.1.2</strong> on 22 September to fix <strong>CVE-2026-87902</strong> (CVSS 9.2). It is an unauthenticated path-traversal flaw in WordPress core, not in a plugin, and the fix was backported to every branch down to 4.7; BleepingComputer notes that releases before 4.6 will not get a fix, so a very old install has to be upgraded or taken offline. Under certain conditions it lets an attacker include a PHP file already on the server and run code. The conditions are that the active theme has a top-level folder whose name begins with &ldquo;page-&rdquo;, and that a readable PHP file outside the theme, such as PEAR&rsquo;s pearcmd.php, can be reached with PHP&rsquo;s register_argc_argv setting switched on. Patchstack says it saw the first malicious requests at 17:44 UTC on 22 September, less than five hours after the release. By 23 September traffic had grown tenfold and moved from reconnaissance to delivering payloads, writing files such as wp-pear-rce-flag.php, poc87902.php and randomly named luci_ and zeta_ PHP files into /tmp and /var/tmp. Patchstack listed source addresses 169.58.48.193, 169.58.48.195 and 2001:df1:e8c0::106b. It is not in CISA&rsquo;s KEV catalog, and no compromised site has been named. This is a separate bug from the Click2Shell flaw fixed in 7.1.1, so a site updated last week still needs this release. WordPress is common in this sector. The main site, the donation landing page, the gala microsite and the volunteer portal are often separate installs, built by different agencies or volunteers, some with automatic updates switched off.</p>
+        <h3>Citrix confirms the NetScaler zero-days, CISA lists a third exploited flaw &mdash; and patching does not remove an attacker who got in first</h3>
+        <p>Citrix confirmed on 27 September that two flaws in NetScaler ADC and NetScaler Gateway were being exploited and released fixes in bulletin CTX697096, turning the watchTowr report carried on the previous edition of this card into a confirmed campaign. <strong>CVE-2026-88771</strong> is an input-validation flaw that lets an unauthenticated attacker run commands and affects default configurations; <strong>CVE-2026-88772</strong> is a memory-overflow flaw that needs DTLS, which VPN virtual servers have switched on by default. Both are rated 9.5 under CVSS v4, and the fixed builds are 14.1-73.37 and 13.1-64.23 or later. CISA added both to its KEV catalog the same day with a 30 September deadline, said they are being exploited around the world, and advised preserving forensic evidence before patching; the Dutch NCSC reported exploitation at several Citrix customers in different countries. Responders describe web shells, a rogue administrator account and theft of the appliance&rsquo;s configuration, and Mandiant warns that upgrading alone will not remove access already gained or deal with stolen credentials. Victim counts come from different trackers and should not be merged: Mandiant says dozens of organisations across government, education, technology, financial services, telecoms and legal and professional services in North America and Europe; Arctic Wolf at least 78; researcher Kevin Beaumont more than 100 by his own tracking on 29 September. Mandiant describes the attackers as suspected state-sponsored; no group has been named. In the Netherlands a ministry and hospitals took Citrix systems offline as a precaution; those were shutdowns, not confirmed compromises. A third flaw followed: <strong>CVE-2026-88779</strong>, a memory overflow in SAML handling that only affects appliances set up as a SAML service provider or identity provider. Citrix has patched it (14.1-73.41 and 13.1-64.28 or later) and says it has observed targeted attacks that can lead to denial of service, with no impact on the integrity of customer data identified; CISA added it to KEV on 4 October with a 7 October deadline. watchTowr reproduced it as a crash-only bug and suspects it is used to knock appliances over to speed up exploitation of CVE-2026-88771; one researcher reported signs of code execution, but watchTowr and Citrix describe a crash. Few small charities run a NetScaler themselves, but larger NGOs, federations and hosting partners use one as the remote-access or single-sign-on front door, so this is a question for whoever runs yours.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-88771</span>
+          <span class="cve-badge">CVE-2026-88772</span>
+          <span class="cve-badge">CVE-2026-88779</span>
+          <span>Citrix NetScaler ADC / NetScaler Gateway &bull; unauthenticated command execution; DTLS memory overflow; SAML memory overflow (crash) &bull; builds 14.1-73.41 / 13.1-64.28 and later carry all three fixes (FIPS builds listed separately by Citrix)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; exploitation confirmed by Citrix, CISA and the Dutch NCSC; web shells, rogue administrator accounts and configuration theft reported; attackers suspected state-sponsored per Mandiant, no group named</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-88771 and CVE-2026-88772 added 27 Sep 2026 (deadline 30 Sep, passed); CVE-2026-88779 added 4 Oct 2026, deadline 7 Oct 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; bulletin CTX697096 (27 Sep) for the first two; CVE-2026-88779 fixed in 14.1-73.41 / 13.1-64.28 and later; upgrading does not evict an intruder</span>
+            <span class="ops-cc"><b>Action:</b> Ask your IT provider or hosting partner today whether a Citrix NetScaler ADC or Gateway sits in front of any of your systems. If one does, ask them to preserve memory and logs before patching, as CISA and the Dutch NCSC advise, then install a current build that carries all three fixes. Because an upgrade does not remove an intruder, ask for a compromise check as well: unfamiliar administrator accounts, unexpected files in the web directories and changes to the configuration. If anything is found, treat the passwords, certificates and session keys that passed through the appliance as exposed and rotate them, and make sure its management interface cannot be reached from the internet.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> NetScaler use confirmed with your provider &mdash; 24h; evidence preserved and fixed build installed &mdash; 72h; compromise check and credential rotation where indicated &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-citrix-netscaler-zero-days" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-citrix-netscaler-zero-days">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Citrix bulletin CTX697096; CISA KEV catalog and alert; NCSC-NL; Mandiant; Arctic Wolf; watchTowr via SecurityWeek; Tenable</span>
+          <span class="dot">&bull;</span>
+          <span>watchTowr report 26 Sep; Citrix fixes and KEV addition 27 Sep 2026; third flaw added to KEV 4 Oct 2026 (deadline 7 Oct)</span>
+        </div>
+        <a href="https://tenable.com/blog/frequently-asked-questions-about-reported-citrix-netscaler-zero-day-vulnerabilities" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-fortimail-cve-2026-104286" data-published="2026-10-05">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>An exploited FortiMail zero-day lets an unauthenticated attacker write files onto the email gateway &mdash; Fortinet&rsquo;s 5 October update lists the fixed releases</h3>
+        <p>Fortinet published advisory FG-IR-26-175 on 1 October for <strong>CVE-2026-104286</strong>, a path-traversal flaw combined with improper handling of NULL bytes in FortiMail, its email-security gateway. It lets an unauthenticated attacker write arbitrary files on the underlying system with crafted HTTP or HTTPS requests. Fortinet rates it CVSS 9.8 and says it has been reported to be exploited in the wild; CISA added it to its Known Exploited Vulnerabilities catalog the same day with a 4 October federal deadline. Affected releases are 7.2.0 to 7.2.9, 7.4.0 to 7.4.8, 7.6.0 to 7.6.6 and 8.0.0 to 8.0.1. At first Fortinet said only that fixes were planned; its 5 October update lists 7.4.9, 7.6.7 and 8.0.2 as the releases to move to, and tells 7.2 users to move to the 7.4 branch or later. It also gave interim workarounds: disabling identity-based encryption (IBE), restricting webmail and management access to trusted networks, and web-application-firewall rules that block traversal requests to the IBE paths. Fortinet has named no attacker and no victims. Most small charities send mail through Microsoft 365 or Google and will not run FortiMail. Larger NGOs, federations and the hosting or managed-service providers that run mail for several charities do, and a compromised gateway sits in the path of every message going in and out.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-104286</span>
+          <span>Fortinet FortiMail &bull; unauthenticated arbitrary file write via path traversal and NULL-byte handling &bull; CVSS 9.8 (Fortinet) &bull; affected 7.2.0&ndash;7.2.9, 7.4.0&ndash;7.4.8, 7.6.0&ndash;7.6.6, 8.0.0&ndash;8.0.1</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Fortinet says the flaw has been reported exploited in the wild; KEV-listed; no attacker or victims named</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 1 Oct 2026; federal deadline 4 Oct 2026 (passed)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed releases listed &mdash; Fortinet&rsquo;s 5 Oct update names 7.4.9, 7.6.7 and 8.0.2; the 7.2 branch must move to 7.4 or later; workarounds still advised</span>
+            <span class="ops-cc"><b>Action:</b> Ask whoever runs your email &mdash; your own IT team, a managed-service provider or the host of a shared mail service &mdash; whether a FortiMail appliance or virtual machine handles your mail. If one does, upgrade it to a fixed release from Fortinet&rsquo;s advisory; if that cannot happen today, apply Fortinet&rsquo;s workarounds and keep the webmail and management interfaces off the open internet. Then ask for a check for unfamiliar files and administrator accounts on the gateway, and rotate its administrator passwords.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> FortiMail use confirmed &mdash; 24h; fixed release or workarounds in place &mdash; 72h; compromise check &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fortimail-cve-2026-104286" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fortimail-cve-2026-104286">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Fortinet PSIRT FG-IR-26-175; CISA KEV catalog; SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory and KEV addition 1 Oct 2026 (deadline 4 Oct); fixed releases listed in Fortinet&rsquo;s 5 Oct 2026 update</span>
+        </div>
+        <a href="https://fortiguard.fortinet.com/psirt/FG-IR-26-175" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-cisco-sdwan-cve-2026-76504" data-published="2026-10-02">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Cisco says attackers are using a Catalyst SD-WAN Manager flaw to get administrator access without logging in &mdash; there is no workaround</h3>
+        <p>Cisco published an advisory on 30 September for <strong>CVE-2026-76504</strong> in Catalyst SD-WAN Manager, the console that configures an organisation&rsquo;s software-defined wide-area network. Improper handling of URI encoding lets a crafted request slip past an authentication rule meant to restrict access to an API endpoint, giving an unauthenticated remote attacker administrator-level access. Cisco rates it CVSS 9.8, says its PSIRT became aware of active exploitation in September, and offers no workaround. CISA added it to its KEV catalog the same day with a 3 October deadline. Fixed releases are 20.9.10.1, 20.12.8.2, 20.15.6.1, 20.18.4.1, 26.1.2.1 and 26.2.1; anything older than 20.9 has to migrate to a supported release. Cisco revised the advisory on 2 October. BleepingComputer counts it as the fifth exploited Catalyst SD-WAN zero-day this year. No attacker has been named. A single-office charity will not run this. NGOs with many offices, field sites or shops often do, usually through a managed network provider, and an administrator on the SD-WAN manager can change the network configuration of every site it manages.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-76504</span>
+          <span>Cisco Catalyst SD-WAN Manager &bull; API authentication bypass via URI encoding, giving unauthenticated administrator access &bull; CVSS 9.8 (Cisco) &bull; no workaround</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Cisco PSIRT became aware of exploitation in September 2026; no attacker named</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 30 Sep 2026; federal deadline 3 Oct 2026 (passed)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; 20.9.10.1, 20.12.8.2, 20.15.6.1, 20.18.4.1, 26.1.2.1 and 26.2.1; releases before 20.9 must migrate</span>
+            <span class="ops-cc"><b>Action:</b> If your organisation links offices, shops or field sites over a managed network, ask the provider whether it uses Cisco Catalyst SD-WAN and, if so, whether the manager is on a fixed release and when it was installed. Ask them to check the manager for administrator accounts, API activity and configuration changes they cannot account for since September, and to confirm its interface is not reachable from the internet.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> SD-WAN use confirmed with your network provider &mdash; 48h; fixed release confirmed in writing &mdash; 72h; account and configuration review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-sdwan-cve-2026-76504" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cisco-sdwan-cve-2026-76504">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Cisco security advisory cisco-sa-sdwan-webauth-xr8beuuU; CISA KEV catalog; BleepingComputer</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory and KEV addition 30 Sep 2026 (deadline 3 Oct); advisory revised 2 Oct 2026</span>
+        </div>
+        <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-apple-coregraphics-86950" data-published="2026-09-29">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Apple patches a CoreGraphics flaw it says may have been used against specific targeted individuals &mdash; the iPhones and Macs of staff in high-risk roles come first</h3>
+        <p>Apple&rsquo;s fix for <strong>CVE-2026-86950</strong>, published on 28 September in iOS and iPadOS 26.7.1, macOS Tahoe 26.7.1 and macOS Sequoia 15.8.1, addresses an out-of-bounds write in CoreGraphics, the system&rsquo;s graphics framework: processing a maliciously crafted file may lead to arbitrary code execution. Apple says it is aware of a report that the flaw may have been exploited in an &ldquo;extremely sophisticated attack against specific targeted individuals&rdquo; on versions of iOS before iOS 27. CISA added it to its Known Exploited Vulnerabilities catalog on 29 September with a 2 October federal deadline, and its enrichment scores it CVSS 8.8. Apple has not said who was targeted or by whom, and gives no technical detail beyond the description. Attacks of this kind are aimed at chosen people rather than the general public, which is why it sits on the nonprofit page: the people most likely to be singled out are the human-rights researchers, journalists, lawyers and diaspora organisers that many NGOs employ or support &mdash; the same people the CHOSEN BRICK and GRIMWEDGE items on this page describe.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-86950</span>
+          <span>Apple CoreGraphics &bull; out-of-bounds write, code execution via a crafted file &bull; CVSS 8.8 (CISA-ADP) &bull; fixed in iOS / iPadOS 26.7.1, macOS Tahoe 26.7.1, macOS Sequoia 15.8.1</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Targeted exploitation &mdash; Apple is aware of a report of exploitation against specific individuals on iOS versions before iOS 27; KEV-listed; no actor or victims named</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 29 Sep 2026; federal deadline 2 Oct 2026 (passed)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; iOS and iPadOS 26.7.1, macOS Tahoe 26.7.1 and macOS Sequoia 15.8.1 (28 Sep 2026)</span>
+            <span class="ops-cc"><b>Action:</b> Ask every member of staff and every regular volunteer who uses an iPhone, iPad or Mac for work to install the latest update Apple offers and restart today, starting with anyone in a high-risk role &mdash; investigators, campaigners, people working on sensitive countries and senior leaders. If you manage devices centrally, set a deadline and check compliance. For people with reason to believe they are individually targeted, discuss turning on Apple&rsquo;s Lockdown Mode.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> High-risk staff devices updated &mdash; 48h; all work Apple devices updated &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-apple-coregraphics-86950" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-apple-coregraphics-86950">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Apple security release (CVE record via CIRCL Vulnerability-Lookup); CISA KEV catalog</span>
+          <span class="dot">&bull;</span>
+          <span>Apple fix 28 Sep 2026; KEV addition 29 Sep 2026 (deadline 2 Oct)</span>
+        </div>
+        <a href="https://vulnerability.circl.lu/vuln/cve-2026-86950" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-wordpress-cve-2026-87902" data-published="2026-09-25">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CISA has added the exploited WordPress core flaw to its KEV catalog with a 28 September deadline &mdash; the charity website, the event microsite and the old campaign site all need 7.1.2</h3>
+        <p>WordPress released <strong>7.1.2</strong> on 22 September to fix <strong>CVE-2026-87902</strong> (CVSS 9.2). It is an unauthenticated path-traversal flaw in WordPress core, not in a plugin, and the fix was backported to every branch down to 4.7 (for example 7.0.6, 6.9.9 and 6.8.10); BleepingComputer notes that releases before 4.6 will not get a fix, so a very old install has to be upgraded or taken offline. Under certain conditions it lets an attacker include a PHP file already on the server and run code. The conditions are that the active theme has a top-level folder whose name begins with &ldquo;page-&rdquo;, and that a readable PHP file outside the theme, such as PEAR&rsquo;s pearcmd.php, can be reached with PHP&rsquo;s register_argc_argv setting switched on. Patchstack says it saw the first malicious requests at 17:44 UTC on 22 September, less than five hours after the release. By 23 September traffic had grown tenfold and moved from reconnaissance to delivering payloads, writing files such as wp-pear-rce-flag.php, poc87902.php and randomly named luci_ and zeta_ PHP files into /tmp and /var/tmp. Patchstack listed source addresses 169.58.48.193, 169.58.48.195 and 2001:df1:e8c0::106b. New on 25 September: CISA added CVE-2026-87902 to its Known Exploited Vulnerabilities catalog, listing it as a WordPress Core remote file inclusion flaw, with a federal deadline of 28 September. A KEV listing means CISA has evidence of exploitation in the wild; no compromised site has been named publicly. This is a separate bug from the Click2Shell flaw fixed in 7.1.1, so a site updated last week still needs this release. WordPress is common in this sector. The main site, the donation landing page, the gala microsite and the volunteer portal are often separate installs, built by different agencies or volunteers, some with automatic updates switched off.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-87902</span>
           <span>WordPress core &le; 7.1.1 &bull; unauthenticated path traversal to local PHP file inclusion &bull; code execution depends on theme folder layout and server PHP configuration &bull; fixed in 7.1.2 with backports to 4.7</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Patchstack observed exploitation from 22 Sep and file-writing payloads by 23 Sep; no named victims; code execution needs specific conditions</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of this edition</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Patchstack observed exploitation from 22 Sep and file-writing payloads by 23 Sep; KEV-listed by CISA 25 Sep; no named victims; code execution needs specific conditions</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 25 Sep 2026; federal deadline 28 Sep 2026</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; WordPress 7.1.2 (22 Sep 2026) and security releases for older branches back to 4.7</span>
             <span class="ops-cc"><b>Action:</b> List every WordPress site your organisation owns, including old campaign, event and appeal sites and anything a volunteer or agency built. Confirm each one shows 7.1.2, or the matching security release for its branch, on the Dashboard &rarr; Updates page today. Do not assume automatic updates ran, because some hosts and agencies switch them off. If you cannot update a site quickly, ask your host whether register_argc_argv is disabled and whether PEAR is installed. On any site that was unpatched on 22&ndash;23 September, ask the host to look in /tmp and /var/tmp for files named wp-pear-rce-flag.php or poc87902.php, or PHP files whose names start with luci_ or zeta_, and to search access logs for the listed addresses. Treat a hit as a compromise: restore from a clean backup, reset administrator passwords and check for unknown administrator accounts. Switch off any site you no longer need.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> All WordPress sites on 7.1.2 or the branch fix &mdash; 72h; log and /tmp check on sites unpatched on 22&ndash;23 Sep &mdash; 7 days; unused sites retired &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> All WordPress sites on 7.1.2 or the branch fix &mdash; by 28 Sep (the KEV deadline); log and /tmp check on sites unpatched on 22&ndash;23 Sep &mdash; 7 days; unused sites retired &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wordpress-cve-2026-87902" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-wordpress-cve-2026-87902">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>WordPress security release; Patchstack; BleepingComputer; The Hacker News</span>
+          <span>WordPress security release; Patchstack; CISA KEV catalog; BleepingComputer; The Hacker News</span>
           <span class="dot">&bull;</span>
-          <span>Fix released 22 Sep 2026; first exploitation 17:44 UTC 22 Sep; payload delivery 23 Sep 2026</span>
+          <span>Fix released 22 Sep 2026; first exploitation 17:44 UTC 22 Sep; payload delivery 23 Sep 2026; added to CISA KEV 25 Sep 2026 (deadline 28 Sep)</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/hackers-start-exploiting-critical-wordpress-flaw-for-code-execution/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-sharepoint-cve-2026-65660" data-published="2026-09-25">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Microsoft confirms attacks on a SharePoint Server flaw it fixed in August &mdash; any low-privilege account, including a volunteer&rsquo;s, is enough to use it</h3>
+        <p>Microsoft updated its advisory for <strong>CVE-2026-65660</strong> on 25 September to say that it &ldquo;had reliable evidence of observed attacks&rdquo;, and CISA added the flaw to its Known Exploited Vulnerabilities catalog the same day with a federal deadline of 28 September. It is a code-injection flaw (CVSS 8.8) in SharePoint Server that lets an attacker who already has a low-privilege account run code on the server over the network, with no user interaction needed. It was fixed in Microsoft&rsquo;s August 2026 Patch Tuesday updates. Microsoft first classed it as a medium-severity spoofing bug and later re-rated it as a high-severity remote code execution flaw, so some organisations may have given the August update low priority. The threat-intelligence platform Previdian saw exploitation attempts on 24 September and attempts to plant a web shell on 25 September, after researchers at Viettel Security had published technical details. Microsoft has not said who is behind the attacks, when they started or how many organisations have been hit. The low-privilege requirement is the part that matters in this sector: the accounts that can reach a charity&rsquo;s intranet often include volunteers, trustees, interns and partner staff, and one phished login meets it. Most small charities use SharePoint Online through Microsoft 365, which Microsoft runs as a service. This card is for organisations that also run their own SharePoint Server, or have one run for them &mdash; more common in larger NGOs, federations and older intranets that were never migrated. The MSRC entry lists the exact editions affected.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-65660</span>
+          <span>Microsoft SharePoint Server &bull; code injection leading to remote code execution by an authenticated low-privilege user &bull; CVSS 8.8 &bull; fixed in August 2026 Patch Tuesday</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Microsoft confirms observed attacks (advisory updated 25 Sep); exploitation attempts from 24 Sep and web-shell attempts on 25 Sep reported by Previdian; attacker and victims not disclosed</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 25 Sep 2026; federal deadline 28 Sep 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Microsoft&rsquo;s August 2026 security updates for SharePoint Server</span>
+            <span class="ops-cc"><b>Action:</b> Ask your IT provider one question in writing: do we, or does anyone on our behalf, run SharePoint Server on our own or a hosted server? If the answer is yes, confirm that the August 2026 SharePoint security update, or a later one, is installed, and install it now if it is not. Then ask for the server to be checked for new or unexpected .aspx files in the SharePoint web folders and for unusual activity by low-privilege accounts since 24 September. Remove accounts belonging to volunteers, contractors and partners who no longer need access, and require multi-factor authentication for everyone who can sign in. If a server turns out to have been unpatched and reachable, treat it as possibly compromised: preserve the logs, change the passwords of the accounts the server uses, and bring in incident-response help.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Written answer on whether SharePoint Server is in use &mdash; 48h; August 2026 update installed &mdash; by 28 Sep (the KEV deadline); web-shell and account review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint-cve-2026-65660" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sharepoint-cve-2026-65660">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Microsoft security advisory (updated 25 Sep); CISA KEV catalog; SecurityWeek; The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Fixed August 2026; exploitation attempts 24 Sep; Microsoft confirmation and KEV addition 25 Sep 2026; federal deadline 28 Sep 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/microsoft-sharepoint-flaw-cve-2026-65660-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-elementor-csrf-admin" data-published="2026-09-25">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>One link opened by a logged-in administrator could hand over an Elementor-built site &mdash; update the page builder to 4.3.2</h3>
+        <p>Elementor Website Builder, a widely used WordPress page-builder plugin, released version <strong>4.3.2</strong> on 24 September to fix a cross-site request forgery (CSRF) flaw in versions 4.3.0 and 4.3.1. According to BleepingComputer, which reported it on 25 September, the plugin&rsquo;s Editor Events module skipped WordPress&rsquo;s normal REST API security check (the &ldquo;nonce&rdquo;) for any request whose address contained the path elementor/v1/events/. An attacker can add that path to a request aimed at a different part of the site, so that if a logged-in administrator simply opens a crafted link, the site carries out the attacker&rsquo;s request with that administrator&rsquo;s rights &mdash; including creating a new administrator account on a default installation. No JavaScript, attacker-controlled web page or form is needed. The flaw was found by a researcher known as Saggre and reported through Patchstack; up to 2 million sites were running the affected versions. No CVE or CVSS score had been published in the sources we read, and no exploitation in the wild has been reported. It is on this page because many charity websites are built with Elementor, often by an agency or a volunteer, and because the people who stay logged in as administrators &mdash; the communications officer, the fundraiser updating the appeal page &mdash; are also the people who receive the most unsolicited email with links in it.</p>
+        <div class="card-meta">
+          <span>Elementor Website Builder 4.3.0&ndash;4.3.1 &bull; CSRF bypass of the WordPress REST nonce check via the elementor/v1/events/ path &bull; rogue administrator creation possible &bull; fixed in 4.3.2 &bull; no CVE in sources read</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not reported exploited &mdash; no in-the-wild exploitation reported as of 25 Sep; disclosed through Patchstack</span>
+            <span class="ops-tag kev-off">Not in CISA KEV; no CVE assigned in the sources read</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Elementor 4.3.2 (24 Sep 2026); only 4.3.0 and 4.3.1 are affected</span>
+            <span class="ops-cc"><b>Action:</b> Check the Plugins page on every WordPress site you own, including campaign and event microsites, and update Elementor to 4.3.2 if it shows 4.3.0 or 4.3.1. If an agency or volunteer manages the site, ask them to confirm the version in writing. Until every site is updated, ask administrators to log out of WordPress when they are not editing, and not to open links in unexpected emails while logged in. Afterwards, check the Users page for administrator accounts nobody recognises and remove them. Keep the number of administrators small: most people who edit pages only need the Editor role.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Elementor on 4.3.2 on every site &mdash; 7 days; administrator account review &mdash; 7 days; unnecessary administrator rights removed &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-elementor-csrf-admin" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-elementor-csrf-admin">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Patchstack disclosure)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported to Elementor 22 Sep; fixed 24 Sep; reported 25 Sep 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/elementor-wordpress-flaw-lets-attackers-create-admin-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-roundcube-48842" data-published="2026-09-21">
@@ -1296,7 +1642,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>Canada&rsquo;s Cyber Centre says a Roundcube webmail flaw patched in May is now being exploited &mdash; the webmail your hosting company gave you may be running it</h3>
-        <p>The Canadian Centre for Cyber Security updated its advisory AV26-503 on 21 September to say that &ldquo;open-source reporting indicates that CVE-2026-48842 is being exploited in the wild&rdquo;. The flaw is in Roundcube Webmail before 1.6.16 and 1.7.1, the fixed versions Roundcube released in late May. It is an unauthenticated SQL-injection bug (CVSS 8.1) in the <strong>virtuser_query</strong> plugin: crafted input containing backslash sequences gets past the plugin&rsquo;s escaping, so attacker-supplied text ends up inside a database query. According to SecurityWeek and BleepingComputer, that can let an attacker bypass authentication, tamper with the database and read what it holds, which puts accounts, messages and address books at risk. Neither CCCS nor the vendor has described who is exploiting it or against whom, and it has not been reported in CISA&rsquo;s KEV catalog. More than 500,000 Roundcube servers are reachable from the internet, though how many are unpatched, or have the plugin enabled, is unknown. Roundcube matters to this sector because many small charities never chose it: it is the webmail that came with the hosting package or the domain, reached through an address such as webmail.yourcharity.org, and it is updated only when the host does it.</p>
+        <p>The Canadian Centre for Cyber Security updated its advisory AV26-503 on 21 September to say that &ldquo;open-source reporting indicates that CVE-2026-48842 is being exploited in the wild&rdquo;. The flaw is in Roundcube Webmail before 1.6.16 and 1.7.1, the fixed versions Roundcube released in late May. It is an unauthenticated SQL-injection bug (CVSS 8.1) in the <strong>virtuser_query</strong> plugin: crafted input containing backslash sequences gets past the plugin&rsquo;s escaping, so attacker-supplied text ends up inside a database query. According to SecurityWeek and BleepingComputer, that can let an attacker bypass authentication, tamper with the database and read what it holds, which puts accounts, messages and address books at risk. Neither CCCS nor the vendor has described who is exploiting it or against whom, and it was still not in CISA&rsquo;s KEV catalog as of the 25 September catalog update. More than 500,000 Roundcube servers are reachable from the internet, though how many are unpatched, or have the plugin enabled, is unknown. Roundcube matters to this sector because many small charities never chose it: it is the webmail that came with the hosting package or the domain, reached through an address such as webmail.yourcharity.org, and it is updated only when the host does it.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-48842</span>
           <span>Roundcube Webmail before 1.6.16 / 1.7.1 &bull; unauthenticated SQL injection in the virtuser_query plugin &bull; CVSS 8.1 &bull; fixed May 2026</span>
@@ -1304,7 +1650,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CCCS reports exploitation in the wild based on open-source reporting; no details of attackers or victims disclosed</span>
-            <span class="ops-tag kev-off">Not reported in CISA KEV as of this edition</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of the 25 Sep 2026 catalog update</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; Roundcube 1.6.16 and 1.7.1 (May 2026); exposure depends on whether the virtuser_query plugin is enabled</span>
@@ -1330,7 +1676,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>CISA gives agencies three days to patch exploited Check Point and F5 flaws &mdash; including the VPN in the Spark firewalls sold to small offices</h3>
-        <p>CISA added four exploited flaws to its Known Exploited Vulnerabilities catalog on 22 September, all with a federal deadline of 25 September. Two are Check Point&rsquo;s. <strong>CVE-2026-85102</strong> (CVSS 9.8) is a pre-authentication code-execution flaw in how Security Gateways and Spark firewalls handle certificate data during VPN negotiation. Check Point patched it on 9 September, and says that from 12 September it &ldquo;observed a wave of exploitation attempts against Spark customers&rdquo;. Spark is Check Point&rsquo;s small-office range. Check Point published the certificate subjects the attackers used (CN=vpn, CN=vpn-user or CN=vpnuser, with OU=users, O=global). <strong>CVE-2026-93616</strong> (CVSS 9.8) is a pre-authentication path traversal in the Security Management web service. Check Point says it was used in &ldquo;a handful of pinpointed attacks&rdquo; on 23 July, two months before the fix it released on 22 September. The third is <strong>CVE-2026-94127</strong> (CVSS 9.8), a heap overflow in F5 BIG-IP Access Policy Manager that F5 says is being exploited. It affects only systems where an access policy and an OAuth authorisation-server profile sit on the same virtual server. The fourth, Arista VeloCloud Orchestrator CVE-2026-93952, matters mainly to providers who run SD-WAN for their customers. No attacker or victim count has been published for any of them. Most charities will not own a BIG-IP or a Check Point management server, but many large NGOs and federations do. A small office may have a Spark box in the cupboard that nobody has updated since it was installed.</p>
+        <p>CISA added four exploited flaws to its Known Exploited Vulnerabilities catalog on 22 September, all with a federal deadline of 25 September, which has now passed. Two are Check Point&rsquo;s. <strong>CVE-2026-85102</strong> is a pre-authentication code-execution flaw in how Security Gateways and Spark firewalls handle certificate data during VPN negotiation. Check Point patched it on 9 September, and says that from 12 September it &ldquo;observed a wave of exploitation attempts against Spark customers&rdquo;. Spark is Check Point&rsquo;s small-office range. Check Point published the certificate subjects the attackers used (CN=vpn, CN=vpn-user or CN=vpnuser, with OU=users, O=global). <strong>CVE-2026-93616</strong> is a pre-authentication path traversal in the Security Management web service. Check Point says it was exploited as a zero-day in &ldquo;a handful of pinpointed attacks&rdquo; on 23 July, two months before the fix it released on 22 September. Neither Check Point flaw had a CVSS score in the sources we read. The third is <strong>CVE-2026-94127</strong> (CVSS v3.1 9.8; v4.0 9.3), a heap overflow in F5 BIG-IP Access Policy Manager that F5 says is being exploited. It affects only systems where an access policy and an OAuth authorisation-server profile sit on the same virtual server. The fourth, Arista VeloCloud Orchestrator CVE-2026-93952, matters mainly to providers who run SD-WAN for their customers. No attacker or victim count has been published for any of them. Most charities will not own a BIG-IP or a Check Point management server, but many large NGOs and federations do. A small office may have a Spark box in the cupboard that nobody has updated since it was installed.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-85102</span>
           <span class="cve-badge">CVE-2026-93616</span>
@@ -1340,11 +1686,11 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Check Point confirms exploitation of the VPN flaw since 12 Sep and of the management flaw on 23 Jul; F5 confirms exploitation of the APM flaw; no attribution published</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 22 Sep 2026; federal deadline 25 Sep 2026</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 22 Sep 2026; federal deadline 25 Sep 2026 (passed)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Check Point Jumbo Hotfix R81.20 T166 / R82 T126 / R82.10 T44 / R81.10 T190 or LivePatch Take 26; Spark R82.00.10 Build 2325 or R81.10.17 Build 4968; F5 hotfixes for 21.1.0, 17.5.x and 17.1.x</span>
-            <span class="ops-cc"><b>Action:</b> Find out what firewall each office has, and ask your IT provider or reseller if you do not know. If it is a Check Point Spark or Security Gateway with remote-access VPN turned on, confirm in writing that the fixed build is installed. Ask for the VPN logs since 12 September to be checked for the certificate subjects Check Point published, and ask whether any VPN connection used one. If you run a Check Point management server, install the 22 September fix. Because the flaw was exploited in July, review the server&rsquo;s activity back to July rather than only patching it. If you have an F5 BIG-IP with APM acting as an OAuth authorisation server, apply F5&rsquo;s hotfix now. Anything found exposed and unpatched should be treated as compromised, so reset its configuration and rotate every credential it held.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; Check Point hotfixes and LivePatch as listed in sk1000117 (VPN) and sk1000171 (management); Spark R82.00.10 Build 2325 or R81.10.17 Build 4968; F5 engineering hotfixes for 21.1.0, 17.5.x and 17.1.x</span>
+            <span class="ops-cc"><b>Action:</b> Find out what firewall each office has, and ask your IT provider or reseller if you do not know. If it is a Check Point Spark or Security Gateway with remote-access VPN turned on, confirm in writing that the fixed build is installed. Ask for the VPN logs since 12 September to be checked for the certificate subjects Check Point published, and ask whether any VPN connection used one. If you run a Check Point management server, install the 22 September fix. Because the flaw was exploited in July, review the server&rsquo;s activity back to July rather than only patching it. If you have an F5 BIG-IP with APM acting as an OAuth authorisation server, apply the iRule in F5&rsquo;s advisory first, which CISA notes allows forensic triage, then install the hotfix. Anything found exposed and unpatched should be treated as compromised, so reset its configuration and rotate every credential it held.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Firewall make and build confirmed at every site &mdash; 72h; fixed builds installed &mdash; 7 days; VPN and management-server logs reviewed back to July &mdash; 14 days</span>
@@ -1366,7 +1712,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>CISA adds a Zyxel GS1900 switch flaw to KEV after one actor hijacked 996 of them in 48 countries &mdash; the small-office switch that was installed once and never looked at again</h3>
-        <p>CISA added <strong>CVE-2026-7273</strong> to the Known Exploited Vulnerabilities catalog on 21 September with a federal deadline of 24 September. It is a stack-based buffer overflow in the CGI program of Zyxel&rsquo;s GS1900-series managed switches &mdash; the 8-, 10-, 16-, 24- and 48-port models sold to small offices &mdash; that lets an unauthenticated attacker with access to the management interface run operating-system commands through a crafted HTTP request. Zyxel patched it in June 2026 (firmware 2.90(AAHH.2)C0 and the per-model equivalents). GreyNoise, reporting the same day, describes what it calls the first observed exploitation: a single actor, active since 7 May and assessed as a Chinese speaker, compromised 996 GS1900 switches across 48 countries &mdash; Italy 133, the United States 129, Taiwan 123, France 90, South Korea 69, the Netherlands 66 &mdash; using an obfuscated Python tool that pulled device configurations and root-level hashed credentials over TFTP. 564 of the victims were still using factory-default credentials. The same actor exploited two WordPress flaws to steal at least 18,566 records from an unnamed western government organisation in July; GreyNoise infers an overlap with the actor it tracks as Red Heron from shared infrastructure, and infers AI-assisted tooling from the way the code iterated &mdash; both inferences, not observations. Zyxel and the KEV entry describe the flaw as LAN-based, so the practical exposure is a management page reachable from the internet or from a guest network. That describes a great many charity, church and community-centre comms cupboards: a managed switch bought to get VLANs for the public Wi-Fi, configured by a contractor, with a default password nobody changed and a web interface nobody has opened since.</p>
+        <p>CISA added <strong>CVE-2026-7273</strong> to the Known Exploited Vulnerabilities catalog on 21 September with a federal deadline of 24 September. It is a stack-based buffer overflow in the CGI program of Zyxel&rsquo;s GS1900-series managed switches &mdash; the 8-, 10-, 16-, 24- and 48-port models sold to small offices &mdash; that lets an unauthenticated attacker with access to the management interface run operating-system commands through a crafted HTTP request. Zyxel patched it in June 2026 (firmware 2.90(AAHH.2)C0 and the per-model equivalents). GreyNoise, reporting the same day, describes what it calls the first observed exploitation: a single actor, active since 7 May and assessed as a probable Chinese speaker, compromised 996 GS1900 switches across 48 countries from about 17 August &mdash; Italy 133, the United States 129, Taiwan 123, France 90, South Korea 69, the Netherlands 66 &mdash; using an obfuscated Python tool that pulled device configurations and root-level hashed credentials over TFTP. 564 of the victims were still using factory-default credentials. The same actor exploited two WordPress flaws to steal at least 18,566 records from an unnamed western government organisation in July; GreyNoise also links the actor, through shared command-and-control infrastructure, malware and techniques, to exploitation of Gitea servers in late July, and infers AI-assisted tooling from the way the code iterated &mdash; both assessments, not observations. Zyxel and the KEV entry describe the flaw as LAN-based, so the practical exposure is a management page reachable from the internet or from a guest network. That describes a great many charity, church and community-centre comms cupboards: a managed switch bought to get VLANs for the public Wi-Fi, configured by a contractor, with a default password nobody changed and a web interface nobody has opened since.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-7273</span>
           <span>Zyxel GS1900-8/8HP/10HP/16/24/24E/24EP/24HPv2/48/48HPv2 &bull; stack-based buffer overflow in the web CGI &bull; unauthenticated OS command execution via the management interface &bull; fixed June 2026</span>
@@ -1374,7 +1720,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; CISA KEV listing; GreyNoise observed 996 compromised switches in 48 countries by one actor, with configs and credential hashes stolen</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 21 Sep 2026; federal deadline 24 Sep 2026</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 21 Sep 2026; federal deadline 24 Sep 2026 (passed)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched since June 2026 &mdash; firmware 2.90(AAHH.2)C0 or the equivalent for your model; the exposure is unapplied firmware and default passwords</span>
@@ -1389,7 +1735,7 @@
         <div class="card-meta">
           <span>GreyNoise research; CISA KEV catalog; Zyxel security advisory (16 Jun 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Zyxel patch 16 Jun 2026; exploitation observed from May 2026; GreyNoise report and KEV addition 21 Sep 2026; federal deadline 24 Sep 2026</span>
+          <span>Zyxel patch 16 Jun 2026; actor active from 7 May 2026, switch exploitation from about 17 Aug 2026; GreyNoise report and KEV addition 21 Sep 2026; federal deadline 24 Sep 2026</span>
         </div>
         <a href="https://www.greynoise.io/blog/open-season-on-kapibala-attacker-steals-government-records-wordpress-exploitation" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1494,42 +1840,6 @@
           <span>Patched Dec 2025; ransomware exploitation recorded by CISA 10 Sep 2026</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/cisa-watchguard-rce-flaw-now-exploited-in-ransomware-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-cisco-citrix-fortinet-kev" data-published="2026-09-11">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Cisco&rsquo;s firewall-management flaws are being used by three separate groups &mdash; one planting a Cyclops Blink variant, one deploying Qilin ransomware &mdash; and the federal deadline has passed</h3>
-        <p>CISA added a group of actively exploited flaws to its Known Exploited Vulnerabilities catalog on 9 and 10 September 2026 and set a 12 September remediation deadline for United States federal agencies. The most serious is CVE-2026-20079, scored CVSS 10.0, in Cisco Secure Firewall Management Center and Security Cloud Control: Cisco confirmed it is being exploited and that it lets an unauthenticated attacker bypass authentication and run commands as root. There is no workaround &mdash; the fixed software has to be installed &mdash; and Cisco notes that a device already compromised needs separate remediation, because patching does not evict an intruder. Corrected 16 September: Cisco Talos reported on 9 September that exploitation spans three distinct clusters, and they did not all use the same flaw. UAT-12197, unattributed, exploited CVE-2026-20079 and installed JSP web shells to harvest credentials. UAT-11823 chained CVE-2026-20079 with CVE-2026-20316, deploying Netcat reverse shells and a variant of the Cyclops Blink Linux implant; Talos describes it as an APT whose tooling overlaps with Sandworm &mdash; a link, not an attribution. UAT-11988, which Talos assesses with high confidence to be a ransomware operator whose methods match Qilin affiliates, got in through CVE-2026-20316 alone, a static-credential flaw at CVSS 5.3, then used the appliance&rsquo;s own tooling for reconnaissance, credential theft and disabling security software before deploying Qilin on selected endpoints. Corrected 20 September: CVE-2026-20316 is not in CISA&rsquo;s KEV catalog, contrary to an earlier version of this card; only CVE-2026-20079 is listed for FMC. Cisco has also shipped its September hardening release for ASA, FTD and FMC, first published on 16 September and revised on 18 September to update its ASA fixed-release table, covering eight CVEs found in internal review, with fixed FTD and FMC releases 7.0.10, 7.2.12, 7.4.8, 7.6.6, 7.7.13, 10.0.2 and 10.1.0. Espionage and ransomware operators converging on the same security-management appliance is the part that matters. Alongside it are a Citrix NetScaler authentication-bypass flaw, CVE-2026-19490, scored 9.3, with 56 documented exploitation attempts since early September, and CVE-2025-25249 in Fortinet FortiOS, FortiSwitchManager and FortiSASE, reported at CVSS 7.3 and weaponised to deploy a remote-access trojan called PivotC2 &mdash; 178 confirmed device compromises across more than 3,000 targeted addresses, mostly in the United States, attributed by researchers to suspected Russian-speaking actors. Very few nonprofits run Cisco Secure FMC themselves. Plenty are behind one: an outsourced IT provider, a shared services arrangement, a hosting partner or a university or council that hosts your systems. That makes this a question to ask rather than a task to schedule, and the federal deadline is a useful lever &mdash; it tells your provider what &ldquo;soon&rdquo; is supposed to mean.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-20079</span>
-          <span class="cve-badge">CVE-2026-19490</span>
-          <span class="cve-badge">CVE-2025-25249</span>
-          <span>Cisco Secure FMC / Security Cloud Control CVSS 10.0 (plus CVE-2026-20316, CVSS 5.3) &bull; Citrix NetScaler CVSS 9.3 &bull; Fortinet FortiOS, FortiSwitchManager &amp; FortiSASE CVSS 7.3 &bull; federal remediation deadline 12 Sep 2026</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active and escalating &mdash; confirmed by Cisco Talos, which tracks three clusters: two exploiting CVE-2026-20079, one of them Sandworm-linked by tooling overlap and deploying a Cyclops Blink variant, and a Qilin ransomware operator that entered through CVE-2026-20316 alone; the Fortinet flaw is reported in PivotC2 RAT deployment; KEV listing requires evidence of exploitation in the wild</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; Cisco CVE-2026-20079 added 9 Sep 2026 and Fortinet 10 Sep 2026, federal deadline 12 Sep 2026 (passed); Cisco CVE-2026-20316 is not in KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patches available for all three &mdash; Cisco publishes no workaround, so the fixed release must be installed; its September ASA/FTD/FMC hardening release shipped 16 Sep 2026 (revised 18 Sep)</span>
-            <span class="ops-cc"><b>Action:</b> Send one email to whoever runs your network and hosting &mdash; your MSP, your parent body, your hosting provider or the partner organisation whose systems you sit on &mdash; naming these three CVEs and asking whether any of the affected products are in use on your behalf, whether they have been patched, and on what date. Ask specifically about Cisco Secure Firewall Management Center, Citrix NetScaler and Fortinet FortiOS or FortiSwitchManager. Where the answer is yes and patching has happened, ask the follow-up Cisco itself flags: was the device checked for signs of prior compromise, since a patch applied after the fact does not remove an attacker already inside. Keep the reply; a written answer with a date is the evidence your trustees and your funders will want if something goes wrong later. If you get no answer at all, that is worth escalating to whoever holds the contract.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Written query to IT provider or hosting partner &mdash; 48h; confirmation of patch status and compromise assessment &mdash; 7 days; record of the answer retained for governance &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-citrix-fortinet-kev" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisco-citrix-fortinet-kev">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News (Cisco Talos); BleepingComputer; Help Net Security (Cisco PSIRT, CISA KEV)</span>
-          <span class="dot">&bull;</span>
-          <span>KEV additions 9&ndash;10 Sep 2026; Talos three-cluster report 9 Sep 2026; federal remediation deadline 12 Sep 2026</span>
-        </div>
-        <a href="https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-msft-patch-tuesday" data-published="2026-09-08">
@@ -1670,47 +1980,45 @@
         <a href="https://www.securityweek.com/unauthenticated-rce-flaws-could-expose-200000-wordpress-sites-to-takeover/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-chrome-v8-zeroday" data-published="2026-09-09">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Two exploited Chrome V8 zero-days in a fortnight &mdash; and both turn out to be links in the chain aimed at NGOs</h3>
-        <p>Google shipped an emergency Chrome update on 4 September for <strong>CVE-2026-85046</strong>, a type-confusion flaw in the V8 JavaScript engine exploited in the wild, fixed in builds 152.0.7977.82 and .83. It followed on 9 September with a second emergency fix for <strong>CVE-2026-87491</strong>, an out-of-bounds write in V8 that allows a sandbox escape from a crafted web page, fixed in 153.0.8010.36 and .37 &mdash; Chrome&rsquo;s seventh in-the-wild zero-day of 2026. Both are now known to be the browser half of the GRIMWEDGE exploit chain that a China-linked actor used against NGOs from 1 September, which makes this the rare Chrome advisory with a named victim profile that matches this page. Researchers described a patch gap: the underlying fixes landed in the open-source Chromium tree before they reached stable Chrome, giving anyone watching that tree a window. Google withholds technical detail until most users have updated. For nonprofits the browser is not one application among many, it is the operating estate &mdash; the CRM, the fundraising platform, the grant portal, the payroll bureau, the case-management system and the bank all live in tabs, often on a laptop that is shared, personally owned, or managed by nobody. Chrome only applies its update on relaunch, and the machines furthest behind belong to the volunteer whose browser has not been closed since spring.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-85046</span>
-          <span class="cve-badge">CVE-2026-87491</span>
-          <span>V8 type confusion and out-of-bounds write &bull; fixed in Chrome 152.0.7977.82/.83 and 153.0.8010.36/.37 &bull; seventh exploited Chrome zero-day of 2026</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Google states exploits for both flaws exist in the wild; both are chained in the GRIMWEDGE campaign against NGOs</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; CVE-2026-85046 added 4 Sep 2026; CVE-2026-87491 added 9 Sep 2026, federal deadline 23 Sep 2026, now passed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; Chrome 152.0.7977.82/.83 and 153.0.8010.36/.37; Chromium-based browsers need their own vendor updates</span>
-            <span class="ops-cc"><b>Action:</b> Tell everyone &mdash; staff, volunteers, trustees, anyone using a personal device for your work &mdash; to fully close and reopen Chrome today, because the update only takes effect on relaunch and a browser that has been open for weeks is still vulnerable. If you manage devices centrally, force the update and check your fleet&rsquo;s reported versions rather than assuming. Do the same for Edge, Brave, Opera and Vivaldi, which share the engine. Then take the wider point seriously: if unmanaged personal laptops reach your donor database, case notes or bank, you have no way of knowing whether they are patched at all &mdash; write down which systems that applies to and decide what you are prepared to accept.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Browser relaunch communicated and managed fleet updated &mdash; 72h; Chromium derivatives verified &mdash; 7 days; unmanaged-device exposure written down &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-chrome-v8-zeroday" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-chrome-v8-zeroday">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Google Chrome release blog; Help Net Security, BleepingComputer, The Hacker News</span>
-          <span class="dot">&bull;</span>
-          <span>Emergency updates 4 Sep and 9 Sep 2026</span>
-        </div>
-        <a href="https://www.helpnetsecurity.com/2026/09/09/google-chrome-cve-2026-87491-zero-day-flaw/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+      <div class="card" id="it-uk-information-commission" data-published="2026-09-30">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation</span>
+        </div>
+        <h3>The UK&rsquo;s data-protection regulator is now a board-led Information Commission &mdash; for UK charities the ICO name stays, and no change to its powers or to breach reporting was announced</h3>
+        <p>On 30 September, under the Data (Use and Access) Act 2025, the UK&rsquo;s single-person Information Commissioner was replaced by a board-led Information Commission, The Register reported from the regulator&rsquo;s announcement. The ICO brand is being kept, Paul Arnold is interim chief executive and the headquarters is moving to Manchester. The Register reported no change to the regulator&rsquo;s fines or powers, and none to how personal-data breaches are reported. It is not a security incident. It is here because UK charities answer to this regulator for their supporter, beneficiary, volunteer and staff data, and because the moment to discover that your breach procedure names the wrong body or an out-of-date contact is not the first hour of an incident. A change in how a regulator is governed can, over time, bring new guidance and different enforcement priorities, so someone should be watching for anything the new Commission says about the voluntary sector.</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Regulatory change &mdash; no exploitation involved</span>
+            <span class="ops-tag kev-off">No CVE &mdash; regulator governance</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch &mdash; check that your breach-reporting procedure is current</span>
+            <span class="ops-cc"><b>Action:</b> If you are a UK charity, open your breach-response procedure and check that the regulator&rsquo;s name, reporting route and contact details are current and that a named person and a deputy know how to file a report. Give someone the job of watching the regulator&rsquo;s announcements, so new guidance or enforcement priorities for the voluntary sector do not go unnoticed.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Breach-reporting procedure checked &mdash; 30 days; named owner for regulator updates &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-uk-information-commission" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-uk-information-commission">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Information Commission (ICO brand kept) &bull; replaces the single Information Commissioner under the Data (Use and Access) Act 2025 &bull; interim chief executive Paul Arnold &bull; headquarters moving to Manchester &bull; no change to powers or breach reporting reported</span>
+        </div>
+        <div class="card-meta">
+          <span>The Register (ICO announcement)</span>
+          <span class="dot">&bull;</span>
+          <span>Took effect 30 Sep 2026; reported 1 Oct 2026</span>
+        </div>
+        <a href="https://www.theregister.com/security/2026/10/01/uk-privacy-watchdog-starts-over-with-new-board-and-manchester-hq/5300439" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-cisa-cyber-decoys" data-published="2026-09-17">
         <div class="card-header">
           <span class="severity sev-low">Low</span>
@@ -1777,38 +2085,6 @@
         <a href="https://therecord.media/google-europe-location-data-fine" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-cisa-vince-nt" data-published="2026-09-17">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Guidance</span>
-        </div>
-        <h3>CISA replaces its vulnerability-coordination platform with VINCE-NT &mdash; useful to know if your organisation ever has to report, or receive, a vulnerability disclosure</h3>
-        <p>CISA launched VINCE-NT on 17 September, a coordinated-vulnerability-disclosure platform it manages directly, replacing the VINCE system built by CERT/CC in 2020. According to CISA&rsquo;s published FAQ and Infosecurity Magazine&rsquo;s report, the new platform brings more automated advisory workflows, triage and prioritisation, built-in collaboration tools and a simpler submission interface; active cases migrate over the coming weeks, inactive ones stay on the old system, and the terminology changes to &ldquo;supplier&rdquo;, &ldquo;component&rdquo; and &ldquo;reporter&rdquo;. It follows CISA&rsquo;s retirement of its weekly vulnerability bulletin on 16 September, and together they signal an agency moving from lists towards prioritisation. For most nonprofits it changes nothing day to day. It matters to the minority that publish software &mdash; an open-source tool, a data platform shared with partners, an app for beneficiaries &mdash; who may one day receive a report through it, and to anyone who finds a flaw in a vendor&rsquo;s product and needs a neutral route to report it.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Platform launch &mdash; no exploitation involved</span>
-            <span class="ops-tag kev-off">No CVE &mdash; disclosure infrastructure</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; process awareness</span>
-            <span class="ops-cc"><b>Action:</b> If your organisation publishes any software, confirm a security contact address is on its website and its repository so a reporter can reach you before a coordinator has to, and note VINCE-NT as the route a US reporter may use. Whether or not you publish software, check that someone is subscribed to CISA&rsquo;s alerts and KEV updates and that they go to a person, not a dormant mailbox.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Security contact published for any software you release &mdash; 30 days; CISA alert subscription owner confirmed &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisa-vince-nt" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-cisa-vince-nt">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA VINCE-NT &bull; coordinated vulnerability disclosure &bull; replaces CERT/CC VINCE (2020) &bull; follows 16 Sep bulletin retirement</span>
-        </div>
-        <div class="card-meta">
-          <span>Infosecurity Magazine; CISA VINCE-NT FAQ</span>
-          <span class="dot">&bull;</span>
-          <span>Launched 17 Sep 2026; reported 18 Sep 2026</span>
-        </div>
-        <a href="https://www.infosecurity-magazine.com/news/cisa-upgrades-vulnerability/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1816,8 +2092,8 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, Citrix, Fortinet, WatchGuard, MikroTik, N-able, ConnectWise, Check Point, F5, WordPress) and research from Sansec, Citizen Lab, Amnesty International, Volexity, Patchstack and SpyCloud. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
-    <p><em>This edition (25&nbsp;September&nbsp;2026).</em> Refresh for 23&ndash;25&nbsp;September against primary sources. New top story: DIVD&rsquo;s statement that it was compromised in what it believes was an AI-agent attack (DIVD via DataBreaches.net); the Belgian sports federation intrusions move to Incidents with no new development. Added: exploitation of Roundcube webmail flaw CVE-2026-48842, per the Canadian Centre for Cyber Security&rsquo;s update of 21&nbsp;September. Updated: the WordPress CVE-2026-87902 card with further payload file names and BleepingComputer&rsquo;s note that releases before 4.6 get no fix. Nothing retired. Considered and left out: the third-party[.]com placeholder domain now serving ClickFix, which mainly concerns developer documentation rather than this sector. Threat level re-derived at 6.5 Medium, up from 6.4, because of the new confirmed sector incident and a second exploited flaw in software small organisations commonly use; both remain discrete.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, and reporting from BleepingComputer, The Hacker News, The Record, CyberScoop, SecurityWeek and Cybernews, plus vendor and product advisories (Microsoft, Adobe, Cisco, Citrix, Fortinet, WatchGuard, MikroTik, N-able, ConnectWise, Check Point, F5, WordPress) and research from Sansec, Citizen Lab, Amnesty International, Volexity, Patchstack, SpyCloud, GreyNoise, watchTowr and Microsoft Threat Intelligence. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment.</p>
+    <p><em>This edition (6&nbsp;October&nbsp;2026).</em> Window re-queried 26&nbsp;September&ndash;6&nbsp;October against primary sources. Top story updated: DIVD&rsquo;s case file names the entry point &mdash; two Zammad zero-days, added to CISA KEV on 2&nbsp;October &mdash; and says volunteer email addresses and possibly contact details got out; its first statement is now dated 24&nbsp;September, not 25&nbsp;September. Added: KEV-listed FortiMail (CVE-2026-104286), Cisco Catalyst SD-WAN Manager (CVE-2026-76504) and Apple CoreGraphics (CVE-2026-86950) flaws; Microsoft&rsquo;s Star Blizzard and NeedyMantis research; Proofpoint&rsquo;s TA419 think-tank phishing; the Microsoft Digital Defense Report 2026 (NGOs 8%, all threat actors); and the UK Information Commission change. Updated: Citrix NetScaler, now confirmed by Citrix with three KEV-listed flaws, replacing the earlier unconfirmed watchTowr report; MikroTik, with CISA&rsquo;s 29&nbsp;September advisory for CVE-2026-84411 (not in KEV). Retired: Magento StyleSmuggler, the Cisco FMC/Citrix/Fortinet roundup, the Chrome V8 item (covered by GRIMWEDGE) and CISA VINCE-NT. No other non-profit or donor-platform breach was verified in the window; leak-site claims without a primary source were left out. Threat level re-derived at 6.5 Medium, down from 6.6: the issues remain discrete, and none is compromising a large share of the sector.</p>
         <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

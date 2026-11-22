@@ -583,43 +583,37 @@
 <body>
 <script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
 <div class="container">
-  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md) -->
+  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md; v2 Higgsfield banner 21 Nov 2026) -->
   <style>
-  .course-ad{display:flex;align-items:center;gap:18px;margin:0 0 16px;padding:14px 18px;border:1px solid #bfe0e3;border-left:5px solid #2c7480;border-radius:10px;background:linear-gradient(135deg,#e6f1f2 0%,#ffffff 72%);}
-  .course-ad__icon{flex:0 0 auto;display:block;width:64px;height:64px;}
-  .course-ad__body{flex:1 1 auto;min-width:0;}
-  .course-ad__tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#1f5c66;background:#d5eaec;padding:2px 9px;border-radius:999px;margin-bottom:6px;}
-  .course-ad__title{font-size:17px;font-weight:700;color:#1f2328;margin:0 0 3px;line-height:1.22;}
-  .course-ad__title span{color:#2c7480;font-weight:600;}
-  .course-ad__meta{font-size:13px;color:#4a4f55;margin:0 0 2px;}
-  .course-ad__blurb{font-size:12.5px;color:#5b6169;margin:2px 0 0;}
-  .course-ad__cta{flex:0 0 auto;display:inline-block;background:#2c7480;color:#fff;font-weight:700;font-size:13px;text-decoration:none;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);}
-  .course-ad__cta:hover{background:#225c66;color:#fff;}
-  body.dark .course-ad{background:linear-gradient(135deg,rgba(44,116,128,.18) 0%,#0d1117 72%);border-color:#30363d;border-left-color:#3fa3b3;}
-  body.dark .course-ad__title{color:#e6edf3;}
-  body.dark .course-ad__title span{color:#7cc7d2;}
-  body.dark .course-ad__tag{color:#b8e3e9;background:rgba(44,116,128,.30);}
-  body.dark .course-ad__meta{color:#b9c1ca;}
-  body.dark .course-ad__blurb{color:#98a1ab;}
-  body.dark .course-ad__cta{background:#3a8f9c;color:#fff;}
-  body.dark .course-ad__cta:hover{background:#2c7480;}
-  @media(max-width:640px){.course-ad{flex-wrap:wrap;gap:12px;}.course-ad__cta{width:100%;text-align:center;}}
+  .course-ad{position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;min-height:210px;margin:0 0 18px;padding:28px 32px;border-radius:14px;border:1px solid #1d3a40;color:#e6edf3;background:#071216 url("https://utilsec.github.io/ot-threat-dashboard/course-ad-bg.jpg") right center/cover no-repeat;box-shadow:0 6px 24px rgba(4,20,24,.28);}
+  .course-ad::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,14,17,.97) 0%,rgba(5,14,17,.90) 38%,rgba(5,14,17,.45) 68%,rgba(5,14,17,.10) 100%);}
+  .course-ad::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#3fd0e0,#2c7480);}
+  .course-ad__body{position:relative;z-index:1;flex:1 1 auto;min-width:0;max-width:640px;}
+  .course-ad__tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fe7ef;background:rgba(63,208,224,.12);border:1px solid rgba(63,208,224,.35);padding:4px 11px;border-radius:999px;margin-bottom:12px;}
+  .course-ad__tag i{width:7px;height:7px;border-radius:50%;background:#3fd0e0;box-shadow:0 0 0 3px rgba(63,208,224,.25);}
+  .course-ad__title{font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;color:#fff;}
+  .course-ad__title span{color:#5fd9e6;}
+  .course-ad__blurb{font-size:15px;line-height:1.45;color:#c4ced8;margin:0 0 14px;max-width:560px;}
+  .course-ad__chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;}
+  .course-ad__chips li{font-size:12.5px;font-weight:600;color:#dbe4ec;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:5px 11px;border-radius:7px;}
+  .course-ad__side{position:relative;z-index:1;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .course-ad__cta{display:inline-block;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 14px rgba(245,165,36,.35);transition:transform .15s,background .15s;}
+  .course-ad__cta:hover{background:#ffb83d;color:#1a1204;transform:translateY(-1px);}
+  .course-ad__cta:focus-visible{outline:3px solid #9fe7ef;outline-offset:3px;}
+  .course-ad__by{font-size:12px;color:#9aa6b2;}
+  @media(max-width:760px){.course-ad{flex-direction:column;align-items:flex-start;padding:22px 20px 20px 24px;background-position:70% center;}.course-ad::before{background:linear-gradient(180deg,rgba(5,14,17,.80),rgba(5,14,17,.95));}.course-ad__title{font-size:23px;}.course-ad__side{width:100%;align-items:stretch;}.course-ad__cta{text-align:center;}}
   </style>
-  <div class="course-ad">
-    <svg class="course-ad__icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-demand video course">
-      <rect x="1" y="1" width="62" height="62" rx="12" fill="#2c7480"/>
-      <rect x="10" y="14" width="44" height="29" rx="3.5" fill="#ffffff"/>
-      <path d="M28 21.5 L40 28.5 L28 35.5 Z" fill="#2c7480"/>
-      <rect x="28" y="44" width="8" height="4" fill="#ffffff"/>
-      <rect x="20" y="48" width="24" height="3.5" rx="1.75" fill="#ffffff"/>
-    </svg>
+  <div class="course-ad" role="complementary" aria-label="Course: Getting Started in OT/ICS Cybersecurity">
     <div class="course-ad__body">
-      <span class="course-ad__tag">On-demand course &middot; Start anytime</span>
-      <div class="course-ad__title">Getting Started in OT/ICS Cybersecurity <span>&mdash; now on demand</span></div>
-      <div class="course-ad__meta">With Mike Holcomb &middot; Self-paced, with hands-on labs</div>
-      <div class="course-ad__blurb">Learn to protect our families, friends, and communities &mdash; the fundamentals of industrial control system security, at your own pace.</div>
+      <span class="course-ad__tag"><i></i>On-demand course &middot; Start anytime</span>
+      <div class="course-ad__title">Getting Started in <span>OT/ICS Cybersecurity</span></div>
+      <p class="course-ad__blurb">Learn to protect the systems that keep the water clean and the lights on &mdash; the fundamentals of industrial control system security, at your own pace.</p>
+      <ul class="course-ad__chips"><li>Self-paced video</li><li>Hands-on labs</li><li>Built for IT &rarr; OT</li></ul>
     </div>
-    <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Get started today &rarr;</a>
+    <div class="course-ad__side">
+      <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Start the course &rarr;</a>
+      <span class="course-ad__by">With Mike Holcomb</span>
+    </div>
   </div>
   <!-- /COURSE AD -->
 
@@ -661,13 +655,13 @@
       <h1>IT Threat Intel for Healthcare &amp; Life Sciences</h1>
       <div class="header-sub">Hospitals, payers, pharma IT &amp; health-tech &mdash; current enterprise-IT threats.</div>
       <div class="header-meta">
-        <span>Generated Fri, 23 Oct 2026, 11:27 AM ET</span>
+        <span>Generated Wed, 28 Oct 2026, 5:17 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Healthcare IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>58</strong> stories across
+      <strong>63</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -704,15 +698,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Healthcare sector, under the same rubric as the main IT dashboard. Score 6.8 — Medium (re-derived 23 Oct 2026 from this edition&rsquo;s stories). Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue actively impacting a large portion of healthcare IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium and are capped at 6.9.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Healthcare sector, under the same rubric as the main IT dashboard. Score 6.9 — Medium (re-derived 28 Oct 2026 from this edition&rsquo;s stories). Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue actively impacting a large portion of healthcare IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium and are capped at 6.9.">
+    <div class="tl-score"><span class="tl-num">6.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.8 (Medium):</b> Two health-sector incidents and active ransomware campaigns, but each is discrete; no single issue is hitting a large share of healthcare IT.<br><b>Top threat:</b> Quest Diagnostics&rsquo; Quanum ordering system breached; patient records likely viewed, count unknown (8-K, 22&nbsp;Oct).<br><b>Confirmed breaches:</b> Quest; notices from Ridgeway Pharmacy (258,920), Tarter Krinsky (196,645) and UltraMobile Imaging (75,000); Parkview Health&rsquo;s network offline after suspicious activity, cause not named.<br><b>Also watching:</b> PHP2Shell attempts (no confirmed compromise); Qilin and INC via GlobalProtect; SafePay advisory; BeyondTrust and Siemens Software Center in KEV; Ivanti fix pending.<br><b>What would raise it:</b> A flaw such as PHP2Shell confirmed compromising health systems at scale, or Parkview-style outages spreading.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:69.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.9 (Medium):</b> Two hospital systems disrupted and PHP2Shell now exploited, but each is a discrete incident or patch-and-hunt exposure; nothing is hitting a large share of healthcare IT.<br><b>Top threat:</b> University Hospitals (Cleveland) cut off from the internet since 22&nbsp;Oct; MyChart down, some procedures rescheduled.<br><b>Confirmed breaches:</b> UNM Health diverted ambulances for two hours on 26&nbsp;Oct; Quest patient records affected; Blueberry Pediatrics (340,915) via Metabase.<br><b>Also watching:</b> PHP2Shell in KEV, with PAN-OS attacks; Brotli in KEV; HAPI FHIR fix pending; Ivanti fix pending.<br><b>What would raise it:</b> PHP2Shell or Brotli confirmed compromising health systems at scale, or more multi-day hospital outages.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -720,34 +714,34 @@
   <!-- HERO: TOP STORY + RADAR -->
   <div class="hero">
 
-        <div class="top-story" id="it-quest-quanum-8k" data-published="2026-10-22">
+        <div class="top-story" id="it-uh-cleveland-outage" data-published="2026-10-26">
       <span class="top-story-pill">Top Story</span>
-      <h2>Quest Diagnostics tells the SEC an intruder reached its Quanum lab-ordering system and likely viewed patient records &mdash; portal access is paused while clients fall back to fax, paper and EHR interfaces</h2>
-      <p>Quest Diagnostics said in a Form 8-K filed on 22 October 2026 that on 21 October it learned of unauthorized access to Quanum Lab Services Manager, the web tool some of its clients use to order tests and look up results, and that it believes an unauthorized party &ldquo;accessed certain patient records.&rdquo; The scope is still under investigation and no patient count has been given. Quest has notified federal law enforcement and brought in outside experts, and says the incident has not materially disrupted its operations or its ability to serve patients. It filed under Item 8.01, &ldquo;Other Events,&rdquo; not Item 1.05, the item for material cybersecurity incidents. HIPAA Journal reports that Lab Services Manager access is paused and that clients can still order and receive results by fax, paper, direct lab-system interfaces or their EHR. Quest told AP the breach is not related to the PHP2Shell flaws, and no group has claimed it. For hospitals and practices that use the portal, the immediate work is keeping orders moving and preparing for patient questions.</p>
+      <h2>University Hospitals in Cleveland has kept its systems cut off from the internet since 22 October after &ldquo;unusual activity&rdquo; &mdash; MyChart is down, some procedures have been rescheduled and disruption is expected to last the week</h2>
+      <p>University Hospitals, the Cleveland-based 18-hospital system, detected unusual activity on its servers on Thursday 22 October 2026 and, as a precaution, disconnected its systems from the internet, according to its incident page. UH says most appointments and procedures are going ahead and its phone system is unaffected, but MyChart is offline, lab results cannot be viewed there (clinicians can still see them, though some may be delayed) and payment cannot be taken at the point of service. In a statement to Becker&rsquo;s Hospital Review on 26 October, UH said some appointments and elective procedures had been rescheduled, some locations were having trouble connecting to the UH network, insurance pre-authorisations were affected, and it expected operational problems to continue through the week despite significant progress over the weekend. It is investigating with outside experts and is in contact with law enforcement. UH has not named a cause, given a restoration date or said whether patient data was taken, and no claim by any group has been found. A precautionary disconnect kept clinical work going, but the services that depend on outside connections &mdash; the patient portal, payments, pre-authorisations and data exchange with partners &mdash; stopped with it, and that is the part most downtime plans under-budget (editorial assessment).</p>
       <div class="card-meta">
-        <span>Quest Diagnostics &bull; Quanum Lab Services Manager (web ordering and results tool used by some clients) &bull; Form 8-K Item 8.01, not Item 1.05 &bull; patient records believed accessed; number not yet known &bull; federal law enforcement notified &bull; no group claim found</span>
+        <span>University Hospitals, Cleveland (18 hospitals) &bull; unusual server activity detected 22 Oct 2026 &bull; systems disconnected from the internet as a precaution &bull; MyChart offline; no point-of-service payments; pre-authorisation problems &bull; cause, data impact and restoration date not disclosed &bull; no claim found</span>
       </div>
       <div class="ops-strip">
         <div class="ops-row">
-          <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Quest (8-K): unauthorized access to Quanum Lab Services Manager discovered 21 Oct 2026; Quest believes certain patient records were accessed; scope still under investigation</span>
-          <span class="ops-tag kev-off">No CVE named &mdash; the entry route has not been disclosed; Quest told AP it is not related to PHP2Shell</span>
+          <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by UH: unusual activity on its servers and a precautionary internet disconnection since 22 Oct 2026; whether data was taken has not been disclosed</span>
+          <span class="ops-tag kev-off">No CVE named &mdash; the cause has not been disclosed</span>
         </div>
         <div class="ops-row">
-          <span class="ops-tag patch-na">No patch applies &mdash; Lab Services Manager access paused; orders and results continue by fax, paper, direct lab-system interfaces or EHR (HIPAA Journal)</span>
-          <span class="ops-cc"><b>Action:</b> If your clinicians or staff use Quanum Lab Services Manager, confirm today which fallback each site will use &mdash; fax, paper requisitions, a direct lab-system interface or ordering from the EHR &mdash; and that results are reaching the ordering clinician. Treat any email, call or text about the incident that asks staff to sign in or reset a password as suspect until it is checked against a Quest contact you already hold. When access returns, reset your Lab Services Manager users&rsquo; passwords, remove accounts for people who have left and review who needs the portal at all &mdash; precautions, since the entry route is unknown. Give front-desk and patient-portal staff a short script, and ask your Quest account contact whether your patients&rsquo; records are in scope and who will notify them.</span>
+          <span class="ops-tag patch-na">No patch applies &mdash; restoration in progress; UH gives no completion date and expected disruption through the week (statement of 26 Oct)</span>
+          <span class="ops-cc"><b>Action:</b> If you exchange referrals, results, images or HIE traffic with UH, confirm with your contacts which interfaces are down and how urgent results and transfers will move in the meantime, and do not restore trust relationships, VPNs or shared accounts until UH says they are safe. Treat calls, emails or texts that claim to come from UH and ask for credentials or payment details as suspect until checked against a contact you already hold. For your own system, rehearse a full internet disconnect: which clinical applications keep working, how patients reach you without the portal, how pre-authorisations and payments continue, and who decides when each external connection comes back.</span>
         </div>
         <div class="ops-row ops-assign">
-          <span class="ops-sla"><b>Suggested SLA:</b> Fallback ordering and results path confirmed &mdash; 24 hours; patient-inquiry script &mdash; 72 hours; portal account reset and review when access returns &mdash; 7 days</span>
-          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-quest-quanum-8k" data-placeholder="Assign&hellip;"></span></span>
-          <button class="status-pill st-open" data-key="it-quest-quanum-8k">Open</button>
+          <span class="ops-sla"><b>Suggested SLA:</b> Partner-interface check and fallback for urgent results (organisations that exchange data with UH) &mdash; 24 hours; internet-disconnect scenario added to downtime exercises &mdash; 30 days</span>
+          <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-uh-cleveland-outage" data-placeholder="Assign&hellip;"></span></span>
+          <button class="status-pill st-open" data-key="it-uh-cleveland-outage">Open</button>
         </div>
       </div>
       <div class="card-meta">
-        <span>Quest Diagnostics Form 8-K (SEC EDGAR); HIPAA Journal; AP via SecurityWeek</span>
+        <span>University Hospitals incident page; UH statement to Becker&rsquo;s Hospital Review</span>
         <span class="dot">&bull;</span>
-        <span>Discovered 21 Oct 2026 &mdash; 8-K filed 22 Oct 2026 &mdash; coverage 22&ndash;23 Oct 2026</span>
+        <span>Detected 22 Oct 2026 &mdash; UH statement 26 Oct 2026</span>
       </div>
-      <a href="https://www.sec.gov/Archives/edgar/data/1022079/000094787126000941/ss6979200_8k.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
+      <a href="https://www.uhhospitals.org/cybersecurity-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
     <div class="radar-panel">
       <div class="radar-head">Threat Radar</div>
@@ -774,40 +768,40 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-quest-quanum-8k"><circle class="blip high" cx="262.2" cy="72.9" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="262.2" y="75.7">1</text></a>
+        <a href="#it-uh-cleveland-outage"><circle class="blip high" cx="262.2" cy="72.9" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="262.2" y="75.7">1</text></a>
         <a href="#it-php2shell-109618"><circle class="blip crit" cx="202.0" cy="97.9" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="202.0" y="102.5">2</text></a>
-        <a href="#it-ivanti-connect-secure"><circle class="blip crit" cx="253.6" cy="137.5" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="253.6" y="141.7">3</text></a>
-        <a href="#it-beyondtrust-rs-102764"><circle class="blip crit" cx="262.1" cy="202.0" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="262.1" y="205.7">4</text></a>
-        <a href="#it-cisco-esa-76519"><circle class="blip crit" cx="222.5" cy="253.6" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="222.5" y="256.9">5</text></a>
-        <a href="#it-citrix-netscaler-0day"><circle class="blip crit" cx="158.0" cy="262.1" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="158.0" y="264.9">6</text></a>
-        <a href="#it-fortimail-104286"><circle class="blip crit" cx="106.4" cy="222.5" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="106.4" y="225.0">7</text></a>
-        <a href="#it-cisco-sdwan-76504"><circle class="blip crit" cx="97.9" cy="158.0" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="97.9" y="160.5">8</text></a>
-        <a href="#it-sonicwall-sma1000-102255"><circle class="blip crit" cx="137.5" cy="106.4" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="137.5" y="108.9">9</text></a>
-        <a href="#it-parkview-health-outage"><circle class="blip high" cx="313.8" cy="162.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="313.8" y="165.0">10</text></a>
-        <a href="#it-qilin-globalprotect-0257"><circle class="blip high" cx="287.1" cy="262.2" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.1" y="264.7">11</text></a>
-        <a href="#it-safepay-aa26-293a"><circle class="blip high" cx="197.6" cy="313.8" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="197.6" y="316.3">12</text></a>
-        <a href="#it-siemens-software-center-110936"><circle class="blip high" cx="97.8" cy="287.1" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="97.8" y="289.4">13</text></a>
-        <a href="#it-panos-0322"><circle class="blip high" cx="46.2" cy="197.6" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="46.2" y="199.8">14</text></a>
-        <a href="#it-ampath-laboratories"><circle class="blip high" cx="72.9" cy="97.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="72.9" y="99.9">15</text></a>
-        <a href="#it-icsma-intersystems-iris"><circle class="blip high" cx="162.4" cy="46.2" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="162.4" y="48.1">16</text></a>
+        <a href="#it-brotli-111497"><circle class="blip crit" cx="253.6" cy="137.5" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="253.6" y="141.7">3</text></a>
+        <a href="#it-ivanti-connect-secure"><circle class="blip crit" cx="262.1" cy="202.0" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="262.1" y="205.7">4</text></a>
+        <a href="#it-beyondtrust-rs-102764"><circle class="blip crit" cx="222.5" cy="253.6" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="222.5" y="256.9">5</text></a>
+        <a href="#it-cisco-esa-76519"><circle class="blip crit" cx="158.0" cy="262.1" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="158.0" y="264.9">6</text></a>
+        <a href="#it-citrix-netscaler-0day"><circle class="blip crit" cx="106.4" cy="222.5" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="106.4" y="225.0">7</text></a>
+        <a href="#it-fortimail-104286"><circle class="blip crit" cx="97.9" cy="158.0" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="97.9" y="160.5">8</text></a>
+        <a href="#it-cisco-sdwan-76504"><circle class="blip crit" cx="137.5" cy="106.4" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="137.5" y="108.9">9</text></a>
+        <a href="#it-unm-hsc-diversion"><circle class="blip high" cx="313.8" cy="162.4" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="313.8" y="165.0">10</text></a>
+        <a href="#it-quest-quanum-8k"><circle class="blip high" cx="287.1" cy="262.2" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="287.1" y="264.7">11</text></a>
+        <a href="#it-qilin-globalprotect-0257"><circle class="blip high" cx="197.6" cy="313.8" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="197.6" y="316.3">12</text></a>
+        <a href="#it-velocloud-114625"><circle class="blip high" cx="97.8" cy="287.1" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="97.8" y="289.4">13</text></a>
+        <a href="#it-nextcloud-collabora-110447"><circle class="blip high" cx="46.2" cy="197.6" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="46.2" y="199.8">14</text></a>
+        <a href="#it-safepay-aa26-293a"><circle class="blip high" cx="72.9" cy="97.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="72.9" y="99.9">15</text></a>
+        <a href="#it-hapi-fhir-smile-cdr"><circle class="blip high" cx="162.4" cy="46.2" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="162.4" y="48.1">16</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-quest-quanum-8k"><span class="ld high"></span><b>1</b> Quest Diagnostics &mdash; Quanum breach</a>
-        <a href="#it-php2shell-109618"><span class="ld crit"></span><b>2</b> PHP2Shell &mdash; mass exploit attempts</a>
-        <a href="#it-ivanti-connect-secure"><span class="ld crit"></span><b>3</b> Ivanti Connect Secure &mdash; root chain</a>
-        <a href="#it-beyondtrust-rs-102764"><span class="ld crit"></span><b>4</b> BeyondTrust RS &mdash; zero-day, KEV</a>
-        <a href="#it-cisco-esa-76519"><span class="ld crit"></span><b>5</b> Cisco email gateway &mdash; KEV</a>
-        <a href="#it-citrix-netscaler-0day"><span class="ld crit"></span><b>6</b> Citrix NetScaler &mdash; fourth flaw</a>
-        <a href="#it-fortimail-104286"><span class="ld crit"></span><b>7</b> FortiMail &mdash; exploited, KEV</a>
-        <a href="#it-cisco-sdwan-76504"><span class="ld crit"></span><b>8</b> Cisco SD-WAN Manager &mdash; KEV</a>
-        <a href="#it-sonicwall-sma1000-102255"><span class="ld crit"></span><b>9</b> SonicWall SMA1000 &mdash; CVSS 10</a>
-        <a href="#it-parkview-health-outage"><span class="ld high"></span><b>10</b> Parkview Health &mdash; network offline</a>
-        <a href="#it-qilin-globalprotect-0257"><span class="ld high"></span><b>11</b> Qilin &amp; INC &mdash; GlobalProtect</a>
-        <a href="#it-safepay-aa26-293a"><span class="ld high"></span><b>12</b> SafePay &mdash; joint advisory</a>
-        <a href="#it-siemens-software-center-110936"><span class="ld high"></span><b>13</b> Siemens Software Center &mdash; KEV</a>
-        <a href="#it-panos-0322"><span class="ld high"></span><b>14</b> PAN-OS &mdash; mgmt zero-day</a>
-        <a href="#it-ampath-laboratories"><span class="ld high"></span><b>15</b> Ampath Labs &mdash; incident</a>
-        <a href="#it-icsma-intersystems-iris"><span class="ld high"></span><b>16</b> InterSystems IRIS &mdash; no fix</a>
+        <a href="#it-uh-cleveland-outage"><span class="ld high"></span><b>1</b> University Hospitals &mdash; offline since 22 Oct</a>
+        <a href="#it-php2shell-109618"><span class="ld crit"></span><b>2</b> PHP2Shell &mdash; KEV, RCE confirmed</a>
+        <a href="#it-brotli-111497"><span class="ld crit"></span><b>3</b> Brotli decoder &mdash; KEV</a>
+        <a href="#it-ivanti-connect-secure"><span class="ld crit"></span><b>4</b> Ivanti Connect Secure &mdash; root chain</a>
+        <a href="#it-beyondtrust-rs-102764"><span class="ld crit"></span><b>5</b> BeyondTrust RS &mdash; zero-day, KEV</a>
+        <a href="#it-cisco-esa-76519"><span class="ld crit"></span><b>6</b> Cisco email gateway &mdash; KEV</a>
+        <a href="#it-citrix-netscaler-0day"><span class="ld crit"></span><b>7</b> Citrix NetScaler &mdash; fourth flaw</a>
+        <a href="#it-fortimail-104286"><span class="ld crit"></span><b>8</b> FortiMail &mdash; exploited, KEV</a>
+        <a href="#it-cisco-sdwan-76504"><span class="ld crit"></span><b>9</b> Cisco SD-WAN Manager &mdash; KEV</a>
+        <a href="#it-unm-hsc-diversion"><span class="ld high"></span><b>10</b> UNM Health &mdash; ambulance diversion</a>
+        <a href="#it-quest-quanum-8k"><span class="ld high"></span><b>11</b> Quest Diagnostics &mdash; records affected</a>
+        <a href="#it-qilin-globalprotect-0257"><span class="ld high"></span><b>12</b> Qilin &amp; INC &mdash; GlobalProtect</a>
+        <a href="#it-velocloud-114625"><span class="ld high"></span><b>13</b> VeloCloud Orchestrator &mdash; KEV</a>
+        <a href="#it-nextcloud-collabora-110447"><span class="ld high"></span><b>14</b> Nextcloud Collabora &mdash; KEV</a>
+        <a href="#it-safepay-aa26-293a"><span class="ld high"></span><b>15</b> SafePay &mdash; joint advisory</a>
+        <a href="#it-hapi-fhir-smile-cdr"><span class="ld high"></span><b>16</b> HAPI FHIR &mdash; cross-tenant flaw</a>
       </div>
     </div>
 
@@ -817,37 +811,202 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
-      <div class="card" id="it-parkview-health-outage" data-published="2026-10-23">
+      <div class="card" id="it-unm-hsc-diversion" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Incident</span>
         </div>
-        <h3>Parkview Health disables its network after &ldquo;suspicious network activity&rdquo; &mdash; MyChart is back with limits, but billing and video visits are still down</h3>
-        <p>Fort Wayne, Indiana-based Parkview Health said on 19 October 2026 that it had recently identified suspicious network activity and was investigating a potential cybersecurity incident. It proactively disabled its network, causing a systemwide internet outage that took down the MyChart patient portal and other online services and stopped appointment reminders; patients were told to call their provider&rsquo;s office or use walk-in clinics, and to call 911 in an emergency. By 23 October Parkview&rsquo;s website said MyChart and its Find a Doctor search had been restored &ldquo;with some limitations&rdquo; &mdash; reminders, messaging, refill requests and scheduling are back &mdash; while billing and video visits remained unavailable. Parkview has not said what the activity was or confirmed whether patient data was exposed; its 19 October update, as quoted by DailySecurityReview, said there was no indication patient data had been compromised. No ransomware group has claimed it, and no EHR downtime or ambulance diversion has been reported. Pulling the network is a sound containment step; the lesson for other systems is how long the patient-facing services that depend on it take to come back.</p>
+        <h3>UNM Health Sciences Center limited new patient intake and diverted ambulances for two hours after a cybersecurity event on 26 October &mdash; systems were back by 27 October, and UNM says it made no concessions</h3>
+        <p>The University of New Mexico Health Sciences Center said a cybersecurity threat on Monday 26 October 2026 affected the whole centre. UNM Health temporarily limited its acceptance of new patients from 12:30 to 2:30 pm and diverted ambulance traffic to other area systems in that window, suspended outpatient surgeries and appointments for the rest of the day, and sent non-essential staff and students of its four health-sciences colleges home. State and federal law enforcement were notified, and UNM says the incident is under criminal investigation. On 27 October UNM said critical electronic systems were back online, ambulance traffic had returned to normal and clinics had resumed appointments and procedures, and that the event &ldquo;affected some end-user devices but did not penetrate core systems or servers.&rdquo; On 28 October it said clinical operations were fully functional and that it had made no concessions to any group behind the threat, and warned that those responsible may try follow-on scams such as false offers of payment, which should be reported to the FBI&rsquo;s IC3. A group calling itself BYOD has claimed the attack and says it took student, patient and employee data; that is the group&rsquo;s claim, and UNM has reported no finding that data was accessed. UNM has not described the event as ransomware. UNM Hospital is New Mexico&rsquo;s only Level 1 trauma centre, so even two hours of diversion moved emergency load onto other hospitals (editorial assessment).</p>
         <div class="card-meta">
-          <span>Parkview Health, Fort Wayne, Indiana &bull; suspicious network activity; network proactively disabled &bull; MyChart and Find a Doctor restored with limits; billing and video visits down as of 23 Oct &bull; cause not disclosed &bull; no ransomware claim found</span>
+          <span>UNM Health Sciences Center, Albuquerque &bull; intake limited and ambulances diverted 12:30&ndash;2:30 pm, 26 Oct 2026 &bull; outpatient surgeries and appointments suspended for the day &bull; some end-user devices affected; core systems and servers not penetrated, per UNM &bull; under criminal investigation &bull; BYOD claim (unverified) &bull; no CVE</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Parkview: suspicious network activity and a systemwide outage after it disabled its network; whether data was taken has not been confirmed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by UNM: cybersecurity event on 26 Oct 2026; new-patient intake limited and ambulances diverted 12:30&ndash;2:30 pm; some end-user devices affected. Data theft CLAIMED by BYOD, not confirmed</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; the entry route has not been disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; critical systems back online 27 Oct; clinical operations fully functional per UNM on 28 Oct 2026</span>
+            <span class="ops-cc"><b>Action:</b> Check that decisions to limit intake or divert ambulances because of a cyber event are written down: who can call them, how EMS and neighbouring hospitals are told, and how quickly they can be reversed. Make sure your containment plan can isolate end-user devices fast without taking core clinical systems down, which is how UNM describes this event. Prepare a scam warning for patients, students and staff for the days after an incident, since attackers may follow up with fake compensation offers. If you receive diverted ambulances from a neighbouring system, check that your emergency-department surge plan covers a cyber trigger.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Cyber-triggered diversion and intake procedure reviewed &mdash; 30 days; post-incident scam-warning template &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-unm-hsc-diversion" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-unm-hsc-diversion">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>UNM Health Sciences Center updates (26&ndash;28 Oct); The Record; HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Event 26 Oct 2026 &mdash; systems back 27 Oct &mdash; UNM update 28 Oct 2026</span>
+        </div>
+        <a href="https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-quest-quanum-8k" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Quest Diagnostics restores Quanum Lab Services Manager after the intrusion it reported to the SEC &mdash; its patient FAQ says personal information and patient records were affected; how many is still unknown</h3>
+        <p>Quest Diagnostics says Quanum Lab Services Manager, the web tool some clients use to order tests and view results, was restored as of 8 am ET on 26 October 2026, after it paused access on learning of unauthorized access on 21 October. Quest&rsquo;s notice says the incident has been remediated and contained. Essential Insights and LabHQ, paused as a precaution, are also restored, and Quest says no data in them was accessed. Its patient FAQ says personal information and patient records were affected; the number of people and the types of data are still under investigation, and Quest says it will notify affected patients and providers. Quest reported the incident in a Form 8-K filed on 22 October under Item 8.01, &ldquo;Other Events,&rdquo; rather than Item 1.05, has notified federal law enforcement, and says the incident is unrelated to the PHP2Shell flaws; no group has claimed it. Its help desk can reset Lab Services Manager credentials. For hospitals and practices that use the portal, the work now moves from keeping orders flowing to account hygiene, reconciling orders placed during the pause and answering patients (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Quest Diagnostics &bull; Quanum Lab Services Manager &bull; unauthorized access discovered 21 Oct 2026 &bull; restored 8 am ET 26 Oct &bull; patient records affected per Quest&rsquo;s FAQ; count and data types under investigation &bull; Form 8-K Item 8.01 &bull; no group claim found</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Quest: unauthorized access to Quanum Lab Services Manager discovered 21 Oct 2026; personal information and patient records affected; count and data types under investigation</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; the entry route has not been disclosed; Quest says it is unrelated to PHP2Shell</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; Lab Services Manager restored 8 am ET 26 Oct 2026; Essential Insights and LabHQ also restored</span>
+            <span class="ops-cc"><b>Action:</b> Now that Lab Services Manager is back, reset your users&rsquo; passwords (Quest&rsquo;s help desk can reset credentials), remove accounts for people who have left and review who needs the portal at all &mdash; precautions, since the entry route is unknown. Reconcile orders placed by fax, paper or EHR during the pause so that no result is missed. Treat emails, calls or texts about the incident that ask staff or patients to sign in or reset a password as suspect until checked against a Quest contact you already hold. Give front-desk and patient-portal staff a short script, and ask your Quest account contact whether your patients&rsquo; records are in scope and who will notify them.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patient-inquiry script &mdash; 72 hours; portal account reset and review &mdash; 7 days; reconciliation of orders placed during the pause &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-quest-quanum-8k" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-quest-quanum-8k">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Quest Diagnostics incident notice and patient FAQ; Form 8-K (SEC EDGAR)</span>
+          <span class="dot">&bull;</span>
+          <span>Discovered 21 Oct 2026 &mdash; 8-K filed 22 Oct &mdash; Lab Services Manager restored 26 Oct 2026</span>
+        </div>
+        <a href="https://www.questdiagnostics.com/links/quanum-notice" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-parkview-health-outage" data-published="2026-10-28">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>Parkview Health says all services are restored and no patient information was compromised after it disabled its network over &ldquo;suspicious network activity&rdquo;</h3>
+        <p>Fort Wayne, Indiana-based Parkview Health said on 19 October 2026 that it had identified suspicious network activity and was investigating a potential cybersecurity incident. It proactively disabled its network, causing a systemwide internet outage that took down the MyChart patient portal and other online services; patients were told to call their provider&rsquo;s office or use walk-in clinics. By 23 October MyChart and Find a Doctor were back with some limitations, while billing and video visits were still unavailable. Parkview&rsquo;s website said on 28 October that all services have been restored and no patient information was compromised; the notice is undated. Parkview has not said what the activity was, and no ransomware group has claimed it. Pulling the network is a sound containment step; the lesson for other systems is how long the patient-facing services that depend on it take to come back (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Parkview Health, Fort Wayne, Indiana &bull; suspicious network activity; network proactively disabled 19 Oct &bull; partial restoration 23 Oct &bull; all services restored and no patient information compromised, per Parkview&rsquo;s website (28 Oct) &bull; cause not disclosed &bull; no ransomware claim found</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Parkview: suspicious network activity and a systemwide outage after it disabled its network; Parkview says no patient information was compromised</span>
             <span class="ops-tag kev-off">No CVE named &mdash; the cause has not been disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; restoration in progress: MyChart and Find a Doctor back with limits; billing and video visits unavailable as of 23 Oct 2026</span>
-            <span class="ops-cc"><b>Action:</b> Check that your downtime plan covers a deliberate, network-wide disconnect, not only an EHR outage: how patients are told, how refills, scheduling and results reach them without the portal, how video visits are rescheduled and how billing restarts. Agree in advance who can order the network pulled and who signs off on bringing each service back. If you exchange referrals, results or HIE traffic with Parkview, ask your contacts which connections are paused, and do not re-enable trust relationships until Parkview says they are safe.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; all services restored, per Parkview&rsquo;s website as of 28 Oct 2026</span>
+            <span class="ops-cc"><b>Action:</b> Check that your downtime plan covers a deliberate, network-wide disconnect, not only an EHR outage: how patients are told, how refills, scheduling and results reach them without the portal, how video visits are rescheduled and how billing restarts. Agree in advance who can order the network pulled and who signs off on bringing each service back. If you exchange referrals, results or HIE traffic with Parkview, confirm with your contacts that each connection was re-enabled deliberately and is working.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Partner-connection check (organisations that exchange data with Parkview) &mdash; 72 hours; network-disconnect scenario added to downtime plans &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Partner-connection confirmation (organisations that exchange data with Parkview) &mdash; 14 days; network-disconnect scenario added to downtime plans &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-parkview-health-outage" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-parkview-health-outage">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Parkview Health statements via HIPAA Journal and DailySecurityReview; Parkview website notice</span>
+          <span>Parkview Health website; Parkview statements via HIPAA Journal</span>
           <span class="dot">&bull;</span>
-          <span>Suspicious activity disclosed 19 Oct 2026 &mdash; partial restoration reported 23 Oct 2026</span>
+          <span>Suspicious activity disclosed 19 Oct 2026 &mdash; partial restoration 23 Oct &mdash; full restoration per website 28 Oct 2026</span>
         </div>
-        <a href="https://www.hipaajournal.com/ultramobile-imaging-artistic-smiles-parkview-health-data-breaches/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.parkview.com/news" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-blueberry-pediatrics" data-published="2026-10-28">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Telemedicine provider Blueberry Pediatrics notifies 340,915 people after its Metabase analytics server was exploited &mdash; and its prescription vendor Photon reports that a second actor took some of the same data</h3>
+        <p>Blueberry Pediatrics, a subscription telemedicine service that gives families access to paediatricians, told the Oregon Attorney General that 340,915 people were affected, HIPAA Journal reported on 28 October 2026; two filings with the Texas Attorney General cover 60,581 and 7,249 Texas residents. Blueberry says it learned on 22 August 2026 that a hacker had exploited a critical vulnerability in Metabase, the business-intelligence platform, and copied patient data: names, dates of birth, health-plan names and policy numbers, medical records, dates of service, medical codes and charges. On 24 August its prescription vendor Photon, which also ran Metabase, told Blueberry that a different threat actor had exploited the flaw on Photon&rsquo;s side and taken patient data including names, addresses, phone numbers, email addresses, member IDs and medication information, so some families may get two letters. Social Security numbers and financial information were not involved, and patient photos and videos were stored separately. It is a downstream case of the breach described in the <a href="#it-photon-health-metabase">Photon Health card</a>; no CVE has been tied to the Metabase flaw in the reporting.</p>
+        <div class="card-meta">
+          <span>Blueberry Pediatrics (telemedicine) &bull; 340,915 people (Oregon AG) &bull; Metabase flaw exploited; a second actor took data via vendor Photon &bull; learned 22 Aug 2026; Photon notice 24 Aug &bull; medical records, health-plan and medication data &bull; no SSNs or financial data &bull; no CVE named</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Blueberry Pediatrics (state attorney-general filings): Metabase flaw exploited and patient data copied; a second actor took data through Photon</span>
+            <span class="ops-tag kev-off">No CVE named for the Metabase flaw in the sources read</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No specific fix identified in the reporting &mdash; keep Metabase on its current release and off the open internet</span>
+            <span class="ops-cc"><b>Action:</b> Ask every telehealth, e-prescribing and pharmacy partner that holds your patients&rsquo; data whether it runs Metabase or another self-hosted analytics tool, which version, and whether it can be reached from the internet. Check your own BI and dashboard servers the same way, and make sure the database accounts they use are read-only and scoped to the tables they need. Where an incident involves both you and a vendor, agree early who notifies whom, so families are not confused by two letters about the same data.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Partner analytics-tool questionnaire &mdash; 14 days; own BI server exposure and account scoping &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-blueberry-pediatrics" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-blueberry-pediatrics">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Blueberry Pediatrics notices to the Oregon and Texas attorneys general, via HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Learned 22 Aug 2026 &mdash; Photon notice 24 Aug &mdash; reported 28 Oct 2026</span>
+        </div>
+        <a href="https://www.hipaajournal.com/blueberry-pediatrics-photon-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-denver-health-plan-key" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Denver Health Medical Plan notifies 238,083 members after AI analytics vendor SquareML left a database access key on a public website for more than a year &mdash; the plan found no evidence it was used</h3>
+        <p>Denver Health Medical Plan says its vendor SquareML, which runs an artificial-intelligence and machine-learning analytics platform, inadvertently posted an access key on a public website on 27 June 2025; the key could have been used to reach a vendor database of plan member information, HIPAA Journal reported on 26 October 2026. The plan learned of the exposure on 14 August 2026 and the key was deactivated on 18 August. The plan says the key was read-only, could not have been used to alter, delete or export data, and that it has found no evidence of misuse. The notice covers 238,083 current and former members; the data includes names, city, state and ZIP code, demographics, dates of birth, eligibility, provider names, admission, discharge and transfer information and health metrics such as BMI, HbA1c and eGFR, but not Social Security numbers or financial information. The same report covers Johns Hopkins Bayview Medical Center, where a staff member uploaded a spreadsheet with limited data on 3,182 patients to an unapproved public AI tool, discovered on 21 September. Both cases put AI tooling, approved or not, inside the PHI boundary (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Denver Health Medical Plan &bull; vendor SquareML (AI/ML analytics) &bull; access key public 27 Jun 2025 to 18 Aug 2026 &bull; 238,083 members &bull; read-only key, no evidence of misuse per the plan &bull; no SSNs or financial data &bull; also: Johns Hopkins Bayview, 3,182 patients via a public AI tool &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>CONFIRMED exposure by the plan &mdash; no evidence the key was used; Johns Hopkins Bayview upload confirmed by the hospital</span>
+            <span class="ops-tag kev-off">No CVE &mdash; a credential published by a vendor</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; key deactivated 18 Aug 2026; response is vendor secrets management and AI-tool governance</span>
+            <span class="ops-cc"><b>Action:</b> List the analytics and AI vendors that hold member or patient data and ask each how it stores and rotates access keys, whether it scans its public sites and code repositories for exposed secrets, and how quickly it would tell you. Where the platform supports it, require expiring keys and network restrictions for vendor access to your data. Inside your own organisation, block unapproved public AI tools for PHI, give staff an approved alternative, and check upload logs for spreadsheets of patient data.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> AI and analytics vendor secrets questionnaire &mdash; 30 days; unapproved AI-tool controls and staff guidance &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-denver-health-plan-key" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-denver-health-plan-key">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Denver Health Medical Plan and Johns Hopkins Bayview notices via HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Key posted 27 Jun 2025 &mdash; plan notified 14 Aug 2026 &mdash; key deactivated 18 Aug &mdash; reported 26 Oct 2026</span>
+        </div>
+        <a href="https://www.hipaajournal.com/denver-health-medical-plan-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-northshore-health-centers" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>Indiana community health centre NorthShore Health Centers confirms an August intrusion; the Insomnia group has claimed it and published data that appears to include patient files</h3>
+        <p>NorthShore Health Centers, a nonprofit provider serving Porter, Lake, La Porte and Jasper counties in Northwest Indiana, says an unauthorized party accessed parts of its IT environment on 10 and 11 August 2026; it detected the activity on 10 August and posted a notice on its website on 14 October. Its review is still under way, but the data likely includes names, Social Security numbers, information about treatment and conditions and health insurance details; the number of people affected is still being determined. HIPAA Journal reported on 27 October that the Insomnia group listed NorthShore on its leak site and has since published data; HIPAA Journal did not download it but says the file listing suggests patient data is included. The claim and the contents of the leak are unverified. For community health centres, the gap to plan for is the one shown here: data can be public before the organisation has been able to count, let alone notify, the people in it (editorial assessment).</p>
+        <div class="card-meta">
+          <span>NorthShore Health Centers, Northwest Indiana &bull; access 10&ndash;11 Aug 2026 &bull; notice 14 Oct &bull; SSNs, treatment and insurance data likely &bull; count being determined &bull; Insomnia claim and data leak (unverified) &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED intrusion by NorthShore (10&ndash;11 Aug 2026); responsibility CLAIMED by Insomnia, which has published data</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; the entry route has not been disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; response is notification and leak handling</span>
+            <span class="ops-cc"><b>Action:</b> If you exchange referrals or records with NorthShore, ask which of your data sets sat on the affected systems. For your own organisation, check that the incident plan covers a group publishing data before your review has counted those affected: who examines the leak and on what isolated system, how quickly you can tell whether it is yours, and what interim notice patients receive.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Partner data check, where applicable &mdash; 14 days; leak-before-count procedure in the incident plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-northshore-health-centers" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-northshore-health-centers">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NorthShore Health Centers notice via HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>Access 10&ndash;11 Aug 2026 &mdash; notice 14 Oct &mdash; leak reported 27 Oct 2026</span>
+        </div>
+        <a href="https://www.hipaajournal.com/data-breach-northshore-health-centers/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-tarter-krinsky-phi" data-published="2026-10-23">
@@ -1021,7 +1180,7 @@
           <span class="category">Breach</span>
         </div>
         <h3>E-prescribing network Photon Health says attackers used a zero-day in its self-hosted Metabase analytics app to reach patient and prescription data &mdash; the Direwolf group claims the attack</h3>
-        <p>Photon Health, a Brooklyn-based prescription network, learned on 21 August 2026 that a previously unknown flaw in Metabase, the self-hosted business-intelligence application it used for product metrics and customer dashboards, had been exploited. The attacker reached stored data that may have been taken, including names, addresses, phone numbers, dates of birth and prescription information. Photon finished reviewing the data on 4 September and began mailing letters on 8 October, HIPAA Journal reported on 13 October; it has not disclosed how many people or client organisations are affected, and says it knows of no misuse. The Direwolf ransomware and extortion group has claimed responsibility, which is the group&rsquo;s claim. No CVE has been tied to the Metabase flaw in the reporting we read. The lesson sits in the tool rather than the vendor, an editorial observation: analytics and dashboard servers are routinely given read access to production databases and then left out of patch and access reviews.</p>
+        <p>Photon Health, a Brooklyn-based prescription network, learned on 21 August 2026 that a previously unknown flaw in Metabase, the self-hosted business-intelligence application it used for product metrics and customer dashboards, had been exploited. The attacker reached stored data that may have been taken, including names, addresses, phone numbers, dates of birth and prescription information. Photon finished reviewing the data on 4 September and began mailing letters on 8 October, HIPAA Journal reported on 13 October; it has not disclosed how many people or client organisations are affected, and says it knows of no misuse. The Direwolf ransomware and extortion group has claimed responsibility, which is the group&rsquo;s claim. No CVE has been tied to the Metabase flaw in the reporting we read. The lesson sits in the tool rather than the vendor, an editorial observation: analytics and dashboard servers are routinely given read access to production databases and then left out of patch and access reviews. Blueberry Pediatrics, a telemedicine provider that uses Photon for prescriptions, has since notified 340,915 people after Metabase was exploited both on its own systems and at Photon (see the <a href="#it-blueberry-pediatrics">Blueberry Pediatrics card</a>).</p>
         <div class="card-meta">
           <span>Photon Health (Brooklyn, NY) &bull; zero-day in self-hosted Metabase &bull; discovered 21 Aug 2026 &bull; letters from 8 Oct &bull; prescription data &bull; count not disclosed &bull; Direwolf claim (unverified)</span>
         </div>
@@ -1219,7 +1378,7 @@
           <span class="category">Breach</span>
         </div>
         <h3>Clover Health reports 138,677 people affected after social engineering opened three health-plan employee accounts in July &mdash; the breach is now on the HHS portal</h3>
-        <p>Clover Health Investments, the Jersey City health insurer, has notified HHS that 138,677 people were affected by a breach it first disclosed in an SEC filing in July 2026; it reported the count to HHS in mid-September, and the entry was posted on the HHS Office for Civil Rights breach portal the week before SecurityWeek reported it on 5 October. According to the company, in early July attackers used social engineering to compromise three non-managerial health-plan employee accounts. The exposed data includes names, dates of birth, insurance identifiers and account identification numbers. No ransomware group has been reported as claiming the attack. The detail that matters is the target: not administrators or executives but ordinary staff accounts with routine access to member records, which is the same pattern as Astrana Health&rsquo;s spoofed-caller intrusion below. Three compromised accounts were enough for a breach affecting about 139,000 people.</p>
+        <p>Clover Health Investments, the Jersey City health insurer, has notified HHS that 138,677 people were affected by a breach it first disclosed in an SEC filing in July 2026; it reported the count to HHS in mid-September, and the entry was posted on the HHS Office for Civil Rights breach portal the week before SecurityWeek reported it on 5 October. According to the company, in early July attackers used social engineering to compromise three non-managerial health-plan employee accounts. The exposed data includes names, dates of birth, insurance identifiers and account identification numbers. No ransomware group has been reported as claiming the attack. The detail that matters is the target: not administrators or executives but ordinary staff accounts with routine access to member records. Three compromised accounts were enough for a breach affecting about 139,000 people.</p>
         <div class="card-meta">
           <span>Clover Health Investments, Jersey City NJ &bull; 138,677 affected &bull; social engineering of three non-managerial employee accounts &bull; names, dates of birth, insurance and account identifiers &bull; no claim reported &bull; no CVE</span>
         </div>
@@ -1244,72 +1403,6 @@
           <span>Incident early Jul 2026 &mdash; HHS notified mid-Sep &mdash; portal posting reported 5 Oct 2026</span>
         </div>
         <a href="https://www.securityweek.com/250000-impacted-by-data-breaches-at-new-jersey-texas-healthcare-firms/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-astrana-8k" data-published="2026-09-23">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Astrana Health tells the SEC that callers spoofing its own main phone number talked their way into its systems &mdash; patient, employee and provider data may have been accessed, and the company has declared the incident material</h3>
-        <p>Astrana Health, the Nasdaq-listed (ASTH) healthcare company, disclosed a cybersecurity incident in a Form 8-K under Item 1.05 filed on 23 September 2026. According to the filing, its subsidiary Astrana Health Management, Inc. &mdash; the part of the business that handles billing and claims &mdash; detected unusual activity, and the company traced it to &ldquo;a series of social engineering attempts in which threat actors, impersonating Company personnel and spoofing the Company&rsquo;s main corporate telephone number&rdquo; called employees to obtain access to company systems. The filing says private and/or confidential information on its servers was accessed and/or acquired without authorisation, and that the data may include &ldquo;patient, employee, credentialed provider, confidential business and financial information, intellectual property, or other information.&rdquo; Astrana reset affected credentials, restricted remote access tools, restored certain systems from clean backups and enhanced monitoring; it has notified law enforcement and is notifying state and federal regulators and payer partners. It determined the incident was material &ldquo;as of September 22, 2026, due to the potential confidential and sensitive nature of the data,&rdquo; while saying it does not currently expect a material effect on its financial results. There is no count of affected people yet, the filing names no actor and does not describe ransomware, and no group had publicly claimed the attack; no amended filing or public claim had been found as of 6 October. It stays high on this page because it is a confirmed, SEC-disclosed intrusion at a healthcare company and because the technique is the one this page keeps tracking &mdash; Clover Health&rsquo;s socially engineered employee accounts above and the phishing platforms in the Microsoft&ndash;Health-ISAC takedown below both turn on persuading a person rather than exploiting a flaw. The detail that matters is the spoofed caller ID: an employee who sees the company&rsquo;s own main number on the screen has been given a reason to trust the caller, so &ldquo;check the number&rdquo; is not a control.</p>
-        <div class="card-meta">
-          <span>Astrana Health, Inc. (Nasdaq: ASTH) &bull; subsidiary Astrana Health Management, Inc. (billing and claims) &bull; voice phishing with spoofed corporate caller ID &bull; Form 8-K Item 1.05 &bull; no count, no actor named &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by SEC Form 8-K (Item 1.05) &mdash; unauthorised access after voice phishing that spoofed the company&rsquo;s main number; data accessed and/or acquired; declared material as of 22 Sep 2026. No count, no named actor, no public claim</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; access came through social engineering, not a software flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is caller verification, helpdesk controls and remote-access tool restriction</span>
-            <span class="ops-cc"><b>Action:</b> Assume your own main number can be spoofed and brief staff that caller ID &mdash; including the organisation&rsquo;s own switchboard number &mdash; proves nothing. Require a call-back to a number taken from the directory, or a ticket raised through an authenticated channel, before anyone resets a password, enrols an MFA device, grants remote access or installs a remote-support tool at a caller&rsquo;s request. Give billing, claims and revenue-cycle staff the same briefing as the helpdesk: they hold patient and payer data and are the people this filing says were called. Inventory the remote-access and remote-support tools that are allowed to run on endpoints, block the rest, and alert on new installations. Review sign-in logs for MFA registrations and password resets that followed an inbound call, and ask your revenue-cycle and billing vendors in writing what caller-verification rule their staff follow.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Staff briefing on spoofed internal numbers &mdash; 72 hours; call-back rule for resets, MFA enrolment and remote-access requests &mdash; 14 days; remote-access tool allowlist and alerting &mdash; 30 days; billing-vendor attestation &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-astrana-8k" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-astrana-8k">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Astrana Health Form 8-K (SEC EDGAR); The Record; SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>8-K filed 23 Sep 2026 &mdash; incident declared material as of 22 Sep 2026</span>
-        </div>
-        <a href="https://www.sec.gov/Archives/edgar/data/1083446/000110465926109813/asth-20260922x8k.htm" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-qbusoft-medyc" data-published="2026-09-27">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>A breach at Polish medical-software maker Qbusoft exposes patients&rsquo; national ID numbers through its Medyc system &mdash; Poland&rsquo;s digital affairs minister says the company had not reported it to CERT Polska</h3>
-        <p>Qbusoft sp. z o.o., an Olsztyn company that makes the Medyc medical software used by Polish healthcare providers, has had its systems compromised, and patient contact details and PESEL numbers &mdash; Poland&rsquo;s national identification number &mdash; were exposed, Rzeczpospolita reported on 25 September 2026. At least one provider has confirmed it was affected: an addiction and psychiatric treatment centre in Inowroc&#322;aw, which announced the breach on 24 September. The software serves multiple providers, but no count of affected facilities or patients has been published, no actor has been named and ransomware has not been reported. Digital Affairs Minister Krzysztof Gawkowski wrote on X that &ldquo;absolute consequences&rdquo; would be drawn if a private company had breached security procedures, and said Qbusoft had not reported the incident to CERT Polska or to CSIRT CeZ; Poland&rsquo;s Central Cybercrime Bureau (CBZC) is investigating. Rzeczpospolita updated its report with the minister&rsquo;s statement on 27 September, and Qbusoft has not made a public statement. It is the second Polish medical-software breach in weeks: in August the MyDr platform breach was reported to have exposed data on about 19 million people across roughly 12,000 medical facilities. Nothing links the two incidents. For health systems anywhere, the pattern is the useful part. When the breach is at the software vendor, the provider learns about it on the vendor&rsquo;s timetable &mdash; and here the minister says the vendor had not told the national CSIRT at all.</p>
-        <div class="card-meta">
-          <span>Qbusoft sp. z o.o., Olsztyn &bull; Medyc medical software &bull; patient contact details and PESEL numbers exposed &bull; at least one provider confirmed (Inowroc&#322;aw) &bull; no count, no actor &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Poland&rsquo;s digital affairs minister and at least one affected provider &mdash; PESEL numbers and contact details exposed; CBZC investigating. No count, no actor, no claim; Qbusoft has made no public statement</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; how Qbusoft&rsquo;s systems were accessed has not been disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is vendor oversight and incident-notification terms</span>
-            <span class="ops-cc"><b>Action:</b> List the clinical and practice-management software vendors that hold your patients&rsquo; national identifiers, contact details or records on their own infrastructure, and check what each contract says about how fast they must tell you about an incident and whether they must also report it to the relevant authority. Ask each one, in writing, who in your organisation they would call and within how many hours. Where a vendor hosts your patient data, confirm you can obtain an access log for your tenant during an investigation, and rehearse the case where the first notice comes from a regulator, a minister or a journalist rather than from the vendor.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of vendors hosting patient identifiers &mdash; 30 days; vendor escalation contacts confirmed &mdash; 14 days; notification-clause review for top vendors &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-qbusoft-medyc" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-qbusoft-medyc">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Rzeczpospolita; TVP World (via DataBreaches.net); Anadolu</span>
-          <span class="dot">&bull;</span>
-          <span>Disclosed 24&ndash;25 Sep 2026 &mdash; report updated with the minister&rsquo;s statement 27 Sep 2026</span>
-        </div>
-        <a href="https://cyfrowa.rp.pl/bezpieczenstwo/art45190861-cyberatak-na-system-medyczny-mogly-wyciec-pesel-e-pacjentow" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-openai-medicare-portal" data-published="2026-10-01">
@@ -1376,72 +1469,6 @@
           <span>Claim posted 4 Oct 2026 &mdash; denial and further posting 5 Oct 2026</span>
         </div>
         <a href="https://databreaches.net/2026/10/05/nueva-eps-colombias-largest-regional-healthcare-promoting-entity-has-allegedly-been-hacked/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-medimpact-letters" data-published="2026-09-23">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Pharmacy benefit manager MedImpact begins mailing breach letters for an intrusion detected in October 2025 &mdash; Social Security numbers and prescription data involved, no total disclosed; Qilin claimed it at the time</h3>
-        <p>MedImpact Healthcare Systems, a pharmacy benefit manager (PBM), began sending notification letters to affected individuals on 23 September 2026, HIPAA Journal reported on 25 September. MedImpact identified unauthorised activity within its computer network in October 2025; its investigation finished on 17 July 2026 and it notified its client health plans on 13 August 2026. The data involved is names together with some or all of: address, date of birth, subscriber number, Social Security number, health insurance information, and health-related information such as prescription and treatment information, dates of service, service locations and provider names. Neither the affected clients nor the number of affected individuals has been publicly disclosed. People whose Social Security numbers were involved are being offered credit monitoring and identity theft protection, and MedImpact says no misuse had been identified when the letters went out. The Qilin ransomware group listed MedImpact on its leak site in October 2025 &mdash; that is the group&rsquo;s claim; MedImpact&rsquo;s notice does not name an attacker or describe how access was gained. The timeline is the lesson for health plans: roughly eleven months passed between detection and letters to members, and the plans themselves heard only in August. A PBM holds identity, coverage and prescription history for members of many plans at once, so one intrusion becomes a notification problem for every plan that uses it.</p>
-        <div class="card-meta">
-          <span>MedImpact Healthcare Systems (PBM) &bull; activity detected Oct 2025 &bull; health plans told 13 Aug 2026 &bull; letters from 23 Sep 2026 &bull; SSNs and prescription data &bull; count not disclosed &bull; Qilin claim (unverified)</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED breach notification &mdash; letters mailed from 23 Sep 2026; no total disclosed. Qilin leak-site listing (Oct 2025) is a CLAIM; MedImpact names no actor</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; the access vector has not been disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is plan-side notification coordination and PBM assurance</span>
-            <span class="ops-cc"><b>Action:</b> If MedImpact administers pharmacy benefits for your plan, confirm you have the member file for your population, agree who sends letters and staffs the call centre, and prepare member-services scripts that separate what MedImpact has confirmed from the Qilin claim. Ask for the intrusion timeline and for evidence of what was done between detection in October 2025 and notification to you in August 2026. More broadly, check your PBM and other claims-processing contracts for a notification window measured in days, not months, and for a right to the forensic summary.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Plan-side member notification plan and call-centre script &mdash; 7 days; PBM contract notification-window review &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-medimpact-letters" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-medimpact-letters">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HIPAA Journal (summary of MedImpact&rsquo;s notice)</span>
-          <span class="dot">&bull;</span>
-          <span>Letters from 23 Sep 2026 &mdash; reported 25 Sep 2026</span>
-        </div>
-        <a href="https://www.hipaajournal.com/data-breaches-medimpact-healthcare-systems-rosch-visionary-systems/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-oculus-pathology" data-published="2026-09-24">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Oculus Pathology in Austin notifies 20,040 patients after intruders spent three days in employee email accounts &mdash; SSNs, payment card numbers and diagnoses among the data</h3>
-        <p>Oculus Pathology, an Austin, Texas pathology practice, has notified 20,040 patients about an email-account compromise, HIPAA Journal reported on 24 September 2026. Suspicious activity in an employee&rsquo;s email account was identified on 1 April 2026; the investigation found that unauthorised third parties had access to multiple employee email accounts between 31 March and 2 April. The mailboxes contained names, dates of birth, Social Security numbers, driver&rsquo;s licence or state ID numbers, taxpayer identification numbers, financial account and payment card numbers, health insurance details, diagnoses, prescriptions, procedures, medical record numbers, Medicare numbers and patient IDs. No misuse had been detected when patients were notified. The same report lists two notifications without totals: Paradigm Healthcare Services, a San Francisco billing firm, for network access on 8&ndash;15 October 2025, and LeMaitre Vascular, with about 1,000 Massachusetts residents affected. A three-day mailbox compromise producing a 20,000-patient notice six months later is the ordinary shape of a healthcare breach: the attacker never touches the lab system, because reports, requisitions and billing correspondence are already sitting in email.</p>
-        <div class="card-meta">
-          <span>Oculus Pathology, Austin TX &bull; 20,040 patients &bull; email access 31 Mar&ndash;2 Apr 2026 &bull; SSNs, card numbers, diagnoses, Medicare numbers &bull; no misuse detected &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED breach notification &mdash; 20,040 patients; multiple employee mailboxes accessed 31 Mar&ndash;2 Apr 2026; no claim of responsibility reported</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; email-account compromise; how the accounts were accessed has not been disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is mailbox hygiene and phishing-resistant sign-in</span>
-            <span class="ops-cc"><b>Action:</b> Find out how much patient data sits in ordinary mailboxes: run a data-discovery scan for Social Security, card and medical record numbers in email, and set retention so reports and requisitions do not accumulate there for years. Move staff who handle results and billing to phishing-resistant MFA, alert on mailbox rules that forward or hide messages and on sign-ins from new locations, and make sure a compromised-mailbox investigation can tell you within days, not months, which patients were in the messages.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> PHI-in-email discovery scan &mdash; 30 days; phishing-resistant MFA for results and billing staff &mdash; 60 days; mailbox-rule alerting &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oculus-pathology" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-oculus-pathology">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HIPAA Journal (reporting Oculus Pathology&rsquo;s notice)</span>
-          <span class="dot">&bull;</span>
-          <span>Incident 31 Mar&ndash;2 Apr 2026 &mdash; reported 24 Sep 2026</span>
-        </div>
-        <a href="https://www.hipaajournal.com/oculus-pathology-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-luminis-health" data-published="2026-09-29">
@@ -1555,7 +1582,7 @@
           <span class="category">Campaign</span>
         </div>
         <h3>Unit 42: Qilin and INC ransomware crews use PAN-OS GlobalProtect CVE-2026-0257 to open VPN sessions past MFA, then go after vCenter, ESXi and Veeam &mdash; healthcare is among the targeted sectors</h3>
-        <p>Palo Alto Networks&rsquo; Unit 42 said in an update reported on 20 October 2026 that two ransomware operations are exploiting <b>CVE-2026-0257</b>, the GlobalProtect authentication bypass disclosed and patched in May: Qilin, which it tracks as Spikey Scorpius, and INC, tracked as Tarnished Scorpius. The attackers use the flaw to establish VPN sessions that never pass through MFA, then bring in remote-management tools and move over RDP and SMB. In one case they reached vCenter, turned off ESXi&rsquo;s execInstalledOnly protection and copied domain-controller credentials offline from the controller&rsquo;s virtual disk, out of sight of endpoint protection inside the guest; they also chained Veeam Backup &amp; Replication flaw CVE-2023-27532. Targeted sectors include healthcare, financial services, education, government and manufacturing. ReliaQuest warned on 9 October that Qilin and Settra were using the same flaw. Palo Alto rates it CVSS v4.0 7.8, and it has been in KEV since 29 May. It is a different flaw from the PAN-OS management-interface zero-day CVE-2026-0322 in Critical Advisories. Qilin is also the group that claimed the MedImpact intrusion elsewhere on this page, a claim that remains unverified.</p>
+        <p>Palo Alto Networks&rsquo; Unit 42 said in an update reported on 20 October 2026 that two ransomware operations are exploiting <b>CVE-2026-0257</b>, the GlobalProtect authentication bypass disclosed and patched in May: Qilin, which it tracks as Spikey Scorpius, and INC, tracked as Tarnished Scorpius. The attackers use the flaw to establish VPN sessions that never pass through MFA, then bring in remote-management tools and move over RDP and SMB. In one case they reached vCenter, turned off ESXi&rsquo;s execInstalledOnly protection and copied domain-controller credentials offline from the controller&rsquo;s virtual disk, out of sight of endpoint protection inside the guest; they also chained Veeam Backup &amp; Replication flaw CVE-2023-27532. Targeted sectors include healthcare, financial services, education, government and manufacturing. ReliaQuest warned on 9 October that Qilin and Settra were using the same flaw. Palo Alto rates it CVSS v4.0 7.8, and it has been in KEV since 29 May. It is a different flaw from the PAN-OS management-interface zero-day CVE-2026-0322 in Critical Advisories.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-0257</span>
           <span>Palo Alto PAN-OS GlobalProtect 10.2, 11.1, 11.2, 12.1; Prisma Access 10.2/11.2 &bull; authentication bypass &bull; CVSS v4.0 7.8 (Palo Alto) &bull; Qilin and INC per Unit 42; Qilin and Settra per ReliaQuest &bull; vCenter, ESXi and Veeam CVE-2023-27532 in the follow-on</span>
@@ -1581,6 +1608,39 @@
           <span>ReliaQuest warning 9 Oct 2026 &mdash; Unit 42 update reported 20 Oct 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-teams-helpdesk-arcticwolf" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Arctic Wolf: fake &ldquo;IT help desk&rdquo; chats over Microsoft Teams external access reach a payload in under 15 minutes, across more than 400 incidents</h3>
+        <p>Arctic Wolf said on 26 October 2026 that it has handled more than 400 incidents in which attackers used Microsoft Teams external chat to get in. The sequence: a user&rsquo;s inbox is flooded with subscription emails, then an outside tenant with an IT-themed name opens a one-to-one Teams chat posing as support, often followed by a phone call, and talks the user into a remote-access session &mdash; most often Quick Assist &mdash; before tools such as AnyDesk, Atera, ScreenConnect or Level are installed for persistence. Between 30% and 40% of the tenants used default onmicrosoft.com domains. In one chain the time from first contact to payload was under 15 minutes, and Arctic Wolf saw Kerberoasting and Golden Ticket-related detections alongside the initial Teams alert in several cases. It names no actor and no target sectors, and notes that Black Basta and other ransomware operations used the same method earlier. Hospital staff work across many sites and shifts and are used to hearing from IT at short notice (editorial assessment), which is the habit this technique relies on.</p>
+        <div class="card-meta">
+          <span>Microsoft Teams external chat &bull; email bombing, fake IT support, Quick Assist &bull; AnyDesk, Atera, ScreenConnect and Level for persistence &bull; 400+ incidents &bull; no actor or sectors named &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED active technique &mdash; Arctic Wolf reports more than 400 incidents; no actor named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; abuses Teams external access and remote-support tools, not a software flaw</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; response is Teams federation settings, remote-access tool control and staff verification</span>
+            <span class="ops-cc"><b>Action:</b> Change Teams external access from open federation to an allow-list of partner domains, block chats from unmanaged and trial-only tenants, and make sure the security team can block a domain quickly. Restrict or remove Quick Assist on clinical and business endpoints and block remote-management tools you have not approved. Tell staff that IT will not cold-message them on Teams from an outside organisation, and give them a callback number to check any request. Alert on a burst of subscription emails to one user followed by an external Teams chat.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Teams external-access allow-list and trial-tenant block &mdash; 14 days; Quick Assist and unapproved RMM restriction &mdash; 30 days; staff briefing &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-teams-helpdesk-arcticwolf" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-teams-helpdesk-arcticwolf">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Arctic Wolf; Infosecurity Magazine; The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Published 26 Oct 2026</span>
+        </div>
+        <a href="https://arcticwolf.com/resources/blog/threat-actors-abuse-microsoft-teams-external-chat-for-initial-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-msft-healthisac-phishing-takedown" data-published="2026-10-14">
@@ -1667,7 +1727,7 @@
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixed by Oracle in June 2026 &mdash; a WAF rule is not a substitute for the patch</span>
-            <span class="ops-cc"><b>Action:</b> Confirm every PeopleSoft environment &mdash; production, test and any hosted by an outsourcer &mdash; has Oracle&rsquo;s June fix for CVE-2026-35273, and disable the Environment Management Hub where it is not needed. Where a contractor or managed-service provider runs PeopleSoft for you, get written confirmation of the patch level and the date it was applied; the FBI&rsquo;s case turned on exactly that step. Do not count a WAF rule as mitigation until you have tested that it decodes the path before matching: request /%50SEMHUB/ yourself and see whether it is blocked. Search WebLogic access logs for /PSEMHUB/ and percent-encoded variants back to May, look in the PSEMHUB web application directory for JSP files you did not deploy (x.jsp, u.jsp, u2.jsp, tunnel.jsp), and check PeopleSoft hosts for MeshAgent or MeshCentral agents, a Ple64.exe or Light Alloy installer, traffic to 162.219.30[.]165, bulk HR and payroll queries and large archive files. If anything turns up, rotate the database, integration and service credentials reachable from the PeopleSoft tier and treat employee identity and bank data as exposed. Oracle&rsquo;s next quarterly Critical Patch Update is due on 20 October; check it for PeopleTools fixes.</span>
+            <span class="ops-cc"><b>Action:</b> Confirm every PeopleSoft environment &mdash; production, test and any hosted by an outsourcer &mdash; has Oracle&rsquo;s June fix for CVE-2026-35273, and disable the Environment Management Hub where it is not needed. Where a contractor or managed-service provider runs PeopleSoft for you, get written confirmation of the patch level and the date it was applied; the FBI&rsquo;s case turned on exactly that step. Do not count a WAF rule as mitigation until you have tested that it decodes the path before matching: request /%50SEMHUB/ yourself and see whether it is blocked. Search WebLogic access logs for /PSEMHUB/ and percent-encoded variants back to May, look in the PSEMHUB web application directory for JSP files you did not deploy (x.jsp, u.jsp, u2.jsp, tunnel.jsp), and check PeopleSoft hosts for MeshAgent or MeshCentral agents, a Ple64.exe or Light Alloy installer, traffic to 162.219.30[.]165, bulk HR and payroll queries and large archive files. If anything turns up, rotate the database, integration and service credentials reachable from the PeopleSoft tier and treat employee identity and bank data as exposed. Oracle&rsquo;s October 2026 Critical Patch Update is now out; check it for PeopleTools fixes.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Patch verification across all PeopleSoft environments &mdash; 72 hours; written patch attestation from any outsourcer &mdash; 7 days; WAF decode test and EMHub disablement &mdash; 7 days; log and file-system hunt back to May &mdash; 7 days</span>
@@ -1683,70 +1743,37 @@
         <a href="https://cloud.google.com/blog/topics/threat-intelligence/shinyhunters-renewed-mass-exploitation-campaign-targeting-oracle-peoplesoft" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-storm-2570" data-published="2026-09-24">
+      <div class="card" id="it-stryzhak-sentenced" data-published="2026-10-27">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-info">Info</span>
           <span class="category">Threat Intelligence</span>
         </div>
-        <h3>Microsoft profiles Storm-2570, a ransomware affiliate that has moved between Qilin, DragonForce, Anubis and BERT while keeping the same tradecraft &mdash; healthcare among the sectors it has hit</h3>
-        <p>Microsoft Threat Intelligence published on 24 September 2026 a profile of Storm-2570, a ransomware affiliate it has tracked since April 2025. The point of the report is that the payload changes and the operator does not: Storm-2570 has deployed Qilin, DragonForce, Anubis and BERT ransomware, while its intrusion playbook has stayed consistent enough for Microsoft to follow it across brands. Its victims are in the United States, Canada, the United Kingdom, Spain, the Netherlands and Puerto Rico, in sectors including healthcare, education, government, financial services, energy, retail, IT, food and agriculture, NGOs, chemicals, critical manufacturing and transportation. Microsoft says how the group gets in &ldquo;remains unconfirmed&rdquo;. Once inside, it relies on legitimate remote-management tools &mdash; Atera, MeshAgent, ScreenConnect, Splashtop and NinjaRMM &mdash; moves laterally with PsExec, Impacket and NetExec, takes credentials with Mimikatz, LaZagne and ntdsutil, and moves data out with Rclone and s5cmd. Microsoft&rsquo;s recommended mitigations are tamper protection, MFA on approved remote-management tools, attack surface reduction rules against PsExec and WMI abuse, and automatic attack disruption in Defender XDR. For this page the practical lesson is about attribution. Qilin appears here as a claimant against MedImpact; Microsoft does not link Storm-2570 to it, and the report is a reminder that a brand on a leak site says little about the people inside the network. Defences keyed to the operator&rsquo;s tools, not to the brand, are the ones that carry over.</p>
+        <h3>A Nefilim and Hive ransomware affiliate whose victims included hospitals is sentenced to 70 months in a US prison</h3>
+        <p>The US Justice Department announced on 27 October 2026 that Artem Stryzhak, a 36-year-old Ukrainian national, has been sentenced to 70 months in prison, as reported by The Record and CyberScoop. He pleaded guilty in late 2025 to two conspiracy counts covering his work as a ransomware affiliate: deploying Nefilim against organisations in the US, Canada and Australia in 2021, then working with the Hive operation from October 2021 to January 2023, whose victims included hospitals, government bodies and businesses. He was arrested in Spain in June 2024 and later extradited. Volodymyr Tymoshchuk, alleged to have administered Nefilim, remains at large with an $11 million reward on offer. Hive&rsquo;s hospital victims are still seeing cases against individual affiliates close years later (editorial assessment); the sentencing changes no current exposure.</p>
         <div class="card-meta">
-          <span>Microsoft Threat Intelligence &bull; Storm-2570 &bull; Qilin, DragonForce, Anubis and BERT payloads &bull; tracked since Apr 2025 &bull; initial access unconfirmed &bull; no CVE</span>
+          <span>Artem Stryzhak, Ukrainian national &bull; 70 months &bull; Nefilim affiliate in 2021; Hive Oct 2021&ndash;Jan 2023 &bull; victims included hospitals &bull; arrested in Spain Jun 2024, later extradited &bull; alleged Nefilim administrator still at large</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED active by Microsoft &mdash; ransomware deployments in six countries across sectors including healthcare; no victims named; initial access unconfirmed</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; the report describes tools and tradecraft, not a vulnerability</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Law-enforcement outcome &mdash; no new exploitation</span>
+            <span class="ops-tag kev-off">No CVE &mdash; sentencing</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is remote-management control, lateral-movement hardening and detection</span>
-            <span class="ops-cc"><b>Action:</b> Make an allowlist of the remote-management tools your organisation actually uses and block or alert on the rest &mdash; Atera, MeshAgent, ScreenConnect, Splashtop or NinjaRMM appearing on a clinical workstation or server without a change ticket should be handled as an incident &mdash; and require MFA on the consoles of the tools you keep. Turn on tamper protection and the attack surface reduction rules covering PsExec and WMI process creation, alert on ntdsutil runs and on Rclone or s5cmd anywhere outside an approved backup job, and confirm that your EDR can isolate a host automatically out of hours. Run the same checklist with any managed service provider that supports your clinics or practices.</span>
+            <span class="ops-tag patch-na">No patch applies</span>
+            <span class="ops-cc"><b>Action:</b> No direct action. If your organisation was a Hive or Nefilim victim, ask counsel whether the case creates a victim-notification or restitution step for you.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Remote-management tool allowlist and alerting &mdash; 30 days; tamper protection and ASR rules &mdash; 14 days; exfiltration-tool detection &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-storm-2570" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-storm-2570">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> None &mdash; informational</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-stryzhak-sentenced" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-stryzhak-sentenced">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Microsoft Security Blog (Microsoft Threat Intelligence)</span>
+          <span>US Justice Department via The Record and CyberScoop</span>
           <span class="dot">&bull;</span>
-          <span>Published 24 Sep 2026</span>
+          <span>Sentencing announced 27 Oct 2026</span>
         </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-wiz-hospital-scan" data-published="2026-09-24">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Threat Intelligence</span>
-        </div>
-        <h3>Wiz says AI-driven scanning found a hospital&rsquo;s systemwide mobile alert channel open to anyone online and a private hospital&rsquo;s booking site exposing patient identifiers and consent signatures</h3>
-        <p>Nextgov reported on 24 September 2026 on findings from Wiz&rsquo;s &ldquo;Scan for Good&rdquo; initiative, which used Wiz&rsquo;s Red Agent penetration-testing tool, backed by Google DeepMind&rsquo;s Gemini models, to look for exploitable exposures in critical infrastructure. Two of the cases were hospitals. At one, &ldquo;missing access restrictions exposed staff contact information and allowed anyone online to control a systemwide mobile alert channel.&rdquo; At a separate private hospital, an appointment-booking website had an unsafe file-upload feature &ldquo;that enabled control of a server and exposed patient identifiers, clinical information and consent signatures.&rdquo; The same work found an exposed administrator-session database at a rail operator. Neither hospital nor its country is named, the findings come from defensive research, and no malicious exploitation is reported; Wiz says CISA provided collaboration and guidance, without detailing the agency&rsquo;s role. None of this is a new class of vulnerability &mdash; these are missing access controls and an unsafe upload form &mdash; and that is the point for healthcare: an automated agent found them quickly, so an attacker&rsquo;s automated tooling can too. A hospital-wide alert channel that anyone on the internet can drive is a patient-safety problem, not only a privacy one.</p>
-        <div class="card-meta">
-          <span>Wiz Scan for Good &bull; Red Agent with Google DeepMind Gemini models &bull; two unnamed hospitals &bull; staff contacts and an alert channel exposed at one; patient identifiers, clinical information and consent signatures at another &bull; no exploitation reported &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No malicious exploitation reported &mdash; exposures found by Wiz research; hospitals unnamed</span>
-            <span class="ops-tag kev-off">No CVE &mdash; missing access controls and an unsafe file-upload feature</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; response is an external review of patient- and staff-facing web services</span>
-            <span class="ops-cc"><b>Action:</b> Run your own external attack-surface review with these targets in mind: patient booking and pre-registration sites, forms that accept file uploads, staff notification and paging platforms, and anything a marketing or scheduling vendor hosts under your name. Confirm that upload forms restrict file types and store files outside the web root, that alerting and paging consoles require authentication and are not reachable from the internet, and that staff contact directories are not published by accident. Ask the vendors behind your booking and alerting services when they last had an external test and whether it included automated scanning.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> External review of booking, upload and alerting services &mdash; 30 days; vendor test attestation &mdash; 60 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wiz-hospital-scan" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-wiz-hospital-scan">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Nextgov/FCW (reporting Wiz)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 24 Sep 2026</span>
-        </div>
-        <a href="https://www.nextgov.com/cybersecurity/2026/09/ai-scanning-tools-found-security-gaps-rail-operator-and-hospitals-wiz-says/416181/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/nefilim-hive-ransomware-operator-70-months-prison" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-forescout-pqc-iomt" data-published="2026-10-06">
@@ -1788,39 +1815,73 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-php2shell-109618" data-published="2026-10-23">
+      <div class="card" id="it-php2shell-109618" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Vulnerability</span>
+          <span class="category">KEV</span>
         </div>
-        <h3>PHP2Shell: two critical, unauthenticated PHP flaws drew exploit attempts four days before the fix and millions since &mdash; no confirmed compromise yet, and a third bug is still unpatched</h3>
-        <p>The PHP project shipped emergency releases on 21 October 2026 &mdash; PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 &mdash; for <b>CVE-2026-109618</b> and <b>CVE-2026-109619</b>, two flaws that let an unauthenticated attacker run code on servers where PHP handles web requests, including PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed. PHP rates both CVSS v4.0 9.2 and says mod_php is most at risk. Details leaked about two days before the planned release. Amazon saw the first exploitation attempt on 17 October, four days before the patches, and Cloudflare counted millions of attempts by early 22 October, some pushing a Mirai-derived DDoS bot. So far researchers report scanning and non-working exploits rather than a confirmed successful compromise, and the flaws are not in CISA KEV as of its 21 October catalog. On 23 October PHP disclosed a further flaw, CVE-2026-115560, that applies only in an unusual session configuration and has no fix yet. Schneider Electric, ABB and Moxa have already issued product notices. PHP sits behind many patient portals, practice and pharmacy websites, intake forms and vendor appliances (editorial assessment).</p>
+        <h3>PHP2Shell is now in CISA KEV with a 29 October deadline &mdash; researchers confirmed working remote code execution on a honeypot, and Palo Alto reports attacks on exposed PAN-OS management interfaces</h3>
+        <p>CISA added <b>CVE-2026-109618</b> and <b>CVE-2026-109619</b> to its Known Exploited Vulnerabilities catalog on 26 October 2026 with a 29 October federal deadline. The two flaws let an unauthenticated attacker run code on servers where PHP handles web requests, including PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed. The PHP Group rates them CVSS v4.0 9.2 and fixed them on 21 October in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, then re-released the Windows builds on 26 October to bundle Brotli 1.2.1 (see the Brotli card). Researchers at Perplexity (Adel Karimi), with Expel&rsquo;s Marcus Hutchins concurring, confirmed working remote code execution against a honeypot over 24&ndash;25 October. No victim organisation has been named, and CISA did not describe the activity. Sophos and Unit 42 withdrew earlier reports of successful exploitation, and Unit 42 withdrew its link to a compromise at a European government agency. Palo Alto Networks&rsquo; advisory for CVE-2026-109618, raised to Critical on 27 October and updated on 28 October, reports active exploitation against PAN-OS management interfaces exposed to the internet on PA-Series, VM-Series and Panorama (web interface and XML API; GlobalProtect is not affected); it rates the flaw CVSS v4.0 9.2, or 5.2 where management access is restricted, and its hotfixes are rolling out between 21 and 30 October. A third flaw, CVE-2026-115560, has only a configuration mitigation and no reported exploitation. CISA published a SIGMA detection rule on 23 October. PHP sits behind many patient portals, practice and pharmacy websites, intake forms and vendor appliances (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-109618</span>
           <span class="cve-badge">CVE-2026-109619</span>
-          <span>PHP serving web requests (PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed) &bull; unauthenticated remote code execution &bull; CVSS v4.0 9.2 (PHP) &bull; attempts from 17 Oct; no confirmed compromise &bull; follow-up CVE-2026-115560 not yet fixed</span>
+          <span>PHP serving web requests (PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed) &bull; unauthenticated remote code execution &bull; CVSS v4.0 9.2 (PHP Group) &bull; KEV 26 Oct, due 29 Oct &bull; honeypot RCE confirmed; no named victim &bull; PAN-OS management interfaces attacked, per Palo Alto &bull; CVE-2026-115560 mitigation only</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation ATTEMPTS confirmed in the wild &mdash; Amazon from 17 Oct, Cloudflare in the millions by 22 Oct; no confirmed successful compromise reported</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 21 October 2026 catalog</span>
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED exploitable in the wild &mdash; working RCE on a honeypot (Perplexity, Expel, 24&ndash;25 Oct) and listed by CISA as exploited; Palo Alto reports attacks on exposed PAN-OS management interfaces. No victim organisation named</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; both CVEs added 26 Oct 2026, federal deadline 29 Oct 2026 (as of CISA&rsquo;s 27 Oct catalog)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed 21 Oct 2026 in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; interim settings do not fully protect; CVE-2026-115560 not yet fixed</span>
-            <span class="ops-cc"><b>Action:</b> Find every PHP installation that serves web traffic &mdash; patient portals, practice and pharmacy sites, WordPress and other CMS installs, intranet tools, and appliances or clinical systems that embed PHP &mdash; and move it to a fixed release now; ask hosting providers and product vendors for their fixed-version statement in writing. If an internet-facing server cannot be patched quickly, take it offline until it can be, as the UK NCSC advised. Set <code>session.upload_progress.enabled=0</code> where the feature is not needed, which is also the mitigation for CVE-2026-115560. Systems on PHP 8.1 or older are outside the project&rsquo;s supported releases, so plan their upgrade. Review web server logs from 17 October for unexpected child processes, new files in web roots and unusual outbound connections.</span>
+            <span class="ops-tag patch-yes">Fixed 21 Oct 2026 in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 (Windows builds re-released 26 Oct); PAN-OS hotfixes rolling out 21&ndash;30 Oct; CVE-2026-115560 has a mitigation only</span>
+            <span class="ops-cc"><b>Action:</b> Finish moving every PHP installation that serves web traffic &mdash; patient portals, practice and pharmacy sites, WordPress and other CMS installs, intranet tools, and appliances or clinical systems that embed PHP &mdash; to a fixed release, and get vendors&rsquo; fixed-version statements in writing; on Windows use the 26 October rebuilds. If an internet-facing server still cannot be patched, take it offline. For Palo Alto firewalls and Panorama, restrict management access to trusted internal addresses now and apply the hotfix for your release as it ships. Set <code>session.upload_progress.enabled=0</code> where the feature is not needed, which is also the mitigation for CVE-2026-115560. Load CISA&rsquo;s SIGMA rule and review web server logs from 17 October for unexpected child processes, new files in web roots and unusual outbound connections.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing PHP patched or taken offline &mdash; 72 hours; internal and vendor-embedded PHP &mdash; 7 days; log review back to 17 Oct &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing PHP patched or taken offline &mdash; by 29 Oct 2026 (federal deadline); PAN-OS management access restricted &mdash; 24 hours, hotfix on release; internal and vendor-embedded PHP &mdash; 7 days; log review back to 17 Oct &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-php2shell-109618" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-php2shell-109618">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>PHP project advisories; Amazon and Cloudflare via The Hacker News and BleepingComputer; UK NCSC; Schneider Electric SESB-2026-295-01</span>
+          <span>CISA KEV; PHP project; Perplexity and Expel via BleepingComputer and Cybersecurity Dive; Palo Alto Networks advisory; The Record</span>
           <span class="dot">&bull;</span>
-          <span>Leak about 19 Oct &mdash; fixes 21 Oct 2026 &mdash; attempt counts 22 Oct &mdash; follow-up flaw disclosed 23 Oct 2026</span>
+          <span>Fixes 21 Oct 2026 &mdash; SIGMA rule 23 Oct &mdash; honeypot RCE 24&ndash;25 Oct &mdash; KEV listing and Windows rebuilds 26 Oct &mdash; Palo Alto advisory updated 27&ndash;28 Oct 2026</span>
         </div>
-        <a href="https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://therecord.media/php-vulnerabilities-cisa-kev" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-brotli-111497" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">KEV</span>
+        </div>
+        <h3>Brotli decoder flaw CVE-2026-111497 (&ldquo;HTTP2Shell&rdquo;) is in CISA KEV &mdash; fixes have shipped for Node.js, .NET, Python and Envoy, but applications that bundle their own copy must be rebuilt</h3>
+        <p>CISA added <b>CVE-2026-111497</b>, an out-of-bounds write in the decoder of Google&rsquo;s Brotli compression library (versions 1.0.3 to 1.2.0), to KEV on 27 October 2026 with a 10 November federal deadline. Google, as CNA, rates it CVSS v4.0 9.2. Brotli is built into web servers, proxies and application runtimes, so the fixes are spread across ecosystems: Brotli 1.0.10, 1.1.1 and 1.2.1; Node.js 22.23.4, 24.22.1 and 26.12.1; .NET 8.0.33, 9.0.22 and 10.0.14 in an out-of-band Microsoft release on 25 October; the Python brotli 1.2.1 and brotlicffi 1.2.1.0 packages; Bun 1.4.4; Envoy and Istio; and PHP&rsquo;s Windows rebuilds of 26 October. Security firm ELLIO reports capturing exploit traffic built from public tooling, and no compromised organisation has been named. Updating a system library does not fix an application that ships its own copy, and patched services must be restarted or redeployed before the fix takes effect. Patient portals, API gateways and integration services commonly run on Node.js, .NET or Python (editorial assessment), so the inventory is broader than the web server.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-111497</span>
+          <span>Google Brotli 1.0.3&ndash;1.2.0 decoder &bull; out-of-bounds write &bull; CVSS v4.0 9.2 (Google) &bull; fixes in Node.js, .NET, Python packages, Bun, Envoy/Istio and PHP Windows builds &bull; no named victim</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Listed as exploited by CISA (KEV, 27 Oct 2026); ELLIO reports exploit traffic from public tooling; no compromised organisation named</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 27 Oct 2026, federal deadline 10 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; Brotli 1.0.10 / 1.1.1 / 1.2.1; Node.js 22.23.4, 24.22.1, 26.12.1; .NET 8.0.33, 9.0.22, 10.0.14; Python brotli 1.2.1; Bun 1.4.4. Restart or redeploy after updating</span>
+            <span class="ops-cc"><b>Action:</b> Inventory where Brotli decoding happens: web servers and reverse proxies, Node.js, .NET and Python services, container images and vendor appliances in front of patient portals, APIs and integration engines. Update runtimes and packages to the fixed releases, rebuild container images and applications that carry their own copy of Brotli, and restart or redeploy so the fix loads. Ask vendors of internet-facing clinical, portal and API products for their fixed-version statement in writing.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing services, gateways and proxies &mdash; 7 days (federal deadline 10 Nov 2026); internal services and rebuilt images &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-brotli-111497" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-brotli-111497">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV; BleepingComputer; Microsoft .NET out-of-band release</span>
+          <span class="dot">&bull;</span>
+          <span>Node.js and Google fixes 21 Oct &mdash; .NET fix 25 Oct &mdash; PHP Windows rebuilds 26 Oct &mdash; KEV listing 27 Oct 2026</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-ivanti-connect-secure" data-published="2026-10-14">
@@ -1829,7 +1890,7 @@
           <span class="category">KEV</span>
         </div>
         <h3>Ivanti Connect Secure chain gives attackers root on fully patched VPNs; one flaw is unpatched and Ivanti&rsquo;s checker may miss compromise</h3>
-        <p>Ivanti disclosed on 13 October 2026 that attackers had chained three flaws in Connect Secure to run commands as root on appliances that were fully up to date. Two of the flaws are fixed under a single CVE, <b>CVE-2026-104935</b> (CVSS 3.1 8.6); the third, a privilege escalation, has no CVE and no patch yet. Volexity found the chain while responding to an intrusion and tracks the actor as UTA0576, a newly identified cluster; exploitation dates to at least early October. The intruders planted no web shell. They stole domain credentials, pulled LAPS passwords and BitLocker keys from Active Directory, and wiped logs. CISA listed the CVE in KEV on 13 October with a 16 October deadline and warns that Ivanti&rsquo;s Integrity Checker may not detect this activity. As of 23 October no CVE or patch for the third flaw had appeared in public sources. Many hospitals rely on Connect Secure for clinician and vendor remote access &mdash; an editorial observation.</p>
+        <p>Ivanti disclosed on 13 October 2026 that attackers had chained three flaws in Connect Secure to run commands as root on appliances that were fully up to date. Two of the flaws are fixed under a single CVE, <b>CVE-2026-104935</b> (CVSS 3.1 8.6); the third, a privilege escalation, has no CVE and no patch yet. Volexity found the chain while responding to an intrusion and tracks the actor as UTA0576, a newly identified cluster; exploitation dates to at least early October. The intruders planted no web shell. They stole domain credentials, pulled LAPS passwords and BitLocker keys from Active Directory, and wiped logs. CISA listed the CVE in KEV on 13 October with a 16 October deadline and warns that Ivanti&rsquo;s Integrity Checker may not detect this activity. As of 28 October no Ivanti fix for the third flaw had been found. Many hospitals rely on Connect Secure for clinician and vendor remote access &mdash; an editorial observation.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-104935</span>
           <span>Ivanti Connect Secure &bull; authentication bypass plus file write = unauthenticated command execution (CVSS 3.1 8.6, Ivanti) &bull; third flaw: privilege escalation to root, no CVE, no patch &bull; actor UTA0576 (Volexity, new) &bull; no health system named as a victim</span>
@@ -1891,6 +1952,41 @@
         <a href="https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-hapi-fhir-smile-cdr" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>CISA-coordinated HAPI FHIR flaws let a user in one tenant read and write another tenant&rsquo;s records on shared FHIR servers &mdash; Smile CDR is affected and fixes are still pending</h3>
+        <p>Four vulnerabilities in HAPI FHIR 8.10.0, the open-source FHIR server library used by Smile CDR 2026.05.R01, were published on 22 October 2026 under CISA&rsquo;s coordination, and HIPAA Journal described them on 26 October. The most serious, <b>CVE-2026-113874</b>, lets a crafted bundle replace a trusted partition identity, so an authenticated user entitled to one partition can read and write data in another; partition entitlement is not enforced by default. CISA rates it CVSS v3.1 8.1. CVE-2026-113873 lets an unauthenticated sender exhaust server memory with highly compressed payloads, CVE-2026-113876 lets a user with create-only rights read an existing resource, and CVE-2026-113875 lets a user who can create REST-hook subscriptions read clinical resources outside their scope. The researcher who found them, Abhinav Agarwal, says eight other commercial products also use HAPI FHIR. Smile Digital Health says CVE-2026-113873 will be fixed in its November release; no fixed version has been named for the others or for HAPI FHIR itself. No exploitation is known, and none is in KEV. FHIR servers sit behind patient-access, payer and app APIs, and a multi-tenant server can hold many organisations&rsquo; records (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-113874</span>
+          <span class="cve-badge">CVE-2026-113873</span>
+          <span>HAPI FHIR 8.10.0; Smile CDR 2026.05.R01; eight other commercial products per the researcher &bull; cross-tenant read and write (authenticated), CVSS v3.1 8.1 (CISA) &bull; unauthenticated memory exhaustion &bull; two lower-severity authorisation flaws &bull; no known exploitation</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 27 Oct 2026 catalog</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">Fix pending &mdash; Smile says CVE-2026-113873 will be fixed in its November release; no fixed version named for the cross-tenant flaw</span>
+            <span class="ops-cc"><b>Action:</b> Ask EHR, payer, interoperability and app-platform vendors whether their products use HAPI FHIR or Smile CDR, which version, and whether partitioning separates customers. Where it does, confirm partition entitlement checks are switched on rather than left at the default, restrict who can create subscriptions and conditional creates, and cap request size and decompression at the API gateway. Review FHIR audit logs for requests that touch partitions other than the caller&rsquo;s, and apply vendor fixes as they ship.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Vendor inventory and partition-entitlement check &mdash; 14 days; gateway limits &mdash; 30 days; fixes &mdash; on release</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hapi-fhir-smile-cdr" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-hapi-fhir-smile-cdr">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA-coordinated CVE records (via CIRCL Vulnerability-Lookup); HIPAA Journal</span>
+          <span class="dot">&bull;</span>
+          <span>CVEs published 22 Oct 2026 &mdash; reported 26 Oct 2026</span>
+        </div>
+        <a href="https://vulnerability.circl.lu/vuln/cve-2026-113874" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-icsma-intersystems-iris" data-published="2026-10-22">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1925,6 +2021,74 @@
         <a href="https://vulnerability.circl.lu/vuln/icsma-26-295-01" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-velocloud-114625" data-published="2026-10-23">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">KEV</span>
+        </div>
+        <h3>Arista VeloCloud Orchestrator CVE-2026-114625, a SQL injection that can give an attacker operator privileges, was KEV-listed on 23 October &mdash; the 26 October federal deadline has passed</h3>
+        <p>CISA added <b>CVE-2026-114625</b> in Arista&rsquo;s VeloCloud Orchestrator, the management console for VeloCloud SD-WAN, to its Known Exploited Vulnerabilities catalog late on 23 October 2026 with a 26 October federal deadline. The flaw is a SQL injection that can give an attacker operator privileges on the orchestrator. Arista rates it CVSS v3.1 9.9 and v4.0 9.4 and has fixed it in 5.2.3.18, 6.1.3.10 and 6.4.2.12; orchestrators hosted by Arista are already patched, so the exposure is self-hosted and partner-hosted instances. No actor or victim has been named. Health systems that link clinics, imaging centres and remote sites over SD-WAN manage all of those links from the orchestrator (editorial assessment), so operator access there means control of routing and policy for every site.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114625</span>
+          <span>Arista VeloCloud Orchestrator (SD-WAN management) &bull; SQL injection to operator privileges &bull; CVSS v3.1 9.9 / v4.0 9.4 (Arista) &bull; Arista-hosted orchestrators patched &bull; no actor named</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Listed as exploited by CISA (KEV, 23 Oct 2026); no actor or victim named</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 23 Oct 2026, federal deadline 26 Oct 2026, now passed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in 5.2.3.18, 6.1.3.10 and 6.4.2.12; orchestrators hosted by Arista already patched</span>
+            <span class="ops-cc"><b>Action:</b> Find out whether you, your carrier or a managed-network provider runs a self-hosted VeloCloud Orchestrator, and confirm in writing that it is on 5.2.3.18, 6.1.3.10, 6.4.2.12 or later. Keep the orchestrator&rsquo;s interface off the internet. Review its audit logs for new operator or administrator accounts, configuration or policy pushes nobody scheduled and logins from unfamiliar addresses, and compare edge configurations against a known-good export.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or provider confirmation &mdash; immediately (federal deadline 26 Oct 2026 has passed); audit-log review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-velocloud-114625" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-velocloud-114625">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV; Arista; The Hacker News; CIRCL Vulnerability-Lookup</span>
+          <span class="dot">&bull;</span>
+          <span>KEV listing 23 Oct 2026 (due 26 Oct) &mdash; coverage 24 Oct 2026</span>
+        </div>
+        <a href="https://vulnerability.circl.lu/vuln/cve-2026-114625" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-oracle-ebs-101767" data-published="2026-10-28">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Attackers are probing Oracle E-Business Suite CVE-2026-101767, an unauthenticated SQL injection that chains to command execution &mdash; fixed in Oracle&rsquo;s October update and not in KEV</h3>
+        <p>Decoy sensors run by Defused Cyber recorded probes on 27 October 2026 against <b>CVE-2026-101767</b> in Oracle E-Business Suite 12.2.3 to 12.2.15, The Hacker News reported on 28 October. The flaw is an unauthenticated SQL injection in the Thin Client Framework servlet (<code>/OA_HTML/AppsTCFServer</code>) that chains to operating-system command execution. Oracle rates it CVSS v3.1 9.8 and fixed it in its October 2026 Critical Patch Update; Horizon3.ai found and reported it. No compromise has been confirmed, no actor has been named, and it is not in KEV as of CISA&rsquo;s 27 October catalog. E-Business Suite was mass-exploited by the Cl0p extortion operation in 2025, which is why early probing deserves attention. Many health systems and their suppliers run EBS for finance, procurement and supply chain (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-101767</span>
+          <span>Oracle E-Business Suite 12.2.3&ndash;12.2.15 &bull; unauthenticated SQL injection to OS command execution &bull; CVSS v3.1 9.8 (Oracle) &bull; probes only, no compromise confirmed &bull; not in KEV</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>REPORTED exploitation attempts &mdash; Defused decoys saw probes on 27 Oct 2026; no compromise confirmed</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 27 Oct 2026 catalog</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in Oracle&rsquo;s October 2026 Critical Patch Update; interim: remove AppsTCFServer from the URL firewall allowlist and restrict web-tier access</span>
+            <span class="ops-cc"><b>Action:</b> Apply the October 2026 Critical Patch Update to every E-Business Suite 12.2 environment, including any hosted or managed by a partner. Until it is in, remove AppsTCFServer from the URL firewall allowlist and make sure the EBS web tier is reachable from the internet only where it has to be. Search web-tier logs for requests to <code>/OA_HTML/AppsTCFServer</code> and look for unexpected processes started by the application tier.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing EBS patched or interim mitigation applied &mdash; 72 hours; all environments &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-oracle-ebs-101767" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-oracle-ebs-101767">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Defused Cyber via The Hacker News; Oracle October 2026 Critical Patch Update; CIRCL Vulnerability-Lookup</span>
+          <span class="dot">&bull;</span>
+          <span>Probes 27 Oct 2026 &mdash; reported 28 Oct 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-citrix-netscaler-0day" data-published="2026-10-12">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1942,7 +2106,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED exploitation of CVE-2026-88771, -88772 and -88779 (Citrix, CISA, NCSC-NL); dozens of organisations per Mandiant. CVE-2026-107406: Citrix not aware of exploitation</span>
-            <span class="ops-tag kev-on">CVE-2026-88771/-88772 added 27 Sep (due 30 Sep), CVE-2026-88779 added 4 Oct (due 7 Oct); CVE-2026-107406 NOT in KEV as of CISA&rsquo;s 21 Oct 2026 catalog</span>
+            <span class="ops-tag kev-on">CVE-2026-88771/-88772 added 27 Sep (due 30 Sep), CVE-2026-88779 added 4 Oct (due 7 Oct); CVE-2026-107406 NOT in KEV as of CISA&rsquo;s 27 Oct 2026 catalog</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixed &mdash; CVE-2026-107406 in 14.1-73.46+, 13.1-64.29+, 14.1-73.46 FIPS+ and 13.1-FIPS/NDcPP 13.1-37.283+; no workaround. A patched appliance can still hold an intruder</span>
@@ -2018,7 +2182,7 @@
             <span class="ops-cc"><b>Action:</b> Check every Secure Email Gateway, physical, virtual or run for you by a mail-security provider: confirm the AsyncOS build, whether File Reputation is assigned to a mail policy and the Content Scanner Tools version. Install Content Scanner Tools 25.3.0.5525 now if an AsyncOS upgrade cannot happen this week, then move to 15.5.5-014 or 16.5.0-780 and off 16.0. On each cluster member, search system_logs for <code>System Security</code> entries as Cisco advises, remembering that a clean result is not conclusive. Look for unexpected files, local accounts, message or content filter changes and outbound connections from the appliance; rotate its administrative, LDAP bind and integration credentials; and rebuild any virtual appliance that shows signs of compromise.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Content Scanner Tools update or AsyncOS upgrade &mdash; by 17 Oct 2026 (federal deadline); log check and credential rotation &mdash; 72 hours; migration off 16.0 &mdash; 14 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Content Scanner Tools update or AsyncOS upgrade &mdash; immediately (federal deadline 17 Oct 2026 has passed); log check and credential rotation &mdash; 72 hours; migration off 16.0 &mdash; 14 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-esa-76519" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-cisco-esa-76519">Open</button>
           </div>
@@ -2037,7 +2201,7 @@
           <span class="category">Advisory</span>
         </div>
         <h3>SonicWall SMA1000 CVE-2026-102255, a maximum-severity pre-authentication SSRF, drew exploitation attempts within two days of its fix &mdash; not in KEV, no confirmed breach</h3>
-        <p>SonicWall fixed <b>CVE-2026-102255</b> in its SMA1000 remote-access appliances on 6 October 2026 (advisory SNWLID-2026-0017). The flaw is a server-side request forgery in the Appliance WorkPlace interface that lets an unauthenticated attacker make the appliance send requests to internal functions through an unintended access path; CISA&rsquo;s enrichment scores it CVSS 3.1 10.0 and SonicWall calls it maximum severity. Three authenticated flaws were fixed alongside it: an administrator command injection (CVE-2026-102256), a Zip Slip in the management console (CVE-2026-102257) and stored cross-site scripting (CVE-2026-102258). Defused saw the first hits on its SMA decoys on 8 October and Previdian logged 135 attempts from two US addresses, but no source has established a successful breach of a customer network, and the flaw is not in KEV as of CISA&rsquo;s 21 October catalog. Horizon3.ai warns that successful exploitation could hand an attacker the device. SMA1000 has been exploited repeatedly in 2026, which is why attempts this quick matter. The affected models are the SMA 6210, 7210 and 8200v; SMA 100 appliances and firewall SSL VPN are not affected. Health organisations that let vendors or remote clinicians in through SMA1000 should treat it as an internet-facing front door, an editorial observation.</p>
+        <p>SonicWall fixed <b>CVE-2026-102255</b> in its SMA1000 remote-access appliances on 6 October 2026 (advisory SNWLID-2026-0017). The flaw is a server-side request forgery in the Appliance WorkPlace interface that lets an unauthenticated attacker make the appliance send requests to internal functions through an unintended access path; CISA&rsquo;s enrichment scores it CVSS 3.1 10.0 and SonicWall calls it maximum severity. Three authenticated flaws were fixed alongside it: an administrator command injection (CVE-2026-102256), a Zip Slip in the management console (CVE-2026-102257) and stored cross-site scripting (CVE-2026-102258). Defused saw the first hits on its SMA decoys on 8 October and Previdian logged 135 attempts from two US addresses, but no source has established a successful breach of a customer network, and the flaw is not in KEV as of CISA&rsquo;s 27 October catalog. Horizon3.ai warns that successful exploitation could hand an attacker the device. SMA1000 has been exploited repeatedly in 2026, which is why attempts this quick matter. The affected models are the SMA 6210, 7210 and 8200v; SMA 100 appliances and firewall SSL VPN are not affected. Health organisations that let vendors or remote clinicians in through SMA1000 should treat it as an internet-facing front door, an editorial observation.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-102255</span>
           <span>SonicWall SMA 6210, 7210, 8200v on 12.4.3-03526 / 12.5.0-02952 or older &bull; pre-auth SSRF, CVSS 3.1 10.0 (CISA-ADP) &bull; three authenticated companion flaws &bull; attempts only, no confirmed breach</span>
@@ -2045,7 +2209,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-poc"><span class="d"></span>REPORTED exploitation attempts &mdash; Defused decoys from 8 Oct, Previdian 135 attempts from two US IPs; no confirmed successful compromise</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 21 Oct 2026 catalog</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 27 Oct 2026 catalog</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixed &mdash; platform hotfixes 12.4.3-03670 and 12.5.0-03082; no workaround</span>
@@ -2070,7 +2234,7 @@
           <span class="severity sev-high">High</span>
           <span class="category">KEV</span>
         </div>
-        <h3>Palo Alto PAN-OS CVE-2026-0322 &mdash; an authenticated management-interface flaw gives root on firewalls and Panorama; exploited as a zero-day and KEV-listed with a 17 October deadline</h3>
+        <h3>Palo Alto PAN-OS CVE-2026-0322 &mdash; an authenticated management-interface flaw gives root on firewalls and Panorama; exploited as a zero-day and KEV-listed; the 17 October federal deadline has passed</h3>
         <p>Palo Alto Networks disclosed <b>CVE-2026-0322</b> on 14 October 2026: an attacker who can log in to the PAN-OS management interface over the network can run code as root on the firewall, with no special configuration needed. Palo Alto found the flaw internally, reports very limited exploitation aimed at the management interface, and has published three US-based IP addresses tied to attempts; it has named no actor. The flaw affects PA-Series and VM-Series firewalls and Panorama; Prisma Access and Cloud NGFW are not affected. Palo Alto&rsquo;s CNA scores it CVSS v4.0 8.6. CISA added it to KEV the same day with a 17 October federal deadline. It is a separate issue from the GlobalProtect flaw CVE-2026-0257 that ransomware crews are exploiting (see Threat Intelligence). Besides patching, the main mitigation is the long-standing one: limit management access to trusted internal addresses or a jump host. Firewall management interfaces in hospitals are often reachable from broad IT networks, an editorial observation, which turns an authenticated bug into a short path for anyone holding stolen admin credentials.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-0322</span>
@@ -2083,10 +2247,10 @@
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixed &mdash; e.g. 12.2.4, 12.1.10-h2, 11.2.16, 11.1.16-h3, 10.2.18-h12 and the hotfix builds listed in Palo Alto&rsquo;s advisory</span>
-            <span class="ops-cc"><b>Action:</b> Upgrade every PAN-OS firewall and Panorama instance to the fixed build for its train, and while you do, confirm the management interface answers only to a small set of internal administrative addresses or a jump host &mdash; never the internet, guest Wi-Fi or general clinical VLANs. Block and search for the three IP addresses Palo Alto published (66.42.72[.]14, 208.83.239[.]114 and 149.248.47[.]234). Because the flaw needs a login, review administrator accounts and recent admin logins for anything unexplained, enforce MFA on management access and rotate admin credentials if management was ever exposed.</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade every PAN-OS firewall and Panorama instance to the fixed build for its train, and while you do, confirm the management interface answers only to a small set of internal administrative addresses or a jump host &mdash; never the internet, guest Wi-Fi or general clinical VLANs. Block and search for the three IP addresses Palo Alto published (66.42.72[.]14, 208.83.239[.]114 and 149.248.47[.]234). Because the flaw needs a login, review administrator accounts and recent admin logins for anything unexplained, enforce MFA on management access and rotate admin credentials if management was ever exposed. Palo Alto now also reports PHP2Shell exploitation against internet-exposed management interfaces (see the PHP2Shell card), which makes the access restriction more urgent.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fixed build on firewalls with exposed management and on Panorama &mdash; by 17 Oct 2026 (federal deadline); remaining firewalls &mdash; 7 days; management-access restriction &mdash; 72 hours</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Fixed build on firewalls with exposed management and on Panorama &mdash; immediately (federal deadline 17 Oct 2026 has passed); remaining firewalls &mdash; 7 days; management-access restriction &mdash; 72 hours</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-panos-0322" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-panos-0322">Open</button>
           </div>
@@ -2104,7 +2268,7 @@
           <span class="severity sev-high">High</span>
           <span class="category">KEV</span>
         </div>
-        <h3>Atlassian Data Center CVE-2026-21589 &mdash; an unauthenticated file-read flaw across Confluence, Jira, Bitbucket and five other products is exploited and KEV-listed with an 18 October deadline</h3>
+        <h3>Atlassian Data Center CVE-2026-21589 &mdash; an unauthenticated file-read flaw across Confluence, Jira, Bitbucket and five other products is exploited and KEV-listed; the 18 October federal deadline has passed</h3>
         <p>Atlassian disclosed <b>CVE-2026-21589</b> on 5 October 2026: a path traversal that lets an unauthenticated attacker read specific files in a product&rsquo;s web application root, provided the attacker knows the exact file name and path. It affects the Data Center editions of Bitbucket, Confluence, Jira Software, Jira Service Management, Bamboo and Crowd, plus Crucible and Fisheye; Atlassian&rsquo;s cloud products are already patched and Bitbucket Cloud is not affected. Atlassian rates it CVSS v4.0 9.3; NVD gives 7.5. watchTowr published technical details and confirmed in-the-wild exploitation by 7 October, mostly fingerprinting and sweeps for configuration files, with no post-compromise activity seen at that point; Previdian logged attempts about two hours after the write-up. CISA added it to KEV on 15 October with an 18 October deadline. Atlassian&rsquo;s interim web-server mitigations are not a substitute for upgrading. In health systems, Confluence and Jira often hold runbooks, network diagrams and integration notes, and service-desk tickets can include patient or staff details, an editorial observation, so configuration files and credentials read from these servers can be the first step to something larger.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-21589</span>
@@ -2120,7 +2284,7 @@
             <span class="ops-cc"><b>Action:</b> Upgrade every self-managed Atlassian Data Center instance to the fixed release for its line, internet-facing ones first; Atlassian&rsquo;s rewrite-rule mitigation is only a stopgap. Then assume configuration files may have been read: review web access logs since 5 October for traversal patterns and requests for configuration or properties files, and rotate database passwords, application links, API tokens and any other secrets those files contain. Check what sensitive data sits in Confluence spaces and service-desk tickets, and move patient data and credentials out.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade internet-facing instances &mdash; by 18 Oct 2026 (federal deadline); all others &mdash; 7 days; secret rotation where logs show suspicious reads &mdash; 72 hours</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade internet-facing instances &mdash; immediately (federal deadline 18 Oct 2026 has passed); all others &mdash; 7 days; secret rotation where logs show suspicious reads &mdash; 72 hours</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-atlassian-dc-21589" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-atlassian-dc-21589">Open</button>
           </div>
@@ -2138,7 +2302,7 @@
           <span class="severity sev-high">High</span>
           <span class="category">Vulnerability</span>
         </div>
-        <h3>Microsoft&rsquo;s October Patch Tuesday fixes more than 1,400 CVEs, including an exploited Windows Shell flaw that skips Mark-of-the-Web warnings &mdash; KEV deadline 16 October</h3>
+        <h3>Microsoft&rsquo;s October Patch Tuesday fixes more than 1,400 CVEs, including an exploited Windows Shell flaw that skips Mark-of-the-Web warnings &mdash; its 16 October KEV deadline has passed</h3>
         <p>Microsoft&rsquo;s 13 October 2026 release is the largest on record, at 1,411 to 1,413 CVEs depending on the count; SecurityWeek&rsquo;s tally is 1,102 in Windows, 134 in Office, 61 in developer tools and 36 in SharePoint Server. One was exploited before the fix: <b>CVE-2026-96951</b>, a Windows Shell security feature bypass rated CVSS 8.8 that lets a malicious file evade Mark-of-the-Web, so it opens without the usual warning. It needs a user to open the file, Microsoft has shared no actor or campaign detail, and CISA added it to KEV the same day with a 16 October deadline. Two more were publicly disclosed but are not known to be exploited: CVE-2026-108398, a security feature bypass described variously as a .NET Framework or WDAC enforcement issue, and CVE-2026-92707, a denial of service in the MessagePack-CSharp library used by Visual Studio and .NET. SecurityWeek separately counts about two dozen Office remote code execution fixes. Earlier, on 2 October, Microsoft shipped an out-of-band fix for Exchange Server CVE-2026-96940 (CVSS 8.8), which lets a signed-in user read other mailboxes in the same organisation; it is not known to be exploited, Microsoft rates exploitation more likely, and Exchange Online is already fixed. Mark-of-the-Web is one of the few controls between a phishing attachment and a clinical workstation, an editorial observation, so the exploited fix belongs on the fast track even where monthly patching normally waits for clinical-application testing.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-96951</span>
@@ -2157,7 +2321,7 @@
             <span class="ops-cc"><b>Action:</b> Push the October cumulative update to user endpoints first, prioritising machines that open email and web downloads &mdash; nurses&rsquo; stations, registration and billing desks &mdash; since the exploited flaw needs a user to open a file; Windows Server follows. Keep attachment filtering and blocking in place, and tell staff that a missing security warning on a downloaded file is not a sign it is safe. Apply the 2 October fix to on-premises Exchange. Where clinical-application vendors must certify monthly updates, ask them to clear this one quickly, and document any device that cannot take it.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exploited Windows Shell fix on user endpoints &mdash; by 16 Oct 2026 (federal deadline) or within 7 days; Exchange out-of-band fix &mdash; 14 days; rest of the October cycle &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exploited Windows Shell fix on user endpoints &mdash; immediately (federal deadline 16 Oct 2026 has passed); Exchange out-of-band fix &mdash; 14 days; rest of the October cycle &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-msft-oct-patch-tuesday" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-msft-oct-patch-tuesday">Open</button>
           </div>
@@ -2170,36 +2334,36 @@
         <a href="https://www.securityweek.com/microsoft-patches-record-1413-vulnerabilities-including-exploited-windows-zero-day/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-nextcloud-collabora-110447" data-published="2026-10-14">
+      <div class="card" id="it-nextcloud-collabora-110447" data-published="2026-10-23">
         <div class="card-header">
           <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
+          <span class="category">KEV</span>
         </div>
-        <h3>Nextcloud&rsquo;s built-in Collabora document server, CVE-2026-110447, was exploited to plant PHP web shells &mdash; an unauthenticated command injection fixed in September; disabling the app does not fix it</h3>
-        <p><b>CVE-2026-110447</b> is an unauthenticated command injection in proxy.php of richdocumentscode, the optional Collabora Online Built-in CODE Server app for Nextcloud: request path content ended up inside a bash command, so a crafted request could run commands whenever the local document server was down, for example during a restart, upgrade or crash. The CVE record says it was exploited in the wild in September and October 2026, and three Nextcloud administrators reported attacks on GitHub; the first logged attack was on 10 September. Attackers dropped one-line PHP web shells named shx*.php under apps/richdocumentscode/, sent system details to webhook.site and, on one server, searched for credential stores and cryptocurrency wallets. The scale is unknown and no root access has been reported. The fix, version 26.4.303, was released on 11 September and needs Nextcloud 30 or later; disabling the app is not enough, so upgrade or remove it. Standalone Collabora Online and installations using only the richdocuments connector are not affected, and the flaw is not in KEV. Self-hosted Nextcloud is a common way for research groups, clinics and smaller health organisations to share files outside the EHR, an editorial observation, and those servers often hold exactly the documents that end up on leak sites.</p>
+        <h3>Nextcloud&rsquo;s built-in Collabora document server, CVE-2026-110447, was exploited to plant PHP web shells and is now in CISA KEV &mdash; the 26 October federal deadline has passed, and disabling the app does not fix it</h3>
+        <p><b>CVE-2026-110447</b> is an unauthenticated command injection in proxy.php of richdocumentscode, the optional Collabora Online Built-in CODE Server app for Nextcloud: request path content ended up inside a bash command, so a crafted request could run commands whenever the local document server was down, for example during a restart, upgrade or crash. The CVE record says it was exploited in the wild in September and October 2026, and three Nextcloud administrators reported attacks on GitHub; the first logged attack was on 10 September. Attackers dropped one-line PHP web shells named shx*.php under apps/richdocumentscode/, sent system details to webhook.site and, on one server, searched for credential stores and cryptocurrency wallets. The scale is unknown and no root access has been reported. The fix, version 26.4.303, was released on 11 September and needs Nextcloud 30 or later; disabling the app is not enough, so upgrade or remove it. Standalone Collabora Online and installations using only the richdocuments connector are not affected. CISA added the flaw to KEV on 23 October 2026 with a 26 October federal deadline, and the CVE record carries a CVSS v4.0 score of 9.2 from MITRE as CNA. Self-hosted Nextcloud is a common way for research groups, clinics and smaller health organisations to share files outside the EHR, an editorial observation, and those servers often hold exactly the documents that end up on leak sites.</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-110447</span>
-          <span>Collabora Online Built-in CODE Server (richdocumentscode) for Nextcloud before 26.4.303 &bull; unauthenticated command injection &bull; exploited Sep&ndash;Oct 2026 per the CVE record &bull; no CVSS in the sources read</span>
+          <span>Collabora Online Built-in CODE Server (richdocumentscode) for Nextcloud before 26.4.303 &bull; unauthenticated command injection &bull; exploited Sep&ndash;Oct 2026 per the CVE record &bull; CVSS v4.0 9.2 (MITRE CNA) &bull; in KEV since 23 Oct 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED exploited &mdash; per the CVE record and administrators&rsquo; reports; PHP web shells (shx*.php) planted; scale unknown</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of CISA&rsquo;s 21 Oct 2026 catalog</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 23 Oct 2026, federal deadline 26 Oct 2026, now passed</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Fixed in 26.4.303 (released 11 Sep 2026; needs Nextcloud 30+) &mdash; disabling the app does not remove the flaw; 26.4.402 is reported to break some setups</span>
             <span class="ops-cc"><b>Action:</b> Find every Nextcloud server in the organisation, including departmental and research instances outside central IT, and check whether the Built-in CODE Server app is installed. Upgrade it to 26.4.303 or later, or remove it and use a standalone Collabora server; switching it off is not enough. Then look under apps/richdocumentscode/ for shx*.php or any PHP file you did not install, search web logs for unusual requests to proxy.php and outbound calls to webhook.site, and rotate credentials stored on the server if you find either.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or removal &mdash; 7 days; web-shell hunt &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or removal &mdash; immediately (federal deadline 26 Oct 2026 has passed); web-shell hunt &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nextcloud-collabora-110447" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-nextcloud-collabora-110447">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CVE record; Nextcloud administrators&rsquo; GitHub reports via The Hacker News; BleepingComputer</span>
+          <span>CVE record; CISA KEV; Nextcloud administrators&rsquo; GitHub reports via The Hacker News; BleepingComputer</span>
           <span class="dot">&bull;</span>
-          <span>First attack 10 Sep &mdash; fix 11 Sep &mdash; exploitation reported 14 Oct 2026</span>
+          <span>First attack 10 Sep &mdash; fix 11 Sep &mdash; exploitation reported 14 Oct &mdash; KEV listing 23 Oct 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -2309,40 +2473,6 @@
         <a href="https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sdwan-webauth-xr8beuuU" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-sharepoint-65660" data-published="2026-09-25">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">KEV</span>
-        </div>
-        <h3>SharePoint Server CVE-2026-65660 &mdash; an August-patched code-injection flaw is now exploited, letting a low-privilege account run code on the server; KEV-listed; the 28 September federal deadline has passed</h3>
-        <p>Microsoft updated its advisory for CVE-2026-65660 on 25 September 2026 to say it &ldquo;had reliable evidence of observed attacks,&rdquo; and CISA added the flaw to the Known Exploited Vulnerabilities catalog the same day with a federal remediation deadline of 28 September. It is a code-injection flaw in on-premises SharePoint Server &mdash; SharePoint Server 2016, 2019 and Subscription Edition &mdash; that lets an authenticated attacker with low privileges run arbitrary code on the server without user interaction; The Hacker News gives a CVSS score of 8.8. The fix shipped in the August 2026 Patch Tuesday, when Microsoft first classed the bug as a medium-severity spoofing issue before re-rating it as a high-severity remote code execution flaw &mdash; so a patch queue that deprioritised it in August may have left it behind. Exploitation was first observed on 24 September by the Previdian threat-intelligence platform, after Viettel Security published technical details, and web-shell creation attempts had been documented by 25 September. No attacker has been named and no victim count published; CISA lists ransomware use as unknown; that was still the position as of 6 October, and Microsoft had published no further update. The authentication requirement is less reassuring than it sounds in healthcare. On-premises SharePoint commonly holds policy libraries, clinical protocols, quality and HR sites that almost every employee can reach &mdash; an editorial observation &mdash; so the phished and socially engineered staff accounts that run through this page&rsquo;s incident cards are exactly the kind of credential the flaw needs.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-65660</span>
-          <span>Microsoft SharePoint Server 2016, 2019 and Subscription Edition &bull; code injection (CWE-94) &bull; authenticated, low privilege, no user interaction &bull; CVSS 8.8 &bull; fixed in August 2026 Patch Tuesday</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED exploited &mdash; Microsoft reports observed attacks (advisory updated 25 Sep 2026); exploitation first seen 24 Sep; web-shell attempts documented. No actor or victim count</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 25 Sep 2026 with a federal remediation deadline of 28 Sep 2026; ransomware use unknown</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in the August 2026 security updates &mdash; verify the build on every server in each farm</span>
-            <span class="ops-cc"><b>Action:</b> Confirm that every on-premises SharePoint Server farm &mdash; 2016, 2019 and Subscription Edition, including any a vendor or hosting partner runs for a department &mdash; has the August 2026 security update or later on every server in the farm, checked by build number rather than by patch-tool status. If a farm was unpatched and reachable from the internet or from broad staff networks after 24 September, treat it as potentially compromised: look for new or modified .aspx files in the SharePoint web directories, unusual child processes of the IIS worker process and unexplained outbound connections, and investigate before relying on the patch. Review which accounts can reach SharePoint, and alert on sign-ins from accounts that recently had a password or MFA reset.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> August update verified on every farm server &mdash; immediately (the federal deadline was 28 Sep 2026); web-shell and process hunt on farms unpatched after 24 Sep &mdash; 72 hours; access review &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint-65660" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sharepoint-65660">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Security Response Center; CISA KEV; SecurityWeek; The Hacker News; BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Fixed Aug 2026 &mdash; exploitation first observed 24 Sep &mdash; Microsoft advisory update and KEV listing 25 Sep 2026</span>
-        </div>
-        <a href="https://www.securityweek.com/microsoft-sharepoint-flaw-cve-2026-65660-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-kiteworks-shutdown" data-published="2026-10-01">
         <div class="card-header">
           <span class="severity sev-low">Low</span>
@@ -2384,6 +2514,72 @@
   <div class="section">
     <div class="section-title">Regulation &amp; Policy</div>
     <div class="card-grid">
+      <div class="card" id="it-project-lifeline-250" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Policy</span>
+        </div>
+        <h3>White House launches &ldquo;Project Lifeline 250&rdquo;: free cybersecurity upgrades for rural hospitals, starting with a six-month pilot in South Carolina</h3>
+        <p>The Office of the National Cyber Director launched Project Lifeline 250 on 26 October 2026 at a hospital in Newberry, South Carolina, working with HHS and South Carolina partners. Over a six-month pilot, industry partners including Cisco, Microsoft and Zscaler will give participating rural hospitals free help to harden their networks, deploy backup devices so critical care can continue after an attack, and replace high-risk legacy technology. The number of participating hospitals has not been stated. The programme is modelled on Project Watershed 250, the Texas water and wastewater pilot announced in August, which has not yet published results. It creates no new obligations. For rural and critical-access hospitals outside the pilot, its three priorities &mdash; basic hardening, a backup path for outages and a plan for legacy technology &mdash; make a reasonable self-check (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Office of the National Cyber Director, HHS and South Carolina partners &bull; six-month rural-hospital pilot &bull; industry partners including Cisco, Microsoft and Zscaler &bull; number of hospitals not stated &bull; modelled on Project Watershed 250 (Texas water)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No threat &mdash; government support programme</span>
+            <span class="ops-tag kev-off">No CVE &mdash; policy item</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; voluntary pilot</span>
+            <span class="ops-cc"><b>Action:</b> If you run a rural or critical-access hospital in South Carolina, ask the state&rsquo;s critical-infrastructure cybersecurity programme whether you can take part. Elsewhere, use the pilot&rsquo;s three priorities as a self-check: are basic network hardening steps done, is there a backup path that keeps critical care running during an outage, and which legacy systems need a replacement plan?</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Self-check against the three priorities &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-project-lifeline-250" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-project-lifeline-250">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Nextgov/FCW; Cybersecurity Dive; CyberScoop</span>
+          <span class="dot">&bull;</span>
+          <span>Launched 26 Oct 2026 &mdash; coverage 27 Oct 2026</span>
+        </div>
+        <a href="https://www.nextgov.com/cybersecurity/2026/10/white-house-takes-texas-water-cybersecurity-model-rural-hospitals/416852/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-hti5-final-rule" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-info">Info</span>
+          <span class="category">Regulation</span>
+        </div>
+        <h3>HHS&rsquo;s final HTI-5 rule keeps all 13 health IT privacy and security certification criteria it had proposed to drop</h3>
+        <p>HHS&rsquo;s health IT office (ONC) released the final HTI-5 deregulatory rule on 26 October 2026. The proposal would have removed 34 certification criteria, including all 13 privacy and security criteria covering functions such as authentication, access control and authorisation; the final rule keeps those 13, removing 14 of the program&rsquo;s 60 criteria and revising seven. It also drops HTI-1&rsquo;s transparency requirements for predictive decision-support tools, the &ldquo;model card&rdquo; information on AI-enabled clinical software. Most provisions take effect on 28 December 2026 and some on 1 January 2027. The rule applies to certified health IT developers and, through their products, to the providers that buy them; the coverage does not address the pending HIPAA Security Rule update. Certified EHR modules therefore still have to support the security functions, while buyers of AI-enabled clinical tools lose a standard source of transparency information and may need to ask for it directly (editorial assessment).</p>
+        <div class="card-meta">
+          <span>HHS health IT office (ONC) &bull; HTI-5 final rule &bull; keeps all 13 privacy and security criteria &bull; removes 14 of 60 criteria, revises 7 &bull; drops HTI-1 predictive decision-support transparency requirements &bull; effective 28 Dec 2026 / 1 Jan 2027</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No threat &mdash; final rule</span>
+            <span class="ops-tag kev-off">No CVE &mdash; regulation</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; most provisions effective 28 Dec 2026, some 1 Jan 2027</span>
+            <span class="ops-cc"><b>Action:</b> Ask EHR and health IT vendors to confirm their certified modules still meet the privacy and security criteria after the rule takes effect. Add the questions the model-card requirement used to answer &mdash; intended use, training data, validation and known limitations &mdash; to your procurement checklist for AI-enabled clinical tools.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Procurement checklist update for AI-enabled clinical tools &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hti5-final-rule" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-hti5-final-rule">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>HHS final rule via GovInfoSecurity / HealthcareInfoSecurity</span>
+          <span class="dot">&bull;</span>
+          <span>Released 26 Oct 2026</span>
+        </div>
+        <a href="https://www.govinfosecurity.com/hhs-retreats-on-plan-to-scrap-ehr-security-privacy-regs-a-33215" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-conduent-80m-settlement" data-published="2026-10-16">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -2465,9 +2661,9 @@
           <span class="category">Litigation</span>
         </div>
         <h3>Laboratory Services Cooperative agrees a $6.1 million settlement over its 2024 breach of about 1.6 million patients and employees &mdash; claims due 24 November</h3>
-        <p>Laboratory Services Cooperative, a Seattle nonprofit clinical laboratory that serves Planned Parenthood affiliates, has agreed a $6.1 million class settlement over the breach it identified on 27 October 2024, HIPAA Journal reported on 8 October 2026. An intruder accessed the network and removed data on about 1.6 million current and former patients and employees, including names, dates of birth, contact, medical, claims, billing and insurance information, Social Security numbers and other government-issued identifiers; the HHS OCR portal still lists the breach at 501 people. Class members can claim documented losses of up to $5,000 or a pro rata cash payment of up to $1,000, plus two years of credit and medical-information monitoring. The case is in the US District Court for the Western District of Washington; the objection and exclusion deadline is 26 October, claims are due by 24 November and the final fairness hearing is set for 4 January 2027. The gap between the portal&rsquo;s 501 and the 1.6 million in notices is a reminder, an editorial note, that portal entries can understate a breach until they are updated.</p>
+        <p>Laboratory Services Cooperative, a Seattle nonprofit clinical laboratory that serves Planned Parenthood affiliates, has agreed a $6.1 million class settlement over the breach it identified on 27 October 2024, HIPAA Journal reported on 8 October 2026. An intruder accessed the network and removed data on about 1.6 million current and former patients and employees, including names, dates of birth, contact, medical, claims, billing and insurance information, Social Security numbers and other government-issued identifiers; the HHS OCR portal still lists the breach at 501 people. Class members can claim documented losses of up to $5,000 or a pro rata cash payment of up to $1,000, plus two years of credit and medical-information monitoring. The case is in the US District Court for the Western District of Washington; the objection and exclusion deadline passed on 26 October, claims are due by 24 November and the final fairness hearing is set for 4 January 2027. The gap between the portal&rsquo;s 501 and the 1.6 million in notices is a reminder, an editorial note, that portal entries can understate a breach until they are updated.</p>
         <div class="card-meta">
-          <span>Laboratory Services Cooperative (Seattle) &bull; ~1.6M affected &bull; $6,100,000 fund &bull; W.D. Wash. &bull; objections 26 Oct, claims 24 Nov 2026, hearing 4 Jan 2027</span>
+          <span>Laboratory Services Cooperative (Seattle) &bull; ~1.6M affected &bull; $6,100,000 fund &bull; W.D. Wash. &bull; objections closed 26 Oct, claims 24 Nov 2026, hearing 4 Jan 2027</span>
           <span class="dot">&bull;</span>
           <span>Reported 8 Oct 2026 &mdash; court filings via HIPAA Journal</span>
         </div>
@@ -2534,21 +2730,6 @@
         <a href="https://www.cybersecuritydive.com/news/cybersecurity-regulation-industry-feedback-harmonization-gao/831619/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-labcorp-multistate" data-published="2026-09-25">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Regulation</span>
-        </div>
-        <h3>Labcorp pays $2.29 million to 44 state attorneys general and takes on vendor-security obligations over the 2018&ndash;19 AMCA collection-agency breach</h3>
-        <p>A bipartisan coalition of 44 state attorneys general announced a settlement with Labcorp on 25 September 2026 over the breach at American Medical Collection Agency, the debt collector whose systems were accessed between 1 August 2018 and 30 March 2019. That breach affected more than 27.5 million people across AMCA&rsquo;s clients, including more than 10.2 million Labcorp patients. Labcorp will pay $2,287,455, divided among the states; the investigation was led by Connecticut, Florida, Indiana, Illinois, Michigan and Texas, and New York Attorney General Letitia James is among those quoted. The money is modest. The obligations are the substance, and they are almost entirely about vendors: a chief information security officer, an incident-response plan that covers security failures at vendors, limits on the data shared with them, an expanded vendor-risk team, cybersecurity terms in vendor contracts, routine vendor audits including annual SOC&nbsp;2 Type&nbsp;2 audits of debt collectors, segregation of data that collectors previously aggregated, and an independent information-security assessor. The settlement is separate from the $35 million class-action settlement earlier in 2026, and it is a state action, not an HHS or FTC one. For health systems it is a template worth reading: the regulators&rsquo; list of what a lab should have been doing about its collection agency is a checklist for any billing, collections or revenue-cycle vendor that holds patient data &mdash; and a reminder that enforcement for a vendor&rsquo;s breach can arrive seven years later.</p>
-        <div class="card-meta">
-          <span>44 state attorneys general &bull; Labcorp &bull; $2,287,455 &bull; AMCA breach 1 Aug 2018&ndash;30 Mar 2019 &bull; 27.5M+ people, 10.2M+ Labcorp patients &bull; vendor-risk obligations</span>
-          <span class="dot">&bull;</span>
-          <span>Announced 25 Sep 2026 &mdash; regulator-confirmed</span>
-        </div>
-        <a href="https://www.hipaajournal.com/labcorp-multistate-settlement-amca/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -2556,7 +2737,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories, ICS medical advisories and the KEV catalog, HHS OCR, FBI and US Secret Service advisories, Health-ISAC, vendor and product advisories (Ivanti, Citrix, Cisco, Palo Alto Networks, SonicWall, BeyondTrust, Microsoft, Atlassian, Fortinet, Check Point, F5, Arista), and vendor threat research from Volexity, Google Threat Intelligence Group and Mandiant, ReliaQuest, watchTowr and Microsoft, plus coverage from HIPAA Journal, DataBreaches.net, MyBroadband, Cyber Daily, The Chosun Ilbo, The Record, CyberScoop, SecurityWeek, Cybersecurity Dive, The Hacker News, Infosecurity Magazine and BleepingComputer. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (refreshed 23&nbsp;October 2026).</em> The window was re-queried for 16&ndash;23&nbsp;October, including the CISA KEV catalog (through its 21 October release), CISA&rsquo;s ICS and medical advisories, the SEC filings of Quest Diagnostics and Conduent, the PHP project, Siemens ProductCERT, Unit 42, CIRCL Vulnerability-Lookup, HIPAA Journal, the New York and Connecticut attorneys general (via DataBreaches.net), BleepingComputer, The Hacker News, SecurityWeek, Cybersecurity Dive, DailySecurityReview and TechCentral. New top story: Quest Diagnostics&rsquo; 8-K on unauthorized access to its Quanum Lab Services Manager. Added: the Parkview Health outage; breach notices from Ridgeway Pharmacy, UltraMobile Imaging and the law firm Tarter Krinsky &amp; Drogin; the SafePay joint advisory AA26-293A; PHP2Shell; Siemens Software Center (KEV); CISA&rsquo;s InterSystems IRIS for Health advisory; the Conduent $80 million settlement; the New York&ndash;Connecticut and Massachusetts attorney-general penalties; and HHS&rsquo;s decision not to adjust 2026 penalty amounts. Updated: BeyondTrust Remote Support (added to KEV 16 October, due 19 October); GlobalProtect CVE-2026-0257 (Unit 42 names Qilin and INC: VPN sessions past MFA, then vCenter, ESXi and Veeam); Ampath (detected 2 October; KELA&rsquo;s view of the actor); Ivanti Connect Secure moved from the top story to Critical Advisories (no public CVE or patch for the third flaw found). Corrected: the BeyondTrust card&rsquo;s &ldquo;not yet in KEV&rdquo;; the GlobalProtect card now gives Palo Alto&rsquo;s CVSS v4.0 7.8 with its version and drops an unversioned NVD figure; KEV notes for Citrix CVE-2026-107406, SonicWall SMA1000 and Nextcloud Collabora re-checked against the 21 October catalog (still not listed). Retired as older than 30 days: Elsevier, United Language Group, zHealth, Cedar County Memorial, National Cancer Centre Singapore, EvilTokens, Rapuncel, Check Point (two cards), F5 BIG-IP APM, Arista VeloCloud CVE-2026-93952, Cisco ISE, Zyxel GS1900, SolarWinds ARM, the Ambry Genetics penalty, the Warner&ndash;Wyden HISAA bill, the Community Dental, Brevard Skin and ModMed settlements, and CISA&rsquo;s cyber-decoy guidance. KEV status is as of CISA&rsquo;s 21 October catalog; no additions were found for 21&ndash;23 October. Open: Quest has not said how many patients are affected; Parkview has not named a cause; Ivanti&rsquo;s privilege-escalation fix and a fix for PHP&rsquo;s CVE-2026-115560 are still pending. Threat level re-derived at 6.8 Medium.</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories, ICS medical advisories and the KEV catalog, HHS OCR, FBI and US Secret Service advisories, Health-ISAC, vendor and product advisories (Ivanti, Citrix, Cisco, Palo Alto Networks, SonicWall, BeyondTrust, Microsoft, Atlassian, Fortinet, Check Point, F5, Arista), and vendor threat research from Volexity, Google Threat Intelligence Group and Mandiant, ReliaQuest, watchTowr and Microsoft, plus coverage from HIPAA Journal, DataBreaches.net, MyBroadband, Cyber Daily, The Chosun Ilbo, The Record, CyberScoop, SecurityWeek, Cybersecurity Dive, The Hacker News, Infosecurity Magazine and BleepingComputer. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (refreshed 28&nbsp;October 2026).</em> The news window was re-queried for 23&ndash;28&nbsp;October, including the CISA KEV catalog (through its 27 October release), CISA-coordinated vulnerability records via CIRCL Vulnerability-Lookup, the incident pages and statements of University Hospitals, the University of New Mexico Health Sciences Center, Quest Diagnostics and Parkview Health, Palo Alto Networks&rsquo; PHP2Shell advisory, Arctic Wolf, HIPAA Journal, Becker&rsquo;s Hospital Review, The Record, BleepingComputer, Cybersecurity Dive, Nextgov/FCW, GovInfoSecurity, CyberScoop, Infosecurity Magazine and The Hacker News. New top story: University Hospitals&rsquo; precautionary internet disconnection in Cleveland. Added: UNM Health Sciences Center&rsquo;s ambulance diversion; breach notices from Blueberry Pediatrics, Denver Health Medical Plan (with Johns Hopkins Bayview) and NorthShore Health Centers; the HAPI FHIR and Smile CDR flaws; the Brotli decoder flaw and Arista VeloCloud Orchestrator (both in KEV); probing of Oracle E-Business Suite; Arctic Wolf&rsquo;s Teams help-desk research; Project Lifeline 250; the HTI-5 final rule; and the Stryzhak sentencing. Updated: Quest Diagnostics moved from the top story to Incidents (Quanum restored 26 October; patient records affected, count unknown); Parkview Health (all services restored, per its website on 28 October); PHP2Shell (in KEV since 26 October, honeypot RCE confirmed, PAN-OS management interfaces attacked per Palo Alto); Ivanti fix status and KEV notes for Citrix and SonicWall re-checked. Corrected: the previous edition said no KEV additions had been found after its 21 October catalog check, but VeloCloud and the Nextcloud Collabora flaw were added that same week with a 26 October deadline &mdash; the Collabora card now shows its KEV listing and CVSS; passed federal deadlines on the Cisco email gateway, PAN-OS, Atlassian and Microsoft cards are now marked as passed. Retired as older than 30 days: Astrana Health, Qbusoft, MedImpact, Oculus Pathology, Storm-2570, Wiz&rsquo;s hospital scan, SharePoint CVE-2026-65660 and the Labcorp multistate settlement. KEV status is as of CISA&rsquo;s 27 October catalog. Open: Quest has not said how many patients are affected; University Hospitals has given no restoration date and has not said whether data was taken; Ivanti&rsquo;s privilege-escalation fix and the HAPI FHIR fixes are still pending. Threat level re-derived at 6.9 Medium.</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

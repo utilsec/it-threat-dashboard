@@ -583,43 +583,37 @@
 <body>
 <script>try { if (window.localStorage.getItem("otdash.theme") === "dark") { document.body.classList.add("dark"); } } catch (e) {}</script>
 <div class="container">
-  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md) -->
+  <!-- COURSE AD (preserve verbatim every run — every page EXCEPT Food & Ag, which carries the BOOK AD instead; see CLAUDE.md; v2 Higgsfield banner 21 Nov 2026) -->
   <style>
-  .course-ad{display:flex;align-items:center;gap:18px;margin:0 0 16px;padding:14px 18px;border:1px solid #bfe0e3;border-left:5px solid #2c7480;border-radius:10px;background:linear-gradient(135deg,#e6f1f2 0%,#ffffff 72%);}
-  .course-ad__icon{flex:0 0 auto;display:block;width:64px;height:64px;}
-  .course-ad__body{flex:1 1 auto;min-width:0;}
-  .course-ad__tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#1f5c66;background:#d5eaec;padding:2px 9px;border-radius:999px;margin-bottom:6px;}
-  .course-ad__title{font-size:17px;font-weight:700;color:#1f2328;margin:0 0 3px;line-height:1.22;}
-  .course-ad__title span{color:#2c7480;font-weight:600;}
-  .course-ad__meta{font-size:13px;color:#4a4f55;margin:0 0 2px;}
-  .course-ad__blurb{font-size:12.5px;color:#5b6169;margin:2px 0 0;}
-  .course-ad__cta{flex:0 0 auto;display:inline-block;background:#2c7480;color:#fff;font-weight:700;font-size:13px;text-decoration:none;padding:10px 16px;border-radius:8px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);}
-  .course-ad__cta:hover{background:#225c66;color:#fff;}
-  body.dark .course-ad{background:linear-gradient(135deg,rgba(44,116,128,.18) 0%,#0d1117 72%);border-color:#30363d;border-left-color:#3fa3b3;}
-  body.dark .course-ad__title{color:#e6edf3;}
-  body.dark .course-ad__title span{color:#7cc7d2;}
-  body.dark .course-ad__tag{color:#b8e3e9;background:rgba(44,116,128,.30);}
-  body.dark .course-ad__meta{color:#b9c1ca;}
-  body.dark .course-ad__blurb{color:#98a1ab;}
-  body.dark .course-ad__cta{background:#3a8f9c;color:#fff;}
-  body.dark .course-ad__cta:hover{background:#2c7480;}
-  @media(max-width:640px){.course-ad{flex-wrap:wrap;gap:12px;}.course-ad__cta{width:100%;text-align:center;}}
+  .course-ad{position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;min-height:210px;margin:0 0 18px;padding:28px 32px;border-radius:14px;border:1px solid #1d3a40;color:#e6edf3;background:#071216 url("https://utilsec.github.io/ot-threat-dashboard/course-ad-bg.jpg") right center/cover no-repeat;box-shadow:0 6px 24px rgba(4,20,24,.28);}
+  .course-ad::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,14,17,.97) 0%,rgba(5,14,17,.90) 38%,rgba(5,14,17,.45) 68%,rgba(5,14,17,.10) 100%);}
+  .course-ad::after{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,#3fd0e0,#2c7480);}
+  .course-ad__body{position:relative;z-index:1;flex:1 1 auto;min-width:0;max-width:640px;}
+  .course-ad__tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#9fe7ef;background:rgba(63,208,224,.12);border:1px solid rgba(63,208,224,.35);padding:4px 11px;border-radius:999px;margin-bottom:12px;}
+  .course-ad__tag i{width:7px;height:7px;border-radius:50%;background:#3fd0e0;box-shadow:0 0 0 3px rgba(63,208,224,.25);}
+  .course-ad__title{font-size:30px;font-weight:800;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;color:#fff;}
+  .course-ad__title span{color:#5fd9e6;}
+  .course-ad__blurb{font-size:15px;line-height:1.45;color:#c4ced8;margin:0 0 14px;max-width:560px;}
+  .course-ad__chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0;}
+  .course-ad__chips li{font-size:12.5px;font-weight:600;color:#dbe4ec;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:5px 11px;border-radius:7px;}
+  .course-ad__side{position:relative;z-index:1;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .course-ad__cta{display:inline-block;background:#f5a524;color:#1a1204;font-weight:800;font-size:15px;text-decoration:none;padding:13px 24px;border-radius:10px;white-space:nowrap;box-shadow:0 4px 14px rgba(245,165,36,.35);transition:transform .15s,background .15s;}
+  .course-ad__cta:hover{background:#ffb83d;color:#1a1204;transform:translateY(-1px);}
+  .course-ad__cta:focus-visible{outline:3px solid #9fe7ef;outline-offset:3px;}
+  .course-ad__by{font-size:12px;color:#9aa6b2;}
+  @media(max-width:760px){.course-ad{flex-direction:column;align-items:flex-start;padding:22px 20px 20px 24px;background-position:70% center;}.course-ad::before{background:linear-gradient(180deg,rgba(5,14,17,.80),rgba(5,14,17,.95));}.course-ad__title{font-size:23px;}.course-ad__side{width:100%;align-items:stretch;}.course-ad__cta{text-align:center;}}
   </style>
-  <div class="course-ad">
-    <svg class="course-ad__icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On-demand video course">
-      <rect x="1" y="1" width="62" height="62" rx="12" fill="#2c7480"/>
-      <rect x="10" y="14" width="44" height="29" rx="3.5" fill="#ffffff"/>
-      <path d="M28 21.5 L40 28.5 L28 35.5 Z" fill="#2c7480"/>
-      <rect x="28" y="44" width="8" height="4" fill="#ffffff"/>
-      <rect x="20" y="48" width="24" height="3.5" rx="1.75" fill="#ffffff"/>
-    </svg>
+  <div class="course-ad" role="complementary" aria-label="Course: Getting Started in OT/ICS Cybersecurity">
     <div class="course-ad__body">
-      <span class="course-ad__tag">On-demand course &middot; Start anytime</span>
-      <div class="course-ad__title">Getting Started in OT/ICS Cybersecurity <span>&mdash; now on demand</span></div>
-      <div class="course-ad__meta">With Mike Holcomb &middot; Self-paced, with hands-on labs</div>
-      <div class="course-ad__blurb">Learn to protect our families, friends, and communities &mdash; the fundamentals of industrial control system security, at your own pace.</div>
+      <span class="course-ad__tag"><i></i>On-demand course &middot; Start anytime</span>
+      <div class="course-ad__title">Getting Started in <span>OT/ICS Cybersecurity</span></div>
+      <p class="course-ad__blurb">Learn to protect the systems that keep the water clean and the lights on &mdash; the fundamentals of industrial control system security, at your own pace.</p>
+      <ul class="course-ad__chips"><li>Self-paced video</li><li>Hands-on labs</li><li>Built for IT &rarr; OT</li></ul>
     </div>
-    <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Get started today &rarr;</a>
+    <div class="course-ad__side">
+      <a class="course-ad__cta" href="https://courses.mikeholcomb.com/offers/fw2VCiaq" target="_top" rel="noopener">Start the course &rarr;</a>
+      <span class="course-ad__by">With Mike Holcomb</span>
+    </div>
   </div>
   <!-- /COURSE AD -->
 
@@ -662,13 +656,13 @@
       <h1>IT Threat Intel for Education</h1>
       <div class="header-sub">K-12 districts, universities &amp; ed-tech.</div>
       <div class="header-meta">
-        <span>Generated Fri, 23 Oct 2026, 11:27 AM ET</span>
+        <span>Generated Wed, 28 Oct 2026, 5:17 PM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Education IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>41</strong> stories across
+      <strong>45</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -705,15 +699,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Score 6.8 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires one issue actively impacting a large portion of education IT; discrete actively-exploited flaws and single-organisation incidents cap at 6.9.">
-    <div class="tl-score"><span class="tl-num">6.8</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Score 6.9 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires one issue actively impacting a large portion of education IT; discrete actively-exploited flaws and single-organisation incidents cap at 6.9.">
+    <div class="tl-score"><span class="tl-num">6.9</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.8 (Medium):</b> Up 0.1. A statewide student-data breach, ransomware crews naming education and mass PHP exploit attempts add pressure, but each is a discrete breach or patch-and-hunt job.<br><b>Top threat:</b> ETS &mdash; one compromised login exposed California students&rsquo; assessment records, including disability and 504 flags (Politico: about 7&nbsp;million).<br><b>Confirmed breaches:</b> ETS / California students; Navigate360 P3 tips (Toronto); AOMEI updater backdoors at universities; Springfield (MA) schools; Slate Valley (VT); Bromcom; DTU.<br><b>Also watching:</b> PHP2Shell; Qilin and INC on GlobalProtect; eMudhra root distrust on 27&nbsp;Oct (InCommon); BeyondTrust, NetScaler and Ivanti in KEV.<br><b>What would raise it:</b> Confirmed mass compromise through PHP2Shell, or one campaign hitting many schools and universities at once.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:69.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.9 (Medium):</b> Up 0.1. Three new confirmed education incidents and PHP2Shell now exploited push it to the top of Medium, but each is a discrete breach or patch-and-hunt job.<br><b>Top threat:</b> University of Copenhagen &mdash; national ID numbers of about 525,000 people reached through a test environment; about 20,000 door PINs reissued.<br><b>Confirmed breaches:</b> UCPH; ETS / California students; Navigate360 P3 tips. Disruptive incidents at UNM HSC and Richmond Public Schools (data theft claimed only).<br><b>Also watching:</b> PHP2Shell in KEV (due 29&nbsp;Oct) and PAN-OS attacks; Collabora/Nextcloud and Brotli in KEV; Qilin and INC on GlobalProtect; Korea&rsquo;s ARTEX case.<br><b>What would raise it:</b> Confirmed mass compromise of schools or universities through PHP2Shell, or one campaign disrupting many institutions at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -722,34 +716,34 @@
   <div class="hero">
 
 
-    <div class="top-story" id="it-ets-california-students" data-published="2026-10-16">
+    <div class="top-story" id="it-ucph-test-environment-breach" data-published="2026-10-27">
         <span class="top-story-pill">Top Story</span>
-        <h2>One compromised login let an intruder copy California students&rsquo; assessment records from the state testing contractor&rsquo;s file-transfer site for nearly four months &mdash; including disability, 504 and homelessness flags where they applied</h2>
-        <p>The California Department of Education and its testing contractor, Educational Testing Service (ETS), began notifying students on 16&nbsp;October that an unauthorised party used a compromised login credential between 22&nbsp;May and 18&nbsp;September 2026 to copy files from an ETS SFTP site used to exchange statewide assessment data with the department. ETS spotted the activity on 25&nbsp;September, took the site offline and has built a hardened replacement. The notice covers all students enrolled in the three previous school years and some who left as far back as 2006. The files hold names, birth dates, home addresses, schools, grades, student IDs, demographics and test results and, where applicable, disability, Section&nbsp;504, McKinney-Vento and military-connected status. No Social Security numbers, passwords, financial data or parent details were involved, and no actor has been named. Politico put the total at about 7&nbsp;million; SecurityWeek notes that no official count has been published. When a state contractor holds student data, districts cannot control it but still answer to the families (editorial assessment).</p>
+        <h2>Attackers who got into a University of Copenhagen test environment reached the national ID numbers of about 525,000 people &mdash; and about 20,000 staff and students&rsquo; door-access PINs had to be reissued</h2>
+        <p>The University of Copenhagen (UCPH) says an attack detected on Tuesday 20&nbsp;October 2026, and then brought under control, gave hackers access to one of its test environments. That environment held data on about <b>525,000 people</b>: full name, <b>Danish national identity number</b>, work and home phone numbers and personal email address. The university says there is no sign that its day-to-day systems were reached. On 25&nbsp;October it added that the PIN codes of about <b>20,000</b> staff and students&rsquo; access cards had been compromised; it issued new codes, reopened the restricted campus locations and stressed that this was not a second breach. On 26&nbsp;October activity that first looked like a new attack led to a controlled shutdown of administrative systems including Workzone and Nimbus; on 27&nbsp;October UCPH revised that assessment and linked the activity to the original intrusion rather than a new one. Incoming network traffic is blocked, staff are working on campus or over VPN, and the university says the closed systems were not compromised and will reopen in stages after individual security checks. Affected people are being told by letter through Digital Post, and the breach has been reported to the Danish Data Protection Agency. No group has claimed the attack, and UCPH has not said how the attackers got in. It is the second Danish university breach this month, after the Technical University of Denmark&rsquo;s identity-system breach (see the <a href="#it-dtu-identity-breach">DTU card</a>). The lesson is the location: a test environment loaded with real national ID numbers for half a million people, because non-production copies of identity and student data are often protected less well than the systems they mirror (editorial assessment).</p>
         <div class="card-meta">
-          <span>California Department of Education / Educational Testing Service (ETS) &bull; No CVE &mdash; compromised SFTP login credential; how it was obtained not disclosed; no actor or claim reported</span>
+          <span>University of Copenhagen (UCPH), Denmark &bull; No CVE &mdash; intrusion into a test environment; entry route not disclosed; no group has claimed it</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; CDE and ETS: files copied 22 May&ndash;18 Sep 2026 with a compromised credential; ETS monitoring has seen no publication of the data; no official count (Politico: about 7 million; SecurityWeek: none published)</span>
-            <span class="ops-tag kev-off">No CVE &mdash; credential misuse on a vendor file-transfer site</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; UCPH: data on about 525,000 people accessed in a test environment (detected 20 Oct 2026); about 20,000 door PINs compromised and reissued; the 26 Oct activity was linked to the original intrusion, not a second attack</span>
+            <span class="ops-tag kev-off">No CVE &mdash; entry route not disclosed</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; ETS replaced the SFTP site; notices from 16 Oct into early November with two years of Experian IdentityWorks; CDE is reviewing ETS&rsquo;s contractual compliance</span>
-            <span class="ops-cc"><b>Action:</b> California districts should expect questions this week: post a short page that explains what the state&rsquo;s notice covers, links to the CDE notice (cde.ca.gov/ets) and its call centre (833-931-8488), and says plainly that Social Security numbers and parent details were not involved. Brief counsellors and special-education, foster and homeless-liaison staff, because disability, 504 and McKinney-Vento flags are the most sensitive fields and those families may receive convincing phishing that quotes real school details. Everywhere else, list every vendor and state agency that collects student data from you by SFTP or bulk upload, and ask each in writing whether accounts are named and protected by MFA or key-based authentication, restricted by IP address and monitored for bulk downloads, and how long files stay on the exchange site. Apply the same test to your own data-exchange accounts: a shared or long-lived login on a file-transfer server is exactly what was abused here.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; administrative systems shut down as a precaution and reopening in stages; inbound traffic blocked; letters via Digital Post; reported to the Danish Data Protection Agency</span>
+            <span class="ops-cc"><b>Action:</b> Find every non-production copy of identity, HR and student data &mdash; test, training, development, migration and analytics environments, including ones a supplier runs &mdash; and either mask the national ID numbers and contact details in it or protect it exactly like production: named accounts, MFA, no direct internet exposure and alerts on bulk reads. Check which physical-access systems share credentials or data with IT systems, and make sure you could reissue PINs or cards within a day, as UCPH did. Plan how you would block inbound traffic for several days while teaching and research carry on from campus and over VPN. If your staff or students have links to UCPH, warn them about phishing that quotes real names and ID numbers, and point affected Danish residents to the Digital Post letter rather than to any email.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Family and staff guidance posted &mdash; 7 days; vendor file-transfer inventory and written assurances &mdash; 30 days; own SFTP and data-exchange accounts reviewed for MFA, key authentication and retention &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ets-california-students" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-ets-california-students">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of non-production environments holding real personal data &mdash; 14 days; masking or production-grade controls on each &mdash; 60 days; tested plan for reissuing door-access PINs and cards &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ucph-test-environment-breach" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ucph-test-environment-breach">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>California Department of Education notice (last reviewed 22 Oct 2026); SecurityWeek (19 Oct 2026); EdSource (19 Oct 2026), citing Politico</span>
+          <span>University of Copenhagen incident page (updates 23&ndash;27 Oct 2026, latest 27 Oct, 21:30); BleepingComputer (26 Oct 2026); Infosecurity Magazine (27 Oct 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Access 22 May&ndash;18 Sep 2026; found 25 Sep; notices from 16 Oct 2026 into early November &mdash; confirmed by CDE and ETS; total count not officially published</span>
+          <span>Detected 20 Oct 2026; disclosed 23 Oct; PIN update 25 Oct; precautionary shutdown 26 Oct; reclassified as part of the original intrusion 27 Oct &mdash; confirmed by the university; no claim</span>
         </div>
-        <a href="https://www.cde.ca.gov/nr/in/ets-notification.asp" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.ku.dk/en/operational-disruptions-at-ucph" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -777,40 +771,40 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-ets-california-students"><circle class="blip crit" cx="209.1" cy="100.1" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="209.1" y="104.8">1</text></a>
-        <a href="#it-php2shell-109618"><circle class="blip crit" cx="260.6" cy="152.9" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="260.6" y="157.1">2</text></a>
-        <a href="#it-netscaler-zerodays-0926"><circle class="blip crit" cx="251.4" cy="226.1" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="251.4" y="229.8">3</text></a>
-        <a href="#it-beyondtrust-rs-102764"><circle class="blip crit" cx="188.5" cy="264.6" r="10.5"/><text class="blip-num" style="font-size:10.0px" x="188.5" y="267.8">4</text></a>
-        <a href="#it-ivanti-cs-104935"><circle class="blip crit" cx="119.2" cy="239.4" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="119.2" y="242.1">5</text></a>
-        <a href="#it-peoplesoft-35273"><circle class="blip crit" cx="95.7" cy="169.4" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="95.7" y="171.9">6</text></a>
-        <a href="#it-cisco-esa-76519"><circle class="blip crit" cx="135.7" cy="107.5" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="135.7" y="110.0">7</text></a>
-        <a href="#it-globalprotect-qilin-inc"><circle class="blip high" cx="237.1" cy="57.6" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="237.1" y="60.4">8</text></a>
-        <a href="#it-emudhra-incommon-distrust"><circle class="blip high" cx="302.4" cy="122.9" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="302.4" y="125.6">9</text></a>
-        <a href="#it-aomei-backupper-unc7017"><circle class="blip high" cx="310.4" cy="214.9" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="310.4" y="217.5">10</text></a>
-        <a href="#it-updraftcentral-rankmath"><circle class="blip high" cx="257.4" cy="290.6" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="257.4" y="293.0">11</text></a>
-        <a href="#it-safepay-aa26-293a"><circle class="blip high" cx="168.2" cy="314.5" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="168.2" y="316.8">12</text></a>
-        <a href="#it-gitlab-110264"><circle class="blip high" cx="84.5" cy="275.5" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="84.5" y="277.6">13</text></a>
-        <a href="#it-aruba-aos-79844"><circle class="blip high" cx="45.5" cy="191.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="45.5" y="193.8">14</text></a>
-        <a href="#it-fortibleed"><circle class="blip high" cx="69.4" cy="102.6" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="69.4" y="104.5">15</text></a>
-        <a href="#it-springfield-schools"><circle class="blip high" cx="145.1" cy="49.6" r="6.0"/><text class="blip-num" style="font-size:5.7px" x="145.1" y="51.5">16</text></a>
+        <a href="#it-ucph-test-environment-breach"><circle class="blip crit" cx="209.1" cy="100.1" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="209.1" y="104.8">1</text></a>
+        <a href="#it-php2shell-109618"><circle class="blip crit" cx="257.0" cy="144.1" r="13.5"/><text class="blip-num" style="font-size:12.8px" x="257.0" y="148.3">2</text></a>
+        <a href="#it-nextcloud-code-110447"><circle class="blip crit" cx="259.9" cy="209.1" r="12.0"/><text class="blip-num" style="font-size:11.4px" x="259.9" y="212.8">3</text></a>
+        <a href="#it-peoplesoft-35273"><circle class="blip crit" cx="215.9" cy="257.0" r="10.5"/><text class="blip-num" style="font-size:9.9px" x="215.9" y="260.3">4</text></a>
+        <a href="#it-netscaler-zerodays-0926"><circle class="blip crit" cx="150.9" cy="259.9" r="9.5"/><text class="blip-num" style="font-size:9.0px" x="150.9" y="262.8">5</text></a>
+        <a href="#it-ivanti-cs-104935"><circle class="blip crit" cx="103.0" cy="215.9" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="103.0" y="218.7">6</text></a>
+        <a href="#it-beyondtrust-rs-102764"><circle class="blip crit" cx="100.1" cy="150.9" r="8.5"/><text class="blip-num" style="font-size:8.0px" x="100.1" y="153.6">7</text></a>
+        <a href="#it-cisco-esa-76519"><circle class="blip crit" cx="144.1" cy="103.0" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="144.1" y="105.5">8</text></a>
+        <a href="#it-unm-hsc-cyber-event"><circle class="blip high" cx="271.2" cy="80.5" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="271.2" y="83.3">9</text></a>
+        <a href="#it-richmond-public-schools"><circle class="blip high" cx="314.9" cy="174.1" r="8.6"/><text class="blip-num" style="font-size:8.1px" x="314.9" y="176.8">10</text></a>
+        <a href="#it-ets-california-students"><circle class="blip high" cx="279.5" cy="271.2" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="279.5" y="273.8">11</text></a>
+        <a href="#it-brotli-111497"><circle class="blip high" cx="185.9" cy="314.9" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="185.9" y="317.3">12</text></a>
+        <a href="#it-globalprotect-qilin-inc"><circle class="blip high" cx="88.8" cy="279.5" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="88.8" y="281.8">13</text></a>
+        <a href="#it-safepay-aa26-293a"><circle class="blip high" cx="45.1" cy="185.9" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="45.1" y="188.1">14</text></a>
+        <a href="#it-aomei-backupper-unc7017"><circle class="blip high" cx="80.5" cy="88.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="80.5" y="90.9">15</text></a>
+        <a href="#it-gitlab-110264"><circle class="blip high" cx="174.1" cy="45.1" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="174.1" y="47.1">16</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-ets-california-students"><span class="ld crit"></span><b>1</b> ETS breach: California student records</a>
-        <a href="#it-php2shell-109618"><span class="ld crit"></span><b>2</b> PHP2Shell: mass exploit attempts</a>
-        <a href="#it-netscaler-zerodays-0926"><span class="ld crit"></span><b>3</b> NetScaler: SAML re-patch; zero-days hit edu</a>
-        <a href="#it-beyondtrust-rs-102764"><span class="ld crit"></span><b>4</b> BeyondTrust Remote Support zero-day, KEV</a>
-        <a href="#it-ivanti-cs-104935"><span class="ld crit"></span><b>5</b> Ivanti Connect Secure zero-day chain, KEV</a>
-        <a href="#it-peoplesoft-35273"><span class="ld crit"></span><b>6</b> PeopleSoft CVE-2026-35273: ShinyHunters</a>
-        <a href="#it-cisco-esa-76519"><span class="ld crit"></span><b>7</b> Cisco Secure Email Gateway, KEV</a>
-        <a href="#it-globalprotect-qilin-inc"><span class="ld high"></span><b>8</b> Qilin and INC on GlobalProtect; edu targeted</a>
-        <a href="#it-emudhra-incommon-distrust"><span class="ld high"></span><b>9</b> eMudhra root distrust 27 Oct (InCommon)</a>
-        <a href="#it-aomei-backupper-unc7017"><span class="ld high"></span><b>10</b> AOMEI updater backdoor: university victims</a>
-        <a href="#it-updraftcentral-rankmath"><span class="ld high"></span><b>11</b> UpdraftCentral keys and Rank Math PRO</a>
-        <a href="#it-safepay-aa26-293a"><span class="ld high"></span><b>12</b> SafePay ransomware advisory AA26-293A</a>
-        <a href="#it-gitlab-110264"><span class="ld high"></span><b>13</b> GitLab CVE-2026-110264, CVSS 10.0</a>
-        <a href="#it-aruba-aos-79844"><span class="ld high"></span><b>14</b> ArubaOS 8/10: eight unauthenticated flaws</a>
-        <a href="#it-fortibleed"><span class="ld high"></span><b>15</b> FortiBleed VPN credential campaign</a>
-        <a href="#it-springfield-schools"><span class="ld high"></span><b>16</b> Springfield schools: staff SSNs confirmed</a>
+        <a href="#it-ucph-test-environment-breach"><span class="ld crit"></span><b>1</b> UCPH: 525,000 national ID numbers exposed</a>
+        <a href="#it-php2shell-109618"><span class="ld crit"></span><b>2</b> PHP2Shell: exploited, KEV due 29 Oct</a>
+        <a href="#it-nextcloud-code-110447"><span class="ld crit"></span><b>3</b> Collabora/Nextcloud CODE server, KEV</a>
+        <a href="#it-peoplesoft-35273"><span class="ld crit"></span><b>4</b> PeopleSoft CVE-2026-35273: ShinyHunters</a>
+        <a href="#it-netscaler-zerodays-0926"><span class="ld crit"></span><b>5</b> NetScaler: SAML re-patch; zero-days hit edu</a>
+        <a href="#it-ivanti-cs-104935"><span class="ld crit"></span><b>6</b> Ivanti Connect Secure zero-day chain, KEV</a>
+        <a href="#it-beyondtrust-rs-102764"><span class="ld crit"></span><b>7</b> BeyondTrust Remote Support zero-day, KEV</a>
+        <a href="#it-cisco-esa-76519"><span class="ld crit"></span><b>8</b> Cisco Secure Email Gateway, KEV</a>
+        <a href="#it-unm-hsc-cyber-event"><span class="ld high"></span><b>9</b> UNM HSC: ambulances diverted, classes cut</a>
+        <a href="#it-richmond-public-schools"><span class="ld high"></span><b>10</b> Richmond Public Schools: ransom notes</a>
+        <a href="#it-ets-california-students"><span class="ld high"></span><b>11</b> ETS breach: class action filed</a>
+        <a href="#it-brotli-111497"><span class="ld high"></span><b>12</b> Brotli decoder flaw added to KEV</a>
+        <a href="#it-globalprotect-qilin-inc"><span class="ld high"></span><b>13</b> Qilin and INC on GlobalProtect; edu targeted</a>
+        <a href="#it-safepay-aa26-293a"><span class="ld high"></span><b>14</b> SafePay ransomware advisory AA26-293A</a>
+        <a href="#it-aomei-backupper-unc7017"><span class="ld high"></span><b>15</b> AOMEI updater backdoor: university victims</a>
+        <a href="#it-gitlab-110264"><span class="ld high"></span><b>16</b> GitLab CVE-2026-110264: public PoC</a>
       </div>
     </div>
 
@@ -820,6 +814,102 @@
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-unm-hsc-cyber-event" data-published="2026-10-28">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>A &ldquo;cybersecurity event&rdquo; at the University of New Mexico Health Sciences Center diverted ambulances for two hours and shut its medicine, nursing, pharmacy and population-health classes for two days &mdash; a group called BYOD claims it, and UNM says it made no concessions</h3>
+        <p>UNM Health Sciences Center (HSC) reported a cybersecurity event on Monday 26&nbsp;October 2026. Between 12:30 and 2:30&nbsp;pm UNM Health limited new patient intake and diverted ambulances to other area health systems, and outpatient surgeries and appointments were suspended for the rest of the day. Students and non-essential staff at the School of Medicine and the Colleges of Nursing, Pharmacy and Population Health were sent home, and HSC classes, including online ones, were cancelled for the rest of Monday and on Tuesday 27&nbsp;October; UNM&rsquo;s central and branch campuses were not affected. UNM says its assessment found the event &ldquo;affected some end-user devices but did not penetrate core systems or servers&rdquo;. Hospitals and clinics were fully open again on 27&nbsp;October, and classes and research resumed on 28&nbsp;October. State and federal law enforcement are investigating. <b>What is claimed, not confirmed:</b> a group calling itself BYOD says it carried out the attack and took data on students and employees; UNM has not used the word ransomware and has reported no finding on data access. On 28&nbsp;October UNM said it &ldquo;did not make concessions&rdquo; to any group and asked anyone contacted by people claiming responsibility to report it to the FBI&rsquo;s IC3. An academic health centre shares devices, identity and networks between teaching and patient care, so one event can stop both at once (editorial assessment).</p>
+        <div class="card-meta">
+          <span>University of New Mexico Health Sciences Center &bull; No CVE &mdash; entry route not disclosed; BYOD claims responsibility (claim, unverified); UNM does not describe it as ransomware</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; UNM: ambulances diverted 12:30&ndash;2:30 pm on 26 Oct 2026; HSC classes cancelled 26&ndash;27 Oct; some end-user devices affected, core systems and servers not penetrated; BYOD&rsquo;s data-theft claim unverified</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; no technical details released</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; clinical, teaching and research operations fully restored by 28 Oct 2026; criminal investigation continuing; UNM made no concessions</span>
+            <span class="ops-cc"><b>Action:</b> If your institution runs a medical, nursing or health-science school alongside a hospital, map the systems both depend on &mdash; directory, email, endpoint management, Wi-Fi and the networks between them &mdash; and agree in advance who can order teaching, research and clinical operations to stop and how each restarts. Rehearse sending students home and cancelling classes, including online ones, without the systems that normally carry those messages. Make sure your endpoint tools can isolate devices in bulk, since UNM reports the event hit end-user devices rather than servers. Warn students, staff and patients that extortion messages may follow a claim like BYOD&rsquo;s, tell them not to reply, and give them one place to report it, as UNM did with IC3.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Shared-dependency map and stop/restart authority agreed between academic and clinical leadership &mdash; 30 days; out-of-band test of class-cancellation messaging &mdash; 30 days; extortion-message guidance for students and staff &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-unm-hsc-cyber-event" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-unm-hsc-cyber-event">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>UNM Health Sciences Center updates (26 Oct 2026, 2:30, 6:08 and 10:27 pm; 27 Oct, 2:02 pm; 28 Oct, 12:39 pm); The Record and The Register (27 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Event 26 Oct 2026; operations restored 27&ndash;28 Oct &mdash; incident confirmed by UNM; data theft claimed by BYOD only</span>
+        </div>
+        <a href="https://hscnews.unm.edu/news/ambulance-traffic-diverted-clinical-appointments-cancelled-and-classes-cancelled-due-to-cybersecurity-issue-at-unm-hsc" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-richmond-public-schools" data-published="2026-10-22">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Ransomware</span>
+        </div>
+        <h3>Richmond Public Schools in Virginia takes its internet offline after staff find ransom notes on school laptops &mdash; schools stayed open without technology while the district works out whether personal data was taken</h3>
+        <p>Staff at Richmond Public Schools (RPS) found messages on school laptops on the morning of Wednesday 21&nbsp;October 2026. The note, as quoted by the Richmond Times-Dispatch, said the attackers had gained access to the network, &ldquo;extracted sensitive data&rdquo; and &ldquo;encrypted your critical files&rdquo;, gave the district 72 hours to make contact through a negotiation chat and warned it against attempting recovery or involving third-party negotiators; it names no group. Superintendent Jason Kamras confirmed a cybersecurity incident and said the district had taken internet access offline as a precaution; phone and email service were also affected, and students were told to stay off school networks. Schools stayed open. On 22&nbsp;October, the second day without internet, classes ran as technology-free lessons, visitors were limited to caregivers and children were released only to adults already approved in PowerSchool. RPS says it is working with outside experts and with local and federal law enforcement to establish the scope and whether any personal information was affected. The encryption and data-theft statements come from the attackers&rsquo; note and have not been confirmed by the district, and 22&nbsp;October is the latest status this page could verify. Running a school safely without the network depends on pickup lists, emergency contacts and medical information being available offline (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Richmond Public Schools (VA) &bull; No CVE &mdash; entry route not disclosed; the ransom note names no group</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; RPS: internet taken offline 21 Oct 2026 after ransom notes appeared on staff laptops; encryption and data theft asserted in the note only; latest verified status 22 Oct</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; no group or entry route identified</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; restoration under way with outside experts and law enforcement; personal-data impact under review</span>
+            <span class="ops-cc"><b>Action:</b> Agree now who can order the network offline and how each school runs safely without it: printed emergency contacts, pickup authorisations, medical and allergy lists and attendance sheets in every building, and a phone tree that does not depend on district email or VoIP. Tell staff what to do if a ransom note appears on a laptop &mdash; disconnect it from the network without wiping it, photograph the screen and call one named number &mdash; and that nobody replies to the attackers. Check that backups of the student information system, finance and HR are offline or immutable and that a restore has been tested. If a note threatens a data leak, route it through counsel, your insurer and law enforcement before saying anything about what was taken.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Offline building packs (contacts, pickup, medical, attendance) in every school &mdash; 14 days; staff ransom-note instructions issued &mdash; 7 days; offline backup restore test &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-richmond-public-schools" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-richmond-public-schools">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Richmond Times-Dispatch via GovTech (22 Oct 2026); WTVR CBS 6 (21 and 22 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Ransom notes found 21 Oct 2026; second internet-free day 22 Oct &mdash; incident confirmed by the district; encryption and data theft claimed in the note only</span>
+        </div>
+        <a href="https://www.govtech.com/education/k-12/ransomware-attack-forces-richmond-va-schools-offline" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ets-california-students" data-published="2026-10-23">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Breach</span>
+        </div>
+        <h3>California student-data breach at testing contractor ETS: a class action was filed on 20&nbsp;October, and the state now says ETS spotted the intrusion on 25&nbsp;September and told it the next day</h3>
+        <p>The California Department of Education (CDE) and its testing contractor, Educational Testing Service (ETS), began notifying students on 16&nbsp;October 2026 that an unauthorised party used a compromised login credential between 22&nbsp;May and 18&nbsp;September 2026 to copy files from an ETS SFTP site used to exchange statewide assessment data with the department. According to the CDE, ETS identified the activity on <b>25&nbsp;September</b> and notified the department on <b>26&nbsp;September</b>; ETS took the site offline and has built a hardened replacement. A <b>class action</b> filed against ETS on 20&nbsp;October brings claims including negligence, breach of contract, privacy violations and unfair competition under California law, GovTech reports. The plaintiffs&rsquo; lawyers put the number of students affected at about 7&nbsp;million, the figure Politico also reported; the CDE has published no count. The CDE says it is reviewing ETS&rsquo;s compliance with its contract and data-security requirements together with Cal-CSIC, the California Department of Technology and Cal OES. The notice covers all students enrolled in the three previous school years and some who left as far back as 2006. The files hold names, birth dates, home addresses, schools, grades, student IDs, demographics and test results and, where applicable, disability, Section&nbsp;504, McKinney-Vento and military-connected status. No Social Security numbers, passwords, financial data or parent details were involved, and no actor has been named. When a state contractor holds student data, districts cannot control it but still answer to the families (editorial assessment).</p>
+        <div class="card-meta">
+          <span>California Department of Education / Educational Testing Service (ETS) &bull; No CVE &mdash; compromised SFTP login credential; how it was obtained not disclosed; no actor or claim reported</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed breach &mdash; CDE and ETS: files copied 22 May&ndash;18 Sep 2026 with a compromised credential; ETS found it 25 Sep and told the CDE 26 Sep; no official count (about 7 million per the plaintiffs and Politico)</span>
+            <span class="ops-tag kev-off">No CVE &mdash; credential misuse on a vendor file-transfer site</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; ETS replaced the SFTP site; notices from 16 Oct into early November with two years of Experian IdentityWorks; class action filed 20 Oct; CDE reviewing ETS&rsquo;s compliance with state partners</span>
+            <span class="ops-cc"><b>Action:</b> California districts should expect continuing questions as notices arrive: post a short page that explains what the state&rsquo;s notice covers, links to the CDE notice (cde.ca.gov/ets) and its call centre (833-931-8488), and says plainly that Social Security numbers and parent details were not involved. Brief counsellors and special-education, foster and homeless-liaison staff, because disability, 504 and McKinney-Vento flags are the most sensitive fields and those families may receive convincing phishing that quotes real school details. Keep a dated record of what the CDE and ETS have told you. Everywhere else, list every vendor and state agency that collects student data from you by SFTP or bulk upload, and ask each in writing whether accounts are named and protected by MFA or key-based authentication, restricted by IP address and monitored for bulk downloads, and how long files stay on the exchange site. Apply the same test to your own data-exchange accounts: a shared or long-lived login on a file-transfer server is exactly what was abused here.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Family and staff guidance posted &mdash; 7 days; vendor file-transfer inventory and written assurances &mdash; 30 days; own SFTP and data-exchange accounts reviewed for MFA, key authentication and retention &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ets-california-students" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ets-california-students">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>California Department of Education notice (last reviewed 22 Oct 2026) and news release #26-45 (16 Oct 2026); GovTech (23 Oct 2026); EdSource (19 Oct 2026), citing Politico; SecurityWeek (19 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Access 22 May&ndash;18 Sep 2026; found 25 Sep; CDE notified 26 Sep; notices from 16 Oct; class action filed 20 Oct 2026 &mdash; confirmed by CDE and ETS; the 7 million figure is the plaintiffs&rsquo; and Politico&rsquo;s</span>
+        </div>
+        <a href="https://www.govtech.com/education/k-12/ets-sued-over-data-breach-affecting-current-former-calif-students" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-globalprotect-qilin-inc" data-published="2026-10-20">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -919,19 +1009,19 @@
         </div>
         <a href="https://thehackernews.com/2026/10/attackers-abuse-updraftcentral-keys-to.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-navigate360-tipline" data-published="2026-10-21">
+      <div class="card" id="it-navigate360-tipline" data-published="2026-10-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
           <span class="category">Breach</span>
         </div>
-        <h3>Toronto Crime Stoppers stops taking tips after Navigate360 confirms 176,859 of its tips were stolen from the P3 platform &mdash; the tip software many schools use, from a vendor that had said for months that P3 was secure</h3>
-        <p>Toronto Crime Stoppers paused operations late on 21&nbsp;October 2026 and asked the public not to send tips by phone, online or through its app until it has a safer way to keep them anonymous. Its statement says Navigate360 told it that <b>176,859 Toronto tips</b> submitted between January 2022 and November 2025 were in data stolen from P3, the tip platform it has used since 2018, and that Navigate360 found 14,973 names in them without being able to say whether they belong to tipsters, suspects or both. According to the charity, Navigate360 said in March that P3 was secure, in April that Toronto&rsquo;s data had not been taken and in June that it had been, and has not answered its lawyers&rsquo; requests for the text of the stolen tips. The Record, citing CBC, reports that more than 1.5&nbsp;million tips from Crime Stoppers chapters across Canada were in data DDoSecrets made available in March, and that a hacktivist group calling itself Internet Yiff Machine claimed the breach. In September DataBreaches.net identified about 93,760 US military tips in the published set. Navigate360 did not immediately respond to The Record. <b>Read the status carefully.</b> No school or campus submissions have been confirmed in the sources reviewed, and this page does not claim they are there. The reason it earns a card here is the product: anonymous tip lines are how districts and universities ask students to report threats of violence, self-harm and abuse, and the vendor&rsquo;s account of what was taken changed three times.</p>
+        <h3>Canada&rsquo;s Privacy Commissioner opens an investigation into Navigate360 after 176,859 Toronto Crime Stoppers tips were stolen from its P3 platform &mdash; the tip software many schools use, from a vendor that had said for months that P3 was secure</h3>
+        <p><b>Update, 27&nbsp;October 2026:</b> the Office of the Privacy Commissioner of Canada opened an investigation under PIPEDA into Navigate360, which will examine the safeguards it had in place at the time of the breach; Crime Stoppers itself is not under investigation. Police services in Toronto and at least six other Ontario areas suspended their use of Crime Stoppers (Global News, 23&nbsp;October), and programmes across Saskatchewan paused their tip lines (CTV News, 24&nbsp;October). <b>Background:</b> Toronto Crime Stoppers paused operations late on 21&nbsp;October 2026 and asked the public not to send tips by phone, online or through its app until it has a safer way to keep them anonymous. Its statement says Navigate360 told it that <b>176,859 Toronto tips</b> submitted between January 2022 and November 2025 were in data stolen from P3, the tip platform it has used since 2018, and that Navigate360 found 14,973 names in them without being able to say whether they belong to tipsters, suspects or both. According to the charity, Navigate360 said in March that P3 was secure, in April that Toronto&rsquo;s data had not been taken and in June that it had been, and has not answered its lawyers&rsquo; requests for the text of the stolen tips. The Record, citing CBC, reports that more than 1.5&nbsp;million tips from Crime Stoppers chapters across Canada were in data DDoSecrets made available in March, and that a hacktivist group calling itself Internet Yiff Machine claimed the breach. In September DataBreaches.net identified about 93,760 US military tips in the published set. Navigate360 did not immediately respond to The Record. <b>Read the status carefully.</b> No school or campus submissions have been confirmed in the sources reviewed, and this page does not claim they are there. The reason it earns a card here is the product: anonymous tip lines are how districts and universities ask students to report threats of violence, self-harm and abuse, and the vendor&rsquo;s account of what was taken changed three times.</p>
         <div class="card-meta">
           <span>Navigate360 / P3 Global Intel anonymous-tip platform &bull; No CVE &mdash; exposure route not disclosed; breach claimed by the hacktivist group Internet Yiff Machine (claim); data released by DDoSecrets in March 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed to a P3 customer &mdash; Navigate360 told Toronto Crime Stoppers 176,859 of its tips were stolen; the national 1.5 million figure is CBC&rsquo;s; no school or campus data confirmed in the sources reviewed</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed to a P3 customer &mdash; Navigate360 told Toronto Crime Stoppers 176,859 of its tips were stolen; Privacy Commissioner investigation of Navigate360 opened 27 Oct 2026; the national 1.5 million figure is CBC&rsquo;s; no school or campus data confirmed in the sources reviewed</span>
             <span class="ops-tag kev-off">No CVE named &mdash; how the data left P3 has not been disclosed</span>
           </div>
           <div class="ops-row">
@@ -945,31 +1035,31 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>Toronto Crime Stoppers statement (21 Oct 2026); The Record (22 Oct 2026), citing CBC; DataBreaches.net (18 Sep 2026)</span>
+          <span>Office of the Privacy Commissioner of Canada (27 Oct 2026); Global News (23 Oct 2026); CTV News (24 Oct 2026); Toronto Crime Stoppers statement (21 Oct 2026); The Record (22 Oct 2026), citing CBC; DataBreaches.net (18 Sep 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Leaked data public since March 2026; Toronto tips confirmed by Navigate360 to the chapter; service paused 21 Oct 2026 &mdash; Toronto figures confirmed by the chapter; national total reported by CBC; breach claim unverified</span>
+          <span>Leaked data public since March 2026; Toronto tips confirmed by Navigate360 to the chapter; service paused 21 Oct 2026; PIPEDA investigation opened 27 Oct 2026 &mdash; Toronto figures confirmed by the chapter; national total reported by CBC; breach claim unverified</span>
         </div>
-        <a href="https://therecord.media/toronto-crime-tips-org-freezes-ops-after-breach" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261027/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-peoplesoft-35273" data-published="2026-10-09">
+      <div class="card" id="it-peoplesoft-35273" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
           <span class="category">Campaign</span>
         </div>
-        <h3>ShinyHunters: the FBI announces another arrest, and its own breach is reported to trace to an unapplied Oracle PeopleSoft patch &mdash; the CVE-2026-35273 flaw the group used mainly against academic institutions in June and is again exploiting past WAF rules</h3>
-        <p><b>Update, 9&nbsp;October 2026:</b> FBI Director Kash Patel announced another arrest in the ShinyHunters investigation, describing the group as the one believed responsible for the FBIjobs.gov incident. The New York Times and CBS News, citing unnamed sources, report that the suspect is a Canadian citizen arrested in Pennsylvania; no name or charges have been made public. The FBI says the group has breached more than 140 organisations and collected at least $70&nbsp;million in extortion payments since last year. A 24-year-old was arrested in Amsterdam on 15&nbsp;September with FBI support, and Reuters&rsquo; sources report a further arrest in Jordan on 29&nbsp;September; this page names none of the suspects. <b>6&nbsp;October:</b> FBI Cyber Division Assistant Director Brett Leatherman said the jobs-portal breach came from a security failure on a platform run by a third-party organisation, after a contractor did not apply a patch issued specifically for it, and the FBI has removed the contractor. The FBI has not named the product or a CVE. Reuters, citing sources, reports that the platform was Oracle PeopleSoft, and The Hacker News ties the breach to <b>CVE-2026-35273</b> and the WAF bypass Mandiant described; treat that link as reported, not confirmed. <b>The campaign itself is confirmed and unchanged.</b> On 25&nbsp;September Google Threat Intelligence Group and Mandiant reported renewed mass exploitation by <b>UNC6240</b>, the group known as ShinyHunters, of the Environment Management Hub (PSEMHUB) in PeopleSoft PeopleTools. The flaw is an unauthenticated remote code execution bug that the group exploited as a zero-day between 27&nbsp;May and 9&nbsp;June 2026, predominantly against academic institutions; Oracle fixed it out of band on 10&nbsp;June. The new trick is requesting <code>/%50SEMHUB/</code> instead of <code>/PSEMHUB/</code>: a WAF rule that matches the literal path does not fire, while WebLogic decodes the path and serves the application anyway. Mandiant found web shells on dozens of systems in higher education, technology, IT services, healthcare, agriculture, transportation and government, along with Neo-reGeorg tunnels, a <b>SIDEEYE</b> backdoor hidden in a trojanised Light Alloy installer and the MeshAgent remote-management agent. No victims are named. CVE-2026-35273 has been in CISA&rsquo;s KEV catalogue since 12&nbsp;June 2026, due 15&nbsp;June. The FBI case is the lesson for campuses: the exposure was a fix that existed and was never applied, on a platform someone else operated. Many universities run PeopleSoft Campus Solutions, HCM or Financials through a hosting or managed-service partner, and Mandiant&rsquo;s hunting guidance points at HR, payroll and student-records tables (editorial assessment of the campus exposure).</p>
+        <h3>ShinyHunters&rsquo; PeopleSoft flaw CVE-2026-35273 turns out to be three chained bugs, ZDI shows &mdash; the group used it mainly against academic institutions in June, is again exploiting it past WAF rules, and the FBI&rsquo;s own breach is reported to trace to an unapplied patch</h3>
+        <p><b>Update, 20&ndash;28&nbsp;October 2026:</b> an analysis by Trend Micro&rsquo;s Zero Day Initiative (ZDI), dated 20&nbsp;October and reported by The Hacker News on 28&nbsp;October, shows the &ldquo;zero-day&rdquo; is three chained flaws in PeopleTools 8.61 and 8.62: a server-side request forgery in the Integration Gateway (PSIGW), a PSEMHUB trust check that ships with 127.0.0.1 in <code>allowedhosts.properties</code>, and a third flaw not yet detailed. All three are fixed under the single CVE, with separate IDs pending. Shadowserver honeypots logged exploitation attempts through 24&nbsp;October. <b>9&nbsp;October:</b> FBI Director Kash Patel announced another arrest in the ShinyHunters investigation, describing the group as the one believed responsible for the FBIjobs.gov incident. The New York Times and CBS News, citing unnamed sources, report that the suspect is a Canadian citizen arrested in Pennsylvania; no name or charges have been made public. The FBI says the group has breached more than 140 organisations and collected at least $70&nbsp;million in extortion payments since last year. A 24-year-old was arrested in Amsterdam on 15&nbsp;September with FBI support, and Reuters&rsquo; sources report a further arrest in Jordan on 29&nbsp;September; this page names none of the suspects. <b>6&nbsp;October:</b> FBI Cyber Division Assistant Director Brett Leatherman said the jobs-portal breach came from a security failure on a platform run by a third-party organisation, after a contractor did not apply a patch issued specifically for it, and the FBI has removed the contractor. The FBI has not named the product or a CVE. Reuters, citing sources, reports that the platform was Oracle PeopleSoft, and The Hacker News ties the breach to <b>CVE-2026-35273</b> and the WAF bypass Mandiant described; treat that link as reported, not confirmed. <b>The campaign itself is confirmed and unchanged.</b> On 25&nbsp;September Google Threat Intelligence Group and Mandiant reported renewed mass exploitation by <b>UNC6240</b>, the group known as ShinyHunters, of the Environment Management Hub (PSEMHUB) in PeopleSoft PeopleTools. The flaw is an unauthenticated remote code execution bug that the group exploited as a zero-day between 27&nbsp;May and 9&nbsp;June 2026, predominantly against academic institutions; Oracle fixed it out of band on 10&nbsp;June. The new trick is requesting <code>/%50SEMHUB/</code> instead of <code>/PSEMHUB/</code>: a WAF rule that matches the literal path does not fire, while WebLogic decodes the path and serves the application anyway. Mandiant found web shells on dozens of systems in higher education, technology, IT services, healthcare, agriculture, transportation and government, along with Neo-reGeorg tunnels, a <b>SIDEEYE</b> backdoor hidden in a trojanised Light Alloy installer and the MeshAgent remote-management agent. No victims are named. CVE-2026-35273 has been in CISA&rsquo;s KEV catalogue since 12&nbsp;June 2026, due 15&nbsp;June. The FBI case is the lesson for campuses: the exposure was a fix that existed and was never applied, on a platform someone else operated. Many universities run PeopleSoft Campus Solutions, HCM or Financials through a hosting or managed-service partner, and Mandiant&rsquo;s hunting guidance points at HR, payroll and student-records tables (editorial assessment of the campus exposure).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-35273</span>
           <span>Oracle PeopleSoft PeopleTools 8.61 and 8.62 &bull; Environment Management Hub (PSEMHUB) &mdash; unauthenticated remote code execution; CVSS 3.1 9.8 per the CVE record; fixed by Oracle out-of-band Security Alert, 10 Jun 2026; in CISA KEV since 12 Jun 2026</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed by Mandiant/GTIG (25 Sep 2026) &mdash; UNC6240 (ShinyHunters), dozens of systems, higher education among sectors; FBI breach blamed on a missed patch (6 Oct 2026), PeopleSoft link reported by Reuters; further arrest announced 9 Oct 2026</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Active exploitation confirmed by Mandiant/GTIG (25 Sep 2026) &mdash; UNC6240 (ShinyHunters), dozens of systems, higher education among sectors; honeypot attempts through 24 Oct (Shadowserver); FBI breach blamed on a missed patch (6 Oct 2026), PeopleSoft link reported by Reuters; further arrest announced 9 Oct 2026</span>
             <span class="ops-tag kev-on">In CISA KEV since 12 Jun 2026, due 15 Jun 2026</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; Oracle out-of-band Security Alert, 10 Jun 2026; a WAF rule is not a substitute for the fix</span>
-            <span class="ops-cc"><b>Action:</b> Confirm in writing that every PeopleSoft environment carries Oracle&rsquo;s June fix &mdash; Campus Solutions, HCM and Financials, and the test, training and reporting copies that tend to be forgotten. If a hosting or managed-service partner runs PeopleSoft for you, ask it for the date the fix went onto each environment rather than accepting a general assurance. If you do not use the Environment Management Hub, disable it, and make WAF rules match on the decoded path. Search WebLogic access logs back to late May for requests to <code>/PSEMHUB/</code> and percent-encoded variants such as <code>/%50SEMHUB/</code>, and check the PSEMHUB web application directory for JSP files nobody deployed (<code>x.jsp</code>, <code>u.jsp</code>, <code>u2.jsp</code>, <code>tunnel.jsp</code>). On the hosts, look for MeshAgent or an unexpected <code>Ple64.exe</code>; in database audit logs, look for bulk queries or exports against HR, payroll and student-records tables. Wherever you find any of these, treat the PeopleSoft tier as compromised: isolate it, bring in incident response and counsel, and rotate every credential the servers can reach. Oracle&rsquo;s next quarterly Critical Patch Update is scheduled for 20&nbsp;October; book PeopleSoft test time for it now, including for partner-hosted environments.</span>
+            <span class="ops-cc"><b>Action:</b> Confirm in writing that every PeopleSoft environment carries Oracle&rsquo;s June fix &mdash; Campus Solutions, HCM and Financials, and the test, training and reporting copies that tend to be forgotten. If a hosting or managed-service partner runs PeopleSoft for you, ask it for the date the fix went onto each environment rather than accepting a general assurance. If you do not use the Environment Management Hub, disable it, make WAF rules match on the decoded path, and keep the Integration Gateway (PSIGW) off the open internet, since ZDI shows the chain starts there. Search WebLogic access logs back to late May for requests to <code>/PSEMHUB/</code> and percent-encoded variants such as <code>/%50SEMHUB/</code>, and check the PSEMHUB web application directory for JSP files nobody deployed (<code>x.jsp</code>, <code>u.jsp</code>, <code>u2.jsp</code>, <code>tunnel.jsp</code>). On the hosts, look for MeshAgent or an unexpected <code>Ple64.exe</code>; in database audit logs, look for bulk queries or exports against HR, payroll and student-records tables. Wherever you find any of these, treat the PeopleSoft tier as compromised: isolate it, bring in incident response and counsel, and rotate every credential the servers can reach. Oracle&rsquo;s October 2026 Critical Patch Update is out; schedule it for every PeopleSoft environment, including partner-hosted ones.</span>
           </div>
           <div class="ops-row ops-assign">
             <span class="ops-sla"><b>Suggested SLA:</b> Written confirmation of the June fix on every environment, including partner-hosted ones &mdash; 72 hours; WAF normalisation and log search back to 27 May &mdash; 7 days; full compromise assessment of any server with hits &mdash; 14 days</span>
@@ -978,11 +1068,11 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>FBI Director&rsquo;s announcement via The Hacker News (9 Oct 2026); FBI statement via Reuters and The Hacker News (6 Oct 2026); Google Threat Intelligence Group / Mandiant (25 Sep 2026); CISA KEV record; Oracle Security Alert (10 Jun 2026)</span>
+          <span>ZDI analysis (20 Oct 2026) and Shadowserver via The Hacker News (28 Oct 2026); FBI Director&rsquo;s announcement via The Hacker News (9 Oct 2026); FBI statement via Reuters and The Hacker News (6 Oct 2026); Google Threat Intelligence Group / Mandiant (25 Sep 2026); CISA KEV record; Oracle Security Alert (10 Jun 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Zero-day wave 27 May&ndash;9 Jun 2026; fixed 10 Jun; KEV 12 Jun; renewed campaign reported 25 Sep; FBI cause statement 6 Oct; arrest announced 9 Oct 2026 &mdash; campaign confirmed by Mandiant; FBI&ndash;PeopleSoft link reported, not confirmed</span>
+          <span>Zero-day wave 27 May&ndash;9 Jun 2026; fixed 10 Jun; KEV 12 Jun; renewed campaign reported 25 Sep; FBI cause statement 6 Oct; arrest announced 9 Oct; ZDI chain analysis 20 Oct, reported 28 Oct 2026 &mdash; campaign confirmed by Mandiant; FBI&ndash;PeopleSoft link reported, not confirmed</span>
         </div>
-        <a href="https://thehackernews.com/2026/10/fbi-removes-accenture-contractor-after.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-fortibleed" data-published="2026-10-06">
         <div class="card-header">
@@ -1294,6 +1384,70 @@
         </div>
         <a href="https://cyberscoop.com/doj-fbi-seize-flax-typhoon-hacking-tools-microscan-fishhub/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="it-artex-korea-pentester" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Law Enforcement</span>
+        </div>
+        <h3>Seoul police say a former penetration tester used the ARTEX AI framework to breach more than 90 South Korean organisations, educational institutions among them, and take 8.2&nbsp;million records</h3>
+        <p>South Korea&rsquo;s Seoul Metropolitan Police say a seven-person group led by a 32-year-old former penetration tester broke into more than 90 organisations and took 8.2&nbsp;million records, BleepingComputer reported on 26&nbsp;October 2026, citing Yonhap. The victims include <b>educational institutions</b>, hospitals, large companies and golf courses; none has been named. The group made 38 extortion demands totalling 360&nbsp;million won (about $270,000) in exchange for not leaking data. The leader was arrested on 15&nbsp;October and referred to prosecutors on 23&nbsp;October; the other six are under investigation without detention. Police say he adopted AI tools in late August 2026, including the ARTEX attack framework, and describe the case as the country&rsquo;s first arrest for large-scale hacking involving generative AI. Police have not linked it to the separate breaches at several South Korean banks. The point for schools and universities is the economics: a small crew with AI tooling worked through dozens of mid-sized targets, and education was among them (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Seoul Metropolitan Police case, via Yonhap &bull; No CVE &mdash; intrusions using the ARTEX AI framework; 90+ organisations including educational institutions; 8.2 million records; victims unnamed</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by police &mdash; 90+ organisations breached, 8.2 million records taken, 38 extortion demands; leader arrested 15 Oct and referred to prosecutors 23 Oct 2026; educational institutions among the victims, none named</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; entry routes not described in the reporting</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; exposure reduction, credential hygiene and extortion handling</span>
+            <span class="ops-cc"><b>Action:</b> Assume AI tooling makes your smaller and older systems worth an attacker&rsquo;s time. List the internet-facing services that sit outside central IT &mdash; department and event sites, alumni systems, research portals &mdash; and patch or take down what nobody owns. Run your own external scan at least monthly and fix what it finds before someone else&rsquo;s automated tools do. Prepare for a data-extortion demand that arrives without any ransomware outage: who receives it, who checks whether the claimed data is real, and who talks to law enforcement and regulators.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of unmanaged internet-facing services &mdash; 30 days; monthly external scan in place &mdash; 30 days; data-extortion playbook &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-artex-korea-pentester" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-artex-korea-pentester">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Seoul Metropolitan Police via Yonhap and BleepingComputer (26 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Leader arrested 15 Oct; referred to prosecutors 23 Oct; reported 26 Oct 2026 &mdash; confirmed by police; victims unnamed</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-teams-helpdesk-impersonation" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Social Engineering</span>
+        </div>
+        <h3>Arctic Wolf counts more than 400 intrusions that began with a fake &ldquo;IT Service Desk&rdquo; message in Microsoft Teams external chat &mdash; with a payload running within 15 minutes of first contact</h3>
+        <p>Arctic Wolf reported on 26&nbsp;October 2026 that more than 400 incidents it handled followed one pattern. The victim&rsquo;s inbox is flooded with spam, then a message arrives through Microsoft Teams external chat from a newly created or trial Microsoft 365 tenant &mdash; 30&ndash;40% of them on default onmicrosoft.com domains &mdash; with a name such as &ldquo;IT Service Desk&rdquo;, offering to fix the problem. The &ldquo;helper&rdquo; steers the user into Quick Assist, then adds AnyDesk, ScreenConnect, Atera or other remote-management tools and runs PowerShell; payloads include a GoGRPC backdoor and a Python implant delivered as an MSI from Azure Blob storage. Payloads ran within 15 minutes of first contact. Arctic Wolf names no actor, though it notes that the Black Basta ransomware operation used the same method, and it does not break the incidents down by sector. No vulnerability is involved: the tenant setting that lets any organisation message your staff is the exposure. Schools and universities with Teams open to all external organisations, and staff used to hearing from a central or outsourced help desk, fit the pattern (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Microsoft Teams external access and Quick Assist &bull; No CVE &mdash; help-desk impersonation from new or trial Microsoft 365 tenants, then remote-management tools and PowerShell</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active technique &mdash; Arctic Wolf: more than 400 incidents, payloads within 15 minutes of first contact; no actor named; no sector breakdown</span>
+            <span class="ops-tag kev-off">No CVE &mdash; abuse of Teams external access and remote-support tools</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; Teams external-access, tenant and remote-tool controls</span>
+            <span class="ops-cc"><b>Action:</b> In the Teams admin centre, restrict external access to an allow-list of partner domains, block messages from trial and unmanaged tenants, and make sure people see the external-sender warning. Remove or restrict Quick Assist where your help desk does not use it, and allow only the remote-support tools the institution has approved. Tell staff and students that the real help desk will not start a support session from a Teams chat they did not request, and give them a number to call back. Alert on a Quick Assist session followed by a new remote-management install or PowerShell, and on bursts of spam to a single mailbox.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Staff and student guidance &mdash; 7 days; Teams external-access allow-list and trial-tenant block &mdash; 14 days; Quick Assist and remote-tool restrictions &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-teams-helpdesk-impersonation" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-teams-helpdesk-impersonation">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Arctic Wolf research (26 Oct 2026); Infosecurity Magazine (27 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Published 26 Oct 2026 &mdash; vendor-reported; incident count per Arctic Wolf; no actor named</span>
+        </div>
+        <a href="https://arcticwolf.com/resources/blog/threat-actors-abuse-microsoft-teams-external-chat-for-initial-access/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-warlock-university" data-published="2026-10-01">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1360,38 +1514,7 @@
         <a href="https://www.proofpoint.com/us/blog/threat-insight/hallucinating-credibility-china-aligned-ta419-impersonates-its-way-us-ai-policy" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-storm-2570" data-published="2026-09-24">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Threat Actor</span>
-        </div>
-        <h3>Microsoft profiles Storm-2570, a ransomware affiliate that switches between Qilin, DragonForce, Anubis and BERT while its playbook stays the same &mdash; and education is on its victim list</h3>
-        <p>Microsoft Threat Intelligence published a profile of <b>Storm-2570</b> on 24&nbsp;September 2026. It has tracked the group since April 2025 as an affiliate that deploys several ransomware-as-a-service payloads &mdash; <b>Qilin, DragonForce, Anubis and BERT</b> &mdash; while its hands-on tradecraft stays consistent. Victims are in the United States, Canada, the United Kingdom, Spain, the Netherlands and Puerto Rico, and Microsoft lists <b>education</b> among the sectors hit, alongside healthcare, government, financial services and ten others. Microsoft says the way the group gets in &ldquo;remains unconfirmed&rdquo;. After access it leans on remote-management tools (Atera, MeshAgent, ScreenConnect, Splashtop, NinjaRMM), moves laterally with PsExec, Impacket and NetExec, takes credentials with Mimikatz, LaZagne, pypykatz and ntdsutil, and exfiltrates with Rclone and s5cmd. No education victim is named. The point for schools is the one Microsoft makes by tracking the operator rather than the brand: the ransomware name on a note or a leak site says little about who is inside, so detection has to key on behaviour &mdash; an RMM agent nobody approved, PsExec and ntdsutil runs, bulk Rclone transfers &mdash; rather than on a malware family.</p>
-        <div class="card-meta">
-          <span>Storm-2570 (Microsoft designation) &bull; No CVE &mdash; ransomware affiliate deploying Qilin, DragonForce, Anubis and BERT; initial access unconfirmed</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active affiliate per Microsoft (24 Sep 2026), tracked since April 2025; education among victim sectors; no victims named</span>
-            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; tradecraft and tool abuse, not a single vulnerability</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; the controls are RMM allow-listing, tamper protection, MFA and attack-surface reduction</span>
-            <span class="ops-cc"><b>Action:</b> List the remote-management tools actually approved on district and campus endpoints, block the rest, and enforce MFA on the approved consoles, including any your MSP or IT contractor uses. Turn on tamper protection tenant-wide, and enable the attack-surface-reduction rules that block process creation from PsExec and WMI commands. Alert on <code>ntdsutil</code> use outside domain-controller maintenance and on Rclone or s5cmd appearing anywhere. If you run Microsoft Defender XDR, enable automatic attack disruption. Keep offline, tested backups of the student information system, finance and identity so a four-brand affiliate cannot hold all of them at once.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> RMM inventory and block of unapproved tools &mdash; 14 days; tamper protection and ASR rules &mdash; 30 days; ntdsutil and Rclone detections &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-storm-2570" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-storm-2570">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Threat Intelligence, Microsoft Security Blog (24 Sep 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 24 Sep 2026 &mdash; vendor threat research; affiliate tracked since April 2025; initial access unconfirmed</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/09/24/beyond-ransomware-tracking-storm-2570-consistent-tradecraft-across-deployments/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+      
 
       <div class="card" id="it-openai-agents-university-probes" data-published="2026-10-15">
         <div class="card-header">
@@ -1426,45 +1549,78 @@
         <a href="https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-gitlab-incoming-email" data-published="2026-09-24">
+      
+
+
+
+
+
+
+
+      <div class="card" id="it-cis-k12-report-2026" data-published="2026-10-27">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
+          <span class="severity sev-low">Low</span>
           <span class="category">Research</span>
         </div>
-        <h3>A GitLab project&rsquo;s issue-by-email address carries a long-lived token &mdash; researchers found them pasted into public documentation, and GitLab calls the behaviour intended</h3>
-        <p>Application-security firm <b>Aikido Security</b> reported on 23&ndash;24&nbsp;September that the private &ldquo;incoming email&rdquo; addresses GitLab generates so people can open issues by email embed a long-lived token (the <code>glimt-</code> string), and that it found such addresses published in public documentation. According to BleepingComputer&rsquo;s account of the research, anyone holding one of these addresses can create issues and, by changing the <code>-issue</code> suffix to <code>-merge-request</code>, open merge requests as the token&rsquo;s owner; Aikido says this can be taken as far as pushing code and reaching CI/CD variables and secrets. The route also bypasses GitLab IP address restrictions, because GitLab does not check that the sending address belongs to the token&rsquo;s owner. GitLab first closed the report as intended behaviour and, after a second report, updated its documentation. There is <b>no CVE and no reported abuse in the wild</b>. It is on this page because self-managed GitLab is standard kit in research groups and computing departments, and support pages, course handbooks and lab READMEs are exactly where someone pastes a &ldquo;send an email to open a ticket&rdquo; address. It is a different issue from the maximum-severity GitLab flaw that was exploited in September.</p>
+        <h3>CIS and MS-ISAC&rsquo;s State of K-12 Cybersecurity 2026: just over half of schools and districts had a cyber incident in the past year, about a third had one that affected operations, and 87% name phishing or email compromise among the top incidents</h3>
+        <p>The Center for Internet Security released its State of K-12 Cybersecurity 2026 report on 27&nbsp;October, combining MS-ISAC service data with an August&ndash;September survey of 426 K-12 technology and security leaders run with the Consortium for School Networking (CoSN), K-12 Dive reports. <b>Slightly over half</b> of schools and districts reported a cybersecurity incident in the past year, and <b>about a third</b> had one that affected operations. <b>87%</b> of leaders named phishing or email compromise among the top incidents. More than 11,600 K-12 incidents needed escalation and response in the 2025&ndash;26 school year across the 1,764 K-12 organisations using MS-ISAC services, and 13% of the schools and districts MS-ISAC monitors had a credential compromise or exposure. 83% report using multi-factor authentication, but 56% say their programmes are underfunded and 70% have delayed security projects, technology or staffing for budget reasons. For a district the useful number is the third: one in three had an incident that disrupted school, so a tested plan for running without the network is a mainstream need, as Richmond showed this month (editorial assessment).</p>
         <div class="card-meta">
-          <span>GitLab (GitLab.com and self-managed) incoming-email / issue-by-email addresses &bull; No CVE &mdash; vendor treats as intended behaviour; documentation updated</span>
+          <span>CIS / MS-ISAC State of K-12 Cybersecurity 2026 &bull; No CVE &mdash; survey of 426 K-12 leaders with CoSN plus MS-ISAC service data for 2025&ndash;26</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation as of 25 Sep 2026 &mdash; researcher-documented exposure of addresses in public docs</span>
-            <span class="ops-tag kev-off">No CVE &mdash; not in CISA KEV</span>
+            <span class="ops-tag ex-none"><span class="d"></span>Research report &mdash; no specific exploitation event</span>
+            <span class="ops-tag kev-off">No CVE &mdash; not a vulnerability listing</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; reset the incoming-email token; self-managed admins can disable incoming email</span>
-            <span class="ops-cc"><b>Action:</b> Search your public web pages, wikis, course materials and repository READMEs for GitLab incoming-email addresses and take them down. For every project whose address was ever published, reset the incoming-email token from the user&rsquo;s access-token settings so the old address stops working. On self-managed instances, decide whether issue-by-email is needed at all and disable incoming email if not; where it stays, route public ticket intake through a helpdesk address instead. Review recent merge requests and CI variable use on affected projects for anything opened by email that no one recognises.</span>
+            <span class="ops-tag patch-na">No patch applies &mdash; benchmarking, budget and planning input</span>
+            <span class="ops-cc"><b>Action:</b> Put three of the report&rsquo;s numbers in front of your board or superintendent &mdash; half of districts had an incident, a third had operations affected, and 87% cite phishing or email compromise &mdash; and say where your district stands on each. Check that MFA covers every staff account, including substitutes, contractors and shared mailboxes, not only administrators. If you use MS-ISAC services, make sure its credential-exposure notifications reach someone who acts on them the same day. Use the funding figures to argue for phishing and email controls first.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Search for published addresses and token resets &mdash; 14 days; incoming-email decision on self-managed instances &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gitlab-incoming-email" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-gitlab-incoming-email">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Board briefing with the report&rsquo;s benchmarks &mdash; 30 days; MFA coverage check on all staff accounts &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cis-k12-report-2026" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cis-k12-report-2026">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Aikido Security research via BleepingComputer (24 Sep 2026); The Hacker News and Dark Reading (23&ndash;24 Sep 2026)</span>
+          <span>CIS / MS-ISAC State of K-12 Cybersecurity 2026 via K-12 Dive (27 Oct 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Reported 23&ndash;24 Sep 2026 &mdash; researcher findings; vendor says intended behaviour; no exploitation reported</span>
+          <span>Released 27 Oct 2026 &mdash; survey and service data; figures as reported by K-12 Dive</span>
         </div>
-        <a href="https://www.bleepingcomputer.com/news/security/exposed-gitlab-project-email-addresses-let-attackers-push-code/" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.k12dive.com/news/cybersecurity-incidents-hit-over-50-of-schools-and-districts-in-past-year/872783/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-
-
-
-
-
-
-
+      <div class="card" id="it-uk-biobank-rap" data-published="2026-10-26">
+        <div class="card-header">
+          <span class="severity sev-low">Low</span>
+          <span class="category">Research Data</span>
+        </div>
+        <h3>UK Biobank says its research platform is secure again six months after data on its 500,000 volunteers was offered for sale &mdash; and it is still finding participant data in researchers&rsquo; code repositories</h3>
+        <p>UK Biobank, the charity that holds health data on about 500,000 volunteers for approved researchers, said on 23&nbsp;October 2026 that work to secure its Research Analysis Platform (UKB-RAP) is complete and that an independent firm recommends reopening it, The Register reports. Reopening still needs approval from health-data controllers and central government, and no date has been set; the platform has been closed to its roughly 20,000 researchers since the April 2026 incident in which data on the volunteers was listed for sale. UK Biobank says it is still finding researchers&rsquo; code repositories that hold de-identified participant data, in breach of their access agreements. When the platform returns, downloads will at first be replaced by manually checked outputs, sessions will log out after 15 idle minutes, two-factor sign-in will be required and SSH will be unavailable. For universities the second finding is the lesson: licensed research data leaks through the code and repositories researchers share, outside any system the institution monitors (editorial assessment).</p>
+        <div class="card-meta">
+          <span>UK Biobank Research Analysis Platform (UKB-RAP) &bull; No CVE &mdash; recovery update on the April 2026 incident; participant data found in researchers&rsquo; repositories</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Recovery update &mdash; no new compromise reported; platform declared secure 23 Oct 2026</span>
+            <span class="ops-tag kev-off">No CVE &mdash; data governance and access controls</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; platform hardened; reopening awaits government and data-controller approval</span>
+            <span class="ops-cc"><b>Action:</b> Ask research offices and data stewards which licensed or controlled datasets your researchers hold &mdash; biobank, health, census and commercial data &mdash; and where the copies live. Scan the institution&rsquo;s GitHub and GitLab organisations, including private repositories, for data files and for notebooks with embedded outputs from those datasets, and remind researchers that access agreements usually forbid putting even de-identified extracts in a repository. Prefer trusted research environments with output checking for sensitive data, and make offboarding remove access to them when a researcher leaves.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Repository scan for participant and licensed data &mdash; 30 days; inventory of licensed sensitive datasets and where they are stored &mdash; 60 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-uk-biobank-rap" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-uk-biobank-rap">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>UK Biobank update (23 Oct 2026) via The Register (26 Oct 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Platform closed since April 2026; declared secure and recommended for reopening 23 Oct 2026 &mdash; the organisation&rsquo;s own statement as reported; reopening date not set</span>
+        </div>
+        <a href="https://www.theregister.com/security/2026/10/26/uk-biobank-back-online-soon-months-after-someone-tried-to-sell-500k-peoples-data-on-alibaba/5305363" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-mddr-2026" data-published="2026-10-01">
         <div class="card-header">
           <span class="severity sev-low">Low</span>
@@ -1537,40 +1693,106 @@
   <div class="section">
     <div class="section-title">Critical Advisories</div>
     <div class="card-grid">
-      <div class="card" id="it-php2shell-109618" data-published="2026-10-21">
+      <div class="card" id="it-php2shell-109618" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
-          <span class="category">Exploitation Attempts</span>
+          <span class="category">Active Exploitation</span>
         </div>
-        <h3>PHP2Shell: two critical PHP flaws leaked before patch day and drew millions of exploit attempts &mdash; no confirmed compromise yet, but Moodle, WordPress, Drupal and most departmental sites run on PHP</h3>
-        <p>The PHP project fixed <b>CVE-2026-109618</b> and <b>CVE-2026-109619</b> on 21&nbsp;October 2026 in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, about two days earlier than planned after details of both flaws leaked. The PHP Group rates them CVSS v4.0 9.2: one is code execution through out-of-memory corruption, the other an unauthenticated use-after-free reached through stale global state. Any PHP that serves web requests is affected &mdash; PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed &mdash; with mod_php at highest risk. PHP 7.4, 8.0 and 8.1 received only source-code backports, and PHP says interim settings do not fully protect. Amazon saw a first attempt on 17&nbsp;October, four days before the fix, and Cloudflare counted millions of attempts by early 22&nbsp;October; payloads seen include a Mirai-derived DDoS bot. As of 23&nbsp;October no successful compromise had been confirmed, and the flaws are not in KEV as of CISA&rsquo;s 21&nbsp;October catalog. The UK NCSC told organisations to update or take PHP servers offline until they can. On 23&nbsp;October PHP disclosed a third flaw, CVE-2026-115560, which applies only in an unusual session configuration and has no fix yet; setting <code>session.upload_progress.enabled=0</code> mitigates it. Learning platforms, web content systems and many research and club sites run on PHP, often on servers nobody manages centrally (editorial assessment).</p>
+        <h3>PHP2Shell is now exploited and in CISA&rsquo;s KEV catalog with a 29&nbsp;October deadline &mdash; researchers confirmed working code execution on a honeypot, and Palo Alto reports attacks on internet-exposed PAN-OS management interfaces; Moodle, WordPress, Drupal and most departmental sites run on PHP</h3>
+        <p>CISA added <b>CVE-2026-109618</b> and <b>CVE-2026-109619</b> to its Known Exploited Vulnerabilities catalog on 26&nbsp;October 2026 with a federal deadline of <b>29&nbsp;October</b>. Researchers at Perplexity (Adel Karimi), with Expel&rsquo;s Marcus Hutchins concurring, confirmed working remote code execution against a honeypot running Apache mod_php over 24&ndash;25&nbsp;October. No victim organisation has been named, CISA did not describe the activity, and Sophos and Unit 42 withdrew earlier reports of successful exploitation. Separately, Palo Alto Networks&rsquo; advisory for CVE-2026-109618, raised to Critical on 27&nbsp;October and updated on 28&nbsp;October, reports active exploitation against PAN-OS management interfaces exposed to the internet on PA-Series, VM-Series and Panorama (web UI and XML API; GlobalProtect is not affected). It names no victims, rates the flaw CVSS v4.0 9.2, or 5.2 where management access is restricted, and lists hotfixes rolling out between 21 and 30&nbsp;October, some still pending. The PHP project fixed both flaws on 21&nbsp;October in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 and rates them CVSS v4.0 9.2. Any PHP that serves web requests is affected &mdash; PHP-FPM, Apache mod_php, php-cgi, FrankenPHP and LiteSpeed &mdash; and PHP 7.4, 8.0 and 8.1 received only source-code backports. Amazon saw attempts from 17&nbsp;October, four days before the fix. Windows builds were re-released on 26&nbsp;October to bundle the fixed Brotli library (see the <a href="#it-brotli-111497">Brotli card</a>), and CISA published a SIGMA detection rule on 23&nbsp;October. A third flaw, CVE-2026-115560, applies only in an unusual session configuration, has no fix yet and no reported exploitation; setting <code>session.upload_progress.enabled=0</code> mitigates it. Learning platforms, web content systems and many research and club sites run on PHP, often on servers nobody manages centrally, and Palo Alto firewalls are common on campus networks (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-109618</span>
           <span class="cve-badge">CVE-2026-109619</span>
           <span class="cve-badge">CVE-2026-115560</span>
-          <span>PHP (web SAPIs: PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed) &bull; CVE-2026-109618 and -109619, CVSS v4.0 9.2 (PHP Group) &bull; fixed 21 Oct 2026 in 8.5.12, 8.4.27, 8.3.36, 8.2.35; 7.4/8.0/8.1 source backports only &bull; CVE-2026-115560 (unusual session configuration) not yet fixed</span>
+          <span>PHP (web SAPIs: PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed) &bull; CVE-2026-109618 and -109619, CVSS v4.0 9.2 (PHP Group) &bull; fixed 21 Oct 2026 in 8.5.12, 8.4.27, 8.3.36, 8.2.35; Windows builds re-released 26 Oct &bull; PAN-OS (PA-Series, VM-Series, Panorama): Palo Alto advisory for CVE-2026-109618, CVSS v4.0 9.2 (5.2 with management access restricted), hotfixes 21&ndash;30 Oct &bull; CVE-2026-115560: mitigation only</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Mass exploitation attempts &mdash; first seen 17 Oct 2026 (Amazon), millions by 22 Oct (Cloudflare); no confirmed successful compromise reported as of 23 Oct</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of the 21 Oct 2026 catalog</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited &mdash; in CISA KEV (26 Oct 2026); working RCE confirmed on a honeypot 24&ndash;25 Oct (Perplexity, with Expel concurring); Palo Alto reports exploitation of internet-exposed PAN-OS management interfaces (advisory updated 27&ndash;28 Oct); no victim organisation named</span>
+            <span class="ops-tag kev-on">CISA KEV: CVE-2026-109618 and -109619 added 26 Oct 2026, due 29 Oct 2026 (catalog of 27 Oct)</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (21 Oct 2026); interim settings do not fully protect; CVE-2026-115560 fix due in the next bugfix release</span>
-            <span class="ops-cc"><b>Action:</b> Inventory every server that runs PHP for the web &mdash; the learning platform, the WordPress and Drupal estate, library and research portals, and vendor-hosted or appliance systems that embed PHP &mdash; and ask hosting providers and ed-tech vendors for their patch date in writing. Update to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (or your distribution&rsquo;s backport), restart PHP-FPM or Apache so the new binary is loaded, and confirm the running version rather than the installed package. Where a server cannot be updated this week, take it off the internet or put it behind a provider WAF rule, and set <code>session.upload_progress.enabled=0</code>. Treat PHP 8.1 and older as unsupported and plan their retirement. Review web-server logs from 17&nbsp;October for PHP worker crashes, new files in web roots and outbound connections from PHP processes.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (21 Oct 2026); PAN-OS hotfixes rolling out through 30 Oct, some pending; CVE-2026-115560 mitigation only</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every server that runs PHP for the web &mdash; the learning platform, the WordPress and Drupal estate, library and research portals, and vendor-hosted or appliance systems that embed PHP &mdash; and update to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (or your distribution&rsquo;s backport); restart PHP-FPM or Apache and confirm the running version rather than the installed package. Where a server cannot be updated before the 29&nbsp;October federal deadline, take it off the internet. On Palo Alto firewalls and Panorama, make sure the management web interface and XML API cannot be reached from the internet or from student, staff, guest or residence networks, then install the hotfix for your release as soon as it is available. Set <code>session.upload_progress.enabled=0</code>, load CISA&rsquo;s SIGMA rule, and review web-server logs from 17&nbsp;October for PHP worker crashes, new files in web roots and outbound connections from PHP processes. Ask hosting providers and ed-tech vendors for their patch date in writing, and plan the retirement of PHP 8.1 and older.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing PHP servers updated or isolated &mdash; 72 hours; full inventory and vendor confirmations &mdash; 7 days; retirement plan for PHP 8.1 and older &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing PHP servers updated or isolated &mdash; by the 29 Oct 2026 KEV deadline; PAN-OS management access restricted &mdash; 24 hours, hotfix on release; full inventory and vendor confirmations &mdash; 7 days; retirement plan for PHP 8.1 and older &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-php2shell-109618" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-php2shell-109618">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>PHP Group via the CVE record (CIRCL) and BleepingComputer (20&ndash;21 Oct 2026); Amazon, Cloudflare and UK NCSC via BleepingComputer and The Hacker News (22&ndash;23 Oct 2026)</span>
+          <span>CISA KEV (catalog of 27 Oct 2026); Palo Alto Networks advisory for CVE-2026-109618 (updated 27&ndash;28 Oct 2026); BleepingComputer, The Record and Cybersecurity Dive (26&ndash;27 Oct 2026); PHP Group via the CVE record (CIRCL); Amazon via BleepingComputer (22 Oct 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Details leaked about 19 Oct; fixes 21 Oct 2026; attempts from 17 Oct &mdash; vendor-confirmed flaws; exploitation attempts reported by Amazon and Cloudflare; no confirmed compromise; not in KEV</span>
+          <span>Fixed 21 Oct; SIGMA rule 23 Oct; honeypot RCE 24&ndash;25 Oct; KEV 26 Oct, due 29 Oct; PAN-OS advisory updated 28 Oct 2026 &mdash; exploited per CISA and researchers; no victim named</span>
         </div>
-        <a href="https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-nextcloud-code-110447" data-published="2026-10-23">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Active Exploitation</span>
+        </div>
+        <h3>Self-hosted Nextcloud servers running Collabora&rsquo;s built-in CODE server were backdoored through an unauthenticated command injection &mdash; CISA added it to KEV on 23&nbsp;October with a deadline that has passed; fixed in 26.4.303, and disabling the app is not enough</h3>
+        <p>The Hacker News reported on 14&nbsp;October 2026 that attackers have been exploiting <b>CVE-2026-110447</b> in the Collabora Online Built-in CODE Server, the optional <code>richdocumentscode</code> app that runs a document editor inside Nextcloud. Content from the request path was passed into a bash command, so an unauthenticated request could run commands while the local document server was down, for example during a restart, an upgrade or a crash. The CVE record says the flaw was exploited in September and October 2026, and three Nextcloud administrators reported attacks on GitHub; the first logged attack was on 10&nbsp;September. The attackers left one-line PHP web shells named <code>shx*.php</code> under <code>apps/richdocumentscode/</code>, sent the output of <code>uname -a</code> to a webhook.site address and, on one server, searched for credential stores and cryptocurrency wallets. The scale is unknown and no root access has been reported. The fix, 26.4.303, shipped on 11&nbsp;September and needs Nextcloud 30 or later; disabling the app does not remove the bug, so upgrade or uninstall it. Standalone Collabora Online and richdocuments-only installs are not affected. <b>Update, 23&nbsp;October:</b> CISA added CVE-2026-110447 to its KEV catalog with a 26&nbsp;October federal deadline, which has passed; the CVE record carries a CVSS v4.0 score of 9.2 from MITRE as the numbering authority. An earlier edition of this page said the flaw was not in KEV; it was added late that day. Universities and research groups often run self-hosted Nextcloud as an in-house alternative to commercial file sharing (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-110447</span>
+          <span>Collabora Online Built-in CODE Server (Nextcloud <code>richdocumentscode</code> app) &bull; unauthenticated command injection in proxy.php; CVSS v4.0 9.2 (MITRE, CNA) &bull; fixed in 26.4.303 (requires Nextcloud 30+)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited in September and October 2026 per the CVE record and administrators&rsquo; reports &mdash; PHP web shells planted; scale unknown; listed as known exploited by CISA</span>
+            <span class="ops-tag kev-on">CISA KEV: added 23 Oct 2026, due 26 Oct 2026 (passed) &mdash; catalog of 27 Oct</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; 26.4.303 (11 Sep 2026); disabling the app does not fix it</span>
+            <span class="ops-cc"><b>Action:</b> On every Nextcloud instance, including department and lab servers, check whether the Built-in CODE Server app is installed; if it is, upgrade it to 26.4.303 or later or uninstall it, because disabling it leaves the flaw in place. Then look under <code>apps/richdocumentscode/</code> for PHP files named <code>shx*.php</code> or anything else you did not install, and search web logs for unusual requests to <code>proxy.php</code> and outbound calls to webhook.site. If you find a web shell, treat the server as compromised: rebuild it, rotate the Nextcloud admin, database and storage credentials and any app passwords, and check whether shared research or personal data needs a notification review.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or uninstall the app &mdash; immediately (the 26 Oct 2026 federal deadline has passed); web-shell sweep &mdash; 72 hours; rebuild of any compromised server &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nextcloud-code-110447" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nextcloud-code-110447">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV (23 Oct 2026); CVE record (CIRCL); The Hacker News (14 Oct 2026), citing the CVE record and Nextcloud administrators&rsquo; GitHub reports</span>
+          <span class="dot">&bull;</span>
+          <span>First attack logged 10 Sep 2026; fix released 11 Sep; exploitation reported 14 Oct; KEV 23 Oct 2026, due 26 Oct &mdash; confirmed by the CVE record, administrators and CISA</span>
+        </div>
+        <a href="https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-brotli-111497" data-published="2026-10-27">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">KEV</span>
+        </div>
+        <h3>A Brotli decompression flaw that reaches Node.js, .NET, Python and PHP builds is in CISA&rsquo;s KEV catalog &mdash; the fix has to reach every application that bundles its own copy, not just the operating system</h3>
+        <p>CISA added <b>CVE-2026-111497</b>, an out-of-bounds write in Google&rsquo;s Brotli decoder (versions 1.0.3 to 1.2.0), to its Known Exploited Vulnerabilities catalog on 27&nbsp;October 2026 with a federal deadline of 10&nbsp;November. Google, as the CVE numbering authority, rates it CVSS v4.0 9.2. Brotli handles compressed web content in many runtimes, and fixes have shipped across ecosystems: Brotli 1.0.10, 1.1.1 and 1.2.1; Node.js 22.23.4, 24.22.1 and 26.12.1; .NET 8.0.33, 9.0.22 and 10.0.14, through an out-of-band Microsoft update on 25&nbsp;October; Python Brotli 1.2.1 and brotlicffi 1.2.1.0; Bun 1.4.4; and Envoy and Istio. PHP&rsquo;s Windows builds were re-released on 26&nbsp;October with the fixed library, and Palo Alto says its PAN-OS PHP2Shell hotfixes also cover Brotli. Sensor operators have captured exploit traffic built from public tooling, but no compromised organisation has been named. Researchers have nicknamed it HTTP2Shell and Node2Shell. A system-library update does not fix applications that ship their own copy, and patched services keep running the old code until they are restarted or redeployed. University web apps, research portals and student projects run on these runtimes, often in container images built months ago (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-111497</span>
+          <span>Google Brotli 1.0.3&ndash;1.2.0 decoder and the runtimes that bundle it &bull; out-of-bounds write; CVSS v4.0 9.2 (Google, CNA) &bull; fixed Brotli 1.0.10 / 1.1.1 / 1.2.1; Node.js 22.23.4 / 24.22.1 / 26.12.1; .NET 8.0.33 / 9.0.22 / 10.0.14; Python Brotli 1.2.1, brotlicffi 1.2.1.0; Bun 1.4.4; Envoy and Istio</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited per CISA KEV (27 Oct 2026) &mdash; exploit traffic from public tooling captured by sensors (ELLIO); no compromised organisation named</span>
+            <span class="ops-tag kev-on">CISA KEV: added 27 Oct 2026, due 10 Nov 2026 (catalog of 27 Oct)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixed library and runtime releases listed; bundled copies need their own update, and services must be restarted or redeployed</span>
+            <span class="ops-cc"><b>Action:</b> Find where Brotli actually runs: Node.js and .NET services, Python applications using brotli or brotlicffi, Bun, Envoy or Istio, and the container images and appliances that bundle their own copy. Update each to a fixed release, then restart or redeploy, because a patched package on disk does nothing for a process still running the old code. Rebuild container images rather than patching running containers, and use a software bill of materials or a scanner to find copies vendored inside applications. Ask learning-platform, library and research-software vendors for their fix date in writing, and put services that decompress content from the internet first in the queue.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing services updated and restarted &mdash; 7 days (federal deadline 10 Nov 2026); container images rebuilt and vendored copies found &mdash; 14 days; vendor confirmations &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-brotli-111497" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-brotli-111497">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV (27 Oct 2026); CVE record (CIRCL); BleepingComputer (26 Oct 2026), including Microsoft&rsquo;s out-of-band .NET update</span>
+          <span class="dot">&bull;</span>
+          <span>CVE published 22 Oct; .NET update 25 Oct; PHP Windows rebuilds 26 Oct; KEV 27 Oct 2026, due 10 Nov &mdash; exploited per CISA; no victim named</span>
+        </div>
+        <a href="https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-netscaler-zerodays-0926" data-published="2026-10-12">
         <div class="card-header">
@@ -1578,7 +1800,7 @@
           <span class="category">Active Exploitation</span>
         </div>
         <h3>Citrix patches a fourth critical NetScaler SAML flaw; campuses that fixed the exploited zero-days may need to upgrade again</h3>
-        <p>Citrix bulletin CTX697191, public on 8&nbsp;October, fixes <b>CVE-2026-107406</b>, a memory overflow rated CVSS v4.0 9.5 in NetScaler ADC and Gateway appliances configured as a SAML service provider or identity provider; Citrix says it may allow code execution. It is not reported exploited and was still not in KEV as of CISA&rsquo;s 21&nbsp;October catalog. The catch is that builds which fixed the exploited trio &mdash; CVE-2026-88771 and -88772 (KEV 27&nbsp;September) and the SAML denial-of-service flaw CVE-2026-88779 (KEV 4&nbsp;October) &mdash; stay vulnerable on appliances acting as a SAML identity provider. On 12&nbsp;October CISA urged customers to patch again and warned that 88779 is being used to force reboots so that code planted through 88771 runs. Mandiant names education among the sectors hit by the earlier zero-days; no school or university has been named. Campuses that federate sign-in through NetScaler should upgrade and hunt (editorial assessment).</p>
+        <p>Citrix bulletin CTX697191, public on 8&nbsp;October, fixes <b>CVE-2026-107406</b>, a memory overflow rated CVSS v4.0 9.5 in NetScaler ADC and Gateway appliances configured as a SAML service provider or identity provider; Citrix says it may allow code execution. It is not reported exploited and was still not in KEV as of CISA&rsquo;s 27&nbsp;October catalog. The catch is that builds which fixed the exploited trio &mdash; CVE-2026-88771 and -88772 (KEV 27&nbsp;September) and the SAML denial-of-service flaw CVE-2026-88779 (KEV 4&nbsp;October) &mdash; stay vulnerable on appliances acting as a SAML identity provider. On 12&nbsp;October CISA urged customers to patch again and warned that 88779 is being used to force reboots so that code planted through 88771 runs. Mandiant names education among the sectors hit by the earlier zero-days; no school or university has been named. Campuses that federate sign-in through NetScaler should upgrade and hunt (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-107406</span>
           <span class="cve-badge">CVE-2026-88771</span>
@@ -1589,7 +1811,7 @@
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploitation confirmed for CVE-2026-88771/88772 (Citrix, CISA and the Dutch NCSC, 27 Sep 2026) and CVE-2026-88779 (denial of service, 4 Oct 2026) &mdash; Mandiant: dozens of organisations, education among the sectors; Arctic Wolf: at least 78 organisations targeted; Shadowserver: more than 20,000 exposed; CVE-2026-107406 not reported exploited; no education victim named</span>
-            <span class="ops-tag kev-on">CISA KEV: CVE-2026-88771 and -88772 added 27 Sep 2026 (due 30 Sep) and CVE-2026-88779 added 4 Oct (due 7 Oct), all passed; CVE-2026-107406 not in KEV (catalog of 21 Oct 2026)</span>
+            <span class="ops-tag kev-on">CISA KEV: CVE-2026-88771 and -88772 added 27 Sep 2026 (due 30 Sep) and CVE-2026-88779 added 4 Oct (due 7 Oct), all passed; CVE-2026-107406 not in KEV (catalog of 27 Oct 2026)</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; 14.1-73.46 / 13.1-64.29 or later covers the SAML flaw; SAML identity providers on 14.1-73.37&ndash;73.41 or 13.1-64.23&ndash;64.28 must upgrade again; patching does not evict an intruder</span>
@@ -1614,15 +1836,15 @@
           <span class="category">KEV</span>
         </div>
         <h3>CISA adds the BeyondTrust Remote Support zero-day to KEV with a three-day deadline &mdash; exploited since late August by a China-linked espionage group, on the kind of appliance a help desk uses to reach staff and lab computers</h3>
-        <p>CISA added <b>CVE-2026-102764</b> to its Known Exploited Vulnerabilities catalog on 16&nbsp;October 2026 with a federal deadline of <b>19&nbsp;October</b>, which has passed. The flaw, improper validation of message origins in BeyondTrust Remote Support, lets an attacker perform file operations on the appliance; every version up to and including 26.2.3 is affected (advisory BT26-05). BeyondTrust shipped the fix on 8&nbsp;October and had patched its hosted customers by 9&nbsp;October; self-hosted appliances on releases older than 24.3.1 must upgrade before the patch applies. Mandiant traces the first exploitation to 29&nbsp;August and attributes it to the China-linked espionage group it tracks as Armory Castle (also UNC5221 and Warp Panda): the attackers planted a PHP web shell, gained root, harvested credentials, deleted logs and used the product&rsquo;s own support and file-transfer tools to reach internal machines and take documents. Named targets are SaaS and technology firms, government, legal services and outsourcers; no school or university has been named. Many campus IT service desks and managed providers use remote-support appliances like this to reach staff and lab computers (editorial assessment).</p>
+        <p>CISA added <b>CVE-2026-102764</b> to its Known Exploited Vulnerabilities catalog on 16&nbsp;October 2026 with a federal deadline of <b>19&nbsp;October</b>, which has passed. The flaw, improper validation of message origins in BeyondTrust Remote Support, lets an attacker perform file operations on the appliance; every version up to and including 26.2.3 is affected (advisory BT26-05). BeyondTrust shipped the fix on 8&nbsp;October and had patched its hosted customers by 9&nbsp;October; self-hosted appliances on releases older than 24.3.1 must upgrade before the patch applies. Mandiant traces the first exploitation to 29&nbsp;August and links it to a suspected China-nexus espionage group it tracks as Armory Castle (also UNC5221 and Warp Panda): the attackers planted a PHP web shell, gained root, harvested credentials, deleted logs and used the product&rsquo;s own support and file-transfer tools to reach internal machines and take documents. Named targets are SaaS and technology firms, government, legal services and outsourcers; no school or university has been named. Many campus IT service desks and managed providers use remote-support appliances like this to reach staff and lab computers (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-102764</span>
-          <span>BeyondTrust Remote Support (self-hosted and BeyondTrust-hosted) up to 26.2.3 &bull; message-origin validation flaw allowing file operations; root reached in attacks &bull; BT26-05-RS patch; releases older than 24.3.1 upgrade first &bull; Armory Castle / UNC5221 / Warp Panda (Mandiant, GTIG)</span>
+          <span>BeyondTrust Remote Support (self-hosted and BeyondTrust-hosted) up to 26.2.3 &bull; message-origin validation flaw allowing file operations; CVSS v4.0 9.3 (CNA); root reached in attacks &bull; BT26-05-RS patch; releases older than 24.3.1 upgrade first &bull; Armory Castle / UNC5221 / Warp Panda (Mandiant, GTIG)</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Confirmed exploitation &mdash; BeyondTrust and Mandiant; first seen 29 Aug 2026; espionage attribution per Mandiant/GTIG; no education victim named</span>
-            <span class="ops-tag kev-on">CISA KEV: added 16 Oct 2026, due 19 Oct 2026 (passed) &mdash; catalog of 21 Oct 2026</span>
+            <span class="ops-tag kev-on">CISA KEV: added 16 Oct 2026, due 19 Oct 2026 (passed) &mdash; catalog of 27 Oct 2026</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; BT26-05-RS for 24.3.1&ndash;26.2.3 (8 Oct 2026); hosted instances patched by 9 Oct; older releases must upgrade first</span>
@@ -1635,7 +1857,7 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA KEV (catalog of 21 Oct 2026); BeyondTrust BT26-05; Mandiant / Google Threat Intelligence Group via SecurityWeek (16 Oct 2026)</span>
+          <span>CISA KEV (catalog of 27 Oct 2026); BeyondTrust BT26-05; Mandiant / Google Threat Intelligence Group via SecurityWeek (16 Oct 2026)</span>
           <span class="dot">&bull;</span>
           <span>Exploited from 29 Aug 2026; fix 8 Oct; advisory 15 Oct; KEV 16 Oct 2026, due 19 Oct &mdash; confirmed by vendor and CISA</span>
         </div>
@@ -1643,25 +1865,25 @@
       </div>
       <div class="card" id="it-emudhra-incommon-distrust" data-published="2026-10-22">
         <div class="card-header">
-          <span class="severity sev-high">High</span>
+          <span class="severity sev-medium">Medium</span>
           <span class="category">Certificate Distrust</span>
         </div>
-        <h3>Chrome stops trusting an eMudhra root on the morning of 27 October &mdash; about 30,800 certificates are affected, and 99.9% of them were issued through InCommon, the US research-and-education certificate service</h3>
-        <p>The private keys of eight eMudhra intermediate certificate authorities, created at an April 2025 key ceremony, were generated with so little randomness that a researcher recovered all of them almost instantly, and browsers blocked those intermediates from 17&nbsp;October. eMudhra says it never issued certificates from them and was not breached, and no misuse has been confirmed. The fallout lands on higher education. Mozilla decided on 20&nbsp;October to stop trusting the <b>emSign ECC Root CA &ndash; G3</b>, and Chrome&rsquo;s removal is expected to reach users on the morning of <b>27&nbsp;October</b> (Pacific time). Chrome counted about 30,800 unexpired certificates under that root on 21&nbsp;October, 99.9% of them issued through <b>InCommon</b>. Google says affected operators must immediately install a certificate from another hierarchy, and warns that standard ACME clients will not renew early unless they support ACME Renewal Information or an administrator forces it. Cornell, with more than 300 affected certificates, is telling holders to request RSA certificates, which chain to an eMudhra root that is not being removed for now; Michigan warns that root could be distrusted later and points to Let&rsquo;s Encrypt. On 22&nbsp;October eMudhra said it will leave the global TLS certificate business.</p>
+        <h3>Chrome was due to stop trusting an eMudhra root on the morning of 27 October &mdash; about 30,800 certificates were affected, 99.9% of them issued through InCommon, so check for any campus site still serving one</h3>
+        <p>The private keys of eight eMudhra intermediate certificate authorities, created at an April 2025 key ceremony, were generated with so little randomness that a researcher recovered all of them almost instantly, and browsers blocked those intermediates from 17&nbsp;October. eMudhra says it never issued certificates from them and was not breached, and no misuse has been confirmed. The fallout lands on higher education. Mozilla decided on 20&nbsp;October to stop trusting the <b>emSign ECC Root CA &ndash; G3</b>, and Chrome&rsquo;s removal was scheduled to reach users on the morning of <b>27&nbsp;October</b> (Pacific time). Chrome counted about 30,800 unexpired certificates under that root on 21&nbsp;October, 99.9% of them issued through <b>InCommon</b>. Google said affected operators must immediately install a certificate from another hierarchy, and warns that standard ACME clients will not renew early unless they support ACME Renewal Information or an administrator forces it. Cornell, with more than 300 affected certificates, is telling holders to request RSA certificates, which chain to an eMudhra root that is not being removed for now; Michigan warns that root could be distrusted later and points to Let&rsquo;s Encrypt. On 22&nbsp;October eMudhra said it will leave the global TLS certificate business.</p>
         <div class="card-meta">
           <span>eMudhra emSign ECC Root CA &ndash; G3 and eight weak-key intermediates &bull; ~30,800 unexpired certificates (Chrome, 21 Oct), 99.9% via InCommon &bull; Mozilla decision 20 Oct; Chrome distrust from the morning of 27 Oct 2026 (Pacific) &bull; no confirmed misuse</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No exploitation &mdash; weak keys, no confirmed malicious certificate; the risk is broken sites when Chrome stops trusting the root on 27 Oct</span>
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation &mdash; weak keys, no confirmed malicious certificate; the risk is broken sites once Chrome stops trusting the root (scheduled for 27 Oct)</span>
             <span class="ops-tag kev-off">Not a KEV item &mdash; a trust-store change, not a software flaw</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; replace every certificate that chains to emSign ECC Root CA &ndash; G3 before 27 Oct 2026</span>
-            <span class="ops-cc"><b>Action:</b> Pull the list of certificates your institution obtained through InCommon and identify those that chain to emSign ECC Root CA &ndash; G3, using your InCommon account and public Certificate Transparency logs for your domains. Replace each before the morning of 27&nbsp;October with a certificate from another hierarchy that your policy allows, starting with single sign-on, the learning platform, email, admissions and payment sites. For ACME-automated hosts, force a renewal and confirm the new chain is actually served; do not wait for the normal renewal window. Remember load balancers, CDNs, VPN portals and appliances that hold their own copy of a certificate. Tell the help desk what a certificate warning on 27&nbsp;October would mean, so departmental sites that were missed get reported quickly.</span>
+            <span class="ops-tag patch-na">No patch &mdash; replace any certificate still chaining to emSign ECC Root CA &ndash; G3; Chrome distrust was scheduled for 27 Oct 2026</span>
+            <span class="ops-cc"><b>Action:</b> Pull the list of certificates your institution obtained through InCommon and identify those that chain to emSign ECC Root CA &ndash; G3, using your InCommon account and public Certificate Transparency logs for your domains. Replace any that remain now with a certificate from another hierarchy that your policy allows, starting with single sign-on, the learning platform, email, admissions and payment sites. For ACME-automated hosts, force a renewal and confirm the new chain is actually served; do not wait for the normal renewal window. Remember load balancers, CDNs, VPN portals and appliances that hold their own copy of a certificate. Tell the help desk that a certificate warning on a campus site is likely to be this, so departmental sites that were missed get reported quickly.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of affected certificates &mdash; 24 hours; replacement on all public sites &mdash; before 27 Oct 2026; check of served chains &mdash; 27 Oct</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Sweep for certificates still chaining to the root &mdash; 24 hours; replacement of any found &mdash; immediately; check of served chains on internal hosts and appliances &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-emudhra-incommon-distrust" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-emudhra-incommon-distrust">Open</button>
           </div>
@@ -1669,40 +1891,40 @@
         <div class="card-meta">
           <span>Chrome and Mozilla root-program decisions, eMudhra, Cornell and the University of Michigan via The Hacker News (22 Oct 2026); eMudhra via The Record (22 Oct 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Intermediates blocked from 17 Oct; Mozilla root decision 20 Oct; eMudhra exit 22 Oct; Chrome distrust 27 Oct 2026 &mdash; confirmed by browser vendors and eMudhra</span>
+          <span>Intermediates blocked from 17 Oct; Mozilla root decision 20 Oct; eMudhra exit 22 Oct; Chrome distrust scheduled for 27 Oct 2026 &mdash; confirmed by browser vendors and eMudhra</span>
         </div>
         <a href="https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-gitlab-110264" data-published="2026-10-21">
+      <div class="card" id="it-gitlab-110264" data-published="2026-10-23">
         <div class="card-header">
           <span class="severity sev-high">High</span>
           <span class="category">Vulnerability</span>
         </div>
-        <h3>GitLab&rsquo;s second CVSS 10.0 flaw in ten days reaches every self-managed release since 7.0 &mdash; not exploited yet, but department and research-group servers patched for the last one need another upgrade</h3>
-        <p>GitLab released fixes on 21&nbsp;October 2026 for <b>CVE-2026-110264</b>, an integer overflow when the Onigmo regular-expression engine bundled with GitLab compiles a crafted pattern; GitLab says an unauthenticated user can, under conditions it has not described, run code on the server. It rates the flaw CVSS v3.1 10.0, and there is no workaround. Community and Enterprise Editions from 7.0 through 19.5.0 are affected. Fixed releases are 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 and 18.11.13; GitLab.com and GitLab Dedicated are already patched. The 19.4.3 and 19.3.6 updates include database migrations, so single-node servers will have downtime. No exploitation is known and the flaw is not in KEV, but Shadowserver sees more than 2,700 internet-exposed Community Edition instances. It comes from the same researcher as CVE-2026-97229, fixed on 13&nbsp;October, and builds patched for that flaw (19.4.2, 19.3.5) are still vulnerable. Universities often run self-managed GitLab for teaching, research code and departmental projects outside central patching (editorial assessment).</p>
+        <h3>GitLab&rsquo;s CVSS 10.0 flaw now has public proof-of-concept code &mdash; every self-managed release since 7.0 is affected, and department and research-group servers patched for the previous flaw need another upgrade</h3>
+        <p>GitLab released fixes on 21&nbsp;October 2026 for <b>CVE-2026-110264</b>, an integer overflow when the Onigmo regular-expression engine bundled with GitLab compiles a crafted pattern; GitLab says an unauthenticated user can, under conditions it has not described, run code on the server. It rates the flaw CVSS v3.1 10.0, and there is no workaround. Community and Enterprise Editions from 7.0 through 19.5.0 are affected. Fixed releases are 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 and 18.11.13; GitLab.com and GitLab Dedicated are already patched. The 19.4.3 and 19.3.6 updates include database migrations, so single-node servers will have downtime. Exploit code is now public: CIRCL&rsquo;s record for the CVE and Russia&rsquo;s FSTEC vulnerability database (23&nbsp;October) list two proof-of-concept repositories. No in-the-wild exploitation has been reported, and the flaw is not in KEV as of CISA&rsquo;s 27&nbsp;October catalog. Shadowserver sees more than 2,700 internet-exposed Community Edition instances. It comes from the same researcher as CVE-2026-97229, fixed on 13&nbsp;October, and builds patched for that flaw (19.4.2, 19.3.5) are still vulnerable. Universities often run self-managed GitLab for teaching, research code and departmental projects outside central patching (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-110264</span>
           <span>GitLab CE/EE self-managed 7.0&ndash;19.5.0 &bull; CVSS v3.1 10.0 (GitLab) &bull; unauthenticated code execution under undisclosed conditions; Onigmo regex integer overflow &bull; fixed 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10, 18.11.13</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; none reported 21&ndash;23 Oct 2026; more than 2,700 exposed CE instances (Shadowserver)</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of the 21 Oct 2026 catalog</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC &mdash; two proof-of-concept repositories listed (CIRCL; FSTEC BDU, 23 Oct 2026); no in-the-wild exploitation reported; more than 2,700 exposed CE instances (Shadowserver)</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of the 27 Oct 2026 catalog</span>
           </div>
           <div class="ops-row">
             <span class="ops-tag patch-yes">Patched &mdash; 19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13; no workaround; GitLab.com and Dedicated already fixed</span>
-            <span class="ops-cc"><b>Action:</b> Find every self-managed GitLab instance, including those run by departments, research groups, courses and student societies, and upgrade each to the fixed release for its branch, planning for the migration downtime on 19.4.3 and 19.3.6. Instances on branches older than 18.11 need a supported upgrade path, not a hotfix. Until an instance is patched, take it off the public internet or put it behind single sign-on or VPN access. An instance patched for CVE-2026-97229 last week is not protected against this flaw.</span>
+            <span class="ops-cc"><b>Action:</b> Find every self-managed GitLab instance, including those run by departments, research groups, courses and student societies, and upgrade each to the fixed release for its branch, planning for the migration downtime on 19.4.3 and 19.3.6. Instances on branches older than 18.11 need a supported upgrade path, not a hotfix. Until an instance is patched, take it off the public internet or put it behind single sign-on or VPN access. An instance patched for CVE-2026-97229 is not protected against this flaw, and public exploit code shortens the time you have.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing instances patched or restricted &mdash; 7 days; inventory of departmental instances &mdash; 7 days; every instance on a supported branch &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing instances patched or restricted &mdash; 72 hours; inventory of departmental instances &mdash; 7 days; every instance on a supported branch &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gitlab-110264" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-gitlab-110264">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>GitLab patch release (21 Oct 2026) via the CVE record (CIRCL), The Hacker News and BleepingComputer (21&ndash;22 Oct 2026); Shadowserver</span>
+          <span>GitLab patch release (21 Oct 2026) via the CVE record (CIRCL), The Hacker News and BleepingComputer (21&ndash;22 Oct 2026); PoC listings in CIRCL and FSTEC BDU (23 Oct 2026); Shadowserver</span>
           <span class="dot">&bull;</span>
-          <span>Fixed 21 Oct 2026; CVE published 22 Oct &mdash; vendor-confirmed; not exploited; not in KEV</span>
+          <span>Fixed 21 Oct 2026; CVE published 22 Oct; public PoC listed 23 Oct &mdash; vendor-confirmed; no in-the-wild exploitation reported; not in KEV</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/gitlab-warns-of-new-max-severity-code-execution-vulnerability/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
@@ -1745,7 +1967,7 @@
           <span class="category">Zero-Day</span>
         </div>
         <h3>Ivanti Connect Secure: a three-bug chain gave a new actor root on fully patched VPN appliances &mdash; one CVE is fixed and in KEV, the privilege-escalation link has no CVE and no patch, and the Integrity Checker may miss it</h3>
-        <p>On 13&nbsp;October 2026 Ivanti disclosed <b>CVE-2026-104935</b> (CVSS 3.1 8.6), an authentication bypass in Connect Secure that, together with a file-write bug fixed under the same CVE, lets a remote attacker run commands without logging in. Volexity found it while handling an incident and says the chain also used a third flaw, a privilege escalation to root that has no CVE and no patch yet; Ivanti says a fix will follow in the coming weeks. Exploitation dates from at least early October &mdash; Volexity&rsquo;s case from 3&nbsp;October, with Defused seeing activity from 1&nbsp;October &mdash; against a fully patched 22.8R2.4 appliance, and Ivanti says a limited number of customers were affected. Volexity tracks the actor as <b>UTA0576</b>, a new cluster that left no web shell, ran commands through the exploit&rsquo;s own requests, stole LDAP and domain credentials, pulled LAPS passwords and BitLocker keys from Active Directory, Kerberoasted, sprayed passwords, sniffed LDAP traffic and wiped logs. CISA added the CVE to KEV on 13&nbsp;October with a <b>16&nbsp;October</b> deadline and warned that Ivanti&rsquo;s Integrity Checker Tool may not detect the compromise. Connect Secure is a common campus remote-access gateway, and the theft pattern here aims straight at the directory behind staff and student sign-in (editorial assessment).</p>
+        <p>On 13&nbsp;October 2026 Ivanti disclosed <b>CVE-2026-104935</b> (CVSS 3.1 8.6), an authentication bypass in Connect Secure that, together with a file-write bug fixed under the same CVE, lets a remote attacker run commands without logging in. Volexity found it while handling an incident and says the chain also used a third flaw, a privilege escalation to root that has no CVE; a fix was promised for the coming weeks, and none from Ivanti had been found as of 28&nbsp;October. Exploitation dates from at least early October &mdash; Volexity&rsquo;s case from 3&nbsp;October, with Defused seeing activity from 1&nbsp;October &mdash; against a fully patched 22.8R2.4 appliance, and Ivanti says a limited number of customers were affected. Volexity tracks the actor as <b>UTA0576</b>, a new cluster that left no web shell, ran commands through the exploit&rsquo;s own requests, stole LDAP and domain credentials, pulled LAPS passwords and BitLocker keys from Active Directory, Kerberoasted, sprayed passwords, sniffed LDAP traffic and wiped logs. CISA added the CVE to KEV on 13&nbsp;October with a <b>16&nbsp;October</b> deadline and warned that Ivanti&rsquo;s Integrity Checker Tool may not detect the compromise. Connect Secure is a common campus remote-access gateway, and the theft pattern here aims straight at the directory behind staff and student sign-in (editorial assessment).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-104935</span>
           <span>Ivanti Connect Secure &bull; CVE-2026-104935 authentication bypass plus file write, CVSS 3.1 8.6 (Ivanti); root privilege escalation in the chain has no CVE and no patch &bull; fixed in 22.8R2.5, 25.1.1.2, 25.1.3.0 and 25.1.3.1 &mdash; confirm your branch in Ivanti&rsquo;s advisory</span>
@@ -1756,11 +1978,11 @@
             <span class="ops-tag kev-on">CISA KEV: added 13 Oct 2026, due 16 Oct 2026</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Partly patched &mdash; CVE-2026-104935 fixed; the privilege-escalation link has no patch yet; a clean Integrity Checker result is not proof</span>
+            <span class="ops-tag patch-yes">Partly patched &mdash; CVE-2026-104935 fixed; no Ivanti fix for the privilege-escalation link found as of 28 Oct 2026; a clean Integrity Checker result is not proof</span>
             <span class="ops-cc"><b>Action:</b> Upgrade every Connect Secure appliance to the fixed build for its branch today (22.8R2.5, 25.1.1.2, 25.1.3.0 or 25.1.3.1, per Ivanti&rsquo;s advisory) and watch for the privilege-escalation fix. Do not rely on Ivanti&rsquo;s Integrity Checker alone: Volexity and CISA say it may miss this chain, so review the appliance and its logs forensically, including requests carrying an <code>X-DSCGI-PATH</code> header, and treat missing debug or audit logs as a finding. Because UTA0576 went after the directory, assume any appliance that was reachable and unpatched from late September may have exposed its LDAP bind credentials: rotate them, review Active Directory for LAPS password and BitLocker key reads, bursts of service-ticket requests (Kerberoasting) and password spraying from the appliance&rsquo;s address, and reset service-account passwords that could have been roasted.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade to a fixed build &mdash; immediately (KEV deadline 16 Oct 2026); forensic review and LDAP credential rotation &mdash; 72 hours; Active Directory review for LAPS/BitLocker reads and Kerberoasting &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade to a fixed build &mdash; immediately (the 16 Oct 2026 KEV deadline has passed); forensic review and LDAP credential rotation &mdash; 72 hours; Active Directory review for LAPS/BitLocker reads and Kerberoasting &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ivanti-cs-104935" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-ivanti-cs-104935">Open</button>
           </div>
@@ -1793,7 +2015,7 @@
             <span class="ops-cc"><b>Action:</b> Check every gateway in the cluster today. If File Reputation is enabled on any mail policy, install Content Scanner Tools 25.3.0.5525 or later now, since it needs no restart, then schedule the AsyncOS upgrade and plan migration off the 16.0 line. Search each cluster member&rsquo;s system logs for <code>System Security</code> entries as Cisco advises, bearing in mind that a clean result is not conclusive. For a virtual appliance that shows signs of compromise, rebuild it with new credentials rather than cleaning it, and rotate the credentials it holds for directory lookups, SMTP relays and quarantine access.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Content Scanner Tools update &mdash; 24 hours; AsyncOS upgrade &mdash; before the 17 Oct 2026 KEV deadline; log check on every cluster member &mdash; 72 hours</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Content Scanner Tools update &mdash; 24 hours; AsyncOS upgrade &mdash; now (the 17 Oct 2026 KEV deadline has passed); log check on every cluster member &mdash; 72 hours</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cisco-esa-76519" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-cisco-esa-76519">Open</button>
           </div>
@@ -1811,7 +2033,7 @@
           <span class="category">Zero-Day</span>
         </div>
         <h3>Palo Alto Networks patches a PAN-OS zero-day that turns access to the firewall&rsquo;s management interface into root &mdash; exploited in a very limited way, in KEV with a 17 October deadline</h3>
-        <p>Palo Alto Networks published <b>CVE-2026-0322</b> on 14&nbsp;October 2026: a flaw that lets an authenticated attacker with network access to the PAN-OS management interface run code as root on PA-Series and VM-Series firewalls and on Panorama, with no special configuration needed. The company found it internally, reports &ldquo;very limited exploitation&rdquo; aimed at the management interface, and has published three US-geolocated IP addresses tied to the attempts; it has not named an actor or given a timeline. Prisma Access and Cloud NGFW are not affected. Palo Alto rates it CVSS 8.6, and CISA added it to KEV the same day with a 17&nbsp;October deadline. The fixes are branch-specific: 12.2.4, 12.1.10-h2, 11.2.16, 11.1.16-h3 and 10.2.18-h12, plus hotfixes for older maintenance releases. Because the flaw needs credentials and a route to the management plane, the mitigation matters as much as the patch: a firewall whose admin page can be reached from staff, student or guest networks fails that test (editorial assessment). Separately, Palo Alto&rsquo;s Unit 42 now says Qilin and INC ransomware operators are exploiting the older GlobalProtect authentication bypass CVE-2026-0257, fixed in May, and lists education among the targeted sectors (ReliaQuest had earlier named Qilin and Settra); that is a different flaw, covered on the <a href="#it-globalprotect-qilin-inc">GlobalProtect card</a>.</p>
+        <p>Palo Alto Networks published <b>CVE-2026-0322</b> on 14&nbsp;October 2026: a flaw that lets an authenticated attacker with network access to the PAN-OS management interface run code as root on PA-Series and VM-Series firewalls and on Panorama, with no special configuration needed. The company found it internally, reports &ldquo;very limited exploitation&rdquo; aimed at the management interface, and has published three US-geolocated IP addresses tied to the attempts; it has not named an actor or given a timeline. Prisma Access and Cloud NGFW are not affected. Palo Alto rates it CVSS 8.6, and CISA added it to KEV the same day with a 17&nbsp;October deadline. The fixes are branch-specific: 12.2.4, 12.1.10-h2, 11.2.16, 11.1.16-h3 and 10.2.18-h12, plus hotfixes for older maintenance releases. Because the flaw needs credentials and a route to the management plane, the mitigation matters as much as the patch: a firewall whose admin page can be reached from staff, student or guest networks fails that test (editorial assessment). Separately, Palo Alto&rsquo;s Unit 42 now says Qilin and INC ransomware operators are exploiting the older GlobalProtect authentication bypass CVE-2026-0257, fixed in May, and lists education among the targeted sectors (ReliaQuest had earlier named Qilin and Settra); that is a different flaw, covered on the <a href="#it-globalprotect-qilin-inc">GlobalProtect card</a>. Palo Alto&rsquo;s advisory for the PHP2Shell flaw CVE-2026-109618, updated 27&ndash;28&nbsp;October, separately reports exploitation of internet-exposed PAN-OS management interfaces &mdash; another reason to keep that interface off the internet (see the <a href="#it-php2shell-109618">PHP2Shell card</a>).</p>
         <div class="card-meta">
           <span class="cve-badge">CVE-2026-0322</span>
           <span>Palo Alto Networks PAN-OS (PA-Series, VM-Series, Panorama) &bull; authenticated management-interface code execution as root; CVSS 8.6 (Palo Alto) &bull; fixed 12.2.4, 12.1.10-h2, 11.2.16, 11.1.16-h3, 10.2.18-h12 and listed hotfixes; Prisma Access and Cloud NGFW not affected</span>
@@ -1859,7 +2081,7 @@
             <span class="ops-cc"><b>Action:</b> Push the October cumulative update to staff, lab, library and shared Windows machines first, then servers, and report the share of devices that have installed it rather than the share that were offered it. Until coverage is near complete, tighten attachment handling at the mail gateway for archive, shortcut and disk-image types, and remind staff that a missing download warning does not mean a file is safe. Schedule the 36 SharePoint Server fixes for on-premises farms, and work through the remaining critical items in your normal cycle using Microsoft&rsquo;s new risk cohorts to prioritise.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exploited zero-day on endpoints &mdash; before the 16 Oct 2026 KEV deadline, or within 72 hours; SharePoint and remaining critical fixes &mdash; 30 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Exploited zero-day on endpoints &mdash; now (the 16 Oct 2026 KEV deadline has passed); SharePoint and remaining critical fixes &mdash; 30 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-windows-shell-96951" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-windows-shell-96951">Open</button>
           </div>
@@ -1892,7 +2114,7 @@
             <span class="ops-cc"><b>Action:</b> Inventory every self-hosted Atlassian Data Center or Server instance, including departmental and research-group installs that central IT may not run, and upgrade each to the fixed release in Atlassian&rsquo;s advisory; where the CVE record and Atlassian&rsquo;s ticket disagree on versions, follow Atlassian. Until then, apply Atlassian&rsquo;s interim rewrite rule or take instances off the open internet behind SSO or VPN. Review web access logs since 5&nbsp;October for path-traversal requests, and if configuration files may have been read, rotate the database, directory and integration credentials they contain.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or remove from internet exposure &mdash; before the 18 Oct 2026 KEV deadline; log review and credential rotation where exposed &mdash; 7 days</span>
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or remove from internet exposure &mdash; now (the 18 Oct 2026 KEV deadline has passed); log review and credential rotation where exposed &mdash; 7 days</span>
             <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-atlassian-21589" data-placeholder="Assign&hellip;"></span></span>
             <button class="status-pill st-open" data-key="it-atlassian-21589">Open</button>
           </div>
@@ -1904,39 +2126,7 @@
         </div>
         <a href="https://confluence.atlassian.com/security/cve-2026-21589-arbitrary-file-access-vulnerability-impacts-multiple-products-1870495748.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-nextcloud-code-110447" data-published="2026-10-14">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Active Exploitation</span>
-        </div>
-        <h3>Self-hosted Nextcloud servers running Collabora&rsquo;s built-in CODE server were backdoored through an unauthenticated command injection &mdash; exploited since September, fixed in 26.4.303, and disabling the app is not enough</h3>
-        <p>The Hacker News reported on 14&nbsp;October 2026 that attackers have been exploiting <b>CVE-2026-110447</b> in the Collabora Online Built-in CODE Server, the optional <code>richdocumentscode</code> app that runs a document editor inside Nextcloud. Content from the request path was passed into a bash command, so an unauthenticated request could run commands while the local document server was down, for example during a restart, an upgrade or a crash. The CVE record says the flaw was exploited in September and October 2026, and three Nextcloud administrators reported attacks on GitHub; the first logged attack was on 10&nbsp;September. The attackers left one-line PHP web shells named <code>shx*.php</code> under <code>apps/richdocumentscode/</code>, sent the output of <code>uname -a</code> to a webhook.site address and, on one server, searched for credential stores and cryptocurrency wallets. The scale is unknown and no root access has been reported. The fix, 26.4.303, shipped on 11&nbsp;September and needs Nextcloud 30 or later; disabling the app does not remove the bug, so upgrade or uninstall it. Standalone Collabora Online and richdocuments-only installs are not affected, and the flaw is not in KEV. Universities and research groups often run self-hosted Nextcloud as an in-house alternative to commercial file sharing (editorial assessment).</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-110447</span>
-          <span>Collabora Online Built-in CODE Server (Nextcloud <code>richdocumentscode</code> app) &bull; unauthenticated command injection in proxy.php; no CVSS score in the sources read &bull; fixed in 26.4.303 (requires Nextcloud 30+)</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploited in September and October 2026 per the CVE record and administrators&rsquo; reports &mdash; PHP web shells planted; scale unknown</span>
-            <span class="ops-tag kev-off">Not in CISA KEV as of the 21 Oct 2026 catalog</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; 26.4.303 (11 Sep 2026); disabling the app does not fix it</span>
-            <span class="ops-cc"><b>Action:</b> On every Nextcloud instance, including department and lab servers, check whether the Built-in CODE Server app is installed; if it is, upgrade it to 26.4.303 or later or uninstall it, because disabling it leaves the flaw in place. Then look under <code>apps/richdocumentscode/</code> for PHP files named <code>shx*.php</code> or anything else you did not install, and search web logs for unusual requests to <code>proxy.php</code> and outbound calls to webhook.site. If you find a web shell, treat the server as compromised: rebuild it, rotate the Nextcloud admin, database and storage credentials and any app passwords, and check whether shared research or personal data needs a notification review.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade or uninstall the app &mdash; 72 hours; web-shell sweep &mdash; 72 hours; rebuild of any compromised server &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nextcloud-code-110447" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-nextcloud-code-110447">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>The Hacker News (14 Oct 2026), citing the CVE record and Nextcloud administrators&rsquo; GitHub reports</span>
-          <span class="dot">&bull;</span>
-          <span>First attack logged 10 Sep 2026; fix released 11 Sep; exploitation reported 14 Oct 2026 &mdash; confirmed by the CVE record and administrators; not in KEV</span>
-        </div>
-        <a href="https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+      
       <div class="card" id="it-drupal-108097" data-published="2026-10-14">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -2075,75 +2265,11 @@
       </div>
 
 
-      <div class="card" id="it-sharepoint-65660" data-published="2026-09-25">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Active Exploitation</span>
-        </div>
-        <h3>Microsoft confirms attacks on a SharePoint Server flaw that a low-privilege signed-in user can turn into code execution &mdash; in KEV, its 28 September deadline has passed, and on a campus a low-privilege account can mean any student</h3>
-        <p>CISA added <b>CVE-2026-65660</b> to its Known Exploited Vulnerabilities catalog on 25&nbsp;September 2026 with a federal deadline of <b>28&nbsp;September</b>, on the same day Microsoft updated its advisory to say that &ldquo;as of 9/25/2026, Microsoft had reliable evidence of observed attacks&rdquo;. It is a code-injection flaw in on-premises SharePoint Server that lets an authenticated attacker with low-level access run arbitrary code on the server, with no user interaction. The Hacker News rates it CVSS 8.8 and lists SharePoint Server 2016, 2019 and Subscription Edition. The fix shipped in the <b>August 2026 Patch Tuesday</b>. Microsoft first classed the bug as a medium-severity spoofing issue and later re-rated it as a high-severity remote code execution flaw, so a team that triaged August&rsquo;s updates by their original severity may have deferred it. Previdian reported exploitation attempts from 24&nbsp;September and web-shell creation attempts on 25&nbsp;September; Viettel Security, which reported the flaw to Microsoft, published technical details on 25&nbsp;September. No victims or attacker have been named. It is here because on-premises SharePoint still runs intranets, committee sites and document libraries at many universities and larger districts, and on a campus directory &ldquo;authenticated, low privilege&rdquo; can mean any student, contractor or alumni account the farm accepts (editorial assessment). An internal-only farm lowers the risk but does not remove it: the attacker needs a valid account and network reach, and a phished account on the VPN supplies both. No victims or attacker had been named as of 6&nbsp;October. Symantec&rsquo;s 1&nbsp;October Warlock report, which includes a university victim, names only the 2025 ToolShell SharePoint flaws and does not involve this CVE.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-65660</span>
-          <span>Microsoft SharePoint Server (on-premises; 2016, 2019 and Subscription Edition per The Hacker News) &mdash; authenticated low-privilege code injection to remote code execution; CVSS 8.8 (per The Hacker News); fixed in August 2026 updates</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation confirmed by Microsoft (advisory updated 25 Sep 2026) and CISA; attempts observed from 24 Sep 2026 (Previdian); no victims or actor named</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 25 Sep 2026 &mdash; federal deadline 28 Sep 2026, passed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; August 2026 security updates for SharePoint Server; originally rated as a medium spoofing bug, so check it was not deferred</span>
-            <span class="ops-cc"><b>Action:</b> Find every on-premises SharePoint Server farm, including departmental, research and legacy farms outside central IT, and confirm the August 2026 security update or later is installed on every server in each farm. If a farm still cannot be patched, take it off the internet and narrow which accounts can sign in to it. Because exploitation was under way before the KEV listing, hunt as well as patch: look for unexpected <code>.aspx</code> files in SharePoint web directories, review IIS logs from 24&nbsp;September for unusual requests from low-privilege accounts, and alert on command shells or scripting engines started by the SharePoint worker process (<code>w3wp.exe</code>). If you find a web shell, treat the farm as compromised: isolate it, bring in incident response, and rotate the farm, service-account and ASP.NET machine-key secrets.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> August update confirmed on every farm server &mdash; now &mdash; the 28 Sep 2026 federal deadline has passed; web-shell and IIS log review back to 24 Sep &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sharepoint-65660" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-sharepoint-65660">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft advisory update (25 Sep 2026) via SecurityWeek (27 Sep 2026); CISA KEV (25 Sep 2026); The Hacker News (26 Sep 2026); BleepingComputer (25 Sep 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Fixed August 2026 Patch Tuesday; exploitation confirmed by Microsoft 25 Sep 2026; KEV 25 Sep 2026, due 28 Sep 2026 &mdash; confirmed</span>
-        </div>
-        <a href="https://www.securityweek.com/microsoft-sharepoint-flaw-cve-2026-65660-now-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+      
 
 
 
-      <div class="card" id="it-wordpress-87902" data-published="2026-09-25">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Active Exploitation</span>
-        </div>
-        <h3>A critical WordPress core flaw exploited within five hours of its fix is in CISA&rsquo;s KEV catalogue and its 28 September deadline has passed &mdash; and school, department and admissions sites are the WordPress estate nobody centrally patches</h3>
-        <p>WordPress released version <b>7.1.2</b> on 22&nbsp;September 2026 to fix <b>CVE-2026-87902</b> (CVSS 9.2), an unauthenticated path traversal in core that allows local PHP file inclusion and, in some configurations, remote code execution. It was found by researcher Robert Ressl. The fix is backported to older branches back to 4.7; sites on branches older than that get no fix and need upgrading or taking offline. Code execution needs two things: an active theme with a top-level directory whose name begins with <code>page-</code>, and a readable PHP file on the server an attacker can include &mdash; for example <code>pearcmd.php</code> with PHP&rsquo;s <code>register_argc_argv</code> setting on. The Hacker News notes that this is the default in the official PHP Docker image and in default cPanel PHP builds below 8.5. According to Patchstack, the first malicious requests arrived at <b>17:44&nbsp;UTC on 22&nbsp;September</b>, less than five hours after the release. By 23&nbsp;September traffic had risen <b>tenfold</b> and moved from reconnaissance to writing files such as <code>wp-pear-rce-flag.php</code> and <code>poc87902.php</code> in <code>/tmp</code> and <code>/var/tmp</code> and running shell commands. Patchstack was the first source for the exploitation data, and no count of compromised sites has been published. <b>Update, 25&nbsp;September:</b> CISA added CVE-2026-87902 to its Known Exploited Vulnerabilities catalog with a federal deadline of <b>28&nbsp;September</b>. It is also a different bug from the earlier Click2Shell fix in 7.1.1, so a site that stopped at 7.1.1 is still exposed. This is the broadest-reach item on this page. A district or university rarely runs one WordPress site. It runs dozens, spread across schools, departments, admissions, alumni, athletics and research groups, and many sit on shared cPanel hosting or containers that match the preconditions. The Events Calendar card below is the same estate.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-87902</span>
-          <span>WordPress core 4.7&ndash;7.1.1 &mdash; unauthenticated path traversal to local PHP file inclusion and RCE; CVSS 9.2; fixed in 7.1.2 with backports</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Exploitation observed by Patchstack &mdash; first requests 17:44 UTC 22 Sep 2026; tenfold rise and file-writing payloads by 23 Sep; single-source data; no compromise count published</span>
-            <span class="ops-tag kev-on">Added to CISA KEV 25 Sep 2026 &mdash; federal deadline 28 Sep 2026, passed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; WordPress 7.1.2 (22 Sep 2026) and backported branch releases; 7.1.1 is not enough</span>
-            <span class="ops-cc"><b>Action:</b> List every WordPress site on your domains and on hosting that departments or schools pay for themselves, and confirm each one is on 7.1.2 or the fixed release for its branch; check rather than assume that automatic updates applied. Where a site cannot be updated today, check whether the active theme has a <code>page-</code> directory and whether <code>register_argc_argv</code> is on, and put a web application firewall rule in front of it. On every site, look in <code>/tmp</code> and <code>/var/tmp</code> for <code>wp-pear-rce-flag.php</code>, <code>poc87902.php</code>, <code>luci_*.php</code> or <code>zeta_*.php</code>, check web logs for the Patchstack source addresses, and treat any hit as a compromised server: rebuild it, rotate its database and administrator credentials, and check for new administrator accounts and plugins.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> All WordPress sites on 7.1.2 or branch fix &mdash; now (federal deadline 28 Sep 2026 has passed); indicator sweep of /tmp and web logs &mdash; 7 days; rebuild of any compromised site &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-wordpress-87902" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-wordpress-87902">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (23 Sep 2026); The Hacker News (22&ndash;24 Sep 2026); SecurityWeek (24 Sep 2026); Patchstack; WordPress 7.1.2 release; CISA KEV (25 Sep 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Fixed 22 Sep 2026; exploitation observed from 22 Sep and escalating 23 Sep 2026 per Patchstack; added to CISA KEV 25 Sep 2026, due 28 Sep 2026 &mdash; confirmed</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-start-exploiting-critical-wordpress-flaw-for-code-execution/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+      
 
 
 
@@ -2200,7 +2326,7 @@
   <div class="footer">
     <p class="byline">Curated by Claude for the community. AI can make mistakes, so use accordingly. IT edition.</p>
     <p><strong>How to read the indicators.</strong> Exploitation and CISA&nbsp;KEV tags reflect status at generation time &mdash; &ldquo;No known exploitation / Not in CISA KEV&rdquo; means none was reported as of this edition, not that risk is absent. Suggested SLAs are starting points (Critical &asymp; 7 days, High &asymp; 30 days) to adapt to your own risk tolerance. Owner and status notes you enter are saved only in your local browser and are not transmitted anywhere.</p>
-    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, vendor and product advisories (Citrix, Ivanti, Cisco, Palo Alto Networks, Microsoft, Oracle, Fortinet, Atlassian, Drupal, Check Point, F5, Arista, WordPress, Roundcube, SolarWinds and JFrog), the Canadian Centre for Cyber Security, joint advisories from the FBI, US Secret Service, CISA and NSA, and vendor threat research from Google Threat Intelligence Group and Mandiant, Volexity, Cisco Talos, Microsoft Threat Intelligence, Symantec, Proofpoint, watchTowr, GreyNoise, Aikido Security, Transluce, Arctic Wolf, Patchstack, SpyCloud and Microsoft&rsquo;s Digital Crimes Unit, alongside reporting from VTDigger, The Register, MassLive, GovTech, DataBreaches.net, HIPAA Journal, The Record, BleepingComputer, The Hacker News, CyberScoop, SecurityWeek and Cybersecurity Dive. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (23&nbsp;October&nbsp;2026).</em> Refreshed on 23&nbsp;October 2026, with the news window re-queried for 16&ndash;23&nbsp;October, using the CISA KEV catalog through its 21&nbsp;October release (no additions found for 21&ndash;23&nbsp;October), the California Department of Education&rsquo;s ETS notice, joint advisory AA26-293A, vendor advisories and CVE records (PHP, GitLab, HPE, BeyondTrust, Palo Alto Networks), research from Google Threat Intelligence Group and Mandiant, Unit 42 and Group-IB, and reporting from SecurityWeek, EdSource, The Record, The Hacker News, BleepingComputer and Cybersecurity Dive. New top story: the ETS breach of California students&rsquo; assessment records; the Citrix NetScaler card moves to Critical Advisories. Added: PHP2Shell; BeyondTrust Remote Support (in KEV since 16&nbsp;October, due 19&nbsp;October); Qilin and INC on GlobalProtect; the eMudhra root distrust that hits InCommon certificates on 27&nbsp;October; AOMEI Backupper&rsquo;s tampered updates; the UpdraftCentral and Rank Math PRO compromises; GitLab CVE-2026-110264; HPE ArubaOS flaws; and the SafePay advisory. Updated: Navigate360/P3, now led by Toronto Crime Stoppers&rsquo; 21&nbsp;October pause; PAN-OS, which now points to Unit 42&rsquo;s GlobalProtect findings; and KEV status lines moved to the 21&nbsp;October catalog (Citrix CVE-2026-107406 and the Nextcloud flaw are still not listed). Removed as older than 30 days: Elsevier, LMU Munich, Brevo, the WaterPlum advisory, the Rapuncel stealer, the IC3 student-impersonation warning, NightmareStresser, EvilTokens, Roundcube, the 22&nbsp;September KEV edge card, Cisco ISE, Zyxel GS1900, the Linux kernel KEV card, Cisco FMC, JFrog Artifactory, Check Point management, SolarWinds ARM, The Events Calendar and the Albany College of Pharmacy settlement. Threat level re-derived at 6.8 Medium (from 6.7).</p>
+    <p><strong>Methodology.</strong> Compiled on-demand by searching authoritative security sources including CISA advisories and the KEV catalog, vendor and product advisories (Citrix, Ivanti, Cisco, Palo Alto Networks, Microsoft, Oracle, Fortinet, Atlassian, Drupal, Check Point, F5, Arista, WordPress, Roundcube, SolarWinds and JFrog), the Canadian Centre for Cyber Security, joint advisories from the FBI, US Secret Service, CISA and NSA, and vendor threat research from Google Threat Intelligence Group and Mandiant, Volexity, Cisco Talos, Microsoft Threat Intelligence, Symantec, Proofpoint, watchTowr, GreyNoise, Aikido Security, Transluce, Arctic Wolf, Patchstack, SpyCloud and Microsoft&rsquo;s Digital Crimes Unit, alongside reporting from VTDigger, The Register, MassLive, GovTech, DataBreaches.net, HIPAA Journal, The Record, BleepingComputer, The Hacker News, CyberScoop, SecurityWeek and Cybersecurity Dive. Default lookback: 7&ndash;30 days. Severity tiers are editorial judgments based on described impact; consult the linked source for official CVSS scores and affected versions. &ldquo;Claimed&rdquo; / &ldquo;reported&rdquo; items are unverified assertions; &ldquo;confirmed&rdquo; items have vendor or agency acknowledgment. <em>This edition (28&nbsp;October&nbsp;2026).</em> Refreshed on 28&nbsp;October 2026, with the news window re-queried for 23&ndash;28&nbsp;October, using the CISA KEV catalog through its 27&nbsp;October release (Collabora&rsquo;s CVE-2026-110447 was added late on the previous edition&rsquo;s publication day, which that edition missed; PHP2Shell followed on 26&nbsp;October and Brotli on 27&nbsp;October), the University of Copenhagen&rsquo;s incident page, UNM Health Sciences Center&rsquo;s updates, the Office of the Privacy Commissioner of Canada, Palo Alto Networks&rsquo; PHP2Shell advisory, the Brotli CVE record, Arctic Wolf research, and reporting from BleepingComputer, The Record, The Register, Infosecurity Magazine, GovTech and the Richmond Times-Dispatch, WTVR, K-12 Dive, The Hacker News and Cybersecurity Dive. New top story: the University of Copenhagen breach; ETS moves to Incidents &amp; Attacks with the 20&nbsp;October class action and the state&rsquo;s detection timeline. Added: UNM Health Sciences Center; Richmond Public Schools; the Brotli decoder flaw in KEV; the Korean ARTEX case; Arctic Wolf&rsquo;s Teams help-desk findings; the CIS/MS-ISAC State of K-12 Cybersecurity 2026 report; and UK Biobank&rsquo;s platform update. Updated: PHP2Shell (now exploited and in KEV, with PAN-OS management-interface attacks); Collabora/Nextcloud (now in KEV &mdash; corrected); PeopleSoft (ZDI&rsquo;s chain analysis); GitLab (public proof-of-concept code); Navigate360 (Privacy Commissioner investigation); eMudhra (distrust date passed, lowered to Medium); and KEV status lines and passed deadlines on the BeyondTrust, Ivanti, NetScaler, Cisco, PAN-OS, Windows and Atlassian cards. Removed as older than 30 days: Storm-2570, the GitLab incoming-email token issue, SharePoint CVE-2026-65660 and WordPress CVE-2026-87902. Threat level re-derived at 6.9 Medium (from 6.8).</p>
     <p>This dashboard is a navigator, not a replacement for direct subscriptions. For time-critical advisories, subscribe to <a href="https://www.cisa.gov/news-events/cybersecurity-advisories">CISA</a> and your vendors' PSIRT feeds directly.</p>
   </div>
 

@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -776,13 +782,13 @@
       <h1>IT Threat Intel for Healthcare &amp; Life Sciences</h1>
       <div class="header-sub">Hospitals, payers, pharma IT &amp; health-tech &mdash; current enterprise-IT threats.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:06 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Healthcare IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>50</strong> stories across
+      <strong>49</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -819,15 +825,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Healthcare sector, under the same rubric as the main IT dashboard. Score 6.6 — Medium (re-derived 21 Nov 2026 from this edition&rsquo;s stories). Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue actively impacting a large portion of healthcare IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium and are capped at 6.9.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Healthcare sector, under the same rubric as the main IT dashboard. Score 6.7 — Medium (re-derived 22 Nov 2026 from this edition&rsquo;s stories). Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a significant issue actively impacting a large portion of healthcare IT environments; discrete actively-exploited flaws and single-organization incidents sit in Medium and are capped at 6.9.">
+    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.6 (Medium):</b> Hospital outages and several exploited flaws, but each is a single-organisation incident or a patch-and-hunt exposure; nothing is hitting a large share of healthcare IT.<br><b>Top threat:</b> VMware vCenter zero-day exploited since September; vCenter runs most hospital server estates.<br><b>Confirmed breaches:</b> Monadnock (ambulances diverted, no restore date); Greiz-Ronneburg ER closed; COPC 1.35M via vishing; Dorsata via Metabase.<br><b>Also watching:</b> REDCap in KEV; ScreenConnect and N-central MSP attacks; Check Point wiper; Barracuda ESG; help-desk vishing.<br><b>What would raise it:</b> One flaw or MSP compromise confirmed hitting many health systems at once.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:67.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.7 (Medium):</b> Hospital outages, large patient-data breaches and several exploited flaws, but each is a single-organisation incident or a patch-and-hunt exposure; nothing is hitting a large share of healthcare IT.<br><b>Top threat:</b> VMware vCenter zero-day in KEV (due 23 Nov); vCenter runs most hospital server estates.<br><b>Confirmed breaches:</b> Monadnock (ambulances diverted); SBC Medical ~1.62M clinic customers; COPC 1.35M via vishing; Greiz-Ronneburg ER closed.<br><b>Also watching:</b> MONAI Label zero-day found by AI agents, no fixed release; REDCap in KEV; ScreenConnect and N-central MSP attacks; Java4Shell and nginx2root, not exploited.<br><b>What would raise it:</b> One flaw or MSP compromise confirmed hitting many health systems at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -872,7 +878,7 @@
         <div class="top-story" id="it-monadnock-hospital" data-published="2026-11-16">
       <span class="top-story-pill">Top Story</span>
       <h2>Monadnock Community Hospital in New Hampshire confirms a &ldquo;cyber incident&rdquo; behind a week-long network outage &mdash; ambulances diverted, elective surgery and outpatient lab and radiology cancelled, and no restoration date</h2>
-      <p>Monadnock Community Hospital, a 25-bed hospital in Peterborough, New Hampshire, has been running without its network since about 10 November 2026. JEMS reports that the outage led the hospital to divert ambulances and to cancel elective surgeries and outpatient laboratory and radiology appointments. In a notice dated 16 November, the hospital said specialists had confirmed a &ldquo;cyber incident&rdquo; that also affects its Jaffrey and Antrim sites, that some elective major surgeries are cancelled through 23 November, and that whether patient data was affected is still under investigation. It has given no restoration timeline, and no group has claimed the attack. For small and rural hospitals this is the realistic worst case: a single incident that removes the network for a week or more and pushes emergency patients onto neighbouring hospitals (editorial assessment). This leads over the actively exploited VMware vCenter zero-day (see Critical Advisories) and the extortion attack that closed the Greiz-Ronneburg emergency department in Germany (see Incidents &amp; Attacks), because it is a confirmed, still-unresolved US hospital outage with direct patient-care impact this week.</p>
+      <p>Monadnock Community Hospital, a 25-bed hospital in Peterborough, New Hampshire, has been running without its network since about 10 November 2026. JEMS reports that the outage led the hospital to divert ambulances and to cancel elective surgeries and outpatient laboratory and radiology appointments. In a notice dated 16 November, the hospital said specialists had confirmed a &ldquo;cyber incident&rdquo; that also affects its Jaffrey and Antrim sites, that some elective major surgeries are cancelled through 23 November, and that whether patient data was affected is still under investigation. It has given no restoration timeline, and no group has claimed the attack. For small and rural hospitals this is the realistic worst case: a single incident that removes the network for a week or more and pushes emergency patients onto neighbouring hospitals (editorial assessment). This leads over the AI-agent exploitation of a MONAI Label zero-day against university networks (see Incidents &amp; Attacks) and the actively exploited VMware vCenter zero-day (see Critical Advisories), because it is a confirmed US hospital outage with direct patient-care impact and no restoration date in the hospital&rsquo;s latest notice; no patient data or clinical systems have been shown to be affected in the MONAI activity.</p>
       <div class="card-meta">
         <span>Monadnock Community Hospital, Peterborough NH (25 beds) &bull; network outage since ~10 Nov 2026 &bull; ambulance diversion; elective surgery and outpatient lab/radiology cancelled &bull; &ldquo;cyber incident&rdquo; confirmed 16 Nov, also Jaffrey and Antrim sites &bull; some elective major surgeries cancelled through 23 Nov &bull; data impact under investigation &bull; unclaimed</span>
       </div>
@@ -925,47 +931,123 @@
         <text class="ring-label" x="180" y="77">High</text>
         <a href="#it-monadnock-hospital"><circle class="blip high" cx="263.1" cy="73.6" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="263.1" y="76.4">1</text></a>
         <a href="#it-vcenter-123890"><circle class="blip crit" cx="202.0" cy="97.9" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="202.0" y="102.5">2</text></a>
-        <a href="#it-kev-nov18"><circle class="blip crit" cx="257.9" cy="146.0" r="13.8"/><text class="blip-num" style="font-size:13.1px" x="257.9" y="150.3">3</text></a>
-        <a href="#it-axis-90436"><circle class="blip crit" cx="255.1" cy="219.7" r="12.7"/><text class="blip-num" style="font-size:12.0px" x="255.1" y="223.6">4</text></a>
-        <a href="#it-screenconnect-msp"><circle class="blip crit" cx="195.8" cy="263.5" r="11.5"/><text class="blip-num" style="font-size:10.9px" x="195.8" y="267.1">5</text></a>
-        <a href="#it-nable-4everable2shell"><circle class="blip crit" cx="124.6" cy="244.4" r="10.3"/><text class="blip-num" style="font-size:9.8px" x="124.6" y="247.6">6</text></a>
-        <a href="#it-checkpoint-gateway-wiper"><circle class="blip crit" cx="95.1" cy="176.8" r="9.2"/><text class="blip-num" style="font-size:8.7px" x="95.1" y="179.7">7</text></a>
-        <a href="#it-barracuda-esg"><circle class="blip crit" cx="129.5" cy="111.6" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="129.5" y="114.1">8</text></a>
-        <a href="#it-greiz-hospital-de"><circle class="blip high" cx="312.0" cy="151.9" r="8.7"/><text class="blip-num" style="font-size:8.2px" x="312.0" y="154.6">9</text></a>
-        <a href="#it-uh-cleveland-recovery"><circle class="blip high" cx="299.2" cy="243.4" r="8.3"/><text class="blip-num" style="font-size:7.9px" x="299.2" y="246.0">10</text></a>
-        <a href="#it-copc-vishing"><circle class="blip high" cx="230.6" cy="305.2" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="230.6" y="307.6">11</text></a>
-        <a href="#it-dorsata-metabase"><circle class="blip high" cx="138.3" cy="308.4" r="7.6"/><text class="blip-num" style="font-size:7.2px" x="138.3" y="310.7">12</text></a>
-        <a href="#it-hhs-oct-tally"><circle class="blip high" cx="65.5" cy="251.5" r="7.2"/><text class="blip-num" style="font-size:6.9px" x="65.5" y="253.8">13</text></a>
-        <a href="#it-outlook-124194"><circle class="blip high" cx="46.3" cy="161.2" r="6.9"/><text class="blip-num" style="font-size:6.6px" x="46.3" y="163.4">14</text></a>
-        <a href="#it-chrome-125350"><circle class="blip high" cx="89.7" cy="79.7" r="6.6"/><text class="blip-num" style="font-size:6.2px" x="89.7" y="81.7">15</text></a>
-        <a href="#it-safepay-advisory"><circle class="blip high" cx="175.3" cy="45.1" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="175.3" y="47.0">16</text></a>
+        <a href="#it-monai-label-cairn"><circle class="blip crit" cx="257.9" cy="146.0" r="13.8"/><text class="blip-num" style="font-size:13.1px" x="257.9" y="150.3">3</text></a>
+        <a href="#it-kev-nov18"><circle class="blip crit" cx="255.1" cy="219.7" r="12.7"/><text class="blip-num" style="font-size:12.0px" x="255.1" y="223.6">4</text></a>
+        <a href="#it-axis-90436"><circle class="blip crit" cx="195.8" cy="263.5" r="11.5"/><text class="blip-num" style="font-size:10.9px" x="195.8" y="267.1">5</text></a>
+        <a href="#it-screenconnect-msp"><circle class="blip crit" cx="124.6" cy="244.4" r="10.3"/><text class="blip-num" style="font-size:9.8px" x="124.6" y="247.6">6</text></a>
+        <a href="#it-nable-4everable2shell"><circle class="blip crit" cx="95.1" cy="176.8" r="9.2"/><text class="blip-num" style="font-size:8.7px" x="95.1" y="179.7">7</text></a>
+        <a href="#it-checkpoint-gateway-wiper"><circle class="blip crit" cx="129.5" cy="111.6" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="129.5" y="114.1">8</text></a>
+        <a href="#it-sbc-medical-japan"><circle class="blip high" cx="312.0" cy="151.9" r="8.7"/><text class="blip-num" style="font-size:8.2px" x="312.0" y="154.6">9</text></a>
+        <a href="#it-greiz-hospital-de"><circle class="blip high" cx="299.2" cy="243.4" r="8.3"/><text class="blip-num" style="font-size:7.9px" x="299.2" y="246.0">10</text></a>
+        <a href="#it-uh-cleveland-recovery"><circle class="blip high" cx="230.6" cy="305.2" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="230.6" y="307.6">11</text></a>
+        <a href="#it-copc-vishing"><circle class="blip high" cx="138.3" cy="308.4" r="7.6"/><text class="blip-num" style="font-size:7.2px" x="138.3" y="310.7">12</text></a>
+        <a href="#it-dorsata-metabase"><circle class="blip high" cx="65.5" cy="251.5" r="7.2"/><text class="blip-num" style="font-size:6.9px" x="65.5" y="253.8">13</text></a>
+        <a href="#it-hhs-oct-tally"><circle class="blip high" cx="46.3" cy="161.2" r="6.9"/><text class="blip-num" style="font-size:6.6px" x="46.3" y="163.4">14</text></a>
+        <a href="#it-outlook-124194"><circle class="blip high" cx="89.7" cy="79.7" r="6.6"/><text class="blip-num" style="font-size:6.2px" x="89.7" y="81.7">15</text></a>
+        <a href="#it-chrome-125350"><circle class="blip high" cx="175.3" cy="45.1" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="175.3" y="47.0">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-monadnock-hospital"><span class="ld high"></span><b>1</b> Monadnock Hospital &mdash; diversion, outage</a>
         <a href="#it-vcenter-123890"><span class="ld crit"></span><b>2</b> VMware vCenter &mdash; zero-day, KEV</a>
-        <a href="#it-kev-nov18"><span class="ld crit"></span><b>3</b> REDCap &mdash; exploited, KEV</a>
-        <a href="#it-axis-90436"><span class="ld crit"></span><b>4</b> Apache Axis / Confluence &mdash; KEV</a>
-        <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>5</b> ScreenConnect &mdash; MSP attacks</a>
-        <a href="#it-nable-4everable2shell"><span class="ld crit"></span><b>6</b> N-able N-central &mdash; exploited</a>
-        <a href="#it-checkpoint-gateway-wiper"><span class="ld crit"></span><b>7</b> Check Point gateways &mdash; wiper</a>
-        <a href="#it-barracuda-esg"><span class="ld crit"></span><b>8</b> Barracuda ESG &mdash; root, KEV</a>
-        <a href="#it-greiz-hospital-de"><span class="ld high"></span><b>9</b> Greiz-Ronneburg &mdash; ER closed</a>
-        <a href="#it-uh-cleveland-recovery"><span class="ld high"></span><b>10</b> University Hospitals &mdash; MyChart back</a>
-        <a href="#it-copc-vishing"><span class="ld high"></span><b>11</b> COPC &mdash; 1.35M via vishing</a>
-        <a href="#it-dorsata-metabase"><span class="ld high"></span><b>12</b> Dorsata &mdash; Metabase zero-day</a>
-        <a href="#it-hhs-oct-tally"><span class="ld high"></span><b>13</b> HHS October &mdash; 10.1M affected</a>
-        <a href="#it-outlook-124194"><span class="ld high"></span><b>14</b> Outlook zero-day &mdash; KEV</a>
-        <a href="#it-chrome-125350"><span class="ld high"></span><b>15</b> Chrome zero-day &mdash; KEV</a>
-        <a href="#it-safepay-advisory"><span class="ld high"></span><b>16</b> SafePay &mdash; joint advisory</a>
+        <a href="#it-monai-label-cairn"><span class="ld crit"></span><b>3</b> MONAI Label &mdash; AI-agent zero-day</a>
+        <a href="#it-kev-nov18"><span class="ld crit"></span><b>4</b> REDCap &mdash; exploited, KEV</a>
+        <a href="#it-axis-90436"><span class="ld crit"></span><b>5</b> Apache Axis / Confluence &mdash; KEV</a>
+        <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>6</b> ScreenConnect &mdash; MSP attacks</a>
+        <a href="#it-nable-4everable2shell"><span class="ld crit"></span><b>7</b> N-able N-central &mdash; exploited</a>
+        <a href="#it-checkpoint-gateway-wiper"><span class="ld crit"></span><b>8</b> Check Point gateways &mdash; wiper</a>
+        <a href="#it-sbc-medical-japan"><span class="ld high"></span><b>9</b> SBC Medical &mdash; 1.62M customers</a>
+        <a href="#it-greiz-hospital-de"><span class="ld high"></span><b>10</b> Greiz-Ronneburg &mdash; ER closed</a>
+        <a href="#it-uh-cleveland-recovery"><span class="ld high"></span><b>11</b> University Hospitals &mdash; MyChart back</a>
+        <a href="#it-copc-vishing"><span class="ld high"></span><b>12</b> COPC &mdash; 1.35M via vishing</a>
+        <a href="#it-dorsata-metabase"><span class="ld high"></span><b>13</b> Dorsata &mdash; Metabase zero-day</a>
+        <a href="#it-hhs-oct-tally"><span class="ld high"></span><b>14</b> HHS October &mdash; 10.1M affected</a>
+        <a href="#it-outlook-124194"><span class="ld high"></span><b>15</b> Outlook zero-day &mdash; KEV</a>
+        <a href="#it-chrome-125350"><span class="ld high"></span><b>16</b> Chrome zero-day &mdash; KEV</a>
       </div>
     </div>
 
   </div>
 
 
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the healthcare security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">AI agents are now finding healthcare-software zero-days on their own</b>
+        <p>Amazon says a suspected China-nexus actor pointed the Cairn AI-agent framework at MONAI Label, an open-source medical-imaging annotation server, asked only for shell access and let the agents pick the method: about 11 minutes from mapping the API to writing files, then root on a university server by Amazon&rsquo;s reconstruction. Google&rsquo;s threat group says multi-agent pentest frameworks and patch-diffing exploit pipelines are already in live intrusions, with zero-days averaging 11 a month this year. Research and imaging-AI servers, often run outside central IT with authentication off, make an easy first target (editorial assessment). Takeaway: find every research and AI tool reachable beyond its lab network, turn on authentication, and alert on fast, noisy bursts of activity. See Incidents &amp; Attacks.</p>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Patient Data</span>
+        <b class="trend-head">Big breach notices keep coming, and vendors and platforms are behind many of them</b>
+        <p>October&rsquo;s HHS breach reports covered 10.1 million people, 8.2 million of them from iRhythm Technologies alone. This month SBC Medical Group disclosed about 1.62 million clinic customers in Japan, with customer and staff passwords taken, and Central Ohio Primary Care reported 1.35 million after one voice-phishing call. Several came through third parties or analytics tools: Dorsata and Blueberry Pediatrics through exploited Metabase servers, Denver Health Medical Plan through a vendor&rsquo;s exposed database key, and 196,645 patients through law firm Tarter Krinsky. Takeaway: list every vendor, analytics server and platform that holds patient data, and confirm who patches it and who would tell you about a breach. See Incidents &amp; Attacks.</p>
+        <a href="https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Social Engineering</span>
+        <b class="trend-head">A phone call or a Teams chat is still the cheapest way in</b>
+        <p>Central Ohio Primary Care traces 1.35 million affected people to one August voice-phishing call that yielded credentials. At Kern Medical a caller posing as IT talked an employee into changing login settings, and Kern and UCHealth both confirmed Microsoft 365 account compromises. Arctic Wolf counts more than 400 incidents in which fake &ldquo;IT help desk&rdquo; chats over Microsoft Teams external access reached a payload in under 15 minutes. Round-the-clock shifts and a culture of urgent calls for help make hospitals an easy audience (editorial assessment). Takeaway: require a call-back or in-person check before the help desk resets a password or MFA method, and limit Teams external access to known partners.</p>
+        <a href="https://www.hipaajournal.com/data-breach-southwire-kern-medical-uchealth/" class="source-link" target="_blank" rel="noopener">HIPAA Journal</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Patching</span>
+        <b class="trend-head">Short KEV deadlines meet a stack of critical, not-yet-exploited fixes</b>
+        <p>CISA set deadlines of 21 November for REDCap, the research-data platform exploited for web shells and cryptomining, and 23 November for the vCenter zero-day. Behind them sit critical flaws with fixes but no reported exploitation: Java4Shell in Java&rsquo;s Base64 decoder, which can reach Jira, Jenkins and Keycloak, and nginx2root, an HTTP/2 code-execution bug in nginx that chains to host root. Neither is in KEV, but N-central was exploited within hours of a public proof of concept this month. Takeaway: patch vCenter and REDCap now, then inventory Java and nginx, including copies inside appliances and containers, and schedule both fixes this cycle. See Critical Advisories.</p>
+        <a href="https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter" class="source-link" target="_blank" rel="noopener">Rapid7</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Downtime</span>
+        <b class="trend-head">Outages, not just data theft, are what hospitals are living with</b>
+        <p>Monadnock Community Hospital in New Hampshire diverted ambulances and cancelled elective surgery and outpatient lab and radiology after a cyber incident took its network down from about 10 November. In Germany, Greiz-Ronneburg closed its emergency department after what the district calls an extortion attempt. UNM Health Sciences Center diverted ambulances for two hours in October, and University Hospitals in Cleveland brought MyChart back on 7 November after its 22 October incident. Takeaway: test a downtime plan that lasts weeks, not a day, covering paper ordering, manual lab and radiology workflows, EMS notification and the criteria for lifting a diversion. See the top story.</p>
+        <a href="https://www.jems.com/ems-operations/it-network-outage-at-nh-hospital-diverts-ambulances-delays-surgeries/" class="source-link" target="_blank" rel="noopener">JEMS</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-monai-label-cairn" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Zero-day &middot; AI-driven attack</span>
+        </div>
+        <h3>Attackers&rsquo; AI agents found and exploited a zero-day in MONAI Label, the open-source medical-imaging annotation server &mdash; university servers hit, and there is still no fixed PyPI release</h3>
+        <p>Amazon Threat Intelligence reported on 20 November 2026 that a suspected China-nexus actor (moderate confidence, per The Hacker News) used the open-source Cairn AI-agent framework to find and exploit an unknown flaw in MONAI Label, an open-source server used to annotate medical images for AI work. The operator only asked the agents for shell access; the agents chose the methods. The flaw, <b>CVE-2026-133968</b> (CVSS 9.8 per The Hacker News; GHSA-qc22-rmgc-vg94), is a path traversal in the PUT /datastore/image and /datastore/label endpoints, and authentication is off by default. In a campaign of about 48 hours around 8&ndash;10 September against university networks, about 11 minutes passed between mapping the API and writing arbitrary files. By Amazon&rsquo;s reconstruction, which has not been independently confirmed, the agents planted a sitecustomize.py file and used a training endpoint to get a reverse shell and root on one university server; a second university network is believed compromised, also unconfirmed. No patient data or clinical systems have been shown to be affected. Versions 0.8.5 and earlier are affected; a fix was merged in source on 19 October (PR #1915), but 0.8.5 is still the latest PyPI release. Academic medical centres and research groups running imaging-AI tools are the most exposed (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-133968</span>
+          <span>MONAI Label 0.8.5 and earlier &bull; path traversal in PUT /datastore/image and /datastore/label; authentication off by default &bull; CVSS 9.8 (per THN) &bull; GHSA-qc22-rmgc-vg94 &bull; campaign ~8&ndash;10 Sep 2026 against university networks, via the Cairn AI-agent framework &bull; fix in source 19 Oct (PR #1915); no fixed PyPI release</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Amazon Threat Intelligence: exploited as a zero-day ~8&ndash;10 Sep 2026; root on one university server is Amazon&rsquo;s reconstruction and a second compromise is unconfirmed</span>
+            <span class="ops-tag kev-off">No CISA KEV listing reported in the sources</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No fixed PyPI release &mdash; 0.8.5 is still the latest; fix merged in source 19 Oct 2026 (PR #1915)</span>
+            <span class="ops-cc"><b>Action:</b> Find any MONAI Label server in research, radiology-AI and university-affiliated environments and firewall it from untrusted networks. Turn authentication on, run it as a limited account and restrict which directories it can write to. A source build counts as fixed only if it includes the 19 October change. Hunt for unexpected sitecustomize.py files and training jobs nobody scheduled.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Firewall and enable authentication &mdash; 72 hours; hunt for sitecustomize.py and unusual training jobs &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-monai-label-cairn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-monai-label-cairn">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Amazon Threat Intelligence via The Hacker News; Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Campaign ~8&ndash;10 Sep 2026 &mdash; Amazon report 20 Nov; coverage 21 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-screenconnect-msp" data-published="2026-11-17">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -1034,6 +1116,39 @@
           <span>Waves 30 Oct and 2 Nov 2026 &mdash; KEV 13 Nov 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-sbc-medical-japan" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Data breach</span>
+        </div>
+        <h3>SBC Medical Group tells the SEC that a breach of a platform it manages exposed data on about 1.62 million customers of clinics in Japan &mdash; plus treatment details, passwords and staff records</h3>
+        <p>SBC Medical Group Holdings (NASDAQ: SBC), based in California, disclosed in an SEC filing a breach of an online platform it manages that holds databases of customers of clinics in Japan, SecurityWeek reported on 20 November 2026. About 1.62 million people had basic information, patient card numbers, member IDs or survey answers exposed. Also exposed: 255,416 reservation records, 217,769 web inquiries, 4,513 treatment descriptions and image file names, 15,007 treatment names and reviews, and 14 expired cards. Customer passwords were stolen, as were 20,000 employee records with names, IDs and passwords, and bank and pension data for 459 employees. A separate incident at the reservation service Tribeau affected about 19,000 people. SBC says it isolated the server, evicted the attackers and rotated passwords; the investigation is ongoing and the attacker has not been named. With staff passwords taken, credential reuse is the follow-on risk (editorial assessment).</p>
+        <div class="card-meta">
+          <span>SBC Medical Group Holdings (NASDAQ: SBC), California &bull; platform holding Japanese clinic customer data &bull; ~1.62M people &bull; 255,416 reservations; 217,769 inquiries; 4,513 treatment descriptions; 15,007 treatment names/reviews; 14 expired cards &bull; customer passwords and 20,000 employee records &bull; 459 employees&rsquo; bank/pension data &bull; separate Tribeau incident ~19,000 &bull; attacker not named</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by SBC (SEC filing): platform breach; investigation ongoing; attacker not named</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; the entry route has not been disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; server isolated, attackers evicted and passwords rotated, per SBC</span>
+            <span class="ops-cc"><b>Action:</b> If you share a platform, vendor or staff with SBC or its clinics, reset credentials those users may have reused and watch for their log-ins. For patient-facing booking and survey platforms you run or rent, check whether passwords and treatment details sit together and whether staff accounts there share passwords with internal systems. Expect phishing aimed at affected patients that cites real bookings.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Credential-reuse review for patient-facing platforms &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sbc-medical-japan" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sbc-medical-japan">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (SBC Medical Group SEC filing)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 20 Nov 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-greiz-hospital-de" data-published="2026-11-17">
@@ -1564,39 +1679,6 @@
         <a href="https://www.hipaajournal.com/ultramobile-imaging-artistic-smiles-parkview-health-data-breaches/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-ridgeway-pharmacy" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Montana mail-order pharmacy Ridgeway says a breach limited to its website exposed prescription and insurance details for 258,920 people, and card data for some</h3>
-        <p>Ridgeway Pharmacy of Victor, Montana, a mail-order pharmacy, is notifying 258,920 people of a breach it became aware of on 21 August 2026, HIPAA Journal reported on 22 October. The exposed information includes names, addresses, dates of birth, and prescription, health and insurance details, plus payment card data for a subset of customers. Ridgeway says the incident was &ldquo;limited to its website, and no internal systems were involved,&rdquo; and that it has moved to a new website platform; it is offering credit monitoring. It has not said how the website was compromised or when the access began, and the account comes from a single outlet; the HHS and state filings were not seen. For pharmacies and practices that take orders or payments online, the point is that a storefront collecting prescriptions and card numbers is a store of PHI in its own right, even when the pharmacy system behind it is untouched (editorial assessment).</p>
-        <div class="card-meta">
-          <span>Ridgeway Pharmacy Ltd, Victor, Montana &bull; 258,920 people &bull; website only, per the company &bull; prescription, health and insurance data; payment cards for a subset &bull; aware 21 Aug 2026 &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by Ridgeway (notice via HIPAA Journal): website breach affecting 258,920 people; internal systems not involved, per the company</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; how the website was compromised has not been disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; Ridgeway has moved to a new website platform</span>
-            <span class="ops-cc"><b>Action:</b> Bring patient-facing ordering, refill and payment websites inside your HIPAA risk analysis, including any run by an e-commerce or hosting vendor, and confirm a business associate agreement covers them. Watch order and payment pages for unexpected script or form changes, keep card handling with a payment processor rather than on your own site where you can, and keep the site&rsquo;s logs long enough to show when an intrusion began.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Patient-facing web inventory and BAA check &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ridgeway-pharmacy" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-ridgeway-pharmacy">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Ridgeway Pharmacy notice via HIPAA Journal</span>
-          <span class="dot">&bull;</span>
-          <span>Aware 21 Aug 2026 &mdash; reported 22 Oct 2026</span>
-        </div>
-        <a href="https://www.hipaajournal.com/ridgeway-pharmacy-data-breach/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-arthrex-vortex-claim" data-published="2026-11-10">
         <div class="card-header">
           <span class="severity sev-low">Low</span>
@@ -1700,39 +1782,6 @@
           <span>October 2026 reports &mdash; published 15 Nov 2026</span>
         </div>
         <a href="https://www.paubox.com/blog/hipaa-breach-report-for-november-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-safepay-advisory" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Joint US and international advisory on SafePay ransomware &mdash; stolen or guessed credentials, appliance flaws and phishing; the AHA flags it for hospitals</h3>
-        <p>US and international agencies issued a joint advisory on the SafePay ransomware group on 20 October 2026, hosted by CISA, and the American Hospital Association highlighted it for hospitals on 22 October. SafePay gets in with stolen or guessed credentials, flaws in edge appliances and phishing, then creates or hijacks accounts, uses legitimate administration tools and disables defences before encrypting. None of those steps needs a novel exploit, which makes the advisory a practical checklist for hospital IT teams (editorial assessment).</p>
-        <div class="card-meta">
-          <span>Joint advisory, 20 Oct 2026 (hosted by CISA) &bull; SafePay ransomware &bull; entry via stolen/guessed credentials, appliance flaws, phishing &bull; account creation/hijack, admin tools, defence evasion &bull; AHA alert 22 Oct</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED by the agencies: SafePay activity against victims</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; the advisory lists techniques</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; apply the advisory&rsquo;s mitigations</span>
-            <span class="ops-cc"><b>Action:</b> Work through the advisory&rsquo;s mitigations: MFA on all remote access, lockout and alerting for password guessing, patched edge appliances, alerts on new admin accounts and on security tools being disabled.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Advisory mitigations gap review &mdash; 14 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-safepay-advisory" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-safepay-advisory">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>American Hospital Association (joint advisory via CISA)</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 20 Oct 2026 &mdash; AHA 22 Oct 2026</span>
-        </div>
-        <a href="https://www.aha.org/news/headline/2026-10-22-agencies-warn-malicious-activity-safepay-ransomware-group" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-8digits-extradition" data-published="2026-11-17">
@@ -2169,6 +2218,74 @@
         <a href="https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-java4shell-114938" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>&ldquo;Java4Shell&rdquo; CVE-2026-114938: a Java Base64 decoder flaw that could allow pre-authentication code execution in Jira, Jenkins or Keycloak &mdash; AVX-512 VBMI CPUs only, not exploited, and no Red Hat fix yet</h3>
+        <p><b>CVE-2026-114938</b> is a flaw in the Base64 intrinsic decoder of Oracle Java SE and OpenJDK, The Hacker News reported on 18 November 2026. It can allow pre-authentication remote code execution in applications such as Jira, Jenkins and Keycloak. Oracle rates it CVSS 8.1 and Red Hat 9.8. Only x86-64 CPUs with AVX-512 VBMI are affected, on Java 17.0.6 and later and the 21, 25 and 27 lines. Oracle fixed it in 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1; Red Hat has no fix yet. Canada&rsquo;s Cyber Centre says it is not exploited in the wild, and it was not in CISA KEV as of 18 November. The interim mitigation is the JVM flag -XX:-UseBASE64Intrinsics. In hospitals, identity servers (Keycloak) and build or ticketing servers (Jenkins, Jira) are the ones to check first, especially any reachable from the internet (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK Base64 intrinsic decoder &bull; CVSS 8.1 (Oracle) / 9.8 (Red Hat) &bull; x86-64 with AVX-512 VBMI only &bull; Java 17.0.6+, 21, 25, 27 &bull; fixed in Oracle 17.0.21.1 / 21.0.13.1 / 25.0.5.1 / 27.0.1.1 &bull; Red Hat: no fix yet &bull; interim: -XX:-UseBASE64Intrinsics</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; per Canada&rsquo;s Cyber Centre</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 18 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in Oracle Java 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1; Red Hat builds not yet fixed</span>
+            <span class="ops-cc"><b>Action:</b> List Java applications on x86-64 servers with AVX-512 VBMI, starting with Jira, Jenkins and Keycloak. Move Oracle builds to the fixed releases; on Red Hat or other builds without a fix, set -XX:-UseBASE64Intrinsics and restart the application. Do internet-facing systems first.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Java applications &mdash; 7 days; internal &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell-114938" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell-114938">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 18 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-nginx2root-123007" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>&ldquo;nginx2root&rdquo;: five nginx memory-corruption flaws, the worst an unauthenticated HTTP/2 code-execution bug that chains with a Linux SCTP kernel flaw to host root &mdash; fixed, not exploited</h3>
+        <p>Five memory-corruption flaws in nginx, rated CVSS 4.0 9.2, were disclosed this week, Security Affairs reported on 19 November 2026. The worst, <b>CVE-2026-123007</b>, allows unauthenticated remote code execution over HTTP/2 in nginx 1.9.5 through 1.31.8, and can be chained with a Linux SCTP kernel bug to get root on the host. Fixes are in nginx 1.31.9 and 1.30.7 and NGINX Plus 37.3.0.1 and 37.0.8.1. No exploitation has been reported and it is not in CISA KEV. nginx must be fully restarted for the fix to take effect; disabling HTTP/2 is a stopgap. In healthcare, nginx often fronts patient portals, telehealth and API gateways and also ships inside appliances and containers, so the real inventory is usually larger than the known server list (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-123007</span>
+          <span>nginx 1.9.5&ndash;1.31.8 &bull; five memory-corruption flaws, CVSS 4.0 9.2 &bull; worst: unauthenticated RCE via HTTP/2 &bull; chains with a Linux SCTP kernel bug to host root &bull; fixed in nginx 1.31.9 / 1.30.7 and NGINX Plus 37.3.0.1 / 37.0.8.1 &bull; stopgap: disable HTTP/2</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed in nginx 1.31.9 / 1.30.7 and NGINX Plus 37.3.0.1 / 37.0.8.1 &mdash; full restart required</span>
+            <span class="ops-cc"><b>Action:</b> Inventory nginx, including copies inside appliances, containers and ingress controllers, starting with patient portals, telehealth and API gateways. Upgrade, then fully restart nginx. Where you cannot upgrade quickly, disable HTTP/2 as a stopgap.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing nginx &mdash; 7 days; internal &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nginx2root-123007" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nginx2root-123007">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 19 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-outlook-124194" data-published="2026-11-11">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -2376,74 +2493,6 @@
         <a href="https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-siemens-software-center-110936" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">KEV</span>
-        </div>
-        <h3>Siemens Software Center CVE-2026-110936 is being abused in the &ldquo;Romulus&rdquo; ClickFix campaign &mdash; KEV-listed with a 3 November deadline, and CISA lists healthcare among the affected sectors</h3>
-        <p>Siemens confirmed on 19 October 2026 that attackers are exploiting <b>CVE-2026-110936</b>, an uncontrolled-search-path (DLL side-loading) flaw in Siemens Software Center, the Windows tool that installs and updates Siemens software. Attackers pair a genuine, validly signed copy of the program with their own DLLs and deliver the bundle through what Siemens calls the &ldquo;Romulus&rdquo; multi-platform ClickFix campaign, which tricks users into running commands themselves. Siemens says no Siemens system, product or update channel was breached, and it names no final malware family. The flaw is rated CVSS v3.1 6.7 and v4.0 8.4; every version before V4.0.9.8 is affected, and existing installations update to the fixed release on their next start. CISA added it to KEV on 20 October with a 3 November federal deadline and republished Siemens&rsquo; advisory as ICSA-26-295-03 on 22 October, listing Healthcare and Public Health among the sectors. Because the lure brings its own signed copy, the risk is not limited to sites that run Siemens software: a trusted vendor signature can carry attacker code past controls that allow signed programs (editorial assessment).</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-110936</span>
-          <span>Siemens Software Center before V4.0.9.8 &bull; DLL side-loading (CWE-427) &bull; CVSS v3.1 6.7 / v4.0 8.4 (Siemens) &bull; Romulus ClickFix campaign &bull; no Siemens system or update channel breached, per Siemens &bull; CISA ICSA-26-295-03</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>CONFIRMED exploited &mdash; Siemens, 19 Oct 2026; abused in the Romulus ClickFix campaign; a local attack that needs a user to run the bundle</span>
-            <span class="ops-tag kev-on">In CISA KEV &mdash; added 20 Oct 2026, federal deadline 3 Nov 2026</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixed in V4.0.9.8 &mdash; existing installations update on their next start</span>
-            <span class="ops-cc"><b>Action:</b> Find Siemens Software Center on facilities and engineering workstations and confirm it reports V4.0.9.8 or later. Hunt across all Windows endpoints, not only those with Siemens software: a folder named &ldquo;SM Software Provisioning Service&rdquo; under AppData\Local\Programs, SiemensSoftwareCenter.exe started by msiexec, an unexpected archive.dll beside it, or an installer named AllMyBasic.msi. Block 96.62.218[.]59 and wizardexpensive[.]com. Remind staff that no legitimate fix asks them to paste a command into the Run box or a terminal, and consider restricting PowerShell and the Run dialog for standard users.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> V4.0.9.8 confirmed on every installation &mdash; by 3 Nov 2026 (federal deadline); endpoint hunt for the indicators &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-siemens-software-center-110936" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-siemens-software-center-110936">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Siemens ProductCERT (SSA-580366 and exploitation notice); CISA KEV; CISA ICSA-26-295-03; SecurityWeek</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 15 Oct &mdash; exploitation confirmed 19 Oct &mdash; KEV listing 20 Oct &mdash; CISA republication 22 Oct 2026</span>
-        </div>
-        <a href="https://productcert.siemens.com/news/2026/10/19/active-exploitation-of-cve-2026-110936-in-siemens-software-center/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-icsma-intersystems-iris" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>CISA medical advisory: InterSystems IRIS for Health leaves superserver traffic unencrypted by default &mdash; CVE-2026-111594 has no fixed version, so the fix is to require TLS</h3>
-        <p>CISA published ICSMA-26-295-01 on 22 October 2026 for <b>CVE-2026-111594</b> in InterSystems IRIS for Health versions 2026.2.0.221, 2026.1.0.235 and 2025.3.0.226. TLS is turned off by default on the IRIS superserver, the service that client connections use, so an attacker able to observe that traffic could read the data in transit and reuse it to log in. The advisory scores it CVSS v3.1 8.1 and v4.0 9.2; no fixed version is listed, and InterSystems recommends configuring the superserver to require SSL/TLS. CISA says no known public exploitation has been reported. IRIS for Health is InterSystems&rsquo; data and interoperability platform for healthcare applications, and many organisations run it inside a vendor&rsquo;s product rather than as a system they bought themselves (editorial assessment), so the first job is finding where it is.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-111594</span>
-          <span>InterSystems IRIS for Health 2026.2.0.221, 2026.1.0.235, 2025.3.0.226 &bull; cleartext transmission (CWE-319), TLS off by default &bull; CVSS v3.1 8.1 / v4.0 9.2 (CISA) &bull; no fixed version &bull; CISA sector: Healthcare and Public Health</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known public exploitation reported to CISA</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-no">No fixed version listed &mdash; mitigation is to require SSL/TLS on the IRIS superserver</span>
-            <span class="ops-cc"><b>Action:</b> Ask clinical, integration and analytics vendors whether their products include IRIS for Health and which version, and check your own servers for it. Where it runs, work with the vendor to require TLS on superserver connections, test that every client and interface still connects, and limit network access to the superserver to the application and interface hosts that need it. If superserver traffic has crossed shared or flat network segments without TLS, rotate the accounts that use it.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and vendor confirmation &mdash; 7 days; TLS required on superserver connections &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-icsma-intersystems-iris" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-icsma-intersystems-iris">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA ICSMA-26-295-01 (via CIRCL Vulnerability-Lookup)</span>
-          <span class="dot">&bull;</span>
-          <span>Published 22 Oct 2026</span>
-        </div>
-        <a href="https://vulnerability.circl.lu/vuln/icsma-26-295-01" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -2478,21 +2527,6 @@
           <span>Memo 2 Nov 2026 &mdash; reported 11 Nov 2026</span>
         </div>
         <a href="https://cybersecuritydive.com/news/cisa-priorities-memo-risks-partnerships/874381" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-ma-ag-transformative-healthcare" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Regulation</span>
-        </div>
-        <h3>Massachusetts AG: ambulance group Transformative Healthcare and Fallon pay $1 million and must destroy 750,116 residents&rsquo; records within 45 days of judgment</h3>
-        <p>Massachusetts Attorney General Andrea Joy Campbell has reached a $1 million settlement, payable over five years, with Transformative Healthcare and its subsidiaries, including Lifeline, and with Fallon Service and Fallon EMS, HIPAA Journal reported on 22 October 2026. It resolves both MassHealth billing-fraud allegations and HIPAA and Massachusetts data-security violations; the split between the two is not stated, and the consent judgment is proposed. The breach ran from 17 February to 21 April 2023, during an archiving process, and exposed the health information and Social Security numbers of 750,116 Massachusetts residents. The AG found the companies had no adequate written information security program. The distinctive term is data destruction: the companies must destroy the personal and health information within 45 days of the judgment. For providers retiring systems or archiving records, the case is a reminder that migration and archive projects are exposure windows and that retention should have an end date (editorial assessment).</p>
-        <div class="card-meta">
-          <span>Massachusetts AG &bull; Transformative Healthcare (incl. Lifeline), Fallon Service / Fallon EMS &bull; $1,000,000 over five years &bull; 750,116 residents &bull; breach 17 Feb&ndash;21 Apr 2023 &bull; destroy PI and PHI within 45 days &bull; proposed consent judgment</span>
-          <span class="dot">&bull;</span>
-          <span>Reported 22 Oct 2026</span>
-        </div>
-        <a href="https://www.hipaajournal.com/massachusetts-ag-transformative-healthcare-hipaa-penalty/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-project-lifeline-250" data-published="2026-10-27">

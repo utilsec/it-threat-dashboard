@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Nonprofits &amp; NGOs</h1>
       <div class="header-sub">Charities, foundations &amp; advocacy groups.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:13 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Nonprofit / NGO IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>35</strong> stories across
+      <strong>37</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -828,7 +834,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.6 (Medium):</b> A confirmed attack on DonorPerfect cut 11,000+ nonprofits off from donor records and payment forms for a week, and MSP tools are under active attack, but no mass theft of charity data is confirmed.<br><b>Top threat:</b> Fundraising platforms before Giving Tuesday: DonorPerfect outage; GoFundMe Pro donor data via Salesforce.<br><b>Confirmed breaches:</b> DonorPerfect; GoFundMe Pro donor data; netiCRM servers (no donor data theft found); MSPs via ScreenConnect and N-central.<br><b>Also watching:</b> AARP claims (contested); vCenter zero-day; Optimizely scripts; Synology NAS ransomware; holiday phishing.<br><b>What would raise it:</b> Confirmed theft of donor or payment data across a widely used fundraising platform, or mass compromise of charities through their MSPs.</div>
+      <div class="tl-why"><b>Why 6.6 (Medium):</b> A confirmed attack on DonorPerfect cut 11,000+ nonprofits off from donor records and payment forms for a week, and MSP tools are under active attack, but no mass theft of charity data is confirmed.<br><b>Top threat:</b> Fundraising platforms before Giving Tuesday: DonorPerfect outage; GoFundMe Pro donor data via Salesforce.<br><b>Confirmed breaches:</b> DonorPerfect; GoFundMe Pro donor data; netiCRM servers (no donor data theft found); MSPs via ScreenConnect and N-central.<br><b>Also watching:</b> vCenter zero-day; unpatched SonicWall Gen 6 firewalls; nginx2root (not exploited); Optimizely scripts; Synology NAS ransomware.<br><b>What would raise it:</b> Confirmed theft of donor or payment data across a widely used fundraising platform, or mass compromise of charities through their MSPs.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -941,7 +947,7 @@
         <a href="#it-outlook-124194"><circle class="blip high" cx="88.8" cy="279.5" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="88.8" y="281.7">13</text></a>
         <a href="#it-chrome-125350"><circle class="blip high" cx="46.2" cy="197.6" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="46.2" y="199.7">14</text></a>
         <a href="#it-gtig-agentic-ai"><circle class="blip high" cx="66.1" cy="107.5" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="66.1" y="109.4">15</text></a>
-        <a href="#it-gootloader-endgame"><circle class="blip high" cx="139.4" cy="51.2" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="139.4" y="53.0">16</text></a>
+        <a href="#it-sonicwall-gen6"><circle class="blip high" cx="139.4" cy="51.2" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="139.4" y="53.0">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-donorperfect"><span class="ld high"></span><b>1</b> DonorPerfect attack hits 11,000+ nonprofits</a>
@@ -959,10 +965,52 @@
         <a href="#it-outlook-124194"><span class="ld high"></span><b>13</b> Outlook zero-day leaks NTLM hashes, KEV</a>
         <a href="#it-chrome-125350"><span class="ld high"></span><b>14</b> Chrome eighth exploited zero-day, KEV</a>
         <a href="#it-gtig-agentic-ai"><span class="ld high"></span><b>15</b> Google: agentic AI in live intrusions</a>
-        <a href="#it-gootloader-endgame"><span class="ld high"></span><b>16</b> Endgame takes down Gootloader, StealC</a>
+        <a href="#it-sonicwall-gen6"><span class="ld high"></span><b>16</b> SonicWall Gen 6: no more patches</a>
       </div>
     </div>
 
+  </div>
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Fundraising Platforms</span>
+        <b class="trend-head">Year-end giving is running through platforms that attackers are already inside</b>
+        <p>Three donor platforms disclosed incidents in a fortnight. DonorPerfect was offline for most of 10&ndash;16&nbsp;November, GoFundMe Pro says donor data was taken through its Salesforce integration, and netiCRM in Taiwan was breached through one stolen code-repository credential (see the top story and Incidents &amp; Attacks). DonorPerfect&rsquo;s president also says two other platform chiefs told her privately they were attacked; that is not confirmed. The common thread is that a charity&rsquo;s donor records now sit with a vendor and its integrations, not on its own servers. <b>Takeaway:</b> before Giving Tuesday, rotate platform and integration credentials, check forms and payment destinations, and have a backup way to take gifts.</p>
+        <a href="https://www.philanthropy.com/news/how-a-cyberattack-on-donorperfect-upended-year-end-giving-plans/" class="source-link" target="_blank" rel="noopener">The Chronicle of Philanthropy</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">MSP Risk</span>
+        <b class="trend-head">Your outside IT provider&rsquo;s tools are being targeted, not just your own</b>
+        <p>In one week, ScreenConnect partners were breached through a third-party extension, N-able N-central servers were taken over within hours of a public exploit, and N-able&rsquo;s hosted Mail Assure email-filtering cloud was accessed (see Incidents &amp; Attacks). Many charities rely on one IT provider that runs remote-management and email filtering for every client, so one compromised console reaches every device it manages. N-able says it has no evidence that Mail Assure customer data was compromised, and the ScreenConnect activity is unattributed. <b>Takeaway:</b> ask your provider in writing which remote-access and filtering tools they use for you, whether they have patched, and how they would tell you about a breach.</p>
+        <a href="https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Third-Party Scripts</span>
+        <b class="trend-head">Donation pages run code from suppliers you did not vet</b>
+        <p>Attackers abused Optimizely Experimentation&rsquo;s signup flow to inject JavaScript into 178 organisations&rsquo; sites; the payload skimmed payment cards, stole cookies and swapped cryptocurrency addresses before Optimizely removed it on 16&nbsp;November (see Incidents &amp; Attacks). No charity has been named, but donation and event pages commonly load testing, analytics and marketing tags. Any one of them can change what a donor&rsquo;s browser runs on the page where they type card details. <b>Takeaway:</b> list every outside script on your giving pages, remove the ones nobody uses, and keep payment fields on the processor&rsquo;s own hosted form.</p>
+        <a href="https://bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Ageing Kit</span>
+        <b class="trend-head">Old firewalls, NAS boxes and web servers are the quiet exposure</b>
+        <p>SonicWall says Gen 6 firewalls on SonicOS 6.x get no more security patches, even for critical flaws, and expects internet-facing units to be targeted. C3RB3R ransomware is hitting Synology NAS devices on outdated DSM, and nginx2root shows how an unpatched web server can be chained to root on the host, though it is not exploited yet (see Critical Advisories). Small offices often run donated or forgotten devices nobody has updated in years. <b>Takeaway:</b> check the model and software version of your firewall, NAS and website host this week, and budget to replace anything out of support.</p>
+        <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Self-Hosted Tools</span>
+        <b class="trend-head">Community, help-desk and encryption tools need their own patch routine</b>
+        <p>Ruby fixed a heap overflow (CVE-2026-132825) that default Rails and Sinatra apps expose without login; Discourse, Mastodon, Chatwoot, GitLab and OpenProject have already shipped updates. GnuPG fixed a GPGME double free (CVE-2026-129975) triggered by a malicious OpenPGP key, affecting mail and chat clients and Gpg4win. Neither is reported as exploited (see Critical Advisories). Nonprofits often self-host these apps on volunteer time, and advocacy groups depend on PGP email. <b>Takeaway:</b> name an owner for every self-hosted app and encryption tool, and make sure someone applies updates within a week of release.</p>
+        <a href="https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+    </div>
   </div>
 
   <div class="section">
@@ -1239,40 +1287,6 @@
       </div>
       <a href="https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261027/" class="source-link" target="_blank" rel="noopener">Read source</a>
     </div>
-
-      <div class="card" id="it-connectwise-storm-0940" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Microsoft ties the ConnectWise Cloud Backup compromise to China-aligned Storm-0940 and an AI attack framework &mdash; think tanks and non-profits are on its target list</h3>
-        <p>Microsoft said on 21&nbsp;October that it assesses Storm-0940, which it calls a China-state aligned actor active since 2021 and focused on data theft, was behind the compromise of ConnectWise Cloud Backup (formerly SkyKick) disclosed the previous week. The attacker took control of the identities of several ConnectWise cloud applications tied to the service and used them to sign in to customers&rsquo; Microsoft&nbsp;365 tenants as the application, so multi-factor authentication did not apply. Microsoft counts sign-in attempts against more than 2,250 tenants. Most failed, but in several cases the attacker reached privileged cloud access, some in under three hours, then explored the directory, added credentials to app registrations, changed roles and read stored secrets. A separate password spray on 10&ndash;14&nbsp;October got no successful sign-ins. Microsoft says the actor uses ARTEX, an open-source multi-agent penetration-testing framework that can run on any AI model, and lists think tanks and non-profits among the sectors it targets. ConnectWise, which first detected the activity on 14&nbsp;October, suspended Cloud Backup, SaaS Security and Cloud Management on 17&nbsp;October and began a phased restoration on 21&nbsp;October; its chief executive told customers to keep connections disabled until ConnectWise contacts them (Cybersecurity Dive, 22&nbsp;October). It says it has no evidence that partner backup data was compromised; how the app credentials were obtained has not been disclosed. Huntress reported unauthorised sign-ins at 162 tenants it monitors. Many charities&rsquo; Microsoft&nbsp;365 backups are run by an IT provider (editorial assessment), so this is a question for yours.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; ConnectWise confirms; Microsoft assesses Storm-0940 (China-state aligned) responsible; most targeting failed; Huntress: unauthorised sign-ins at 162 tenants it monitors</span>
-            <span class="ops-tag kev-off">No CVE &mdash; abuse of a vendor&rsquo;s cloud-application identities (supply chain)</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; affected app connections kept disabled; ConnectWise restoring in phases from 21 Oct</span>
-            <span class="ops-cc"><b>Action:</b> Ask your IT provider whether your Microsoft&nbsp;365 tenant is, or was, connected to ConnectWise Cloud Backup, SaaS Security or Cloud Management (formerly SkyKick). If it is, keep those app connections disabled until ConnectWise&rsquo;s restoration instructions say otherwise, but do not delete the enterprise apps first &mdash; Microsoft says they hold the evidence. Review sign-ins by those applications back to 1&nbsp;October, and look for new credentials or owners on app registrations, new consents and privileged role changes such as Exchange Administrator. Remove anything nobody can explain and rotate any secrets the apps could read.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure confirmed with your IT provider &mdash; 24h; sign-in and app-registration review back to 1 Oct &mdash; 72h; unexplained credentials and roles removed &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-connectwise-storm-0940" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-connectwise-storm-0940">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>No CVE &mdash; supply-chain compromise</span>
-          <span>ConnectWise Cloud Backup (formerly SkyKick) app identities &bull; Microsoft&nbsp;365 tenants &bull; sign-in attempts against more than 2,250 tenants (Microsoft) &bull; ARTEX multi-agent AI penetration-testing framework &bull; think tanks and non-profits among targeted sectors</span>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Threat Intelligence; ConnectWise via CyberScoop and Cybersecurity Dive; Huntress via BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Activity first detected by ConnectWise 14 Oct; password spray 10&ndash;14 Oct; services suspended 17 Oct; Microsoft attribution 21 Oct; phased restoration from 21 Oct; CEO update 22 Oct 2026</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
 
       <div class="card" id="it-dreamhost-password-resets" data-published="2026-10-25">
         <div class="card-header">
@@ -1653,40 +1667,6 @@
         <a href="https://bleepingcomputer.com/news/security/police-dismantles-gootloader-castlerat-stealc-malware-infrastructure" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-serengeti-iii" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Law enforcement</span>
-        </div>
-        <h3>Interpol&rsquo;s Serengeti III arrests 1,462 people across Africa and recovers about $105 million from fraud, business-email-compromise and ransomware gangs</h3>
-        <p>Interpol announced on 22&nbsp;October the results of Serengeti III, its annual operation with 20 African countries and the United States against online fraud, ransomware and business email compromise. Police made 1,462 arrests, recovered more than $105 million, disrupted more than 10,000 malicious networks and identified just under 66,000 victims with combined losses above $385 million. Cases included investment-scam call centres in Uganda, where 365 foreign nationals were arrested; a Nigerian phishing and business-email-compromise suspect who had harvested about 2.1 million email addresses; and illegal crypto-mining sites in Angola. Interpol says several investigations remain open, and no charity victims are named. Business email compromise and payment-diversion fraud reach charities the same way they reach any organisation that pays suppliers and grantees by bank transfer (editorial assessment), and quick reporting is what makes recoveries like these possible.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Law-enforcement action &mdash; arrests and recoveries announced by Interpol; not a new attack; investigations continue</span>
-            <span class="ops-tag kev-off">No CVE &mdash; fraud, business-email-compromise and ransomware operations</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; payment-verification and reporting controls</span>
-            <span class="ops-cc"><b>Action:</b> Use the news as a prompt to check payment controls: confirm any change to a supplier&rsquo;s or grantee&rsquo;s bank details by phoning a number you already hold, never one given in the email; require two people to approve new payees and large transfers; and make sure finance staff&rsquo;s email accounts use multi-factor authentication. If your organisation loses money to fraud, report it to your bank and the police at once.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Call-back rule for bank-detail changes &mdash; 14 days; dual approval for new payees &mdash; 30 days; MFA on finance mailboxes &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-serengeti-iii" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-serengeti-iii">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>No CVE &mdash; Interpol-coordinated operation</span>
-          <span>1,462 arrests &bull; more than $105M recovered &bull; more than 10,000 malicious networks disrupted &bull; about 66,000 victims, more than $385M in losses &bull; 20 African countries and the US</span>
-        </div>
-        <div class="card-meta">
-          <span>Interpol via The Record</span>
-          <span class="dot">&bull;</span>
-          <span>Operation ran in 2026; results announced 22 Oct 2026</span>
-        </div>
-        <a href="https://therecord.media/africa-cybercrime-interpol-arrests" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
@@ -1832,6 +1812,73 @@
           <span>Chained since at least 1 Oct; patches reported 2 Nov 2026</span>
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-nginx2root" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>nginx2root: five nginx flaws, the worst an unauthenticated remote-code bug in HTTP/2 that can be chained to full root on Linux &mdash; ask your web host whether they have upgraded</h3>
+        <p>Researchers disclosed five flaws in nginx, the web server behind a large share of charity websites, donation pages and hosting panels, with the worst rated CVSS 4.0 9.2. <strong>CVE-2026-123007</strong> allows unauthenticated remote code execution through HTTP/2 flow control and affects nginx 1.9.5 to 1.31.8. Chained with a Linux SCTP kernel bug, it can give an attacker root on the host. Fixes are in nginx 1.31.9 and 1.30.7, and NGINX Plus 37.3.0.1 and 37.0.8.1. No exploitation has been reported and it is not in CISA KEV. A configuration reload keeps the old binary running, so nginx must be fully restarted after upgrading. Most nonprofits do not run nginx themselves: the question is whether your web host, agency or hosting provider has updated (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; nginx 1.31.9 / 1.30.7; NGINX Plus 37.3.0.1 / 37.0.8.1; full restart required (reload keeps old binary)</span>
+            <span class="ops-cc"><b>Action:</b> Ask your web host or agency in writing whether they have upgraded nginx and fully restarted it. If you run your own server, upgrade and restart now; as a stopgap, turn off HTTP/2 until you can.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Host or agency asked &mdash; 48h; upgraded and restarted &mdash; 7 days; HTTP/2 disabled as stopgap if not &mdash; 48h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nginx2root" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nginx2root">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-123007</span>
+          <span>nginx 1.9.5&ndash;1.31.8 &bull; five flaws &bull; CVSS 4.0 9.2 &bull; chain with Linux SCTP kernel bug to root &bull; not exploited, not in KEV</span>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Published 19 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-sonicwall-gen6" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>SonicWall Gen 6 firewalls get no more security patches, even for critical flaws &mdash; and SonicWall expects internet-facing units to be targeted</h3>
+        <p>SonicWall says its Gen 6 firewalls running SonicOS 6.x (TZ, SOHO, NSA, NSa, NSv, SuperMassive and NSsp) will no longer receive security patches, even for critical flaws, and it expects internet-facing Gen 6 devices to be actively targeted. Its advice is to migrate to Gen 8. Until then, turn off management from the WAN, restrict or disable SSL VPN, require MFA, and reset local passwords. This is not a report of a new attack: it is an end-of-support warning. Small charity offices often run older or donated SonicWall units that nobody has looked at in years, which makes this worth checking now (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No specific exploitation reported &mdash; SonicWall expects internet-facing Gen 6 units to be targeted</span>
+            <span class="ops-tag kev-off">No CVE &mdash; end of security support</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No more patches &mdash; migrate to Gen 8; meanwhile disable WAN management, restrict SSL VPN, MFA, reset local passwords</span>
+            <span class="ops-cc"><b>Action:</b> Find out whether your office firewall is a SonicWall TZ, SOHO, NSA or similar running SonicOS 6.x. If it is, turn off WAN management, limit or switch off SSL VPN, turn on MFA, reset local passwords, and budget for a replacement.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Firewall model checked &mdash; 7 days; WAN management off and passwords reset &mdash; 7 days; replacement planned &mdash; 90 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sonicwall-gen6" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sonicwall-gen6">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SonicWall Gen 6 &bull; SonicOS 6.x &bull; TZ, SOHO, NSA, NSa, NSv, SuperMassive, NSsp &bull; end of security patches</span>
+        </div>
+        <div class="card-meta">
+          <span>SonicWall via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Published 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-synology-c3rb3r" data-published="2026-11-02">
@@ -2040,6 +2087,74 @@
           <span>Apple fix 28 Sep 2026; KEV addition 29 Sep (deadline 13 Oct, passed); fix for older devices 26 Oct 2026; reported 27 Oct</span>
         </div>
         <a href="https://support.apple.com/en-us/100100" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-ruby2shell" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Ruby2Shell: Ruby patches a heap overflow that default Rails and Sinatra apps expose without login &mdash; Discourse, Mastodon and Chatwoot already fixed</h3>
+        <p>Ruby&rsquo;s 18&nbsp;November advisory fixes seven flaws, including <strong>CVE-2026-132825</strong> (CVSS 7.4), a heap overflow in string case conversion for single-byte encodings. Veria Labs, which found it, says default Rails and classic Sinatra apps can be reached without authentication; watchTowr says turning it into code execution is hard and denial of service is the likelier outcome. No in-the-wild exploitation is reported. Discourse&rsquo;s base image, Mastodon, Chatwoot, GitLab and OpenProject have already shipped fixes; GitHub Enterprise Server is affected. Fixed Ruby versions are 4.0.10, 3.4.13 and 3.3.14. Many nonprofits self-host community forums, Mastodon servers and help desks on exactly these apps (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; watchTowr: code execution hard, denial of service likelier</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; Ruby 4.0.10 / 3.4.13 / 3.3.14; Discourse, Mastodon, Chatwoot, GitLab, OpenProject updated</span>
+            <span class="ops-cc"><b>Action:</b> If you self-host Discourse, Mastodon, Chatwoot, GitLab or OpenProject, update to the latest release. For your own Ruby apps, upgrade Ruby and redeploy. If a vendor or volunteer runs these for you, ask them to confirm.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Self-hosted apps updated &mdash; 7 days; custom Ruby apps upgraded &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ruby2shell" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ruby2shell">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-132825</span>
+          <span>Ruby string case conversion &bull; CVSS 7.4 &bull; seven flaws fixed 18 Nov &bull; GitHub Enterprise Server affected &bull; not exploited</span>
+        </div>
+        <div class="card-meta">
+          <span>Ruby; Veria Labs; watchTowr via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Advisory 18 Nov; published 20 Nov 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-gpgme-129975" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>GnuPG warns of a GPGME double-free triggered by a malicious OpenPGP key &mdash; matters to advocacy and human-rights groups that rely on encrypted email</h3>
+        <p>GnuPG disclosed <strong>CVE-2026-129975</strong>, a double free in the GPGME library triggered by a malicious OpenPGP key with a long user ID. All software that uses GPGME before 2.3.0 is affected, including mail clients, XMPP chat clients, Samba and Gpg4win. Fixes are in GPGME 2.3.1 and 1.24.4 and Gpg4win 5.1.2; applications that bundle or statically link their own copy need their own updates. No attacks are reported, but GnuPG has not ruled out remote code execution. Human-rights, advocacy and journalism-support groups that use PGP email are the nonprofits most exposed, since a hostile key can arrive by email or from a keyserver (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No attacks reported &mdash; remote code execution not ruled out</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; GPGME 2.3.1 / 1.24.4; Gpg4win 5.1.2; bundled or static copies need their own updates</span>
+            <span class="ops-cc"><b>Action:</b> If staff use PGP email or encrypted chat, update Gpg4win and the mail or chat client now, and ask vendors of any tool that bundles GPGME for a fixed build. Be wary of importing keys from unknown senders until updated.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Gpg4win and clients updated &mdash; 7 days; bundled copies confirmed &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gpgme-129975" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gpgme-129975">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-129975</span>
+          <span>GnuPG GPGME before 2.3.0 &bull; double free via long OpenPGP user ID &bull; mail and XMPP clients, Samba, Gpg4win &bull; not exploited</span>
+        </div>
+        <div class="card-meta">
+          <span>GnuPG via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Published 21 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-fortinet-nov26" data-published="2026-11-10">

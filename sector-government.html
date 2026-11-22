@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,7 +783,7 @@
       <h1>IT Threat Intel for Government &amp; Public Sector</h1>
       <div class="header-sub">Federal, state &amp; local, and the defense industrial base.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:09 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Government IT</span>
       </div>
@@ -820,15 +826,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Government sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a single issue actively impacting a large portion of IT environments. Current: 6.6 &mdash; Medium.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Government sector, under the same rubric as the main IT dashboard. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires a single issue actively impacting a large portion of IT environments. Current: 6.7 &mdash; Medium.">
+    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.6 (Medium):</b> Several exploited flaws in products agencies run and two confirmed public-body outages, but each is a discrete patch-and-hunt job; nothing confirmed is hitting a large share of government networks, so capped below High.<br><b>Top threat:</b> vCenter zero-day CVE-2026-123890, used by China-nexus Armory Castle; federal KEV deadline 23 Nov.<br><b>Confirmed breaches:</b> West Virginia Legislature; South Portland, Maine; Check Point gateway intrusions at about two dozen customers.<br><b>Also watching:</b> Ivanti VPN chain; Expressway; MSP tools (ScreenConnect, N-central); CISA 2015 expiry 11 Dec.<br><b>What would raise it:</b> Confirmed mass compromise of agency vCenter, VPN or MSP-managed networks.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:67.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.7 (Medium):</b> More exploited flaws in tools agencies run and more confirmed attacks on public bodies, but each is a discrete patch-and-hunt job; nothing confirmed is hitting a large share of government networks, so capped below High.<br><b>Top threat:</b> vCenter zero-day CVE-2026-123890 used by China-nexus Armory Castle; federal KEV deadline 23 Nov.<br><b>Confirmed breaches:</b> European Commission (AI-assisted, services disrupted); Austrian Foreign Ministry website; West Virginia Legislature; South Portland, Maine; Check Point gateways.<br><b>Also watching:</b> Puppet RCE in KEV (due 1 Dec); Ivanti VPN chain; Expressway; MSP tools; stolen Login.gov and ID.me logins.<br><b>What would raise it:</b> Confirmed mass compromise of agency vCenter, VPN or MSP-managed networks.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -875,7 +881,7 @@
         <h2>VMware vCenter zero-day CVE-2026-123890 was exploited by China-nexus Armory Castle for about two months before a fix &mdash; the same group used the BeyondTrust Remote Support zero-day, and federal agencies must patch by 23&nbsp;November</h2>
         <p>Broadcom&rsquo;s VMSA-2026-0009 fixes CVE-2026-123890, an authentication bypass in the VMware Directory Service component of vCenter rated CVSS 9.8. Mandiant and Google&rsquo;s Threat Intelligence Group (GTIG) confirmed that the China-nexus group Armory Castle (formerly tracked as UNC5221) has exploited it since early September 2026, before any patch existed. Its BONESAW tool pulls data from vCenter, hijacks the SAML security token service (STS) and creates administrator accounts. GTIG links the campaign to the group&rsquo;s use of BeyondTrust Remote Support CVE-2026-102764 (<a href="#it-beyondtrust-102764">covered in Threat Intelligence</a>). Fixed releases are vCenter 8.0 U3m and VMware Cloud Foundation 9.1.1.0200, 9.0.2.0200 and 5.2.5; vCenter 7.0 customers must contact Broadcom, and there is no workaround. CISA added the flaw to its Known Exploited Vulnerabilities (KEV) catalog on 20&nbsp;November with a 23&nbsp;November deadline for federal civilian agencies (<a href="#it-kev-nov20">KEV batch covered in Critical Advisories</a>). No victim organisation has been named.</p>
         <p><b>Why it matters.</b> vCenter manages the virtual servers most agencies run on, and an attacker who controls its single sign-on can mint administrator access to the whole estate. A state actor exploiting it for two months before disclosure means patching alone does not answer whether you were already compromised (editorial assessment).</p>
-        <p><b>Why it leads.</b> It is an actively exploited flaw in a product nearly every agency runs, with a confirmed state-backed actor and a three-day federal deadline. It leads over the West Virginia Legislature attack (<a href="#it-wv-legislature">covered in Incidents</a>) and the Check Point gateway wiper intrusions (<a href="#it-checkpoint-gateway-wiper">covered in Incidents</a>), which are confirmed but narrower in reach.</p>
+        <p><b>Why it leads.</b> It is an actively exploited flaw in a product nearly every agency runs, with a confirmed state-backed actor and a three-day federal deadline. It leads over the European Commission&rsquo;s AI-assisted attack (<a href="#it-ec-ai-cyberattack">covered in Incidents</a>), the West Virginia Legislature attack (<a href="#it-wv-legislature">covered in Incidents</a>) and the Check Point gateway wiper intrusions (<a href="#it-checkpoint-gateway-wiper">covered in Incidents</a>), which are confirmed but narrower in reach.</p>
         <div class="ops-strip">
           <div class="ops-row">
             <span class="ops-tag ex-active"><span class="d"></span>Exploited &mdash; Armory Castle since early Sep 2026, before the patch (Mandiant/GTIG); no victims named</span>
@@ -933,15 +939,15 @@
         <a href="#it-ivanti-ics-chain"><circle class="blip crit" cx="105.1" cy="220.3" r="11.0"/><text class="blip-num" style="font-size:10.4px" x="105.1" y="223.7">5</text></a>
         <a href="#it-barracuda-esg"><circle class="blip crit" cx="101.8" cy="146.6" r="10.0"/><text class="blip-num" style="font-size:9.5px" x="101.8" y="149.7">6</text></a>
         <a href="#it-nable-4everable2shell"><circle class="blip crit" cx="157.4" cy="98.1" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="157.4" y="100.8">7</text></a>
-        <a href="#it-wv-legislature"><circle class="blip high" cx="180.0" cy="40.0" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="180.0" y="42.8">8</text></a>
-        <a href="#it-south-portland"><circle class="blip high" cx="270.0" cy="72.8" r="8.7"/><text class="blip-num" style="font-size:8.2px" x="270.0" y="75.4">9</text></a>
-        <a href="#it-turla-cereal"><circle class="blip high" cx="317.9" cy="155.7" r="8.4"/><text class="blip-num" style="font-size:8.0px" x="317.9" y="158.3">10</text></a>
-        <a href="#it-silentair-ss7"><circle class="blip high" cx="301.2" cy="250.0" r="8.1"/><text class="blip-num" style="font-size:7.7px" x="301.2" y="252.5">11</text></a>
-        <a href="#it-outlook-124194"><circle class="blip high" cx="227.9" cy="311.6" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="227.9" y="314.0">12</text></a>
-        <a href="#it-kev-nov18"><circle class="blip high" cx="132.1" cy="311.6" r="7.5"/><text class="blip-num" style="font-size:7.1px" x="132.1" y="313.9">13</text></a>
-        <a href="#it-chainalysis-credentials"><circle class="blip high" cx="58.8" cy="250.0" r="7.2"/><text class="blip-num" style="font-size:6.8px" x="58.8" y="252.2">14</text></a>
-        <a href="#it-bell-agentic"><circle class="blip high" cx="42.1" cy="155.7" r="6.9"/><text class="blip-num" style="font-size:6.5px" x="42.1" y="157.8">15</text></a>
-        <a href="#it-cisa2015-deadline"><circle class="blip high" cx="90.0" cy="72.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="90.0" y="74.8">16</text></a>
+        <a href="#it-ec-ai-cyberattack"><circle class="blip high" cx="180.0" cy="40.0" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="180.0" y="42.8">8</text></a>
+        <a href="#it-wv-legislature"><circle class="blip high" cx="270.0" cy="72.8" r="8.7"/><text class="blip-num" style="font-size:8.2px" x="270.0" y="75.4">9</text></a>
+        <a href="#it-south-portland"><circle class="blip high" cx="317.9" cy="155.7" r="8.4"/><text class="blip-num" style="font-size:8.0px" x="317.9" y="158.3">10</text></a>
+        <a href="#it-turla-cereal"><circle class="blip high" cx="301.2" cy="250.0" r="8.1"/><text class="blip-num" style="font-size:7.7px" x="301.2" y="252.5">11</text></a>
+        <a href="#it-silentair-ss7"><circle class="blip high" cx="227.9" cy="311.6" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="227.9" y="314.0">12</text></a>
+        <a href="#it-outlook-124194"><circle class="blip high" cx="132.1" cy="311.6" r="7.5"/><text class="blip-num" style="font-size:7.1px" x="132.1" y="313.9">13</text></a>
+        <a href="#it-kev-nov18"><circle class="blip high" cx="58.8" cy="250.0" r="7.2"/><text class="blip-num" style="font-size:6.8px" x="58.8" y="252.2">14</text></a>
+        <a href="#it-chainalysis-credentials"><circle class="blip high" cx="42.1" cy="155.7" r="6.9"/><text class="blip-num" style="font-size:6.5px" x="42.1" y="157.8">15</text></a>
+        <a href="#it-bell-agentic"><circle class="blip high" cx="90.0" cy="72.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="90.0" y="74.8">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-vcenter-123890"><span class="ld crit"></span><b>1</b> vCenter zero-day, KEV due 23 Nov</a>
@@ -951,21 +957,63 @@
         <a href="#it-ivanti-ics-chain"><span class="ld crit"></span><b>5</b> Ivanti VPN zero-day chain</a>
         <a href="#it-barracuda-esg"><span class="ld crit"></span><b>6</b> Barracuda email gateway exploited</a>
         <a href="#it-nable-4everable2shell"><span class="ld crit"></span><b>7</b> N-central MSP servers hijacked</a>
-        <a href="#it-wv-legislature"><span class="ld high"></span><b>8</b> West Virginia Legislature attacked</a>
-        <a href="#it-south-portland"><span class="ld high"></span><b>9</b> South Portland, Maine shuts network</a>
-        <a href="#it-turla-cereal"><span class="ld high"></span><b>10</b> Turla Cereal: Exchange espionage</a>
-        <a href="#it-silentair-ss7"><span class="ld high"></span><b>11</b> SilentAir SS7 vs Taiwan officials</a>
-        <a href="#it-outlook-124194"><span class="ld high"></span><b>12</b> Outlook zero-day leaks NTLM</a>
-        <a href="#it-kev-nov18"><span class="ld high"></span><b>13</b> KEV 18 Nov: REDCap, Synology</a>
-        <a href="#it-chainalysis-credentials"><span class="ld high"></span><b>14</b> Chainalysis tokens reportedly exposed</a>
-        <a href="#it-bell-agentic"><span class="ld high"></span><b>15</b> Bell &ldquo;agentic&rdquo; breach</a>
-        <a href="#it-cisa2015-deadline"><span class="ld high"></span><b>16</b> CISA 2015 expires 11 Dec</a>
+        <a href="#it-ec-ai-cyberattack"><span class="ld high"></span><b>8</b> EU Commission AI-assisted attack</a>
+        <a href="#it-wv-legislature"><span class="ld high"></span><b>9</b> West Virginia Legislature attacked</a>
+        <a href="#it-south-portland"><span class="ld high"></span><b>10</b> South Portland, Maine shuts network</a>
+        <a href="#it-turla-cereal"><span class="ld high"></span><b>11</b> Turla Cereal: Exchange espionage</a>
+        <a href="#it-silentair-ss7"><span class="ld high"></span><b>12</b> SilentAir SS7 vs Taiwan officials</a>
+        <a href="#it-outlook-124194"><span class="ld high"></span><b>13</b> Outlook zero-day leaks NTLM</a>
+        <a href="#it-kev-nov18"><span class="ld high"></span><b>14</b> KEV 18 Nov: REDCap, Synology</a>
+        <a href="#it-chainalysis-credentials"><span class="ld high"></span><b>15</b> Chainalysis tokens reportedly exposed</a>
+        <a href="#it-bell-agentic"><span class="ld high"></span><b>16</b> Bell &ldquo;agentic&rdquo; breach</a>
       </div>
     </div>
 
   </div>
 
   
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Edge &amp; Management</span>
+        <b class="trend-head">Attackers are going after the systems that manage everything else</b>
+        <p>The biggest government risks this week sit in management and perimeter tools. China-nexus Armory Castle used a vCenter zero-day and a BeyondTrust Remote Support zero-day in one campaign, Check Point gateways were the way in for intrusions that ended with a wiper on ESXi hosts, and MSP tools such as ScreenConnect and N-central were abused to reach customer networks. A newly listed Puppet flaw fits the pattern: one configuration server can reach the whole fleet. See the top story and Incidents &amp; Attacks. Takeaway: put vCenter, remote-support, gateway and Puppet consoles on a management-only network and hunt for admin accounts nobody created.</p>
+        <a href="https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter" class="source-link" target="_blank" rel="noopener">Rapid7</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Patching</span>
+        <b class="trend-head">Three-day federal deadlines are now routine</b>
+        <p>CISA&rsquo;s 20 November KEV batch (Cisco Expressway, vCenter, Apache Roller and SAP NetWeaver) is due 23 November, the third batch this month with a three-day window. Puppet Enterprise and Puppet Core CVE-2026-115731 joined KEV on 17 November with a 1 December deadline. Installing the fix is not always the end of the job: Puppet Server must be restarted, and vCenter 7.0 customers have to contact Broadcom. See Critical Advisories. Takeaway: keep a standing weekend patch process for internet-facing systems, and confirm each fix took effect.</p>
+        <a href="https://securityaffairs.com/203639/security/u-s-cisa-adds-cisco-expressway-sap-netweaver-broadcom-vmware-vcenter-and-apache-roller-flaws-to-its-known-exploited-vulnerabilities-catalog.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Public-Body Outages</span>
+        <b class="trend-head">Attacks on public bodies are hitting back-office and public-facing services alike</b>
+        <p>The West Virginia Legislature lost its website and some IT systems from 19 November; South Portland, Maine shut its network; and the European Commission confirmed an AI-assisted attack that kept HR, payroll and medical-reimbursement systems offline for more than ten days, per Politico. The Record cites Comparitech figures of 132 ransomware attacks on US government bodies in the third quarter, up 91% on a year earlier. See Incidents &amp; Attacks. Takeaway: test manual fallbacks for payroll, HR and public notices, not only for the website.</p>
+        <a href="https://therecord.media/west-virginia-legislature-cyberattack" class="source-link" target="_blank" rel="noopener">The Record</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Identity &amp; Staff Data</span>
+        <b class="trend-head">Staff directories and stolen sessions are the raw material for the next intrusion</b>
+        <p>Austria&rsquo;s Foreign Ministry confirmed that records listing names and work contact details of headquarters and embassy staff were viewed through its contractor-run website. Hunt.io found a credential-theft crew holding logins from 603 infected PCs, including 46 people with ID.me or Login.gov accounts, and two Microsoft 365 tenants taken over with stolen session cookies; the agencies themselves were not breached. See Incidents &amp; Attacks and Threat Intelligence. Takeaway: expect targeted phishing against named staff, and revoke sessions, not just passwords, when a device looks infected.</p>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">Attackers are using AI tools against government targets</b>
+        <p>The European Commission says the attackers who disrupted its staff systems used &ldquo;a publicly available AI tool&rdquo;; Politico reports CERT-EU identified it as ARTEX, which the Commission has not confirmed. No actor has been named and the Commission says there is no evidence staff data was breached generally. See Incidents &amp; Attacks. Takeaway: AI speeds attackers up but does not change the basics, so detection on internal and back-office systems matters as much as on the perimeter.</p>
+        <a href="https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
@@ -999,6 +1047,67 @@
           <span>First wave 30 Oct &bull; wider wave 2 Nov &bull; KEV 13 Nov 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ec-ai-cyberattack" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Incident</span>
+        </div>
+        <h3>The European Commission confirms an AI-assisted cyberattack that disrupted staff HR, payroll and medical-reimbursement systems &mdash; no confirmed breach of staff data and no actor named</h3>
+        <p>Commission spokesperson Thomas Regnier confirmed on 19&nbsp;November that the Commission was hit by a cyberattack in which the attackers used &ldquo;a publicly available AI tool&rdquo;, The Record and SecurityWeek report. First signs appeared on 22&nbsp;October and the attack was confirmed on 26&nbsp;October. Several applications were taken offline as a precaution. Politico reports more than ten days of disruption to the Sysper HR system, the MyPMO medical-reimbursement service, translation tools and payroll and leave systems, and says Sysper went down again on 18&nbsp;November. Politico also reports that CERT-EU identified the tool as ARTEX; the Commission has not named it. The Commission says there is no evidence of a breach of staff data generally, and Politico&rsquo;s claim of a large data compromise is unconfirmed. No ransom demand is known and no actor has been attributed. It is the Commission&rsquo;s third disclosed cyber incident this year, after an Ivanti-related incident in January and a cloud incident in March.</p>
+        <p><b>Why it matters.</b> The attack hit the back-office systems that pay and support staff rather than public-facing services, and it ran for weeks before it was disclosed. Public bodies should plan continuity for HR, payroll and benefits systems, not only for their websites (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; attack confirmed by the Commission (19 Nov 2026); attackers used a public AI tool; no actor named; data-compromise claim unconfirmed</span>
+            <span class="ops-tag kev-off">No CVE &mdash; access route not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; applications taken offline as a precaution</span>
+            <span class="ops-cc"><b>Action:</b> Check that HR, payroll and benefits applications have manual fallback procedures and are monitored as closely as internet-facing systems. Warn staff to expect phishing that refers to the outage.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Back-office continuity check &mdash; 14 days; staff phishing warning &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ec-ai-cyberattack" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ec-ai-cyberattack">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>European Commission spokesperson (via The Record, SecurityWeek) &bull; Politico</span>
+          <span class="dot">&bull;</span>
+          <span>First signs 22 Oct &bull; confirmed 26 Oct &bull; disclosed 19 Nov 2026</span>
+        </div>
+        <a href="https://therecord.media/european-commission-confirms-cyberattack-using-ai" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/" class="source-link" target="_blank" rel="noopener">SecurityWeek report</a>
+      </div>
+      <div class="card" id="it-austria-mfa-website" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Data Breach</span>
+        </div>
+        <h3>Austria&rsquo;s Foreign Ministry confirms unauthorized access to its externally run website &mdash; names and work contact details of headquarters and embassy staff were viewed</h3>
+        <p>Austria&rsquo;s Foreign Ministry confirmed unauthorized access on 12&ndash;13&nbsp;November to its website, which is run by an external service provider, Security Affairs reports. The intrusion was detected on 13&nbsp;November. Records listing the names and work contact details of staff at headquarters and at diplomatic missions were viewed; the ministry has not said how many, or whether they were copied. No citizens&rsquo; data was affected. The access happened during a global Microsoft outage, but no link has been established. The attacker has not been named. The ministry reported the incident to Austria&rsquo;s Federal Office for Cyber Security and to the data protection authority.</p>
+        <p><b>Why it matters.</b> A directory of diplomats and their contact details is ready-made material for spear-phishing and impersonation. Agencies whose website is run by a contractor should know exactly which internal data that site can reach (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; unauthorized access to ministry website 12&ndash;13 Nov 2026; staff contact records viewed; copying not disclosed; attacker not named</span>
+            <span class="ops-tag kev-off">No CVE &mdash; access route not disclosed</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; reported to the national cyber office and data protection authority</span>
+            <span class="ops-cc"><b>Action:</b> List which staff data your public website and its hosting provider can reach, and remove directories that do not need to be public. Warn international-affairs and embassy staff to expect targeted phishing that uses their name and role.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Website data-exposure review &mdash; 14 days; staff phishing warning &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-austria-mfa-website" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-austria-mfa-website">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Austrian Foreign Ministry (via Security Affairs)</span>
+          <span class="dot">&bull;</span>
+          <span>Access 12&ndash;13 Nov &bull; detected 13 Nov &bull; reported 21 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203680/hacking/cyberattack-on-austrian-foreign-ministry-exposes-diplomatic-staff-data.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-wv-legislature" data-published="2026-11-20">
         <div class="card-header">
@@ -1067,7 +1176,7 @@
           <span class="category">Campaign</span>
         </div>
         <h3>ScreenConnect partner attacks breach managed service providers and dozens of their customers &mdash; ConnectWise disables five third-party extensions across about 400 partner environments</h3>
-        <p>Huntress saw a spike on 13&nbsp;November in attacks that abused ScreenConnect&rsquo;s Run Command feature to install rogue remote-access clients. Counts differ: The Hacker News reports 205 hosts at 41 organisations; BleepingComputer reports six MSPs, 286 endpoints and 47 organisations and rising. The suspected entry point is an authentication flaw in the third-party RMM+ extension (versions 1.0.31 and 1.0.32, no CVE). ConnectWise disabled five extensions (Labtech Plus, RMM Plus, RMM+ and two Password Link variants) across about 400 partner environments. A worm-like toolkit, SCKit, can also abuse ScreenConnect CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), but there is no evidence it was used in this campaign. Persistence used a fake &ldquo;Windows Update Agent&rdquo; service, UpdateConnect.ClientService.exe. The campaign is unattributed and The Hacker News does not link it to Storm-0940 (<a href="#it-storm-0940-artex">covered in Threat Intelligence</a>).</p>
+        <p>Huntress saw a spike on 13&nbsp;November in attacks that abused ScreenConnect&rsquo;s Run Command feature to install rogue remote-access clients. Counts differ: The Hacker News reports 205 hosts at 41 organisations; BleepingComputer reports six MSPs, 286 endpoints and 47 organisations and rising. The suspected entry point is an authentication flaw in the third-party RMM+ extension (versions 1.0.31 and 1.0.32, no CVE). ConnectWise disabled five extensions (Labtech Plus, RMM Plus, RMM+ and two Password Link variants) across about 400 partner environments. A worm-like toolkit, SCKit, can also abuse ScreenConnect CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), but there is no evidence it was used in this campaign. Persistence used a fake &ldquo;Windows Update Agent&rdquo; service, UpdateConnect.ClientService.exe. The campaign is unattributed, and The Hacker News does not link it to Storm-0940, the China-aligned group Microsoft blamed in October for the ConnectWise Cloud Backup compromise.</p>
         <p><b>Why it matters.</b> Many towns, counties and school districts rely on an MSP for IT, so a compromised MSP reaches them without touching their own perimeter (editorial assessment).</p>
         <div class="ops-strip">
           <div class="ops-row">
@@ -1253,66 +1362,6 @@
         <a href="https://www.flnb.uscourts.gov/news" class="source-link" target="_blank" rel="noopener">N.D. Florida notices</a>
         <a href="https://cybernews.com/security/us-bankruptcy-courts-cyberattack-bae-systems/" class="source-link" target="_blank" rel="noopener">Cybernews</a>
       </div>
-      <div class="card" id="it-columbia-sc-outage" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Columbia, South Carolina, shuts down city systems after its IT team finds suspicious activity &mdash; police, fire, 911 and water keep running, and state police are leading the investigation</h3>
-        <p>The City of Columbia told Recorded Future News, in a report published on 22&nbsp;October, that its IT department had identified suspicious activity and called in the South Carolina Law Enforcement Division (SLED), which is leading the investigation. Several systems were shut down, including MyColaSC &mdash; the portal residents use to pay utility bills and report non-emergency problems &mdash; geographic information systems and the systems behind animal services, and residents were asked to phone in potholes, fallen trees and broken streetlights. The city says &ldquo;critical public safety and utility systems remain operational&rdquo;: Columbia Police, Columbia-Richland Fire, 911 communications, Columbia Water systems and the Payment Center, including its online payments. The city did not say whether it is dealing with ransomware, no group had claimed the attack as of 21&nbsp;October, and SLED declined to comment. When the activity began has not been disclosed. As of 28&nbsp;October no further city statement had been found, and the city&rsquo;s website carried no incident notice.</p>
-        <p><b>Why it matters.</b> Columbia is South Carolina&rsquo;s capital, and the pattern matches Vicksburg, Mississippi in early October: the resident-facing portal goes offline first while emergency and water operations keep running. Keeping those services separate from a city&rsquo;s general IT is what lets it shut systems down quickly without stopping 911 or water (editorial assessment).</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; city statement (reported 22 Oct 2026): suspicious activity, several systems shut down, SLED investigating; ransomware not confirmed; no claim as of 21 Oct; no further city statement found as of 28 Oct</span>
-            <span class="ops-tag kev-off">No CVE &mdash; access route not disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; affected systems offline while the investigation continues</span>
-            <span class="ops-cc"><b>Action:</b> Cities and counties: confirm you can take resident portals, GIS and other general IT offline without touching 911, public-safety or water systems, and test that separation rather than assuming it. Prepare phone and paper fallbacks for service requests and bill payments, and a holding statement that says which services are unaffected. Agree in advance which state agency leads an investigation and how to reach it out of hours.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Separation check between general IT and 911/utility systems &mdash; 14 days; state-agency contact list &mdash; 7 days; service-request and payment fallbacks &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-columbia-sc-outage" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-columbia-sc-outage">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>City of Columbia statement (via The Record)</span>
-          <span class="dot">&bull;</span>
-          <span>Systems shut down Oct 2026 &bull; reported 22 Oct 2026</span>
-        </div>
-        <a href="https://therecord.media/south-carolina-officials-offer-assistance-cyber-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-alabama-nursing-board" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Ransomware</span>
-        </div>
-        <h3>Alabama&rsquo;s Board of Nursing restores online licence renewals after an August ransomware attack in which data was &ldquo;collected and downloaded&rdquo; &mdash; Social Security numbers and medical information among what may be exposed</h3>
-        <p>According to al.com reporting republished by GovTech on 22&nbsp;October, the Alabama Board of Nursing was hit by ransomware in August and moved to paper applications. The board says forensic work found data was &ldquo;collected and downloaded&rdquo;, and that it may include names, dates of birth, Social Security numbers, driver&rsquo;s licence numbers, licensing information and medical information for nurses, applicants and members of the public who dealt with the board. Alabama has more than 97,000 licensed nurses, but no count of people affected has been given. Registered-nurse renewals are back online on a new system, and about 60,000 single-state licence holders must still renew by 1&nbsp;December, with no extension. The state Office of Information Technology is working with the FBI and the Alabama Law Enforcement Agency. No group has been named and the exact attack date has not been given.</p>
-        <p><b>Why it matters.</b> Licensing boards hold identity, health and disciplinary data on whole professions and run renewals on statutory deadlines, so an outage becomes a backlog the board cannot simply extend. Six weeks on paper is what recovery costs when the licensing system cannot be restored quickly.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; ransomware (Aug 2026) and data downloaded, per the board; renewals restored on a new system (reported 22 Oct 2026); no group named</span>
-            <span class="ops-tag kev-off">No CVE &mdash; access route not disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; new licensing system in place; no count of people affected yet</span>
-            <span class="ops-cc"><b>Action:</b> State licensing boards and agencies with online renewal systems: confirm you can restore the licensing platform from offline backups within the renewal calendar, and keep a manual process ready for statutory deadlines. Review what medical and identity data the system keeps after a decision is made and remove what is no longer needed. Warn licensees about phishing that uses the incident or the renewal deadline as a lure.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Licensee phishing warning &mdash; 7 days; restore test for the licensing system &mdash; 30 days; data-retention review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-alabama-nursing-board" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-alabama-nursing-board">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Alabama Board of Nursing statements (via al.com / GovTech)</span>
-          <span class="dot">&bull;</span>
-          <span>Attack Aug 2026 &bull; renewals restored, reported 22 Oct 2026</span>
-        </div>
-        <a href="https://www.govtech.com/security/alabama-resumes-online-nurse-licensing-after-cyber-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
       <div class="card" id="it-toronto-crime-stoppers" data-published="2026-10-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1475,6 +1524,36 @@
         </div>
         <a href="https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="it-hunt-credential-loot" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Threat Intelligence</span>
+        </div>
+        <h3>An exposed loot server shows a Russian-speaking credential-theft crew holding US government and bank logins from 603 infected PCs &mdash; 46 victims had federal identity or benefit accounts such as ID.me and Login.gov</h3>
+        <p>Hunt.io found an exposed open directory on a VPS in the Netherlands that served as the loot store of a Russian-speaking credential-theft operation, Security Affairs reports. It holds data from 603 Windows PCs infected since 12&nbsp;October 2026. The operators used the HavoX, Phantom53 and Kraken Bridge tools, abused the ScreenConnect and Level.io remote-management products, and decrypted victims&rsquo; password-manager vaults. At least 57 victims had US bank or government logins, and 46 had federal identity or benefit accounts such as ID.me and Login.gov. Two Microsoft 365 tenants were compromised with stolen session cookies. Hunt.io says the agencies and banks themselves were not breached; the victims&rsquo; own PCs were.</p>
+        <p><b>Why it matters.</b> Stolen session cookies and decrypted password vaults get around passwords and many kinds of MFA, so an infected home or contractor PC can become a way into agency services and Microsoft 365 tenants. Identity and benefit portals should expect account-takeover attempts (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; 603 PCs infected since 12 Oct 2026 (Hunt.io); 2 Microsoft 365 tenants compromised with stolen cookies; agencies themselves not breached</span>
+            <span class="ops-tag kev-off">No CVE &mdash; malware and abused remote-management tools</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; session revocation and account monitoring</span>
+            <span class="ops-cc"><b>Action:</b> Hunt for unapproved ScreenConnect and Level.io agents on staff and contractor devices. Revoke sessions and reset credentials for any user whose device shows signs of an infostealer. Identity and benefit programmes: watch for sign-ins from new devices on otherwise quiet accounts.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Session revocation for flagged users &mdash; 24h; unapproved remote-tool hunt &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hunt-credential-loot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-hunt-credential-loot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Hunt.io (via Security Affairs)</span>
+          <span class="dot">&bull;</span>
+          <span>Infections since 12 Oct &bull; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-gtig-agentic-ai" data-published="2026-11-16">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1534,40 +1613,6 @@
           <span>Published 18 Nov 2026</span>
         </div>
         <a href="https://blog.knowbe4.com/black-friday-phishing-surge-before-sale-starts" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-storm-0940-artex" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Nation-State</span>
-        </div>
-        <h3>Microsoft assesses that China-state-aligned Storm-0940 was behind the ConnectWise Cloud Backup compromise, using the ARTEX AI framework to reach Microsoft 365 tenants &mdash; government is among the sectors it names as targets</h3>
-        <p>In a blog post dated 21&nbsp;October, Microsoft says it assesses that Storm-0940, which it calls a &ldquo;China-state aligned actor&rdquo; active since 2021 and focused on data theft, was responsible for the recently disclosed compromise of ConnectWise Cloud Backup (formerly SkyKick). The attackers controlled the identities of several ConnectWise cloud applications and signed in to customers&rsquo; Microsoft 365 tenants as those apps using app secrets, so user MFA did not apply. Microsoft says they used ARTEX, an open-source penetration-testing framework that can run on any AI model, for reconnaissance, password spraying and OAuth app abuse: attempts reached more than 2,250 tenants and the majority failed, but in several cases privileged access followed in under three hours. A separate password spray on 10&ndash;14&nbsp;October produced no successful sign-ins. Government, legal, financial services, defence and energy are among the sectors Microsoft lists. ConnectWise, which first detected the activity on 14&nbsp;October, took Cloud Backup offline, disabled seven app identities and also shut its SaaS Security and Cloud Management services; it warns that tokens already issued may stay valid until they expire. <b>Update, 22&nbsp;October:</b> chief executive Manny Rivelo told Cybersecurity Dive that restoration is happening in controlled phases and that customers should keep connections disabled until ConnectWise contacts them. <b>Reported:</b> Huntress told BleepingComputer it saw unauthorised sign-ins at 162 tenants it monitors; other outlets give different counts, so this page gives no total. China&rsquo;s Foreign Ministry denied knowledge, The Record reports.</p>
-        <p><b>Status, 21&nbsp;November:</b> no later ConnectWise statement was found. The November ScreenConnect attacks on MSPs are a separate, unattributed campaign (<a href="#it-screenconnect-msp">covered in Incidents</a>).</p>
-        <p><b>Why it matters.</b> A backup or management app with tenant-wide Microsoft 365 permissions is a trusted identity that user MFA does not cover, so agencies and the managed providers that serve them should treat such apps like privileged administrators. Microsoft&rsquo;s account also shows an AI agent framework shortening the time from first probe to privileged access.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; Microsoft (21 Oct 2026) assesses Storm-0940 responsible; ConnectWise Cloud Backup app identities used against M365 tenants; victim counts differ by source</span>
-            <span class="ops-tag kev-off">No CVE &mdash; abuse of vendor app identities, not a product flaw</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; ConnectWise disabled the app identities and is restoring services in phases</span>
-            <span class="ops-cc"><b>Action:</b> Search Entra ID for ConnectWise enterprise applications by application ID and keep their connections disabled until ConnectWise gives formal restoration instructions; do not delete the enterprise apps first, as Microsoft advises. Review sign-ins and audit logs back to 1&nbsp;October for those apps, new credentials added to any application, and changes to privileged roles and groups (Huntress reported Cloud Management service principals assigning themselves directory roles, mostly Exchange Administrator). Then list every third-party app with tenant-wide permissions and remove those no longer needed.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> ConnectWise app check and log review back to 1 Oct &mdash; 48h; app-credential and role-change hunt &mdash; 72h; third-party app consent review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-storm-0940-artex" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-storm-0940-artex">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Threat Intelligence (primary) &bull; ConnectWise and Huntress via BleepingComputer &bull; Cybersecurity Dive &bull; The Record</span>
-          <span class="dot">&bull;</span>
-          <span>Activity Sep&ndash;Oct 2026 &bull; Cloud Backup shut down 14 Oct &bull; Microsoft attribution 21 Oct &bull; ConnectWise CEO update 22 Oct 2026</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
-        <a href="https://therecord.media/china-cyber-connectwise-ai" class="source-link" target="_blank" rel="noopener">The Record</a>
-        <a href="https://www.cybersecuritydive.com/news/china-nexus-actor-attack-connectwise-cloud-backup/833727/" class="source-link" target="_blank" rel="noopener">ConnectWise CEO (Cybersecurity Dive, 22 Oct)</a>
       </div>
       <div class="card" id="it-peoplesoft-35273" data-published="2026-10-28">
         <div class="card-header">
@@ -1758,35 +1803,6 @@
         </div>
         <a href="https://bitdefender.com/en-us/blog/businessinsights/bitdefender-threat-debrief-november-2026" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-safepay-advisory" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Ransomware</span>
-        </div>
-        <h3>#StopRansomware: the joint US and international SafePay advisory remains current &mdash; stolen or guessed credentials, appliance flaws and phishing are its ways in</h3>
-        <p><b>New, 22&nbsp;October:</b> the American Hospital Association flagged the joint advisory, published on 20&nbsp;October and hosted by CISA, to hospitals. The advisory says SafePay gets in through stolen or guessed credentials, flaws in network appliances and phishing, then creates or hijacks accounts, uses legitimate admin tools and disables security software. Healthcare and government are among the sectors it calls out.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active ransomware group &mdash; joint advisory 20 Oct 2026</span>
-            <span class="ops-tag kev-off">No single CVE &mdash; multiple access routes</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; follow the advisory&rsquo;s mitigations</span>
-            <span class="ops-cc"><b>Action:</b> Enforce phishing-resistant MFA on VPN and remote access, patch internet-facing appliances, alert on new admin accounts and on security tools being turned off, and keep offline backups.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> MFA on remote access &mdash; 14 days; new-admin and tamper alerts &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-safepay-advisory" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-safepay-advisory">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>CISA joint advisory (via AHA)</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 20 Oct &bull; AHA alert 22 Oct 2026</span>
-        </div>
-        <a href="https://www.aha.org/news/headline/2026-10-22-agencies-warn-malicious-activity-safepay-ransomware-group" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
     </div>
   </div>
 
@@ -1855,6 +1871,68 @@
           <span>Disclosed 21 Oct &bull; KEV 20 Nov &bull; due 23 Nov 2026</span>
         </div>
         <a href="https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-puppet-115731" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Puppet Enterprise and Puppet Core remote code execution flaw CVE-2026-115731 is in CISA&rsquo;s KEV &mdash; federal deadline 1&nbsp;December, and a compromised server can expose the Puppet certificate authority keys</h3>
+        <p>CISA added CVE-2026-115731 (CVSS 9.4), a deserialization flaw in Puppet Enterprise and Puppet Core that leads to remote code execution, to its KEV catalog on 17&nbsp;November, with a 1&nbsp;December deadline for federal civilian agencies (Binding Operational Directive 26-04, per The Hacker News). No exploitation details have been published. A second flaw, CVE-2026-115732 (CVSS 9.0), was fixed in the same 3&nbsp;November releases. Affected versions are Puppet Enterprise 2026.0.0 before 2026.0.1, 2025.0.0 before 2025.12.1 and 2023.8.0 before 2023.8.13, and Puppet Core 9.0.0 before 9.1.3 and 8.x before 8.22.2; OpenVox is also affected. An attacker needs a CA-signed agent certificate, which is easier to obtain where certificate autosigning is on, and code execution can expose the CA keys.</p>
+        <p><b>Why it matters.</b> A Puppet server pushes configuration to every server it manages, so control of it can mean control of the whole fleet, and stolen CA keys would let an attacker pose as any managed node until the CA is rebuilt (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited &mdash; confirmed by CISA KEV listing (17 Nov 2026); no exploitation details published</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 17 Nov 2026; federal deadline 1 Dec 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">PE 2026.0.1, 2025.12.1, 2023.8.13; Puppet Core 9.1.3, 8.22.2 (3 Nov); OpenVox also affected</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Puppet Enterprise, Puppet Core and OpenVox servers, then restart Puppet Server. Turn off certificate autosigning or restrict it, and review recently signed agent certificates. If a server may have been compromised, plan to rebuild the Puppet CA.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Patch and restart &mdash; by 1 Dec (federal deadline); autosigning and certificate review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-puppet-115731" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-puppet-115731">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-115731</span>
+          <span class="cve-badge">CVE-2026-115732</span>
+          <span>Puppet &bull; CISA KEV (via The Hacker News)</span>
+          <span class="dot">&bull;</span>
+          <span>Fixed 3 Nov &bull; KEV 17 Nov &bull; due 1 Dec 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-fastunlock" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>FastUnlock: an unpatched Windows lock-screen bypass with public proof-of-concept code &mdash; it needs physical access, and TPM-only BitLocker does not stop it</h3>
+        <p>A proof-of-concept for an unpatched Windows lock-screen bypass called FastUnlock was posted on 19&nbsp;November by a researcher known as Nightmare Eclipse, The Hacker News reports. It needs physical access to the device and a Microsoft account reachable through the lock-screen recovery option, and it uses Narrator. ThreatLocker says it gives a limited, non-administrator account. BitLocker in TPM-only mode does not stop it. There is no CVE, no patch and no reported in-the-wild use.</p>
+        <p><b>Why it matters.</b> Laptops carried by travelling officials, inspectors and field staff are the ones most likely to end up in someone else&rsquo;s hands. A non-admin foothold is limited, but it is still a way onto a device that may hold agency data (editorial assessment).</p>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC (19 Nov 2026) &mdash; no in-the-wild use reported</span>
+            <span class="ops-tag kev-off">No CVE &mdash; not in KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No patch &mdash; mitigations only</span>
+            <span class="ops-cc"><b>Action:</b> Require a BitLocker startup PIN on laptops, starting with travelling staff, and tell users to shut down or hibernate devices, not just lock them, before they leave their control.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> User guidance &mdash; 7 days; startup-PIN policy for travel laptops &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fastunlock" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fastunlock">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Nightmare Eclipse PoC &bull; ThreatLocker (via The Hacker News)</span>
+          <span class="dot">&bull;</span>
+          <span>PoC 19 Nov &bull; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
       <div class="card" id="it-axis-90436" data-published="2026-11-19">
         <div class="card-header">
@@ -2868,35 +2946,6 @@
         <a href="https://therecord.media/nefilim-hive-ransomware-operator-70-months-prison" class="source-link" target="_blank" rel="noopener">Read source</a>
         <a href="https://www.justice.gov/opa/pr/ukrainian-national-sentenced-role-hacking-hospitals-businesses-and-governments-part" class="source-link" target="_blank" rel="noopener">Justice Department</a>
         <a href="https://cyberscoop.com/nefilim-hive-ransomware-affiliate-artem-stryzhak-sentenced/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
-      </div>
-      <div class="card" id="it-serengeti-iii" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Law Enforcement</span>
-        </div>
-        <h3>Interpol&rsquo;s Serengeti III: 1,462 arrests and more than US$105 million recovered from fraud, business-email-compromise and ransomware gangs across 20 African countries and the US</h3>
-        <p>Interpol announced on 22&nbsp;October the results of the third Serengeti operation, run this summer with 20 African countries and the United States against online fraud, ransomware and business-email-compromise gangs: 1,462 arrests, more than US$105&nbsp;million in illicit funds recovered, more than 10,000 malicious networks disrupted and just under 66,000 victims identified, with losses above US$385&nbsp;million. Cases include investment-scam call centres in Uganda, where 365 foreign nationals were arrested; a Nigerian phishing and BEC suspect who had harvested about 2.1&nbsp;million email addresses; and two illegal crypto-mining centres shut down in Angola. Interpol says several investigations remain open. No government victims were named.</p>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Law-enforcement action &mdash; announced 22 Oct 2026; no new intrusion disclosed</span>
-            <span class="ops-tag kev-off">Not applicable</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; law-enforcement action</span>
-            <span class="ops-cc"><b>Action:</b> No action is required for this item. Finance teams can use it as a prompt to confirm that supplier bank-detail changes are verified by a call to a known number.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> None</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-serengeti-iii" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-serengeti-iii">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Interpol via The Record</span>
-          <span class="dot">&bull;</span>
-          <span>Operation summer 2026 &bull; announced 22 Oct 2026</span>
-        </div>
-        <a href="https://therecord.media/africa-cybercrime-interpol-arrests" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>

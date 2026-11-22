@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Financial Services</h1>
       <div class="header-sub">Banks, fintech, insurance & crypto &mdash; what's hitting the sector now.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:05 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Financial Services IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>51</strong> stories across
+      <strong>53</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -828,7 +834,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:65.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.5 (Medium):</b> A busy fortnight of exploited enterprise flaws and confirmed bank and payment-vendor breaches, but each is bounded &mdash; no one issue is hitting most institutions.<br><b>Top threat:</b> vCenter zero-day CVE-2026-123890, exploited by a China-nexus group since September; KEV due 23&nbsp;Nov.<br><b>Confirmed breaches:</b> JPMorgan, Visa and Mastercard vendors; Cr&eacute;dit Mutuel Ark&eacute;a via a provider; Binance (DPRK, per DOJ).<br><b>Also watching:</b> Qubole AWS trust abuse; Axis/Confluence; ScreenConnect MSP attacks; Check Point gateways; n0n claims.<br><b>What would raise it:</b> One flaw or supplier confirmed compromising many financial institutions at once.</div>
+      <div class="tl-why"><b>Why 6.5 (Medium):</b> Confirmed bank and payment-vendor breaches and several exploited enterprise flaws, but each is bounded &mdash; no one issue is hitting most institutions.<br><b>Top threat:</b> vCenter zero-day CVE-2026-123890, exploited by a China-nexus group since September; KEV due 23&nbsp;Nov.<br><b>Confirmed breaches:</b> JPMorgan, Visa and Mastercard vendors; Cr&eacute;dit Mutuel Ark&eacute;a via a provider; Binance (DPRK, per DOJ).<br><b>Also watching:</b> Puppet RCE in KEV (due 1&nbsp;Dec); Hunt.io stealer loot with bank logins; Qubole AWS role abuse; ScreenConnect MSP attacks.<br><b>What would raise it:</b> One flaw or supplier confirmed compromising many financial institutions at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -931,14 +937,14 @@
         <a href="#it-axis-90436"><circle class="blip crit" cx="97.1" cy="198.9" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="97.1" y="201.4">6</text></a>
         <a href="#it-screenconnect-msp"><circle class="blip crit" cx="113.5" cy="127.0" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="113.5" y="129.5">7</text></a>
         <a href="#it-qubole-n0n"><circle class="blip high" cx="226.2" cy="53.1" r="9.0"/><text class="blip-num" style="font-size:8.55px" x="226.2" y="56.0">8</text></a>
-        <a href="#it-crypto-breach-wave"><circle class="blip high" cx="296.9" cy="112.5" r="8.6"/><text class="blip-num" style="font-size:8.17px" x="296.9" y="115.2">9</text></a>
-        <a href="#it-chainalysis-credentials"><circle class="blip high" cx="312.9" cy="203.4" r="8.2"/><text class="blip-num" style="font-size:7.79px" x="312.9" y="206.0">10</text></a>
-        <a href="#it-outlook-124194"><circle class="blip high" cx="266.8" cy="283.4" r="7.8"/><text class="blip-num" style="font-size:7.41px" x="266.8" y="285.9">11</text></a>
-        <a href="#it-chrome-125350"><circle class="blip high" cx="180.0" cy="315.0" r="7.4"/><text class="blip-num" style="font-size:7.03px" x="180.0" y="317.3">12</text></a>
-        <a href="#it-llmjacking-gtig"><circle class="blip high" cx="93.2" cy="283.4" r="7.0"/><text class="blip-num" style="font-size:6.65px" x="93.2" y="285.6">13</text></a>
-        <a href="#it-sap-nov26"><circle class="blip high" cx="47.1" cy="203.4" r="6.6"/><text class="blip-num" style="font-size:6.27px" x="47.1" y="205.5">14</text></a>
-        <a href="#it-connectwise-storm-0940"><circle class="blip high" cx="63.1" cy="112.5" r="6.2"/><text class="blip-num" style="font-size:5.89px" x="63.1" y="114.4">15</text></a>
-        <a href="#it-citrix-nov26"><circle class="blip high" cx="133.8" cy="53.1" r="5.8"/><text class="blip-num" style="font-size:5.51px" x="133.8" y="55.0">16</text></a>
+        <a href="#it-huntio-credential-loot"><circle class="blip high" cx="296.9" cy="112.5" r="8.6"/><text class="blip-num" style="font-size:8.17px" x="296.9" y="115.2">9</text></a>
+        <a href="#it-crypto-breach-wave"><circle class="blip high" cx="312.9" cy="203.4" r="8.2"/><text class="blip-num" style="font-size:7.79px" x="312.9" y="206.0">10</text></a>
+        <a href="#it-chainalysis-credentials"><circle class="blip high" cx="266.8" cy="283.4" r="7.8"/><text class="blip-num" style="font-size:7.41px" x="266.8" y="285.9">11</text></a>
+        <a href="#it-puppet-115731"><circle class="blip high" cx="180.0" cy="315.0" r="7.4"/><text class="blip-num" style="font-size:7.03px" x="180.0" y="317.3">12</text></a>
+        <a href="#it-outlook-124194"><circle class="blip high" cx="93.2" cy="283.4" r="7.0"/><text class="blip-num" style="font-size:6.65px" x="93.2" y="285.6">13</text></a>
+        <a href="#it-chrome-125350"><circle class="blip high" cx="47.1" cy="203.4" r="6.6"/><text class="blip-num" style="font-size:6.27px" x="47.1" y="205.5">14</text></a>
+        <a href="#it-llmjacking-gtig"><circle class="blip high" cx="63.1" cy="112.5" r="6.2"/><text class="blip-num" style="font-size:5.89px" x="63.1" y="114.4">15</text></a>
+        <a href="#it-sap-nov26"><circle class="blip high" cx="133.8" cy="53.1" r="5.8"/><text class="blip-num" style="font-size:5.51px" x="133.8" y="55.0">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-jpm-visa-mc-vendor"><span class="ld crit"></span><b>1</b> JPMorgan, Visa, Mastercard vendor breaches</a>
@@ -949,17 +955,49 @@
         <a href="#it-axis-90436"><span class="ld crit"></span><b>6</b> Axis flaw hits Confluence; card data hunted</a>
         <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>7</b> ScreenConnect abused at MSPs</a>
         <a href="#it-qubole-n0n"><span class="ld high"></span><b>8</b> Qubole suspected vendor; n0n claims haul</a>
-        <a href="#it-crypto-breach-wave"><span class="ld high"></span><b>9</b> Crypto breach wave after Binance</a>
-        <a href="#it-chainalysis-credentials"><span class="ld high"></span><b>10</b> Chainalysis tokens reportedly exposed</a>
-        <a href="#it-outlook-124194"><span class="ld high"></span><b>11</b> Outlook zero-day leaks NTLM hashes</a>
-        <a href="#it-chrome-125350"><span class="ld high"></span><b>12</b> Chrome zero-day, eighth of 2026</a>
-        <a href="#it-llmjacking-gtig"><span class="ld high"></span><b>13</b> LLMjacking: stolen AI keys, $1M bills</a>
-        <a href="#it-sap-nov26"><span class="ld high"></span><b>14</b> SAP: four CVSS 10 flaws, unexploited</a>
-        <a href="#it-connectwise-storm-0940"><span class="ld high"></span><b>15</b> Storm-0940 ConnectWise case (Oct)</a>
-        <a href="#it-citrix-nov26"><span class="ld high"></span><b>16</b> NetScaler: nine critical fixes</a>
+        <a href="#it-huntio-credential-loot"><span class="ld high"></span><b>9</b> Hunt.io: bank logins in stealer loot</a>
+        <a href="#it-crypto-breach-wave"><span class="ld high"></span><b>10</b> Crypto breach wave after Binance</a>
+        <a href="#it-chainalysis-credentials"><span class="ld high"></span><b>11</b> Chainalysis tokens reportedly exposed</a>
+        <a href="#it-puppet-115731"><span class="ld high"></span><b>12</b> Puppet RCE in KEV; due 1 Dec</a>
+        <a href="#it-outlook-124194"><span class="ld high"></span><b>13</b> Outlook zero-day leaks NTLM hashes</a>
+        <a href="#it-chrome-125350"><span class="ld high"></span><b>14</b> Chrome zero-day, eighth of 2026</a>
+        <a href="#it-llmjacking-gtig"><span class="ld high"></span><b>15</b> LLMjacking: stolen AI keys, $1M bills</a>
+        <a href="#it-sap-nov26"><span class="ld high"></span><b>16</b> SAP: four CVSS 10 flaws, unexploited</a>
       </div>
     </div>
 
+  </div>
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Third Parties</span>
+        <b class="trend-head">The vendor is the breach: customer data keeps leaking through suppliers</b>
+        <p>JPMorgan, Visa and Mastercard all confirmed attacks on third-party vendors on 19 November, and BleepingComputer reports Qubole is the suspected common supplier, which is not confirmed. Wiz and Sentra separately showed an attacker using Qubole&rsquo;s own AWS account to assume roles customers had granted it. Cr&eacute;dit Mutuel Ark&eacute;a lost an estimated &euro;118 million through a service provider&rsquo;s platform, and the Optimizely supply-chain attack planted card skimmers on 178 organisations&rsquo; sites. Visa says incidents involving third-party agents rose 62% in six months. Takeaway: list every vendor that holds customer data or has cross-account cloud access, and cut what is not needed (see Incidents &amp; Attacks).</p>
+        <a href="https://www.businessinsurance.com/jpmorgan-visa-mastercard-say-third-party-vendors-targeted-in-cyberattack/" class="source-link" target="_blank" rel="noopener">Business Insurance (Reuters)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Identity</span>
+        <b class="trend-head">Stolen sessions and codes are doing the work passwords used to</b>
+        <p>Hunt.io found a stealer loot store covering 603 Windows PCs, with at least 57 victims holding US bank or government logins and two Microsoft&nbsp;365 tenants taken over with stolen session cookies; the banks themselves were not breached. A Latvian SMS provider left more than 125 million texts exposed, including one-time passcodes and bank alerts from Swedbank and SEB, and KELA tracks 248 look-alike domains impersonating 189 US financial institutions. Takeaway: move staff and high-value customers to phishing-resistant MFA, bind sessions to devices, and be ready to reset customers found in leaked data quickly.</p>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Security Affairs (Hunt.io)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Admin Planes</span>
+        <b class="trend-head">Attackers are going after the tools that run the estate</b>
+        <p>The vCenter zero-day CVE-2026-123890 and a BeyondTrust Remote Support zero-day are tied to the same China-nexus group, Armory Castle. CISA added Puppet&rsquo;s CVE-2026-115731 to KEV on 17 November; code execution there can expose the Puppet CA keys. ScreenConnect was abused at MSPs to push rogue clients to dozens of customers, and the N-able N-central chain compromised at least 21 MSP servers. Takeaway: treat virtualisation, configuration-management and remote-access servers as tier-0 &mdash; patch them first, keep them off the internet and watch their logins (see Critical Advisories).</p>
+        <a href="https://www.rapid7.com/blog/post/etr-cve-2026-123890-critical-authentication-bypass-vmware-vcenter" class="source-link" target="_blank" rel="noopener">Rapid7 (vCenter)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Crypto</span>
+        <b class="trend-head">North Korea&rsquo;s Binance theft is followed by a run of smaller crypto breaches</b>
+        <p>The US Justice Department attributes the theft of more than $6 billion from Binance to North Korea&rsquo;s TraderTraitor and won court approval to seize more than $1.2 billion. Blockhead counts six smaller incidents since, including Mercado Bitcoin (an estimated $49 million lost) and SignalPlus, hit through a compromised vendor Telegram account and a fake Microsoft Teams invite. DOJ also seized infrastructure behind FaceStealer, a deepfake video-call scheme. Takeaway: crypto desks and fintechs should verify any meeting invite or &lsquo;install this to fix the call&rsquo; request through a separate channel.</p>
+        <a href="https://theblock.co/news/business/2026-11-12-doj-seize-1-2-billion-binance-hack-north-korea-facestealer-439065" class="source-link" target="_blank" rel="noopener">The Block (DOJ)</a>
+      </div>
+    </div>
   </div>
 
   <div class="section">
@@ -1092,6 +1130,38 @@
           <span>Theft around 29 Oct 2026; DOJ action 12 Nov 2026 &mdash; attribution and seizure confirmed by the US government</span>
         </div>
         <a href="https://theblock.co/news/business/2026-11-12-doj-seize-1-2-billion-binance-hack-north-korea-facestealer-439065" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-huntio-credential-loot" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Hunt.io finds the loot store of a Russian-speaking credential-theft operation &mdash; 603 infected Windows PCs, stolen US bank and government logins, and two Microsoft&nbsp;365 tenants taken over with session cookies</h3>
+        <p>Hunt.io reported on 20 November 2026 that an exposed open directory on a Netherlands VPS held the stolen data of a Russian-speaking credential-theft operation. It counts 603 Windows PCs infected since 12 October and more than 1.2 million command-and-control connections in about three weeks. The tooling (HavoX, Phantom53 and Kraken Bridge) abused ScreenConnect and Level.io, bypassed Chrome&rsquo;s app-bound encryption with a hardcoded key, and decrypted password-manager vaults &mdash; one LastPass vault held 2,880 logins. At least 57 victims had US bank or government logins and 46 had federal identity or benefit accounts (ID.me, Login.gov); two Microsoft&nbsp;365 tenants were compromised with stolen session cookies. Hunt.io says the banks and agencies themselves were not breached &mdash; the victims&rsquo; PCs were. Editorial assessment: for banks this is account-takeover risk arriving through customers&rsquo; and staff&rsquo;s own PCs, where a captured password or live session is enough to log in.</p>
+        <div class="card-meta">
+          <span>Infected Windows PCs of individuals; downstream US bank, government (ID.me, Login.gov) and Microsoft&nbsp;365 accounts &bull; No CVE &mdash; malware and abuse of remote-management tools</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by Hunt.io from the exposed loot store &mdash; victims&rsquo; PCs infected; banks and agencies not breached; operator described only as Russian-speaking</span>
+            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; malware and abused ScreenConnect/Level.io</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applicable &mdash; identity, session and endpoint controls</span>
+            <span class="ops-cc"><b>Action:</b> Move staff and high-value customers to phishing-resistant MFA, and use device-bound sessions and conditional access so a stolen cookie cannot simply be replayed. Be ready to force fast password and session resets for customers whose logins turn up in stealer loot. On your own endpoints, alert on pythonw.exe running from unusual paths and on ScreenConnect or Level.io agents you did not install.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Hunt for pythonw.exe from unusual paths and unapproved RMM agents &mdash; 72 hours; device-bound sessions and phishing-resistant MFA for staff &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-huntio-credential-loot" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-huntio-credential-loot">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs (Hunt.io)</span>
+          <span class="dot">&bull;</span>
+          <span>Infections since 12 Oct 2026; reported 20 Nov 2026 &mdash; operation confirmed by Hunt.io; banks and agencies not breached</span>
+        </div>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-screenconnect-msp" data-published="2026-11-17">
         <div class="card-header">
@@ -1486,42 +1556,6 @@
         <a href="https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html" class="source-link" target="_blank" rel="noopener">Read source</a>
         <a href="https://x.com/KeystoneWallet/article/2114719318722404578" class="source-link" target="_blank" rel="noopener">Keystone on X</a>
       </div>
-<div class="card" id="it-connectwise-storm-0940" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Supply Chain</span>
-        </div>
-        <h3>ConnectWise is restoring Cloud Backup in phases after Microsoft tied the compromise to China-aligned Storm-0940, which used the product&rsquo;s own app identities to sign in to customers&rsquo; Microsoft&nbsp;365 tenants &mdash; financial services is on its target list</h3>
-        <p>Microsoft said on 21&nbsp;October 2026 that it assesses Storm-0940, an actor it calls China-state aligned, was responsible for the ConnectWise supply-chain compromise. The attacker controlled several ConnectWise cloud application identities tied to Cloud Backup (formerly SkyKick) and used them to authenticate to customers&rsquo; Microsoft&nbsp;365 tenants as the application, so user MFA never came into play. Microsoft says sign-in attempts reached more than 2,250 tenants &mdash; attempts, not confirmed compromises &mdash; and Huntress saw unauthorised sign-ins at 162 tenants it monitors. Storm-0940 drove the work with ARTEX, an open-source penetration-testing framework that can use any AI model. ConnectWise first detected the activity on 14&nbsp;October; it suspended Cloud Backup and shut down SaaS Security and Cloud Management, which connect to it. Chief executive Manny Rivelo told Cybersecurity Dive on 22&nbsp;October that service is being restored in phases and that customers should keep their connections disabled until ConnectWise gives them direct instructions. We found no later ConnectWise statement on Cloud Backup; the November ScreenConnect attacks on MSPs are a separate, unattributed campaign (see Incidents &amp; Attacks). Microsoft lists financial services among Storm-0940&rsquo;s targets; no financial victim has been named, and Microsoft does not attribute the earlier South Korean bank breaches to it.</p>
-        <div class="card-meta">
-          <span>ConnectWise Cloud Backup (formerly SkyKick), SaaS Security and Cloud Management, connected to Microsoft&nbsp;365 tenants &bull; No CVE &mdash; abuse of a supplier&rsquo;s cloud application identities</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; ConnectWise confirmed the Cloud Backup compromise; Microsoft assesses Storm-0940 (China-state aligned) responsible; Huntress reported unauthorized sign-ins at 162 tenants it monitors</span>
-            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; abuse of a supplier&rsquo;s cloud application identities</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; keep the affected ConnectWise app connections disabled until ConnectWise gives you direct restoration instructions</span>
-            <span class="ops-cc"><b>Action:</b> Ask your MSP and IT team whether ConnectWise Cloud Backup, SaaS Security or Cloud Management was connected to your Microsoft&nbsp;365 tenant. If it was, search Entra ID sign-in and audit logs by the ConnectWise application IDs Microsoft published, back to 1&nbsp;October where logs exist, for service-principal sign-ins, new credentials or owners on app registrations, new consents and privileged-role changes &mdash; Huntress saw the app identities grant themselves administrator roles. Do not delete the enterprise apps first, so evidence survives. Review what those apps read in Exchange Online, SharePoint, Teams and Key Vault, rotate any secret they could reach, and alert on bursts of failed sign-ins like those Microsoft describes. Reconnect only when ConnectWise tells you to.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> ConnectWise app-identity log review &mdash; 72 hours; MSP attestation and secret rotation &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-connectwise-storm-0940" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-connectwise-storm-0940">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Security blog; ConnectWise statements via Cybersecurity Dive and CyberScoop; Huntress via BleepingComputer; The Record</span>
-          <span class="dot">&bull;</span>
-          <span>First detected by ConnectWise 14 Oct 2026; Microsoft attribution 21 Oct; phased restoration described 22 Oct 2026 &mdash; compromise confirmed by ConnectWise; attribution is Microsoft&rsquo;s assessment; no financial victim named</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
-        <a href="https://www.cybersecuritydive.com/news/china-nexus-actor-attack-connectwise-cloud-backup/833727/" class="source-link" target="_blank" rel="noopener">Restoration (Cybersecurity Dive)</a>
-        <a href="https://cyberscoop.com/microsoft-attributes-connectwise-supply-chain-attack-china-storm-0940/" class="source-link" target="_blank" rel="noopener">CyberScoop</a>
-        <a href="https://www.bleepingcomputer.com/news/security/hackers-breach-microsoft-365-tenants-via-connectwise-supply-chain-attack/" class="source-link" target="_blank" rel="noopener">BleepingComputer (Huntress)</a>
-        <a href="https://therecord.media/china-cyber-connectwise-ai" class="source-link" target="_blank" rel="noopener">The Record</a>
-      </div>
     </div>
   </div>
 
@@ -1892,13 +1926,48 @@
           </div>
         </div>
         <div class="card-meta">
-          <span>The Hacker News; SecurityWeek (F6); SecurityWeek (Apache)</span>
+          <span>The Hacker News; SecurityWeek (F6); SecurityWeek (Apache); Security Affairs</span>
           <span class="dot">&bull;</span>
           <span>KEV 20 Nov 2026; reported 21 Nov 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html" class="source-link" target="_blank" rel="noopener">Read source</a>
         <a href="https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release" class="source-link" target="_blank" rel="noopener">Expressway (SecurityWeek)</a>
         <a href="https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/" class="source-link" target="_blank" rel="noopener">Roller (SecurityWeek)</a>
+        <a href="https://securityaffairs.com/203639/security/u-s-cisa-adds-cisco-expressway-sap-netweaver-broadcom-vmware-vcenter-and-apache-roller-flaws-to-its-known-exploited-vulnerabilities-catalog.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+<div class="card" id="it-puppet-115731" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">KEV</span>
+        </div>
+        <h3>Puppet Enterprise and Puppet Core code-execution flaw CVE-2026-115731 added to CISA KEV &mdash; it needs a CA-signed agent certificate, and code execution can expose the Puppet CA keys</h3>
+        <p>CISA added CVE-2026-115731 (CVSS 9.4), a deserialization flaw in Puppet&rsquo;s report processing that leads to remote code execution, to its KEV catalog on 17 November 2026, with a federal deadline of 1 December; no exploitation details have been published. A second flaw, CVE-2026-115732 (CVSS 9.0), is an authorisation bypass via certificate names. Affected: Puppet Enterprise 2026.0.0 before 2026.0.1, 2025.0.0 before 2025.12.1 and 2023.8.0 before 2023.8.13; Puppet Core 9.0.0 before 9.1.3 and 8.x before 8.22.2; OpenVox is also affected. Fixes shipped on 3 November. An attacker needs a CA-signed agent certificate, which is much easier to obtain where CA autosigning is on, and code execution can expose the CA keys. Editorial assessment: where Puppet configures core banking, payment or trading servers, the Puppet server and its CA are tier-0 assets.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-115731</span>
+          <span class="cve-badge">CVE-2026-115732</span>
+          <span>Puppet Enterprise, Puppet Core and OpenVox &mdash; Puppet Server report processing and certificate-name authorisation</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited per CISA&rsquo;s KEV listing &mdash; no exploitation details published</span>
+            <span class="ops-tag kev-on">Added to CISA KEV 17 Nov 2026 &mdash; federal deadline 1 Dec 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed 3 Nov 2026: PE 2026.0.1, 2025.12.1, 2023.8.13; Puppet Core 9.1.3, 8.22.2</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Puppet Server (and OpenVox) to a fixed release and restart Puppet Server after patching. Turn off CA autosigning or restrict it tightly, and review agent certificates signed recently. If you find signs of compromise, treat the CA keys as exposed and plan a CA rebuild.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Widely reachable Puppet servers &mdash; 72 hours; all others before the 1 Dec federal deadline</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-puppet-115731" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-puppet-115731">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Fixes 3 Nov 2026; KEV 17 Nov; reported 18 Nov 2026 &mdash; exploitation confirmed by KEV listing only</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-axis-90436" data-published="2026-11-19">
         <div class="card-header">
@@ -2141,6 +2210,39 @@
         </div>
         <a href="https://thehackernews.com/2026/11/google-issues-chrome-security-update.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+<div class="card" id="it-java4shell-114938" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>&lsquo;Java4Shell&rsquo; CVE-2026-114938: a Java Base64 decoder flaw could allow pre-authentication code execution in apps such as Jira, Jenkins and Keycloak &mdash; only on x86-64 CPUs with AVX-512 VBMI, and not exploited</h3>
+        <p>A flaw in the Base64 intrinsic decoder in Oracle Java SE and OpenJDK, reported on 18 November 2026, may allow pre-authentication remote code execution in Java applications such as Jira, Jenkins and Keycloak. Oracle rates it CVSS 8.1 and Red Hat 9.8. It only affects x86-64 CPUs with AVX-512 VBMI, on Java 17.0.6 and later and the 21, 25 and 27 lines; standard Java 8 and 11 are not affected. Fixes: Oracle 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1; Amazon Corretto 17.0.21.1.2 and later; Red Hat has no fix yet. Canada&rsquo;s Cyber Centre says it is not exploited in the wild, and it was not in KEV as of 18 November. Editorial assessment: banks run large Java estates, so the hard part is finding every affected runtime, including those baked into container images.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK 17.0.6+, 21, 25, 27 on x86-64 CPUs with AVX-512 VBMI; apps such as Jira, Jenkins, Keycloak</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; per Canada&rsquo;s Cyber Centre</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 18 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Oracle 17.0.21.1, 21.0.13.1, 25.0.5.1, 27.0.1.1; Corretto 17.0.21.1.2+; no Red Hat fix yet</span>
+            <span class="ops-cc"><b>Action:</b> Inventory Java 17, 21, 25 and 27 runtimes on x86-64 hosts, starting with internet-facing Jira, Jenkins and Keycloak. Update, restart the applications and rebuild container images. Where no fix is available yet (Red Hat builds), set -XX:-UseBASE64Intrinsics as an interim measure.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Java applications &mdash; 7 days; remaining runtimes &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell-114938" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell-114938">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 18 Nov 2026 &mdash; not exploited; not in KEV</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="it-sap-nov26" data-published="2026-11-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -2176,6 +2278,43 @@
           <span>Released 10 Nov 2026</span>
         </div>
         <a href="https://bleepingcomputer.com/news/security/sap-patches-four-maximum-severity-security-vulnerabilities" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-splunk-nov26" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Splunk patches nearly 140 flaws across Enterprise, Enterprise Security and SOAR &mdash; critical bugs include code execution in Enterprise Security and its PCI Compliance app; none exploited</h3>
+        <p>Splunk fixed about 140 vulnerabilities across three core products, SecurityWeek reported on 19 November 2026. Critical issues include CVE-2026-76536 and CVE-2026-76535 in Splunk Enterprise; CVE-2026-131202 in Enterprise Security, including the PCI Compliance app, which allows remote code execution but needs the ess_admin role; and CVE-2026-131253 and CVE-2026-131287 in SOAR, both authenticated code execution. Fixed versions: Enterprise 10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17; Enterprise Security 8.7.0; SOAR 8.8.0. None is known to be exploited. Editorial assessment: at banks and payment firms the SIEM holds the evidence for PCI and incident response, so admin access to Splunk is worth protecting like a domain controller.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-76536</span>
+          <span class="cve-badge">CVE-2026-76535</span>
+          <span class="cve-badge">CVE-2026-131202</span>
+          <span class="cve-badge">CVE-2026-131253</span>
+          <span class="cve-badge">CVE-2026-131287</span>
+          <span>Splunk Enterprise, Enterprise Security (incl. PCI Compliance app), Splunk SOAR</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Enterprise 10.6.1 / 10.4.5 / 10.2.9 / 10.0.12 / 9.4.17; ES 8.7.0; SOAR 8.8.0</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Splunk Enterprise, Enterprise Security and SOAR to the fixed versions. Until then, review who holds ess_admin and other admin roles and remove any that are not needed.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Admin-role review &mdash; 7 days; upgrades &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-splunk-nov26" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-splunk-nov26">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 19 Nov 2026 &mdash; none exploited</span>
+        </div>
+        <a href="https://www.securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-fortinet-nov26" data-published="2026-11-10">
         <div class="card-header">
@@ -2589,38 +2728,6 @@
           <span>Seizure announced 27 Oct 2026 &mdash; confirmed by the Justice Department; no arrests</span>
         </div>
         <a href="https://therecord.media/fbi-seizure-csam-virtualine" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-serengeti-iii" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Enforcement</span>
-        </div>
-        <h3>Interpol&rsquo;s Serengeti&nbsp;III: 1,462 arrests across 20 African countries and the US, and more than $105&nbsp;million recovered from fraud, BEC and ransomware gangs</h3>
-        <p>Interpol announced on 22&nbsp;October 2026 the results of Serengeti&nbsp;III, its annual operation against online fraud, ransomware and business-email-compromise gangs, run over the summer with 20 African countries and the United States. It reports 1,462 arrests, more than $105&nbsp;million in illicit funds recovered and more than 10,000 malicious networks disrupted, and identified just under 66,000 victims with losses above $385&nbsp;million, The Record reports. Cases include fraud rings run from call centres in Uganda, where 365 foreign nationals were arrested, a Nigerian phishing and BEC suspect, and illegal crypto-mining centres in Angola. Interpol says several investigations remain open. No banks were named as victims. Editorial assessment: BEC and investment-scam proceeds move through bank accounts, so the recoveries matter to fraud and anti-money-laundering teams as much as to security teams.</p>
-        <div class="card-meta">
-          <span>Interpol Operation Serengeti III (20 African countries and the US) &bull; No CVE &mdash; fraud, BEC and ransomware enforcement</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Law-enforcement action &mdash; Interpol figures; several investigations still open</span>
-            <span class="ops-tag kev-off">No CVE and no KEV entry &mdash; fraud, BEC and ransomware enforcement</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applicable &mdash; fraud and payment controls</span>
-            <span class="ops-cc"><b>Action:</b> Have fraud teams check open BEC and investment-scam cases for links to the countries in this operation, and confirm they know how to route recall and freeze requests to foreign police through national law-enforcement channels. Keep call-back verification, on a number already on file, for every change to supplier or payroll bank details.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Fraud-team review of open BEC cases &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-serengeti-iii" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-serengeti-iii">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Interpol via The Record</span>
-          <span class="dot">&bull;</span>
-          <span>Announced 22 Oct 2026 &mdash; law-enforcement figures; investigations ongoing</span>
-        </div>
-        <a href="https://therecord.media/africa-cybercrime-interpol-arrests" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-shinyhunters-arrests" data-published="2026-10-28">
         <div class="card-header">

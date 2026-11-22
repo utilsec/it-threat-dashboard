@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -776,13 +782,13 @@
       <h1>IT Threat Intel for Telecom &amp; Media</h1>
       <div class="header-sub">Carriers, ISPs, mobile, cable &amp; media.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:05 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Telecom &amp; Media</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>37</strong> stories across
+      <strong>38</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -827,7 +833,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.6 (Medium):</b> Up 0.2: a confirmed carrier breach at Bell Canada and a heavy run of exploited edge, voice and MSP flaws, but each is a discrete patch-and-hunt exposure.<br><b>Top threat:</b> Cisco Expressway CVE-2026-76466, unauthenticated root on clustered nodes, in KEV with a 23 Nov deadline.<br><b>Confirmed breaches:</b> Bell Canada&rsquo;s pre-production Maximo system (business contacts, some network-element IPs).<br><b>Also watching:</b> SilentAir SS7/Diameter interception; BroadWorks &ldquo;Snowball&rdquo; claim; vCenter zero-day; Check Point gateway attacks; FreeSWITCH KEV.<br><b>What would raise it:</b> One flaw or campaign compromising a large share of operator networks at once.</div>
+      <div class="tl-why"><b>Why 6.6 (Medium):</b> Unchanged: a confirmed carrier breach at Bell Canada and a heavy run of exploited edge, voice and MSP flaws, but each is a discrete patch-and-hunt exposure.<br><b>Top threat:</b> Cisco Expressway CVE-2026-76466, unauthenticated root on clustered nodes, in KEV with a 23 Nov deadline.<br><b>Confirmed breaches:</b> Bell Canada&rsquo;s pre-production Maximo system (business contacts, some network-element IPs).<br><b>Also watching:</b> SilentAir SS7/Diameter interception; vCenter zero-day; Check Point gateway attacks; nginx2root (unexploited); SonicWall Gen 6 end of patches.<br><b>What would raise it:</b> One flaw or campaign compromising a large share of operator networks at once, such as mass exploitation of nginx2root.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -921,7 +927,7 @@
         <a href="#it-gtig-agentic-ai"><circle class="blip high" cx="45.0" cy="180.0" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="45.0" y="182.4">13</text></a>
         <a href="#it-openssh-sshole"><circle class="blip high" cx="76.6" cy="93.2" r="7.5"/><text class="blip-num" style="font-size:7.1px" x="76.6" y="95.5">14</text></a>
         <a href="#it-chrome-125350"><circle class="blip high" cx="156.6" cy="47.1" r="7.2"/><text class="blip-num" style="font-size:6.8px" x="156.6" y="49.3">15</text></a>
-        <a href="#it-fortinet-nov26"><circle class="blip high" cx="247.5" cy="63.1" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="247.5" y="65.3">16</text></a>
+        <a href="#it-nginx2root-123007"><circle class="blip high" cx="247.5" cy="63.1" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="247.5" y="65.3">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-expressway-76466"><span class="ld crit"></span><b>1</b> Cisco Expressway root flaw, KEV due 23 Nov</a>
@@ -939,10 +945,52 @@
         <a href="#it-gtig-agentic-ai"><span class="ld high"></span><b>13</b> Google: agentic AI in live intrusions</a>
         <a href="#it-openssh-sshole"><span class="ld high"></span><b>14</b> OpenSSH SSHole on Alpine, KEV</a>
         <a href="#it-chrome-125350"><span class="ld high"></span><b>15</b> Chrome zero-day, eighth of 2026</a>
-        <a href="#it-fortinet-nov26"><span class="ld high"></span><b>16</b> Fortinet: 8 critical fixes, BGP/OSPF</a>
+        <a href="#it-nginx2root-123007"><span class="ld high"></span><b>16</b> nginx2root: HTTP/2 RCE to host root</a>
       </div>
     </div>
 
+  </div>
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the telecom security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Edge Devices</span>
+        <b class="trend-head">Carrier edge and voice platforms are the busiest attack surface, and some will never be patched again</b>
+        <p>Cisco Expressway and vCenter are in KEV with 23 November deadlines and BroadWorks with 24 November, and all three sit under services carriers run for business customers. Attackers chained PHP2Shell and a Gaia OS root flaw to take over Check Point gateways at about two dozen customers, sometimes reaching ESXi and running a wiper. SonicWall has now ended security patches for Gen 6 firewalls, even for critical flaws, and expects internet-facing units to be targeted. Takeaway: patch the KEV items first, take management interfaces off the internet, and put a replacement date on every edge device that is out of support. See Critical Advisories.</p>
+        <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Hosting &amp; Cloud</span>
+        <b class="trend-head">Flaws that break out of the workload and into the host</b>
+        <p>This week&rsquo;s research targets the layer hosting and edge providers share between customers. nginx2root chains an unauthenticated HTTP/2 code-execution flaw in nginx with a Linux kernel SCTP bug to escape a container to host root; Censys counts nearly 10 million services on affected versions, though none is reported exploited. A Linux KVM flaw on AMD hosts lets root in a guest read and write host memory where nested virtualization is on, the kvm_amd default, and distro packages lag the kernel fixes. The exploited vCenter zero-day shows attackers already go after the virtualization control plane. Takeaway: upgrade and fully restart nginx, set kvm_amd nested=0 where tenants do not need it, and treat host kernels as tenant-isolation controls. See Critical Advisories.</p>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">MSP &amp; Supply Chain</span>
+        <b class="trend-head">Managed-service platforms turn one compromise into many</b>
+        <p>Attackers abused ScreenConnect&rsquo;s Run Command feature at MSPs to push rogue remote-access clients into dozens of customer organisations, probably through a third-party extension; ConnectWise disabled five. N-able N-central servers were rooted within hours of a public exploit, most already on the previous hotfix, and N-able separately confirmed attackers accessed a server in its Mail Assure and SpamExperts cloud. Takeaway: carriers that sell managed IT, mail filtering or hosting should audit RMM extensions, move N-central and its agents to 2026.4 HF3, and alert on new remote-access clients appearing on customer endpoints. See Incidents &amp; Attacks.</p>
+        <a href="https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Signalling &amp; Messaging</span>
+        <b class="trend-head">Calls, SMS and chat stay a target, mostly out of the subscriber&rsquo;s view</b>
+        <p>Enea says the state-level actor SilentAir uses hijacked nodes at operators in at least six Asian countries to reroute calls and SMS, including 2FA codes, over SS7 and Diameter, and that GTPDoor malware is exploiting IPX interconnects at an estimated five to ten or more operators. A Latvian SMS provider left more than 125 million messages, including one-time codes and bank alerts, in an open database. WhatsApp fixed an ad-reply URL flaw it says a scammer may have used in spam. Takeaway: operators should hunt for signalling anomalies on their own nodes, protect SMS archives like subscriber data, and keep moving customers off SMS codes. See Threat Intelligence &amp; Research.</p>
+        <a href="https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/" class="source-link" target="_blank" rel="noopener">SecurityWeek</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">AI tooling is showing up in real intrusions against telecom</b>
+        <p>Bell Canada described the intruder who got into its pre-production Maximo system as &ldquo;agentic&rdquo;. Malbear Labs claims, without corroboration, that Operation Snowball ran an autonomous framework on a jailbroken model against a European telecom through BroadWorks. F6 says the Expressway attackers used Python scripts that were possibly AI-assisted. Google&rsquo;s threat group reports multi-agent pentest frameworks in live intrusions, automated patch-to-exploit pipelines and zero-days averaging 11 a month in 2026, but says these tools trade stealth for speed. Takeaway: expect shorter gaps between patch and exploit, and tune detection for fast, noisy bursts of activity. See Top Story.</p>
+        <a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold" class="source-link" target="_blank" rel="noopener">Google Threat Intelligence Group</a>
+      </div>
+    </div>
   </div>
 
   <div class="section">
@@ -1746,6 +1794,107 @@
         <a href="https://www.arista.com/en/support/advisories-notices/security-advisory/24838-security-advisory-0199" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
+      <div class="card" id="it-nginx2root-123007" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>nginx2root: five nginx flaws include unauthenticated code execution over HTTP/2 that chains with a Linux SCTP bug to reach host root from a container &mdash; not exploited</h3>
+        <p>Five nginx flaws, rated up to 9.2 under CVSS 4.0, were disclosed under the name nginx2root. The worst, CVE-2026-123007, is unauthenticated remote code execution through HTTP/2 flow control in nginx 1.9.5 to 1.31.8. Chained with a Linux kernel bug in SCTP, it gives a container escape to root on the host. Fixes are nginx 1.31.9 and 1.30.7 and NGINX Plus 37.3.0.1 and 37.0.8.1; nginx must be fully restarted, and disabling HTTP/2 is a stopgap. No exploitation is reported and it is not in KEV. Censys estimates nearly 10 million services run affected versions, a measure of exposure rather than of attackable hosts. SCTP is the transport for telecom signalling, so it is more likely to be enabled on hosts running containerised network functions than on ordinary web servers (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-123007</span>
+          <span>nginx 1.9.5&ndash;1.31.8 &bull; CVSS 4.0 9.2 &bull; HTTP/2 flow control; chains with a Linux kernel SCTP bug for container escape &bull; fixed 1.31.9 / 1.30.7, NGINX Plus 37.3.0.1 / 37.0.8.1</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation as of 19 Nov 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; nginx 1.31.9 / 1.30.7, NGINX Plus 37.3.0.1 / 37.0.8.1; full restart needed</span>
+            <span class="ops-cc"><b>Action:</b> Inventory nginx on edge proxies, hosting nodes and container images, upgrade and fully restart it, and disable HTTP/2 where you cannot upgrade yet; check whether SCTP is loaded on container hosts that do not need it.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> 7d</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nginx2root-123007" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nginx2root-123007">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs; Censys exposure estimate</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 19 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-sonicwall-gen6-eol" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">End of Life</span>
+        </div>
+        <h3>SonicWall ends all security patches for Gen 6 firewalls, even for critical flaws, and expects internet-facing units to be targeted</h3>
+        <p>SonicWall says Gen 6 firewalls running SonicOS 6.x, covering the TZ, SOHO, NSA, NSa, NSv, SuperMassive and NSsp lines, will get no more security patches, even for critical vulnerabilities. SonicWall expects internet-facing Gen 6 devices to be actively targeted and tells customers to migrate to Gen 8 on SonicOS 8. Until then it advises disabling WAN management, restricting SSL VPN access, requiring MFA and resetting local passwords. ISPs and managed-service providers that installed Gen 6 units at customer sites, or still run them at small points of presence, should treat them as unpatchable edge devices and plan their replacement (editorial assessment).</p>
+        <div class="card-meta">
+          <span>SonicOS 6.x &bull; TZ, SOHO, NSA, NSa, NSv, SuperMassive, NSsp &bull; no further security patches &bull; migrate to Gen 8 / SonicOS 8</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No specific exploitation reported; SonicWall expects internet-facing Gen 6 units to be targeted</span>
+            <span class="ops-tag kev-off">No CVE &mdash; end of security support</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No further patches &mdash; migrate to Gen 8 / SonicOS 8</span>
+            <span class="ops-cc"><b>Action:</b> Find every Gen 6 unit you run or manage for customers, take WAN management off the internet, restrict SSL VPN and enforce MFA, reset local passwords, and schedule replacement with Gen 8.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> 30d</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sonicwall-gen6-eol" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sonicwall-gen6-eol">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; SonicWall</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-kvm-amd-99312" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Linux KVM flaw on AMD hosts with nested virtualization lets root in a guest read and write host memory &mdash; kernel fixes are out, distro packages lag</h3>
+        <p>CVE-2026-99312 affects Linux KVM on AMD hosts with nested virtualization, which is on by default in the kvm_amd module. Root inside a guest VM can read and write host memory; on a test bare-metal server about 127 GB of host RAM was read. Terra Security found it through DigitalOcean&rsquo;s bug bounty. The CNA rates it 8.8 and Red Hat 5.6. Fixes are in kernels 7.3.5, 6.18.64 and 6.12.118, but distribution packages lag. No in-the-wild use is reported. The mitigation is to update and reboot the host kernel, or to set options kvm_amd nested=0. For hosting and cloud providers that sell VMs on AMD hardware, one tenant with root in its own VM could reach memory belonging to the host and other tenants (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-99312</span>
+          <span>Linux KVM on AMD (kvm_amd, nested virtualization on by default) &bull; CNA 8.8 / Red Hat 5.6 &bull; fixed 7.3.5 / 6.18.64 / 6.12.118</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No in-the-wild use reported as of 20 Nov 2026</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched upstream &mdash; 7.3.5 / 6.18.64 / 6.12.118; distro packages lag; reboot needed</span>
+            <span class="ops-cc"><b>Action:</b> List AMD KVM hosts that allow nested virtualization, install the fixed host kernel and reboot as packages arrive, and meanwhile set options kvm_amd nested=0 on hosts whose tenants do not need nested guests.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> 7d</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kvm-amd-99312" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kvm-amd-99312">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News; Terra Security</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-openssh-sshole" data-published="2026-11-10">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1920,41 +2069,6 @@
         <a href="https://securityonline.info/fortinet-critical-vulnerabilities-november-2026/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-hpe-aruba-aos" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Vulnerability</span>
-        </div>
-        <h3>HPE fixes eight flaws in ArubaOS 8 and 10 that allow code execution or authentication bypass without credentials &mdash; no exploit code or attacks known</h3>
-        <p>HPE published security bulletin hpesbnw05162en_us on 22 October 2026 for eight vulnerabilities, CVE-2026-79844 to CVE-2026-79851, in ArubaOS 8 and ArubaOS 10, the software behind Aruba mobility conductors, controllers, gateways and access points. As reported by BleepingComputer on 23 October, they are authentication bypasses (one in the PAPI protocol), unauthenticated command and SQL injection, and buffer overflows, each of which can lead to remote code execution without credentials; four affect AOS-8 and four AOS-10. HPE says it is not aware of public discussion or exploit code targeting the flaws, and no in-the-wild exploitation has been reported. Until patches are installed, HPE advises restricting the CLI and web management interfaces to a dedicated layer-2 segment or VLAN, or controlling them with layer-3 firewall policies. The telecom relevance is editorial: operators that sell managed Wi-Fi and campus LAN services run Aruba controllers and gateways for many customers, and operators run wireless in their own offices too (editorial assessment).</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-79844</span>
-          <span class="cve-badge">CVE-2026-79851</span>
-          <span>HPE Aruba ArubaOS 8 and 10 (mobility conductors, controllers, gateways, access points) &bull; CVE-2026-79844 to CVE-2026-79851 &bull; unauthenticated code execution and authentication bypass &bull; mitigation: management interfaces on a dedicated VLAN or behind firewall policy</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; HPE is not aware of public exploit code</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed AOS-8 and AOS-10 releases listed in HPE bulletin hpesbnw05162en_us</span>
-            <span class="ops-cc"><b>Action:</b> Identify every Aruba mobility conductor, controller and gateway you run, including those in managed customer estates, and schedule upgrades to HPE&rsquo;s fixed AOS-8 and AOS-10 releases. Until then, put CLI and web management on a dedicated management VLAN or behind firewall rules that admit only named administrator addresses, and confirm management interfaces are not reachable from customer, guest or internet-facing networks.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-interface restriction &mdash; 7 days; upgrade &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hpe-aruba-aos" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-hpe-aruba-aos">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HPE security bulletin hpesbnw05162en_us (via BleepingComputer)</span>
-          <span class="dot">&bull;</span>
-          <span>Bulletin 22 Oct 2026; reported 23 Oct 2026; no exploitation known</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-moxa-oncell-g3150a-eol" data-published="2026-10-27">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1990,40 +2104,40 @@
         <a href="https://www.moxa.com/en/support/product-support/security-advisory/mpsa-269510-cve-2026-111459-cve-2026-111460-cve-2026-111461-vulnerabilities-in-moxa-remote-connect-suite-mrc-client" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-kiloview-e3-encoder" data-published="2026-10-22">
+      <div class="card" id="it-whatsapp-23871" data-published="2026-11-20">
         <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Advisory</span>
+          <span class="severity sev-low">Low</span>
+          <span class="category">Vulnerability</span>
         </div>
-        <h3>CISA warns of command-injection flaws rated 9.9 in Kiloview E3 NDI video encoders, alongside hard-coded credentials &mdash; nine bugs, fixed in firmware 1.30</h3>
-        <p>CISA published ICSA-26-295-01 on 22 October 2026 for the Kiloview E3 NDI encoder, a hardware encoder that sends live video over IP networks, listing nine vulnerabilities in firmware before 1.30. Two OS command-injection flaws, CVE-2026-107861 and CVE-2026-110243, are rated 9.9 under CVSS v3.1 (9.4 under v4.0) and need only a low-privileged login; a third, CVE-2026-109122, is rated 9.1 and needs high privileges. Three more need no login at all: hard-coded credentials (CVE-2026-92450), missing authentication (CVE-2026-110825) and a NULL-pointer crash (CVE-2026-110491), each rated 7.5 under v3.1. The fix is firmware 1.30. CISA reports no known exploitation and lists communications and information technology as the sectors where the product is deployed; the vendor is headquartered in China. The relevance here is the media side of the sector: broadcasters and production teams put encoders like this on studio and contribution networks, and with hard-coded credentials in the same firmware the login requirement on the worst flaws is weak protection (editorial assessment).</p>
+        <h3>WhatsApp fixes three flaws, one of which it says a scammer may have abused through crafted spam messages</h3>
+        <p>WhatsApp patched three vulnerabilities. CVE-2026-23871, rated 3.5, is incomplete validation of external ad-reply URLs; WhatsApp says it may have been abused with specific spam messages, a spokesperson said a scammer used it, and WhatsApp&rsquo;s own team found it while disrupting a scam campaign. It is fixed in WhatsApp and WhatsApp Business for Android 2.26.17.4. CVE-2026-102769, rated 6.8, is an SQL injection that can delete local files in WhatsApp for Android before 2.26.35.74. CVE-2026-44908, rated 4.8, is a VCEK certificate trust-validation flaw in the confidential-computing component behind Meta AI, fixed in iOS 2.26.24.72, Android 2.26.23.74, Business for iOS and Mac 2.26.23.72 and Business for Android 2.26.23.70. No exploitation is reported for those two. Carriers that run customer service over WhatsApp Business should keep those devices current; the abused flaw is rated low and its reported use was in scam messaging (editorial assessment).</p>
         <div class="card-meta">
-          <span class="cve-badge">CVE-2026-107861</span>
-          <span class="cve-badge">CVE-2026-110243</span>
-          <span class="cve-badge">CVE-2026-92450</span>
-          <span>Kiloview E3 NDI encoder, firmware before 1.30 &bull; nine CVEs &bull; command injection CVSS v3.1 9.9 (low-privileged login) &bull; hard-coded credentials, missing authentication and crash bug, v3.1 7.5, no login needed &bull; fix firmware 1.30</span>
+          <span class="cve-badge">CVE-2026-23871</span>
+          <span class="cve-badge">CVE-2026-102769</span>
+          <span class="cve-badge">CVE-2026-44908</span>
+          <span>WhatsApp and WhatsApp Business (Android, iOS, Mac) &bull; CVSS 3.5 / 6.8 / 4.8 &bull; ad-reply URL validation, local SQL injection, Meta AI VCEK validation</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; CISA</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Limited &mdash; WhatsApp says CVE-2026-23871 may have been abused in specific spam messages; no exploitation of the other two</span>
             <span class="ops-tag kev-off">Not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; firmware 1.30</span>
-            <span class="ops-cc"><b>Action:</b> Find every Kiloview E3 on broadcast, studio and contribution networks, upgrade it to firmware 1.30, and confirm no encoder management interface is reachable from the internet or from general corporate networks. Because one flaw is hard-coded credentials, isolate unpatched encoders behind a firewall or dedicated VLAN rather than relying on passwords.</span>
+            <span class="ops-tag patch-yes">Patched &mdash; update WhatsApp / WhatsApp Business to the fixed builds or later</span>
+            <span class="ops-cc"><b>Action:</b> Update WhatsApp and WhatsApp Business on managed phones and Macs to the fixed builds or later, and remind staff who handle customer chats to treat ad-reply links with caution.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Exposure check &mdash; 7 days; firmware upgrade &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kiloview-e3-encoder" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kiloview-e3-encoder">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> 30d</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-whatsapp-23871" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-whatsapp-23871">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>CISA ICS advisory ICSA-26-295-01 (CSAF record via CIRCL)</span>
+          <span>The Hacker News; WhatsApp</span>
           <span class="dot">&bull;</span>
-          <span>Published 22 Oct 2026; no known exploitation</span>
+          <span>Reported 20 Nov 2026</span>
         </div>
-        <a href="https://vulnerability.circl.lu/vuln/icsa-26-295-01" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/11/whatsapp-patches-3-security-flaws.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     </div>
@@ -2129,39 +2243,6 @@
           <span>Memo 2 Nov 2026; reported 11 Nov 2026</span>
         </div>
         <a href="https://cybersecuritydive.com/news/cisa-priorities-memo-risks-partnerships/874381" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-uk-subsea-cable-white-paper" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-info">Info</span>
-          <span class="category">Policy</span>
-        </div>
-        <h3>The UK proposes up to 14 years in prison for undersea-cable sabotage and new security duties for subsea telecoms cable operators &mdash; a 12-week consultation, not yet law</h3>
-        <p>The UK government published a White Paper on 22 October 2026 proposing prison terms of up to 14 years for intentionally damaging critical undersea telecoms and energy infrastructure, with unlimited fines for deliberate or reckless damage, to update legislation it describes as 140 years old. Subsea telecoms cable providers would take on statutory security and resilience duties, including stronger requirements to identify and manage risks to their networks, and the Secretary of State would gain a national-security power to direct cable providers and repair capability where necessary and proportionate. A separate regime would manage national-security risks from sensing technology installed on subsea fibre-optic cables. The government cites suspicious Russian activity around undersea infrastructure, including a covert Russian submarine operation the British Armed Forces exposed in April. The White Paper opens a 12-week consultation, and nothing changes for operators until legislation passes. For cable owners and landing-station operators, the duties and the direction power are the parts to read, since they would turn resilience planning that is largely voluntary today into obligations (editorial assessment).</p>
-        <div class="card-meta">
-          <span>UK subsea cable White Paper &bull; up to 14 years for intentional damage to critical undersea telecoms and energy infrastructure; unlimited fines &bull; statutory security duties for subsea telecoms cable providers &bull; national-security direction power &bull; regime for fibre-optic sensing on cables</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Policy proposal &mdash; not a threat or vulnerability</span>
-            <span class="ops-tag kev-off">Not applicable</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">Not applicable &mdash; consultation stage, no current obligation</span>
-            <span class="ops-cc"><b>Action:</b> UK cable owners, landing-station operators and repair providers may want to respond to the consultation and to map current risk-management, incident and repair arrangements against the proposed duties and direction power.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Awareness &mdash; consultation runs 12 weeks from 22 Oct</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-uk-subsea-cable-white-paper" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-uk-subsea-cable-white-paper">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>UK government announcement (gov.uk); The Register</span>
-          <span class="dot">&bull;</span>
-          <span>Published 22 Oct 2026; 12-week consultation</span>
-        </div>
-        <a href="https://www.gov.uk/government/news/subsea-cable-saboteurs-face-jail-and-unlimited-fines-under-new-security-crackdown" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-fcc-covered-components-labs" data-published="2026-10-27">

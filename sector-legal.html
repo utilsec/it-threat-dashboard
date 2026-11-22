@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Professional &amp; Legal Services</h1>
       <div class="header-sub">Law, accounting, consulting &amp; staffing.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:12 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Professional &amp; Legal Services</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>39</strong> stories across
+      <strong>40</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -828,7 +834,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:64.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.4 (Medium):</b> Several exploited flaws and MSP-tool attacks this week, but each is a discrete patch-and-hunt job; nothing is hitting most firm networks at once.<br><b>Top threat:</b> ScreenConnect abuse through MSPs (40+ orgs) and the N-central root chain &mdash; the route into firms that outsource IT.<br><b>Confirmed breaches:</b> Baker McKenzie and Troutman Pepper Locke (~89,000 notified, social engineering); Holland &amp; Knight (Sep).<br><b>Also watching:</b> vCenter zero-day; Axis/Confluence; Outlook NTLM leak; Barracuda ESG; SRG claims on A&amp;O Shearman and Benesch.<br><b>What would raise it:</b> Confirmed compromises at many firms through one MSP tool or flaw, or confirmed SRG leaks at scale.</div>
+      <div class="tl-why"><b>Why 6.4 (Medium):</b> Several exploited flaws and MSP-tool attacks, but each is a discrete patch-and-hunt job; nothing is hitting most firm networks at once.<br><b>Top threat:</b> ScreenConnect abuse through MSPs (40+ orgs) and the N-central root chain &mdash; the route into firms that outsource IT.<br><b>Confirmed breaches:</b> Baker McKenzie and Troutman Pepper Locke (~89,000 notified, social engineering); Holland &amp; Knight (Sep).<br><b>Also watching:</b> vCenter zero-day; Axis/Confluence; GPGME flaw in PGP mail; FastUnlock lock-screen bypass; cookie-theft M365 takeovers.<br><b>What would raise it:</b> Confirmed compromises at many firms through one MSP tool or flaw, or confirmed SRG leaks at scale.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -873,7 +879,7 @@
     <div class="top-story" id="it-screenconnect-msp" data-published="2026-11-17">
         <span class="top-story-pill">Top Story</span>
         <h2>Attackers are using ConnectWise ScreenConnect at managed service providers to push rogue remote-access clients into dozens of customer organisations &mdash; the route into the many small and mid-sized firms that outsource their IT</h2>
-        <p>Huntress saw a spike on 13 November in attacks on ScreenConnect partner instances, in which attackers abused the product&rsquo;s Run Command feature to install rogue ScreenConnect clients on customers&rsquo; machines. Counts differ by outlet and are still rising: The Hacker News reports 205 hosts at 41 organisations, BleepingComputer six MSPs, 286 endpoints and 47 organisations. This is misuse of a legitimate feature, not a confirmed ScreenConnect vulnerability; the suspected way in is an authentication flaw in a third-party RMM+ extension (versions 1.0.31 and 1.0.32, no CVE). ConnectWise has disabled five extensions &mdash; Labtech Plus, RMM Plus, RMM+ and two Password Link variants &mdash; across about 400 partner environments. The attackers persist through a fake &ldquo;Windows Update Agent&rdquo; service, UpdateConnect.ClientService.exe. A worm-like toolkit, SCKit, can also abuse ScreenConnect CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), but there is no evidence it was used in this campaign. The activity is unattributed, and The Hacker News does not link it to Storm-0940, whose October abuse of ConnectWise Cloud Backup is covered under Threat Intelligence. No law or professional-services firm has been named among the victims. This leads over the exploited vCenter zero-day and the Apache Axis attacks on Confluence (both in Critical Advisories) because it is a confirmed, still-growing intrusion campaign with a direct path into firms whose desktops are managed by an MSP: one remote-access console reaches every client machine at once (editorial assessment).</p>
+        <p>Huntress saw a spike on 13 November in attacks on ScreenConnect partner instances, in which attackers abused the product&rsquo;s Run Command feature to install rogue ScreenConnect clients on customers&rsquo; machines. Counts differ by outlet and are still rising: The Hacker News reports 205 hosts at 41 organisations, BleepingComputer six MSPs, 286 endpoints and 47 organisations. This is misuse of a legitimate feature, not a confirmed ScreenConnect vulnerability; the suspected way in is an authentication flaw in a third-party RMM+ extension (versions 1.0.31 and 1.0.32, no CVE). ConnectWise has disabled five extensions &mdash; Labtech Plus, RMM Plus, RMM+ and two Password Link variants &mdash; across about 400 partner environments. The attackers persist through a fake &ldquo;Windows Update Agent&rdquo; service, UpdateConnect.ClientService.exe. A worm-like toolkit, SCKit, can also abuse ScreenConnect CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), but there is no evidence it was used in this campaign. The activity is unattributed, and The Hacker News does not link it to Storm-0940&rsquo;s October abuse of ConnectWise Cloud Backup. No law or professional-services firm has been named among the victims. This leads over the exploited vCenter zero-day and the Apache Axis attacks on Confluence (both in Critical Advisories) because it is a confirmed, still-growing intrusion campaign with a direct path into firms whose desktops are managed by an MSP: one remote-access console reaches every client machine at once (editorial assessment).</p>
         <div class="card-meta">
           <span>ConnectWise ScreenConnect partner (MSP) instances &bull; Run Command feature abused &bull; suspected auth flaw in third-party RMM+ extension 1.0.31/1.0.32 (no CVE) &bull; 41&ndash;47 organisations, 205&ndash;286 endpoints reported &bull; unattributed</span>
         </div>
@@ -940,7 +946,7 @@
         <a href="#it-nable-mailassure"><circle class="blip high" cx="93.2" cy="283.4" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="93.2" y="285.5">13</text></a>
         <a href="#it-cisa2015-deadline"><circle class="blip high" cx="47.1" cy="203.4" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="47.1" y="205.4">14</text></a>
         <a href="#it-citrix-nov26"><circle class="blip high" cx="63.1" cy="112.5" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="63.1" y="114.4">15</text></a>
-        <a href="#it-gtig-agentic-ai"><circle class="blip high" cx="133.8" cy="53.1" r="6.0"/><text class="blip-num" style="font-size:5.7px" x="133.8" y="54.9">16</text></a>
+        <a href="#it-huntio-credential-theft"><circle class="blip high" cx="133.8" cy="53.1" r="6.0"/><text class="blip-num" style="font-size:5.7px" x="133.8" y="54.9">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>1</b> ScreenConnect abused via MSPs; 40+ orgs hit</a>
@@ -958,10 +964,46 @@
         <a href="#it-nable-mailassure"><span class="ld high"></span><b>13</b> N-able Mail Assure cloud server breached</a>
         <a href="#it-cisa2015-deadline"><span class="ld high"></span><b>14</b> CISA 2015 sharing law expires 11 Dec</a>
         <a href="#it-citrix-nov26"><span class="ld high"></span><b>15</b> Citrix NetScaler: nine critical flaws</a>
-        <a href="#it-gtig-agentic-ai"><span class="ld high"></span><b>16</b> Google: agentic AI in live intrusions</a>
+        <a href="#it-huntio-credential-theft"><span class="ld high"></span><b>16</b> Stolen cookies took over 2 M365 tenants</a>
       </div>
     </div>
 
+  </div>
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Social Engineering</span>
+        <b class="trend-head">Law-firm breaches are starting with a persuaded person, not a software flaw</b>
+        <p>The confirmed law-firm breaches on this page involved no CVE: Baker McKenzie staff were socially engineered in August, a Troutman Pepper Locke employee sent documents to an unauthorised person, and Holland &amp; Knight&rsquo;s September breach was social engineering too. Arctic Wolf has seen more than 400 fake &ldquo;IT help desk&rdquo; Teams chats that follow an inbox flood and reach a running payload in under 15 minutes, and CrowdStrike saw Silent Ransom Group try to move data out four minutes after getting in. Takeaway: require a call-back on a known number before staff send client files or accept remote help, and restrict Teams chat from outside tenants. See Incidents &amp; Attacks and Threat Intelligence &amp; Research.</p>
+        <a href="https://www.crowdstrike.com/en-us/press-releases/crowdstrike-2026-legal-threat-landscape-report/" class="source-link" target="_blank" rel="noopener">CrowdStrike 2026 Legal Threat Landscape</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">MSP Risk</span>
+        <b class="trend-head">The remote-management tools your IT provider uses are the shortest route into the firm</b>
+        <p>In one week, attackers pushed rogue ScreenConnect clients through MSP partner instances into 40-plus organisations, took root on at least 21 N-able N-central servers within hours of a public exploit, and reached a server in N-able&rsquo;s Mail Assure email-filtering cloud. The credential-theft operation Hunt.io uncovered also abused ScreenConnect and Level.io. Many small and mid-sized firms use these tools through their MSP without knowing the product names. Takeaway: get a written list of the remote-management and email-filtering products your MSP runs for you, their patch status, and how fast it must tell you about a compromise of its own tools. See the Top Story and Critical Advisories.</p>
+        <a href="https://thehackernews.com/2026/11/connectwise-warns-screenconnect-attacks.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Extortion Claims</span>
+        <b class="trend-head">Leak-site claims against large firms are rising faster than confirmed breaches</b>
+        <p>Silent Ransom Group listed A&amp;O Shearman and posted a leak notice naming Benesch within about a week, and a second group, Redact, claimed Holland &amp; Knight. None of these claims has proof published or a firm statement behind it. CrowdStrike counts 455 legal entities named on leak sites, up 39% year on year, and Silent Ransom Group activity against the sector up 129%. A claim can be recycled or resold data, or simply false, but clients and the press will ask either way. Takeaway: prepare a short internal playbook for checking a leak-site listing quickly, covering who verifies it, who speaks to clients and what regulators need. See Incidents &amp; Attacks.</p>
+        <a href="https://www.dexpose.io/silentransomgroup-targets-uk-law-firm-ao-shearman/" class="source-link" target="_blank" rel="noopener">DeXpose</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Identity &amp; Endpoint</span>
+        <b class="trend-head">Stolen sessions and unattended laptops get past passwords and MFA</b>
+        <p>Hunt.io found a crew that infected 603 Windows PCs, decrypted password-manager vaults (one LastPass vault held 2,880 logins) and took over two Microsoft 365 tenants with stolen session cookies. Operation Endgame recovered more than 6 million credentials from Gootloader, which used fake legal-template downloads as its lure. On the device side, FastUnlock is an unpatched lock-screen bypass for anyone holding a locked laptop, and the GPGME flaw is triggered by importing a malicious OpenPGP key. Takeaway: use phishing-resistant MFA and device-bound sessions for Microsoft 365, set a BitLocker startup PIN on travelling laptops, and update Gpg4win. See Threat Intelligence &amp; Research and Critical Advisories.</p>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+
+    </div>
   </div>
 
   <div class="section">
@@ -1168,39 +1210,6 @@
         <a href="https://www.dexpose.io/silentransomgroup-targets-benesch-law-in-ransomware-attack/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-lexitas-deposition-exposure" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Court-reporting firm Lexitas says deposition transcripts and exhibits sat on a web server anyone could reach for more than six years &mdash; about 14,361 people are being notified, and its logs cannot show who downloaded what</h3>
-        <p>Deposition Solutions, LLC, which trades as Lexitas, has filed a breach notice with the California Attorney General, posted on 22 October. Its notification letter, dated 14 October, says a web-server configuration error left certain files in its OnDemand (DepositionNet) application reachable over the internet without authentication from around September 2019. The error went undetected until a customer reported it on 29 May 2026, and Lexitas says it blocked public access to the server within hours. The files are mainly deposition transcripts, exhibits and other legal documents, so personal details appear wherever they came up in testimony or were attached as exhibits: names together with Social Security, driver&rsquo;s licence or financial account numbers, dates of birth, and medical or health-insurance information. Lexitas says its server logs were too limited to tell whether any person&rsquo;s information was viewed, copied or downloaded. Its forensic review found no evidence of malware or of an attacker still present, and it says it knows of no fraud or misuse. The letter gives a nationwide total of about 14,361 people and offers Cyberscout credit monitoring. This is an exposure confirmed in a regulator filing, not a claimed attack, and no group is involved. A court reporter holds the testimony and exhibits of every deposition it covers, often including documents produced under a protective order, and that material belongs to the firms&rsquo; clients and witnesses, not to the vendor (editorial assessment). The letter does not say which matters, firms or courts were affected, so firms that have used Lexitas will have to ask.</p>
-        <div class="card-meta">
-          <span>Lexitas (Deposition Solutions, LLC) &bull; OnDemand (DepositionNet) application &bull; deposition transcripts, exhibits and other legal documents &bull; about 14,361 people nationwide &bull; no CVE &mdash; web-server configuration error, no authentication required</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-poc"><span class="d"></span>Exposure confirmed by Lexitas in its California AG filing &mdash; files reachable about Sep 2019 to 29 May 2026; whether anyone downloaded them cannot be determined; no fraud or misuse known</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; configuration error, no vulnerability named</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; public access blocked 29 May 2026; matter-level exposure review and client notice decisions</span>
-            <span class="ops-cc"><b>Action:</b> If the firm has used Lexitas, ask it in writing whether transcripts, exhibits or other files from the firm&rsquo;s matters were in the OnDemand (DepositionNet) store, and for which matters and dates back to 2019. For any that were, flag material produced under a protective order or filed under seal, tell the responsible partner, and decide with the general counsel whether clients, witnesses or opposing counsel need to be told, including any notice duty in the protective order itself. Add two standing questions to court-reporting and litigation-support intake: how transcript and exhibit repositories are access-controlled and tested, and how long access logs are kept, because short log retention is the reason Lexitas cannot say whether anything was taken.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Written matter list from Lexitas &mdash; 10 working days; protective-order and sealed-material review for affected matters &mdash; 10 working days after the list; vendor intake questions added &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-lexitas-deposition-exposure" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-lexitas-deposition-exposure">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>California Attorney General breach notice and Lexitas notification letter (primary)</span>
-          <span class="dot">&bull;</span>
-          <span>Files reachable from about Sep 2019; customer report 29 May 2026, public access blocked within hours; letter 14 Oct; posted by the California AG 22 Oct 2026 &mdash; no fraud or misuse known</span>
-        </div>
-        <a href="https://oag.ca.gov/ecrime/databreach/reports/sb24-631701" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-bnc-bae-outage" data-published="2026-10-27">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1267,39 +1276,6 @@
         <a href="https://www.hipaajournal.com/data-breach-new-york-law-firm/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-bullhorn-outage" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Staffing-software provider Bullhorn took its platform offline to contain a cyber incident &mdash; most products were back by 22&nbsp;October, with its Back Office pay and time system expected to stay down through that week</h3>
-        <p>Bullhorn, whose applicant-tracking, CRM and back-office software is used by staffing and recruitment firms, said it had &ldquo;detected a cyber incident on the Bullhorn Platform&rdquo; and temporarily disabled access to its systems to contain the activity, BleepingComputer reported on 19 October. Customers first reported problems on Friday 16 October; Bullhorn reported a system-wide outage the next day and then confirmed a cyberattack. It says it serves more than 10,000 customers worldwide and is working with CrowdStrike. Every user who does not sign in through single sign-on must reset their password, and API passwords must be rotated to protect integrations. Bullhorn says its forensic investigation has not yet determined whether customer data was taken and that it will notify individuals if a breach is confirmed; no group has claimed the attack. Its status page on 22 October listed most products, including Talent Platform and SourceBreaker, as upgraded and restored, but told customers to plan for Back Office to remain unavailable through the end of that week, with time sheets unavailable and Support running payroll reports on request. This edition found no later Bullhorn statement on Back Office or on whether data was taken. The same update says recently disclosed PHP vulnerabilities affected certain Bullhorn solutions; Bullhorn does not say whether that is connected to the incident. For a staffing firm the ATS holds candidates&rsquo; CVs and contact details and Back Office runs contractor pay, so this is both a data question and a payroll question (editorial assessment).</p>
-        <div class="card-meta">
-          <span>Bullhorn (ATS/CRM, Automation, Back Office, Talent Platform) &bull; 10,000+ customers &bull; no CVE &mdash; entry route undisclosed &bull; investigation with CrowdStrike</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed by Bullhorn &mdash; cyber incident; data theft not yet determined; no claim reported</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; entry route not disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; password resets, API-password rotation and payroll work-arounds</span>
-            <span class="ops-cc"><b>Action:</b> If the firm uses Bullhorn, make sure every non-SSO user has reset their password and that the API password for every integration has been rotated, including job boards, payroll, VMS and background-check connectors, and record which ones were changed. Confirm with Bullhorn Support that Back Office is fully working before the next pay run, and keep manual time capture ready until it is. Review sign-ins and API activity on the firm&rsquo;s Bullhorn account since mid-October, warn staff about phishing that uses the outage as a pretext (fake reset or restoration emails), and prepare candidate and client notice templates in case Bullhorn confirms that data was taken.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Password and API-password rotation &mdash; 24h; payroll work-around &mdash; before the next pay run; integration and sign-in review &mdash; 5 working days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bullhorn-outage" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-bullhorn-outage">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>BleepingComputer (Bullhorn statement and FAQ); Bullhorn status page (primary, 22 Oct)</span>
-          <span class="dot">&bull;</span>
-          <span>Problems from 16 Oct; attack confirmed by 19 Oct; status update 22 Oct 2026 &mdash; no later Bullhorn statement found as of 28 Oct</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/bullhorn-takes-staffing-platform-offline-to-contain-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-genesys-internal-crm" data-published="2026-10-23">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1339,6 +1315,39 @@
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="it-huntio-credential-theft" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>Hunt.io found the loot of a Russian-speaking credential-theft operation: 603 infected Windows PCs, decrypted password-manager vaults and two Microsoft 365 tenants taken over with stolen session cookies</h3>
+        <p>Hunt.io found an exposed open directory on a Netherlands VPS holding the stolen data of a Russian-speaking credential-theft operation that has infected 603 Windows PCs since 12 October. The operators used tools named HavoX, Phantom53 and Kraken Bridge, abused the ScreenConnect and Level.io remote-management tools, got around Chrome&rsquo;s app-bound encryption and decrypted password-manager vaults &mdash; one LastPass vault held 2,880 logins. The haul included bank and government logins, and two Microsoft 365 tenants were compromised with stolen session cookies. The banks and agencies themselves were not breached; the victims&rsquo; PCs were. No law firm has been named. A stolen session cookie skips the password and MFA prompt, so one infected laptop can hand over a firm&rsquo;s email and document tenant (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Russian-speaking credential-theft operation &bull; 603 Windows PCs since 12 Oct 2026 &bull; HavoX, Phantom53, Kraken Bridge; ScreenConnect and Level.io abused &bull; Chrome app-bound encryption bypassed; password-manager vaults decrypted &bull; two M365 tenants via stolen session cookies</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; infections since 12 Oct 2026, per Hunt.io; operators not named</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; malware campaign</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; identity and endpoint controls</span>
+            <span class="ops-cc"><b>Action:</b> Move lawyers and admins to phishing-resistant MFA, and use conditional access with device-bound sessions so a stolen Microsoft 365 cookie cannot be replayed from another machine. Alert on pythonw.exe running from unusual paths and on ScreenConnect or Level.io agents the firm did not install. If a PC is infected, revoke that user&rsquo;s sessions and change every password in their vault.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Endpoint alert rules &mdash; 7 days; conditional access and device-bound sessions review &mdash; 30 days; phishing-resistant MFA for admins &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-huntio-credential-theft" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-huntio-credential-theft">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs (Hunt.io research)</span>
+          <span class="dot">&bull;</span>
+          <span>Infections since 12 Oct; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203554/cyber-crime/hunt-io-uncovers-russian-speaking-credential-theft-operation-targeting-us-banks-and-government-accounts.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-crowdstrike-legal-report" data-published="2026-10-28">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1471,39 +1480,6 @@
         <a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-storm-0940-artex" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Campaign</span>
-        </div>
-        <h3>Microsoft: China-aligned Storm-0940 took over ConnectWise Cloud Backup&rsquo;s app identities to reach customers&rsquo; Microsoft 365 tenants, using the ARTEX AI framework &mdash; and legal is on its target list</h3>
-        <p>Microsoft said on 21 October that it assesses Storm-0940, which it calls a China-state aligned actor active since 2021 and focused on data theft, was responsible for the recently disclosed compromise of ConnectWise Cloud Backup (formerly SkyKick), a Microsoft 365 backup service that IT providers run for their clients. The actor gained control of the identities of several ConnectWise cloud applications and signed in to customer tenants as those applications, so multi-factor authentication did not apply. Microsoft counts attempts against more than 2,250 tenants and says several reached privileged cloud access, some within three hours, although most targeting failed; a separate password spray from 10 to 14 October produced no successful sign-ins. Microsoft says the actor has used ARTEX, an open-source penetration-testing framework that can use any AI model, since as early as September, and lists legal, financial services and government among the sectors it targets. ConnectWise, which first detected the activity on 14 October, suspended Cloud Backup and shut its SaaS Security and Cloud Management services; on 22 October its chief executive said restoration is happening in controlled phases and that customers should keep the connections disabled until ConnectWise contacts them. It says it has no evidence that partner backup data was compromised. Huntress reported unauthorised sign-ins at 162 tenants it monitors. No law firm has been named. Many smaller firms&rsquo; Microsoft 365 is run by an IT provider, which is exactly the relationship this abused (editorial assessment).</p>
-        <div class="card-meta">
-          <span>Storm-0940 (China-state aligned, per Microsoft) &bull; ConnectWise Cloud Backup app identities &bull; ARTEX open-source AI penetration-testing framework &bull; Microsoft 365 / Entra ID tenants</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Active &mdash; compromise confirmed by ConnectWise and Microsoft; Microsoft assesses Storm-0940; legal among named target sectors, no law firm named</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; vendor app-identity compromise, no CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; keep the ConnectWise app connections disabled until ConnectWise issues restoration instructions</span>
-            <span class="ops-cc"><b>Action:</b> Ask the firm&rsquo;s IT provider, in writing, whether ConnectWise Cloud Backup, SaaS Security or Cloud Management was connected to the firm&rsquo;s Microsoft 365 tenant. If it was, keep those app connections disabled until ConnectWise gives formal restoration instructions, but do not delete the enterprise apps first, so the evidence is preserved. Search Entra sign-in logs for the ConnectWise application IDs back to 1 October, and check for credentials added to app registrations, new owners or consents, privileged-role changes (Huntress saw service principals give themselves Exchange Administrator) and bulk mailbox or Key Vault reads. Anything found is an incident involving client mail and should go to the general counsel.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Provider confirmation &mdash; 24h; sign-in and app-credential review back to 1 Oct &mdash; 72h</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-storm-0940-artex" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-storm-0940-artex">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Threat Intelligence (primary); ConnectWise via CyberScoop and Cybersecurity Dive; Huntress via BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Password spray 10&ndash;14 Oct; ConnectWise detection 14 Oct; services suspended by 17 Oct; Microsoft attribution 21 Oct; phased restoration per ConnectWise CEO 22 Oct 2026</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-teams-helpdesk-lures" data-published="2026-10-26">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1609,7 +1585,7 @@
           <span class="category">Research</span>
         </div>
         <h3>Kroll: about seven in ten people caught up in the breaches it handled were exposed through a supplier, not the organisation they dealt with</h3>
-        <p>Kroll&rsquo;s Data Breach Outlook 2026, reported by Help Net Security on 28 October, says about 70% of the individuals affected in breaches Kroll handled over the past year were exposed through an outside supplier. Technology companies accounted for 6% of cases but 60% of affected individuals, and about four in ten respondents said dependencies on vendors complicated their breach-response decisions. Kroll&rsquo;s cyber-insurance lead said one supplier breach can trigger &ldquo;dozens or even hundreds&rdquo; of insurance claims, and that underwriters are looking for providers that are single points of failure. The report gives no figures for legal or professional services. This page shows the pattern: a court-reporting vendor&rsquo;s exposed server (Lexitas), the judiciary&rsquo;s noticing contractor (BAE Systems), an IT provider&rsquo;s backup app (ConnectWise) and a staffing platform (Bullhorn) (editorial assessment). Firms also sit on the other side of the line, as suppliers holding their clients&rsquo; data, as the Tarter Krinsky &amp; Drogin notice shows.</p>
+        <p>Kroll&rsquo;s Data Breach Outlook 2026, reported by Help Net Security on 28 October, says about 70% of the individuals affected in breaches Kroll handled over the past year were exposed through an outside supplier. Technology companies accounted for 6% of cases but 60% of affected individuals, and about four in ten respondents said dependencies on vendors complicated their breach-response decisions. Kroll&rsquo;s cyber-insurance lead said one supplier breach can trigger &ldquo;dozens or even hundreds&rdquo; of insurance claims, and that underwriters are looking for providers that are single points of failure. The report gives no figures for legal or professional services. This page shows the pattern: the judiciary&rsquo;s noticing contractor (BAE Systems) and the remote-management tools MSPs use to run firm desktops (ScreenConnect, N-able) (editorial assessment). Firms also sit on the other side of the line, as suppliers holding their clients&rsquo; data, as the Tarter Krinsky &amp; Drogin notice shows.</p>
         <div class="card-meta">
           <span>Kroll Data Breach Outlook 2026 &bull; vendor research based on breaches Kroll handled &bull; no CVE</span>
         </div>
@@ -2022,6 +1998,107 @@
           <span>Fixes 21 Oct; CISA SIGMA rule 23 Oct; honeypot RCE 24&ndash;25 Oct; KEV 26 Oct (due 29 Oct); Windows rebuilds 26 Oct; Palo Alto advisory raised to Critical 27 Oct and updated 28 Oct 2026</span>
         </div>
         <a href="https://www.cybersecuritydive.com/news/cisa-security-researchers-exploitation-php-flaws/872886/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-gpgme-129975" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>A critical GPGME double free lets a booby-trapped OpenPGP key crash &mdash; and possibly take over &mdash; the mail client a firm uses for PGP-encrypted email; update GPGME and Gpg4win</h3>
+        <p>GnuPG warned on 20 November, moving its notice up from a planned 25 November, that CVE-2026-129975 is a double free in GPGME triggered by a malicious OpenPGP key with an unusually long user ID (in read_status() and read_colon_line()). Every program using GPGME before 2.3.0 is affected, whether it loads a shared library or DLL or links it statically: most mail clients, many XMPP clients, Samba, Gpg4win and GnuPG Desktop/VS-Desktop. The fix is GPGME 2.3.1 (2.3.0 was never released), legacy 1.24.4 and Gpg4win 5.1.2; software with a bundled or statically linked copy needs its own rebuilt release. No attacks have been reported, but GnuPG says remote code execution &ldquo;cannot be ruled out&rdquo;. Firms that exchange PGP-encrypted email with clients or other counsel import outside keys as a matter of routine, which is exactly the trigger (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-129975</span>
+          <span>GnuPG GPGME before 2.3.0 (shared, DLL or static) &bull; double free via long OpenPGP user ID &bull; mail and XMPP clients, Samba, Gpg4win, GnuPG Desktop/VS-Desktop &bull; fixed GPGME 2.3.1 / 1.24.4, Gpg4win 5.1.2</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No attacks reported as of 21 Nov 2026 &mdash; GnuPG says RCE cannot be ruled out</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; GPGME 2.3.1 or 1.24.4, Gpg4win 5.1.2; bundled copies need vendor rebuilds</span>
+            <span class="ops-cc"><b>Action:</b> List every machine and mail client that handles PGP mail &mdash; Gpg4win, GnuPG Desktop, mail clients with OpenPGP support &mdash; and update to Gpg4win 5.1.2 or GPGME 2.3.1/1.24.4. Ask vendors of products that bundle GPGME when their rebuilt release ships. Until each machine is updated, avoid importing keys from unknown senders.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> PGP inventory &mdash; 48h; Gpg4win/GPGME updates &mdash; 7 days; bundled-copy vendor releases &mdash; track until shipped</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gpgme-129975" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gpgme-129975">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (GnuPG advisory)</span>
+          <span class="dot">&bull;</span>
+          <span>GnuPG warning 20 Nov; reported 21 Nov 2026 &mdash; no attacks reported</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-fastunlock-lockscreen" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>FastUnlock: an unpatched Windows lock-screen bypass with public proof-of-concept code lets someone holding a locked laptop get in &mdash; a travel and courtroom risk, not a remote one</h3>
+        <p>A researcher using the name Nightmare Eclipse posted proof-of-concept code on 19 November for FastUnlock, a Windows lock-screen bypass that has no CVE and no patch. It needs physical access to the device and a Microsoft account reachable through the lock screen&rsquo;s recovery options, and it uses Narrator. ThreatLocker tested it and found it yields a limited, non-administrator account. BitLocker with TPM-only protection does not stop it, because the drive is already unlocked while the lock screen is showing. No use in the wild has been reported. The mitigations are a BitLocker startup PIN and shutting down or hibernating laptops before they leave your control. For lawyers who carry matter files to court, client sites and through airports, a locked-but-running laptop is the exposure (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Microsoft Windows lock screen &bull; needs physical access, a Microsoft account reachable via lock-screen recovery, and Narrator &bull; limited non-admin account (ThreatLocker test) &bull; TPM-only BitLocker does not stop it &bull; no CVE</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC posted 19 Nov 2026 &mdash; no in-the-wild use reported</span>
+            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE assigned</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No patch &mdash; mitigate with a BitLocker startup PIN and shut down or hibernate</span>
+            <span class="ops-cc"><b>Action:</b> Turn on a BitLocker startup PIN (TPM+PIN) for laptops that travel, starting with litigators and partners, and tell staff to shut down or hibernate &mdash; not just lock or sleep &mdash; before a laptop leaves their control at court, client sites or while travelling. Apply Microsoft&rsquo;s fix when one is released.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Staff notice &mdash; 5 working days; TPM+PIN on travelling laptops &mdash; 30 days; Microsoft fix &mdash; normal patch cycle once released</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fastunlock-lockscreen" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fastunlock-lockscreen">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (ThreatLocker testing)</span>
+          <span class="dot">&bull;</span>
+          <span>PoC posted 19 Nov; reported 20 Nov 2026 &mdash; unpatched</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-java4shell-114938" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Java4Shell: a flaw in Java&rsquo;s Base64 decoder could allow pre-authentication code execution in Jira, Jenkins and Keycloak &mdash; patch Java on servers with AVX-512 processors</h3>
+        <p>CVE-2026-114938 is a flaw in the Base64 intrinsic decoder in Oracle Java SE and OpenJDK that could allow pre-authentication remote code execution in applications such as Jira, Jenkins and Keycloak. Oracle scores it CVSS 8.1 and Red Hat 9.8. Only x86-64 machines whose processors support AVX-512 VBMI are affected. Oracle has fixed it in 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1. Canada&rsquo;s Cyber Centre says it is not being exploited, and it was not in CISA KEV as of 18 November. The interim workaround is the JVM option -XX:-UseBASE64Intrinsics. Firms that run Jira for matter or IT tickets, Jenkins for in-house applications or Keycloak for single sign-on should check the Java runtime under each (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK Base64 intrinsic decoder &bull; CVSS 8.1 (Oracle), 9.8 (Red Hat) &bull; x86-64 with AVX-512 VBMI only &bull; fixed 17.0.21.1, 21.0.13.1, 25.0.5.1, 27.0.1.1 &bull; workaround -XX:-UseBASE64Intrinsics</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; per Canada&rsquo;s Cyber Centre</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 18 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Oracle 17.0.21.1 / 21.0.13.1 / 25.0.5.1 / 27.0.1.1; interim JVM flag</span>
+            <span class="ops-cc"><b>Action:</b> List servers running Jira, Jenkins, Keycloak or other Java applications, in house or at a host, and check the Java version and whether the processor supports AVX-512 VBMI. Update Java to a fixed build, or set -XX:-UseBASE64Intrinsics until you can, internet-facing systems first.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Java inventory &mdash; 72h; internet-facing systems updated or flagged &mdash; 7 days; everything else &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell-114938" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell-114938">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (Oracle, Red Hat, Canadian Centre for Cyber Security)</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 18 Nov 2026 &mdash; not exploited, not in KEV</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-citrix-nov26" data-published="2026-11-12">

@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Retail &amp; E-commerce</h1>
       <div class="header-sub">Stores, online checkout, hospitality &amp; payments.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:11 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Retail &amp; E-commerce</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>43</strong> stories across
+      <strong>44</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -828,7 +834,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.8 (Medium):</b> Optimizely&rsquo;s script compromise put skimmers on 178 organisations&rsquo; sites, but it was removed on 16&nbsp;Nov; the rest are discrete patch-and-hunt items.<br><b>Top threat:</b> Checkout skimming through third-party scripts (Optimizely, Fandango) as Black Friday traffic peaks.<br><b>Confirmed breaches:</b> Nitori (up to 37.62M records), Iris Plaza (7.7M), Revolve (1.5M, stored cards), Fandango; Coles and StubHub International incidents.<br><b>Also watching:</b> vCenter zero-day; Axis/Confluence card-data hunting; ScreenConnect MSP attacks; holiday phishing +165%.<br><b>What would raise it:</b> Confirmed mass skimming across many retailers&rsquo; checkouts, or ransomware through an MSP tool hitting store estates.</div>
+      <div class="tl-why"><b>Why 6.8 (Medium):</b> Optimizely&rsquo;s script compromise put skimmers on 178 organisations&rsquo; sites, but it was removed on 16&nbsp;Nov; the rest are discrete patch-and-hunt items.<br><b>Top threat:</b> Checkout skimming through third-party scripts (Optimizely, Fandango) as Black Friday traffic peaks.<br><b>Confirmed breaches:</b> Nitori (up to 37.62M), Iris Plaza (7.7M), Revolve (1.5M, stored cards), Fandango; Coles and StubHub incidents.<br><b>Also watching:</b> vCenter zero-day; Axis/Confluence card-data hunting; ScreenConnect MSP attacks; nginx2root and Java4Shell patches; AI-agent API probing.<br><b>What would raise it:</b> Confirmed mass skimming across many retailers&rsquo; checkouts, or ransomware through an MSP tool hitting store estates.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -940,7 +946,7 @@
         <a href="#it-llmjacking-gtig"><circle class="blip high" cx="133.1" cy="308.7" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="133.1" y="310.9">13</text></a>
         <a href="#it-synology-c3rb3r"><circle class="blip high" cx="61.4" cy="248.5" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="61.4" y="250.6">14</text></a>
         <a href="#it-outlook-124194"><circle class="blip high" cx="45.1" cy="156.2" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="45.1" y="158.2">15</text></a>
-        <a href="#it-qubole-aws-abuse"><circle class="blip high" cx="91.9" cy="75.1" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="91.9" y="76.9">16</text></a>
+        <a href="#it-nginx2root"><circle class="blip high" cx="91.9" cy="75.1" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="91.9" y="76.9">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-optimizely-supply-chain"><span class="ld crit"></span><b>1</b> Optimizely scripts: skimmers on 178 orgs&rsquo; sites</a>
@@ -958,12 +964,44 @@
         <a href="#it-llmjacking-gtig"><span class="ld high"></span><b>13</b> LLMjacking: stolen AI keys resold</a>
         <a href="#it-synology-c3rb3r"><span class="ld high"></span><b>14</b> Synology NAS: C3RB3R ransomware</a>
         <a href="#it-outlook-124194"><span class="ld high"></span><b>15</b> Outlook zero-day leaks NTLM hashes</a>
-        <a href="#it-qubole-aws-abuse"><span class="ld high"></span><b>16</b> Qubole AWS trust abused</a>
+        <a href="#it-nginx2root"><span class="ld high"></span><b>16</b> nginx2root: unauth RCE, patch before peak</a>
       </div>
     </div>
 
   </div>
 
+
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">Third Parties</span>
+        <b class="trend-head">Checkout skimming now arrives through the scripts and suppliers you trust</b>
+        <p>Optimizely confirmed attackers abused its Experimentation signup flow to inject JavaScript that reached 178 organisations&rsquo; sites, including American Eagle, with card skimmers among the payloads; it was removed on 16 November. Fandango found skimmer code that captured card numbers and CVVs on its checkout for four days in October. Iris Plaza lost data on up to 7.7 million people through an unnamed cloud vendor. Visa&rsquo;s latest report says incidents involving third-party agents rose 62% in six months and were linked to about 56% of compromised payment credentials. Details are in Incidents &amp; Attacks and Threat Intelligence &amp; Research. <b>Takeaway:</b> inventory every script on checkout and account pages and watch for changes before Black Friday.</p>
+        <a href="https://bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites" class="source-link" target="_blank" rel="noopener">BleepingComputer (Optimizely)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Holiday Fraud</span>
+        <b class="trend-head">Sale-season phishing is up sharply, and fake stores borrow real brands</b>
+        <p>KnowBe4 counts holiday-sale phishing up 165% in the first week of November, with about 94% of lures using luxury goods and leading to fake stores built to collect card details. Vendor attacks confirmed by JPMorgan Chase, Visa and Mastercard on 19 November exposed marketing and limited non-payment data, the kind that makes a phishing email name a customer&rsquo;s bank or card brand. See Threat Intelligence &amp; Research and Incidents &amp; Attacks. <b>Takeaway:</b> monitor for look-alike domains, file takedowns fast and tell customers how to recognise your real messages before the sales start.</p>
+        <a href="https://blog.knowbe4.com/black-friday-phishing-surge-before-sale-starts" class="source-link" target="_blank" rel="noopener">KnowBe4</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">AI Agents</span>
+        <b class="trend-head">AI agents are probing web apps and APIs faster than review cycles</b>
+        <p>Amazon says a suspected China-nexus actor used the open-source Cairn AI-agent framework to find and exploit a zero-day on its own, taking about 11 minutes from mapping an API to writing files. Gambit Security reports a financially motivated actor using the same framework against online retailers; no retailer is named, so that part is a claim. Google&rsquo;s GTIG reports LLMjacking crews stealing AI API keys, with retail among the targets and some victims losing more than $100,000 a day. United Airlines will block AI agents from managing bookings. See Threat Intelligence &amp; Research. <b>Takeaway:</b> rate-limit and alert on fast API probing, and guard AI keys like payment credentials.</p>
+        <a href="https://securityaffairs.com/203664/ai/cairn-ai-framework-used-in-autonomous-zero-day-exploitation.html" class="source-link" target="_blank" rel="noopener">Security Affairs (Cairn)</a>
+      </div>
+      <div class="trend">
+        <span class="trend-tag">Web Stack</span>
+        <b class="trend-head">Patch the storefront stack before peak traffic, not during it</b>
+        <p>Three widely used web components got fixes this week: nginx (nginx2root, unauthenticated RCE via HTTP/2 in 1.9.5&ndash;1.31.8), Ruby (Ruby2Shell, reachable in default Rails and Sinatra; crash likelier than code execution) and Java (Java4Shell, only on x86-64 CPUs with AVX-512 VBMI). None is reported exploited or in KEV. The contrast is Apache Axis in Confluence Data Center, where Rapid7 saw attackers hunt for card data within hours of exploitation. See Critical Advisories. <b>Takeaway:</b> book change windows now, find copies inside images and appliances, and use the documented stopgaps where a restart has to wait.</p>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Security Affairs (nginx2root)</a>
+      </div>
+    </div>
+  </div>
 
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
@@ -1333,39 +1371,6 @@
         <a href="https://nltimes.nl/2026/10/23/police-investigate-cyberattack-albert-heijn-works-restore-full-deliveries" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-fr-supermarket-refrigeration" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Campaign</span>
-        </div>
-        <h3>French supermarket refrigeration attack, two weeks on: no new attack nights since 13 October, but Forescout finds 12,976 refrigeration management services exposed online in 99 countries</h3>
-        <p>Forescout published on 22 October a count of refrigeration management interfaces reachable from the internet: 12,976 service observations on 6,017 public IP addresses in 99 countries and territories, led by Copeland and Dixell XWEB and Danfoss StoreView, with about 80% of the StoreView services it saw on firmware older than 4.3.1. It counts services, not devices, and says the entry route, tooling and identity of the French attackers are still unknown. Those attacks, on the nights of 11&ndash;12 and 12&ndash;13 October, pushed display cases and freezers in about 700 French supermarkets (Finance Minister Roland Lescure, 13 October) into forced or extended defrost; Carrefour, Coop&eacute;rative U, E.Leclerc, Intermarch&eacute; with Netto, and Monoprix confirmed being hit, the Paris prosecutor reports fires at some sites, and its cybercrime section is investigating with OFAC and ANSSI. CERT-FR&rsquo;s alert CERTFR-2026-ALE-012, still at its third version of 16 October as of 28 October, names Danfoss AK-SM and AK-SC and, since 13 October, Copeland and Dixell XWEB, and still says the campaigns are &ldquo;probably still ongoing&rdquo;; no new attack nights have been reported since 13 October. There is no CVE, claim, attribution or arrest. Les Mousquetaires, Intermarch&eacute;&rsquo;s parent, says the intrusion came through a refrigeration service provider &mdash; a victim statement, not an official finding &mdash; and Danfoss says most affected units were end-of-life AK-SM 800 and AK-SC 355 models. Sekoia&rsquo;s report of activity in other European countries has not been confirmed by any authority. Forescout also counts more than 20 claimed hacktivist attacks on refrigeration systems since January, mostly in Spain and Italy. For retailers this is a store-operations risk: refrigeration, HVAC and energy controllers installed and remotely managed by contractors, often left reachable from the internet so the contractor can log in.</p>
-        <div class="card-meta">
-          <span>Danfoss AK-SM and AK-SC series; Copeland xweb and Dixell xweb (CERT-FR) &bull; remote takeover of web-managed refrigeration controllers; forced or extended defrost &bull; about 700 French supermarkets (Finance Minister, 13 Oct); five chains confirmed; fires reported by the Paris prosecutor &bull; no CVE, IoC, actor or claim; entry route not established &bull; Forescout: 12,976 exposed refrigeration management service observations on 6,017 IPs in 99 countries (22 Oct)</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; CERT-FR, the French government, five chains and the Paris prosecutor; no new attack nights reported since 13 Oct; activity outside France reported by Sekoia only</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; no CVE; earlier Danfoss and Copeland research flaws have not been linked to the attack</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No single patch &mdash; many affected controllers are end-of-life; removing internet exposure is the control</span>
-            <span class="ops-cc"><b>Action:</b> Ask facilities and your refrigeration, HVAC and energy contractors for a list of every store controller that can be reached remotely, how it is reached and with which credentials. Anything reachable directly from the internet comes off now, with access rebuilt through a VPN or a remote-access path you control; CERT-FR treats IP filtering as an emergency stop-gap only. Require named contractor accounts with MFA, change default passwords, apply current firmware and plan to replace end-of-life units, which CERT-FR says must not stay exposed even after a factory reset. Match contractor remote sessions against defrost, setpoint and alarm changes, and make sure temperature alarms reach a person overnight.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Remote-access inventory and removal of internet exposure &mdash; 48h; credential and firmware review &mdash; 7 days; end-of-life replacement plan &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fr-supermarket-refrigeration" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-fr-supermarket-refrigeration">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Forescout Vedere Labs (22 Oct); CERT-FR alert CERTFR-2026-ALE-012 (v1 12 Oct, v2 13 Oct, v3 16 Oct; no later version as of 28 Oct); SecurityWeek (15 Oct); Dark Reading; AP and Reuters (13 Oct)</span>
-          <span class="dot">&bull;</span>
-          <span>Attacks on the nights of 11&ndash;12 and 12&ndash;13 Oct 2026; CERT-FR update 16 Oct; Forescout exposure data 22 Oct 2026</span>
-        </div>
-        <a href="https://www.forescout.com/blog/cold-chain-open-control-exposed-refrigeration-systems-reveal-global-risk/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
       <div class="card" id="it-times-car-park24" data-published="2026-10-23">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1432,45 +1437,46 @@
         <a href="https://thehackernews.com/2026/10/keystone-to-destroy-18835-hardware.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
-      <div class="card" id="it-capcom-id-breach" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Breach</span>
-        </div>
-        <h3>Capcom confirms a breach of its CAPCOM ID account system: about 11.7 million email addresses and login records exposed, and 196 accounts hijacked</h3>
-        <p>Capcom said on 22 October that an unauthorised party accessed CAPCOM ID, the shared account system for its games and services, after it detected the intrusion on 19 October. For more than 11.7 million accounts the exposed data is the email address, account creation date, last login time, login count and the IP address of the last login; 43 accounts also lost date of birth, gender, nickname and country. The attackers changed the passwords of 196 accounts, locking their owners out, and Capcom has reset them. Capcom says other members&rsquo; passwords and card data were not exposed. It reported the breach to police and to Japan&rsquo;s Personal Information Protection Commission on 21 October, is notifying users in stages, and says it has identified but not disclosed how the attackers got in. No group has claimed it. Editorial assessment: for any brand that sells direct, one customer-account system concentrates risk &mdash; email addresses and login history are enough for targeted phishing and credential stuffing against shoppers, and the 196 hijacked accounts show the attackers could change accounts as well as read them.</p>
-        <div class="card-meta">
-          <span>CAPCOM ID shared account system &bull; ~11.7 million accounts: email, creation date, last login time, login count, last-login IP; 43 accounts with further profile data &bull; 196 accounts&rsquo; passwords changed by the attackers &bull; no card data or other members&rsquo; passwords exposed (Capcom) &bull; police and Japan&rsquo;s PPC notified 21 Oct; no claim</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed &mdash; Capcom; intrusion detected 19 Oct; 196 accounts taken over</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; intrusion method identified but not disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; Capcom reset the affected accounts</span>
-            <span class="ops-cc"><b>Action:</b> If your customer-account or loyalty platform is shared across brands or sites, confirm you would see bulk reads of account records and password changes made in bulk, and that every password change triggers a notice to the account&rsquo;s email address. Expect phishing that borrows Capcom&rsquo;s name against shared customers, and review your own defences against credential stuffing, including rate limits and breached-password checks.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Account-change alerting and credential-stuffing review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-capcom-id-breach" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-capcom-id-breach">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Capcom disclosure via BleepingComputer (22 Oct); SecurityWeek and Infosecurity Magazine (23 Oct)</span>
-          <span class="dot">&bull;</span>
-          <span>Detected 19 Oct; regulators notified 21 Oct; disclosed 22 Oct 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+      <div class="card" id="it-cairn-ai-agent-zeroday" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Campaign</span>
+        </div>
+        <h3>AI agents probing web apps at machine speed: Amazon says a suspected China-nexus actor used the open-source Cairn framework to find and exploit a zero-day in about 11 minutes, and Gambit reports the same tool used against online retailers</h3>
+        <p>Amazon Threat Intelligence reported on 20 November that a suspected China-nexus actor used Cairn, an open-source AI-agent framework, to find and exploit a path-traversal zero-day in MONAI Label (CVE-2026-133968, CVSS 9.8) on its own, gaining root on a university server in September. About 11 minutes passed between mapping the API and writing files. MONAI Label is a medical-imaging tool, not retail software, and has no fixed release yet. The retail angle comes from Gambit Security, which, per Security Affairs, separately reports a financially motivated actor using the same framework against online retailers. No retailer is named and no further detail has been published, so treat that part as a claim. The point for e-commerce teams: automated agents can map and probe storefront APIs faster than a human review cycle, so exposed endpoints need live monitoring and rate limits, not only periodic testing.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-133968</span>
+          <span>Cairn open-source AI-agent framework &bull; MONAI Label path-traversal zero-day CVE-2026-133968 (CVSS 9.8), no fixed release yet &bull; root on a university server, Sep 2026; ~11 minutes from API mapping to file write (Amazon) &bull; financially motivated use against online retailers reported by Gambit Security (no retailer named, no further detail)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Zero-day exploitation confirmed by Amazon (one university server); retailer targeting claimed by Gambit, no victims named</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No fixed MONAI Label release yet</span>
+            <span class="ops-cc"><b>Action:</b> List every web app and API you expose to the internet, including staging, admin and partner endpoints, and make sure each one logs requests and alerts on fast, systematic probing such as path-traversal attempts or bursts of API enumeration from one source. Put rate limits and a WAF in front of checkout, account and search APIs. If you run MONAI Label anywhere, keep it off the internet until a fix ships.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Exposed API inventory and probing alerts &mdash; 14 days; rate limits on checkout and account APIs &mdash; before Black Friday</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-cairn-ai-agent-zeroday" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-cairn-ai-agent-zeroday">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Amazon Threat Intelligence via Security Affairs and The Hacker News (20 Nov); Gambit Security via Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Exploitation Sep 2026; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203664/ai/cairn-ai-framework-used-in-autonomous-zero-day-exploitation.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
       <div class="card" id="it-blackfriday-phishing" data-published="2026-11-18">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1743,6 +1749,108 @@
           <span>KEV additions 20 Nov 2026, due 23 Nov</span>
         </div>
         <a href="https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-ruby2shell-132825" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Ruby2Shell CVE-2026-132825: heap overflow in Ruby string case conversion is reachable unauthenticated in default Rails and classic Sinatra apps; Ruby 4.0.10, 3.4.13 and 3.3.14 fix it</h3>
+        <p>Ruby&rsquo;s 18 November security release fixes seven flaws. The headline one, CVE-2026-132825 (CVSS 7.4), is a heap overflow in string case conversion for single-byte encodings. Veria Labs says default Rails and classic Sinatra apps expose it to unauthenticated requests; watchTowr says exploitation is hard and a crash (denial of service) is the likelier outcome. GitHub Enterprise Server is affected, and Chatwoot, GitLab, Mastodon, OpenProject and the Discourse base image have shipped patched builds. No exploitation in the wild has been reported. Many storefronts, back-office tools and customer-support desks run on Rails, so this is a routine but real runtime update to fit in before peak traffic.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-132825</span>
+          <span>Ruby string case conversion, single-byte encodings &bull; CVSS 7.4 &bull; unauthenticated reach in default Rails and classic Sinatra (Veria Labs); DoS likelier than RCE (watchTowr) &bull; fixed: Ruby 4.0.10 / 3.4.13 / 3.3.14 (seven flaws) &bull; GitHub Enterprise Server affected; Chatwoot, GitLab, Mastodon, OpenProject and Discourse base image patched</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation in the wild reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Ruby 4.0.10, 3.4.13, 3.3.14; rebuild apps and images</span>
+            <span class="ops-cc"><b>Action:</b> List the Ruby apps you run, from Rails storefront and back-office tools to self-hosted support desks such as Chatwoot, GitLab and GitHub Enterprise Server. Move each to a fixed Ruby release or the vendor&rsquo;s patched build, rebuild container images and restart. Start with internet-facing Rails and Sinatra apps.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Rails and Sinatra apps &mdash; 14 days; remaining Ruby estate &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ruby2shell-132825" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ruby2shell-132825">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (20 Nov); Ruby security advisory (18 Nov)</span>
+          <span class="dot">&bull;</span>
+          <span>Ruby fixes 18 Nov 2026; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-nginx2root" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>nginx2root: five nginx flaws, the worst an unauthenticated RCE through HTTP/2 flow control in nginx 1.9.5&ndash;1.31.8 &mdash; patch storefront and API proxies in a planned window before Black Friday</h3>
+        <p>Five vulnerabilities in nginx have been disclosed, rated up to 9.2 on CVSS v4.0. The worst, CVE-2026-123007, allows unauthenticated remote code execution through HTTP/2 flow control and affects nginx 1.9.5 through 1.31.8; chained with a Linux SCTP kernel bug, it can lead to root on the host. Fixes are in nginx 1.31.9 and 1.30.7 and NGINX Plus 37.3.0.1 and 37.0.8.1. No exploitation has been reported and it is not in CISA KEV. In retail, nginx often sits in front of storefronts, checkout and APIs, including inside load balancers, ingress controllers and container images, so most of the work is finding every copy. Plan the change windows now: a rushed restart during Black Friday traffic is risky, but leaving an internet-facing RCE open through the peak is worse.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-123007</span>
+          <span>nginx 1.9.5&ndash;1.31.8 &bull; five flaws, CVSS v4.0 up to 9.2 &bull; CVE-2026-123007: unauthenticated RCE via HTTP/2 flow control; with a Linux SCTP kernel bug, root on the host &bull; fixed: nginx 1.31.9 / 1.30.7; NGINX Plus 37.3.0.1 / 37.0.8.1 &bull; stopgap: disable HTTP/2</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; nginx 1.31.9 / 1.30.7, NGINX Plus 37.3.0.1 / 37.0.8.1; fully restart nginx</span>
+            <span class="ops-cc"><b>Action:</b> Inventory every nginx instance in front of your storefront, checkout and APIs, including ingress controllers, load balancers and container base images. Upgrade to a fixed release and fully restart nginx; rebuild and redeploy images. Where you cannot patch before the peak, disable HTTP/2 as a stopgap and test that checkout still works.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing storefront and API proxies &mdash; 7 days, in a planned window before Black Friday; full image inventory &mdash; 14 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nginx2root" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nginx2root">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Security Affairs (19 Nov)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed and fixed Nov 2026; reported 19 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+
+      <div class="card" id="it-java4shell-114938" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Java4Shell CVE-2026-114938: Base64 decoder flaw in Oracle Java SE and OpenJDK could allow pre-auth RCE in apps such as Jira, Jenkins and Keycloak &mdash; but only on x86-64 CPUs with AVX-512 VBMI</h3>
+        <p>A flaw in the Base64 intrinsic decoder of Oracle Java SE and OpenJDK, CVE-2026-114938, could allow pre-authentication remote code execution in Java applications such as Jira, Jenkins and Keycloak. Oracle rates it 8.1 and Red Hat 9.8. It only applies on x86-64 processors with AVX-512 VBMI, running Java 17.0.6 or later, or Java 21, 25 or 27. Oracle has fixed it in 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1. Canada&rsquo;s Cyber Centre reports no exploitation, and it was not in CISA KEV as of 18 November. In retail, Keycloak often fronts customer and staff logins and Java runs order, inventory and integration services, so check which of those hosts meet the CPU condition.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK Base64 intrinsic decoder &bull; CVSS 8.1 (Oracle), 9.8 (Red Hat) &bull; x86-64 with AVX-512 VBMI only; Java 17.0.6+ and 21 / 25 / 27 &bull; fixed: 17.0.21.1 / 21.0.13.1 / 25.0.5.1 / 27.0.1.1 &bull; interim: -XX:-UseBASE64Intrinsics</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported (Canadian Centre for Cyber Security)</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 18 Nov</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Oracle Java 17.0.21.1, 21.0.13.1, 25.0.5.1, 27.0.1.1</span>
+            <span class="ops-cc"><b>Action:</b> Find Java 17, 21, 25 and 27 runtimes on x86-64 servers with AVX-512 VBMI, starting with internet-facing Keycloak, Jira and Jenkins and Java services behind checkout or partner APIs. Update the JDK, including copies bundled inside applications and container images. Where you cannot update yet, start the JVM with -XX:-UseBASE64Intrinsics as an interim measure.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Keycloak and Java apps &mdash; 14 days; full JDK inventory &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell-114938" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell-114938">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (18 Nov); Canadian Centre for Cyber Security</span>
+          <span class="dot">&bull;</span>
+          <span>Fixes and advisory Nov 2026; reported 18 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-vcenter-123890" data-published="2026-11-19">
@@ -2234,39 +2342,6 @@
           <span>Fixes reported 28 Oct 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/10/adobe-fixes-8-critical-campaign-classic.html" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-
-      <div class="card" id="it-aruba-aos-oct2026" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>HPE fixes eight unauthenticated remote code-execution and authentication-bypass flaws in ArubaOS 8 and 10 &mdash; the controllers, gateways and access points behind a lot of store Wi-Fi</h3>
-        <p>HPE&rsquo;s advisory HPESBNW05162, published on 22 October, fixes 72 vulnerabilities in ArubaOS (AOS). Eight of them, CVE-2026-79844 through CVE-2026-79851, are authentication bypasses, command and SQL injections and buffer overflows that, per HPE as reported by BleepingComputer, can be exploited remotely, without authentication or user interaction, to run code or get past authentication; four affect AOS-8 and four AOS-10, across mobility conductors, controllers, gateways and access points. HPE says it knows of no public exploit code or exploitation. Until devices are updated, HPE advises restricting the CLI and web management interfaces to a dedicated layer-2 segment or VLAN, controlling access with firewall policies, and turning on accounting to log user activity. The coverage does not list fixed versions; take them from the advisory. Editorial assessment: Aruba wireless is common in stores and distribution centres for staff devices, handheld scanners and guest Wi-Fi, and a compromised controller can expose every network it serves.</p>
-        <div class="card-meta">
-          <span>HPE Aruba AOS-8 and AOS-10: mobility conductors, controllers, gateways, access points &bull; 72 flaws fixed; eight unauthenticated RCE or authentication-bypass flaws, CVE-2026-79844 to -79851 &bull; no CVSS in the coverage &bull; no exploitation or public exploit known (HPE)</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No public exploit or exploitation known (HPE)</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed AOS-8 and AOS-10 releases listed in HPE advisory HPESBNW05162</span>
-            <span class="ops-cc"><b>Action:</b> Identify every Aruba mobility conductor, controller, gateway and access point running AOS-8 or AOS-10, including those a managed-service provider runs for you, and schedule the fixed releases from HPE&rsquo;s advisory. Until then, make sure CLI and web management are reachable only from a dedicated management VLAN &mdash; never from store guest or staff Wi-Fi, or from the internet.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-interface restriction &mdash; 7 days; firmware update &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aruba-aos-oct2026" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-aruba-aos-oct2026">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HPE advisory HPESBNW05162 via BleepingComputer (23 Oct)</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 22 Oct 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
       <div class="card" id="it-apple-coregraphics-86950" data-published="2026-10-26">

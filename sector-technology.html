@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Technology &amp; SaaS</h1>
       <div class="header-sub">Software vendors, cloud, MSPs &amp; the developer supply chain.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:10 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Technology &amp; SaaS</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>73</strong> stories across
+      <strong>77</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -828,7 +834,7 @@
         <span class="tl-band">Medium</span>
       </div>
       <div class="tl-meter"><span class="tl-marker" style="left:68.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.8 (Medium):</b> A heavy week of exploited MSP, virtualisation and supply-chain flaws, but each is a discrete patch-and-hunt exposure, not one compromise across most tech estates.<br><b>Top threat:</b> MSP tooling under attack: ScreenConnect partner breaches (47 orgs and rising) and N-central 4EverAble2Shell (21+ servers).<br><b>Confirmed breaches:</b> Optimizely script injection (178 orgs); Qubole AWS role abuse; Cursor; Railway; Check Point gateways; N-able Mail Assure.<br><b>Also watching:</b> vCenter zero-day (KEV due 23&nbsp;Nov); Axis/Confluence; Expressway; Roller; agent-framework PyPI.<br><b>What would raise it:</b> Confirmed mass compromise through one RMM or cloud platform across many providers at once.</div>
+      <div class="tl-why"><b>Why 6.8 (Medium):</b> Several exploited MSP, virtualisation, DevOps and supply-chain flaws, but each is a discrete patch-and-hunt exposure, not one compromise across most tech estates.<br><b>Top threat:</b> MSP tooling under attack: ScreenConnect partner breaches (47 orgs and rising) and N-central 4EverAble2Shell (21+ servers).<br><b>Confirmed breaches:</b> Optimizely script injection (178 orgs); Qubole AWS role abuse; Cursor; Railway; Check Point gateways; N-able Mail Assure.<br><b>Also watching:</b> Puppet RCE in KEV (due 1&nbsp;Dec); vCenter zero-day; MONAI Label zero-day found by AI agents; nginx2root; Java4Shell.<br><b>What would raise it:</b> Confirmed mass compromise through one RMM, cloud or config-management platform across many providers at once.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -931,16 +937,16 @@
         <a href="#it-optimizely-supply-chain"><circle class="blip crit" cx="173.6" cy="264.8" r="10.5"/><text class="blip-num" style="font-size:9.9px" x="173.6" y="268.0">4</text></a>
         <a href="#it-checkpoint-gateway-wiper"><circle class="blip crit" cx="109.8" cy="227.9" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="109.8" y="230.6">5</text></a>
         <a href="#it-qubole-aws-abuse"><circle class="blip crit" cx="98.8" cy="154.9" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="98.8" y="157.4">6</text></a>
-        <a href="#it-axis-90436"><circle class="blip crit" cx="148.9" cy="100.9" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="148.9" y="103.3">7</text></a>
-        <a href="#it-nable-mailassure"><circle class="blip high" cx="198.0" cy="43.2" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="198.0" y="45.9">8</text></a>
-        <a href="#it-pypi-agentframework"><circle class="blip high" cx="281.7" cy="86.8" r="8.6"/><text class="blip-num" style="font-size:8.1px" x="281.7" y="89.4">9</text></a>
-        <a href="#it-cursor-fireworks"><circle class="blip high" cx="317.9" cy="174.0" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="317.9" y="176.5">10</text></a>
-        <a href="#it-railway-ai-keys"><circle class="blip high" cx="289.5" cy="264.0" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="289.5" y="266.4">11</text></a>
-        <a href="#it-openssh-sshole"><circle class="blip high" cx="209.9" cy="314.7" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="209.9" y="317.0">12</text></a>
-        <a href="#it-outlook-124194"><circle class="blip high" cx="116.3" cy="302.4" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="116.3" y="304.6">13</text></a>
-        <a href="#it-chrome-125350"><circle class="blip high" cx="52.5" cy="232.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="52.5" y="234.8">14</text></a>
-        <a href="#it-gtig-agentic-ai"><circle class="blip high" cx="48.4" cy="138.5" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="48.4" y="140.4">15</text></a>
-        <a href="#it-llmjacking-gtig"><circle class="blip high" cx="105.9" cy="63.6" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="105.9" y="65.4">16</text></a>
+        <a href="#it-puppet-115731"><circle class="blip crit" cx="148.9" cy="100.9" r="8.0"/><text class="blip-num" style="font-size:7.6px" x="148.9" y="103.3">7</text></a>
+        <a href="#it-axis-90436"><circle class="blip high" cx="198.0" cy="43.2" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="198.0" y="45.9">8</text></a>
+        <a href="#it-nable-mailassure"><circle class="blip high" cx="281.7" cy="86.8" r="8.6"/><text class="blip-num" style="font-size:8.1px" x="281.7" y="89.4">9</text></a>
+        <a href="#it-pypi-agentframework"><circle class="blip high" cx="317.9" cy="174.0" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="317.9" y="176.5">10</text></a>
+        <a href="#it-cursor-fireworks"><circle class="blip high" cx="289.5" cy="264.0" r="7.8"/><text class="blip-num" style="font-size:7.4px" x="289.5" y="266.4">11</text></a>
+        <a href="#it-railway-ai-keys"><circle class="blip high" cx="209.9" cy="314.7" r="7.4"/><text class="blip-num" style="font-size:7.0px" x="209.9" y="317.0">12</text></a>
+        <a href="#it-monai-cairn"><circle class="blip high" cx="116.3" cy="302.4" r="7.0"/><text class="blip-num" style="font-size:6.6px" x="116.3" y="304.6">13</text></a>
+        <a href="#it-openssh-sshole"><circle class="blip high" cx="52.5" cy="232.8" r="6.6"/><text class="blip-num" style="font-size:6.3px" x="52.5" y="234.8">14</text></a>
+        <a href="#it-outlook-124194"><circle class="blip high" cx="48.4" cy="138.5" r="6.2"/><text class="blip-num" style="font-size:5.9px" x="48.4" y="140.4">15</text></a>
+        <a href="#it-chrome-125350"><circle class="blip high" cx="105.9" cy="63.6" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="105.9" y="65.4">16</text></a>
       </svg>
       <div class="radar-legend">
         <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>1</b> ScreenConnect MSP breaches, 47 orgs</a>
@@ -949,25 +955,101 @@
         <a href="#it-optimizely-supply-chain"><span class="ld crit"></span><b>4</b> Optimizely script injection, 178 orgs</a>
         <a href="#it-checkpoint-gateway-wiper"><span class="ld crit"></span><b>5</b> Check Point gateways hacked, wiper</a>
         <a href="#it-qubole-aws-abuse"><span class="ld crit"></span><b>6</b> Qubole AWS trusted-role abuse</a>
-        <a href="#it-axis-90436"><span class="ld crit"></span><b>7</b> Apache Axis / Confluence, KEV</a>
-        <a href="#it-nable-mailassure"><span class="ld high"></span><b>8</b> N-able Mail Assure server accessed</a>
-        <a href="#it-pypi-agentframework"><span class="ld high"></span><b>9</b> agent-framework PyPI trojanised</a>
-        <a href="#it-cursor-fireworks"><span class="ld high"></span><b>10</b> Cursor breach, fake Claude Code ext</a>
-        <a href="#it-railway-ai-keys"><span class="ld high"></span><b>11</b> Railway env vars, $740K AI charges</a>
-        <a href="#it-openssh-sshole"><span class="ld high"></span><b>12</b> OpenSSH SSHole on musl, KEV</a>
-        <a href="#it-outlook-124194"><span class="ld high"></span><b>13</b> Outlook NTLM-leak zero-day, KEV</a>
-        <a href="#it-chrome-125350"><span class="ld high"></span><b>14</b> Chrome zero-day CVE-2026-125350</a>
-        <a href="#it-gtig-agentic-ai"><span class="ld high"></span><b>15</b> GTIG: agentic AI in intrusions</a>
-        <a href="#it-llmjacking-gtig"><span class="ld high"></span><b>16</b> LLMjacking up to $1M, LiteLLM</a>
+        <a href="#it-puppet-115731"><span class="ld crit"></span><b>7</b> Puppet RCE exploited, KEV 1 Dec</a>
+        <a href="#it-axis-90436"><span class="ld high"></span><b>8</b> Apache Axis / Confluence, KEV</a>
+        <a href="#it-nable-mailassure"><span class="ld high"></span><b>9</b> N-able Mail Assure server accessed</a>
+        <a href="#it-pypi-agentframework"><span class="ld high"></span><b>10</b> agent-framework PyPI trojanised</a>
+        <a href="#it-cursor-fireworks"><span class="ld high"></span><b>11</b> Cursor breach, fake Claude Code ext</a>
+        <a href="#it-railway-ai-keys"><span class="ld high"></span><b>12</b> Railway env vars, $740K AI charges</a>
+        <a href="#it-monai-cairn"><span class="ld high"></span><b>13</b> MONAI Label zero-day, AI agents</a>
+        <a href="#it-openssh-sshole"><span class="ld high"></span><b>14</b> OpenSSH SSHole on musl, KEV</a>
+        <a href="#it-outlook-124194"><span class="ld high"></span><b>15</b> Outlook NTLM-leak zero-day, KEV</a>
+        <a href="#it-chrome-125350"><span class="ld high"></span><b>16</b> Chrome zero-day CVE-2026-125350</a>
       </div>
     </div>
 
   </div>
 
   
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">AI agents now find and exploit zero-days on their own, and agent sandboxes are the next target</b>
+        <p>Amazon says a suspected China-nexus operator pointed the open-source Cairn agent framework at university networks and asked only for shell access; the agents found a MONAI Label path traversal and went from API mapping to file write in about 11 minutes. Gambit Security reports a financially motivated actor using Cairn against online retailers, and Google&rsquo;s threat group says agentic AI in intrusions has crossed a &ldquo;significant threshold&rdquo;. Agents are targets too: NebuSec turned one malicious webpage into full control of a Meta Muse user&rsquo;s cloud VM in a lab demo. Takeaway: assume any API you ship with authentication off will be found and tested by machines within minutes, and keep long-lived credentials off agent VMs. See Incidents &amp; Attacks and Threat Intelligence &amp; Research.</p>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Management Planes</span>
+        <b class="trend-head">Attackers keep going after the tools that manage everyone else: RMM, config management and edge devices</b>
+        <p>The ScreenConnect partner breaches have reached six MSPs, 286 endpoints and 47 downstream organisations and rising, N-able&rsquo;s N-central 4EverAble2Shell chain was exploited within hours, and Puppet&rsquo;s report-processing RCE is now in CISA KEV with a 1&nbsp;December deadline &mdash; where a compromised server can expose the CA signing keys. SonicWall adds that Gen&nbsp;6 firewalls will get no more security patches and expects internet-facing units to be targeted. Takeaway: treat RMM, Puppet and edge-management consoles as tier-zero assets, patch them first, and replace end-of-support boxes rather than waiting for the next flaw. See the top story and Critical Advisories.</p>
+        <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Patch Wave</span>
+        <b class="trend-head">A rare week of core runtime fixes: nginx, Java, Ruby and GnuPG all need rebuilds, not just updates</b>
+        <p>nginx2root (unauthenticated RCE via HTTP/2 in nginx 1.9.5&ndash;1.31.8), Java4Shell (a Base64 decoder flaw on AVX-512 VBMI CPUs), Ruby2Shell (reachable in default Rails and classic Sinatra) and a GPGME double free all landed within days. None is reported exploited. The common catch is packaging: fixes only count once container images, base images and bundled or statically linked copies are rebuilt, nginx needs a full restart, and some Java vendor builds are not out yet. Splunk&rsquo;s roughly 140 fixes add to the queue. Takeaway: rebuild and redeploy images this cycle, use the published interim flags where fixes lag, and check your own products for bundled GPGME. See Critical Advisories.</p>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Security Affairs</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Isolation</span>
+        <b class="trend-head">Tenant and container isolation is being tested from several directions at once</b>
+        <p>Linux KVM CVE-2026-99312 lets root in a guest read and write host memory on AMD hosts with nested virtualization, which kvm_amd enables by default; about 127&nbsp;GB of host RAM was read in a bug-bounty test. nginx2root was chained with a Linux SCTP kernel bug to escape a container to host root, and Railway confirmed attackers broke its build isolation and decrypted customer environment variables. Takeaway: hosting and platform teams should patch and reboot AMD KVM hosts or set nested=0 where it is not needed, and stop treating the container or build boundary as the only thing protecting customer secrets. See Critical Advisories and Incidents &amp; Attacks.</p>
+        <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Supply Chain</span>
+        <b class="trend-head">Trusted vendor access and package registries remain the shortest path into many customers</b>
+        <p>Optimizely&rsquo;s signup-flow flaw let attackers inject JavaScript into customer projects (178 organisations), Microsoft&rsquo;s agent-framework PyPI package was trojanised for about 45 minutes, and Wiz and Sentra found an attacker using Qubole&rsquo;s own AWS account to assume trusted roles in customer accounts. The pattern is the same each time: the customer did nothing wrong, but trusted something upstream. Takeaway: review which vendor roles and scripts can act inside your environment, pin and verify dependencies, and alert on use of cross-account roles you rarely see. See Incidents &amp; Attacks.</p>
+        <a href="https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+<div class="card" id="it-monai-cairn" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Zero-day</span>
+        </div>
+        <h3>AI agents found and exploited a MONAI Label zero-day: Amazon says a suspected China-nexus operator using the open-source Cairn framework went from API mapping to file write in about 11 minutes, and there is still no fixed PyPI release</h3>
+        <p>Amazon Threat Intelligence reported on 20&nbsp;November that a suspected China-nexus actor (moderate confidence) ran the open-source Cairn AI-agent framework against university networks around 8&ndash;10&nbsp;September. The operator only asked for shell access; the agents chose the methods. They found a path traversal in MONAI Label, an open-source medical-imaging AI server, through PUT /datastore/image and /datastore/label &mdash; and authentication is off by default. CVE-2026-133968 is rated CVSS 9.8 per The Hacker News (GHSA-qc22-rmgc-vg94) and affects 0.8.5 and earlier. A fix was merged in source on 19&nbsp;October, but there is no fixed PyPI release. Amazon&rsquo;s reconstruction, not independently confirmed, has root on one university server via sitecustomize.py. The operator&rsquo;s own Cairn panel was exposed without a password. Gambit Security separately reports a financially motivated actor using Cairn against online retailers. For teams shipping AI or ML servers: default-off authentication on an internet-reachable API is now found and exploited by agents in minutes.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-133968</span>
+          <span>MONAI Label 0.8.5 and earlier &bull; path traversal in PUT /datastore/image and /datastore/label &bull; auth off by default &bull; CVSS 9.8 (per THN); GHSA-qc22-rmgc-vg94 &bull; fix merged in source 19 Oct, no fixed PyPI release &bull; campaign ~8&ndash;10 Sep 2026 against university networks &bull; ~11 min from API mapping to arbitrary file write &bull; suspected China-nexus (moderate confidence) using Cairn &bull; Gambit Security: separate financially motivated Cairn use against retailers</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited as a zero-day &mdash; Amazon Threat Intelligence; root on one server is Amazon&rsquo;s reconstruction</span>
+            <span class="ops-tag kev-off">No CISA KEV listing reported</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No fixed PyPI release &mdash; fix merged in source 19 Oct</span>
+            <span class="ops-cc"><b>Action:</b> Find every MONAI Label instance, take it off the internet and turn authentication on. If you must keep it running, build from the patched source rather than PyPI 0.8.5. Check the datastore paths and Python site-packages for unexpected files such as a new sitecustomize.py, and apply the same review to any other AI or ML server whose API ships with authentication off.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Remove internet exposure and enable auth &mdash; immediately; file-integrity review &mdash; 72h</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-monai-cairn" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-monai-cairn">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Amazon Threat Intelligence via The Hacker News and Security Affairs; Gambit Security</span>
+          <span class="dot">&bull;</span>
+          <span>Amazon report 20 Nov 2026; reported 21 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="it-qubole-n0n" data-published="2026-11-20">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1546,108 +1628,45 @@
         </div>
         <a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026-attack-chain" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-connectwise-storm-0940" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-critical">Critical</span>
-          <span class="category">Supply Chain</span>
-        </div>
-        <h3>Microsoft ties the ConnectWise Cloud Backup compromise to China-aligned Storm-0940, which used the vendor&rsquo;s own app identities and an AI agent framework to reach customers&rsquo; Microsoft 365 tenants &mdash; ConnectWise is restoring services in controlled phases</h3>
-        <p>Microsoft said on 21&nbsp;October that it assesses Storm-0940, an actor it describes as China-state aligned, was responsible for the compromise of ConnectWise Cloud Backup, the Microsoft 365 backup service formerly called SkyKick. The attacker gained control of several ConnectWise cloud-application identities and signed in to customers&rsquo; tenants as those apps, using app credentials rather than user logons, so MFA never came into play; a separate password spray on 10&ndash;14&nbsp;October did not succeed. Microsoft says sign-in attempts reached more than 2,250 tenants and that in several cases privileged access followed within three hours of first targeting, although most of the targeting failed. Storm-0940 ran the campaign with ARTEX, an open-source multi-agent penetration-testing framework that can use any AI model. ConnectWise, which first detected the activity on 14&nbsp;October, suspended Cloud Backup and shut its SaaS Security and Cloud Management services; its chief executive said on 22&nbsp;October that restoration is happening in controlled phases and that customers should keep the connections disabled until ConnectWise contacts them. Huntress saw unauthorised sign-ins at 162 tenants it monitors; no overall victim count has been published. It matters because a service MSPs connect to their clients&rsquo; tenants became the way in.</p>
-        <div class="card-meta">
-          <span>ConnectWise Cloud Backup (formerly SkyKick); SaaS Security and Cloud Management also taken offline &bull; ConnectWise first detected the activity 14 Oct; restoration in controlled phases (CEO, 22 Oct) &bull; access through compromised ConnectWise cloud-application identities, signing in non-interactively as the apps; how the credentials were obtained has not been disclosed &bull; Microsoft: sign-in attempts against more than 2,250 tenants, privileged access in several cases, most targeting unsuccessful &bull; Huntress reported unauthorised sign-ins at 162 tenants it monitors &bull; post-access: Graph and directory reconnaissance, new credentials on app registrations, changes to identities, groups and privileged roles, bulk Key Vault secret reads &bull; password spray 10&ndash;14 Oct: no successful logons &bull; Storm-0940: China-state aligned, active since 2021, per Microsoft &bull; ARTEX: open-source, model-agnostic multi-agent penetration-testing framework &bull; sectors Microsoft lists include software and technology &bull; ConnectWise: no indication so far that partner backup data was compromised &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed compromise &mdash; ConnectWise and Microsoft; attribution to Storm-0940 is Microsoft&rsquo;s assessment</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; abuse of cloud-app identities, no CVE</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; ConnectWise disabled the affected app identities; tokens issued before then may stay valid until they expire</span>
-            <span class="ops-cc"><b>Action:</b> Keep the ConnectWise Cloud Backup, SaaS Security and Cloud Management connections disabled until ConnectWise confirms your restoration, but do not delete the enterprise apps first: Microsoft wants them kept as evidence. In each Entra ID tenant, review sign-in and audit logs for the ConnectWise service principals from 1&nbsp;October where logs allow, and at least from 15&nbsp;October: new credentials or owners on app registrations, new consents, directory-role assignments (Huntress reported Cloud Management apps granting themselves roles, mostly Exchange Administrator), group changes, Graph directory queries and Key Vault reads. Remove anything you cannot explain, revoke sessions and rotate any secret the apps could read. MSPs should run this across every customer tenant they manage and tell each customer what they found. Then list every third-party app holding application permissions in your tenants and remove what is not needed.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Connections kept disabled and log review back to 1 Oct &mdash; 72h; removal of rogue credentials, roles and consents &mdash; immediately on finding; third-party app permission review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-connectwise-storm-0940" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-connectwise-storm-0940">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Microsoft Threat Intelligence; ConnectWise statements via CyberScoop, Cybersecurity Dive and BleepingComputer; Huntress</span>
-          <span class="dot">&bull;</span>
-          <span>Password spray 10&ndash;14 Oct 2026; activity first detected 14 Oct; services suspended 17 Oct; Microsoft attribution 21 Oct; CEO update on phased restoration 22 Oct 2026</span>
-        </div>
-        <a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-bullhorn-outage" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Staffing-software provider Bullhorn took its platform offline to contain a cyber incident &mdash; most services are back, but its back-office module is down through the week, holding up time sheets and payroll</h3>
-        <p>Bullhorn, whose applicant-tracking, CRM and back-office software for the staffing industry serves more than 10,000 customers worldwide, said it had &ldquo;detected a cyber incident&rdquo; and &ldquo;temporarily disabled access to our systems&rdquo; after problems began on 17&nbsp;October; it is working with CrowdStrike. Users who do not sign in through SSO must reset their passwords, and API passwords must be rotated. Bullhorn says it has not yet determined whether data was taken and will notify individuals if a breach is confirmed. As of its status page on the evening of 22&nbsp;October, most affected products, including Talent Platform, FastForward and SourceBreaker, were &ldquo;upgraded and restored&rdquo;, while Bullhorn Back Office was then expected to stay unavailable until the end of that week, so time sheets could not be entered and support was producing payroll reports on request. No group has claimed the attack. For staffing firms and the IT teams that integrate with Bullhorn, the outage reaches payroll and every connected workflow at once.</p>
-        <div class="card-meta">
-          <span>Bullhorn (staffing ATS/CRM, Automation, Back Office, Talent Platform) &bull; more than 10,000 customers &bull; incident detected 17&ndash;18 Oct; access disabled; CrowdStrike engaged &bull; non-SSO password resets and API password rotation required &bull; exfiltration not yet determined &bull; status 22 Oct: most services restored; Back Office expected down through the end of the week &bull; no claim; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; by Bullhorn; restoration under way</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; no CVE disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; reset passwords and rotate API credentials</span>
-            <span class="ops-cc"><b>Action:</b> If your company uses Bullhorn, reset passwords for non-SSO users, rotate the API passwords and keys that integrations, job boards and payroll connectors use, and review integration logs since 17&nbsp;October for activity you cannot explain. Prepare a manual time-entry and payroll fallback until Back Office is back, and warn recruiters and candidates to expect phishing that quotes the outage. Ask Bullhorn for its findings on data access before re-enabling automated data flows.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Password and API credential rotation &mdash; immediately; integration log review &mdash; 72h; payroll fallback &mdash; until Back Office is restored</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-bullhorn-outage" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-bullhorn-outage">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Bullhorn statements and status page; BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Problems from 17 Oct 2026; incident confirmed 18 Oct; status update 22 Oct 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/bullhorn-takes-staffing-platform-offline-to-contain-cyberattack/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-capcom-id-breach" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-medium">Medium</span>
-          <span class="category">Incident</span>
-        </div>
-        <h3>Capcom confirms a breach of its CAPCOM ID account system exposing about 11.7 million email addresses and login records &mdash; the attacker took over 196 accounts</h3>
-        <p>Capcom said on 22&nbsp;October that it detected unauthorised access to CAPCOM ID, the shared account system for its games and services, on 19&nbsp;October. Exposed for more than 11.7&nbsp;million accounts were email addresses, account creation dates, last login times, login counts and the IP address of the last login; for 43 accounts, date of birth, gender, nickname and country were also exposed. The attacker changed the passwords on 196 accounts, locking their owners out, and Capcom has reset them. It says other members&rsquo; passwords and any card data were not exposed. Capcom reported the breach to police and to Japan&rsquo;s Personal Information Protection Commission on 21&nbsp;October and is notifying users in stages; it says it has identified the intrusion method but has not disclosed it, and no group has claimed the attack. Email addresses tied to login histories are useful material for credential stuffing and targeted phishing against any consumer platform.</p>
-        <div class="card-meta">
-          <span>Capcom, CAPCOM ID shared account system &bull; detected 19 Oct; police and regulator notified 21 Oct; public 22 Oct &bull; 11.7M+ accounts: email, creation date, last login time, login count, last-login IP &bull; 43 accounts: also date of birth, gender, nickname, country &bull; 196 accounts&rsquo; passwords changed by the attacker, since reset &bull; other passwords and card data not exposed &bull; method identified, not disclosed &bull; no claim; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; by Capcom</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; no CVE disclosed</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; account-security measures</span>
-            <span class="ops-cc"><b>Action:</b> Consumer platforms should use this as a prompt to check that a password change triggers an alert to the account&rsquo;s previous email address and a hold on further changes, and that bulk reads of account tables are logged and rate-limited. If staff use CAPCOM ID, warn them about phishing that quotes login dates or IP addresses.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Account-change alerting and bulk-read logging review &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-capcom-id-breach" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-capcom-id-breach">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Capcom disclosure via BleepingComputer; SecurityWeek; Infosecurity Magazine</span>
-          <span class="dot">&bull;</span>
-          <span>Detected 19 Oct 2026; reported to authorities 21 Oct; disclosed 22 Oct 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Threat Intelligence &amp; Research</div>
     <div class="card-grid">
+<div class="card" id="it-muse-nebusec" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Research</span>
+        </div>
+        <h3>NebuSec: one malicious webpage gave full control of a Meta Muse user&rsquo;s cloud VM through the agent&rsquo;s bundled browser and a Linux kernel exploit; lab demo only, and NebuSec says all of it is fixed</h3>
+        <p>NebuSec showed on 20&nbsp;November that a single malicious webpage could trigger a bug in the browser bundled with Meta&rsquo;s Muse agent, then a Linux kernel exploit, giving full control of that user&rsquo;s cloud VM along with its credentials and files. Muse&rsquo;s &ldquo;Sentinel&rdquo; egress monitor was bypassed. This was a lab demonstration with no cross-tenant escape, NebuSec says everything has been fixed, and Meta has not commented. For SaaS teams building agents that browse the web: treat the agent&rsquo;s VM as exposed to any page it visits, and keep long-lived credentials off it.</p>
+        <div class="card-meta">
+          <span>Meta Muse agent &bull; malicious webpage &rarr; bundled-browser bug &rarr; Linux kernel exploit &rarr; full control of the user&rsquo;s cloud VM, credentials and files &bull; &ldquo;Sentinel&rdquo; egress monitor bypassed &bull; lab demo; no cross-tenant escape &bull; NebuSec: all fixed &bull; Meta: no comment</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Lab demonstration only &mdash; no in-the-wild use reported</span>
+            <span class="ops-tag kev-off">Not applicable</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Fixed &mdash; per NebuSec; Meta has not commented</span>
+            <span class="ops-cc"><b>Action:</b> If you run browsing agents, keep their VMs patched, give them short-lived scoped credentials only, and do not rely on an egress monitor as the only control.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Review agent sandbox credentials &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-muse-nebusec" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-muse-nebusec">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>NebuSec via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Research published 20 Nov 2026; reported 21 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
 <div class="card" id="it-outages-patching" data-published="2026-11-20">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
@@ -1939,38 +1958,7 @@
         </div>
         <a href="https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-kroll-third-party-tech" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-low">Low</span>
-          <span class="category">Threat Intelligence</span>
-        </div>
-        <h3>Kroll: 69% of breach victims in its data were hit through a third party, and 79% of those through a compromised technology company</h3>
-        <p>Kroll&rsquo;s analysis of breaches between June 2025 and June 2026, reported by Infosecurity Magazine on 23&nbsp;October, finds that 69% of breach victims were affected through a third party and that 79% of those third-party cases ran through a compromised technology company. Incidents at technology firms accounted for 60% of all victims, even though technology ranked only seventh by number of incidents, at 6%; finance and professional services each made up 20% of incidents, healthcare 15% and retail 8%. The figures come from one firm&rsquo;s data rather than a census, but they match the pattern in recent cards on this page &mdash; ConnectWise, LiteLLM, Railway and the WordPress plugin vendors &mdash; in which one supplier&rsquo;s breach reaches many customers. For technology companies it means customers will increasingly ask for evidence of controls, and that a single incident carries other people&rsquo;s data with it.</p>
-        <div class="card-meta">
-          <span>Kroll third-party breach analysis, June 2025 &ndash; June 2026 &bull; 69% of breach victims reached via a third party; 79% of those via a technology company &bull; technology incidents = 60% of victims but 6% of incidents (seventh by count) &bull; incident shares: finance 20%, professional services 20%, healthcare 15%, retail 8% &bull; single-firm data &bull; no CVE</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>Not an exploitation item &mdash; research statistics</span>
-            <span class="ops-tag kev-off">Not applicable &mdash; report</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; supplier-risk and customer-assurance work</span>
-            <span class="ops-cc"><b>Action:</b> List the suppliers that hold your customers&rsquo; data or have standing access to your systems, and for each know how you would cut that access and whom you would tell if they were breached. Be ready to give your own customers the same answers, with evidence.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Supplier access inventory &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kroll-third-party-tech" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-kroll-third-party-tech">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>Kroll report via Infosecurity Magazine</span>
-          <span class="dot">&bull;</span>
-          <span>Report 22 Oct 2026; coverage 23 Oct 2026</span>
-        </div>
-        <a href="https://www.infosecurity-magazine.com/news/tech-third-party-breach-victims/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+
     </div>
   </div>
 
@@ -2009,6 +1997,207 @@
           <span>Disclosed 21 Oct 2026; KEV 20 Nov 2026 (due 23 Nov)</span>
         </div>
         <a href="https://securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-gpgme-129975" data-published="2026-11-21">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>GnuPG warns of a GPGME double free CVE-2026-129975 triggered by a malicious OpenPGP key with a long user ID; every program built on GPGME before 2.3.0 is affected and bundled copies need their own updates</h3>
+        <p>A malicious OpenPGP key with a long user ID triggers a double free in GPGME, the library many applications use to call GnuPG. All software using GPGME before 2.3.0 is affected. Fixes are in GPGME 2.3.1 and 1.24.4 and in Gpg4win 5.1.2. No attacks are known, but remote code execution has not been ruled out, and GnuPG brought disclosure forward from 25&nbsp;November. Software vendors that bundle or statically link GPGME must ship their own update; a system package upgrade will not fix those copies.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-129975</span>
+          <span>GPGME before 2.3.0 &bull; double free via malicious OpenPGP key with long user ID &bull; fixed GPGME 2.3.1, 1.24.4; Gpg4win 5.1.2 &bull; bundled/static copies need their own updates &bull; no attacks; RCE not ruled out &bull; disclosure moved up from 25 Nov</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
+            <span class="ops-tag kev-off">No CISA KEV listing reported</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; GPGME 2.3.1 / 1.24.4; Gpg4win 5.1.2</span>
+            <span class="ops-cc"><b>Action:</b> Update system GPGME and Gpg4win, then inventory your own products, build images and containers for bundled or statically linked GPGME and ship fixed builds. Be careful importing keys from untrusted sources until done.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> System packages &mdash; 7 days; bundled copies in your products &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-gpgme-129975" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-gpgme-129975">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>GnuPG via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed 21 Nov 2026 (brought forward from 25 Nov)</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-ruby2shell" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Ruby2Shell CVE-2026-132825: a heap overflow in Ruby string case conversion is reachable unauthenticated in default Rails and classic Sinatra, per Veria Labs; Ruby 4.0.10, 3.4.13 and 3.3.14 fix it and six other flaws</h3>
+        <p>CVE-2026-132825 (CVSS 7.4) is a heap overflow in Ruby&rsquo;s string case conversion for single-byte encodings. Veria Labs says it is reachable unauthenticated in default Rails and classic Sinatra apps; watchTowr says exploitation is hard and denial of service is the likelier outcome. GitHub Enterprise Server is affected, and Chatwoot, GitLab, Mastodon, OpenProject and the Discourse base image have shipped patches. Ruby&rsquo;s 18&nbsp;November advisory fixes seven flaws in 4.0.10, 3.4.13 and 3.3.14. No in-the-wild exploitation is reported.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-132825</span>
+          <span>Ruby string case conversion, single-byte encodings &bull; heap overflow &bull; CVSS 7.4 &bull; Veria Labs: default Rails and classic Sinatra reachable unauthenticated &bull; watchTowr: exploitation hard, DoS likelier &bull; GitHub Enterprise Server affected; Chatwoot, GitLab, Mastodon, OpenProject, Discourse base image patched &bull; fixed Ruby 4.0.10, 3.4.13, 3.3.14 (7 flaws)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No in-the-wild exploitation reported</span>
+            <span class="ops-tag kev-off">No CISA KEV listing reported</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Ruby 4.0.10 / 3.4.13 / 3.3.14</span>
+            <span class="ops-cc"><b>Action:</b> Move Ruby runtimes and base images to 4.0.10, 3.4.13 or 3.3.14, rebuild and redeploy Rails and Sinatra apps, and apply vendor updates for GitHub Enterprise Server and other Ruby-based products you run.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Ruby apps &mdash; 14 days; the rest &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ruby2shell" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ruby2shell">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Ruby advisory; Veria Labs; watchTowr; via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Ruby advisory 18 Nov 2026; reported 20 Nov 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-kvm-99312" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Linux KVM CVE-2026-99312: on AMD hosts with nested virtualization, root in a guest can read and write host memory &mdash; about 127 GB of host RAM was read in a DigitalOcean bug-bounty test</h3>
+        <p>Terra Security found, through DigitalOcean&rsquo;s bug bounty, that root inside a guest on an AMD host with nested virtualization &mdash; on by default in kvm_amd &mdash; can read and write host memory; about 127&nbsp;GB of host RAM was read in testing. The CNA rates it 8.8, Red Hat 5.6. Kernels 7.3.5, 6.18.64 and 6.12.118 fix it, but distro packages lag. No in-the-wild use is reported. Hosting and cloud providers that let customers have root on AMD KVM guests are the ones most exposed.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-99312</span>
+          <span>Linux KVM on AMD with nested virtualization (default on in kvm_amd) &bull; guest root &rarr; read/write host memory &bull; ~127 GB host RAM read in test (DigitalOcean bug bounty, Terra Security) &bull; CNA 8.8 vs Red Hat 5.6 &bull; fixed 7.3.5, 6.18.64, 6.12.118; distro packages lag</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No in-the-wild use reported</span>
+            <span class="ops-tag kev-off">No CISA KEV listing reported</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched upstream &mdash; 7.3.5 / 6.18.64 / 6.12.118; distro packages lag</span>
+            <span class="ops-cc"><b>Action:</b> On AMD KVM hosts, update the kernel and reboot; until a fixed distro kernel is available, set <code>options kvm_amd nested=0</code> where guests do not need nested virtualization.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Multi-tenant AMD hosts &mdash; 7 days (disable nesting now if not needed)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-kvm-99312" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-kvm-99312">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Terra Security via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/new-linux-kvm-flaw-cve-2026-99312-lets.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-sonicwall-gen6-eol" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>SonicWall: Gen 6 firewalls on SonicOS 6.x get no more security patches, even for critical flaws, and the vendor expects internet-facing units to be actively targeted</h3>
+        <p>SonicWall says Gen 6 firewalls running SonicOS 6.x will receive no further security patches, even for critical vulnerabilities, and it expects internet-facing Gen 6 devices to be actively targeted. Its advice is to migrate to Gen 8. Until then, disable WAN management, restrict SSL VPN, enforce MFA and reset local passwords. MSPs and hosting firms that manage customer edge devices should find their Gen 6 units now.</p>
+        <div class="card-meta">
+          <span>SonicWall Gen 6 (SonicOS 6.x) &bull; no further security patches, including critical &bull; SonicWall expects internet-facing Gen 6 to be actively targeted &bull; migrate to Gen 8 &bull; interim: disable WAN management, restrict SSL VPN, MFA, reset local passwords</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No specific exploitation reported &mdash; SonicWall expects active targeting</span>
+            <span class="ops-tag kev-off">Not applicable &mdash; end-of-support notice</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-no">No further patches &mdash; migrate to Gen 8</span>
+            <span class="ops-cc"><b>Action:</b> List every Gen 6 SonicWall you or your customers run, plan migration to Gen 8, and meanwhile disable WAN management, restrict SSL VPN, enforce MFA and reset local passwords.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Interim hardening &mdash; 7 days; replacement plan &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-sonicwall-gen6-eol" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-sonicwall-gen6-eol">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SonicWall via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 20 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-nginx2root" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>nginx2root: Xint Research discloses five nginx flaws, the worst an unauthenticated RCE via HTTP/2 flow control in nginx 1.9.5&ndash;1.31.8, chained with a Linux SCTP kernel bug to escape a container to host root</h3>
+        <p>Xint Research reported five nginx flaws (CVSS 4.0 9.2). The worst, CVE-2026-123007, is unauthenticated remote code execution through HTTP/2 flow control in nginx 1.9.5 to 1.31.8. Chained with a Linux SCTP kernel bug, it allowed escape from a container to root on the host. Fixes are in nginx 1.31.9 and 1.30.7 and NGINX Plus 37.3.0.1 and 37.0.8.1 (F5 K000163926). There is no reported exploitation and it is not in KEV. nginx fronts a large share of SaaS and hosting estates, including ingress controllers and container images, so the patch surface is wide.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-123007</span>
+          <span>nginx 1.9.5&ndash;1.31.8 &bull; five flaws, CVSS 4.0 9.2 &bull; CVE-2026-123007 unauth RCE via HTTP/2 flow control &bull; chained with Linux SCTP kernel bug &rarr; container escape to host root &bull; fixed nginx 1.31.9 / 1.30.7; NGINX Plus 37.3.0.1 / 37.0.8.1 (F5 K000163926)</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; nginx 1.31.9 / 1.30.7; NGINX Plus 37.3.0.1 / 37.0.8.1</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade nginx and NGINX Plus, including copies inside container images and ingress controllers, then fully restart nginx rather than reloading. As a stopgap, disabling HTTP/2 blocks two of the five flaws.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing nginx &mdash; 7 days; internal &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-nginx2root" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-nginx2root">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Xint Research; F5; via Security Affairs</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 19 Nov 2026</span>
+        </div>
+        <a href="https://securityaffairs.com/203440/hacking/nginx2rootai-discovers-five-critical-nginx-flaws-and-a-path-to-root.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-splunk-nov26" data-published="2026-11-19">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Splunk patches about 140 flaws across Enterprise, Enterprise Security and SOAR, including critical Enterprise bugs and authenticated RCE in ES and SOAR; none are exploited</h3>
+        <p>Splunk fixed roughly 140 vulnerabilities across three core products. Critical issues include CVE-2026-76536 and CVE-2026-76535 in Splunk Enterprise, CVE-2026-131202 in Enterprise Security (RCE, requires ess_admin) and CVE-2026-131253 and CVE-2026-131287 in SOAR (authenticated RCE). Fixed versions are Enterprise 10.6.1, 10.4.5, 10.2.9, 10.0.12 and 9.4.17, ES 8.7.0 and SOAR 8.8.0. None are reported exploited.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-76536</span>
+          <span class="cve-badge">CVE-2026-76535</span>
+          <span class="cve-badge">CVE-2026-131202</span>
+          <span class="cve-badge">CVE-2026-131253</span>
+          <span class="cve-badge">CVE-2026-131287</span>
+          <span>Splunk Enterprise, Enterprise Security, SOAR &bull; ~140 flaws &bull; ES RCE needs ess_admin; SOAR RCE authenticated &bull; fixed Enterprise 10.6.1 / 10.4.5 / 10.2.9 / 10.0.12 / 9.4.17; ES 8.7.0; SOAR 8.8.0</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>None reported exploited</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Enterprise, ES 8.7.0, SOAR 8.8.0</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Splunk Enterprise, ES and SOAR to the fixed releases, and review who holds ess_admin and SOAR accounts that could reach the authenticated RCE paths.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade &mdash; 30 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-splunk-nov26" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-splunk-nov26">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Splunk via SecurityWeek</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 19 Nov 2026</span>
+        </div>
+        <a href="https://www.securityweek.com/splunk-patches-nearly-140-flaws-across-three-core-products/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-vcenter-123890" data-published="2026-11-19">
         <div class="card-header">
@@ -2141,6 +2330,73 @@
           <span>KEV 18 Nov 2026</span>
         </div>
         <a href="https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-puppet-115731" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Puppet Enterprise and Puppet Core RCE CVE-2026-115731 is exploited and in CISA KEV, due 1 December: a report-processing deserialization flaw that can expose your Puppet CA signing keys</h3>
+        <p>CISA added CVE-2026-115731 (CVSS 9.4), a deserialization flaw in Puppet report processing that leads to remote code execution, to KEV on 17&nbsp;November with a 1&nbsp;December deadline; exploitation details were not given. A second flaw, CVE-2026-115732 (9.0), is a cert-name authorization bypass found by Neodyme. Exploitation needs a CA-signed agent certificate, which is easier to get where autosign is on, and RCE can expose the CA signing keys. Affected: Puppet Enterprise 2026.0.0 before 2026.0.1, 2025.0.0 before 2025.12.1 and 2023.8.0 before 2023.8.13; Puppet Core 9.0.0 before 9.1.3 and 8.x before 8.22.2. OpenVox is also affected (fixed in Agent 9.3.0/8.32.0, Server 9.2.0/8.18.0). Fixes shipped 3&nbsp;November. Restart Puppet Server after patching.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-115731</span>
+          <span class="cve-badge">CVE-2026-115732</span>
+          <span>Puppet Enterprise / Puppet Core / OpenVox &bull; CVE-2026-115731 deserialization in report processing &rarr; RCE, CVSS 9.4 &bull; CVE-2026-115732 cert-name authz bypass, CVSS 9.0 (Neodyme) &bull; needs CA-signed agent cert (worse with autosign) &bull; RCE can expose CA signing keys &bull; affected PE 2026.0.0&lt;2026.0.1, 2025.0.0&lt;2025.12.1, 2023.8.0&lt;2023.8.13; Core 9.0.0&lt;9.1.3, 8.x&lt;8.22.2 &bull; OpenVox fixed Agent 9.3.0/8.32.0, Server 9.2.0/8.18.0 &bull; fix 3 Nov</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Actively exploited &mdash; CISA KEV; exploitation details not given</span>
+            <span class="ops-tag kev-on">In CISA KEV &mdash; added 17 Nov 2026; due 1 Dec 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; fixes released 3 Nov 2026</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Puppet Enterprise, Puppet Core or OpenVox to the fixed releases and restart Puppet Server. Turn off autosign or restrict it tightly, review recently signed agent certificates, and if you find signs of compromise treat the CA signing keys as exposed and plan a CA rotation.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Upgrade and restart &mdash; immediately (KEV due 1 Dec); certificate review &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-puppet-115731" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-puppet-115731">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>CISA KEV; Puppet; Neodyme; via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Fix 3 Nov 2026; KEV 17 Nov 2026 (due 1 Dec); reported 18 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+<div class="card" id="it-java4shell" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Advisory</span>
+        </div>
+        <h3>Java4Shell CVE-2026-114938: a Base64 intrinsic decoder flaw in Oracle Java SE and OpenJDK could give pre-auth RCE in Jira, Jenkins, Keycloak and other Java apps, but only on x86-64 CPUs with AVX-512 VBMI</h3>
+        <p>CVE-2026-114938 is a flaw in the Base64 intrinsic decoder of Oracle Java SE and OpenJDK with pre-authentication RCE potential in applications such as Jira, Jenkins and Keycloak. Oracle rates it 8.1 and Red Hat 9.8. It only affects x86-64 CPUs with AVX-512 VBMI, on Java 17.0.6 and later and on 21, 25 and 27. Oracle fixed it in 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1, and Corretto in 17.0.21.1.2 and later; Red Hat, Temurin and Microsoft builds were not yet available. Canada&rsquo;s Cyber Centre reports no exploitation, and it was not in KEV as of 18&nbsp;November.</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK Base64 intrinsic decoder &bull; pre-auth RCE potential (Jira, Jenkins, Keycloak etc.) &bull; Oracle 8.1, Red Hat 9.8 &bull; only x86-64 with AVX-512 VBMI; Java 17.0.6+, 21, 25, 27 &bull; fixed Oracle 17.0.21.1 / 21.0.13.1 / 25.0.5.1 / 27.0.1.1; Corretto 17.0.21.1.2+; Red Hat, Temurin, Microsoft builds not yet &bull; interim -XX:-UseBASE64Intrinsics or -XX:UseAVX=2</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>Not exploited &mdash; per Canada&rsquo;s Cyber Centre</span>
+            <span class="ops-tag kev-off">Not in CISA KEV as of 18 Nov 2026</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Partly patched &mdash; Oracle and Corretto builds; Red Hat, Temurin and Microsoft pending</span>
+            <span class="ops-cc"><b>Action:</b> Upgrade Java runtimes where fixed builds exist; elsewhere add <code>-XX:-UseBASE64Intrinsics</code> or <code>-XX:UseAVX=2</code> to JVM options on AVX-512 hosts. Rebuild container images so the fix or flag actually ships.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Java apps &mdash; 14 days (interim flag now)</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>Oracle; Canada&rsquo;s Cyber Centre; via The Hacker News</span>
+          <span class="dot">&bull;</span>
+          <span>Reported 18 Nov 2026</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 <div class="card" id="it-gitlab-1956" data-published="2026-11-16">
         <div class="card-header">
@@ -3030,71 +3286,7 @@
         </div>
         <a href="https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-153/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-<div class="card" id="it-emudhra-ca-exit" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>Eight eMudhra CA private keys turned out to be trivially guessable &mdash; browsers, Go and Java now reject them, Chrome drops an eMudhra root on 27 October, and eMudhra is leaving the global TLS business</h3>
-        <p>eMudhra, the Indian certificate authority, says the private keys of eight intermediate CA certificates generated at an April 2025 key ceremony were weak because of a flaw in one procedural step that went undetected for 18 months and two audits; six were TLS intermediates and two signed code. Researcher Scott Helme reports recovering all eight almost instantly, one key being simply the number 4. Anyone holding such a key could have issued certificates trusted for any website or signed code that would pass checks. No misuse has been confirmed: eMudhra says it revoked the certificates within 14 hours and that nothing was compromised, and India&rsquo;s CERT-In says it has no confirmed malicious use. Chrome, Firefox and Apple blocked the intermediates; Mozilla decided on 20&nbsp;October to stop trusting the emSign ECC Root CA &ndash; G3, and Chrome distrusts it from 27&nbsp;October. Chrome counted about 30,800 unexpired certificates under that root, almost all issued through InCommon, the US research and education federation. Go 1.27.3 and 1.26.10 hard-reject the keys (CVE-2026-111943), and Red Hat links Oracle&rsquo;s 21&nbsp;October Java SE alert, CVE-2026-91403 (CVSS&nbsp;v3.1 9.1), to the same distrust. On 22&nbsp;October eMudhra&rsquo;s board decided to exit the global SSL/TLS business. Software that ships its own trust store, and clients that don&rsquo;t check revocation, may still trust the old intermediates.</p>
-        <div class="card-meta">
-          <span>eMudhra (emSign) &bull; eight intermediate CA keys from an April 2025 ceremony recoverable (six TLS, two code-signing) &bull; no confirmed misuse; eMudhra says no compromise &bull; blocks: Chrome, Firefox, Apple; Mozilla distrust decision 20 Oct; Chrome distrusts emSign ECC Root CA &ndash; G3 from 27 Oct &bull; about 30,800 unexpired certificates under that root, ~99.9% via InCommon (Chrome count) &bull; Go 1.27.3 / 1.26.10 (CVE-2026-111943); Oracle Java SE alert CVE-2026-91403, CVSS v3.1 9.1 &bull; eMudhra exiting global SSL/TLS issuance; free replacements via partners</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known misuse &mdash; no malicious issuance confirmed (eMudhra, CERT-In)</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; trust-store issue</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Fixes out &mdash; browser blocks; Go 1.27.3 / 1.26.10; Oracle Java alert of 21 Oct; affected certificates must be replaced</span>
-            <span class="ops-cc"><b>Action:</b> Find any certificate you use that chains to eMudhra or emSign &mdash; public websites, APIs, code signing &mdash; and replace it from another CA before 27&nbsp;October; ACME clients may not renew early on their own. Update Go toolchains to 1.27.3 or 1.26.10 and rebuild the Go binaries you ship, apply Oracle&rsquo;s Java SE alert of 21&nbsp;October, and update the CA bundles in your containers, language packages such as certifi, and appliances. If your product embeds its own trust store or skips revocation checks, ship an update that removes the affected intermediates and the G3 root.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Certificate replacement &mdash; before 27 Oct; Go, Java and trust-store updates &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-emudhra-ca-exit" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-emudhra-ca-exit">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>eMudhra statements via The Record and The Hacker News; Mozilla and Chrome root-program decisions; Oracle Security Alert; CERT-In</span>
-          <span class="dot">&bull;</span>
-          <span>Weak keys reported 17 Oct 2026; browser blocks 17&ndash;20 Oct; Mozilla decision 20 Oct; Java alert 21 Oct; eMudhra exit 22 Oct; Chrome distrust from 27 Oct 2026</span>
-        </div>
-        <a href="https://therecord.media/indian-tech-company-announces-withdrawal-certificate-business-incident" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-<div class="card" id="it-hpe-aruba-aos" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Advisory</span>
-        </div>
-        <h3>HPE patches eight unauthenticated remote-code-execution and authentication-bypass flaws in ArubaOS 8 and 10 controllers, gateways and access points &mdash; no exploitation known</h3>
-        <p>HPE published an advisory on 22&nbsp;October (HPESBNW05162) for eight flaws, CVE-2026-79844 to CVE-2026-79851, in AOS-8 and AOS-10, the operating systems for Aruba mobility conductors, controllers, gateways and access points. BleepingComputer lists them as authentication bypasses, including one in the PAPI protocol, plus unauthenticated command injection, SQL injection and buffer overflows, each leading to remote code execution without credentials; it calls them maximum severity, but the per-flaw CVSS scores could not be checked for this edition. HPE says it is not aware of public discussion or exploit code, and no exploitation has been reported. It urges customers to patch and, as mitigation, to restrict the CLI and web management interfaces to a dedicated layer-2 segment or VLAN, or control them with layer-3-and-above firewall policies, and to enable accounting so management activity is logged. Fixed builds for each branch are listed in HPE&rsquo;s advisory. For companies running Aruba wireless in offices and data centres, the controllers sit on the internal network with broad reach.</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-79844</span>
-          <span>HPE Aruba Networking AOS-8 and AOS-10 (mobility conductors, controllers, gateways, APs) &bull; CVE-2026-79844 &ndash; CVE-2026-79851: authentication bypasses (incl. PAPI), unauthenticated command injection, SQL injection and buffer overflows leading to RCE &bull; CVSS not verified for this edition &bull; no public exploit or exploitation known (HPE) &bull; mitigation: management interfaces on a dedicated VLAN or behind firewall policy; accounting enabled &bull; advisory HPESBNW05162, 22 Oct &bull; not in KEV</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; HPE knows of no public exploit code</span>
-            <span class="ops-tag kev-off">Not in CISA KEV &mdash; no exploitation reported</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed AOS-8 and AOS-10 builds listed in HPESBNW05162</span>
-            <span class="ops-cc"><b>Action:</b> Identify every Aruba controller, gateway, mobility conductor and access point on AOS-8 or AOS-10 and schedule the fixed builds from HPE&rsquo;s advisory, starting with anything whose management interface is reachable from user networks or the internet. Until then, restrict CLI and web management to a dedicated management VLAN or firewall policy and turn on accounting so management activity is logged.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-plane restriction &mdash; 72h; upgrades &mdash; 30 days, sooner if exploitation is reported</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-hpe-aruba-aos" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-hpe-aruba-aos">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HPE security bulletin HPESBNW05162 via BleepingComputer</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 22 Oct 2026; reported 23 Oct 2026</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
+
     </div>
   </div>
 

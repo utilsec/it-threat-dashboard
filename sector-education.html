@@ -633,7 +633,10 @@
   html .ops-tag{display:inline-block;max-width:100%;}
   html .ops-tag .d{display:inline-block;vertical-align:middle;margin:0 6px 2px 0;}
   html .tf-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  html .tf-more{font:600 11.5px/1 inherit;color:#2c7480;background:none;border:0;padding:2px 0;cursor:pointer;text-decoration:underline;}
+  html .tf-more{font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;color:#2c7480;background:none;border:0;padding:4px 0 0;margin:0;cursor:pointer;text-decoration:none;}
+  html .tf-more:hover{text-decoration:underline;}
+  /* Status dots duplicated the coloured label text and confused readers: hide them */
+  html .ops-tag .d{display:none;}
   html .card-header{min-width:0;}
   html .card-header .category{flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   html details.tf-src{display:inline;}
@@ -720,6 +723,9 @@
   html body:not(.dark) .tf-news h2{color:#0f2a30;}
   html body:not(.dark) .tf-news p{color:#3f4f57;}
   html body:not(.dark) .tf-jump a{background:#fff;border-color:#cfe2e5;}
+  /* Mobile: let grid cards shrink so long one-line labels never widen the page */
+  html .card,html .card-grid>*,html .top-story,html .radar-panel,html .hero>*{min-width:0;}
+  html .card,html .top-story{overflow-wrap:anywhere;}
   @media(prefers-reduced-motion:reduce){html .sector-nav a{transition:none;}}
   </style>
   <script>try{var _v=localStorage.getItem('otdash.theme');if(_v===null){localStorage.setItem('otdash.theme','dark');_v='dark';}if(_v==='dark')document.body.classList.add('dark');}catch(e){document.body.classList.add('dark');}</script>
@@ -777,13 +783,13 @@
       <h1>IT Threat Intel for Education</h1>
       <div class="header-sub">K-12 districts, universities &amp; ed-tech.</div>
       <div class="header-meta">
-        <span>Generated Sat, 21 Nov 2026, 9:23 PM ET</span>
+        <span>Generated Sun, 22 Nov 2026, 2:05 AM ET</span>
         <span class="dot">&bull;</span>
         <span class="sector-badge">Scope: Education IT</span>
       </div>
     </div>
     <div class="story-count">
-      <strong>40</strong> stories across
+      <strong>42</strong> stories across
       <strong>4</strong> categories
     </div>
   </div>
@@ -820,15 +826,15 @@
   body.dark .new-badge{box-shadow:0 2px 6px rgba(249,115,22,.45);}
   @media (prefers-reduced-motion: reduce){.new-badge{animation:none;}}
   </style>
-  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Score 6.6 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires one issue actively impacting a large portion of education IT; discrete actively-exploited flaws and single-organisation incidents cap at 6.9.">
-    <div class="tl-score"><span class="tl-num">6.6</span><span class="tl-den">/ 10</span></div>
+  <div class="threat-level" style="--tl-c:#eab308;--tl-bg:#fefce8;--tl-bd:#fde68a;--tl-bgd:rgba(234,179,8,.12);" title="Composite 0–10 threat level for the Education sector, under the same rubric as the main IT dashboard. Score 6.7 — Medium. Bands: Critical 9.0+, High 7.0–8.9, Medium 4.0–6.9, Low under 4.0. High requires one issue actively impacting a large portion of education IT; discrete actively-exploited flaws and single-organisation incidents cap at 6.9.">
+    <div class="tl-score"><span class="tl-num">6.7</span><span class="tl-den">/ 10</span></div>
     <div class="tl-main">
       <div class="tl-top">
         <span class="tl-label">Overall Threat Level</span>
         <span class="tl-band">Medium</span>
       </div>
-      <div class="tl-meter"><span class="tl-marker" style="left:66.0%;"></span></div>
-      <div class="tl-why"><b>Why 6.6 (Medium):</b> Down 0.3. BYOD ransomware at Vanderbilt and fast KEV deadlines for vCenter, Apache Roller and REDCap are serious, but each is a discrete incident or patch job, not one campaign across education.<br><b>Top threat:</b> Vanderbilt BYOD attack &mdash; campus systems shut down, weeks of recovery, data theft claimed, class action filed.<br><b>Confirmed breaches:</b> UCPH (525,000 people); York University web forms; Vanderbilt and Richmond Public Schools incidents (data theft claimed or unconfirmed).<br><b>Also watching:</b> BYOD claim on Michigan State; ScreenConnect and N-central MSP attacks; Synology NAS ransomware.<br><b>What would raise it:</b> One group disrupting several institutions at once, or mass exploitation of Roller, REDCap or vCenter on campuses.</div>
+      <div class="tl-meter"><span class="tl-marker" style="left:67.0%;"></span></div>
+      <div class="tl-why"><b>Why 6.7 (Medium):</b> Up 0.1. AI agents used an unpatched MONAI Label zero-day against universities and Vanderbilt is still recovering from ransomware, but each is a discrete intrusion or patch job, not one campaign across education.<br><b>Top threat:</b> MONAI Label CVE-2026-133968 &mdash; root on a university research server per Amazon; no fixed PyPI release.<br><b>Confirmed breaches:</b> One unnamed university via MONAI; UCPH (525,000 people); York University web forms; Vanderbilt and Richmond schools (data theft claimed or unconfirmed).<br><b>Also watching:</b> KEV deadlines for vCenter, Roller and REDCap; BYOD claim on MSU; Java4Shell in Jira, Jenkins and Keycloak.<br><b>What would raise it:</b> One group disrupting several institutions at once, or mass exploitation of MONAI Label, Roller, REDCap or vCenter on campuses.</div>
     </div>
   </div>
   <!-- /THREAT LEVEL -->
@@ -871,34 +877,35 @@
   <div class="hero">
 
 
-    <div class="top-story" id="it-vanderbilt-byod" data-published="2026-11-17">
+    <div class="top-story" id="it-monai-label-133968" data-published="2026-11-21">
         <span class="top-story-pill">Top Story</span>
-        <h2>Vanderbilt University is still rebuilding after a BYOD ransomware attack that forced staff and students to shut down university devices and leave campus Wi-Fi &mdash; the gang claims student, employee and research data, and a proposed class action was filed on 17&nbsp;November</h2>
-        <p>Vanderbilt University confirmed an &ldquo;active cybersecurity incident&rdquo; on Monday 9&nbsp;November 2026 affecting devices, systems and cloud services, and told people to shut down university-owned devices and get off campus Wi-Fi. BleepingComputer saw the ransom note, <code>README_BYOD_31.txt</code>. <b>What is claimed, not confirmed:</b> the BYOD gang says it encrypted databases and stole student, employee and research data, including more than one million Social Security numbers; Vanderbilt has not confirmed what was taken. Recovery is under way but slow. By 10&nbsp;November Wi-Fi, Okta, Outlook, Brightspace and Zoom were back; OneDrive, SharePoint and Teams were disabled (OneDrive is due back from the first week of December, per a 13&nbsp;November update cited by Gridinsoft); Box files were rolled back to their state before about 8:30&nbsp;am on 9&nbsp;November; every password was reset; and full restoration is expected to take &ldquo;several weeks&rdquo;. On 17&nbsp;November a proposed class action was filed in the US District Court for the Middle District of Tennessee; a law professor says BYOD demanded $750,000, which has not been confirmed. Nothing in the reporting says Vanderbilt University Medical Center was hit. BYOD has now been linked to Vanderbilt, Michigan State (claim only, see the <a href="#it-msu-byod">MSU card</a>) and UNM Health Sciences Center (see the <a href="#it-unm-hsc-cyber-event">UNM card</a>) within a month. This leads over the exploited VMware vCenter zero-day (see the <a href="#it-vcenter-123890">vCenter card</a>) and the Apache Roller flaw (see the <a href="#it-roller-129448">Roller card</a>) because it is a confirmed, campus-wide outage at a major research university with weeks of recovery still ahead (editorial assessment).</p>
+        <h2>Attackers running AI agents found and exploited a zero-day in MONAI Label, the medical-imaging AI annotation server common in university research labs &mdash; Amazon says they reached root on one university server, and there is still no fixed PyPI release</h2>
+        <p>Amazon Threat Intelligence reported on 20&nbsp;November 2026 that a suspected China-nexus actor (moderate confidence) ran the open-source Cairn AI-agent framework against university networks for about 48 hours, around 8&ndash;10 September 2026. The operator only asked the agents for shell access; the agents chose how to get it. They found a path-traversal flaw in <b>MONAI Label</b>, an open-source server for annotating medical images used to train AI models, in its <code>PUT /datastore/image</code> and <code>/datastore/label</code> endpoints, and authentication is off by default. The flaw is <b>CVE-2026-133968</b> (CVSS 9.8 per The Hacker News; GHSA-qc22-rmgc-vg94) and affects 0.8.5 and earlier. A fix was merged into the source code on 19&nbsp;October (PR #1915), but there is <b>no fixed release on PyPI</b>, so a normal install still gets a vulnerable version. <b>Amazon&rsquo;s reconstruction, not independently confirmed:</b> about 11 minutes passed from mapping the API to writing arbitrary files; the agents planted a <code>sitecustomize.py</code> file and used the training endpoint to open a reverse shell, ending with root on one university server; a second university network was reached through a tunnel believed to be compromised (unconfirmed). No patient data or clinical systems were shown to be affected, and the universities were not named. Cairn is one of the agent frameworks Google flagged earlier this month (see the <a href="#it-gtig-agentic-ai">GTIG card</a>). This leads over Vanderbilt&rsquo;s ransomware recovery (see the <a href="#it-vanderbilt-byod">Vanderbilt card</a>) because it is a reported intrusion at a university through research software that still has no packaged fix, and the same lab setups exist on many campuses (editorial assessment).</p>
         <div class="card-meta">
-          <span>Vanderbilt University (Nashville, TN) &bull; No CVE &mdash; entry route not disclosed; BYOD ransom note seen by BleepingComputer; data theft claimed by BYOD only</span>
+          <span class="cve-badge">CVE-2026-133968</span>
+          <span>MONAI Label (open-source medical-imaging annotation server) &bull; GHSA-qc22-rmgc-vg94 &bull; CVSS 9.8 (per The Hacker News) &bull; 0.8.5 and earlier affected; fix in source (PR #1915, 19 Oct), no fixed PyPI release</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; Vanderbilt: active cybersecurity incident from 9 Nov 2026 affecting devices, systems and cloud services; BYOD&rsquo;s claim of encrypted databases and stolen data (including &gt;1M SSNs) is unverified</span>
-            <span class="ops-tag kev-off">No CVE named &mdash; no technical details released</span>
+            <span class="ops-tag ex-active"><span class="d"></span>Exploited as a zero-day &mdash; AI-agent campaign against university networks, about 8&ndash;10 Sep 2026 (Amazon Threat Intelligence); root on one university server per Amazon&rsquo;s reconstruction</span>
+            <span class="ops-tag kev-off">CISA KEV listing not reported</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch applies &mdash; staged recovery: Wi-Fi, Okta, Outlook, Brightspace, Zoom back by 10 Nov; OneDrive/SharePoint/Teams disabled; all passwords reset; full restoration &ldquo;several weeks&rdquo;</span>
-            <span class="ops-cc"><b>Action:</b> Write down the order in which you would bring identity, Wi-Fi, email, the learning platform and video back after a campus-wide shutdown, as Vanderbilt did, and test that sequence. Check that you can tell everyone to power off university devices and leave the network through channels that do not depend on campus email or Wi-Fi. Make sure cloud file stores (Box, OneDrive, SharePoint) have version history or snapshots long enough to roll back to a known-good time. Plan a forced reset of every password, with help-desk capacity for it. Watch for BYOD indicators such as <code>README_BYOD_*.txt</code> notes and warn students, staff and research participants that extortion or phishing messages quoting the attack may follow.</span>
+            <span class="ops-tag patch-no">No fixed release &mdash; fix merged in source 19 Oct (PR #1915); a source build counts only if it includes that change</span>
+            <span class="ops-cc"><b>Action:</b> Find every MONAI Label server on campus, including ones a lab, student or postdoc started on a workstation or GPU box. Block it from untrusted networks, turn authentication on, run it as a limited account and restrict which directories it can write to. Treat a source build as fixed only if it includes the 19 October change. Hunt for <code>sitecustomize.py</code> files nobody put there and training jobs nobody started, and check for tunnels from lab machines to other networks.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Restore-order plan for identity, Wi-Fi, email and learning platform &mdash; 30 days; out-of-band shutdown message tested &mdash; 14 days; cloud file-store rollback check &mdash; 14 days; extortion-message guidance issued &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vanderbilt-byod" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-vanderbilt-byod">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory and firewall MONAI Label servers &mdash; 24 hours; authentication on and limited service account &mdash; 72 hours; <code>sitecustomize.py</code> and training-job hunt &mdash; 72 hours; move to a fixed PyPI release when one is published</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-monai-label-133968" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-monai-label-133968">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>BleepingComputer (Nov 2026); Malwarebytes (Nov 2026); GovTech (class action, Nov 2026)</span>
+          <span>The Hacker News (21 Nov 2026); Security Affairs (21 Nov 2026); Amazon Threat Intelligence (20 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Incident 9 Nov 2026; core services back 10 Nov; class action filed 17 Nov &mdash; incident confirmed by Vanderbilt; data theft and $750,000 demand unconfirmed</span>
+          <span>Campaign about 8&ndash;10 Sep 2026; report 20 Nov &mdash; intrusion reported by Amazon, attribution moderate confidence; root access and second network are Amazon&rsquo;s reconstruction, not independently confirmed</span>
         </div>
-        <a href="https://bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
 
     <div class="radar-panel">
@@ -926,13 +933,13 @@
         <circle cx="180" cy="180" r="3" fill="#8b949e"/>
         <text class="ring-label" x="180" y="127">Critical</text>
         <text class="ring-label" x="180" y="77">High</text>
-        <a href="#it-vanderbilt-byod"><circle class="blip crit" cx="209.1" cy="100.1" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="209.1" y="104.8">1</text></a>
-        <a href="#it-vcenter-123890"><circle class="blip crit" cx="260.6" cy="152.9" r="13.9"/><text class="blip-num" style="font-size:13.2px" x="260.6" y="157.2">2</text></a>
-        <a href="#it-roller-129448"><circle class="blip crit" cx="251.4" cy="226.1" r="12.8"/><text class="blip-num" style="font-size:12.2px" x="251.4" y="230.1">3</text></a>
-        <a href="#it-redcap-90817"><circle class="blip crit" cx="188.5" cy="264.6" r="11.8"/><text class="blip-num" style="font-size:11.2px" x="188.5" y="268.2">4</text></a>
-        <a href="#it-axis-90436"><circle class="blip crit" cx="119.2" cy="239.4" r="10.7"/><text class="blip-num" style="font-size:10.1px" x="119.2" y="242.7">5</text></a>
-        <a href="#it-screenconnect-msp"><circle class="blip crit" cx="95.7" cy="169.4" r="9.6"/><text class="blip-num" style="font-size:9.1px" x="95.7" y="172.4">6</text></a>
-        <a href="#it-barracuda-esg"><circle class="blip crit" cx="135.7" cy="107.5" r="8.5"/><text class="blip-num" style="font-size:8.1px" x="135.7" y="110.1">7</text></a>
+        <a href="#it-monai-label-133968"><circle class="blip crit" cx="209.1" cy="100.1" r="15.0"/><text class="blip-num" style="font-size:14.2px" x="209.1" y="104.8">1</text></a>
+        <a href="#it-vanderbilt-byod"><circle class="blip crit" cx="260.6" cy="152.9" r="13.9"/><text class="blip-num" style="font-size:13.2px" x="260.6" y="157.2">2</text></a>
+        <a href="#it-vcenter-123890"><circle class="blip crit" cx="251.4" cy="226.1" r="12.8"/><text class="blip-num" style="font-size:12.2px" x="251.4" y="230.1">3</text></a>
+        <a href="#it-roller-129448"><circle class="blip crit" cx="188.5" cy="264.6" r="11.8"/><text class="blip-num" style="font-size:11.2px" x="188.5" y="268.2">4</text></a>
+        <a href="#it-redcap-90817"><circle class="blip crit" cx="119.2" cy="239.4" r="10.7"/><text class="blip-num" style="font-size:10.1px" x="119.2" y="242.7">5</text></a>
+        <a href="#it-axis-90436"><circle class="blip crit" cx="95.7" cy="169.4" r="9.6"/><text class="blip-num" style="font-size:9.1px" x="95.7" y="172.4">6</text></a>
+        <a href="#it-screenconnect-msp"><circle class="blip crit" cx="135.7" cy="107.5" r="8.5"/><text class="blip-num" style="font-size:8.1px" x="135.7" y="110.1">7</text></a>
         <a href="#it-msu-byod"><circle class="blip high" cx="270.3" cy="79.7" r="9.0"/><text class="blip-num" style="font-size:8.5px" x="270.3" y="82.5">8</text></a>
         <a href="#it-ucph-test-environment-breach"><circle class="blip high" cx="313.7" cy="161.2" r="8.6"/><text class="blip-num" style="font-size:8.2px" x="313.7" y="163.9">9</text></a>
         <a href="#it-richmond-public-schools"><circle class="blip high" cx="294.5" cy="251.5" r="8.2"/><text class="blip-num" style="font-size:7.8px" x="294.5" y="254.1">10</text></a>
@@ -944,13 +951,13 @@
         <a href="#it-gtig-agentic-ai"><circle class="blip high" cx="184.7" cy="45.1" r="5.8"/><text class="blip-num" style="font-size:5.5px" x="184.7" y="46.9">16</text></a>
       </svg>
       <div class="radar-legend">
-        <a href="#it-vanderbilt-byod"><span class="ld crit"></span><b>1</b> Vanderbilt: BYOD ransomware, weeks to recover</a>
-        <a href="#it-vcenter-123890"><span class="ld crit"></span><b>2</b> vCenter zero-day CVE-2026-123890, KEV</a>
-        <a href="#it-roller-129448"><span class="ld crit"></span><b>3</b> Apache Roller RCE exploited, KEV</a>
-        <a href="#it-redcap-90817"><span class="ld crit"></span><b>4</b> REDCap RCE: web shells and miners, KEV</a>
-        <a href="#it-axis-90436"><span class="ld crit"></span><b>5</b> Axis flaw hits Confluence, KEV</a>
-        <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>6</b> ScreenConnect MSP attacks spread</a>
-        <a href="#it-barracuda-esg"><span class="ld crit"></span><b>7</b> Barracuda ESG chain to root, KEV</a>
+        <a href="#it-monai-label-133968"><span class="ld crit"></span><b>1</b> MONAI Label zero-day: AI agents, university root</a>
+        <a href="#it-vanderbilt-byod"><span class="ld crit"></span><b>2</b> Vanderbilt: BYOD ransomware, weeks to recover</a>
+        <a href="#it-vcenter-123890"><span class="ld crit"></span><b>3</b> vCenter zero-day CVE-2026-123890, KEV</a>
+        <a href="#it-roller-129448"><span class="ld crit"></span><b>4</b> Apache Roller RCE exploited, KEV</a>
+        <a href="#it-redcap-90817"><span class="ld crit"></span><b>5</b> REDCap RCE: web shells and miners, KEV</a>
+        <a href="#it-axis-90436"><span class="ld crit"></span><b>6</b> Axis flaw hits Confluence, KEV</a>
+        <a href="#it-screenconnect-msp"><span class="ld crit"></span><b>7</b> ScreenConnect MSP attacks spread</a>
         <a href="#it-msu-byod"><span class="ld high"></span><b>8</b> MSU: BYOD claims 1.3M student records</a>
         <a href="#it-ucph-test-environment-breach"><span class="ld high"></span><b>9</b> UCPH: 525,000 national IDs exposed</a>
         <a href="#it-richmond-public-schools"><span class="ld high"></span><b>10</b> Richmond schools rebuilding from backups</a>
@@ -966,9 +973,76 @@
   </div>
 
   
+  <!-- SECTION: Trends -->
+  <div class="section" id="trends">
+    <div class="section-title">Trends</div>
+    <div class="trends-sub">What the security community has been talking about over the last 7&ndash;10 days.</div>
+    <div class="trends-strip">
+      <div class="trend">
+        <span class="trend-tag">AI Threats</span>
+        <b class="trend-head">AI agents are now finding and using zero-days against university research software</b>
+        <p>Amazon says a suspected China-nexus actor pointed the open-source Cairn agent framework at university networks for about 48 hours in September, asked only for shell access, and let the agents choose the route: a path-traversal zero-day in MONAI Label, reached about 11 minutes after the agents mapped its API and ending in root on one university server (Amazon&rsquo;s reconstruction). Google&rsquo;s threat group had already named Cairn among the multi-agent pentest frameworks abused in live intrusions, with 2026 zero-days averaging 11 a month. Agents work fast and try everything, so a lab server left open with default settings is a realistic target. Takeaway: find the research servers central IT does not know about before an agent does.</p>
+        <a href="https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Research IT</span>
+        <b class="trend-head">Research software is the soft edge of the campus network</b>
+        <p>Three tools that live mostly in research groups and departments were attacked in the same few weeks: MONAI Label (exploited as a zero-day, still no fixed PyPI release), REDCap (CVE-2026-90817, web shells and a cryptominer, KEV due 21&nbsp;November) and Apache Roller (CVE-2026-129448, pre-auth code execution, KEV due 23&nbsp;November). They are often installed by a lab, run with defaults and patched by whoever set them up. Authentication off by default in MONAI Label, and REDCap survey hashes visible in links sent to participants, show how research convenience becomes attacker access. Takeaway: put lab-run servers on the central patch and exposure inventory, and firewall anything that does not need to face the internet.</p>
+        <a href="https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Ransomware</span>
+        <b class="trend-head">BYOD keeps working its way through higher education</b>
+        <p>In about a month the BYOD gang has been tied to Vanderbilt University (confirmed incident, university devices shut down, weeks of recovery, class action filed 17&nbsp;November), Michigan State (a claim of data on 1.3&nbsp;million students; MSU confirmed suspicious activity and forced NetID resets) and UNM Health Sciences Center (classes cancelled for two days, ambulances diverted for two hours). The data-theft figures in each case come from the gang and are unconfirmed. For IT teams the pattern repeats: forced password resets, staged service restores and extortion messages aimed at students and staff. Takeaway: rehearse a campus-wide shutdown and the order you would restore services in; see Incidents &amp; Attacks for each case.</p>
+        <a href="https://bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed" class="source-link" target="_blank" rel="noopener">BleepingComputer</a>
+      </div>
+
+      <div class="trend">
+        <span class="trend-tag">Platform Flaws</span>
+        <b class="trend-head">Language-runtime flaws reach the apps campuses run on</b>
+        <p>Java4Shell (CVE-2026-114938) in Java&rsquo;s Base64 decoder could allow pre-auth code execution in Jira, Jenkins and Keycloak, but only on x86-64 CPUs with AVX-512 VBMI; Oracle has fixed builds, Red Hat does not yet, and Canada&rsquo;s Cyber Centre reports no exploitation. Ruby2Shell (CVE-2026-132825) is reachable without login in default Rails and classic Sinatra apps; GitLab, Discourse and OpenProject have shipped fixes, and watchTowr expects denial of service to be likelier than code execution. Neither is exploited. Takeaway: these runtimes sit under service desks, build servers, single sign-on and course forums, so map which campus apps bundle their own Java or Ruby before vendor updates land; see Critical Advisories.</p>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">The Hacker News</a>
+      </div>
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Incidents &amp; Attacks</div>
     <div class="card-grid">
+      <div class="card" id="it-vanderbilt-byod" data-published="2026-11-17">
+        <div class="card-header">
+          <span class="severity sev-critical">Critical</span>
+          <span class="category">Ransomware</span>
+        </div>
+        <h3>Vanderbilt University is still rebuilding after a BYOD ransomware attack that forced staff and students to shut down university devices and leave campus Wi-Fi &mdash; the gang claims student, employee and research data, and a proposed class action was filed on 17&nbsp;November</h3>
+        <p>Vanderbilt University confirmed an &ldquo;active cybersecurity incident&rdquo; on Monday 9&nbsp;November 2026 affecting devices, systems and cloud services, and told people to shut down university-owned devices and get off campus Wi-Fi. BleepingComputer saw the ransom note, <code>README_BYOD_31.txt</code>. <b>What is claimed, not confirmed:</b> the BYOD gang says it encrypted databases and stole student, employee and research data, including more than one million Social Security numbers; Vanderbilt has not confirmed what was taken. Recovery is under way but slow. By 10&nbsp;November Wi-Fi, Okta, Outlook, Brightspace and Zoom were back; OneDrive, SharePoint and Teams were disabled (OneDrive is due back from the first week of December, per a 13&nbsp;November update cited by Gridinsoft); Box files were rolled back to their state before about 8:30&nbsp;am on 9&nbsp;November; every password was reset; and full restoration is expected to take &ldquo;several weeks&rdquo;. On 17&nbsp;November a proposed class action was filed in the US District Court for the Middle District of Tennessee; a law professor says BYOD demanded $750,000, which has not been confirmed. Nothing in the reporting says Vanderbilt University Medical Center was hit. BYOD has now been linked to Vanderbilt, Michigan State (claim only, see the <a href="#it-msu-byod">MSU card</a>) and UNM Health Sciences Center (see the <a href="#it-unm-hsc-cyber-event">UNM card</a>) within a month. It is a confirmed, campus-wide outage at a major research university with weeks of recovery still ahead (editorial assessment).</p>
+        <div class="card-meta">
+          <span>Vanderbilt University (Nashville, TN) &bull; No CVE &mdash; entry route not disclosed; BYOD ransom note seen by BleepingComputer; data theft claimed by BYOD only</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-active"><span class="d"></span>Confirmed incident &mdash; Vanderbilt: active cybersecurity incident from 9 Nov 2026 affecting devices, systems and cloud services; BYOD&rsquo;s claim of encrypted databases and stolen data (including &gt;1M SSNs) is unverified</span>
+            <span class="ops-tag kev-off">No CVE named &mdash; no technical details released</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-na">No patch applies &mdash; staged recovery: Wi-Fi, Okta, Outlook, Brightspace, Zoom back by 10 Nov; OneDrive/SharePoint/Teams disabled; all passwords reset; full restoration &ldquo;several weeks&rdquo;</span>
+            <span class="ops-cc"><b>Action:</b> Write down the order in which you would bring identity, Wi-Fi, email, the learning platform and video back after a campus-wide shutdown, as Vanderbilt did, and test that sequence. Check that you can tell everyone to power off university devices and leave the network through channels that do not depend on campus email or Wi-Fi. Make sure cloud file stores (Box, OneDrive, SharePoint) have version history or snapshots long enough to roll back to a known-good time. Plan a forced reset of every password, with help-desk capacity for it. Watch for BYOD indicators such as <code>README_BYOD_*.txt</code> notes and warn students, staff and research participants that extortion or phishing messages quoting the attack may follow.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Restore-order plan for identity, Wi-Fi, email and learning platform &mdash; 30 days; out-of-band shutdown message tested &mdash; 14 days; cloud file-store rollback check &mdash; 14 days; extortion-message guidance issued &mdash; 7 days</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-vanderbilt-byod" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-vanderbilt-byod">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>BleepingComputer (Nov 2026); Malwarebytes (Nov 2026); GovTech (class action, Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Incident 9 Nov 2026; core services back 10 Nov; class action filed 17 Nov &mdash; incident confirmed by Vanderbilt; data theft and $750,000 demand unconfirmed</span>
+        </div>
+        <a href="https://bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-msu-byod" data-published="2026-11-02">
         <div class="card-header">
           <span class="severity sev-high">High</span>
@@ -1760,6 +1834,72 @@
         </div>
         <a href="https://rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
+      <div class="card" id="it-java4shell-114938" data-published="2026-11-18">
+        <div class="card-header">
+          <span class="severity sev-high">High</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Java4Shell CVE-2026-114938 in Java&rsquo;s Base64 decoder could give pre-auth code execution in Jira, Jenkins and Keycloak &mdash; only on x86-64 servers with AVX-512 VBMI, not exploited, and Red Hat builds are not fixed yet</h3>
+        <p><b>CVE-2026-114938</b> (&ldquo;Java4Shell&rdquo;) is a flaw in the Base64 intrinsic decoder in Oracle Java SE and OpenJDK that could allow pre-authentication remote code execution in applications such as Jira, Jenkins and Keycloak. Oracle rates it CVSS 8.1; Red Hat rates it 9.8. It only affects x86-64 machines whose CPUs support AVX-512 VBMI, running Java 17.0.6 and later or Java 21, 25 or 27. Oracle&rsquo;s fixed builds are 17.0.21.1, 21.0.13.1, 25.0.5.1 and 27.0.1.1; Red Hat has not shipped fixes yet. Canada&rsquo;s Cyber Centre says it is not being exploited, and it was not in KEV as of 18&nbsp;November. The interim workaround is the JVM flag <code>-XX:-UseBASE64Intrinsics</code>. Jira often runs the campus service desk, Jenkins builds research and teaching code, and Keycloak can sit in front of single sign-on, so check those first (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-114938</span>
+          <span>Oracle Java SE / OpenJDK 17.0.6+, 21, 25, 27 on x86-64 with AVX-512 VBMI &bull; CVSS 8.1 (Oracle) / 9.8 (Red Hat) &bull; fixed Oracle 17.0.21.1, 21.0.13.1, 25.0.5.1, 27.0.1.1</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No exploitation reported &mdash; per Canada&rsquo;s Cyber Centre</span>
+            <span class="ops-tag kev-off">Not in CISA KEV (as of 18 Nov 2026)</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Oracle builds out; Red Hat fixes pending; interim <code>-XX:-UseBASE64Intrinsics</code></span>
+            <span class="ops-cc"><b>Action:</b> List the Java services on campus that face users or the internet, starting with Jira, Jenkins and Keycloak, and note which Java build each one bundles and whether the host CPU supports AVX-512 VBMI. Move Oracle-based runtimes to the fixed builds. Where you depend on Red Hat or a vendor-bundled Java, add <code>-XX:-UseBASE64Intrinsics</code> as a stopgap after testing, and track the vendor fix.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Inventory of exposed Java services and CPUs &mdash; 7 days; fixed Oracle builds or JVM flag on exposed services &mdash; 14 days; Red Hat and vendor builds &mdash; on release</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-java4shell-114938" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-java4shell-114938">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>The Hacker News (18 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Disclosed Nov 2026 &mdash; fixes confirmed by Oracle; no exploitation per Canada&rsquo;s Cyber Centre</span>
+        </div>
+        <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
+      <div class="card" id="it-ruby2shell-132825" data-published="2026-11-20">
+        <div class="card-header">
+          <span class="severity sev-medium">Medium</span>
+          <span class="category">Vulnerability</span>
+        </div>
+        <h3>Ruby2Shell CVE-2026-132825 can be reached without logging in on default Rails and classic Sinatra apps &mdash; GitLab, Discourse and OpenProject have patched; exploitation is hard and not seen in the wild</h3>
+        <p>Ruby released 4.0.10, 3.4.13 and 3.3.14 (advisory 18&nbsp;November 2026), fixing seven flaws including <b>CVE-2026-132825</b> (&ldquo;Ruby2Shell&rdquo;, CVSS 7.4), a heap overflow in string case conversion. Veria Labs says default Rails and classic Sinatra applications can reach it without authentication. watchTowr says exploitation is hard and denial of service is the likelier outcome than code execution. GitLab, Mastodon, OpenProject, the Discourse base image and Chatwoot have shipped patched versions; GitHub Enterprise Server is affected. No in-the-wild exploitation has been reported. Department and research-group GitLab servers, Discourse course forums and campus Mastodon instances are the likely places this lands (editorial assessment).</p>
+        <div class="card-meta">
+          <span class="cve-badge">CVE-2026-132825</span>
+          <span>Ruby (fixed 4.0.10, 3.4.13, 3.3.14) &bull; CVSS 7.4 &bull; downstream: GitLab, Mastodon, OpenProject, Discourse, Chatwoot patched; GitHub Enterprise Server affected</span>
+        </div>
+        <div class="ops-strip">
+          <div class="ops-row">
+            <span class="ops-tag ex-none"><span class="d"></span>No in-the-wild exploitation reported &mdash; watchTowr: exploitation hard, denial of service likelier</span>
+            <span class="ops-tag kev-off">Not in CISA KEV</span>
+          </div>
+          <div class="ops-row">
+            <span class="ops-tag patch-yes">Patched &mdash; Ruby 4.0.10, 3.4.13, 3.3.14; downstream app updates available</span>
+            <span class="ops-cc"><b>Action:</b> Update self-managed GitLab, Discourse, OpenProject, Mastodon and Chatwoot to their patched releases, and watch for the GitHub Enterprise Server update if you run it. For in-house Rails or Sinatra apps, rebuild on a fixed Ruby version during the next maintenance window.</span>
+          </div>
+          <div class="ops-row ops-assign">
+            <span class="ops-sla"><b>Suggested SLA:</b> Internet-facing Ruby apps updated &mdash; 14 days; internal apps &mdash; next maintenance cycle</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-ruby2shell-132825" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-ruby2shell-132825">Open</button>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span>SecurityWeek (20 Nov 2026)</span>
+          <span class="dot">&bull;</span>
+          <span>Ruby advisory 18 Nov 2026 &mdash; fixes confirmed; no exploitation reported</span>
+        </div>
+        <a href="https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/" class="source-link" target="_blank" rel="noopener">Read source</a>
+      </div>
       <div class="card" id="it-nable-4everable2shell" data-published="2026-11-13">
         <div class="card-header">
           <span class="severity sev-critical">Critical</span>
@@ -2133,70 +2273,37 @@
         </div>
         <a href="https://www.bleepingcomputer.com/news/security/gitlab-warns-of-new-max-severity-code-execution-vulnerability/" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
-      <div class="card" id="it-aruba-aos-79844" data-published="2026-10-22">
-        <div class="card-header">
-          <span class="severity sev-high">High</span>
-          <span class="category">Vulnerability</span>
-        </div>
-        <h3>HPE fixes eight unauthenticated code-execution and authentication-bypass flaws in ArubaOS 8 and 10 &mdash; the controllers, gateways and access points behind much campus Wi-Fi; not exploited yet</h3>
-        <p>HPE published an advisory on 22&nbsp;October 2026 that fixes 72 vulnerabilities in ArubaOS (AOS), the operating system of Aruba Networking mobility conductors, controllers, gateways and access points. Eight of them, <b>CVE-2026-79844 to CVE-2026-79851</b>, can be exploited remotely by an unauthenticated attacker with low complexity and no user interaction: authentication bypasses (one in the PAPI protocol), command injection, SQL injection and buffer overflows, each leading to code execution, split between AOS-8 and AOS-10. HPE says it is not aware of public exploit code or discussion. It urges customers to patch quickly and, in the meantime, to restrict the CLI and web management interfaces to a dedicated layer-2 segment or VLAN or behind firewall policy, and to turn on accounting so administrative activity is logged. The report reviewed does not list fixed version numbers or CVSS scores; take both from HPE advisory HPESBNW05162. Aruba wireless is common in school and university networks, where controllers and gateways often sit on management networks reachable from staff or student VLANs (editorial assessment).</p>
-        <div class="card-meta">
-          <span class="cve-badge">CVE-2026-79844&ndash;79851</span>
-          <span>HPE Aruba Networking ArubaOS 8 and ArubaOS 10 (mobility conductors, controllers, gateways, access points) &bull; eight unauthenticated flaws: authentication bypass (incl. PAPI), command injection, SQL injection, buffer overflow, leading to code execution &bull; 72 fixes in total &bull; fixed builds and scores in HPE advisory HPESBNW05162</span>
-        </div>
-        <div class="ops-strip">
-          <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No known exploitation &mdash; HPE is not aware of public exploit code or discussion (22 Oct 2026)</span>
-            <span class="ops-tag kev-off">Not in CISA KEV</span>
-          </div>
-          <div class="ops-row">
-            <span class="ops-tag patch-yes">Patched &mdash; fixed AOS-8 and AOS-10 releases listed in HPESBNW05162; restrict management interfaces until installed</span>
-            <span class="ops-cc"><b>Action:</b> List every Aruba mobility conductor, controller, gateway and AOS-10 access point with its AOS branch and version, and schedule the fixed release from HPE&rsquo;s advisory &mdash; first for anything whose management interface can be reached from user VLANs or the internet. Before then, confirm that CLI, web UI and PAPI traffic reach these devices only from a dedicated management VLAN or jump host, not from student, staff, guest or residence networks. Turn on accounting so administrative actions are logged centrally, and review the admin accounts on each controller.</span>
-          </div>
-          <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Management-interface exposure confirmed and restricted &mdash; 7 days; fixed AOS releases installed &mdash; 30 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-aruba-aos-79844" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-aruba-aos-79844">Open</button>
-          </div>
-        </div>
-        <div class="card-meta">
-          <span>HPE advisory HPESBNW05162 (22 Oct 2026) via BleepingComputer (23 Oct 2026)</span>
-          <span class="dot">&bull;</span>
-          <span>Advisory 22 Oct 2026 &mdash; vendor-confirmed flaws; not exploited, no public exploit; not in KEV</span>
-        </div>
-        <a href="https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/" class="source-link" target="_blank" rel="noopener">Read source</a>
-      </div>
-      <div class="card" id="it-emudhra-incommon-distrust" data-published="2026-10-22">
+      <div class="card" id="it-fastunlock-windows" data-published="2026-11-20">
         <div class="card-header">
           <span class="severity sev-medium">Medium</span>
-          <span class="category">Certificate Distrust</span>
+          <span class="category">Zero-Day</span>
         </div>
-        <h3>Chrome was due to stop trusting an eMudhra root on the morning of 27 October &mdash; about 30,800 certificates were affected, 99.9% of them issued through InCommon, so check for any campus site still serving one</h3>
-        <p>The private keys of eight eMudhra intermediate certificate authorities, created at an April 2025 key ceremony, were generated with so little randomness that a researcher recovered all of them almost instantly, and browsers blocked those intermediates from 17&nbsp;October. eMudhra says it never issued certificates from them and was not breached, and no misuse has been confirmed. The fallout lands on higher education. Mozilla decided on 20&nbsp;October to stop trusting the <b>emSign ECC Root CA &ndash; G3</b>, and Chrome&rsquo;s removal was scheduled to reach users on the morning of <b>27&nbsp;October</b> (Pacific time). Chrome counted about 30,800 unexpired certificates under that root on 21&nbsp;October, 99.9% of them issued through <b>InCommon</b>. Google said affected operators must immediately install a certificate from another hierarchy, and warns that standard ACME clients will not renew early unless they support ACME Renewal Information or an administrator forces it. Cornell, with more than 300 affected certificates, is telling holders to request RSA certificates, which chain to an eMudhra root that is not being removed for now; Michigan warns that root could be distrusted later and points to Let&rsquo;s Encrypt. On 22&nbsp;October eMudhra said it will leave the global TLS certificate business.</p>
+        <h3>FastUnlock: an unpatched Windows lock-screen bypass with public proof-of-concept code needs physical access, and BitLocker with TPM only does not stop it &mdash; a concern for lab, loaner and lost laptops</h3>
+        <p>Proof-of-concept code for &ldquo;FastUnlock&rdquo;, a Windows lock-screen bypass, was posted on 19&nbsp;November 2026. It needs physical access to the device and a Microsoft account that can be reached through the lock-screen recovery option together with Narrator, and it gives access to a limited, non-administrator account. BitLocker in TPM-only mode does not prevent it. There is no CVE, no patch and no reported in-the-wild use. The mitigations are a BitLocker startup PIN and shutting down or hibernating devices that leave your control. Schools and universities hand out large numbers of loaner and lab laptops and lose some every term, so these are the devices to look at first (editorial assessment).</p>
         <div class="card-meta">
-          <span>eMudhra emSign ECC Root CA &ndash; G3 and eight weak-key intermediates &bull; ~30,800 unexpired certificates (Chrome, 21 Oct), 99.9% via InCommon &bull; Mozilla decision 20 Oct; Chrome distrust from the morning of 27 Oct 2026 (Pacific) &bull; no confirmed misuse</span>
+          <span>Microsoft Windows lock screen &bull; No CVE assigned &bull; unpatched</span>
         </div>
         <div class="ops-strip">
           <div class="ops-row">
-            <span class="ops-tag ex-none"><span class="d"></span>No exploitation &mdash; weak keys, no confirmed malicious certificate; the risk is broken sites once Chrome stops trusting the root (scheduled for 27 Oct)</span>
-            <span class="ops-tag kev-off">Not a KEV item &mdash; a trust-store change, not a software flaw</span>
+            <span class="ops-tag ex-poc"><span class="d"></span>Public PoC &mdash; posted 19 Nov 2026; no in-the-wild use reported; physical access required</span>
+            <span class="ops-tag kev-off">No CVE &mdash; not in CISA KEV</span>
           </div>
           <div class="ops-row">
-            <span class="ops-tag patch-na">No patch &mdash; replace any certificate still chaining to emSign ECC Root CA &ndash; G3; Chrome distrust was scheduled for 27 Oct 2026</span>
-            <span class="ops-cc"><b>Action:</b> Pull the list of certificates your institution obtained through InCommon and identify those that chain to emSign ECC Root CA &ndash; G3, using your InCommon account and public Certificate Transparency logs for your domains. Replace any that remain now with a certificate from another hierarchy that your policy allows, starting with single sign-on, the learning platform, email, admissions and payment sites. For ACME-automated hosts, force a renewal and confirm the new chain is actually served; do not wait for the normal renewal window. Remember load balancers, CDNs, VPN portals and appliances that hold their own copy of a certificate. Tell the help desk that a certificate warning on a campus site is likely to be this, so departmental sites that were missed get reported quickly.</span>
+            <span class="ops-tag patch-no">Unpatched &mdash; no fix from Microsoft yet</span>
+            <span class="ops-cc"><b>Action:</b> Require a BitLocker startup PIN on loaner, lab and staff laptops that leave campus, where that is workable for the users. Set power policy so devices hibernate or shut down rather than sleep when closed, and tell staff and students to shut down devices before travel. Watch for a Microsoft fix.</span>
           </div>
           <div class="ops-row ops-assign">
-            <span class="ops-sla"><b>Suggested SLA:</b> Sweep for certificates still chaining to the root &mdash; 24 hours; replacement of any found &mdash; immediately; check of served chains on internal hosts and appliances &mdash; 7 days</span>
-            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-emudhra-incommon-distrust" data-placeholder="Assign&hellip;"></span></span>
-            <button class="status-pill st-open" data-key="it-emudhra-incommon-distrust">Open</button>
+            <span class="ops-sla"><b>Suggested SLA:</b> Hibernate/shutdown power policy on mobile devices &mdash; 30 days; startup PIN on high-risk laptops &mdash; 30 days; patch &mdash; on release</span>
+            <span class="ops-owner">Owner: <span class="owner-edit" contenteditable="true" data-key="it-fastunlock-windows" data-placeholder="Assign&hellip;"></span></span>
+            <button class="status-pill st-open" data-key="it-fastunlock-windows">Open</button>
           </div>
         </div>
         <div class="card-meta">
-          <span>Chrome and Mozilla root-program decisions, eMudhra, Cornell and the University of Michigan via The Hacker News (22 Oct 2026); eMudhra via The Record (22 Oct 2026)</span>
+          <span>The Hacker News (20 Nov 2026)</span>
           <span class="dot">&bull;</span>
-          <span>Intermediates blocked from 17 Oct; Mozilla root decision 20 Oct; eMudhra exit 22 Oct; Chrome distrust scheduled for 27 Oct 2026 &mdash; confirmed by browser vendors and eMudhra</span>
+          <span>PoC posted 19 Nov 2026 &mdash; no CVE, no patch, no exploitation reported</span>
         </div>
-        <a href="https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html" class="source-link" target="_blank" rel="noopener">Read source</a>
+        <a href="https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html" class="source-link" target="_blank" rel="noopener">Read source</a>
       </div>
     </div>
   </div>
